@@ -9,4 +9,4 @@ The primary data for this project is the Hebrew syntax data from the [ETCBC, VU 
 <hr>
 
 ### Works Cited
-Stefanowitsch, Anatol and Stefan Th. Gries. "Collostructions: Investigating the interaction of words and constrictions." International Journal of Corpus Linguistics 8:2 (2003): 209-243.
+Stefanowitsch, Anatol and Stefan Th. Gries. "Collostructions: Investigating the interaction of words and constructions." International Journal of Corpus Linguistics 8:2 (2003): 209-243.
