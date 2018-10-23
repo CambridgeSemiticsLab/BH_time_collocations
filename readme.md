@@ -6,7 +6,7 @@ The primary data for this project is the Hebrew syntax data from the [ETCBC, VU 
 
 ## Contents
 * [analysis](analysis) — Jupyter notebooks that contain the primary descriptions and data analyses
-* [code](code) — Python scripts
+* [code](code) — Python scripts for analysis notebooks
 * [images](images) — project images for/from notebooks and markdown
 
 <br>
