@@ -1,6 +1,6 @@
 # Biblical Hebrew Time Collocations
 
-<img src="images/CambridgeU_BW.png" width="590.5" height="122.75"> 
+<img src="images/CambridgeU_BW.png" width="295.25" height="61.375"> 
 
 This repository will store data for Cody Kingham's PhD project on time expressions in Biblical Hebrew and their collocations with verbal and discourse constructions. This project combines methodologies from the fields of cognitive linguistics, construction grammar, and corpus-driven collostructional analysis (e.g. Stefanowitsch and Gries 2003).
 
