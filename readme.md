@@ -4,6 +4,11 @@ This repository will store data for Cody Kingham's PhD project on time expressio
 
 The primary data for this project is the Hebrew syntax data from the [ETCBC, VU Amsterdam](https://github.com/ETCBC). The dataset is accessed and manipulated using the corpus analysis and annotation tool, [Text-Fabric](https://github.com/Dans-labs/text-fabric), of [DANS](https://dans.knaw.nl/en/about/organisation-and-policy/staff/roorda) (Netherlands). 
 
+## Contents
+* [analysis](analysis) — Jupyter notebooks that contain the primary descriptions and data analyses
+* [code](code) — Python scripts
+* [images](images) — project images for/from notebooks and markdown
+
 <br>
 <a href="https://www.ames.cam.ac.uk"><img src="images/CambridgeU_BW.png" width="295.25" height="61.375"></a> 
 <hr>
