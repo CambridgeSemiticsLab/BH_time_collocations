@@ -16,7 +16,6 @@ The primary data for this project is the Hebrew syntax data from the [ETCBC, VU 
 
 <br>
 <hr>
-<br>
 
 [![DOI](https://zenodo.org/badge/153016597.svg)](https://zenodo.org/badge/latestdoi/153016597)
 
