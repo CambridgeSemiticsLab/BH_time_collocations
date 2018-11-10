@@ -12,7 +12,9 @@ The primary data for this project is the Hebrew syntax data from the [ETCBC, VU 
 
 <br>
 <a href="https://www.ames.cam.ac.uk"><img src="images/CambridgeU_BW.png" width="295.25" height="61.375"></a> 
+
 [![DOI](https://zenodo.org/badge/153016597.svg)](https://zenodo.org/badge/latestdoi/153016597)
+
 <hr>
 
 ### Works Cited
