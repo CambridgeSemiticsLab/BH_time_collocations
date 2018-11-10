@@ -18,6 +18,8 @@ The primary data for this project is the Hebrew syntax data from the [ETCBC, VU 
 
 [![DOI](https://zenodo.org/badge/153016597.svg)](https://zenodo.org/badge/latestdoi/153016597)
 
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
 <hr>
 
 ### Works Cited
