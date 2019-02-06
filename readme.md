@@ -9,7 +9,7 @@ The primary data for this project is the Hebrew syntax data from the [ETCBC, VU 
 The links below connect to notebooks found in the analysis directory.
 
 * [Time Phrases in Standard Biblical Hebrew](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/SBH_time_expressions.ipynb) — Exploratory analysis of the ETCBC "Time" phrase in Genesis–Kings.
-* [Verb Collocations with Atelic Time Duration Adverbials](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/duratives.ipynb) - A pilot study examining the collocations of atelic time duration adverbials with various verb lexemes in the Hebrew Bible, based on Fuhs' 2010 collostructional analysis ((source)[https://philpapers.org/rec/FUHTAC]).
+* [Verb Collocations with Atelic Time Duration Adverbials](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/duratives.ipynb) - A pilot study examining the collocations of atelic time duration adverbials with various verb lexemes in the Hebrew Bible, based on Fuhs' 2010 collostructional analysis ([source](https://philpapers.org/rec/FUHTAC)).
 
 ## Directory Structure
 * [analysis](analysis) — Jupyter notebooks that contain the primary descriptions and data analyses
