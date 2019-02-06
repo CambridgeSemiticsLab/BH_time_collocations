@@ -4,7 +4,14 @@ This repository will store data for Cody Kingham's PhD project on time expressio
 
 The primary data for this project is the Hebrew syntax data from the [ETCBC, VU Amsterdam](https://github.com/ETCBC). The dataset is accessed and manipulated using the corpus analysis and annotation tool, [Text-Fabric](https://github.com/Dans-labs/text-fabric), of [DANS](https://dans.knaw.nl/en/about/organisation-and-policy/staff/roorda) (Netherlands). 
 
-## Contents
+## Studies
+
+The links below connect to notebooks found in the analysis directory.
+
+* [Time Phrases in Standard Biblical Hebrew](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/SBH_time_expressions.ipynb) — Exploratory analysis of the ETCBC "Time" phrase in Genesis–Kings.
+* [Verb Collocations with Atelic Time Duration Adverbials](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/duratives.ipynb) - A pilot study examining the collocations of atelic time duration adverbials with various verb lexemes in the Hebrew Bible, based on Fuhs' 2010 collostructional analysis ((source)[https://philpapers.org/rec/FUHTAC]).
+
+## Directory Structure
 * [analysis](analysis) — Jupyter notebooks that contain the primary descriptions and data analyses
 * code — Python scripts for analysis notebooks
 * [images](images) — project images for/from notebooks and markdown
