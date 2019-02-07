@@ -15,7 +15,7 @@ The links below connect to notebooks found in the analysis directory.
 * [analysis](analysis) — Jupyter notebooks that contain the primary descriptions and data analyses
 * [analysis/pyscripts](analysis/pyscripts) — Python scripts for analysis notebooks
 * [images](images) — project images for/from notebooks and markdown
-* [tf])(tf) – Text-Fabric features produced by and for the analyses, including new semantic/statistical features for nouns
+* [tf](tf) – Text-Fabric features produced by and for the analyses, including new semantic/statistical features for nouns
 
 
 <br>
