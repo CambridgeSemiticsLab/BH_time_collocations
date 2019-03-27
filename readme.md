@@ -13,7 +13,9 @@ The links below connect to notebooks found in the analysis directory.
 
 ## Directory Structure
 * [analysis](analysis) — Jupyter notebooks that contain the primary descriptions and data analyses
-* [analysis/pyscripts](analysis/pyscripts) — Python scripts for analysis notebooks
+	* [analysis/pyscripts](analysis/pyscripts) — Python scripts for analysis notebooks
+	* [analysis/preprocessing](analysis/preprocessing) — Cleaning, correcting, and preparing BHSA for analysis
+* [data](data) — modified BHSA corpus data for use in this project (in Text-Fabric format)
 * [images](images) — project images for/from notebooks and markdown
 * [tf](tf) – Text-Fabric features produced by and for the analyses, including new semantic/statistical features for nouns
 
