@@ -6,7 +6,7 @@
 @source=see the creation notebook in https://github.com/CambridgeSemiticsLab/BH_time_collocations
 @valueType=int
 @writtenBy=Text-Fabric
-@dateWritten=2019-02-07T14:06:47Z
+@dateWritten=2019-03-27T21:44:20Z
 
 0
 0
@@ -208014,7 +208014,8 @@
 0
 0
 0
-223114	0
+0
+0
 0
 0
 0
@@ -235705,7 +235706,8 @@
 0
 0
 0
-251893	0
+0
+0
 0
 0
 0
@@ -334566,7 +334568,8 @@
 0
 0
 0
-354737	0
+0
+0
 0
 0
 0
