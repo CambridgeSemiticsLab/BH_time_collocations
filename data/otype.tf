@@ -4,7 +4,7 @@
 @created_by=Cody Kingham, Dirk Roorda, and Constantijn Sikkel (ETCBC)
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-03-26T14:05:26Z
+@dateWritten=2019-03-29T20:00:42Z
 
 1-426584	word
 426585-426623	book
@@ -20,3 +20,4 @@
 1414354-1437566	verse
 1437567-1446799	lex
 1446800-1699934	phrase2
+1699935-1700530	construction

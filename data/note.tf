@@ -5,7 +5,7 @@
 @description=notes on objects for tracking issues throughout my research
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-03-26T14:05:26Z
+@dateWritten=2019-03-29T20:00:42Z
 
 774349	function remapped from Time to funct
 774352	function remapped from Time to funct
@@ -15,6 +15,7 @@
 828081	function remapped from Time to funct
 846434	complex
 849296	function remapped from Time to funct
+876172	function remapped from Time to funct
 1448659	new phrase by phrase merge
 1448812	new phrase by phrase merge
 1448819	new phrase by phrase merge

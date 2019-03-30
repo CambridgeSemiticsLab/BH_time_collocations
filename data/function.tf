@@ -5,7 +5,7 @@
 @description=This is a corrected version of original BHSA phrase functions. Information about the edits can be found by finding an F.note feature on a phrase that mentions the remapping
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-03-26T14:05:25Z
+@dateWritten=2019-03-29T20:00:42Z
 
 651542	Time
 Pred
@@ -224637,7 +224637,7 @@ Cmpl
 Cmpl
 Pred
 Objc
-Time
+Adju
 Conj
 Pred
 Cmpl
