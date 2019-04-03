@@ -5,7 +5,7 @@
 @description=notes on objects for tracking issues throughout my research
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-03-29T20:00:42Z
+@dateWritten=2019-04-03T15:43:39Z
 
 774349	function remapped from Time to funct
 774352	function remapped from Time to funct

@@ -5,7 +5,7 @@
 @description=This is a corrected version of original BHSA phrase functions. Information about the edits can be found by finding an F.note feature on a phrase that mentions the remapping
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-03-29T20:00:42Z
+@dateWritten=2019-04-03T15:43:38Z
 
 651542	Time
 Pred
