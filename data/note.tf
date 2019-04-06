@@ -1,21 +1,22 @@
 @node
 @coreData=BHSA
 @coreVersion=c
-@created_by=Cody Kingham, Dirk Roorda, and Constantijn Sikkel (ETCBC)
 @description=notes on objects for tracking issues throughout my research
+@origin=Made by the ETCBC of the Vrije Universiteit Amsterdam; edited by Cody Kingham
+@source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-04-03T15:43:39Z
+@dateWritten=2019-04-06T15:04:15Z
 
-774349	function remapped from Time to funct
-774352	function remapped from Time to funct
-775948	function remapped from Time to funct
-775985	function remapped from Time to funct
-825329	function remapped from Time to funct
-828081	function remapped from Time to funct
+774349	function changed from Time to Adju
+774352	function changed from Time to Adju
+775948	function changed from Time to Adju
+775985	function changed from Time to Adju
+825329	function changed from Time to Loca
+828081	function changed from Time to Cmpl
 846434	complex
-849296	function remapped from Time to funct
-876172	function remapped from Time to funct
+849296	function changed from Time to Loca
+876172	function changed from Time to Adju
 1448659	new phrase by phrase merge
 1448812	new phrase by phrase merge
 1448819	new phrase by phrase merge
