@@ -6,7 +6,7 @@
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-04-06T15:04:15Z
+@dateWritten=2019-04-15T18:00:10Z
 
 774349	function changed from Time to Adju
 774352	function changed from Time to Adju
@@ -17,65 +17,65 @@
 846434	complex
 849296	function changed from Time to Loca
 876172	function changed from Time to Adju
-1448659	new phrase by phrase merge
-1448812	new phrase by phrase merge
-1448819	new phrase by phrase merge
-1448912	new phrase by phrase merge
-1448927	new phrase by phrase merge
-1449273	new phrase by phrase merge
-1464032	new phrase by phrase merge
-1465793	new phrase by phrase merge
-1468421	new phrase by phrase merge
-1468583	new phrase by phrase merge
-1468587	new phrase by phrase merge
-1477660	new phrase by phrase merge
-1477796	new phrase by phrase merge
-1479324	new phrase by phrase merge
-1480264	new phrase by phrase merge
-1480282	new phrase by phrase merge
-1483059	new phrase by phrase merge
-1490150	new phrase by phrase merge
-1490166	new phrase by phrase merge
-1490236	new phrase by phrase merge
-1495184	new phrase by phrase merge
-1499442	new phrase by phrase merge
-1506915	new phrase by phrase merge
-1509701	new phrase by phrase merge
-1519654	new phrase by phrase merge
-1521318	new phrase by phrase merge
-1523857	new phrase by phrase merge
-1524168	new phrase by phrase merge
-1526197	new phrase by phrase merge
-1528391	new phrase by phrase merge
-1539707	new phrase by phrase merge
-1547227	new phrase by phrase merge
-1565113	new phrase by phrase merge
-1584563	new phrase by phrase merge
-1596146	new phrase by phrase merge
-1601938	new phrase by phrase merge
-1603817	new phrase by phrase merge
-1607685	new phrase by phrase merge
-1609685	new phrase by phrase merge
-1611071	new phrase by phrase merge
-1611274	new phrase by phrase merge
-1611559	new phrase by phrase merge
-1611647	new phrase by phrase merge
-1611870	new phrase by phrase merge
-1612546	new phrase by phrase merge
-1614460	new phrase by phrase merge
-1620792	new phrase by phrase merge
-1640277	new phrase by phrase merge
-1649109	new phrase by phrase merge
-1656525	new phrase by phrase merge
-1669837	new phrase by phrase merge
-1669865	new phrase by phrase merge
-1670113	new phrase by phrase merge
-1670900	new phrase by phrase merge
-1678944	new phrase by phrase merge
-1680429	new phrase by phrase merge
-1681008	new phrase by phrase merge
-1681698	new phrase by phrase merge
-1686319	new phrase by phrase merge
-1688991	new phrase by phrase merge
-1691506	new phrase by phrase merge
-1696462	new phrase by phrase merge
+1776458	new phrase by phrase merge
+1776611	new phrase by phrase merge
+1776618	new phrase by phrase merge
+1776711	new phrase by phrase merge
+1776726	new phrase by phrase merge
+1777072	new phrase by phrase merge
+1791831	new phrase by phrase merge
+1793592	new phrase by phrase merge
+1796220	new phrase by phrase merge
+1796382	new phrase by phrase merge
+1796386	new phrase by phrase merge
+1805459	new phrase by phrase merge
+1805595	new phrase by phrase merge
+1807123	new phrase by phrase merge
+1808063	new phrase by phrase merge
+1808081	new phrase by phrase merge
+1810858	new phrase by phrase merge
+1817949	new phrase by phrase merge
+1817965	new phrase by phrase merge
+1818035	new phrase by phrase merge
+1822983	new phrase by phrase merge
+1827241	new phrase by phrase merge
+1834714	new phrase by phrase merge
+1837500	new phrase by phrase merge
+1847453	new phrase by phrase merge
+1849117	new phrase by phrase merge
+1851656	new phrase by phrase merge
+1851967	new phrase by phrase merge
+1853996	new phrase by phrase merge
+1856190	new phrase by phrase merge
+1867506	new phrase by phrase merge
+1875026	new phrase by phrase merge
+1892912	new phrase by phrase merge
+1912362	new phrase by phrase merge
+1923945	new phrase by phrase merge
+1929737	new phrase by phrase merge
+1931616	new phrase by phrase merge
+1935484	new phrase by phrase merge
+1937484	new phrase by phrase merge
+1938870	new phrase by phrase merge
+1939073	new phrase by phrase merge
+1939358	new phrase by phrase merge
+1939446	new phrase by phrase merge
+1939669	new phrase by phrase merge
+1940345	new phrase by phrase merge
+1942259	new phrase by phrase merge
+1948591	new phrase by phrase merge
+1968076	new phrase by phrase merge
+1976908	new phrase by phrase merge
+1984324	new phrase by phrase merge
+1997636	new phrase by phrase merge
+1997664	new phrase by phrase merge
+1997912	new phrase by phrase merge
+1998699	new phrase by phrase merge
+2006743	new phrase by phrase merge
+2008228	new phrase by phrase merge
+2008807	new phrase by phrase merge
+2009497	new phrase by phrase merge
+2014118	new phrase by phrase merge
+2016790	new phrase by phrase merge
+2019305	new phrase by phrase merge
+2024261	new phrase by phrase merge
