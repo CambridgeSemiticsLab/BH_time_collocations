@@ -5,7 +5,7 @@
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-04-15T18:00:10Z
+@dateWritten=2019-04-24T09:01:24Z
 
 651542	Time
 Pred
@@ -253214,7 +253214,7 @@ Subj
 PreC
 Conj
 Pred
-1774599	Time
+1446800	Time
 Pred
 Subj
 Objc
