@@ -11,7 +11,9 @@ def plot_PCA(pca_nouns,
              annotate=True, 
              title='', 
              components=tuple(),
-             annoTags=[]):
+             annoTags=[],
+             anno_size='18'
+            ):
     '''
     Plots a PCA noun space.
     Function is useful for presenting various zooms on the data.
@@ -46,7 +48,7 @@ def plot_PCA(pca_nouns,
             if zoom: # to avoid annotating outside of field of view (makes plot small)
                 if any([noun_x < xmin, noun_x > xmax, noun_y < ymin, noun_y > ymax]):                
                     continue # skip noun
-            plt.annotate(noun, xy=(noun_x, noun_y), size='18')
+            plt.annotate(noun, xy=(noun_x, noun_y), size=anno_size)
     
     if save:
         plt.savefig(save, dpi=300, bbox_inches='tight')
