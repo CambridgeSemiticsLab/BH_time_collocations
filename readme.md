@@ -3,17 +3,16 @@
 
 <a href="docs/sponsors.md"><img src="docs/images/sponsor_banner.png" align="middle"></a>
 
-## Contents 
-* [analysis](analysis) — Jupyter notebooks and python scripts that analyze and interpret time adverbial data.
-* [data](data) — The primary data sources for this project. Contains production code for preprocessed data as well as Text-Fabric format (tf) data files.
-* [docs](docs) — Documentation and images for/from notebooks and markdown
-
-
 ## Cite
 
 [![DOI](https://zenodo.org/badge/153016597.svg)](https://zenodo.org/badge/latestdoi/153016597)
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+## Contents 
+* [analysis](analysis) — Jupyter notebooks and python scripts that analyze and interpret time adverbial data.
+* [data](data) — The primary data sources for this project. Contains production code for preprocessed data as well as Text-Fabric format (tf) data files.
+* [docs](docs) — Documentation and images for/from notebooks and markdown
 
 ## Main Analyses
 
