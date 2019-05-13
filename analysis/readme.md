@@ -1,6 +1,6 @@
 # Analysis of Hebrew Time Adverbial Collocations
 
-This directory contains the primary analysis notebooks and scripts for the project. These notebooks primarily rely on the data produced in the [data directory](../data/production). There is not a satisfying, clear line between "analysis" and "data production," since the two both feed into each other in a constant loop of exploration, discovery, and refinement. But, generally, the data production stage comes first and feeds into the analysis. Subsequent analyses must then be integrated into a satisfying description of the data production, so that the insights are not missed along the way.
+This directory contains the primary analysis notebooks and scripts for the project. These notebooks mainly rely on the data produced in the [data directory](../data/production). There is not a satisfying, clear line between "analysis" and "data production," since the two both feed into each other in a constant loop of exploration, discovery, and refinement. But, generally, the data production stage comes first and feeds into the analysis. Subsequent analyses must then be integrated into a satisfying description of the data production, so that the insights are not missed along the way.
 
 ## Contents
 
