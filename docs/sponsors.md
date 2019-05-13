@@ -1,7 +1,4 @@
 # Sponsors and Partners of *Biblical Hebrew Time Collocations*
 
-<h3> 
-University of Cambridge, Faculty of Asian and Middle Eastern Studies
-&nbsp;&nbsp;&nbsp;&nbsp;
+###  University of Cambridge, Faculty of Asian and Middle Eastern Studies
 <img src="images/CambridgeU_color.jpg" width="295.25" height="61.375">
-</h2>
