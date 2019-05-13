@@ -3,6 +3,10 @@
 
 <a href="https://www.ames.cam.ac.uk/people/current-phd-students"><img src="images/sponsor_banner.png" align="middle"></a>
 
+[![DOI](https://zenodo.org/badge/153016597.svg)](https://zenodo.org/badge/latestdoi/153016597)
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
 ## Introduction
 
 This project aims to build a comprehensive semantic taxonomy of the form, function, and distribution of time adverbials in Biblical Hebrew using the statistical tool of collocation analysis. Time expression in Hebrew linguistics remains one of the most controversial topics in the field, due to debate around the Hebrew verb. Despite much research on the verb, little attention has been paid to the most explicit indicators of time: time adverbials. Time adverbials are phrases like "tomorrow" (מָָחָר) or "day by day" (יוֹם יוֹם). Time adverbials can express tense and aspect, anchor text time, and direct focus. Thus they are valuable reference points for inferring the semantics of other forms, such as verbs. This project will apply an empirical semantic approach using inductive, statistical analysis. The [ETCBC syntax data](https://github.com/ETCBC) (Vrije Universiteit Amsterdam) is used to select adverbials that have already been marked as time indicative. A statistical significance test is used to isolate statistically significant collocations of syntactic components in time adverbials (e.g. definite articles, demonstratives, plurals, etc.). Significance scores reveal the interdependency and semantic relatedness of two forms. These patterns are then used to induce a taxonomy of the primary forms and functions of adverbial time. The taxonomy is applied to a collocational analysis of Hebrew verbs with classified time adverbials. The result is a comprehensive overview of both the phrase-level and clause-level semantics of time adverbials in Biblical Hebrew. This study breaks new ground in the field by introducing new computational methods combined with cognitively-informed Construction Grammar.
@@ -38,13 +42,4 @@ The links below connect to notebooks found in the analysis directory.
 * [data](data) — modified BHSA corpus data for use in this project (in Text-Fabric format)
 * [images](images) — project images for/from notebooks and markdown
 * [tf](tf) – Text-Fabric features produced by and for the analyses, including new semantic/statistical features for nouns
-
-
-<br>
-
-<hr>
-
-[![DOI](https://zenodo.org/badge/153016597.svg)](https://zenodo.org/badge/latestdoi/153016597)
-
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
