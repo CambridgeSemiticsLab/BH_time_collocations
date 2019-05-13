@@ -3,6 +3,21 @@
 
 <a href="docs/sponsors.md"><img src="docs/images/sponsor_banner.png" align="middle"></a>
 
+
+## Contents 
+* [analysis](analysis) — Jupyter notebooks and python scripts that analyze and interpret time adverbial data.
+* [data](data) — The primary data sources for this project. Contains production code for preprocessed data as well as Text-Fabric format (tf) data files.
+* [docs](docs) — Documentation and images for/from notebooks and markdown
+
+## Main Analyses
+
+The links below connect to notebooks found in the analysis directory.
+
+* [Time Phrases in Standard Biblical Hebrew](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/SBH_time_expressions.ipynb) — Exploratory analysis of the ETCBC "Time" phrase in Genesis–Kings.
+* [Verb Collocations with Atelic Time Duration Adverbials](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/duratives.ipynb) - A pilot study examining the collocations of atelic time duration adverbials with various verb lexemes in the Hebrew Bible, based on Fuhs' 2010 collostructional analysis ([source](https://philpapers.org/rec/FUHTAC)).
+* [Time Constructions, part 1](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/time_constructions1.ipynb) – An exploratory study on the primary kinds of constructions used to express time at the phrasal/semi-phrasal level. This notebook gives insight and direction for the second exploratory study.
+* [Time Constructions, part 2](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/time_constructions2.ipynb) – A second exploratory study on the primary kinds of constructions used to express time. This analysis takes advantage of a chunk + part of speech clustering method from part 1, whereby the constructions are broken down into primary surface forms. The analysis re-examines time construction data using previous analysis from elsewhere in this repository. Finally, the analysis focuses in on the various specifications applied to time nouns within the constructions which anchor their temporal referents. It is believed these may be a key component for understanding and clustering the constructions.
+
 ## Introduction
 
 This project aims to build a comprehensive semantic taxonomy of the form, function, and distribution of time adverbials in Biblical Hebrew using the statistical tool of collocation analysis. Time expression in Hebrew linguistics remains one of the most controversial topics in the field, due to debate around the Hebrew verb. Despite much research on the verb, little attention has been paid to the most explicit indicators of time: time adverbials. Time adverbials are phrases like "tomorrow" (מָָחָר) or "day by day" (יוֹם יוֹם). Time adverbials can express tense and aspect, anchor text time, and direct focus. Thus they are valuable reference points for inferring the semantics of other forms, such as verbs. This project will apply an empirical semantic approach using inductive, statistical analysis. The [ETCBC syntax data](https://github.com/ETCBC) (Vrije Universiteit Amsterdam) is used to select adverbials that have already been marked as time indicative. A statistical significance test is used to isolate statistically significant collocations of syntactic components in time adverbials (e.g. definite articles, demonstratives, plurals, etc.). Significance scores reveal the interdependency and semantic relatedness of two forms. These patterns are then used to induce a taxonomy of the primary forms and functions of adverbial time. The taxonomy is applied to a collocational analysis of Hebrew verbs with classified time adverbials. The result is a comprehensive overview of both the phrase-level and clause-level semantics of time adverbials in Biblical Hebrew. This study breaks new ground in the field by introducing new computational methods combined with cognitively-informed Construction Grammar.
@@ -21,23 +36,6 @@ The project utilizes the Python programming language and a syntactic database to
 The semantic classification of time adverbials goes hand in hand with the classification of their forms. The constructional principle of "no synonymy" states that two "syntactically distinct" forms cannot be identical in meaning (Goldberg 1995, 67). Differences in form correspond with differences in semantic or pragmatic meaning, even if only slight. Forms can be semantically close without being identical. The project aims to strike a balance between semantically useful time adverbial classes and precisely configured groups, i.e. "lumping versus splitting" (Croft 2001, 65– 81). A more precise method will be applied to the analysis of time adverbials themselves. More generalized semantic groups will be created for the verb/adverbial collocation analysis.
 
 The classes will be constructed in a cycle of inductive data analysis and data creation. This is done by first counting and exploring general tendencies. For example, a count is made of all the main time adverbial surface forms. These main forms are then manually analyzed to look for general tendencies that can be used in a subsequent analysis step. The next step will then create tags based on the observed tendencies to look for more specific tendencies. This process happens in a cycle of data discovery and data querying. The approach accedes well with the frequency-based view of language, since the most common forms are also the most determinative. Following this method has already achieved significant progress on building the time adverbial classifications.
-
-## Main Analyses
-
-The links below connect to notebooks found in the analysis directory.
-
-* [Time Phrases in Standard Biblical Hebrew](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/SBH_time_expressions.ipynb) — Exploratory analysis of the ETCBC "Time" phrase in Genesis–Kings.
-* [Verb Collocations with Atelic Time Duration Adverbials](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/duratives.ipynb) - A pilot study examining the collocations of atelic time duration adverbials with various verb lexemes in the Hebrew Bible, based on Fuhs' 2010 collostructional analysis ([source](https://philpapers.org/rec/FUHTAC)).
-* [Time Constructions, part 1](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/time_constructions1.ipynb) – An exploratory study on the primary kinds of constructions used to express time at the phrasal/semi-phrasal level. This notebook gives insight and direction for the second exploratory study.
-* [Time Constructions, part 2](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/time_constructions2.ipynb) – A second exploratory study on the primary kinds of constructions used to express time. This analysis takes advantage of a chunk + part of speech clustering method from part 1, whereby the constructions are broken down into primary surface forms. The analysis re-examines time construction data using previous analysis from elsewhere in this repository. Finally, the analysis focuses in on the various specifications applied to time nouns within the constructions which anchor their temporal referents. It is believed these may be a key component for understanding and clustering the constructions.
-
-## Contents 
-* [analysis](analysis) — Jupyter notebooks that contain the primary descriptions and data analyses
-	* [analysis/pyscripts](analysis/pyscripts) — Python scripts for analysis notebooks
-	* [analysis/preprocessing](analysis/preprocessing) — Cleaning, correcting, and preparing BHSA for analysis
-* [data](data) — modified BHSA corpus data for use in this project (in Text-Fabric format)
-* [images](images) — project images for/from notebooks and markdown
-* [tf](tf) – Text-Fabric features produced by and for the analyses, including new semantic/statistical features for nouns
 
 <br>
 
