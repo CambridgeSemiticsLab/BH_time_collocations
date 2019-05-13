@@ -1,5 +1,7 @@
 # Biblical Hebrew Time Collocations
 
+<a href="https://www.ames.cam.ac.uk/people/current-phd-students"><img src="images/sponsor_banner.png" align="middle"></a> 
+
 This repository will store data for Cody Kingham's PhD project on time expressions in Biblical Hebrew and their collocations with verbal and discourse constructions. This project combines methodologies from the fields of cognitive linguistics, construction grammar, and corpus-driven collostructional analysis (e.g. Stefanowitsch and Gries 2003).
 
 The primary data for this project is the Hebrew syntax data from the [ETCBC, VU Amsterdam](https://github.com/ETCBC). The dataset is accessed and manipulated using the corpus analysis and annotation tool, [Text-Fabric](https://github.com/Dans-labs/text-fabric), of [DANS](https://dans.knaw.nl/en/about/organisation-and-policy/staff/roorda) (Netherlands). 
@@ -24,7 +26,7 @@ The links below connect to notebooks found in the analysis directory.
 
 <br>
 
-<a href="https://www.ames.cam.ac.uk/people/current-phd-students"><img src="images/CambridgeU_BW.png" width="295.25" height="61.375"></a> 
+
 
 <hr>
 
@@ -32,10 +34,3 @@ The links below connect to notebooks found in the analysis directory.
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
-### Works Cited
-
-Fuhs, Stefan. "The aspectual coercion of the English Durative Adverbial." In *Quantitative Methods in Cognitive Semantics: Corpus-Driven Approaches.* Edited by Dylan Glynn and Kerstin Fisher. De Gruyter Mouton, 2010. 137–154.
-
-Haspelmath, Martin. *From Space to Time: Temporal Adverbials in the World's Languages*. LINCOM Studies in Theoretical Linguistics 03. (München: Lincom Europa, 1997). [[link](https://zenodo.org/record/831421#.W9m2IKecau4)]
-
-Stefanowitsch, Anatol and Stefan Th. Gries. "Collostructions: Investigating the interaction of words and constructions." International Journal of Corpus Linguistics 8:2 (2003): 209-243. [[link](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwirk4Oq7LDeAhVFECwKHYefDKIQFjAAegQIABAC&url=http%3A%2F%2Fwww.linguistics.ucsb.edu%2Ffaculty%2Fstgries%2Fresearch%2F2003_AS-STG_Collostructions_IJCL.pdf&usg=AOvVaw2lqW-Ni3hN6PcsVIwDvdAb)]
