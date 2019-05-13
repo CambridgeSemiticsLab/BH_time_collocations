@@ -8,7 +8,7 @@ A special thanks to these institutions and individuals who have made this projec
 <hr>
 
 ### St. John's College, University of Cambridge
-<a href="https://www.joh.cam.ac.uk"><img src="images/stjohns.png" width="254" height="191"></a>
+<a href="https://www.joh.cam.ac.uk"><img src="images/stjohns.png" width="154" height="91"></a>
 
 <hr>
 
