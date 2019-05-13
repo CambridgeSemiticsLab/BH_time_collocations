@@ -1,4 +1,5 @@
 # Biblical Hebrew Time Collocations
+## Cody Kingham
 
 <a href="https://www.ames.cam.ac.uk/people/current-phd-students"><img src="images/sponsor_banner.png" align="middle"></a> 
 
