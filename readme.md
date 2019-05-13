@@ -38,4 +38,6 @@ The semantic classification of time adverbials goes hand in hand with the classi
 
 The classes will be constructed in a cycle of inductive data analysis and data creation. This is done by first counting and exploring general tendencies. For example, a count is made of all the main time adverbial surface forms. These main forms are then manually analyzed to look for general tendencies that can be used in a subsequent analysis step. The next step will then create tags based on the observed tendencies to look for more specific tendencies. This process happens in a cycle of data discovery and data querying. The approach accedes well with the frequency-based view of language, since the most common forms are also the most determinative. Following this method has already achieved significant progress on building the time adverbial classifications.
 
+<br>
+<hr>
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
