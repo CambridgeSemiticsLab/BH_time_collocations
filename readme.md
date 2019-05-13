@@ -33,7 +33,7 @@ The links below connect to notebooks found in the analysis directory.
 * [Time Constructions, part 1](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/time_constructions1.ipynb) – An exploratory study on the primary kinds of constructions used to express time at the phrasal/semi-phrasal level. This notebook gives insight and direction for the second exploratory study.
 * [Time Constructions, part 2](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/time_constructions2.ipynb) – A second exploratory study on the primary kinds of constructions used to express time. This analysis takes advantage of a chunk + part of speech clustering method from part 1, whereby the constructions are broken down into primary surface forms. The analysis re-examines time construction data using previous analysis from elsewhere in this repository. Finally, the analysis focuses in on the various specifications applied to time nouns within the constructions which anchor their temporal referents. It is believed these may be a key component for understanding and clustering the constructions.
 
-## Directory Structure
+## Contents 
 * [analysis](analysis) — Jupyter notebooks that contain the primary descriptions and data analyses
 	* [analysis/pyscripts](analysis/pyscripts) — Python scripts for analysis notebooks
 	* [analysis/preprocessing](analysis/preprocessing) — Cleaning, correcting, and preparing BHSA for analysis
@@ -43,8 +43,6 @@ The links below connect to notebooks found in the analysis directory.
 
 
 <br>
-
-
 
 <hr>
 
