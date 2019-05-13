@@ -7,13 +7,13 @@ A special thanks to these institutions and individuals who have made this projec
 
 <hr>
 
-### St. John's College, University of Cambridge
-<a href="https://www.joh.cam.ac.uk"><img src="images/stjohns.png" width="177.15" height="145.95"></a>
+### The Cambridge Commonwealth, European & International Trust
+<a href="https://www.cambridgetrust.org"><img src="images/cambridgetrust.png"></a>
 
 <hr>
 
-### The Cambridge Commonwealth, European & International Trust
-<a href="https://www.cambridgetrust.org"><img src="images/cambridgetrust.png"></a>
+### St. John's College, University of Cambridge
+<a href="https://www.joh.cam.ac.uk"><img src="images/stjohns.png" width="177.15" height="145.95"></a>
 
 <hr>
 
