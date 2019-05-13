@@ -2,7 +2,7 @@
 
 A special thanks to these institutions and individuals who have made this project possible.
 
-###  University of Cambridge, Faculty of Asian and Middle Eastern Studies
+###  Faculty of Asian and Middle Eastern Studies, University of Cambridge
 <a href="https://www.ames.cam.ac.uk"><img src="images/CambridgeU_color.jpg" width="295.25" height="61.375"></a>
 
 <hr>
