@@ -1,0 +1,183 @@
+Andersen, Francis I., and A. Dean Forbes. 2012. Biblical Hebrew Grammar Visualized. Linguistic Studies in Ancient West Semitic 6. Winona Lake, Ind: Eisenbrauns.
+Andrason, Alexander. 2011. “The Biblical Hebrew Verbal System in Light of Grammaticalization: The Second Generation.” Hebrew Studies 52.
+———. 2015. “Toward the Ocean of the Biblical Hebrew Verbal System.” Folia Orientalia 52: 15–36.
+———. 2016a. “The Complexity of Verbal Semantics—An Intricate Relationship between Qatal and Wayyiqtol.” JHebS 16 (4): 1–94.
+———. 2016b. “The Complexity of Verbal Semantics—An Intricate Relationship Between Qatal and Wayyiqtol.” Journal of Hebrew Scriptures 16. https://doi.org/10.5508/jhs.2016.v16.a4.
+Arnold, Bill T., and John H. Choi. 2003. A Guide to Biblical Hebrew Syntax. New York, N.Y: Cambridge University Press.
+Baayen, R. H. 2008. Analyzing Linguistic Data: A Practical Introduction to Statistics Using R. Cambridge: Cambridge University.
+Baayen, R. Harald. 2001. Word Frequency Distributions. Text, Speech, and Language Technology, v. 18. Dordrecht ; Boston: Kluwer Academic.
+Baker, Mark C. 2003. Lexical Categories: Verbs, Nouns, and Adjectives. Cambridge Studies in Linguistics 102. Cambridge: Cambridge University.
+Baranowski, Krzysztof J. 2016. “The Biblical Hebrew Wayyiqtol and the Evidence of the Amarna Letters from Canaan.” JHebS 16 (3): 1–18.
+Barr, James. 2005. Biblical Words for Time. London: SCM Press.
+Bauer, Hans, Pontus Leander, and Paul Kahle. 1922. Historische Grammatik Der Hebräischen Sprache Des Alten Testamentes. Halle A.S.: M. Niemeyer.
+Bekins, Peter. 2014. Transitivity and Object Marking in Biblical Hebrew: An Investigation of the Object Preposition ’Et. Brill. https://doi.org/10.1163/9789004370166.
+Ber, Viktor. 2008. Hebrew Verb Hyh as a Macrosyntactic Signal: The Case Study of Wayhy and the Infinitive with Prepositions Bet and Kaf in Narrative Texts. Studies in Biblical Hebrew. Frankfurt am Main: Peter Lang.
+Bestgen, Yves, and Wietske Vonk. 2000. “Temporal Adverbials as Segmentation Markers in Discourse Comprehension.” Journal of Memory and Language 42: 74–87.
+Blau, Joshua. 1983. “An Adverbial Construction in Hebrew and Arabic — Sentence Adverbials in Frontal Position Separated from the Rest of the Sentence.” In Proceedings of the Israel Academy of Sciences and Humanities, 6:1–103. Jerusalem: The Israel Academy of Sciences and Humanities.
+Boneh, Nora. n.d. “Temporal Adverbial Expressions: Modern Hebrew (Vol 3).” In Encyclopedia of Hebrew Language and Linguistics, 730. Brill. http://referenceworks.brillonline.com/entries/encyclopedia-of-hebrew-language-and-linguistics/temporal-adverbial-expressions-modern-hebrew-EHLL_SIM_000549.
+Brdar, Mario, Marija Omazic, and Pavicic Takac Visnja, eds. 2011. Space and Time in Language. Frankfurt am Main ; New York: Peter Lang.
+Brin, Gershon. 2001. The Concept of Time in the Bible and the Dead Sea Scrolls. Studies on the Texts of the Desert of Judah 39. Leiden: Brill.
+Brockelmann, Carl. 1956. Hebräische Syntax. Neukirchen: Kreis Moers, Verlag der Buchhandliung des Erziehungsvereins.
+Bybee, Joan. 1998. “The Emergent Lexicon.” In Papers from the Thirty-Fourth Regional Meeting of the Chicago Linguistic Society, edited by M.C. Gruber, D. Higgins, K.S. Olson, and T. Wysocki, 421–35. Chicago: Chicago Linguistics Society.
+Bybee, Joan L., Revere D. Perkins, and William Pagliuca. 1994. The Evolution of Grammar: Tense, Aspect, and Modality in the Languages of the World. Chicago: University of Chicago Press.
+Caselli, Tommaso, and Valeria Quochi. 2007. “Inferring the Semantics of Temporal Prepositions in Italian.” In Proceedings of the 4th ACL-SIGSEM Workshop on Prepositions, 38–44. Stoudsburg, PA: Association for Computational Linguistics.
+Cinque, Guglielmo. 1999. Adverbs and Functional Heads: A Cross-Linguistic Perspective. Oxford Studies in Comparative Syntax. New York: Oxford University Press.
+Coffin, Edna Amir. 2005. “Adverbs and Adverbial Expressions.” In A Reference Grammar of Modern Hebrew. Cambridge ; New York: Cambridge University Press.
+Comrie, Bernard. 1985. Tense. Cambridge Textbooks in Linguistics. Cambridge: Cambridge University.
+Cook, John. 2004. “The Semantics of Verbal Pragmatics: Clarifying the Roles of Wayyiqtol and Weqatal in Biblical Hebrew Prose.” JSS 49 (2): 247–73.
+———. 2006. “The Finite Verbal Forms in Biblical Hebrew Do Express Aspect.” Journal of the Ancient Near Eastern Society 30: 21–35.
+———. 2012. Time and the Biblical Hebrew Verb: The Expression of Tense, Aspect, and Modality in Biblical Hebrew. Linguistic Studies in Ancient West Semitic 7. Winona Lake: Eisenbrauns.
+———. 2014. “Current Issues in the Study of the Biblical Hebrew Verbal System.” Kleine Untersuchungen Zur Sprache Des Alten Testaments Und Seiner Umwelt 17: 79–108.
+———. 2015. “Cognitive-Linguistic Confusion.” BO 72 (3–4): 293–302.
+———. 2016. “Time to Clarify.” HS 57: 403–21.
+Croft, William. 2001. Radical Construction Grammar: Syntactic Theory in Typological Perspective. Oxford ; New York: Oxford University Press.
+———. 2012. Verbs: Aspect and Causal Structure. Oxford: Oxford University Press.
+Croft, William, and Meagan Vigus. 2017. “Constructions, Frames and Event Structure.” The AAAI 2017 Spring Symposium on Computational Construction Grammar and Natural Language Understanding Technical Report SS-17-02, 147–53.
+DeVries, Simon J. 1975. Yesterday, Today and Tomorrow: Time and History in the Old Testament. USA: Eerdmans.
+Dobbs-Allsopp, F.W. 2000. “Biblical Hebrew Statives and Situation Aspect.” JSS 45 (1): 21–53.
+Dowty, David R. 1979. Word Meaning and Montague Grammar: The Semantics of Verbs and Times in Generative Semantics and in Montague’s PTQ. Synthese Language Library, v. 7. Dordrecht ; Boston: D. Reidel Pub. Co.
+Dyk, Janet, Oliver Glanz, and Reinoud Oosting. 2014. “Analysing Valence Patterns in Biblical Hebrew: Theoretical Questions and Analytic Frameworks.” JNSL 40 (1): 1–20.
+Dyk, Janet W. 2016. “How Do Hebrew Verbs Differ? A Flow Chart of Differences.” In Contemporary Examinations of Classical Languages (Hebrew, Aramaic, and Syriac): Valency, Lexicography, Grammar, and Manuscripts, edited by T.M. Lewis, A. Salvesen, and B. Turner. Perspectives on Linguistics and Ancient Languages 8. Piscataway, NJ: Gorgias Press.
+Eckardt, Regine. 1998. Adverbs, Events and Other Things: Issues in the Semantics of Manner Adverbs. Linguistische Arbeiten 379. Tübingen: M. Niemeyer Verlag.
+Eitan, Israel. 1929. “Hebrew and Semitic Particles—Continued.” The American Journal of Semitic Languages and Literatures 46 (1): 22–51.
+Ellis, Nick C. 2013. “Frequency-Based Grammar and the Acquisition of Tense and Aspect in L2 Learning.” In Research Design and Methodology in Studies on L2 Tense and Aspect, edited by M. Rafael Salaberry and Llorenç Comajoan, 89–117. Studies in Second and Foreign Language Education 2. Boston: De Gruyter Mouton.
+Ellis, Nick C., Matthew Brook O’Donnell, and Ute Römer. 2013. “Usage-Based Language: Investigating the Latent Structures That Underpin Acquisition: Usage-Based Language.” Language Learning 63 (March): 25–51.
+Fillmore, Charles. 1985. “Syntactic Intrusions and the Notion of Grammatical Construction.” In Proceedings of the Eleventh Annual Meeting of the Berkeley Linguistics Society, edited by M. Niepokuj, M. VanClay, V. Nikiforidou, and D. Feder, 73–86. Berkeley: Berkeley Linguistics Society.
+———. 2002. “Mini-Grammars of Some Time-When Expressions in English.” In Complex Sentences in Grammar and Discourse: Essays in Honor of Sandra A. Thompson, edited by Joan L. Bybee, Sandra A. Thompson, and Michael Noonan. Amsterdam: Benjamins.
+Firth, J.R. 1957. Papers in Linguistics 1934–1951. London: Oxford University Press.
+———. 1962. “A Synopsis of Linguistic Theory, 1930–1995.” In Studies in Linguistic Analysis, 1–32. Oxford: Basil Blackwell.
+Forbes, A. Dean. 2005. “Squishes, Clines, and Fuzzy Signs: Mixed and Gradient Categories in the Biblical Hebrew Lexicon.” In Foundations for Syriac Lexicography: Colloquia of the International Syriac Language Project, edited by Beryl Turner, A. Dean Forbes, David G. K. Taylor, J. W. Dyk, and W. Th van Peursen, 105–39. Perspectives on Syriac Linguistics 1. Piscataway, NJ: Gorgias Press.
+———. 2009. “Distributionally-Inferred Word and Form Classes in the Hebrew Lexicon: Known by the Company They Keep.” In Foundations for Syriac Lexicography II, edited by Peter J. Williams, 1–34. Piscataway, NJ: Gorgias Press.
+Fuhs, Stefan. 2010. “The Aspectual Coercion of the English Durative Adverbial.” In Quantitative Methods in Cognitive Semantics: Corpus-Driven Approaches, edited by Dylan Glynn and Kerstin Fischer, 137–54. Cognitive Linguistics Research 46. Berlin: De Gruyter Mouton.
+Furuli, Rolf. 2006. New Understanding of the Verbal System of Classical Hebrew : An Attempt to Distinguish between Semantic and Pragmatic Factors. Oslo: Awatu.
+Geeraerts, Dirk. 2010. “The Doctor and the Semantician.” In Quantitative Methods in Cognitive Semantics: Corpus-Driven Approaches, edited by Dirk Geeraerts and John R. Taylor, 63–78. Cognitive Linguistics Research 46. Berlin: De Gruyter Mouton.
+Geeraerts, Dirk, and Hubert Cuyckens. 2012. “Introducing Cognitive Linguistics.” In The Oxford Handbook of Cognitive Linguistics, edited by Dirk Geeraerts and Hubert Cuyckens. Oxford: Oxford University Press.
+Gesenius, Wilhelm, Emiel Friedrich Kautsch, and A.E. Cowley. 1909. Gesenius’ Hebrew Grammar. Second. Oxford: Clarendon Press.
+Gibson, John C. L. 1994. Davidson’s Introductory Hebrew Grammar Syntax. 4. ed. Edinburgh: Clark.
+Gijssels, Tom, and Daniel Casasanto. 2017. “Conceptualizing Time in Terms of Space: Experimental Evidence.” In Cambridge Handbook of Cognitive Linguistics, edited by B. Dancygier, 651–68. Cambridge: Cambridge University Press.
+Glanz, Oliver, Reinoud Oosting, and Janet Dyk. 2015. “Valence Patterns in Biblical Hebrew: Classical Philology and Linguistic Patterns.” JNSL 41 (2): 31–55.
+Goldberg, Adele E. 1995. Constructions: A Construction Grammar Approach to Argument Structure. Chicago: University of Chicago Press.
+———. 2006. Constructions at Work: The Nature of Generalization in Language. Oxford Linguistics. Oxford ; New York: Oxford University Press.
+———. 2019. Explain Me This: Creativity, Competition, and the Partial Productivity of Constructions. Princeton, NJ: Princeton University Press.
+Goldberg, Adele E., Devin M. Casenhiser, and Nitya Sethuraman. 2004. “Learning Argument Structure Generalizations.” Cognitive Linguistics 15 (3): 289–316.
+Goldfaijn, Tal. 1998. Word Order and Time in Biblical Hebrew Narrative. Oxford Theological Monographs. Oxford: Clarendon Press.
+Gries, Stefan Th. 2008. “Dispersions and Adjusted Frequencies in Corpora.” International Journal of Corpus Linguistics 13 (4): 403–37.
+Gries, Stefan Th., and Anatol Stefanowitsch. 2004. “Extending Collostructional Analysis: A Corpus-Based Perspective on ‘Alternations.’” International Journal of Corpus Linguistics 9 (1): 97–125.
+Gross, Walter. 1996. Die Satzteilfolge im Verbalsatz alttestamentlicher Prosa : untersucht an den Büchern Dtn, Ri und 2Kön / von Walter Gross ; unter Mitarbeit von Andreas Disse und Andreas Michel. Forschungen zum Alten Testament ; 17. Tübingen: Mohr.
+Hardy, Humphrey, and Samuel Boyd. 2015. “Hebrew Adverbialization, Aramaic Language Contact, and Mpny ʾšr in Exodus 19:18.” In Semitic Languages in Contact, edited by Aaron Butts. Brill. https://doi.org/10.1163/9789004300156.
+Harkness, Janet. 1987. “Time Adverbials in English and Reference Time.” In Essays on Tensing in English, edited by Alfred Schopf, 71–110. Linguistische Arbeiten 185, 228. Tübingen: Max Niemeyer Verlag.
+Haspelmath, Martin. 1997. From Space to Time: Temporal Adverbials in the World’s Languages. LINCOM Studies in Theoretical Linguistics 2. Münchn: Lincom Europa.
+———. 2007. “Pre-Established Categories Don’t Exist: Consequences for Language Description and Typology.” Linguistic Typology 11: 119–32.
+———. 2008. “Frequency vs. Iconicity in Explaining Grammatical Asymmetries.” Cognitive Linguistics 19 (1): 1–33.
+Hatav, Galia. 1997. The Semantics of Aspect and Modality: Evidence from English and Biblical Hebrew. Studies in Language Companion Series 34. Amsterdam: John Benjamins.
+Heimerdinger, Jean-Marc. 1999. Topic, Focus and Foreground in Ancient Hebrew Narratives. Journal for the Study of the Old Testament 295. Sheffield, Eng: Sheffield Academic Press.
+Hendel, Ronald. 1996. “In the Margins of the Hebrew Verbal System: Situation, Tense, Aspect, Mood.” ZAH 9: 152–81.
+Hitzeman, Janet. 1994. “A Reichenbachian Account of the Interaction of the Present Perfect with Temporal Adverbials.” In .
+Ho-Dac, Lydia-Mai, and Marie-Paule Péry-Woodley. 2009. “A Data-Driven Study of Temporal Adverbials as Discourse Segmentation Markers.” Discours 4: 1–20.
+Hoey, Michael. 2005. Lexical Priming: A New Theory of Words and Language. London ; New York: Routledge.
+Huddleston, Rodney, Geoffrey K. Pullum, and L Stirling. 2002. “Deixis and Anaphora.” In The Cambridge Grammar of the English Language. Cambridge: Cambridge University Press. https://doi.org/10.1017/9781316423530.
+Hunston, Susan, and Gill Francis. 2000. Pattern Grammar: A Corpus-Driven Approach to the Lexical Grammar of English. Vol. 4. Studies in Corpus Linguistics. Amsterdam: John Benjamins.
+Hunter, John D. 2007. “Matplotlib: A 2D Graphics Environment.” Computing in Science & Engineering 9: 90–95.
+Isaksson, Bo. 2008. “Circumstantial Qualifiers in Qumran Hebrew: Reflections on Adjunct Expressions in the Manual of Discipline (1QS).” In Conservatism and Innovation in the Hebrew Language of the Hellenistic Period, edited by Jan Joosten and Jean-Sébastien Rey, 79–91. Proceedings of a Fourth International Symposium on the Hebrew of the Dead Sea Scrolls & Ben Sira. Leiden: Brill.
+Iwasaki, Shin-ya. 2004. “Reconsidering So-Called Temporal Bare-Np Adverbials in English: A Construction Grammar Account.” Osaka University Papers in English Linguistics, Reconsidering, 9: 1–23.
+Joosten, Jan. 1999. “The Long Form of the Prefix Conjugation Referring to the Past in Biblical Hebrew Prose.” HS 40: 15–26.
+———. 2002. “Do the Finite Verbal Forms in Biblical Hebrew Express Aspect?” Journal of the Ancient Near Eastern Society of Columbia University 29: 49–70.
+———. 2012. The Verbal System of Biblical Hebrew. Jerusalem Biblical Studies 10. Jerusalem: Simor Ltd.
+Joüon, Paul, and T. Muraoka. 1996. A Grammar of Biblical Hebrew. Subsidia Biblica, 14/1-14/2. Roma: Editrice Pontificio Istituto Biblio.
+Kalkman, Gino J. 2015. “Verbal Forms in Biblical Hebrew Poetry: Poetic Freedom or Linguistic System?” PhD Dissertation, Amsterdam: Vrije Universiteit Amsterdam.
+Khan, Geoffrey. 1984. “Extraposition and Pronominal Agreement in Semitic Languages.” London: SOAS University of London.
+———. 2008. The Neo-Aramaic Dialect of Barwar. Vol. 96. Handbook of Oriental Studies: Section One. Leiden: Brill.
+Kingham, Cody. 2018. “Toward a Distributional Approach to Verb Semantics in Biblical Hebrew.” Master’s Thesis, Amsterdam: Vrije Universiteit Amsterdam. http://www.ubvu.vu.nl/pub/fulltext/scripties/10_2588842_0.pdf.
+Klein, Wolfgang. 1994. Time in Language. Germanic Linguistics. London: Routledge.
+Kogut, Simcha. 2002. “The Status of Adjectives and Adverbs in Biblical Hebrew: Morphological and Syntactic Studies and Exegetical Implications / למעמדם של שמות התואר ותוארי הפועל בלשון המקרא: עיונים מורפולוגיים ותחביריים והשלכות פרשניות.” Shnaton: An Annual for Biblical and Ancient Near Eastern Studies 13: 111–137.
+Köhler, Ludwig, Walter Baumgartner, M. E. J. Richardson, Johann Jakob Stamm, and Benedikt Hartmann. 2001. The Hebrew and Aramaic Lexicon of the Old Testament. Study ed. Leiden ; Boston: Brill.
+König, Eduard. 1895. Historisch-Kritisches Lehrgebäude Der Hebräischen Sprache. Leipzig: J.C. Hinrichs’sche Buchhandlung.
+Krishnamurthy, Ramesh. 2002. “Corpus, Collocation, and Lexical Sets.” In . https://www.researchgate.net/publication/42363734_2002-Corpus_collocation_and_lexical_sets.
+Kuhn, Thomas S. 2000. “The Natural and the Human Sciences.” In The Road Since Structure: Philosophical Essays, 1970–1993, with an Autobiographical Interview, edited by James Conant and John Haugeland, 216–23. Chicago: University of Chicago Press.
+Kuryłowicz, J. 1973. “Verbal Aspect in Semitic.” Orientalia 42: 114–20.
+Lakoff, George. 1973. “Notes on What It Would Take to Understand How One Adverb Works.” The Monist 57 (3): 1–16.
+———. 1987. Women, Fire, and Dangerous Things. What Categories Reveal about the Mind. Chicago: University of Chicago Press.
+Langacker, R.W. 1987. Foundations of Cognitive Grammar: Volume 1: Theoretical Foundations. Standord: Stanford University Press.
+Lee, Ji-Hye, and Mun-Koo Kang. 2017. “Relationship between Tense and Aspect and Temporal Adverbials - Focused on English Present Perfect and Korean Prefinal Ending ‘-Eot.’” Information 20 (6): 4381–88.
+Lettinga, Jan Pieter. 1999. Grammaire de l’hébreu biblique. Leiden ; Boston: Brill.
+Levshina, Natalia. 2015. How to Do Linguistics with R: Data Exploration and Statistical Analysis. Amsterdam: John Benjamins.
+Levshina, Natalia, and Kris Heylen. 2014. “A Radically Data-Driven Construction Grammar: Experiments with Dutch Causative Constructions.” In Extending the Scope of Construction Grammar, edited by Ronny Boogaart, Timothy Colleman, and Gijsbert Rutten, 17–46. Cognitive Linguistics Research 54. Berlin: De Gruyter Mouton.
+Lyavdansky, Alexey. 2010. “Temporal Deictic Adverbs as Discourse Markers in Hebrew, Aramaic and Akkadian.” Journal of Language Relationship 3: 22–42.
+Matheus, Frank. 2014. Text and Time: A Functional Approach to the Biblical Hebrew Verbal System. Vol. Reihe II. Wissenschaftliche Schriften Der WWU Münster 7. Münster: MV Wisenschaft.
+McFall, Leslie. 1982. The Enigma of the Hebrew Verbal System: Solutions from Ewald to the Present Day. Historic Texts and Interpreters in Biblical Scholarship. The Almond Press.
+McKinney, Wes. 2010. “Data Structures for Statistical Computing in Python.” Proceedings of the 9th Python in Science Conference, 51–56.
+Michaelis, Laura A. 2004. “Type Shifting in Construction Grammar: An Integrated Approach to Aspectual Coercion.” Cognitive Linguistics 15 (1): 1–67. https://doi.org/10.1515/cogl.2004.001.
+———. 2011. “Stative by Construction.” Linguistics 49 (6). https://doi.org/10.1515/ling.2011.038.
+Miller-Naudé, Cynthia L., and Jacobus A. Naudé. 2017. “A Re-Examination of Grammatical Categorization in Biblical Hebrew.” In From Ancient Manuscripts to Modern Dictionaries: Select Studies in Aramaic, Hebrew and Greek, edited by Society of Biblical Literature, Tarsee Li, and Keith D. Dyer, 273–308. Perspectives on Linguistics and Ancient Languages 9. Piscataway, NJ: Gorgias Press.
+Moens, Marc, and Mark Steedman. 1988. “Temporal Ontology and Temporal Reference.” Computational Linguistics 14 (2): 15–28.
+Musan, Renate. 2002. The German Perfect: Its Semantic Composition and Its Interactions with Temporal Adverbials. Studies in Linguistics and Philosophy, v. 78. Dordrecht: Boston : Kluwer Academic Publishers.
+Niccacci, Alviero. 1994. “On the Hebrew Verbal System.” In Biblical Hebrew and Discourse Linguistics, 117–37. Winona Lake: Eisenbrauns.
+———. n.d. “Temporal Clause: Biblical Hebrew (Vol 3).” In Encyclopedia of Hebrew Language and Linguistics, 731. Brill. http://referenceworks.brillonline.com/entries/encyclopedia-of-hebrew-language-and-linguistics/temporal-clause-biblical-hebrew-EHLL_COM_00000598.
+“Normalizing Word Counts.” n.d. The Grammar Lab. Accessed April 26, 2019. http://www.thegrammarlab.com/?p=160.
+Notarius, Tania. 2013. The Verb in Archaic Biblical Poetry: A Discursive, Typological, and Historical Investigation of the Tense System. Studies in Semitic Languages and Linguistics 68. Leiden: Brill.
+Pastor, Ana Ortigosa. 2003. “Semantics of the Temporal Adjunct Construction and Time Congruency.” Atlantis 25 (2): 113–23.
+Pedregosa, F., G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, et al. 2011. “Scikit-Learn: Machine Learning in Python.” Journal of Machine Learning Research 12: 2825–2830.
+Penner, Ken. 2015. The Verbal System of Dead Sea Scrolls: Tense, Aspect, and Modality in Qumran Hebrew Texts. Studia Semitica Neerlandica 64. Leiden: Brill.
+Piantadosi, Steven T. 2014. “Zipf’s Word Frequency Law in Natural Language: A Critical Review and Future Directions.” Psychonomic Bulletin & Review 21 (5): 1112–30. https://doi.org/10.3758/s13423-014-0585-6.
+Pinker, Steven. (1989) 2013. Learnability and Cognition: The Acquisition of Argument Structure. Cambridge, MA: MIT Press.
+Pittner, Karin, Daniela Elsner, and Fabian Barteld, eds. 2015. Adverbs: Functional and Diachronic Aspects. Studies in Language Companion Series, volume 170. Amsterdam ; Philadelphia: John Benjamins Publishing Company.
+Popper, Karl. (1935) 2005. The Logic of Scientific Discovery. Talor & Francis E-Library. London: Routledge.
+Pratico, Gary Davis, and Miles V. Van Pelt. 2001. Basics of Biblical Hebrew Grammar. Grand Rapids, Mich: Zondervan.
+Quirk, Randolph, ed. 1985. A Comprehensive Grammar of the English Language. London ; New York: Longman.
+Rainey, Anson. 1990. “The Prefix Conjugation Patterns of Early Northwest Semitic.” In Lingering Over Words: Studies in Ancient Near Eastern Literature in Honor of William L. Moran, edited by Tzvi Abusch. Atlanta: Scholars Press.
+Rappaport Hovav, Malka. 2008. “Lexicalized Meaning and the Internal Temporal Structure of Events.” In Theoretical and Crosslinguistic Approaches to the Semantics of Aspect, edited by S. Rothstein, 13–42. Amsterdam: John Benjamins.
+Reichenbach, Hans. 1947. Elements of Symbolic Logic. London: Collier-Macmillan.
+Robar, Elizabeth. 2013. “Wayyiqṭol As an Unlikely Preterite.” Journal of Semitic Studies 57 (1): 21–42.
+———. 2015. The Verb and the Paragraph in Biblical Hebrew: A Cognitive-Linguistic Approach. Studies in Semitic Languages and Linguistics 78. Leiden: Brill.
+Robert E. Longacre. 1995. “Some Interlocking Concerns Which Govern Participant Reference in Narrative.” 어학연구 31 (4): 697–714.
+Roorda, Dirk. 2017. “The Hebrew Bible as Data: Laboratory - Sharing - Experiences.” In Clarin in the Low Countries, edited by J. Odijk and A. Van Hessen. London: Ubiquity Press.
+Roorda, Dirk, and Camil Staps. 2019. Annotation/Text-Fabric: Sophisticated Data Retrieval from Repos (version v7.6.1z). Zenodo. https://doi.org/10.5281/zenodo.2635046.
+Roorda, Dirk, Cody Kingham, Christiaan Erwich, and Wido Van Peursen. 2019. ETCBC/Bhsa (version v1.6). Zenodo. https://doi.org/10.5281/zenodo.2554324.
+Rothstein, Susan. 2012. “Another Look at Accomplishments and Incrementality.” In Telicity, Change, and State, edited by Violeta Demonte and Louise McNally, 60–102. Oxford University Press. https://doi.org/10.1093/acprof:oso/9780199693498.003.0003.
+Sampson, Geoffrey R., and Anna Babarczy. 2014. Grammar without Grammaticality: Growth and Limits of Grammatical Precision. Trends in Linguistics Studies and Monographs 254. Berlin: De Gruyter Mouton.
+Sasse, Hans-Jürgen. 2002. “Recent Activity in the Theory of Aspect: Accomplishments, Achievements, or Just Non-Progressive State?” Linguistic Typology 6: 199–271.
+Saussure, Ferdinand. (1916) 1995. Cours de Linguistique Générale. Paris: Charles Bailly and Albert Séchehaye.
+Schlüter, Norbert. 2002. “Temporal Specification of the Present Perfect: A Corpus-Based Study.” In New Frontiers of Corpus Research, edited by Pam Peters, Peter Collins, and Adam S. Cohen, 307–15. Brill. https://doi.org/10.1163/9789004334113_021.
+Schneider, Wolfgang. 1974. Grammatik Des Biblischen Hebräisch : Ein Lehrbuch. Völlig Neue Bearb. Der "Hebräischen Grammatik Für Den Akademischen Unterricht. München: Claudius.
+Scholz, Barbara C., Francis Jeffry Pelletier, and Geoffrey K. Pullum. 2011. “Philosophy of Linguistics.” In The Stanford Encyclopedia of Philosophy, edited by Edward N. Zalta, Winter 2016 Edition. https://plato.stanford.edu/archives/win2016/entries/linguistics/.
+Schulte im Walde, Sabine. 2006. “Experiments on the Automatic Induction of German Semantic Verb Classes.” Association for Computational Linguistics 32 (2): 159–94.
+Schütze, Carson T. 2016. The Empirical Base of Linguistics: Grammaticality Judgments and Linguistic Methodology. Classics in Linguistics 2. Berlin: Language Science Press.
+Shead, Stephen L. 2011. Radical Frame Semantics and Biblical Hebrew: Exploring Lexical Semantics. BibInt 108. Leiden: Brill.
+Shepherd, Michael B. 2008. The Verbal System of Biblical Aramaic. New York: Peter Lang.
+Sloutsky, Vladimir M., Wei (Sophia) Deng, Anna V. Fisher, and Heidi Kloos. 2015. “Conceptual Influences on Induction: A Case for a Late Onset.” Cognitive Psychology 82 (November): 1–31. https://doi.org/10.1016/j.cogpsych.2015.08.005.
+Smith, Carolota S. 1997. The Parameter of Aspect. Second. Studies in Linguistics and Philosophy 43. Dordrecht: Kluwer Academic Publishers.
+Stefanowitsch, Anatol. 2006. “Negative Evidence and the Raw Frequency Fallacy.” Corpus Linguistics and Linguistic Theory 2 (1). https://doi.org/10.1515/CLLT.2006.003.
+———. 2010. “Empirical Cognitive Semantics: Some Thoughts.” In Quantitative Methods in Cognitive Semantics: Corpus-Driven Approaches, edited by Dylan Glynn and Kertin Fischer, 355–80. Cognitive Linguistics Research 46. Berlin: De Gruyter Mouton.
+Stefanowitsch, Anatol, and Stefan Th. Gries. 2003. “Collostructions: Investigating the Interaction of Words and Constructions.” International Journal of Corpus Linguistics 8 (2): 209–43.
+Stern, Sacha. 2003. Time and Process in Ancient Judaism. Littman Library of Jewish Civilization. Oxford ; Portland, Ore: Littman Library of Jewish Civilization.
+Streck, Michael P. 2016. “Temporal Adverbs in Akkadian.” In The Morpho-Syntactic and Lexical Encoding of Tense and Aspect in Semitic: Proceedings of the Erlangen Workshop on April 26, 2014, edited by Lutz Edzard and Deutsche Morgenländische Gesellschaft, 9–21. Abhandlungen Für Die Kunde Des Morgenlandes, Band 104. Wiesbaden: Harrassowitz Verlag.
+Talstra, Eep. 1978. “Text Grammar and Hebrew Bible. I: Elements of a Theory.” BO 35: 169–74.
+———. 1982. “Text Grammar and Hebrew Bible II: Syntax and Semantics.” BO 34 (1/2): 25–38.
+———. 1992. “Text Grammar and Biblical Hebrew: The Viewpoint of Wolfgang Schneider.” Journal of Translation and Textlinguistics 5 (4): 269–97.
+———. 1997. “Tense, Mood, Aspect and Clause Connections in Biblical Hebrew: A Textual Approach.” JNSL 23 (2): 81–103.
+———. 2004. “Text Segmentation and Linguistic Levels.” In Hanbuch/Instruction Manual SESB (Stuttgart Elektronic Study Bible), edited by C. Hardmeier, Eep Talstra, and B. Salzmann, version 5, 1–41. Stuttgart: Deutsche Bibelgesellschaft.
+Teubert, Wolfgang. 2010. “Corpus Linguistics: An Alternative.” Semen 27. https://journals.openedition.org/semen/8912.
+Ungerer, Friedrich, and Hans-Jörg Schmid, eds. 2006. An Introduction to Cognitive Linguistics. 2nd ed. New York: Longman.
+Van der Merwe, Christo H.J. 1997a. “Reconsidering Biblical Hebrew Temporal Expressions.” ZAH 10 (1): 42–62.
+———. 1997b. “‘Reference Time’ in Some Biblical Temporal Constructions.” Biblica 78 (4): 503–24.
+Van Geenhoven, Veerle. 2004. “For-Adverbials, Frequentive Aspect, and Pluractionality.” Natural Language Semantics 12: 135–90.
+Van Trijp, Remi. 2017. “A Computational Construction Grammar for English.” AAI 2017 Spring Symposium on Computational Construction Grammar and Natural Language Uncerstanding. https://www.aaai.org/ocs/index.php/SSS/SSS17/paper/download/15348/14544.
+Vendler, Zeno. 1967. Linguistics in Philosophy. Ithaca: Cornell University Press.
+Verheij, Arian J.C. 1994. Grammatica Digitalis I: The Morphological Code in the ‹‹Werkgroep Informatica›› Computer Text of the Hebrew Bible. Applicatio. Amsterdam: VU University Press.
+Verkuyl, H. J. 1993. A Theory of Aspectuality: The Interaction between Temporal and Atemporal Structure. Cambridge Studies in Linguistics 64. Cambridge [England] ; New York, NY, USA: Cambridge University Press.
+Vlach, Frank. 1993. “Temporal Adverbials, Tenses and the Perfect.” Linguistics and Philosophy 16: 231–83.
+Waltke, Bruce, and M. O’Connor. 1990. An Introduction to Biblical Hebrew Syntax. Winona Lake: Eisenbrauns.
+Warner, Josh, Jason Sexauer, Scikit-Fuzzy, Twmeggs, S. Alexandre M., Aishwarya Unnikrishnan, Guilherme Castelão, Fernando Batista, The Gitter Badger, and Himanshu Mishra. 2017. Jdwarner/Scikit-Fuzzy: Scikit-Fuzzy 0.3.1 (version 0.3.1). Zenodo. https://doi.org/10.5281/zenodo.1002946.
+Weinrich, Harold. 1964. Tempus. Besprochene Und Erzählte Welt. Stuttgart: Kohlhammer Verlag.
+Werner, Valentin. 2013. “Temporal Adverbials and the Present Perfect/Past Tense Alternation.” English World-Wide 34 (2): 202–40. https://doi.org/10.1075/eww.34.2.04wer.
+Williams, Ronald J., and John C. Beckman. 2007. Williams’ Hebrew Syntax. 3rd ed. Toronto: University of Toronto Press.
+Winther-Nielsen, Nicolai. 2016. “How to Classify Hebrew Verbs: Plotting Verb-Specific Roles.” In Contemporary Examinations of Classical Languages (Hebrew, Aramaic, and Syriac): Valency, Lexicography, Grammar, and Manuscripts, edited by T.M. Lewis, A. Salvesen, and B. Turner, 67–94. Perspectives on Linguistics and Ancient Languages 5. Piscataway, NJ: Gorgias Press.
+Wittgenstein, Ludwig. 1968. Philosophical Investigations. Oxford: Basil Blackwell.
+Wulff, Stefanie. 2003. “A Multifactorial Corpus Analysis of Adjective Order in English.” International Journal of Corpus Linguistics 8 (2): 245–82. https://doi.org/10.1075/ijcl.8.2.04wul.
+Wulff, Stefanie, Nick C. Ellis, Ute Römer, Kathleen Bardovi-Harlig, and Chelsea J. Leblanc. 2009. “The Acquisition of Tense-Aspect: Converging Evidence from Corpora and Telicity Ratings.” The Modern Language Journal 93 (3): 354–69.
+Xiao, R. 2015. “Collocation.” In The Cambridge Handbook of English Corpus Linguistics, edited by D. Biber and R. Reppen, 106–24. Cambridge: Cambridge University.
+Xiao, Zhonghua, and Anthony McENERY. 2004. “A Corpus-Based Two-Level Model of Situation Aspect.” Journal of Linguistics 40 (2): 325–63. https://doi.org/10.1017/S0022226704002543.
+Zewi, Tamar. 2007. Parenthesis in Biblical Hebrew. Studies in Semitic Languages and Linguistics, v. 50. Leiden ; Boston: Brill.
+Ziegeler, Debra. 2007. “A Word of Caution on Coercion.” Journal of Pragmatics 39 (5): 990–1028. https://doi.org/10.1016/j.pragma.2006.07.014.
+
+
