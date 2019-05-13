@@ -1,8 +1,7 @@
 Andersen, Francis I., and A. Dean Forbes. 2012. Biblical Hebrew Grammar Visualized. Linguistic Studies in Ancient West Semitic 6. Winona Lake, Ind: Eisenbrauns.
 Andrason, Alexander. 2011. “The Biblical Hebrew Verbal System in Light of Grammaticalization: The Second Generation.” Hebrew Studies 52.
 ———. 2015. “Toward the Ocean of the Biblical Hebrew Verbal System.” Folia Orientalia 52: 15–36.
-———. 2016a. “The Complexity of Verbal Semantics—An Intricate Relationship between Qatal and Wayyiqtol.” JHebS 16 (4): 1–94.
-———. 2016b. “The Complexity of Verbal Semantics—An Intricate Relationship Between Qatal and Wayyiqtol.” Journal of Hebrew Scriptures 16. https://doi.org/10.5508/jhs.2016.v16.a4.
+———. 2016. “The Complexity of Verbal Semantics—An Intricate Relationship between Qatal and Wayyiqtol.” JHebS 16 (4): 1–94.
 Arnold, Bill T., and John H. Choi. 2003. A Guide to Biblical Hebrew Syntax. New York, N.Y: Cambridge University Press.
 Baayen, R. H. 2008. Analyzing Linguistic Data: A Practical Introduction to Statistics Using R. Cambridge: Cambridge University.
 Baayen, R. Harald. 2001. Word Frequency Distributions. Text, Speech, and Language Technology, v. 18. Dordrecht ; Boston: Kluwer Academic.
