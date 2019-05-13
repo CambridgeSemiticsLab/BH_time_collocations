@@ -1,7 +1,7 @@
 # Biblical Hebrew Time Collocations
 ### Cody Kingham 
 
-<img src="images/sponsor_banner.png" align="middle">
+<a href="https://www.ames.cam.ac.uk/people/current-phd-students"><img src="images/sponsor_banner.png" align="middle"></a>
 
 ## Introduction
 
