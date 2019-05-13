@@ -8,6 +8,13 @@
 * [data](data) — The primary data sources for this project. Contains production code for preprocessed data as well as Text-Fabric format (tf) data files.
 * [docs](docs) — Documentation and images for/from notebooks and markdown
 
+
+## Cite
+
+[![DOI](https://zenodo.org/badge/153016597.svg)](https://zenodo.org/badge/latestdoi/153016597)
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
 ## Main Analyses
 
 The links below connect to notebooks found in the analysis directory.
@@ -16,12 +23,6 @@ The links below connect to notebooks found in the analysis directory.
 * [Verb Collocations with Atelic Time Duration Adverbials](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/duratives.ipynb) - A pilot study examining the collocations of atelic time duration adverbials with various verb lexemes in the Hebrew Bible, based on Fuhs' 2010 collostructional analysis ([source](https://philpapers.org/rec/FUHTAC)).
 * [Time Constructions, part 1](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/time_constructions1.ipynb) – An exploratory study on the primary kinds of constructions used to express time at the phrasal/semi-phrasal level. This notebook gives insight and direction for the second exploratory study.
 * [Time Constructions, part 2](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/time_constructions2.ipynb) – A second exploratory study on the primary kinds of constructions used to express time. This analysis takes advantage of a chunk + part of speech clustering method from part 1, whereby the constructions are broken down into primary surface forms. The analysis re-examines time construction data using previous analysis from elsewhere in this repository. Finally, the analysis focuses in on the various specifications applied to time nouns within the constructions which anchor their temporal referents. It is believed these may be a key component for understanding and clustering the constructions.
-
-## Cite
-
-[![DOI](https://zenodo.org/badge/153016597.svg)](https://zenodo.org/badge/latestdoi/153016597)
-
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
 ## Introduction
 
