@@ -22,25 +22,23 @@ class Chunker:
         '''
         
         # NB that new function data is loaded from output_dir
-        locas = [bhsa_dir, heads_dir, output_dir, metadata]
+        locas = [bhsa_dir, heads_dir, output_dir]
         TF = Fabric(locations=locas, silent=True)
         load_features = ['function', 'note', 'sem_set', 'head', 'nhead',
-                         'st', 'ls']
-        self.bhsa = bhsa = self.TF.load(' '.join(load_features))        
+                         'st', 'ls', 'language', 'pdp', 'lex', 'obj_prep']
+        self.bhsa = bhsa = TF.load(' '.join(load_features), silent=True)    
+        self.output_dir = output_dir
+        self.meta = metadata
         
         # configure counters and dicts to build/store new objects
         self.nodeFeatures = collections.defaultdict(lambda:collections.defaultdict())
         self.edgeFeatures = collections.defaultdict(lambda:collections.defaultdict())
         
-        # gather BHSA otype and oslots (+function & note)
+        # gather BHSA otype and oslots
         # new objects/features will be generated on top of these
         self.nodeFeatures['otype'] = dict((n, bhsa.F.otype.v(n)) for n in bhsa.N())
-        self.edgeFeatures['oslots'] = dict((n, bhsa.L.d(n, 'word')) for n in bhsa.N()\ 
+        self.edgeFeatures['oslots'] = dict((n, bhsa.L.d(n, 'word')) for n in bhsa.N() 
                                                if bhsa.F.otype.v(n) != 'word')
-        self.nodeFeatures['function'] = dict((n, bhsa.F.function.v(n))\
-                                                 for n in bhsa.F.otype.s('phrase'))
-        self.nodeFeatures['note'] = dict((n, bhsa.F.note.v(n))\
-                                             for n in bhsa.N() if bhsa.F.note.v(n))
         
         # new node numbers calculated from here
         self.newNode = max(self.nodeFeatures['otype'].keys())
@@ -58,7 +56,7 @@ class Chunker:
         '''
         
         # define shortform TF methods for easy use
-        F, L = self.bhsa.F, self.bhsa.L
+        F, E, L = self.bhsa.F, self.bhsa.E, self.bhsa.L
         
         # iterate through all phrases in BHSA
         # if phrase function=Time and is not followed by 
@@ -153,6 +151,9 @@ class Chunker:
             composite chains: e.g. שבע שנה ומאת שנח.
         '''
         
+        # define shortform TF methods for easy use
+        F, E, L = self.bhsa.F, self.bhsa.E, self.bhsa.L
+        
         # Gather qantifier atoms
         quant_atoms = []
         cardinals = [word for lex in F.ls.s('card')
@@ -241,7 +242,7 @@ class Chunker:
             phrase2chunks[phrase_atom].append(chunk)
             
         # find composite chunks
-        phrase, chunks in phrase2chunks.items():
+        for phrase, chunks in phrase2chunks.items():
             # skip simple chunks
             if len(chunks) < 2:
                 continue
@@ -264,17 +265,19 @@ class Chunker:
             self.edgeFeatures['oslots'][self.newNode] = chunkslots
             self.nodeFeatures['otype'][self.newNode] = 'chunk'
             self.nodeFeatures['label'][self.newNode] = label
-            self.edgeFeatures['role'].update({self.newNode:{noun:'subs'} for noun in chunknouns})
-            self.edgeFeatures['role'].update({self.newNode:{quant:'quant'} for quant in chunkquants}) 
+            self.edgeFeatures['role'].update({noun:{self.newNode:'subs'} for noun in chunknouns})
+            self.edgeFeatures['role'].update({quant:{self.newNode:'quant'} for quant in chunkquants}) 
     
-    def climbPrepChain(self, prep, prep_list):
+    def climb_prep_chain(self, prep, prep_list):
         '''
         Recursively climbs a prepositional chain (see next).
         '''
+        # define shortform TF methods for easy use
+        F, E = self.bhsa.F, self.bhsa.E
         prep_list.append(prep)
         daughter = next((po for po in E.obj_prep.t(prep) if F.sem_set.v(po)=='prep'),[])
         if daughter:
-            climbPrepChain(daughter, prep_list)
+            self.climb_prep_chain(daughter, prep_list)
     
     def chunk_preps(self):
         '''
@@ -286,6 +289,9 @@ class Chunker:
         we can easily export a construction that can cover these cases.
         '''
         
+        # define shortform TF methods for easy use
+        F, E = self.bhsa.F, self.bhsa.E
+        
         for prep in F.sem_set.s('prep'):
             
             # skip subordinated preps
@@ -294,13 +300,13 @@ class Chunker:
                 
             # climb down prep chain
             prep_cx = []
-            self.climbPrepChain(prep, prep_cx)
+            self.climb_prep_chain(prep, prep_cx)
 
             # export object
             self.newNode += 1
-            edgeFeatures['oslots'][self.newNode] = prep_cx
-            nodeFeatures['otype'][self.newNode] = 'chunk'
-            nodeFeatures['label'][self.newNode] = 'prep'
+            self.edgeFeatures['oslots'][self.newNode] = prep_cx
+            self.nodeFeatures['otype'][self.newNode] = 'chunk'
+            self.nodeFeatures['label'][self.newNode] = 'prep'
     
     def execute(self):
         '''
@@ -328,7 +334,20 @@ class Chunker:
         for label, count in nlabels.most_common():
             print(f'\t{count} chunk objects with label {label}')
         
+        
+        # update metadata and export
+        
+        metadata = {'':self.meta,
+                    'oslots': {'valueType':'int', 
+                               'edgeValues':False},
+                    'otype':{'valueType':'str'},
+                    'role':{'edgeValues':True,
+                            'valueType':'str', 
+                            'description':'role of a word in a chunk object'},
+                    'label':{'valueType':'str',
+                             'description':'a label for a chunk object'},
+                   }
         print('exporting tf...')
-        TFexport = Fabric(locations=self.export_dir, silent=True)
-        TFexport.save(metaData=self.meta, nodeFeatures=self.nodeFeatures, edgeFeatures=self.edgeFeatures)
-        print('\tSUCCESS')
+        TFexport = Fabric(locations=self.output_dir, silent=True)
+        TFexport.save(metaData=metadata, nodeFeatures=self.nodeFeatures, edgeFeatures=self.edgeFeatures)
+        print('SUCCESS')
