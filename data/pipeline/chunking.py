@@ -120,7 +120,7 @@ class Chunker:
         else:
             return default
         
-    def fill_slots(chunk):
+    def fill_slots(self, chunk):
         '''
         Fills in gapped slots such as waws and other
         items that are missing in a quant chunk (see below).
@@ -164,11 +164,11 @@ class Chunker:
             # get positions above and around number
             phrase = L.d(L.u(number, 'phrase')[0], 'word')
             phrase_atom = L.d(L.u(number, 'phrase_atom')[0], 'word')
-            p1 = get_item(number+1, phrase, 0) # plus 1 slot, etc.
-            p2 = get_item(number+2, phrase, 0) 
-            m1 = get_item(number-1, phrase, 0) # minus 1, etc.
-            m2 = get_item(number-2, phrase, 0)
-            m1pa = get_item(number-1, phrase_atom, 0) # minus 1 in phrase atom
+            p1 = self.get_item(number+1, phrase, 0) # plus 1 slot, etc.
+            p2 = self.get_item(number+2, phrase, 0) 
+            m1 = self.get_item(number-1, phrase, 0) # minus 1, etc.
+            m2 = self.get_item(number-2, phrase, 0)
+            m1pa = self.get_item(number-1, phrase_atom, 0) # minus 1 in phrase atom
             subs = {'subs', 'nmpr', 'prps'} # valid POS for quantified objects
             
             # match atoms
@@ -256,19 +256,79 @@ class Chunker:
         
         # generate the chunk objects
         for chunk in qchunks:
-            chunkslots = fill_slots(chunk) # fill in gaps
+            chunkslots = self.fill_slots(chunk) # fill in gaps
             chunknouns = [word for word in chunk if F.ls.v(word) != 'card']
             chunkquants = [word for word in chunk if F.ls.v(word) == 'card']
-            label = 'quant_NP' if chunknouns else 'quant'
+            label = 'quant_NP' if chunknouns else 'quant' # 2 labels depending on presence of noun(s)
             self.newNode += 1
             self.edgeFeatures['oslots'][self.newNode] = chunkslots
             self.nodeFeatures['otype'][self.newNode] = 'chunk'
             self.nodeFeatures['label'][self.newNode] = label
+            self.edgeFeatures['role'].update({self.newNode:{noun:'subs'} for noun in chunknouns})
+            self.edgeFeatures['role'].update({self.newNode:{quant:'quant'} for quant in chunkquants}) 
+    
+    def climbPrepChain(self, prep, prep_list):
+        '''
+        Recursively climbs a prepositional chain (see next).
+        '''
+        prep_list.append(prep)
+        daughter = next((po for po in E.obj_prep.t(prep) if F.sem_set.v(po)=='prep'),[])
+        if daughter:
+            climbPrepChain(daughter, prep_list)
+    
+    def chunk_preps(self):
+        '''
+        Prepositions that are chained together function 
+        as a single directional unit, and some words function 
+        as prepositions within a certain frame where elsewhere 
+        they may function as nouns. Using the sem_set feature 
+        from the heads project and the obj_prep edge relation, 
+        we can easily export a construction that can cover these cases.
+        '''
+        
+        for prep in F.sem_set.s('prep'):
             
+            # skip subordinated preps
+            if E.obj_prep.f(prep):
+                continue
+                
+            # climb down prep chain
+            prep_cx = []
+            self.climbPrepChain(prep, prep_cx)
+
+            # export object
+            self.newNode += 1
+            edgeFeatures['oslots'][self.newNode] = prep_cx
+            nodeFeatures['otype'][self.newNode] = 'chunk'
+            nodeFeatures['label'][self.newNode] = 'prep'
     
     def execute(self):
         '''
-        Orders and runs all chunking methods
+        Runs the chunking methods in the 
+        necessary succession and exports the
+        new TF data.
         '''
         
-    
+        print('Running chunkers...')
+        print('\trunning time chunker...')
+        self.chunk_time()
+        print('\trunning quant chunker...')
+        self.chunk_quants()
+        print('\trunning prep chunker...')
+        self.chunk_preps()
+        
+        # get report on all new objects
+        chunks = [node for node, otype in self.nodeFeatures['otype'].items()
+                    if otype=='chunk']
+        
+        nlabels = collections.Counter(self.nodeFeatures['label'][node] 
+                                          for node in chunks)
+        
+        print(f'{len(chunks)} chunk objects formed...')
+        for label, count in nlabels.most_common():
+            print(f'\t{count} chunk objects with label {label}')
+        
+        print('exporting tf...')
+        TFexport = Fabric(locations=self.export_dir, silent=True)
+        TFexport.save(metaData=self.meta, nodeFeatures=self.nodeFeatures, edgeFeatures=self.edgeFeatures)
+        print('\tSUCCESS')
