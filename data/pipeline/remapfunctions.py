@@ -71,4 +71,4 @@ class RemapFunctions:
         TFexport = Fabric(locations=self.export_dir, silent=True)
         TFexport.save(metaData=self.meta, nodeFeatures={'function':phrase2funct, 'note':note})
 
-        print('\tSUCCESS')
+        print('SUCCESS')
