@@ -329,10 +329,14 @@ class Chunker:
         
         nlabels = collections.Counter(self.nodeFeatures['label'][node] 
                                           for node in chunks)
-        
+        nroles = collections.Counter(role for node, edge in self.edgeFeatures['role'].items()
+                                        for role in edge.values())
+
         print(f'{len(chunks)} chunk objects formed...')
         for label, count in nlabels.most_common():
             print(f'\t{count} chunk objects with label {label}')
+        for label, count in nroles.most_common():
+            print(f'\t{count} words with chunk role of {label}')
         
         
         # update metadata and export
