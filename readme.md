@@ -7,8 +7,7 @@
 ## Contents 
 * [analysis](analysis) — Jupyter notebooks and python scripts that analyze and interpret time adverbial data.
 * [data](data) — The primary data sources for this project. Contains production code for preprocessed data as well as Text-Fabric format (tf) data files.
-* [docs](docs) — Documentation and images for/from notebooks and markdown
-* [bibliography](bibliography.txt) - Main sources for the project.
+* [docs](docs) — Project documentation, including bibliography.txt, as well as images/files for displaying in markdown. 
 
 ## Main Analyses
 
