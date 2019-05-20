@@ -20,13 +20,16 @@ or
 python pipeline.py -full
 ```
 
+
+where `-full` will produce fresh function association data. The full run takes significantly longer due to pairwise association scores that have to be calculated.
+
 or
 
 ```
 jupyter notebook pipeline.ipynb
 ```
 
-where `-full` will produce fresh function association data. The full run takes significantly longer due to pairwise association scores that have to be calculated.
+Where the process is described in depth.
 
 The .py version is derived from the .ipynb by running:
 
