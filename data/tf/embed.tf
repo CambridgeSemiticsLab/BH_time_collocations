@@ -1,10 +1,11 @@
 @node
+@data_version=BHSA version c
 @description=a feature of chunk objects, describing whether they are embedded in another chunk of the same label
 @origin=Made by the ETCBC of the Vrije Universiteit Amsterdam; edited by Cody Kingham
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-05-20T19:27:24Z
+@dateWritten=2019-05-20T20:59:28Z
 
 1446800	false
 false

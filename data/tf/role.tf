@@ -1,11 +1,12 @@
 @edge
 @edgeValues
+@data_version=BHSA version c
 @description=role of a word in a chunk object
 @origin=Made by the ETCBC of the Vrije Universiteit Amsterdam; edited by Cody Kingham
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-05-20T19:26:31Z
+@dateWritten=2019-05-20T20:58:38Z
 
 651542	time
 77	1450872	subs

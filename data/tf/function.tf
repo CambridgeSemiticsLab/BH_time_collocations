@@ -1,9 +1,10 @@
 @node
+@data_version=BHSA version c
 @origin=Made by the ETCBC of the Vrije Universiteit Amsterdam; edited by Cody Kingham
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-05-20T19:26:10Z
+@dateWritten=2019-05-20T20:58:20Z
 
 651542	Time
 Pred
