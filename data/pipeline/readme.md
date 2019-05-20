@@ -1,5 +1,7 @@
 # Pipeline
 
+## See the pipeline process explained in [pipeline.ipynb](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/next/data/pipeline/pipeline.ipynb)
+
 Data is produced by `pipeline.py` // `pipeline.ipynb`. Both files are identical, as `pipeline.py` is made by `nbconvert` from the `.ipynb` version. The notebook version has additional walk-through examples and descriptions about what the pipeline does and how.
 
 The pipeline is rooted in BHSA data which is in turn edited and expanded into a custom dataset which is pushed to `/data/tf`. The pipeline is represented in the diagram below:
