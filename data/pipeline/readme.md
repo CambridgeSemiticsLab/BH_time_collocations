@@ -8,7 +8,7 @@ The pipeline is rooted in BHSA data which is in turn edited and expanded into a 
 <img src="../../docs/images/pipeline_diagram.png" width="30%" height="30%" align="middle">
 </table>
 
-The pipeline can be run in two ways:
+The pipeline can be run in three ways:
 
 ```
 python pipeline.py
@@ -20,7 +20,13 @@ or
 python pipeline.py -full
 ```
 
-where `-full` will produce fresh function association data. The full run takes significantly longer due to pairwise association scores thathave to be calculated.
+or
+
+```
+jupyter notebook pipeline.ipynb
+```
+
+where `-full` will produce fresh function association data. The full run takes significantly longer due to pairwise association scores that have to be calculated.
 
 The .py version is derived from the .ipynb by running:
 
