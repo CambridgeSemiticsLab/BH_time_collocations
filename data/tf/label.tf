@@ -1,10 +1,11 @@
 @node
+@data_version=BHSA version c
 @description=a label for a chunk object
 @origin=Made by the ETCBC of the Vrije Universiteit Amsterdam; edited by Cody Kingham
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-05-20T19:26:27Z
+@dateWritten=2019-05-20T20:58:34Z
 
 1446800	timephrase
 timephrase
