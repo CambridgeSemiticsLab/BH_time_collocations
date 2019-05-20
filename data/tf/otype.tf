@@ -3,7 +3,7 @@
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-05-16T14:30:29Z
+@dateWritten=2019-05-20T19:26:27Z
 
 1-426584	word
 426585-426623	book

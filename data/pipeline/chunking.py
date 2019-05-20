@@ -13,7 +13,7 @@ class Chunker:
     All data is exported to the export directory.
     '''
     
-    def __init__(self, bhsa_dir, heads_dir, output_dir, metadata):
+    def __init__(self, locs, metadata):
         '''
         At initialization, build node counter that calculates maxNode
         from BHSA. This counter is operated on by all methods. Init also
@@ -22,12 +22,12 @@ class Chunker:
         '''
         
         # NB that new function data is loaded from output_dir
-        locas = [bhsa_dir, heads_dir, output_dir]
+        self.output_dir = locs['output']
+        locas = [locs['bhsa'], locs['heads'], locs['output']]
         TF = Fabric(locations=locas, silent=True)
         load_features = ['function', 'note', 'sem_set', 'head', 'nhead',
                          'st', 'ls', 'language', 'pdp', 'lex', 'obj_prep']
-        self.bhsa = bhsa = TF.load(' '.join(load_features), silent=True)    
-        self.output_dir = output_dir
+        self.bhsa = bhsa = TF.load(' '.join(load_features), silent=True)
         self.meta = metadata
         
         # configure counters and dicts to build/store new objects
