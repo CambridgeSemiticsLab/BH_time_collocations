@@ -148,7 +148,7 @@ class Chunker:
         2. combine quantifier atoms by isolating continuous
             runs. These are basic quant chunks.
         3. combine adjacent quant chunks to capture larger,
-            composite chains: e.g. שבע שנה ומאת שנח.
+            composite chains: e.g. שבע שנה ומאת שנה.
         '''
         
         # define shortform TF methods for easy use
