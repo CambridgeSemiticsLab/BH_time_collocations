@@ -10,13 +10,14 @@ import collections
 
 class EmbedDetector:
     
-    def __init__(self, bhsa_dir, output_dir, metadata):
+    def __init__(self, locs, metadata):
         
-        locas = [bhsa_dir, output_dir]
+        # intialize Text-Fabric methods
+        locas = [locs['bhsa'], locs['output']]
         TF = Fabric(locations=locas, silent=True)
         load_features = ['label',]
         self.bhsa = TF.load(' '.join(load_features), silent=True)    
-        self.output_dir = output_dir
+        self.output_dir = locs['output']
         self.meta = metadata
         self.nodeFeatures = collections.defaultdict(lambda:collections.defaultdict())
         

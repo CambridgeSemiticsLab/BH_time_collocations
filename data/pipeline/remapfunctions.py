@@ -18,13 +18,15 @@ class RemapFunctions:
         * note.tf
     '''
 
-    def __init__(self, bhsa_dir, export_dir, metadata):
+    def __init__(self, locs, metadata):
     
         '''
         Stages the changes to be made.
         Provides attributes for reporting.
         '''
-
+        
+        bhsa_dir, export_dir = locs['bhsa'], locs['output']
+        
         # load TF api + functions
         TF = Fabric(locations=bhsa_dir, silent=True)
         self.api = TF.load('function', silent=True)
