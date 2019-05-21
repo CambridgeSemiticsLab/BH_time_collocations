@@ -7,9 +7,5 @@ This directory contains the primary analysis notebooks and scripts for the proje
 The analyses in this directory are to be organized by topic, itself broadly arranged in a natural data-discovery progression, going from identity, distribution, to an analysis of internal and external collocational patterns.  
 
 * [tools](tools) - Python scripts used for analyzing the data.
-* [0_exploratory](0_exploratory) - Notebooks in the first stages of exploration of the the ETCBC `Time` phrases, mostly limited to SBH texts.
-* [1_identity](1_identity) - Notebooks describing the general identity of time adverbials in Biblical Hebrew and related issues
-* [2_distribution](2_distribution) - Notebooks describing the distribution of time adverbials in Biblical Hebrew and related issues.
-* [3_internal_collocations](3_internal_collocations) - Notebooks looking at the internal collocation patterns of time adverbials. In other words, this examines the collocational tendencies of time words and their modifiers as a way of getting at semantic meaning.
-* [4_external_collocations](4_external_collocations) - Notebooks that examine the collocational tendencies of time adverbials with external elements, including sentence arguments, verbs, and discourse contexts.
-
+* [exploratory](0_exploratory) - Notebooks in the first stages of exploration of the the ETCBC `Time` phrases, mostly limited to SBH texts.
+* [studies](studies) – Specific mini-studies and their analysis notebooks
