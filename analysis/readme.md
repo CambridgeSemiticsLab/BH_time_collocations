@@ -8,4 +8,3 @@ The analyses in this directory are to be organized by topic, itself broadly arra
 
 * [tools](tools) - Python scripts used for analyzing the data.
 * [exploratory](0_exploratory) - Notebooks in the first stages of exploration of the the ETCBC `Time` phrases, mostly limited to SBH texts.
-* [studies](studies) – Specific mini-studies and their analysis notebooks
