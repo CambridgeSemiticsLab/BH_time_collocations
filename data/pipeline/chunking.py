@@ -104,8 +104,8 @@ class Chunker:
             self.nodeFeatures['otype'][self.newNode] = 'chunk'
             self.nodeFeatures['label'][self.newNode] = 'timephrase'
             # add semantic roles for time heads
-            for time in E.head.t(phrase):
-                self.edgeFeatures['role'][time] = {phrase:'time'}
+            for time in E.nhead.t(phrase):
+                self.edgeFeatures['role'][time] = {self.newNode:'time'}
     
     def get_item(self, item, iterable, default=0):
         '''
@@ -266,7 +266,7 @@ class Chunker:
             self.nodeFeatures['otype'][self.newNode] = 'chunk'
             self.nodeFeatures['label'][self.newNode] = label
             self.edgeFeatures['role'].update({noun:{self.newNode:'subs'} for noun in chunknouns})
-            self.edgeFeatures['role'].update({quant:{self.newNode:'quant'} for quant in chunkquants}) 
+            self.edgeFeatures['role'].update({quant:{self.newNode:'quant'} for quant in chunkquants})
     
     def climb_prep_chain(self, prep, prep_list):
         '''
