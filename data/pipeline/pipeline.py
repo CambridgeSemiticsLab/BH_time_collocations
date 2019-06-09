@@ -24,7 +24,7 @@
 # 
 # Input and output files are outlined below. Both directories consist (or will) of .tf resources. The input files are the base BHSA dataset while the output will be the customized, project dataset. Another dataset, `heads`, which is crucial for this work, is identified below as well. See the documentation for heads [here](https://nbviewer.jupyter.org/github/ETCBC/heads/blob/master/phrase_heads.ipynb).
 
-# In[4]:
+# In[1]:
 
 
 # import generic packages and modules
@@ -35,12 +35,12 @@ from tf.app import use
 # import pipeline classes
 from remapfunctions import RemapFunctions # remaps phrase functions
 from chunking import Chunker # chunks meaningful groups
-from embedding import EmbedDetector # labels chunk embeddings
+from enhance import Enhance # adds helper data to chunks
 from function_association import FunctAssoc # calcs function associations
 
 # function associations take a long time to run
 # only run them if explicitly asked
-run_associations = '-full' in sys.argv
+run_associations = '-full' in sys.argv or False # config to True in NB to run it
 
 # determine whether script is being run from ipython or as simple .py
 # this notebook code is converted with nbconvert to a .py script and has
@@ -75,9 +75,9 @@ base_metadata = {'source': 'https://github.com/etcbc/bhsa',
 # 
 # Remove all .tf files in the output directory. This is necessary since all output data goes to the same place, and subsequent classes depend on previous data. Without the purge, subsequent runs will add new objects on top of previous ones!
 # 
-# The `funct_assoc.tf` and `top_assoc.tf` features rely only on the phrase function feature and need not be purged. Keeping them prevents the significant runtime needed to calculate them.
+# The `funct_assoc.tf` and `top_assoc.tf` features rely only on the phrase function feature and need not be purged unless new phrase function edits are added (cf. #1). Keeping them prevents the significant runtime needed to calculate them.
 
-# In[6]:
+# In[2]:
 
 
 keep = [os.path.join(output_dir, file) for file in ('funct_assoc.tf', 'top_assoc.tf')]
@@ -92,7 +92,7 @@ print('DONE')
 
 # # 1. Phrase Function Edits
 
-# In[8]:
+# In[3]:
 
 
 remap_functs = RemapFunctions(locations, base_metadata)
@@ -100,7 +100,7 @@ remap_functs = RemapFunctions(locations, base_metadata)
 
 # The following functions will be changed...
 
-# In[9]:
+# In[4]:
 
 
 if is_nb:
@@ -111,7 +111,7 @@ if is_nb:
 
 # The change is executed below.
 
-# In[10]:
+# In[5]:
 
 
 remap_functs.execute()
@@ -123,7 +123,7 @@ remap_functs.execute()
 # 
 # `chunk` objects have two important features, called `label` and `role`. The `label` feature is essentially the name of the function. For instance, `timephrase` or `quant` (quantifier). The feature `role` is an edge feature, which maps the chunk's component parts to the new object. For example, in a `quant_NP`, there is an edge drawn from the noun to the `quant_NP` chunk; the edge has a value of "quantified" since the noun is the quantified item.
 
-# In[11]:
+# In[6]:
 
 
 chunker = Chunker(locations, base_metadata)
@@ -131,31 +131,51 @@ chunker = Chunker(locations, base_metadata)
 
 # ### [relevant, illustrative examples will be shown here]
 
-# In[12]:
+# In[7]:
 
 
 chunker.execute()
 
 
-# ## 2.2 Generate Embedding Data for Chunks
+# ## 2.2 Generate Helper Data for Chunks
+
+# In[8]:
+
+
+enhance = Enhance(locations, base_metadata)
+
+
+# ### 2.2.1 Embedding Data
 # 
 # Quantifier chunks often consist of smaller, component chunks. When clustering time adverbials, it is often not necessary to know that a quantifier contains two component parts. Rather, only the top level quantifier chunk is needed to indicate that there is quantification in the adverbial. The `embed` feature is a simple `true` or `false` tag which indicates whether a given chunk is contained within another chunk of the same kind. This allows quick and efficient selection of non-embedded chunks by `embed=false`. 
 
-# In[13]:
+# In[9]:
 
 
-embeddings = EmbedDetector(locations, base_metadata)
+enhance.embeddings()
 
 
-# In[14]:
+# ### 2.2.2 Quantifier Time Roles
+# 
+# Quantifiers contained in a timephrase do not yet have a role mapping from the quantified noun to the time chunk. We add that below, creating an edge feature with a role of 'time' from a quantified noun to its embedding `timephrase` chunk.
+
+# In[10]:
 
 
-embeddings.execute()
+enhance.quanttimes()
+
+
+# ### Export Enhancements
+
+# In[11]:
+
+
+enhance.export()
 
 
 # ## 3. Function Associations
 # 
-# Build association scores between head lexemes and their phrase functions. This data takes a significant amount of time to recalculate and only needs to be run if function data has not changed.
+# Build association scores between head lexemes and their phrase functions. This data takes a significant amount of time to recalculate and only needs to be run if function data has changed.
 
 # In[5]:
 
