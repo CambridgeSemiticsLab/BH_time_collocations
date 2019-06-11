@@ -15,8 +15,8 @@ class Enhance:
     
     def __init__(self, locs, metadata):
         
-        print('enhancing chunks...')
-        print('\tcalculating fresh TF binaries...')
+        print('preparing to enhance chunks...')
+        print('\tloading fresh TF data...')
         
         # intialize Text-Fabric methods
         locas = [locs['bhsa'], locs['output']]

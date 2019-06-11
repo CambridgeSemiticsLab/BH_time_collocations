@@ -9,8 +9,9 @@
 # 
 # 1. **Some phrases marked for time adverbial function are corrected and remapped to the appropriate function.** These corrections are based on examining the data manually and deciding whether the default BHSA label should be kept or modified. Those cases will be described explicitly below.
 # 2. **Meaningful groups above or below a phrase or other formal object are "chunked" into new objects, called `chunk`.** The `chunk` object contains word groups such as quantifier number chains (below the phrase level) or time adverbial chunks (units above the phrase level). This latter case consists of certain situations where BHSA splits a time adverbial phrase into two separate phrases. Those two parts are recombined in `chunks` for further analysis.
-# 3. **Construction objects are generated**. This is the final step in the pipeline, which is based on the statistical and functional analysis of time adverbials. A series of new objects will be built using the `chunk` objects. They will contain labels for semantic roles and semantic function. These labels are to be constructed using inductive, data-driven analysis combined with insights from Construction Grammar.
-# 4. **New features on phrases, chunks, or constructions.** These are various features stored on the objects noted above.
+# 3. But will be number 4. **New features on phrases, chunks, and constructions.** These are various features stored on the objects noted above.
+# 
+# 4. **~TO BE DONE, will be 3.~** **Construction objects are generated**. This will be the final step in the pipeline, which is based on the statistical and functional analysis of time adverbials. A series of new objects will be built using the `chunk` objects. They will contain labels for semantic roles and semantic function. These labels are to be constructed using inductive, data-driven analysis combined with insights from Construction Grammar.
 # 
 # **The end result is a custom database, which consists of original BHSA data, modified BHSA phrase function data, and new objects with their associated features**.
 # 
@@ -80,7 +81,10 @@ base_metadata = {'source': 'https://github.com/etcbc/bhsa',
 # In[2]:
 
 
-keep = [os.path.join(output_dir, file) for file in ('funct_assoc.tf', 'top_assoc.tf')]
+# keep association data by default
+# these can be written over without any problems
+keep = [os.path.join(output_dir, file) for file in ('funct_assoc.tf', 'top_assoc.tf')] 
+
 print('Purging old data...')
 old_tf = glob.glob(os.path.join(output_dir, '*.tf'))
 for file in old_tf:
@@ -137,7 +141,9 @@ chunker = Chunker(locations, base_metadata)
 chunker.execute()
 
 
-# ## 2.2 Generate Helper Data for Chunks
+# # 3. Generate Helper Data
+# 
+# It is easier to use the resulting TF resource to build features of chunks than building those features from the raw data. In this section, enhancements are added to the chunk objects that were generated in section 2.
 
 # In[8]:
 
@@ -145,7 +151,7 @@ chunker.execute()
 enhance = Enhance(locations, base_metadata)
 
 
-# ### 2.2.1 Embedding Data
+# ## 3.1 Embedding Data
 # 
 # Quantifier chunks often consist of smaller, component chunks. When clustering time adverbials, it is often not necessary to know that a quantifier contains two component parts. Rather, only the top level quantifier chunk is needed to indicate that there is quantification in the adverbial. The `embed` feature is a simple `true` or `false` tag which indicates whether a given chunk is contained within another chunk of the same kind. This allows quick and efficient selection of non-embedded chunks by `embed=false`. 
 
@@ -155,7 +161,7 @@ enhance = Enhance(locations, base_metadata)
 enhance.embeddings()
 
 
-# ### 2.2.2 Quantifier Time Roles
+# ## 3.2 Quantifier Time Roles
 # 
 # Quantifiers contained in a timephrase do not yet have a role mapping from the quantified noun to the time chunk. We add that below, creating an edge feature with a role of 'time' from a quantified noun to its embedding `timephrase` chunk.
 
@@ -165,7 +171,9 @@ enhance.embeddings()
 enhance.quanttimes()
 
 
-# ### Export Enhancements
+# ## Export Enhancements
+# 
+# The enhancements are now exported to .tf resources.
 
 # In[11]:
 
@@ -173,7 +181,7 @@ enhance.quanttimes()
 enhance.export()
 
 
-# ## 3. Function Associations
+# ## 4. Function Associations
 # 
 # Build association scores between head lexemes and their phrase functions. This data takes a significant amount of time to recalculate and only needs to be run if function data has changed.
 

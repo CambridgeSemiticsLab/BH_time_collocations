@@ -73,8 +73,8 @@ class Chunker:
             thisclause = L.d(L.u(phrase, 'clause')[0], 'phrase') # all phrases in cl
             nextphrase = next(iter(L.n(phrase, 'phrase')), 0)
             prevphrase = next(iter(L.p(phrase, 'phrase')), 0)
-            nx_time = F.function.v(nextphrase) == 'Time' and nx_time in thisclause
-            pr_time = F.function.v(prevphrase) == 'Time' and pr_time in thisclause
+            nx_time = F.function.v(nextphrase) == 'Time' and nextphrase in thisclause
+            pr_time = F.function.v(prevphrase) == 'Time' and prevphrase in thisclause
             
             # Automatically chunk time phrases not preceded 
             # or followed by another time prhase
@@ -90,9 +90,9 @@ class Chunker:
                 # gather all subsequent slots
                 # iteratively reassign nx_time to the next phrase
                 # until all daughters are captured
-                while F.function.v(nx_time) == 'Time' and nx_time in thisclause:
-                    chunkSlots.extend(L.d(nx_time, 'word'))
-                    nx_time = next(iter(L.n(nx_time, 'phrase')), 0)
+                while F.function.v(nextphrase) == 'Time' and nextphrase in thisclause:
+                    chunkSlots.extend(L.d(nextphrase, 'word'))
+                    nextphrase = next(iter(L.n(nextphrase, 'phrase')), 0)
                 
             # skip non-dominant time phrases
             elif pr_time:

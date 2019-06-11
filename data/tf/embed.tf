@@ -5,7 +5,7 @@
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-06-09T06:36:36Z
+@dateWritten=2019-06-11T15:13:40Z
 
 1446800	false
 false
@@ -49,14 +49,10 @@ false
 true
 false
 false
-false
-false
-false
 true
 false
 true
 true
-false
 false
 false
 false
@@ -70,11 +66,6 @@ false
 false
 false
 false
-false
-false
-false
-false
-true
 true
 false
 false
@@ -287,7 +278,6 @@ false
 false
 false
 false
-false
 true
 false
 true
@@ -297,7 +287,6 @@ false
 false
 true
 true
-false
 false
 false
 false
@@ -341,12 +330,10 @@ false
 false
 false
 false
-false
 true
 false
 true
 true
-false
 false
 false
 false
@@ -366,8 +353,6 @@ false
 false
 false
 false
-false
-false
 true
 false
 false
@@ -519,9 +504,6 @@ false
 true
 false
 true
-false
-false
-false
 false
 false
 false
@@ -546,10 +528,7 @@ false
 false
 true
 false
-true
-false
 false
-true
 false
 false
 false
@@ -614,7 +593,6 @@ false
 false
 false
 true
-false
 false
 false
 false
@@ -760,9 +738,6 @@ false
 false
 false
 false
-false
-false
-false
 true
 false
 true
@@ -847,7 +822,6 @@ false
 false
 false
 false
-false
 true
 false
 false
@@ -878,7 +852,6 @@ false
 false
 false
 true
-false
 false
 false
 false
@@ -897,7 +870,6 @@ false
 false
 false
 false
-false
 true
 false
 false
@@ -1004,7 +976,6 @@ false
 true
 true
 true
-false
 false
 false
 false
@@ -1085,7 +1056,6 @@ false
 false
 false
 false
-false
 true
 false
 false
@@ -1260,7 +1230,6 @@ true
 false
 true
 true
-false
 false
 false
 false
@@ -1285,7 +1254,6 @@ false
 false
 false
 false
-true
 false
 false
 false
@@ -1341,7 +1309,6 @@ false
 true
 false
 true
-false
 false
 false
 false
@@ -1349,7 +1316,6 @@ false
 false
 false
 false
-true
 false
 false
 false
@@ -1399,7 +1365,6 @@ false
 false
 false
 false
-false
 true
 false
 false
@@ -1440,7 +1405,6 @@ false
 false
 false
 true
-false
 false
 false
 false
@@ -1690,7 +1654,6 @@ false
 false
 false
 false
-false
 true
 true
 true
@@ -1799,7 +1762,6 @@ false
 false
 false
 true
-false
 false
 false
 false
@@ -2101,7 +2063,6 @@ true
 false
 false
 false
-true
 false
 true
 false
@@ -2261,7 +2222,6 @@ false
 false
 false
 true
-false
 false
 false
 false
@@ -2600,9 +2560,7 @@ false
 false
 false
 false
-false
 true
-false
 false
 false
 false
@@ -2624,9 +2582,6 @@ true
 false
 false
 true
-false
-false
-false
 false
 false
 false
@@ -2667,17 +2622,8 @@ false
 false
 false
 false
-false
-false
-false
-false
-false
 true
 true
-false
-false
-false
-false
 false
 false
 false
@@ -2709,8 +2655,6 @@ false
 false
 false
 false
-false
-false
 true
 false
 true
@@ -2806,7 +2750,6 @@ false
 false
 false
 false
-false
 true
 false
 false
@@ -2912,7 +2855,6 @@ false
 false
 false
 true
-false
 false
 false
 false
@@ -3269,7 +3211,6 @@ false
 false
 false
 false
-false
 true
 false
 false
@@ -3292,7 +3233,6 @@ false
 false
 false
 false
-true
 false
 false
 false
@@ -3428,9 +3368,6 @@ false
 true
 true
 true
-false
-false
-false
 false
 false
 false
@@ -3443,7 +3380,6 @@ false
 false
 false
 false
-true
 false
 true
 false
@@ -3666,7 +3602,6 @@ false
 true
 false
 true
-false
 false
 false
 false
@@ -3715,8 +3650,6 @@ true
 true
 true
 true
-false
-false
 false
 false
 false
@@ -3792,7 +3725,6 @@ false
 false
 false
 false
-false
 true
 true
 false
@@ -3820,7 +3752,6 @@ false
 false
 false
 true
-false
 false
 false
 false
@@ -3884,7 +3815,6 @@ false
 false
 false
 false
-false
 true
 true
 false
@@ -3907,7 +3837,6 @@ false
 false
 false
 false
-true
 false
 true
 true
@@ -4008,7 +3937,6 @@ false
 false
 true
 false
-true
 false
 true
 false
