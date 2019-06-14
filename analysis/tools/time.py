@@ -36,18 +36,19 @@ class Time:
         wherein 1 simply means present.
         '''
     
-        phrase = L.d(cx, 'phrase')[0]
-        ph_words = L.d(phrase, 'word')
-        sent_words = L.d(L.u(phrase, 'sentence')[0], 'word')
-        dep_cl = next((cl for cl in E.mother.t(phrase) if F.rela.v(cl) == 'Attr'), None)
-        times = [time[0] for time in E.role.t(cx) if time[1] == 'time'] or E.nhead.t(phrase)
+        sent_words = L.d(L.u(cx, 'sentence')[0], 'word')
+        times = [time[0] for time in E.role.t(cx) if time[1] == 'time'] or E.nhead.t(L.d(cx, 'phrase')[0])
         features = {}
 
-        # phrase type, PP or NP, wherein AdvP are considered a kind of NP
-        typ = 'PPtime' if F.typ.v(phrase) == 'PP' else 'time'
-        features[typ] = 1
-
         for time in times:
+            
+            phrase = L.u(time, 'phrase')[0]
+            ph_words = L.d(phrase, 'word')
+            dep_cl = next((cl for cl in E.mother.t(phrase) if F.rela.v(cl) == 'Attr'), None)
+            
+            # phrase type, PP or NP, wherein AdvP are considered a kind of NP
+            typ = 'PPtime' if F.typ.v(phrase) == 'PP' else 'time'
+            features[typ] = 1
 
             # get relative slot positions
             timei = ph_words.index(time)
@@ -135,5 +136,6 @@ class Time:
         result = (cx,) + L.d(cx, 'phrase') + tuple(times)
     
         self.tag = tag
-        self.result = result
+        self.result = result 
         self.specs = features
+        self.times = times

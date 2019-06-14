@@ -26,7 +26,7 @@ class Chunker:
         locas = [locs['bhsa'], locs['heads'], locs['output']]
         TF = Fabric(locations=locas, silent=True)
         load_features = ['function', 'note', 'sem_set', 'head', 'nhead',
-                         'st', 'ls', 'language', 'pdp', 'lex', 'obj_prep']
+                         'st', 'ls', 'language', 'pdp', 'lex', 'obj_prep', 'language']
         self.bhsa = bhsa = TF.load(' '.join(load_features), silent=True)
         self.meta = metadata
         
@@ -65,6 +65,11 @@ class Chunker:
         # time phrase in the chunk. Skip over times that are preceded
         # by another time since these will be subsumed into the first time.
         for phrase in F.function.s('Time'):
+            
+            # only chunk Hebrew cases
+            language = F.language.v(L.d(phrase, 'word')[0])
+            if language != 'Hebrew':
+                continue
             
             # assign chunk boundaries here
             chunkSlots = []
