@@ -1,4 +1,4 @@
-# Biblical Hebrew Time Collocations [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3246258.svg)(https://doi.org/10.5281/zenodo.3246258)
+# Biblical Hebrew Time Collocations [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3246258.svg)
 
 (https://zenodo.org/badge/latestdoi/153016597)<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
 
