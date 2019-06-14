@@ -7,4 +7,5 @@ This directory contains the primary analysis notebooks and scripts for the proje
 The analyses in this directory are to be organized by topic, itself broadly arranged in a natural data-discovery progression, going from identity, distribution, to an analysis of internal and external collocational patterns.  
 
 * [tools](tools) - Python scripts used for analyzing the data.
-* [exploratory](0_exploratory) - Notebooks in the first stages of exploration of the the ETCBC `Time` phrases, mostly limited to SBH texts.
+* [exploratory](exploratory) - Notebooks in the first stages of exploration of the the ETCBC `Time` constructions.
+* [classification.ipynb](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/classification.ipynb)
