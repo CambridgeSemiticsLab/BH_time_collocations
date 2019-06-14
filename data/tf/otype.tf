@@ -4,7 +4,7 @@
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-06-11T15:12:25Z
+@dateWritten=2019-06-13T14:09:06Z
 
 1-426584	word
 426585-426623	book
@@ -19,4 +19,4 @@
 1300542-1414353	subphrase
 1414354-1437566	verse
 1437567-1446799	lex
-1446800-1529016	chunk
+1446800-1528897	chunk
