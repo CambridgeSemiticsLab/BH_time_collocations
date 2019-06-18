@@ -8,4 +8,4 @@ The analyses in this directory are to be organized by topic, itself broadly arra
 
 * [tools](tools) - Python scripts used for analyzing the data.
 * [exploratory](exploratory) - Notebooks in the first stages of exploration of the the ETCBC `Time` constructions.
-* [classification.ipynb](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/classification.ipynb)
+* [classification.ipynb](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/classification.ipynb) — In this notebook, I combine what I know up to this point about the internal patterns of time constructions and construct classes of constructions as correlated with semantic function. I also give names to these constructions, which will form the basis for the broader inquiry on their roles and tendencies throughout the Hebrew Bible.
