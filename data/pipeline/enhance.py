@@ -68,7 +68,8 @@ class Enhance:
     def quanttimes(self):
         '''
         Adds time roles to timephrase chunks with 
-        quantifiers.
+        quantifiers, also adds edge relation from
+        the quantifiers to the timephrase chunk.
         '''
         
         print('Adding new quanttime role data...')
@@ -88,9 +89,12 @@ class Enhance:
                 continue
                 
             # add time roles
-            for noun, role in E.role.t(chunk):
+            for word, role in E.role.t(chunk):
                 if role == 'subs':
-                    self.edgeFeatures['role'][noun].update({timephrase[0]:'time'})
+                    self.edgeFeatures['role'][word].update({timephrase[0]:'time'})
+                    new_roles += 1
+                elif role == 'quant':
+                    self.edgeFeatures['role'][word].update({timephrase[0]:'quant'})
                     new_roles += 1
                     
         print(f'\t{new_roles} new time roles added...')

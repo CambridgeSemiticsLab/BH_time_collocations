@@ -38,6 +38,8 @@ class Time:
     
         sent_words = L.d(L.u(cx, 'sentence')[0], 'word')
         times = [time[0] for time in E.role.t(cx) if time[1] == 'time'] or E.nhead.t(L.d(cx, 'phrase')[0])
+        quants = [num[0] for num in E.role.t(cx) if num[1] == 'quant']
+        
         features = {}
 
         for time in times:
@@ -139,3 +141,5 @@ class Time:
         self.result = result 
         self.specs = features
         self.times = times
+        self.quants = quants
+        self.cx = cx
