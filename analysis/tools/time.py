@@ -79,9 +79,7 @@ class Time:
                 features['sffx'] = 1
 
             # check quant & qual quants
-            is_quant = set(ch for ch in L.u(time, 'chunk') 
-                              if F.label.v(ch) and 'quant' in F.label.v(ch))
-            if is_quant:
+            if quants:
                 features['quant'] = 1
                 features['card'] = 1
 
@@ -141,5 +139,5 @@ class Time:
         self.result = result 
         self.specs = features
         self.times = times
-        self.quants = quants
+        self.quants = quants or [w for w in L.d(cx, 'word') if isQualQuant(w)]
         self.cx = cx
