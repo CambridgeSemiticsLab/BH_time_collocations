@@ -1,11 +1,15 @@
 '''
-This class exports helping features on chunks.
-These features rely on pre-processed chunk data
-and thus are best built using loaded TF data.
-The embedding feature tells whether a chunk is embedded in another chunk
-of the same kind. The exported feature is a string on 
-chunk nodes with a value of true or false.
-Time roles are also added on timephrase chunks with embedded quantifiers.
+This class exports enhancements based on the final
+underlying dataset.
+
+--Helping Features on Chunks--
+• embedding [embeddings] - tells whether a chunk is embedded in another chunk
+of the same kind. The feature is a string on chunk nodes 
+with a value of "true" or "false".
+• role [quanttimes] - Time roles are added on timephrase chunks with embedded quantifiers.
+
+--Edited BHSA Features
+• vt [add_weqatal] - the verb tense feature is edited to include weqatal
 ''' 
 
 from tf.fabric import Fabric
@@ -21,7 +25,8 @@ class Enhance:
         # intialize Text-Fabric methods
         locas = [locs['bhsa'], locs['output']]
         TF = Fabric(locations=locas, silent=True)
-        load_features = ['label', 'function', 'role']
+        load_features = ['label', 'function', 'role', 'pdp', 'vt',
+                         'lex', 'mother']
         self.bhsa = TF.load(' '.join(load_features), silent=True)    
         self.output_dir = locs['output']
         self.meta = metadata
@@ -98,7 +103,65 @@ class Enhance:
                     new_roles += 1
                     
         print(f'\t{new_roles} new time roles added...')
+    
+    def add_weqatal(self):
+        '''
+        Adds weqatal parsings to the vt (verb tense) feature.
+        '''
+        
+        print('Adding weqatals to vt (verb tense) feature...')
+        
+        F, E, L = self.bhsa.F, self.bhsa.E, self.bhsa.L
+        
+        def get_grandma(clause_atom):
+            '''
+            Recursively climbs up a clause's ancestorial tree.
+            Stops upon identifying either wayyiqtol
+            or a yiqtol|impv grand(mother).
+            Returns a string of the ancestor's tense, or nothing.
+            '''
+
+            this_verb = next((F.vt.v(w) for w in L.d(clause_atom) if F.pdp.v(w)=='verb'), '')
+            mother = next((m for m in E.mother.f(clause_atom)), 0)
+            mom_verb = next((F.vt.v(w) for w in L.d(mother) if F.pdp.v(w)=='verb'), '')    
+
+            if mom_verb in {'wayq', 'impf', 'impv'}:
+                return mom_verb
+            elif not mother:
+                return this_verb
+            else:
+                return get_grandma(mother)
+        
+        # Begin weqatal calculation
+        new_weqtls = []
+        print('\tre-calculating verb tenses...')
+        for word in F.otype.s('word'):
             
+            # skip non-verbs
+            if F.vt.v(word) == 'NA':
+                continue
+            
+            # calculate presence of the weqatal
+            if F.vt.v(word) == 'perf' and F.lex.v(word-1) == 'W':
+                
+                # get tense of the ancestor of the verb's clause
+                clause = L.u(word, 'clause_atom')[0]
+                qatal_ancestor = get_grandma(clause)
+                
+                # check for whether ancestor triggers weqatal analysis
+                if qatal_ancestor in {'impf', 'impv'}:
+                    self.nodeFeatures['vt'][word] = 'weqt' # change tense to weqt
+                    new_weqtls.append(word)
+                else:
+                    self.nodeFeatures['vt'][word] = F.vt.v(word) # no change on tense
+                
+            # re-add tense unchanged
+            else:
+                self.nodeFeatures['vt'][word] = F.vt.v(word)
+                
+        print(f'\t{len(new_weqtls)} qatals changed to weqatals...')
+                
+        
     def export(self):
         '''
         Exports new TF data.
@@ -111,7 +174,10 @@ class Enhance:
                              },
                     'role':{'edgeValues':True,
                             'valueType':'str', 
-                            'description':'role of a word in a chunk object'}
+                            'description':'role of a word in a chunk object'},
+                    'vt':{'valueType':'str',
+                          'description':'These are default tense values from the BHSA but edited to include weqatal where it is present.'
+                         }
                    }
         
         print('exporting tf...')
