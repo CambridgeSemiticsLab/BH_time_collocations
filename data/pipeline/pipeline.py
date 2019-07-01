@@ -163,7 +163,7 @@ enhance.embeddings()
 
 # ## 3.2 Quantifier Time Roles
 # 
-# Quantifiers contained in a timephrase do not yet have a role mapping from the quantified noun to the time chunk. We add that below, creating an edge feature with a role of 'time' from a quantified noun to its embedding `timephrase` chunk.
+# Quantifiers contained in a timephrase do not yet have a role mapping from the quantified noun to the time chunk. We add that below, creating an edge feature with a role of `time` from a quantified noun to its embedding `timephrase` chunk. We also create an edge relationship of `quant` from the quantifier words to the `timephrase` chunk.
 
 # In[10]:
 
@@ -171,11 +171,23 @@ enhance.embeddings()
 enhance.quanttimes()
 
 
+# ## 3.3 Add Weqatals
+# 
+# The BHSA dataset does not mark any distinction between qatal and weqatal in its `vt` (verb tense) features. This feature is added by editing the BHSA `vt` feature. The rule is relatively simple: if a qatal verb follows a yiqtol or imperative, it is calculated as a weqatal. However, immediate adjacency is not the only consideration, and a more nuanced notion of embedding is necessary to arrive at good weqatal calculations.
+# 
+# The necessary nuance is contributed by the BHSA feature, `mother`, which describes ancestoral links between clauses based on discourse features. The algorithm recursively climbs up the clause ancestoral tree until it finds a claused governed by a wayyiqtol, yiqtol, or imperative. If a wayyiqtol is hit upon, the verb is kept as qatal. If no wayyiqtol, yiqtol, or imperative precedes a qatal (e.g. Gen 1:1 with בָרָא) then the verb is kept as qatal. In all cases where qatal is preceded in its ancestoral line by a yiqtol or imperative, as well as with an immediately preceding *waw*, it is marked as weqatal.
+
+# In[11]:
+
+
+enhance.add_weqatal()
+
+
 # ## Export Enhancements
 # 
 # The enhancements are now exported to .tf resources.
 
-# In[11]:
+# In[12]:
 
 
 enhance.export()
@@ -185,10 +197,21 @@ enhance.export()
 # 
 # Build association scores between head lexemes and their phrase functions. This data takes a significant amount of time to recalculate and only needs to be run if function data has changed.
 
-# In[5]:
+# In[13]:
 
 
 if run_associations:
     funct_assoc = FunctAssoc(locations, base_metadata)
     funct_assoc.execute()
+
+
+# # Export .py Version of Pipeline
+# 
+# If this script is being run as a NB, export a .py version with any potential updates.
+
+# In[16]:
+
+
+if is_nb:
+    get_ipython().system('jupyter nbconvert --to python pipeline.ipynb')
 

@@ -2,31 +2,15 @@
 Time objects for analyzing time constructions.
 '''
 
-from __main__ import F, E, T, L
+from helpers import get_index
 
-def getIndex(thislist, index):
-    '''
-    A safe way to get index from 
-    a list/tuple. If indexError returns None.
-    '''
-    try:
-        return thislist[index]
-    except IndexError:
-        return None
-    
-def isQualQuant(word):
-    if F.sem_set.v(word) == 'quant' and F.ls.v(word) != 'card':
-        return True
-    else:
-        return False
-    
 class Time:
     '''
     The specifications of a Time object
     are stored and made available.
     '''
     
-    def __init__(self, cx):
+    def __init__(self, cx, tf):
     
         '''
         Tags time constructions
@@ -35,6 +19,22 @@ class Time:
         spec strings as keys and 1 as values,
         wherein 1 simply means present.
         '''
+        
+        # Text-Fabric classes
+        F, E, T, L = tf.F, tf.E, tf.T, tf.L
+        
+        def isQualQuant(word):
+            '''
+            Determines whether a word is a 
+            qualitative quantifier
+            '''
+            F = tf.F # Text-Fabric Feature Class
+            is_quant = F.sem_set.v(word) == 'quant'
+            not_card = F.ls.v(word) != 'card'
+            if is_quant and not_card:
+                return True
+            else:
+                return False
     
         sent_words = L.d(L.u(cx, 'sentence')[0], 'word')
         times = [time[0] for time in E.role.t(cx) if time[1] == 'time'] or E.nhead.t(L.d(cx, 'phrase')[0])
@@ -54,13 +54,13 @@ class Time:
 
             # get relative slot positions
             timei = ph_words.index(time)
-            m1 = getIndex(ph_words, timei-1) # minus 1, etc.
-            m2 = getIndex(ph_words, timei-2)
-            p1 = getIndex(ph_words, timei+1) # plus 1, etc.
-            p2 = getIndex(ph_words, timei+2)
+            m1 = get_index(ph_words, timei-1) # minus 1, etc.
+            m2 = get_index(ph_words, timei-2)
+            p1 = get_index(ph_words, timei+1) # plus 1, etc.
+            p2 = get_index(ph_words, timei+2)
             # relative slots in sentence
             timei_s = sent_words.index(time)
-            sp1 = getIndex(sent_words, timei_s+1)
+            sp1 = get_index(sent_words, timei_s+1)
 
             # preceding article
             if F.lex.v(m1) == 'H':
