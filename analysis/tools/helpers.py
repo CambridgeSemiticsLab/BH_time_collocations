@@ -4,6 +4,7 @@ various helper tasks for the analyses.
 '''
 
 import pandas as pd
+import collections
 
 def convert2pandas(counterdict):
     '''

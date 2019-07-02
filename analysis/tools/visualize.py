@@ -15,6 +15,8 @@ def reverse_hb(hb_text):
     '''
     return ''.join(reversed(hb_text))
 
+## TODO! Decide which barplot counter to keep
+
 def barplot_counts(count_dict, title='', reverse_labels=False, size=(8, 6), text_size=14, rotation=None, limit=None, save=''):
     '''
     Makes simple barplot of counts contained
@@ -35,3 +37,32 @@ def barplot_counts(count_dict, title='', reverse_labels=False, size=(8, 6), text
         plt.savefig(save, dpi=300, bbox_inches='tight')
     plt.show()
     return count_df
+
+def countBarplot(count_df, 
+                 title='', 
+                 column='Total', 
+                 reverse_labels=False, 
+                 size=(8, 6),
+                 xlab_rotation=None,
+                 ylim=None,
+                 save=None,
+                 xlabel=None,
+                ):
+    '''
+    Makes simple barplot from collections.Counter type objects.
+    '''
+    n_bars = list(range(0, count_df.shape[0]))
+    x_labels = [''.join(reversed(prep)) for prep in count_df.index] if reverse_labels else count_df.index
+    plt.figure(figsize=size)
+    sns.barplot(n_bars, count_df[column], color='darkblue')
+    plt.xticks(n_bars, x_labels, size=18, rotation=xlab_rotation)
+    plt.yticks(size=18)
+    if ylim:
+        plt.ylim(top=ylim[0], bottom=ylim[1])
+    if xlabel:
+        plt.xlabel(xlabel,size=18)
+    plt.ylabel(column, size=18)    
+    if save:
+        plt.savefig(save, dpi=300, bbox_inches='tight')
+    plt.title(title, size=18,  y=1.05)
+    plt.show()
