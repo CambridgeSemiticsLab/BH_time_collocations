@@ -2,7 +2,7 @@
 Time objects for analyzing time constructions.
 '''
 
-from helpers import get_index
+from .helpers import get_index
 
 class Time:
     '''
@@ -140,4 +140,5 @@ class Time:
         self.specs = features
         self.times = times
         self.quants = quants or [w for w in L.d(cx, 'word') if isQualQuant(w)]
+        self.preps = [ch for ch in L.d(cx, 'chunk') if F.label.v(ch) == 'prep']
         self.cx = cx
