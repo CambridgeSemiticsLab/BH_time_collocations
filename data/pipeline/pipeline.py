@@ -34,7 +34,7 @@ from tf.fabric import Fabric
 from tf.app import use
 
 # import pipeline classes
-from remapfunctions import RemapFunctions # remaps phrase functions
+from remapfeatures import RemapFeatures # remaps phrase functions
 from chunking import Chunker # chunks meaningful groups
 from enhance import Enhance # adds helper data to chunks
 from function_association import FunctAssoc # calcs function associations
@@ -94,31 +94,61 @@ for file in old_tf:
 print('DONE')
 
 
-# # 1. Phrase Function Edits
+# # 1. BHSA Node Feature Edits
+# 
+# Features on some node objects are edited here.
 
 # In[3]:
 
 
-remap_functs = RemapFunctions(locations, base_metadata)
+remap_feats = RemapFeatures(locations, base_metadata)
 
+
+# ## 1.1 Phrase Functions Edits
 
 # The following functions will be changed...
 
 # In[4]:
 
 
-if is_nb:
-    for phrase, newfunct in remap_functs.newfunctions.items():
-        print(f'{phrase} node with function {F.function.v(phrase)} will be remapped to {newfunct}')
-        bhsa.pretty(phrase)
+remap_feats.remap_functions()
 
 
-# The change is executed below.
+# The specific changes to phrase functions are shown below.
 
 # In[5]:
 
 
-remap_functs.execute()
+if is_nb:
+    for phrase, newfunct in remap_feats.newfunctions.items():
+        print(f'{phrase} node with function {F.function.v(phrase)} will be remapped to {newfunct}')
+        bhsa.pretty(phrase)
+
+
+# ## 1.1 Subphrase Relations Edits
+
+# In[6]:
+
+
+remap_feats.remap_relations()
+
+
+# The following subphrase relations will be changed...
+
+# In[7]:
+
+
+if is_nb:
+    for sp in remap_feats.newrelas:
+        print(sp, remap_feats.nodeFeatures['note'][sp])
+
+
+# ### Execute Feature Changes
+
+# In[9]:
+
+
+remap_feats.execute()
 
 
 # # 2.1 Generate Chunk Objects
@@ -127,7 +157,7 @@ remap_functs.execute()
 # 
 # `chunk` objects have two important features, called `label` and `role`. The `label` feature is essentially the name of the function. For instance, `timephrase` or `quant` (quantifier). The feature `role` is an edge feature, which maps the chunk's component parts to the new object. For example, in a `quant_NP`, there is an edge drawn from the noun to the `quant_NP` chunk; the edge has a value of "quantified" since the noun is the quantified item.
 
-# In[6]:
+# In[ ]:
 
 
 chunker = Chunker(locations, base_metadata)
@@ -135,7 +165,7 @@ chunker = Chunker(locations, base_metadata)
 
 # ### [relevant, illustrative examples will be shown here]
 
-# In[7]:
+# In[ ]:
 
 
 chunker.execute()
@@ -145,7 +175,7 @@ chunker.execute()
 # 
 # It is easier to use the resulting TF resource to build features of chunks than building those features from the raw data. In this section, enhancements are added to the chunk objects that were generated in section 2.
 
-# In[8]:
+# In[ ]:
 
 
 enhance = Enhance(locations, base_metadata)
@@ -155,7 +185,7 @@ enhance = Enhance(locations, base_metadata)
 # 
 # Quantifier chunks often consist of smaller, component chunks. When clustering time adverbials, it is often not necessary to know that a quantifier contains two component parts. Rather, only the top level quantifier chunk is needed to indicate that there is quantification in the adverbial. The `embed` feature is a simple `true` or `false` tag which indicates whether a given chunk is contained within another chunk of the same kind. This allows quick and efficient selection of non-embedded chunks by `embed=false`. 
 
-# In[9]:
+# In[ ]:
 
 
 enhance.embeddings()
@@ -165,7 +195,7 @@ enhance.embeddings()
 # 
 # Quantifiers contained in a timephrase do not yet have a role mapping from the quantified noun to the time chunk. We add that below, creating an edge feature with a role of `time` from a quantified noun to its embedding `timephrase` chunk. We also create an edge relationship of `quant` from the quantifier words to the `timephrase` chunk.
 
-# In[10]:
+# In[ ]:
 
 
 enhance.quanttimes()
@@ -177,7 +207,7 @@ enhance.quanttimes()
 # 
 # The necessary nuance is contributed by the BHSA feature, `mother`, which describes ancestoral links between clauses based on discourse features. The algorithm recursively climbs up the clause ancestoral tree until it finds a claused governed by a wayyiqtol, yiqtol, or imperative. If a wayyiqtol is hit upon, the verb is kept as qatal. If no wayyiqtol, yiqtol, or imperative precedes a qatal (e.g. Gen 1:1 with בָרָא) then the verb is kept as qatal. In all cases where qatal is preceded in its ancestoral line by a yiqtol or imperative, as well as with an immediately preceding *waw*, it is marked as weqatal.
 
-# In[11]:
+# In[ ]:
 
 
 enhance.add_weqatal()
@@ -187,7 +217,7 @@ enhance.add_weqatal()
 # 
 # The enhancements are now exported to .tf resources.
 
-# In[12]:
+# In[ ]:
 
 
 enhance.export()
@@ -197,7 +227,7 @@ enhance.export()
 # 
 # Build association scores between head lexemes and their phrase functions. This data takes a significant amount of time to recalculate and only needs to be run if function data has changed.
 
-# In[13]:
+# In[ ]:
 
 
 if run_associations:
@@ -209,7 +239,7 @@ if run_associations:
 # 
 # If this script is being run as a NB, export a .py version with any potential updates.
 
-# In[16]:
+# In[ ]:
 
 
 if is_nb:

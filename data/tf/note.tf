@@ -5,7 +5,7 @@
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-07-01T14:50:44Z
+@dateWritten=2019-07-04T14:48:21Z
 
 774349	function changed from Time to Adju
 774352	function changed from Time to Adju
@@ -15,3 +15,10 @@
 828081	function changed from Time to Cmpl
 849296	function changed from Time to Loca
 876172	function changed from Time to Adju
+1308697	relation changed from mod to adj
+1341455	relation changed from mod to adj
+1351683	relation changed from mod to adj
+1351797	relation changed from mod to adj
+1353159	relation changed from mod to adj
+1353279	relation changed from mod to adj
+1353681	relation changed from mod to adj
