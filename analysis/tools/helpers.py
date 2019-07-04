@@ -100,3 +100,25 @@ Voct	Vocative
 '''.split('\n')
 
 funct2function = dict((funct[0], funct[1].strip('\t')) for funct in [func.split('\t', 1) for func in funct2function] if funct[0])
+
+def show_subphrases(phrase, api, direction='down'):
+    '''
+    A simple function to print BHSA subphrases
+    and their relations to each other.
+    '''
+    
+    F, E, T, L = api.F, api.E, api.T, api.L
+    
+    direction = L.d if direction=='down' else L.u 
+    
+    for sp in direction(phrase, 'subphrase'):
+        
+        mother = E.mother.f(sp)[0] if E.mother.f(sp) else ''
+        mother_text = T.text(mother)
+        
+        print('-'*7 + str(sp) + '-'*16)
+        print()
+        print(f'{T.text(sp)} -{F.rela.v(sp)}-> {mother_text}')
+        print(f'nodes:  {sp} -{F.rela.v(sp)}-> {mother}')
+        print(f'slots:  {L.d(sp, "word")} -{F.rela.v(sp)}-> {L.d(mother or 0, "word")}')
+        print('-'*30)

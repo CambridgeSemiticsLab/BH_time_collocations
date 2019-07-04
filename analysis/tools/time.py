@@ -120,10 +120,13 @@ class Time:
                 features['attrb'] = 1
 
             # attributives
-            small_sp = next(iter(sorted(L.u(time, 'subphrase'))), 0)
-            attr_relas = set(rel_sp for rel_sp in E.mother.t(small_sp) if F.rela.v(rel_sp) in {'atr', 'adj'})
+            attribs = {'atr', 'adj'}
+            subphrases = L.u(time, 'subphrase')
+            attr_relas = set(rel_sp for sp in subphrases 
+                                 for rel_sp in E.mother.t(sp) 
+                                 if F.rela.v(rel_sp) in attribs)
 
-            if attr_relas and  not {'demonstrative', 'ordinal', 'attribute', 'qualitative quant.'} & set(features.keys()):
+            if attr_relas and  not ({'demon', 'ord', 'attrb', 'qual'} & set(features.keys())):
                 features['adjv'] = 1
 
         # tag relative/attributive specs dependent on phrase
