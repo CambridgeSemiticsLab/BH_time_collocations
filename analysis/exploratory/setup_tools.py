@@ -6,7 +6,7 @@ import random
 import pandas as pd
 import numpy as np
 import seaborn as sns
-sns.set(font_scale=1.5, style='whitegrid')
+#sns.set(font_scale=1.5, style='whitegrid')
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from skfuzzy.cluster import cmeans
