@@ -39,6 +39,7 @@ class Time:
         sent_words = L.d(L.u(cx, 'sentence')[0], 'word')
         times = [time[0] for time in E.role.t(cx) if time[1] == 'time'] or E.nhead.t(L.d(cx, 'phrase')[0])
         quants = [num[0] for num in E.role.t(cx) if num[1] == 'quant']
+        adjvs = []
         
         features = {}
 
@@ -85,7 +86,8 @@ class Time:
 
             is_qualq = any([isQualQuant(m1),
                             isQualQuant(m2) and F.lex.v(m1) == 'H', # attr patterns
-                            F.lex.v(p1) == 'H' and isQualQuant(p2)])
+                            F.lex.v(p1) == 'H' and isQualQuant(p2),
+                            isQualQuant(p1) and F.pdp.v(p1) == 'adjv'])
             if is_qualq:
                 features['quant'] = 1
                 features['qual'] = 1
@@ -128,6 +130,7 @@ class Time:
 
             if attr_relas and  not ({'demon', 'ord', 'attrb', 'qual'} & set(features.keys())):
                 features['adjv'] = 1
+                adjvs.extend(w for sp in attr_relas for w in L.d(sp, 'word'))
 
         # tag relative/attributive specs dependent on phrase
         if dep_cl:
@@ -142,6 +145,7 @@ class Time:
         self.result = result 
         self.specs = features
         self.times = times
+        self.adjvs = adjvs
         self.quants = quants or [w for w in L.d(cx, 'word') if isQualQuant(w)]
         self.preps = [ch for ch in L.d(cx, 'chunk') if F.label.v(ch) == 'prep']
         self.cx = cx

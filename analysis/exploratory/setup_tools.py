@@ -6,7 +6,7 @@ import random
 import pandas as pd
 import numpy as np
 import seaborn as sns
-#sns.set(font_scale=1.5, style='whitegrid')
+sns.set(font_scale=1.5, style='whitegrid')
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from skfuzzy.cluster import cmeans
@@ -39,4 +39,4 @@ A = use('bhsa', api=api, hoist=globals(), silent=True)
 
 A.displaySetup(condenseType='clause', condensed=True, withNodes=True)
 
-firstyear = '../../data/paper_data/firstyear2' # directory for first year review paper saves
+firstyear = '../../data/paper_data/firstyear2/' # directory for first year review paper saves
