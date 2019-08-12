@@ -54,7 +54,7 @@ class Enhance:
             # if matched, embed=true
             label = F.label.v(chunk)
             contained = [ch for ch in L.u(chunk, 'chunk')
-                            if F.label.v(chunk) == label]
+                            if F.label.v(ch) == label]
             if contained:
                 self.nodeFeatures['embed'][chunk] = 'true'
             else:
