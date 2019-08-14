@@ -45,7 +45,8 @@ class Positions:
         self.tf = tf.api # make TF classes avail
         self.n = n
         self.thisotype = tf.api.F.otype.v(n)
-        self.context = self.get_context(context)
+        self.context = (context if type(context) != str 
+                            else self.get_context(context))
     
     def get(self, position, features=None):
         '''
