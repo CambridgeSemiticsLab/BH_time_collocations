@@ -106,8 +106,7 @@ class Chunker:
             # finalize time chunk object
             self.newNode += 1
             self.edgeFeatures['oslots'][self.newNode] = chunkSlots
-            self.nodeFeatures['otype'][self.newNode] = 'chunk'
-            self.nodeFeatures['label'][self.newNode] = 'timephrase'
+            self.nodeFeatures['otype'][self.newNode] = 'timephrase'
             # add semantic roles for time heads
             for time in E.nhead.t(phrase):
                 self.edgeFeatures['role'][time] = {self.newNode:'time'}
