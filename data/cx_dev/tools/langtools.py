@@ -108,7 +108,7 @@ class Walker:
             returns True for a supplied function
     """
     
-    def __init__(self, element, positions, tf=None):
+    def __init__(self, element, positions):
         """Initialize paths for a node.
         Arguments:
             positions: a list of ordered objects to walk around
