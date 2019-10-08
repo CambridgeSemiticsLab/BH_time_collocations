@@ -21,7 +21,7 @@ class Positions:
     that is (+/-)N positions away in a context.
     """
     
-    def __init__(self, element, positions):
+    def __init__(self, element, positions, default=None):
         """Prepare context and positions for a supplied TF node.
         
         Arguments:
@@ -38,6 +38,7 @@ class Positions:
         self.element = element
         self.positions = positions
         self.originindex = self.positions.index(element)
+        self.default = default
     
     def elementpos(self, position):
         """Get position using order of context.
@@ -80,6 +81,9 @@ class Positions:
                 in case of a match.
         """
          
+        # get global default
+        default = default or self.default
+            
         # get requested position in context
         get_pos = self.elementpos(position)
         
