@@ -120,7 +120,7 @@ class Walker:
         self.positions = list(positions)
         self.index = self.positions.index(element)
 
-    def ahead(self, val_funct, **kwargs):
+    def ahead(self, val_funct, default=None, **kwargs):
         """Walk ahead to node.
     
         Returns:
@@ -133,6 +133,7 @@ class Walker:
                 to return.          
                 
         *Kwargs:
+            default: return this if no match found
             stop: a function that accepts a node argument and
                 returns Boolean. Determines whether to interrupt 
                 the walk and return None.
@@ -143,9 +144,12 @@ class Walker:
                 node itself.
         """
         path = self.positions[self.index+1:]
-        return self.firstresult(path, val_funct, **kwargs)
+        if kwargs.get('every'):
+            return self.allresults(path, val_funct, default=default, **kwargs)
+        else:
+            return self.firstresult(path, val_funct, default=default, **kwargs)
             
-    def back(self, val_funct, **kwargs):
+    def back(self, val_funct, default=None, **kwargs):
         """Walk back to node.
         
         Returns:
@@ -158,6 +162,7 @@ class Walker:
                 to return.          
                 
         *Kwargs:
+            default: return this if no match found
             stop: a function that accepts a node argument and
                 returns Boolean. Determines whether to interrupt 
                 the walk and return None.
@@ -169,10 +174,13 @@ class Walker:
         """
         path = self.positions[:self.index]
         path.reverse()
-        return self.firstresult(path, val_funct, **kwargs)
+        if kwargs.get('every'):
+            return self.allresults(path, val_funct, default=default, **kwargs)
+        else:
+            return self.firstresult(path, val_funct, default=default, **kwargs)
         
-    def firstresult(self, path, val_funct, **kwargs):
-        """Return data on node in a loop.
+    def firstresult(self, path, val_funct, default=None, **kwargs):
+        """Return the first matching result in walk.
         
         Args:
             path: a set of nodes to traverse.
@@ -181,6 +189,7 @@ class Walker:
                 in the walk.
                 
         *Kwargs:
+            default: return this if no match found
             stop: a function that accepts a node argument and
                 returns Boolean. Determines whether to interrupt 
                 the walk and return None.
@@ -206,6 +215,51 @@ class Walker:
             # do interrupts on stop
             elif stop(node):
                 break
+                
+        # no match has been found, return default
+        return default
+    
+    def allresults(self, path, val_funct, default=None, **kwargs):
+        """Return all matching results in walk.
+        
+        Args:
+            path: a set of nodes to traverse.
+            val_funct: a function that accepts a TF node argument
+                and returns Boolean. Determines which word to return
+                in the walk.
+                
+        *Kwargs:
+            default: return this if no match found
+            stop: a function that accepts a node argument and
+                returns Boolean. Determines whether to interrupt 
+                the walk and return None.
+            go: opposite of stop, a function that accepts a node
+                argument and returns Boolean. Determines whether
+                to keep going in a walk.
+            output: return output of the val_funct instead of the
+                node itself.
+        """
+        stop = kwargs.get('stop') or (lambda n: False)
+        go = kwargs.get('go') or (lambda n: True)
+        matches = []
+        for node in path:
+            # do matches
+            test = val_funct(node)
+            if test:
+                if not kwargs.get('output', False):
+                    matches.append(node)
+                else:
+                    return matches.append(test)
+            # do interrupts on go
+            elif not go(node):
+                break
+            # do interrupts on stop
+            elif stop(node):
+                break
+                
+        # give the matches or the default
+        return matches or default
+        
     
 class PositionsTF(Positions):
     """A Positions object made for TF searches."""
