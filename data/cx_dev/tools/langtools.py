@@ -71,7 +71,7 @@ class Positions:
         except (IndexError, TypeError):
             return None
     
-    def get(self, position, do=None, default=None):
+    def get(self, position, default=None, do=None):
         """Get data on node (+/-)N positions away. 
         
         Arguments:
@@ -82,7 +82,7 @@ class Positions:
         """
          
         # get global default
-        default = default or self.default
+        default = default if default is not None else self.default
             
         # get requested position in context
         get_pos = self.elementpos(position)
