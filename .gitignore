@@ -2,3 +2,5 @@
 __pycache__/
 .ipynb_checkpoints
 .tf
+.legacy
+networkx_learning.ipynb
