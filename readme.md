@@ -14,12 +14,7 @@ This project aims to build a comprehensive semantic taxonomy of the form, functi
 * [docs](docs) — Project documentation, including bibliography.txt, as well as images/files for displaying in markdown. 
 
 ## Main Analyses
-
-The links below connect to notebooks found in the analysis directory.
-
-* [Time Phrases in Standard Biblical Hebrew](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/SBH_time_expressions.ipynb) — Exploratory analysis of the ETCBC "Time" phrase in Genesis–Kings.
-* [Time Construction Distribution](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/exploratory/construction_distribution.ipynb) – Exploring the distributional properties of time constructions.
-* [Time Construction Clusters](https://nbviewer.jupyter.org/github/CambridgeSemiticsLab/BH_time_collocations/blob/master/analysis/exploratory/construction_clusters.ipynb) – A look at the clustering and collocational tendencies of time constructions
+Forthcoming.
 
 ## Methodology
 Biblical Hebrew linguists face the unique methodological problem that their target language has no living informants. Therefore, the usual tool of linguistic validation, grammaticality judgments, is unavailable. The approach of this study is to use statistical association between linguistic forms as a way of inducing language generalizations (Goldberg 2006). These generalizations can then be used to identify language defaults. This approach allows simpler forms to illuminate more complex ones through their interdependence. The method thus seeks to mitigate the lack of native intuition.
