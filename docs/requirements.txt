@@ -22,6 +22,7 @@ MarkupSafe==1.1.1
 matplotlib==3.1.1
 networkx==2.4
 numpy==1.17.3
+pandas==0.25.2
 parso==0.5.1
 pexpect==4.7.0
 pickleshare==0.7.5
@@ -35,6 +36,7 @@ PyJWT==1.7.1
 pyparsing==2.4.2
 python-dateutil==2.8.0
 python-Levenshtein==0.12.0
+pytz==2019.3
 pyzmq==18.1.0
 requests==2.22.0
 rpyc==4.1.2
