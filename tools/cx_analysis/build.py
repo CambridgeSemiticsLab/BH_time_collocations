@@ -151,10 +151,15 @@ class CXbuilder(object):
     def test_yield(self, cx1, cx2):
         """Determine whether to submit cx1 to cx2."""
         
+        # determine which yields dict to use
+        # yielding can be configured generally
+        # or specific to a pattern and its rules
+        yieldsto = cx1.__dict__.get('yieldsto', self.yieldsto)
+        
         # get name or class yields
-        cx1yields = self.yieldsto.get(
+        cx1yields = yieldsto.get(
             cx1.name,
-            self.yieldsto.get(cx1.kind, set())
+            yieldsto.get(cx1.kind, set())
         )
         # test yields
         if type(cx1yields) == set:
