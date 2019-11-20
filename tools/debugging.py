@@ -1,3 +1,5 @@
+import sys
+
 class Debugger(object):
     """Display debugging messages if toggled"""
     def __init__(self, boolean):
