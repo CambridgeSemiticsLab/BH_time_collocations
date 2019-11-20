@@ -6,7 +6,7 @@ from datetime import datetime
 from pprint import pprint
 from .cx import Construction
 
-class ShowCX:
+class SearchCX:
     """Methods for visualizing construction objects with TF"""
     
     def __init__(self, tf_app):
@@ -103,7 +103,7 @@ class ShowCX:
             self.prettyconds(cx)
         display(HTML('<hr>'))
 
-    def test_search(self, elements, cxtest, pattern='', 
+    def search(self, elements, cxtest, pattern='', 
                     show=None, end=None, shuffle=True,
                     updatei=1000, select=None, **kwargs):
         """Search phrases for a specified relation"""
@@ -151,6 +151,8 @@ class ShowCX:
 
         for match in matches[:show]:
             self.showcx(match, **kwargs)
+
+        return matches
             
 # NB: For the future. Here is a template to plot 
 # a network graph using networkx.
