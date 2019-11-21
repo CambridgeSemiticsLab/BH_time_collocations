@@ -67,7 +67,7 @@ class SearchCX:
                 withNodes=True, seq=f'{timephrase} -> {cx}'
             )
             if kwargs.get('conds'):
-                prettyconds(cx)
+                self.prettyconds(cx)
             return None
 
         colors = itertools.cycle([
