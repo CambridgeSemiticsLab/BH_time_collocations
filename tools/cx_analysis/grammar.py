@@ -133,7 +133,7 @@ class wordConstructions(CXbuilderTF):
                         F.lex.v(w) in {
                             'PNH/','TWK/', 
                             'QY/', 'QYH=/', 
-                            'QYT/', '<WD/'
+                            'QYT/',
                         },
                     'F.prs.v(w) == absent':
                         F.prs.v(w) == 'absent',
