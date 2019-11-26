@@ -313,7 +313,7 @@ class CXbuilder(object):
             
         return root
             
-    def analyzestretch(self, stretch, debug=False):
+    def analyzestretch(self, stretch, duplicate=False, debug=False):
         """Analyze an entire stretch of a linguistic unit.
         
         Applies construction tests for every constituent 
@@ -325,6 +325,8 @@ class CXbuilder(object):
                 are tested by construction tests to build
                 Construction objects. e.g. stretch might be 
                 a list of TF word nodes.
+            duplicate: whether to keep a copy of an analyzed
+                cx
             debug: option to display debuggin messages
         
         Returns:
@@ -344,6 +346,10 @@ class CXbuilder(object):
                     el for cx in matches 
                         for el in cx.graph
                 )
+                # keep copy of the cx
+                if duplicate:
+                    rawcxs.append(element)
+                    covered.add(element)
         
         # apply drip-bucket categories
         for element in set(stretch) - covered:
