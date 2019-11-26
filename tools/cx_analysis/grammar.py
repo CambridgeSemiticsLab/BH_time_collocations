@@ -1,7 +1,7 @@
 from .cx import Construction
 from .build import CXbuilder, CXbuilderTF
 
-class wordConstructions(CXbuilderTF):
+class Words(CXbuilderTF):
     """Build word constructions."""
     
     def __init__(self, tf, **kwargs):

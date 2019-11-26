@@ -97,7 +97,7 @@ class Construction(object):
         return hash(
             (self.name, self.element)
         )
-    
+
     def __int__(self):
         """Provide integers for first slot in cx.
         
