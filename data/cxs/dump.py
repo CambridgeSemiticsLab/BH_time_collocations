@@ -43,7 +43,8 @@ def load_cxs(tf_api, semdist, debug=False):
 
     # analyze all matches; return as dict
     start = datetime.now()
-    print(f'Beginning word construction analysis...')
+    print()
+    print(f'{datetime.now()-start} beginning word construction analysis...')
     wordcxs = words.cxdict(
         s for tp in timephrases
             for s in L.d(tp,'word')
@@ -99,5 +100,5 @@ load_features = '''
 
 '''
 TF, api, A = load_tf(load_features)
-
+print()
 cxs = load_cxs(A, semdist)
