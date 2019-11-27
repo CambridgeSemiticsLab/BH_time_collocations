@@ -239,3 +239,58 @@ class Construction(object):
             elif type(child) == int:
                 roledict[role] = child
         return roledict
+    
+    
+    # -- Functions for pickling Constructions-- 
+    # hashing CX objects causes an attribute error
+    # on pickle loading. This is b/c the NetworkX 
+    # graph uses dictionary hashes. Pickle attempts 
+    # to hash the object before it has been fully 
+    # constituted, trying to call __hash__ method,
+    # which expects metadata on the CX, such as name,
+    # to have already been established, causing the error.
+    # this is fixed by adding __getstate__ and __setstate__
+    # methods which first convert networkX objects into tuples
+    # and then reload them into networkX DiGraphs.
+    
+    def tuplify_graph(self, node):
+        """Convert a NetworkX constructional graph into a tuple"""
+        return tuple(
+            (n1, n2, {'role': node.graph[n1][n2]['role']})
+                 for n1, n2 in nx.bfs_edges(node.graph, node)
+        )
+
+    def graphify_tuple(self, graph_tuple):
+        """Convert a graph tuple back into NetworkX graph"""
+        return nx.DiGraph(graph_tuple)
+
+    def package_graph(self, node, graph=None):
+        """Recursively turn all cxs and contained cxs into tuples"""
+
+        # map graph nodes to tuple
+        if graph is None:
+            new_graph = self.tuplify_graph(node)
+            # bequeath to all embedded nodes
+            for nn in node.graph:        
+                if type(nn) == Construction and type(nn.graph) != tuple:
+                    self.package_graph(nn, graph=new_graph)
+            node.graph = new_graph
+
+        # assign to tuple
+        else:
+            node.graph = graph
+
+    def unpackage_graph(self, node, graph=None):
+        """Recursively turn all tupled graphs into NetworkX graphs"""
+
+        # map graph nodes to tuple
+        if graph is None:
+            node.graph = self.graphify_tuple(node.graph)
+            # bequeath to all embedded nodes
+            for nn in node.graph:        
+                if type(nn) == Construction and type(nn.graph) == tuple:
+                    self.unpackage_graph(nn, graph=node.graph)
+
+        # assign to tuple
+        else:
+            node.graph = graph
