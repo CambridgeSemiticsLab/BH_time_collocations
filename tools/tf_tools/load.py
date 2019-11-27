@@ -1,7 +1,8 @@
 '''
 Sets up an instance of TF along by 
-loacing standard features + custom ones.
+loading standard features + custom ones.
 '''
+
 import os.path as path
 from tf.app import use
 from tf.fabric import Fabric
