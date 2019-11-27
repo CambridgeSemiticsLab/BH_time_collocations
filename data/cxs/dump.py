@@ -1,20 +1,42 @@
 # load construction objects from TF resource
 
+import pickle
 import collections
 from datetime import datetime
 from locations import semvector
-from .grammar import Words
-from .phrase_grammar import Subphrases, Phrases
+from cx_analysis.grammar import Words
+from cx_analysis.phrase_grammar import Subphrases, Phrases
+from tf_tools.load import load_tf
 
 # load semantic vectors
 with open(semvector, 'rb') as infile: 
     semdist = pickle.load(infile)
 
-def load_cxs(tf_api, debug=False):
+def load_cxs(tf_api, semdist, debug=False):
     """Load constructional objects"""
     
     A = tf_api
+    A.api.makeAvailableIn(globals())    
+
+    # retrieve phrases
+    def disjoint(ph):
+        """Isolate phrases with gaps."""
+        ph = L.d(ph,'word')
+        for w in ph:
+            if ph[-1] == w:
+                break
+            elif (ph[ph.index(w)+1] - w) > 1:
+                return True
+
+    alltimes = [
+        ph for ph in F.otype.s('timephrase') 
+    ]
     
+    timephrases = [ph for ph in alltimes if not disjoint(ph)]
+
+    print(f'{len(timephrases)} phrases ready')
+
+
     # -- WORDS -- 
     
     words = Words(A) # word CX builder
@@ -70,4 +92,12 @@ def load_cxs(tf_api, debug=False):
     print(f'{len(phrase2cxs)} phrases matched with Constructions...')
     print(f'{len(nocxs)} phrases not yet matched with Constructions...')
     
-    
+    return {'wordcxs': wordcxs, 'phrase2cxs': phrase2cxs} 
+
+
+load_features = '''
+
+'''
+TF, api, A = load_tf(load_features)
+
+cxs = load_cxs(A, semdist)
