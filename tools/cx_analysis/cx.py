@@ -50,6 +50,7 @@ class Construction(object):
         self.cases = specs.get('cases', tuple())
         
         # map roles and slots
+        self.is_root = True # top level cxs, set to False when modded
         self.graph = nx.DiGraph()
         self.populate_graph(specs.get('roles', {}))
         self.slots = tuple()
@@ -123,6 +124,27 @@ class Construction(object):
         attribs['roles'] = roles
         return Construction(**attribs)
         
+    def __getstate__(self):
+        """Prepare CX for pickling.
+        
+        Change all NetworkX graphs to structured tuples
+        to prevent attribute error when contained CXs are
+        rebuilt by pickle.
+        """
+        if type(self.graph) != tuple:
+            self.package_graph(self)
+        return self.__dict__
+    
+    def __setstate__(self, state):
+        """Prepare CX for unpickling.
+    
+        Change structured tuples back into NetworkX graphs.
+        See __getstate__ for description.
+        """
+        self.__dict__ = state
+        if self.is_root and type(self.graph) == tuple:
+            self.unpackage_graph(self)
+        
     def getslots(self, item):
         """Get TF integer slots as tuple."""
         slots = self._cx_att('slots', item)
@@ -150,6 +172,7 @@ class Construction(object):
             if type(child) == Construction:
                 self.graph.update(child.graph)
                 child.graph = self.graph # assign graph to child
+                child.update_isroot()
     
     def subgraph(self):
         """Return graph governed by this CX"""        
@@ -181,6 +204,7 @@ class Construction(object):
         if type(newnode) == Construction:
             self.graph.update(newnode.graph)
             newnode.graph = self.graph # assign graph to child
+            newnode.update_isroot()
             
         # remap slots to reflect new nodes
         self.updateslots()
@@ -196,6 +220,13 @@ class Construction(object):
             slot for node in nx.bfs_tree(self.graph, self)
                 for slot in self.getslots(node)
         )))
+        
+    def update_isroot(self):
+        """Determine whether this objc is root lvl in graph"""
+        if self.graph.pred[self]:
+            self.is_root = False
+        else:
+            self.is_root = True
         
     def getrole(self, role, default=None):
         """Retrieves a succesor node of a specific role.
@@ -270,7 +301,6 @@ class Construction(object):
         # map graph nodes to tuple
         if graph is None:
             new_graph = self.tuplify_graph(node)
-            # bequeath to all embedded nodes
             for nn in node.graph:        
                 if type(nn) == Construction and type(nn.graph) != tuple:
                     self.package_graph(nn, graph=new_graph)
