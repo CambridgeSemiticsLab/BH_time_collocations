@@ -97,7 +97,7 @@ def load_cxs(tf_api, semdist, debug=False):
 
 # -- Dump Construction Objects --
 
-TF, api, A = load_tf(load_features)
+TF, api, A = load_tf()
 print()
 cxs = load_cxs(A, semdist)
 
@@ -107,4 +107,4 @@ with open(file, 'wb') as outfile:
     pickle.dump(cxs, outfile)
 
 print()
-print(f'DONE! Dumped cxs into {file}'
+print(f'DONE! Dumping cxs into {file}')
