@@ -95,10 +95,16 @@ def load_cxs(tf_api, semdist, debug=False):
     
     return {'wordcxs': wordcxs, 'phrase2cxs': phrase2cxs} 
 
+# -- Dump Construction Objects --
 
-load_features = '''
-
-'''
 TF, api, A = load_tf(load_features)
 print()
 cxs = load_cxs(A, semdist)
+
+file = 'cxs.pickle'
+
+with open(file, 'wb') as outfile:
+    pickle.dump(cxs, outfile)
+
+print()
+print(f'DONE! Dumped cxs into {file}'
