@@ -6,6 +6,7 @@ are built with Seaborn and Matplotlib.
 
 import seaborn as sns
 import matplotlib.pyplot as plt
+import pandas as pd
 
 def convert2pandas(counterdict):
     ''' 
