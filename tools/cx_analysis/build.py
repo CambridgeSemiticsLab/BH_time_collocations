@@ -71,7 +71,7 @@ class CXbuilder(object):
         test = [
             case for case in cases
                 if all(case['conds'].values())
-                    and all(case['roles'].values())
+                    and all(case.get('roles', {'':True}).values())
         ]
         return self.test_result(test, *cases) 
         
