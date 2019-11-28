@@ -152,7 +152,7 @@ class CXbuilder(object):
 
         return clusters
 
-    def test_yield(self, cx1, cx2):
+    def yields(self, cx1, cx2):
         """Determine whether to submit cx1 to cx2."""
         
         # determine which yields dict to use
@@ -281,13 +281,13 @@ class CXbuilder(object):
                 root = ncx
             
             # update yielded nodes
-            elif self.test_yield(node, ncx):
+            elif self.yields(node, ncx):
                 
                 db.say(f'{node} being yielded to {ncx}')
                    
                 # get top-most yielding node
                 path = nx.shortest_path(root.graph, root, node)
-                while path and self.test_yield(path[-1], ncx):
+                while path and self.yields(path[-1], ncx):
                     node = path.pop(-1)
                 
                 db.say(f'top-yielding node is {node}', 2)
