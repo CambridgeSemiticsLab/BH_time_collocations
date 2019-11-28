@@ -35,6 +35,21 @@ class CXbuilder(object):
         except KeyError:
             return method(element)
     
+    def test_result(self, test, *cases):
+        """Return the result of a test as a new Construction object"""
+        
+        # return last test
+        if test:
+            cx = Construction(
+                match=test[-1],
+                cases=cases,
+                **test[-1]
+            )
+            self.cache[cx.element][cx.name] = cx
+            return cx
+        else:
+            return Construction(cases=cases, **cases[0])
+
     def test(self, *cases):
         """Populate Construction obj based on a cases's all Truth value.
         
@@ -58,18 +73,7 @@ class CXbuilder(object):
                 if all(case['conds'].values())
                     and all(case['roles'].values())
         ]
-        
-        # return last test
-        if test:
-            cx = Construction(
-                match=test[-1],
-                cases=cases,
-                **test[-1]
-            )
-            self.cache[cx.element][cx.name] = cx
-            return cx
-        else:
-            return Construction(cases=cases, **cases[0])
+        return self.test_result(test, *cases) 
         
     def findall(self, element):
         """Runs analysis for all constructions with an element.
