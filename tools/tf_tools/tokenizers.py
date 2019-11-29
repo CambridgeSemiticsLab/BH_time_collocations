@@ -3,7 +3,7 @@ This module contains functions for tokenizing
 the surface forms of time adverbials.
 '''
 
-def tokenize_surface(node, tf):
+def tokenize_surface(nodes, tf):
     '''
     Return a surface token string of a BHSA node.
     The words are dot-separated and heh consonants
@@ -11,9 +11,10 @@ def tokenize_surface(node, tf):
     '''
     F, L = tf.F, tf.L
     subtokens = []
-    for w in L.d(node, 'word'):
-        if F.lex.v(w) == 'H':
+    slots = L.d(nodes,'word') if type(nodes) == int else nodes
+    for s in slots:
+        if F.lex.v(s) == 'H':
             subtokens.append('ה')
         else:
-            subtokens.append(F.g_cons_utf8.v(w))
+            subtokens.append(F.g_cons_utf8.v(s))
     return '.'.join(subtokens)
