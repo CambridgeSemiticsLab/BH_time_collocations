@@ -22,6 +22,7 @@ number label book
 plus = '''
 g_cons_utf8 trailer_utf8
 nu sp prs ls st
+mother
 freq_lex
 kind 
 top_assoc
