@@ -48,14 +48,17 @@ class RemapFeatures:
         F = self.api.F
         
         # map corrections/changes here
-        newfunctions = {849296:'Loca',
-                        825329:'Loca',
-                        828081:'Cmpl',
-                        774349:'Adju',
-                        774352:'Adju',
-                        775948:'Adju',
-                        775985:'Adju',
-                        876172:'Adju',}
+        newfunctions = {
+            849296:'Loca',
+            825329:'Loca',
+            828081:'Cmpl',
+            774349:'Adju',
+            774352:'Adju',
+            775948:'Adju',
+            775985:'Adju',
+            876172:'Adju',
+            881665:'Objc', # phrase belongs with previous as adjectival element
+        }
         
         # reconstruct default BHSA phrase function mappings
         self.nodeFeatures['function'] = {ph:F.function.v(ph) for ph in F.otype.s('phrase')}
