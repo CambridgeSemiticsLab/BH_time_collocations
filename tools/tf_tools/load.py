@@ -9,7 +9,7 @@ from tf.fabric import Fabric
 
 home = path.expanduser('~')
 repo = path.expanduser('~/github/CambridgeSemiticsLab/time_collocations')
-custom_data = path.join(repo, 'data/text_fabric/tf')
+custom_data = path.join(repo, 'data/bhsa/tf')
 bhsa_data = path.join(home, 'text-fabric-data/etcbc/bhsa/tf/c')
 tf_data = [bhsa_data, custom_data]
 
