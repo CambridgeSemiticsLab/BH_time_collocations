@@ -58,6 +58,8 @@ class RemapFeatures:
             775985:'Adju',
             876172:'Adju',
             881665:'Objc', # phrase belongs with previous as adjectival element
+            870273:'Time', # prep and conj belong with time phrase
+            870274:'Time', # modifier KBR belongs with time phrase
         }
         
         # reconstruct default BHSA phrase function mappings
