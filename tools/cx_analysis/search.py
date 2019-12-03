@@ -43,7 +43,7 @@ class SearchCX:
                     print('{:<30} {:>30}'.format(cond, str(value)))
                 print()
 
-    def showcx(self, cx, **kwargs):
+    def showcx(self, cx, conds=False, **kwargs):
         """Display a construction object with TF.
 
         Calls TF.show() with HTML highlights for 
@@ -59,14 +59,16 @@ class SearchCX:
         showcontext = tuple(set(L.u(s, 'phrase')[0] for s in refslots))
         timephrase = L.u(list(refslots)[0], 'timephrase')[0]        
 
+        params = kwargs
+        params['extraFeatures'] = params.get('extraFeatures','sp st lex')
+        params['withNodes'] = params.get('withNodes', True)
+        params['seq'] = f'{timephrase} -> {cx}' 
+
         if not cx:
             print('NO MATCHES')
             print('-'*20)
-            A.prettyTuple(
-                showcontext, extraFeatures='sp st', 
-                withNodes=True, seq=f'{timephrase} -> {cx}'
-            )
-            if kwargs.get('conds'):
+            A.prettyTuple(showcontext, **params)
+            if conds: 
                 self.prettyconds(cx)
             return None
 
@@ -85,12 +87,11 @@ class SearchCX:
             for slot in slots:
                 highlights[slot] = color
 
+        params['highlights'] = highlights
+
         A.prettyTuple(
             showcontext, 
-            extraFeatures=kwargs.get('extraFeatures', 'sp st lex'), 
-            withNodes=True, 
-            seq=f'{timephrase} -> {cx}', 
-            highlights=highlights
+            **params 
         )
         # reveal color meanings
         for role,color in role2color.items():
@@ -99,7 +100,7 @@ class SearchCX:
 
         pprint(cx.unfoldroles(), indent=4)
         print()
-        if kwargs.get('conds'):
+        if conds: 
             self.prettyconds(cx)
         display(HTML('<hr>'))
 
