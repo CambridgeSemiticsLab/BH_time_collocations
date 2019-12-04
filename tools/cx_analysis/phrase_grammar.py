@@ -153,12 +153,38 @@ class Subphrases(CXbuilderTF):
             }
         )
         
+    def geni_cl(self, wordnode):
+        """Match genitive clauses.
+        
+        To be used in conjunction with self.geni
+        """
+        E, F, L, = self.E, self.F, self.L
+        geni_cl = next(
+            (n for n in E.mother.t(wordnode)
+                if F.rela.v(n) in {'RgRc'}),
+            0
+        )
+        return self.test(
+            { 
+                'element': geni_cl,
+                'name': 'clause',
+                'kind': 'tf_node',
+                'roles': tuple(('word',w) for w in L.d(geni_cl,'word')),
+                'conds': {
+                    'genitive edge relation found':
+                        bool(geni_cl)
+                 }
+            }
+        )
+
+
     def geni(self, w):
         """Queries for "genitive" relations on a word."""
         
         P = self.getP(w)
         word = self.word
-        
+        geni_cl = self.geni_cl(w)    
+    
         return self.test(
             {
                 'element': w,
@@ -176,7 +202,18 @@ class Subphrases(CXbuilderTF):
                     'P(-1).name != prep':
                         word(P(-1)).name != 'prep',
                 }
-            }
+            },
+            {
+                'element': w,
+                'name': 'geni_ph',
+                'pattern': 'clause',
+                'kind': self.kind,
+                'roles': {'geni':geni_cl, 'head': self.word(w)},
+                'conds': {
+                    'genitive edge found':
+                        bool(geni_cl)
+                }
+            },
         )
 
     def advb(self, w):
