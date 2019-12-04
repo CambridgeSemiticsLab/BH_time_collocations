@@ -399,14 +399,15 @@ class CXbuilderTF(CXbuilder):
         # set up CXbuilder
         CXbuilder.__init__(self)
 
-    def getP(self, node):
+    def getP(self, node, context=None):
         """Get Positions object for a TF node.
         
         Return Dummy object if not node.
         """
+        context = context or self.context
         if not node:
             return Dummy
-        return PositionsTF(node, self.context, self.tf).get
+        return PositionsTF(node, context, self.tf).get
     
     def getWk(self, node):
         """Get Walker object for a TF word node.
