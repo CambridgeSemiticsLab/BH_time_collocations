@@ -393,7 +393,7 @@ class CXbuilderTF(CXbuilder):
         
         # set up TF data for tests
         self.tf = tf
-        self.F, self.T, self.L = tf.api.F, tf.api.T, tf.api.L
+        self.F, self.E, self.T, self.L = tf.api.F, tf.api.E, tf.api.T, tf.api.L
         self.context = kwargs.get('context', 'timephrase')
         
         # set up CXbuilder
