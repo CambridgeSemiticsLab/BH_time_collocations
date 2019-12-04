@@ -169,7 +169,7 @@ class Subphrases(CXbuilderTF):
                 'element': geni_cl,
                 'name': 'clause',
                 'kind': 'tf_node',
-                'roles': tuple(('word',w) for w in L.d(geni_cl,'word')),
+                'roles': {f'{w}':w for w in L.d(geni_cl,'word')},
                 'conds': {
                     'genitive edge relation found':
                         bool(geni_cl)
