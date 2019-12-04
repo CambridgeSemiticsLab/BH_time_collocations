@@ -158,7 +158,8 @@ class Construction(object):
         
         # populate graph with roles
         self.graph.add_node(self)
-        for role, child in rolesdict.items():
+        rolesdict = rolesdict.items() if type(rolesdict) == dict else rolesdict
+        for role, child in rolesdict:
             
             # create unique copy of child 
             # esp. relevant for CX objects
