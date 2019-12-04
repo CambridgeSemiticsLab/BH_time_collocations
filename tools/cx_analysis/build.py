@@ -68,10 +68,17 @@ class CXbuilder(object):
         """
         
         # find cases where all cnds == True
+        def get_roles(case):
+            roles = case.get('roles', {'':True})
+            if type(roles) == dict:
+                return roles.values()
+            else:
+                return tuple(role[-1] for role in roles)
+
         test = [
             case for case in cases
                 if all(case['conds'].values())
-                    and all(case.get('roles', {'':True}).values())
+                    and all(get_roles(case))
         ]
         return self.test_result(test, *cases) 
         
