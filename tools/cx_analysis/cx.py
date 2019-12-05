@@ -111,6 +111,11 @@ class Construction(object):
         """Determine whether certain CX is contained in this one."""
         return cx in self.subgraph()
         
+    def __iter__(self):
+        """Iterate through CX graph"""
+        for n in self.subgraph():
+            yield n
+
     def __deepcopy__(self, memo):
         """Return a copied version of this CX"""
         roles = {
