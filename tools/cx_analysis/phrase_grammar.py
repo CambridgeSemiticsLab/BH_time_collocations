@@ -244,7 +244,7 @@ class Subphrases(CXbuilderTF):
         if ahd_vb:
             roles['head'] = ahd_vb
         else:
-            roles['head'] = ahd_wd.pop(0)
+            roles['head'] = ahd_wd.pop(0) if ahd_wd else None
         for aword in ahd_wd:
             roles[aword] = aword
         
