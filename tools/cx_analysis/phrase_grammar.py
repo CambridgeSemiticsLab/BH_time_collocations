@@ -334,7 +334,7 @@ class Subphrases(CXbuilderTF):
                     'P(-1).name != prep': # ensure not nominal
                         word(P(-1)).name != 'prep',
                     f'F.lex.v({F.lex.v(w)}) not in noadvb_set':
-                        F.lex.v(w) not in {'JWMM'},
+                        F.lex.v(w) not in {'JWMM', '<TH'},
                 }
             },               
            {
@@ -657,8 +657,8 @@ class Subphrases(CXbuilderTF):
                     'P(-1).name not in {prep,qquant,card}':
                         word(P(-1)).name not in {'prep','qquant','card'},
                     
-                    'P(-1,sp) == subs':
-                        P(-1,'sp') == 'subs',
+                    'P(-1,sp) in {subs, advb}':
+                        P(-1,'sp') in {'subs', 'advb'},
                 }
             }
         )
