@@ -170,7 +170,7 @@ class Subphrases(CXbuilderTF):
         # handle cases where BHSA RgRc relation is missing
         # must select a verb that is a position ahead; 
         # configure which words to take
-        nxt_w = P_sent(1)
+        nxt_w = P_sent(1) or 0
         nxt_geni = next(iter(L.u(nxt_w, 'clause')), 0)
         if nxt_geni == L.u(wordnode, 'clause')[0]:
             nxt_geni = nxt_w
@@ -191,16 +191,19 @@ class Subphrases(CXbuilderTF):
             },
             {
                 'element': nxt_geni,
-                'name': clause,
+                'name': 'clause',
                 'pattern': 'missing RgRc',
-                'kind': {f'{w}':w for w in geni_words},
+                'kind': 'tf_node',
+                'roles': {f'{w}':w for w in geni_words},
                 'conds': {
                     'bool(P_sent1)':
                         bool(nxt_w),
                     'not P1 in phrase':
                         not P(1),
+                    'not geni_cl relation':
+                        not geni_cl,
                     'F.st.v(w) == c':
-                        F.st.v(w) == 'c',
+                        F.st.v(wordnode) == 'c',
                 }
             }
         )
