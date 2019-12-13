@@ -1,5 +1,6 @@
 # load construction objects from TF resource
 
+import sys
 import pickle
 import collections
 from datetime import datetime
