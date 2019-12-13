@@ -216,58 +216,65 @@ class Subphrases(CXbuilderTF):
             },
         )
 
-    def advb_cl(self, w):
-        """Match adverb clauses.
+#     def advb_cl(self, w):
+#         """Match adverb clauses.
         
-        To be used in conjunction with self.advb.
-        """
-        P = self.getP(w)
-        F = self.F
-        P_cl = self.getP(w, 'clause')
-        Wk_cl = self.getWk(w, 'clause')
-        clause = self.L.u(w,'clause')[0]
+#         To be used in conjunction with self.advb.
+#         """
+#         P = self.getP(w)
+#         F = self.F
+#         P_cl = self.getP(w, 'clause')
+#         Wk_cl = self.getWk(w, 'clause')
+#         clause = self.L.u(w,'clause')[0]
         
-        # collect subsequent words,
-        # separate verb to mark it as the head, if present
-        # else, the "head" will be the first word
-        is_verb = lambda n: self.F.pdp.v(n) == 'verb'
-        ahd_vb = Wk_cl.ahead(
-            is_verb,
-        )
-        ahd_wd  = Wk_cl.ahead(
-            lambda n: not is_verb(n),
-            every=True,
-            default=[]
-        )
-        # assign roles
-        roles = {}
-        if ahd_vb:
-            roles['head'] = ahd_vb
-        else:
-            roles['head'] = ahd_wd.pop(0) if ahd_wd else None
-        for aword in ahd_wd:
-            roles[aword] = aword
+#         # collect subsequent words,
+#         # separate verb to mark it as the head, if present
+#         # else, the "head" will be the first word
+#         is_verb = lambda n: self.F.pdp.v(n) == 'verb'
+#         ahd_vb = Wk_cl.ahead(
+#             is_verb,
+#         )
+#         ahd_wd  = Wk_cl.ahead(
+#             lambda n: not is_verb(n),
+#             every=True,
+#             default=[]
+#         )
+#         # assign roles
+#         roles = {}
+#         if ahd_vb:
+#             roles['head'] = ahd_vb
+#         else:
+#             roles['head'] = ahd_wd.pop(0) if ahd_wd else None
+#         for aword in ahd_wd:
+#             roles[aword] = aword
+            
+#         # set of lexemes which produce a 
+#         # dependent clause
+#         dep_advbs = {
+#             '>Z', '>XR/',
+#             'VRM/'
+#         }
         
-        return self.test(
-            {
-                'element': clause,
-                'name': 'clause',
-                'kind': 'tf_node',
-                'roles': roles,
-                'conds': {
-                    'pos(word) == advb':
-                        bool({F.pdp.v(w), F.sp.v(w)} & {'advb'}),
-                    'no P1 in phrase':
-                        not P(1),
-                    'no P-1 in phrase':
-                        not P(-1),
-                    'there are words ahead in clause':
-                        bool(ahd_vb) or bool(ahd_wd),
-                    'no suffix on adverb':
-                        self.F.prs.v(w) in {'n/a', 'absent'},
-                }
-            }
-        )
+#         return self.test(
+#             {
+#                 'element': clause,
+#                 'name': 'clause',
+#                 'kind': 'tf_node',
+#                 'roles': roles,
+#                 'conds': {
+#                     'lex(word) in lex set':
+#                         F.lex.v(w) in dep_advbs,
+#                     'no P1 in phrase':
+#                         not P(1),
+#                     'no P-1 in phrase':
+#                         not P(-1),
+#                     'there are words ahead in clause':
+#                         bool(ahd_vb) or bool(ahd_wd),
+#                     'no suffix on adverb':
+#                         self.F.prs.v(w) in {'n/a', 'absent'},
+#                 }
+#             }
+#         )
         
     def advb(self, w):
         """Match and adverb and its mod."""
@@ -312,17 +319,17 @@ class Subphrases(CXbuilderTF):
                         word(P(1)).name in {'cont','art'},
                 }
             },
-           {
-                'element': w,
-                'name': name,
-                'pattern': 'advb_clause',
-                'kind': self.kind,
-                'roles': {'advb': word(w), 'head': advb_cl},
-                'conds': { 
-                    'an adverb clause has been found (self.advb_cl)':
-                        bool(advb_cl)
-                }
-            },
+#            {
+#                 'element': w,
+#                 'name': name,
+#                 'pattern': 'advb_clause',
+#                 'kind': self.kind,
+#                 'roles': {'advb': word(w), 'head': advb_cl},
+#                 'conds': { 
+#                     'an adverb clause has been found (self.advb_cl)':
+#                         bool(advb_cl)
+#                 }
+#             },
         )
     
     def adjv(self, w):
