@@ -42,7 +42,7 @@ class SearchCX:
                 for cond, value in case['conds'].items():
                     print('{:<30} {:>30}'.format(cond, str(value)))
                 print()
-
+                
     def showcx(self, cx, conds=False, **kwargs):
         """Display a construction object with TF.
 
@@ -54,10 +54,17 @@ class SearchCX:
         L = self.L
         A = self.app
         
+        def get_phrase(slot):
+            timephrase = L.u(slot,'timephrase')
+            if timephrase:
+                return timephrase[0]
+            else:
+                return L.u(slot,'phrase')[0]
+        
         # get slots for display
         refslots = cx.slots if cx.slots else cx.element.slots
-        showcontext = tuple(set(L.u(s, 'phrase')[0] for s in refslots))
-        timephrase = L.u(list(refslots)[0], 'timephrase')[0]        
+        showcontext = tuple(set(L.u(s, 'phrase')[0] for s in refslots))        
+        timephrase = get_phrase(refslots[0])
 
         params = kwargs
         params['extraFeatures'] = params.get('extraFeatures','sp st lex')
