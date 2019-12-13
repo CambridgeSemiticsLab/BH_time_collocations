@@ -222,12 +222,10 @@ class Subphrases(CXbuilderTF):
         To be used in conjunction with self.advb.
         """
         P = self.getP(w)
+        F = self.F
         P_cl = self.getP(w, 'clause')
         Wk_cl = self.getWk(w, 'clause')
         clause = self.L.u(w,'clause')[0]
-        advb_set = {
-            '>XR/', 'VRM/'
-        }
         
         # collect subsequent words,
         # separate verb to mark it as the head, if present
@@ -257,8 +255,8 @@ class Subphrases(CXbuilderTF):
                 'kind': 'tf_node',
                 'roles': roles,
                 'conds': {
-                    'lex(word) in lexset':
-                        self.F.lex.v(w) in advb_set,
+                    'pos(word) == advb':
+                        bool({F.pdp.v(w), F.sp.v(w)} & {'advb'}),
                     'no P1 in phrase':
                         not P(1),
                     'no P-1 in phrase':
