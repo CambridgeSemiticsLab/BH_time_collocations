@@ -414,7 +414,7 @@ class CXbuilderTF(CXbuilder):
             return Dummy
         return PositionsTF(node, context, self.tf).get
     
-    def getWk(self, node):
+    def getWk(self, node, context=None):
         """Get Walker object for a TF word node.
         
         Return Dummy object if not node.
@@ -424,6 +424,7 @@ class CXbuilderTF(CXbuilder):
         
         # format tf things to send
         thisotype = self.F.otype.v(node)
-        context = self.L.u(node, self.context)[0]
+        get_context = context or self.context
+        context = self.L.u(node, get_context)[0]
         positions = self.L.d(context, thisotype)        
         return Walker(node, positions)
