@@ -761,11 +761,6 @@ class Phrases(CXbuilder):
             self.cxph,
         )
         
-#         self.yieldsto = {
-#             'appo': True,
-#             'coord': True,
-#         }
-        
         self.kind = 'phrase'
         
     def cxph(self, cx):
