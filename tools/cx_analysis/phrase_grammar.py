@@ -622,24 +622,6 @@ class Subphrases(CXbuilderTF):
         lex1, lex2 = self.F.lex.v(w1), self.F.lex.v(w2)
         return self.sdist.get(lex1,{}).get(lex2, default)
         
-#     def set_appo_yield(self, w1, w2, name, 
-#                        threshold=1, default={}):
-#         """Determine how to yield an apposition CX
-        
-#         Some words in apposition should pass on their 
-#         adjectival modifications to the whole phrase.
-#         Whether or not to do so must be determined semantically.
-#         That can be done by setting a threshold for semantic
-#         similarity based on a semantic vector space.
-#         """ 
-#         default = default or self.yieldsto
-#         dist = self.get_distance(w1, w2)
-#         if dist < threshold:
-#             return {name:{'numb_ph', 'attrib_ph'}}
-#         else:
-#             return default
-
-        
     def appo(self, w):
         """Looks for non-definite appositional constructions"""
         name = 'appo'
