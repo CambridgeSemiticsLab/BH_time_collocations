@@ -332,6 +332,26 @@ class Subphrases(CXbuilderTF):
 #             },
         )
     
+#     def attr_cl(w):
+#         """Match an attributive clause."""
+#         E, F, L = self.E, self.F, self.L
+#         bhsa_phrase = L.u(w,'phrase')[0]
+#         attr_cl = next(iter(E.mother.t(bhsa_phrase), 0))
+#         return self.test(
+#             { 
+#                 'element': attr_cl,
+#                 'name': 'clause',
+#                 'kind': 'tf_node',
+#                 'roles': {f'{w}':w for w in L.d(attr_cl,'word')},
+#                 'conds': {
+#                     'bool(attr_cl)':
+#                         bool(attr_cl),
+#                     'rela in {Attr, Spec}':
+#                         F.rela.v(attr_cl) in {'Attr','Spec'}
+#                  }
+#             }
+#         )
+    
     def adjv(self, w):
         """Matches a word serving as an adjective."""
         
@@ -344,20 +364,19 @@ class Subphrases(CXbuilderTF):
         a2match = self.adjv(P(-1)) if P(-1) else Construction()
         a2match_head = int(a2match.getrole('head', 0))
         
+        # test for attributive clauses (e.g. +אשׁר)
+        attr_cl = self.attr_cl(w)
+        
         common = {
             
             'w.name not in {qquant,card}':
                 word(w).name not in {'qquant','card'},
-            
             'P(-1).name == cont':
                 word(P(-1)).name == 'cont',
-                        
             'P(-1, st) & {NA, a}': 
                 P(-1,'st') in {'NA', 'a'},   
-            
             'P(-1).name != quant':
                 word(P(-1)).name != 'quant',
-            
             'P(-1).name != prep':
                 word(P(-1)).name != 'prep',
         }
@@ -713,7 +732,7 @@ class Subphrases(CXbuilderTF):
                 },
             },
         )
-
+    
 class Phrases(CXbuilder):
     """Build complete phrase constructions."""
     
