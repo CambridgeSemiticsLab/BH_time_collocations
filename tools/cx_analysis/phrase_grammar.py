@@ -394,10 +394,7 @@ class Subphrases(CXbuilderTF):
         # check for recursive adjective matches 
         a2match = self.adjv(P(-1)) if P(-1) else Construction()
         a2match_head = int(a2match.getrole('head', 0))
-        
-        # test for attributive clauses (e.g. +אשׁר)
-        attr_cl = self.attr_cl(w)
-        
+
         common = {
             
             'w.name not in {qquant,card}':
