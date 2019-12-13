@@ -158,12 +158,26 @@ class Subphrases(CXbuilderTF):
         
         To be used in conjunction with self.geni
         """
+        P = self.getP(wordnode)
+        P_sent = self.getP(wordnode, 'sentence')
         E, F, L, = self.E, self.F, self.L
         geni_cl = next(
             (n for n in E.mother.t(wordnode)
                 if F.rela.v(n) in {'RgRc'}),
             0
         )
+        
+        # handle cases where BHSA RgRc relation is missing
+        # must select a verb that is a position ahead; 
+        # configure which words to take
+        nxt_w = P_sent(1)
+        nxt_geni = next(iter(L.u(nxt_w, 'clause')), 0)
+        if nxt_geni == L.u(wordnode, 'clause')[0]:
+            nxt_geni = nxt_w
+            geni_words = [nxt_w]
+        else:
+            geni_words = L.d(nxt_geni,'word')
+        
         return self.test(
             { 
                 'element': geni_cl,
@@ -174,6 +188,20 @@ class Subphrases(CXbuilderTF):
                     'genitive edge relation found':
                         bool(geni_cl)
                  }
+            },
+            {
+                'element': nxt_geni,
+                'name': clause,
+                'pattern': 'missing RgRc',
+                'kind': {f'{w}':w for w in geni_words},
+                'conds': {
+                    'bool(P_sent1)':
+                        bool(nxt_w),
+                    'not P1 in phrase':
+                        not P(1),
+                    'F.st.v(w) == c':
+                        F.st.v(w) == 'c',
+                }
             }
         )
 
@@ -640,7 +668,26 @@ class Subphrases(CXbuilderTF):
         default = default or self.max_dist
         lex1, lex2 = self.F.lex.v(w1), self.F.lex.v(w2)
         return self.sdist.get(lex1,{}).get(lex2, default)
+
+    def appo(self, w):
+        """Looks for non-definite appositional constructions"""
+        name = 'appo'
+        P = self.getP(w)
+        F = self.F
+        wd = self.word
+        dist = round(self.get_distance(w, P(-1)), 2)
+        wlex, alex = (
+            re.sub(r'\[|/', '', l)
+                for l in (F.lex.v(w), F.lex.v(P(-1)) or '')
+        )
+        ldist = lev_dist(wlex, alex)
         
+        return self.test(
+            {
+                'element': w,
+                'name': name,
+                'kind': self.kind,
+                'roles': {'head': wd(P(-1)), 'appo': wd(w)},
                 'conds': {
                     
                     'name(w) == cont':
@@ -662,7 +709,8 @@ class Subphrases(CXbuilderTF):
                 }
             }
         )
-    
+        
+        
     def appo_name(self, w):
         """Match an apposition of name"""
     
