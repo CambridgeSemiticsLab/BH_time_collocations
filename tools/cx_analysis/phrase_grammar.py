@@ -622,26 +622,6 @@ class Subphrases(CXbuilderTF):
         lex1, lex2 = self.F.lex.v(w1), self.F.lex.v(w2)
         return self.sdist.get(lex1,{}).get(lex2, default)
         
-    def appo(self, w):
-        """Looks for non-definite appositional constructions"""
-        name = 'appo'
-        P = self.getP(w)
-        F = self.F
-        wd = self.word
-        dist = round(self.get_distance(w, P(-1)), 2)
-        wlex, alex = (
-            re.sub(r'\[|/', '', l)
-                for l in (F.lex.v(w), F.lex.v(P(-1)) or '')
-        )
-        ldist = lev_dist(wlex, alex)
-        
-        return self.test(
-            {
-                'element': w,
-                'name': name,
-                'kind': self.kind,
-                'roles': {'head': wd(P(-1)), 'appo': wd(w)},
-#                 'yieldsto': self.set_appo_yield(w, P(-1), name),
                 'conds': {
                     
                     'name(w) == cont':
@@ -687,7 +667,6 @@ class Subphrases(CXbuilderTF):
                 'pattern': 'name_entity',
                 'kind': self.kind,
                 'roles': {'head': wd(w), 'name': wd(bk)},
-#                 'yieldsto': self.set_appo_yield(w, bk, name),
                 'conds': {
                     
                     'name(w) == cont':
