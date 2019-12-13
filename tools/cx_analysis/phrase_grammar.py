@@ -283,7 +283,7 @@ class Subphrases(CXbuilderTF):
         F = self.F
         word = self.word
         name = 'advb'
-        advb_cl = self.advb_cl(w)
+        # advb_cl = self.advb_cl(w)
         
         return self.test(
            {
