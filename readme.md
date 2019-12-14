@@ -1,4 +1,7 @@
-# Biblical Hebrew Time Collocations <a href="https://doi.org/10.5281/zenodo.3246258"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3246258.svg" alt="DOI"></a>
+# Biblical Hebrew Time Collocations 
+
+<a href="https://doi.org/10.5281/zenodo.3246258"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3246258.svg" alt="DOI"></a>
+[![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/CambridgeSemiticsLab/BH_time_collocations/)](https://archive.softwareheritage.org/browse/origin/https://github.com/CambridgeSemiticsLab/BH_time_collocations/)
 
 ### Cody Kingham 
 
