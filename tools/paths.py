@@ -7,7 +7,7 @@ from pathlib import Path
 
 # base paths
 home = Path.home()
-github = home.joinpath('gitub')
+github = home.joinpath('github')
 
 # project data
 project = github.joinpath('CambridgeSemiticsLab/time_collocations')
