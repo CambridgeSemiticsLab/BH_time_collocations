@@ -1,7 +1,7 @@
 import collections
 from tf.fabric import Fabric
 from tf.compose import modify
-from weqetal import convert_tense
+from weqatal import convert_tense
 
 def mod_features(locations, base_metadata):
     """Remap node features in BHSA
@@ -40,7 +40,7 @@ def mod_features(locations, base_metadata):
         870274:'Time', # modifier "KBR" belongs with time phrase
     })
 
-    # modify verb tenses to add weqetal
+    # modify verb tenses to add weqatal
     for verb in api.F.pdp.s('verb'):
         mod_features['vt'][verb] = convert_tense(verb, api)
 
