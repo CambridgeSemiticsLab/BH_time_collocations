@@ -45,8 +45,8 @@ def mod_features(locations, metadata):
 
     # enact the changes
     modify(
-        locations['bhsa'],
-        locations['output'],
+        bhsa,
+        output,
         addFeatures=to_modify,
         featureMeta={feat:metadata for feat in ('function','vt')},
         deleteFeatures=True, # export only modified features
