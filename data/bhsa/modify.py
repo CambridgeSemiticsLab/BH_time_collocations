@@ -49,7 +49,7 @@ def mod_features(locations, base_metadata):
 
     # modify verb tenses to add weqetal
     for verb in api.F.pdp.s('verb'):
-        to_modify['nodeFeatures']['vt'][verb] = convert_tense(verb, api)
+        mod_features['vt'][verb] = convert_tense(verb, api)
 
     # enact the changes
     TF = Fabric(locations=output, silent=True)
