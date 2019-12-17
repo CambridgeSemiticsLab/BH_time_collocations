@@ -14,7 +14,7 @@ def mod_features(locations, metadata):
     """
 
     # setup data and methods
-    bhsa, output = locations['bhsa'], locations['output']
+    bhsa, output = locations['bhsa'], locations['custom']
     TF = Fabric(locations=bhsa, silent=True)
     api = TF.load('vt mother pdp lex')
 
@@ -48,5 +48,6 @@ def mod_features(locations, metadata):
         locations['bhsa'],
         locations['output'],
         addFeatures=to_modify,
-        featureMeta={feat:metadata for feat in ('function','vt')}
+        featureMeta={feat:metadata for feat in ('function','vt')},
+        deleteFeatures=True, # export only modified features
     )
