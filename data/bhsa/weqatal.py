@@ -23,14 +23,14 @@ def get_grandma(clause_atom, api):
         return get_grandma(mother, api)
 
 def convert_tense(word, api):
-    """Convert weqetal tenses where present.
+    """Convert weqatal tenses where present.
 
-    If not weqetal, return the tense.
+    If not weqatal, return the tense.
     """
     
     F, L = api.F, api.L
     
-    # check for weqetal
+    # check for weqatal
     if F.vt.v(word) == 'perf' and F.lex.v(word-1) == 'W':
 
         # get tense of the ancestor of the verb's clause
