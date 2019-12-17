@@ -19,7 +19,7 @@ def mod_features(locations, base_metadata):
     api = TF.load('function vt mother pdp lex')
     F = api.F
 
-    # features to modded
+    # features to be modded
     mod_features = {
         'function': {n:F.function.v(n) for n in F.otype.s('phrase')},
         'vt': {},
