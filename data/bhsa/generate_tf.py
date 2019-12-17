@@ -6,7 +6,6 @@ BHSA Hebrew database.
 from pathlib import Path
 from paths import tf_data
 from datetime import datetime
-from tf.fabric import Fabric
 from modify import mod_features
 #from time_association import TimeAssociation
 
