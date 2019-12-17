@@ -33,9 +33,7 @@ for file in out_dir.glob('*.tf'):
 
 # -- Remap Node Features --
 msg('Remapping TF features...')
-print('*'*20)
 mod_features(tf_data, base_metadata)
-print('*'*20)
 msg('done!', 1)
 
 # -- Add Node Features -- 
