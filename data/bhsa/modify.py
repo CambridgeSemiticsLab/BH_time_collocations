@@ -23,7 +23,7 @@ def mod_features(locations, base_metadata):
     meta_data = {
         '':base_metadata,
         'function':{'description': 'function of a phrase in a clause'},
-        'vt':{'tense of a verb'},
+        'vt':{'description': 'tense of a verb'},
     }
 
     # features to modded
