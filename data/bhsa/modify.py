@@ -3,7 +3,7 @@ from tf.fabric import Fabric
 from tf.compose import modify
 from weqetal import convert_tense
 
-def mod_features(locations, metadata):
+def mod_features(locations, base_metadata):
     """Remap node features in BHSA
 
     BHSA contains features of  nodes that 
@@ -16,38 +16,44 @@ def mod_features(locations, metadata):
     # setup data and methods
     bhsa, output = locations['bhsa'], locations['custom']
     TF = Fabric(locations=bhsa, silent=True)
-    api = TF.load('vt mother pdp lex')
+    api = TF.load('function vt mother pdp lex')
+    F = api.F
 
-    # list node features to be modified
-    to_modify = {
-        'nodeFeatures': {
-            'function': {
-                849296:'Loca', 
-                825329:'Loca',
-                828081:'Cmpl',
-                774349:'Adju',
-                774352:'Adju',
-                775948:'Adju',
-                775985:'Adju',
-                876172:'Adju',
-                881665:'Objc', # phrase belongs with previous as adjectival element
-                870273:'Time', # prep and conj belong with time phrase
-                870274:'Time', # modifier "KBR" belongs with time phrase
-            },
-           'vt': {
-            }
-        },
+    # data for new features
+    meta_data = {
+        '':base_metadata,
+        'function':{'description': 'function of a phrase in a clause'}
+        'vt':{'tense of a verb'}
     }
+
+    # features to modded
+    mod_features = {
+        {'function': {n:F.function.v(n) for n in F.otype.s('phrase')}},
+        {'vt': {}},
+    }
+
+    # remap phrase functions
+    mod_features['function'].update({
+        849296:'Loca', 
+        825329:'Loca',
+        828081:'Cmpl',
+        774349:'Adju',
+        774352:'Adju',
+        775948:'Adju',
+        775985:'Adju',
+        876172:'Adju',
+        881665:'Objc', # phrase belongs with previous as adjectival element
+        870273:'Time', # prep and conj belong with time phrase
+        870274:'Time', # modifier "KBR" belongs with time phrase
+    })
 
     # modify verb tenses to add weqetal
     for verb in api.F.pdp.s('verb'):
         to_modify['nodeFeatures']['vt'][verb] = convert_tense(verb, api)
 
     # enact the changes
-    modify(
-        bhsa,
-        output,
-        addFeatures=to_modify,
-        featureMeta={feat:metadata for feat in ('function','vt')},
-        deleteFeatures=True, # export only modified features
-    )
+    TF = Fabric(locations=output, silent=True)
+    TF.save(
+        nodeFeatures=mod_features,
+        metaData=meta_data,
+    ) 
