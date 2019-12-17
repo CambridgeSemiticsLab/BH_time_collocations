@@ -22,14 +22,14 @@ def mod_features(locations, base_metadata):
     # data for new features
     meta_data = {
         '':base_metadata,
-        'function':{'description': 'function of a phrase in a clause'}
-        'vt':{'tense of a verb'}
+        'function':{'description': 'function of a phrase in a clause'},
+        'vt':{'tense of a verb'},
     }
 
     # features to modded
     mod_features = {
-        {'function': {n:F.function.v(n) for n in F.otype.s('phrase')}},
-        {'vt': {}},
+        'function': {n:F.function.v(n) for n in F.otype.s('phrase')},
+        'vt': {},
     }
 
     # remap phrase functions
