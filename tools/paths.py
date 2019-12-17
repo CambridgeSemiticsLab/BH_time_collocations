@@ -6,7 +6,7 @@ data utilized by the project.
 from pathlib import Path 
 
 # base paths
-home = path.home()
+home = Path.home()
 github = home.joinpath('gitub')
 
 # project data
