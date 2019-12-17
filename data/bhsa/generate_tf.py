@@ -10,7 +10,10 @@ from modify import mod_features
 #from time_association import TimeAssociation
 
 base_metadata = {
-    'modified': 'Modifications added by Cody Kingham', 
+    'source': 'https://github.com/etcbc/bhsa',
+    'data_version': 'BHSA version c',
+    'origin': 'Made by the ETCBC of the Vrije Universiteit Amsterdam',
+    'modified': 'Modified by Cody Kingham for the PhD project, Time Collocations' 
 }
 
 start = datetime.now()
