@@ -25,10 +25,10 @@ default = standard + plus
 
 locations = list(tf_data.values())
 
-def load_tf(features='', silent=False):
+def load_tf(features='', silent=False, **kwargs):
     """Load an instance of TF with standard and other features"""
     TF = Fabric(locations=locations, silent=silent)
     features = default + features
     api = TF.load(features, silent=silent)
-    A = use('bhsa', api=api, silent=True)
+    A = use('bhsa', api=api, silent=True, **kwargs)
     return (TF, api, A)
