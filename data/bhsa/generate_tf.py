@@ -13,7 +13,7 @@ base_metadata = {
     'source': 'https://github.com/etcbc/bhsa',
     'data_version': 'BHSA version c',
     'origin': 'Made by the ETCBC of the Vrije Universiteit Amsterdam',
-    'modified': 'Modified by Cody Kingham for the PhD project, Time Collocations' 
+    'modified': 'Modified by Cody Kingham for the PhD project, Time Collocations',
 }
 
 start = datetime.now()
