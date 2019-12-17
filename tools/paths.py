@@ -16,7 +16,7 @@ cxs = project.joinpath('data/cxs/cxs.pickle')
 
 # Text-Fabric data
 tf_data = {
-    'bhsa': str(github.joinpath('etcbc/bhsa/tf/c'))
-    'heads': str(github.joinpath('etcbc/heads/tf/c'))
-    'custom': str(project.joinpath('data/bhsa/tf'))
+    'bhsa': str(github.joinpath('etcbc/bhsa/tf/c')),
+    'heads': str(github.joinpath('etcbc/heads/tf/c')),
+    'custom': str(project.joinpath('data/bhsa/tf')),
 }
