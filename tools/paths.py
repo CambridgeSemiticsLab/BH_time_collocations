@@ -14,7 +14,7 @@ project = github.joinpath('CambridgeSemiticsLab/time_collocations')
 semvector = project.joinpath('data/vectors/semvector.pickle')
 cxs = project.joinpath('data/cxs/cxs.pickle')
 
-# Text-Fabric Data
+# Text-Fabric data
 tf_data = {
     'bhsa': github.joinpath('etcbc/bhsa/tf/c')
     'heads': github.joinpath('etcbc/heads/tf/c')
