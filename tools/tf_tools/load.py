@@ -19,7 +19,6 @@ nu sp prs ls st
 mother
 freq_lex
 kind 
-top_assoc
 '''
 default = standard + plus
 
