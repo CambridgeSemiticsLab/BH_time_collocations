@@ -23,6 +23,11 @@ def msg(m, indent=0):
     indent = '\t' * indent
     print(f'{indent}{timestamp()}  {m}')
 
+# clean out old data
+out_dir = Path(tf_data['custom'])
+for file in out_dir.glob('*.tf'):
+    file.unlink()
+
 # -- Remap Node Features --
 msg('Remapping TF features...')
 print('*'*20)
