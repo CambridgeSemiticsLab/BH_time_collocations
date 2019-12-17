@@ -19,19 +19,6 @@ def mod_features(locations, base_metadata):
     api = TF.load('function vt mother pdp lex')
     F = api.F
 
-    # data for new features
-    meta_data = {
-        '':base_metadata,
-        'function': {
-            'description': 'function of a phrase in a clause',
-            'valueType': 'str',
-        },
-        'vt': {
-            'description': 'tense of a verb',
-            'valueType': 'str',
-        },
-    }
-
     # features to modded
     mod_features = {
         'function': {n:F.function.v(n) for n in F.otype.s('phrase')},
@@ -56,6 +43,19 @@ def mod_features(locations, base_metadata):
     # modify verb tenses to add weqetal
     for verb in api.F.pdp.s('verb'):
         mod_features['vt'][verb] = convert_tense(verb, api)
+
+    # data for new features
+    meta_data = {
+        '': base_metadata,
+        'function': {
+            'description': 'function of a phrase in a clause',
+            'valueType': 'str',
+        },
+        'vt': {
+            'description': 'tense of a verb',
+            'valueType': 'str',
+        },
+    }
 
     # enact the changes
     TF = Fabric(locations=output, silent=True)
