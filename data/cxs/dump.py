@@ -4,9 +4,9 @@ import sys
 import pickle
 import collections
 from datetime import datetime
-from locations import semvector
-from cx_analysis.word_grammar import Words
-from cx_analysis.phrase_grammar import Subphrases, Phrases
+from paths import semvector
+from word_grammar import Words
+from phrase_grammar import Subphrases, Phrases
 from tf_tools.load import load_tf
 
 # load semantic vectors
