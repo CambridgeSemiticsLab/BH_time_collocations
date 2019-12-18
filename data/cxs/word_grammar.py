@@ -1,5 +1,5 @@
-from .cx import Construction
-from .build import CXbuilder, CXbuilderTF
+from cx_analysis.cx import Construction
+from cx_analysis.build import CXbuilder, CXbuilderTF
 
 class Words(CXbuilderTF):
     """Build word constructions."""
