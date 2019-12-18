@@ -6,7 +6,6 @@ import collections
 import numpy as np
 import pandas as pd
 import scipy.stats as stats
-np.errstate(divide='ignore')
 
 def contingency_table(df):
     
@@ -58,9 +57,11 @@ def apply_fishers(df, logtransform=True):
             else:
                 expected_freq = expected[target][colex]
                 if a < expected_freq:
-                    strength = np.log10(p_value)
+                    with np.errstate(divide='ignore'):
+                        strength = np.log10(p_value)
                 else:
-                    strength = -np.log10(p_value)
+                    with np.errstate(divide='ignore'):
+                        strength = -np.log10(p_value)
                 dffishers[target][colex] = strength
                 
     return pd.DataFrame(dffishers)
