@@ -3,10 +3,12 @@ This module generates a custom version of the
 BHSA Hebrew database.
 """
 
-from pathlib import Path
+import os
+import glob
 from paths import tf_data
 from datetime import datetime
 from modify import mod_features
+from add import to_graph
 #from time_association import TimeAssociation
 
 base_metadata = {
@@ -23,18 +25,23 @@ def timestamp():
     return f'{datetime.now()-start}'
 
 def msg(m, indent=0):
-    indent = '\t' * indent
-    print(f'{indent}{timestamp()}  {m}')
+    indent = ' | \t' * indent
+    print(f'{indent}{timestamp()} {m}')
 
 # clean out old data
-out_dir = Path(tf_data['custom'])
-for file in out_dir.glob('*.tf'):
-    file.unlink()
+out_dir = os.path.join(tf_data['custom'], '*.tf')
+for file in glob.glob(out_dir):
+    os.remove(file)
 
 # -- Remap Node Features --
-msg('Remapping TF features...')
+print()
+msg('Editing node features...')
 mod_features(tf_data, base_metadata)
-msg('done!', 1)
+msg('done', 1)
 
-# -- Add Node Features -- 
-# -- Find Statistically Heads --
+msg('Adding new nodes and edges...')
+to_graph(tf_data, base_metadata)
+msg('done', 1)
+
+msg('Modifications complete!')
+print()

@@ -2,8 +2,9 @@ import collections
 from tf.fabric import Fabric
 from tf.compose import modify
 from weqatal import convert_tense
+from funct_assoc import calculate
 
-def mod_features(locations, base_metadata):
+def mod_features(locs, base_metadata):
     """Remap node features in BHSA
 
     BHSA contains features of  nodes that 
@@ -14,9 +15,12 @@ def mod_features(locations, base_metadata):
     """
 
     # setup data and methods
-    bhsa, output = locations['bhsa'], locations['custom']
-    TF = Fabric(locations=bhsa, silent=True)
-    api = TF.load('function vt mother pdp lex')
+    bhsa, heads, output = locs['bhsa'], locs['heads'], locs['custom']
+    TF = Fabric(locations=[bhsa,heads], silent='deep')
+    api = TF.load('''
+        function vt mother pdp lex
+        nhead
+    ''')
     F = api.F
 
     # features to be modded
@@ -25,7 +29,7 @@ def mod_features(locations, base_metadata):
         'vt': {},
     }
 
-    # remap phrase functions
+    # manually remap phrase functions
     mod_features['function'].update({
         849296:'Loca', 
         825329:'Loca',
@@ -44,6 +48,11 @@ def mod_features(locations, base_metadata):
     for verb in api.F.pdp.s('verb'):
         mod_features['vt'][verb] = convert_tense(verb, api)
 
+    # add statistical association features for head-words
+    assocs = calculate(mod_features['function'], api)
+    mod_features['top_assoc'] = assocs['top_assoc']
+    mod_features['funct_assoc'] = assocs['funct_assoc']
+
     # data for new features
     meta_data = {
         '': base_metadata,
@@ -55,6 +64,16 @@ def mod_features(locations, base_metadata):
             'description': 'tense of a verb',
             'valueType': 'str',
         },
+        'funct_assoc': {
+            'description':'a feature on words that function as a head in their enclosing phrase; integer tells how attracted the head word is to its phrase\'s functions',
+            'interpreting scores':'score > 1.3 is significantly attracted; score < -1.3 is significantly repelled',
+            'valueType':'int',
+        },
+        'top_assoc': {
+            'description':'top associated function to this word',
+            'interpreting scores':'score > 1.3 is significantly attracted; score < -1.3 is significantly repelled',
+            'valueType':'str',
+        }
     }
 
     # enact the changes
