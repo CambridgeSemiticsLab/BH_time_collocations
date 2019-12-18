@@ -4,8 +4,8 @@ phrase classification of time adverbials.
 """
 
 import collections
-from .build import CXbuilder
-from .cx import Construction
+from cx_analysis.build import CXbuilder
+from cx_analysis.cx import Construction
 
 class SinglePhrase(CXbuilder):
     """Modify cx classifications for single phrase CXs"""
