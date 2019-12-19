@@ -42,6 +42,7 @@ def mod_features(locs, base_metadata):
         881665:'Objc', # phrase belongs with previous as adjectival element
         870273:'Time', # prep and conj belong with time phrase
         870274:'Time', # modifier "KBR" belongs with time phrase
+        731915:'Modi', # no reviewed sources took this as temporal
     })
 
     # modify verb tenses to add weqatal
