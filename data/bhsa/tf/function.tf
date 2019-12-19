@@ -6,7 +6,7 @@
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-12-18T16:44:47Z
+@dateWritten=2019-12-19T16:52:03Z
 
 651542	Time
 Pred
@@ -80381,7 +80381,7 @@ Cmpl
 Pred
 PreS
 Objc
-Time
+Modi
 Pred
 Subj
 Objc
