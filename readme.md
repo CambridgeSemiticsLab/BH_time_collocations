@@ -5,7 +5,7 @@
 
 ### Cody Kingham 
 
-<a href="docs/sponsors.md"><img src="docs/images/sponsor_banner.png" align="middle"></a>
+<a href="docs/sponsors.md"><img src="docs/images/sponsor_banner2.png" align="middle"></a>
 
 ## Introduction
 
