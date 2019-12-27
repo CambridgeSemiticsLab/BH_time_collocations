@@ -32,7 +32,7 @@ class Subphrases(CXbuilderTF):
             self.geni,
             self.numb,
             self.prep,
-            self.appo,
+            #self.appo, # NB: Appo removed for now
             self.appo_name,
         )
         
