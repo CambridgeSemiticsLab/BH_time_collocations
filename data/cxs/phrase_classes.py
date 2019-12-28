@@ -8,9 +8,23 @@ from cx_analysis.build import CXbuilder
 from cx_analysis.cx import Construction
 
 class SinglePhrase(CXbuilder):
-    """Modify cx classifications for single phrase CXs"""
+    """Modify cx classifications for single phrase CXs
     
-    def __init__(self, cxset, tf):
+    Arguments:
+        cxset: a set of Construction objects
+        goodheads: A set of acceptable head lexemes for classifying.
+            The subphrase tuples fed into the Builder at
+            this point contain some subphrases that themselves do
+            not function as a timephrase, but only in conjunction 
+            with one. This includes phrases that relate events to 
+            people (e.g. למלך), for example. At present, the best
+            way to avoid classifying non-timephrases is to only
+            accept those whose heads function in stand-alone phrases
+            (i.e. tuples with only 1 subphrase), or whose heads have
+            been manually added to the goodheads set.
+    """
+    
+    def __init__(self, cxset, goodheads, tf):
         CXbuilder.__init__(self) # initialize with standard CXbuilder methods
         
         self.cxset = cxset
@@ -28,13 +42,18 @@ class SinglePhrase(CXbuilder):
             self.quantified,
             self.adjective,
         )
+        self.goodheads = goodheads
         self.prereq = self.single
         self.kind = 'time_class'
-        
         self.class2cx = collections.defaultdict(set)
         
     def test_result(self, test, *cases):
-        """Add class attributes to CX results"""
+        """Add class attributes to CX results.
+        
+        Unlike other test_result methods, this one
+        does not return anything. It only operates
+        on the existing CXs in-place.
+        """
         if test:
             result = test[-1]
             cx = result['element']
@@ -43,37 +62,42 @@ class SinglePhrase(CXbuilder):
             cx.match = result
             cx.conds = result['conds']
             cx.cases = (result,) + cx.cases
-            return cx
+            return cx # return to show conditions
         else:
             return Construction(cases=cases, **cases[0])
     
     def findall(self, element):
         """Find all results with prerequisite
         
-        NB this version of findall only returns
-        a single result: the construction object
-        itself, since it is modified in-place.
-        This version expects cx tuples with
-        only one cx.
-        """
-        results = []
-        if self.prereq(element):
-            for funct in self.cxs:
-                cx = funct(element)
-                if cx:
-                    results.append(cx)
-        if results:
-            return results[0] # NB, only 1st matters as all are same obj
-        else:
-            return None
+        Iterates through a cx_data tuple and 
+        yields results.
+        """        
+        # tag all CXs stored in the tuple element
+        for cx in element:
+            self.prereq(cx, element) # run prerequisite tagging
+            if 'single' in cx.__dict__.get('classification', {}):
+                for funct in self.cxs:
+                    funct(cx) # tag the CX
+            else:
+                self.not_single(cx) # apply non-single categories
     
     def label_cxs(self):
-        """Run all queries against dataset"""
+        """Run all queries against dataset
+        
+        Nothing is returned since CXs are 
+        tagged in-place.
+        """
+        
+        # tag eligible CXs
         for cxtuple in self.cxset:
-            cx = self.findall(cxtuple)
-            if cx:
-                for tag in cx.classification:
-                    self.class2cx[tag].add(cx)
+            self.findall(cxtuple)
+            
+        # organize classified CXs by tags
+        for cxtuple in self.cxset:
+            for cx in cxtuple:
+                if cx.__dict__.get('classification'):
+                    for tag in cx.classification:
+                        self.class2cx[tag].add(cx)
     
     def geta(self, item, attrib, default=None):
         """Safely retrieve attribute from object
@@ -102,18 +126,31 @@ class SinglePhrase(CXbuilder):
         # unsuccessful search
         return default
     
-    def single(self, cxtuple):
-        """Tag CXs as singles"""
-        cx1 = cxtuple[0]
+    def single(self, cx, cxtuple):
+        """Tag CXs as singles.
+        
+        NB: single phrase CXs can be 
+        parts of more complex multi-phrase
+        CXs. This method tags cases where that
+        both is and is not true.
+        """
+        
         relas = set(
-            self.geta(c,'name') for c in cx1
+            self.geta(c,'name') for c in cx
         )
-        bhsa_phrase = L.u(cx1.slots[0], 'phrase')[0]
+        headpath = list(cx.getsuccroles('head'))
+        head = headpath[-1]
+        head_cx = next(iter(cx.graph.pred[head]))
+        bhsa_phrase = L.u(cx.slots[0], 'phrase')[0]
         attr_cl = E.mother.t(bhsa_phrase)
+        
+        custom_goodhead = {
+            'XG/',
+        }
         
         return self.test(
             {
-                'element': cxtuple[0],
+                'element': cx,
                 'class': ['single'],
                 'kind': self.kind,
                 'conds': {
@@ -122,14 +159,62 @@ class SinglePhrase(CXbuilder):
                     'no apposition in cx':
                         not relas & {'appo'},
                     'no attributive clause on phrase':
-                        not attr_cl
+                        not attr_cl,
                 }
-            }
+            },
+            {
+                'element': cx,
+                'class': ['single', 'component'],
+                'kind': self.kind,
+                'conds': {
+                    'len(cxtuple) > 1':
+                        len(cxtuple) > 1,
+                    'head(cx) is good':
+                        self.F.lex.v(head) in self.goodheads|custom_goodhead,
+                    'no apposition in cx':
+                        not relas & {'appo'},
+                    'no attributive clause on phrase':
+                        not attr_cl,
+                }
+            },
+            {
+                'element': cx,
+                'class': ['single', 'component'],
+                'kind': self.kind,
+                'conds': {
+                    'len(cxtuple) > 1':
+                        len(cxtuple) > 1,
+                    'name(head_cx) in goodset':
+                        head_cx.name in {'card',},
+                    'no apposition in cx':
+                        not relas & {'appo'},
+                    'no attributive clause on phrase':
+                        not attr_cl,
+                }
+            },
         )
     
-    def prep(self, cxtuple):
+    def not_single(self, cx):
+        """Tag and track CXs that are not single timephrases.
+        
+        This is the drip-bucket category, only executed
+        if self.single fails. See self.findall for code.
+        """
+        return self.test(
+            {
+                'element': cx,
+                'class': ['not_single'],
+                'kind': cx.kind, # preserve the kind
+                'conds': {
+                    'self.single failed':
+                        True,
+                },
+            },
+        )
+    
+    def prep(self, cx):
         """Tag prepositional cxs"""
-        cx = cxtuple[0]
+                
         return self.test(
             {
                 'element': cx,
@@ -150,10 +235,9 @@ class SinglePhrase(CXbuilder):
             }
         )
 
-    def bare(self, cxtuple):
+    def bare(self, cx):
         """Tag bare, non-modified cxs"""
         F = self.F
-        cx = cxtuple[0]
         head_path = list(cx.getsuccroles('head'))
         head = head_path[-1]
         etcbc_phrase = self.L.u(int(head),'phrase')[0]
@@ -199,9 +283,8 @@ class SinglePhrase(CXbuilder):
             },
         )
     
-    def definite(self, cxtuple):
+    def definite(self, cx):
         """A definite phrase"""
-        cx = cxtuple[0]
         head = self.get_headword(cx)
         def_ph = self.get_head_modi(head, cx, 'defi_ph')
         
@@ -218,12 +301,11 @@ class SinglePhrase(CXbuilder):
         
         )
     
-    def def_appo(self, cxtuple):
+    def def_appo(self, cx):
         """Definite apposition"""
         
         F = self.F
         geta = self.geta
-        cx = cxtuple[0]
         head = self.get_headword(cx)
         
         # get attribute cx if it contains head word
@@ -267,9 +349,8 @@ class SinglePhrase(CXbuilder):
             },
         )
     
-    def genitive(self, cxtuple):
+    def genitive(self, cx):
         """Genitive relation on head"""
-        cx = cxtuple[0]
         head = self.get_headword(cx)
         geni_ph = self.get_head_modi(head, cx, 'geni_ph')
         geni_items = set(
@@ -299,12 +380,18 @@ class SinglePhrase(CXbuilder):
             }
         )
     
-    def quantified(self, cxtuple):
+    def quantified(self, cx):
         """Find quantified time phrases"""
-        cx = cxtuple[0]
-        head = self.get_headword(cx)
-        quant_ph = self.get_head_modi(head, cx, 'numb_ph')
         geta = self.geta
+        head = self.get_headword(cx)
+        headpath = list(cx.getsuccroles('head'))
+        headpath_cxs = set(
+            geta(cx,'name') for cx in headpath
+                if geta(cx,'kind') == 'subphrase'
+                or geta(cx,'name') == 'card'
+        )
+        quant_ph = self.get_head_modi(head, cx, 'numb_ph')
+        
         return self.test(
             {
                 'element': cx,
@@ -339,15 +426,25 @@ class SinglePhrase(CXbuilder):
                 'class': ['cardinal'],
                 'kind': self.kind,
                 'conds': {
-                    'cx.name == card_chain':
-                        cx.name == 'card_chain'
+                    '{card_chain, card} & headpath':
+                        {'card_chain','card'} & headpath_cxs,
+                    f'only (card_chain, prep_ph) in headpath: {headpath_cxs}':
+                        headpath_cxs.issubset({'card_chain', 'card', 'prep_ph'}),
+                }
+            },
+            {
+                'element': cx,
+                'class': ['cardinal'],
+                'kind': self.kind,
+                'conds': {
+                    'cx.name in {card_chain,card}':
+                        cx.name in {'card_chain','card'}
                 }
             }
         )
     
-    def adjective(self, cxtuple):
+    def adjective(self, cx):
         """Adjectival modifications via non-definite apposition"""
-        cx = cxtuple[0]
         head = self.get_headword(cx)
         adjv_ph = self.get_head_modi(head, cx, 'adjv_ph')
         
