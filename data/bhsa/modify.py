@@ -2,6 +2,7 @@ import collections
 from tf.fabric import Fabric
 from tf.compose import modify
 from weqatal import convert_tense
+from function import modify_function
 from funct_assoc import calculate
 
 def mod_features(locs, base_metadata):
@@ -29,21 +30,8 @@ def mod_features(locs, base_metadata):
         'vt': {},
     }
 
-    # manually remap phrase functions
-    mod_features['function'].update({
-        849296:'Loca', 
-        825329:'Loca',
-        828081:'Cmpl',
-        774349:'Adju',
-        774352:'Adju',
-        775948:'Adju',
-        775985:'Adju',
-        876172:'Adju',
-        881665:'Objc', # phrase belongs with previous as adjectival element
-        870273:'Time', # prep and conj belong with time phrase
-        870274:'Time', # modifier "KBR" belongs with time phrase
-        731915:'Modi', # no reviewed sources took this as temporal
-    })
+    # remap certain phrase functions
+    modify_function(mod_features['function'], api)
 
     # modify verb tenses to add weqatal
     for verb in api.F.pdp.s('verb'):
