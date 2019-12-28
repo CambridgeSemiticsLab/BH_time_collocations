@@ -29,7 +29,7 @@ class SinglePhrase(CXbuilder):
         
         self.cxset = cxset
         self.api = tf
-        self.F, self.L = tf.api.F, tf.api.L
+        self.F, self.E, self.L = tf.api.F, tf.api.E, tf.api.L
         
         # cx queries
         # NB: order matters!
@@ -135,6 +135,7 @@ class SinglePhrase(CXbuilder):
         both is and is not true.
         """
         
+        F, E, L = self.F, self.E, self.L
         relas = set(
             self.geta(c,'name') for c in cx
         )
@@ -170,7 +171,7 @@ class SinglePhrase(CXbuilder):
                     'len(cxtuple) > 1':
                         len(cxtuple) > 1,
                     'head(cx) is good':
-                        self.F.lex.v(head) in self.goodheads|custom_goodhead,
+                        F.lex.v(head) in self.goodheads|custom_goodhead,
                     'no apposition in cx':
                         not relas & {'appo'},
                     'no attributive clause on phrase':
@@ -237,7 +238,7 @@ class SinglePhrase(CXbuilder):
 
     def bare(self, cx):
         """Tag bare, non-modified cxs"""
-        F = self.F
+        F, E = self.F, self.E
         head_path = list(cx.getsuccroles('head'))
         head = head_path[-1]
         etcbc_phrase = self.L.u(int(head),'phrase')[0]

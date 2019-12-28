@@ -109,8 +109,13 @@ def load_cxs(tf_api, semdist, debug=False):
     
     # tag the time cxs with classifications
     sp = SinglePhrase(phrase2cxs.values(), good_heads, A)  
+    sp.label_cxs()
 
-    return {'wordcxs': wordcxs, 'phrase2cxs': phrase2cxs} 
+    return {
+        'wordcxs': wordcxs, 
+        'phrase2cxs': phrase2cxs,
+        'class2cx': sp.class2cx,
+    } 
 
 # -- Dump Construction Objects --
 
