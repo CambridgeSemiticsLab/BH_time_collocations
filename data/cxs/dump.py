@@ -7,6 +7,7 @@ from datetime import datetime
 from paths import semvector
 from word_grammar import Words
 from phrase_grammar import Subphrases, Phrases
+from phrase_classes import SinglePhrase
 from tf_tools.load import load_tf
 
 # load semantic vectors
@@ -94,6 +95,21 @@ def load_cxs(tf_api, semdist, debug=False):
     print(f'{len(phrase2cxs)} phrases matched with Constructions...')
     print(f'{len(nocxs)} phrases not yet matched with Constructions...')
     
+
+    print('Classifying single timephrases...')
+
+    print('building preprocess data...')
+    # compile acceptable head lexemes from single-phrased CXs
+    good_heads = set()
+    for ph, cx_data in phrase2cxs.items():
+        if len(cx_data) == 1:
+            cx = cx_data[0]
+            head = list(cx.getsuccroles('head'))[-1]
+            good_heads.add(F.lex.v(head))
+    
+    # tag the time cxs with classifications
+    sp = SinglePhrase(phrase2cxs.values(), good_heads, A)  
+
     return {'wordcxs': wordcxs, 'phrase2cxs': phrase2cxs} 
 
 # -- Dump Construction Objects --
