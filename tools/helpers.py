@@ -27,7 +27,7 @@ class Figures:
             max(nums.values(), default=0) + 1
         )
 
-        return f'fig.{chapter}.{self.fig_counts}_{title_str}'
+        return f'fig.{chapter}.{num}_{title_str}'
 
 def convert2pandas(counterdict):
     ''' 
