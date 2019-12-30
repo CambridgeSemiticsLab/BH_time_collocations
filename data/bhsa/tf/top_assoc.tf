@@ -7,7 +7,7 @@
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-12-30T10:46:23Z
+@dateWritten=2019-12-30T11:03:51Z
 
 Cmpl
 Objc
@@ -377666,7 +377666,7 @@ Objc
 Subj
 Rela
 Voct
-Cmpl
+Modi
 Rela
 PreC
 PreC
@@ -377704,7 +377704,7 @@ Adju
 Rela
 Subj
 PreC
-Cmpl
+Modi
 PreC
 PreC
 Conj
@@ -377807,7 +377807,7 @@ PreC
 PreC
 Pred
 Cmpl
-Cmpl
+Modi
 Pred
 Cmpl
 Cmpl
@@ -377930,7 +377930,7 @@ Cmpl
 Rela
 Pred
 Objc
-Cmpl
+Modi
 Pred
 Subj
 Voct
