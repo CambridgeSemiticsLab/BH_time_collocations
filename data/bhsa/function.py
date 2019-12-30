@@ -26,7 +26,7 @@ def modify_function(functions, api):
         phrase_funct = F.function.v(phrase)
 
         for word in L.d(phrase,'word'):
-            P = PositionsTF(word, 'phrase')     
+            P = PositionsTF(word, 'phrase', api)     
     
             # -- single-particle with verb required -- 
             single_lexset = {
