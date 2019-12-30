@@ -8,6 +8,27 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 
+class Figures:
+    """Auto config figure titles"""
+
+    def __init__(self, chapter=1):
+        self.chapter = chapter
+        self.fig2num = {}
+
+    def title(self, title_str, chapter=None):
+        """Configure a title string"""
+        
+        chapter = chapter or self.chapter
+
+        # configure fig number
+        nums = self.fig2num
+        num = nums.setdefault(
+            title_str,
+            max(nums.values(), default=0) + 1
+        )
+
+        return f'fig.{chapter}.{self.fig_counts}_{}'
+
 def convert2pandas(counterdict):
     ''' 
     Converts a counter dict to a sorted Pandas DF
