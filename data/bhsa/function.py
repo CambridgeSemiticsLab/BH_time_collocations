@@ -6,6 +6,7 @@ time phrases.
 """
 
 from positions import PositionsTF
+from tf.app import use
 
 def modify_function(functions, api):
     """Apply automatic and manual function edits to BHSA
@@ -16,6 +17,7 @@ def modify_function(functions, api):
     """
 
     F, L = api.F, api.L
+    A = use('bhsa', api=api, silent='deep')
 
     # apply automatic mods
     for phrase in F.otype.s('phrase'):
@@ -26,7 +28,7 @@ def modify_function(functions, api):
         phrase_funct = F.function.v(phrase)
 
         for word in L.d(phrase,'word'):
-            P = PositionsTF(word, 'phrase', api)     
+            P = PositionsTF(word, 'phrase', A).get
     
             # -- single-particle with verb required -- 
             single_lexset = {

@@ -20,7 +20,7 @@ def mod_features(locs, base_metadata):
     TF = Fabric(locations=[bhsa,heads], silent='deep')
     api = TF.load('''
         function vt mother pdp lex
-        nhead
+        nhead ls nu
     ''')
     F = api.F
 
