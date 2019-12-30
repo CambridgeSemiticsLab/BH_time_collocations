@@ -6,7 +6,7 @@
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2019-12-19T16:52:03Z
+@dateWritten=2019-12-30T10:46:23Z
 
 651542	Time
 Pred
@@ -1147,7 +1147,7 @@ Modi
 Subj
 PreC
 Objc
-Modi
+Time
 Pred
 Conj
 Pred
@@ -1245,7 +1245,7 @@ Conj
 Objc
 Adju
 Conj
-Modi
+Time
 Pred
 Subj
 Conj
@@ -1254,7 +1254,7 @@ Modi
 Conj
 Pred
 Subj
-Modi
+Time
 Objc
 Conj
 Pred
@@ -2087,7 +2087,7 @@ Cmpl
 Cmpl
 Conj
 Pred
-Modi
+Time
 Time
 Conj
 Pred
@@ -2112,7 +2112,7 @@ Subj
 Cmpl
 Conj
 Pred
-Modi
+Time
 Time
 Conj
 Pred
@@ -2122,7 +2122,7 @@ Nega
 Pred
 Pred
 Cmpl
-Modi
+Time
 Conj
 Pred
 Time
@@ -2203,7 +2203,7 @@ Cmpl
 Nega
 Pred
 Pred
-Modi
+Time
 Objc
 Adju
 Conj
@@ -2213,12 +2213,12 @@ Adju
 Conj
 Nega
 Pred
-Modi
+Time
 Pred
 Objc
 Conj
 Pred
-Modi
+Time
 Time
 Subj
 Nega
@@ -2316,12 +2316,12 @@ Conj
 Nega
 Pred
 Subj
-Modi
+Time
 Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Pred
 Objc
@@ -2362,7 +2362,7 @@ Adju
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 PreC
 Pred
@@ -4120,7 +4120,7 @@ PreC
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Objc
 Conj
@@ -4713,7 +4713,7 @@ Cmpl
 Objc
 Conj
 Pred
-Modi
+Time
 Pred
 Cmpl
 Conj
@@ -4771,7 +4771,7 @@ Pred
 Cmpl
 Conj
 Pred
-Modi
+Time
 Modi
 Pred
 Cmpl
@@ -4854,7 +4854,7 @@ Objc
 Pred
 Conj
 Pred
-Modi
+Time
 Pred
 Conj
 Subj
@@ -6197,7 +6197,7 @@ Conj
 Pred
 Subj
 Cmpl
-Modi
+Time
 Loca
 Conj
 Pred
@@ -6678,7 +6678,7 @@ Cmpl
 Conj
 Pred
 Subj
-Modi
+Time
 Pred
 Pred
 Conj
@@ -6747,7 +6747,7 @@ Objc
 Cmpl
 Conj
 Pred
-Modi
+Time
 Cmpl
 Pred
 Conj
@@ -7049,7 +7049,7 @@ Pred
 Subj
 Cmpl
 Subj
-Modi
+Time
 Pred
 Pred
 Cmpl
@@ -8590,7 +8590,7 @@ Objc
 Conj
 PreO
 Modi
-Modi
+Time
 Objc
 Pred
 Conj
@@ -9383,7 +9383,7 @@ Adju
 Rela
 Pred
 Cmpl
-Modi
+Time
 Time
 Conj
 Pred
@@ -9415,7 +9415,7 @@ Adju
 Conj
 Pred
 Cmpl
-Modi
+Time
 Time
 Conj
 Pred
@@ -9451,7 +9451,7 @@ PreO
 Subj
 Conj
 Pred
-Modi
+Time
 Conj
 Pred
 Objc
@@ -9473,14 +9473,14 @@ Objc
 Objc
 Conj
 Pred
-Modi
+Time
 Conj
 Pred
 Objc
 Conj
 Pred
 Time
-Modi
+Time
 Pred
 Subj
 Cmpl
@@ -9494,13 +9494,13 @@ Objc
 Objc
 Conj
 Pred
-Modi
+Time
 Conj
 Pred
 Objc
 Conj
 Pred
-Modi
+Time
 Pred
 Objc
 Adju
@@ -9593,7 +9593,7 @@ Objc
 Objc
 Conj
 Pred
-Modi
+Time
 Conj
 Pred
 Subj
@@ -9741,7 +9741,7 @@ Objc
 Objc
 Conj
 Pred
-Modi
+Time
 Subj
 Conj
 Pred
@@ -9753,7 +9753,7 @@ Subj
 PreO
 Subj
 Objc
-Modi
+Time
 PreO
 Subj
 Conj
@@ -11066,7 +11066,7 @@ Pred
 Nega
 Objc
 Pred
-Modi
+Time
 Subj
 Conj
 Objc
@@ -11160,7 +11160,7 @@ Cmpl
 Conj
 Pred
 Cmpl
-Modi
+Time
 PreS
 Cmpl
 Conj
@@ -11865,7 +11865,7 @@ Conj
 Pred
 Subj
 Cmpl
-Modi
+Time
 PreS
 Cmpl
 Conj
@@ -11880,7 +11880,7 @@ PreC
 Nega
 Pred
 Subj
-Modi
+Time
 Objc
 Conj
 PreC
@@ -11956,7 +11956,7 @@ Pred
 Cmpl
 Conj
 Pred
-Modi
+Time
 Subj
 Pred
 Cmpl
@@ -12416,7 +12416,7 @@ Pred
 Cmpl
 Conj
 Pred
-Modi
+Time
 Pred
 Objc
 Conj
@@ -12461,13 +12461,13 @@ Pred
 Cmpl
 Conj
 Pred
-Modi
+Time
 Pred
 Objc
 Adju
 Conj
 Pred
-Modi
+Time
 Objc
 Conj
 Pred
@@ -12478,7 +12478,7 @@ Pred
 Intj
 Pred
 Objc
-Modi
+Time
 Conj
 Intj
 Subj
@@ -12887,7 +12887,7 @@ Objc
 Objc
 Conj
 Pred
-Modi
+Time
 Conj
 Pred
 Objc
@@ -12897,7 +12897,7 @@ Objc
 Objc
 Conj
 Pred
-Modi
+Time
 Conj
 Pred
 Objc
@@ -13222,7 +13222,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 PreO
 Conj
 Pred
@@ -13911,7 +13911,7 @@ Conj
 Pred
 Conj
 Pred
-Modi
+Time
 Conj
 Intj
 Subj
@@ -14192,7 +14192,7 @@ Conj
 Pred
 Subj
 Cmpl
-Modi
+Time
 Conj
 PreC
 Subj
@@ -15157,7 +15157,7 @@ Conj
 Modi
 Pred
 Modi
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -16549,13 +16549,13 @@ Cmpl
 Conj
 Pred
 Adju
-Modi
+Time
 Conj
 Pred
 Subj
 Cmpl
 Pred
-Modi
+Time
 PreS
 Objc
 Conj
@@ -18224,7 +18224,7 @@ Time
 Conj
 Nega
 Pred
-Modi
+Time
 PreO
 Conj
 Pred
@@ -18747,7 +18747,7 @@ PreO
 Cmpl
 Conj
 Pred
-Modi
+Time
 Subj
 Cmpl
 Modi
@@ -18931,7 +18931,7 @@ Conj
 Pred
 Subj
 Cmpl
-Modi
+Time
 Pred
 Intj
 Objc
@@ -19249,7 +19249,7 @@ Cmpl
 Conj
 Pred
 Cmpl
-Modi
+Time
 Pred
 Subj
 Adju
@@ -20949,7 +20949,7 @@ Conj
 Pred
 Cmpl
 Pred
-Modi
+Time
 Subj
 PreC
 Conj
@@ -20983,7 +20983,7 @@ Conj
 Subj
 Nega
 Pred
-Modi
+Time
 Conj
 Pred
 Conj
@@ -20993,7 +20993,7 @@ Conj
 Frnt
 Pred
 Conj
-Modi
+Time
 Pred
 Cmpl
 Conj
@@ -21309,7 +21309,7 @@ Time
 Pred
 Intj
 Objc
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -21461,14 +21461,14 @@ Objc
 Pred
 Nega
 Pred
-Modi
+Time
 Pred
 Objc
 Conj
 Pred
 Subj
 Cmpl
-Modi
+Time
 Objc
 Pred
 Cmpl
@@ -22619,7 +22619,7 @@ Time
 Nega
 Pred
 PreO
-Modi
+Time
 Time
 Subj
 Pred
@@ -22968,7 +22968,7 @@ Pred
 Subj
 Pred
 Objc
-Modi
+Time
 Pred
 Subj
 Frnt
@@ -25643,7 +25643,7 @@ Pred
 Nega
 Pred
 Cmpl
-Modi
+Time
 Pred
 Cmpl
 Time
@@ -25678,7 +25678,7 @@ Subj
 PreS
 Objc
 Loca
-Modi
+Time
 Pred
 Subj
 Cmpl
@@ -25816,7 +25816,7 @@ Conj
 Pred
 Cmpl
 Subj
-Modi
+Time
 PreO
 Cmpl
 Conj
@@ -28363,7 +28363,7 @@ Rela
 Pred
 Cmpl
 Pred
-Modi
+Time
 Cmpl
 Rela
 PreO
@@ -29362,7 +29362,7 @@ Pred
 Cmpl
 Conj
 Objc
-Modi
+Time
 Pred
 Subj
 Cmpl
@@ -29381,7 +29381,7 @@ Objc
 PreS
 Pred
 Cmpl
-Modi
+Time
 Nega
 Pred
 Cmpl
@@ -29773,7 +29773,7 @@ Conj
 Subj
 Pred
 Cmpl
-Modi
+Time
 Objc
 Time
 Conj
@@ -29812,7 +29812,7 @@ Pred
 Subj
 Nega
 Pred
-Modi
+Time
 Objc
 Cmpl
 Conj
@@ -31810,7 +31810,7 @@ Cmpl
 Conj
 Pred
 Cmpl
-Modi
+Time
 Adju
 Loca
 Conj
@@ -31920,7 +31920,7 @@ Objc
 Cmpl
 Conj
 Pred
-Modi
+Time
 Adju
 Loca
 Conj
@@ -32607,7 +32607,7 @@ Pred
 Adju
 Objc
 Subj
-Modi
+Time
 Pred
 Loca
 Nega
@@ -33243,7 +33243,7 @@ Conj
 Pred
 Cmpl
 Cmpl
-Modi
+Time
 Conj
 Pred
 Objc
@@ -34673,13 +34673,13 @@ Conj
 PreO
 Subj
 Time
-Modi
+Time
 Conj
 Pred
 Subj
 Objc
 Time
-Modi
+Time
 Conj
 Intj
 Pred
@@ -34710,7 +34710,7 @@ Cmpl
 Adju
 Conj
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -35069,7 +35069,7 @@ Pred
 Subj
 Objc
 Time
-Modi
+Time
 Conj
 Pred
 Subj
@@ -35301,7 +35301,7 @@ Subj
 Conj
 PreO
 Time
-Modi
+Time
 Conj
 Pred
 Subj
@@ -35341,7 +35341,7 @@ Cmpl
 Conj
 Conj
 Pred
-Modi
+Time
 Adju
 PreC
 Subj
@@ -35360,7 +35360,7 @@ Cmpl
 Subj
 Conj
 Pred
-Modi
+Time
 Conj
 Pred
 Subj
@@ -35422,7 +35422,7 @@ Pred
 Rela
 PreC
 Cmpl
-Modi
+Time
 Conj
 PreO
 Conj
@@ -35531,7 +35531,7 @@ Conj
 Pred
 Cmpl
 Adju
-Modi
+Time
 Cmpl
 Conj
 Cmpl
@@ -35652,7 +35652,7 @@ Adju
 Cmpl
 Rela
 PreC
-Modi
+Time
 Adju
 Conj
 Pred
@@ -35921,7 +35921,7 @@ Cmpl
 Conj
 Pred
 Cmpl
-Modi
+Time
 Conj
 Pred
 Objc
@@ -36559,7 +36559,7 @@ Loca
 Conj
 Cmpl
 Pred
-Modi
+Time
 Cmpl
 Adju
 Conj
@@ -36627,7 +36627,7 @@ Pred
 Cmpl
 Adju
 Adju
-Modi
+Time
 Conj
 PreO
 Conj
@@ -36882,7 +36882,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Objc
 Cmpl
 Rela
@@ -39041,21 +39041,21 @@ Cmpl
 Objc
 Pred
 Objc
-Modi
+Time
 Loca
 Pred
 Objc
 Subj
 Time
 Cmpl
-Modi
+Time
 PreC
 Cmpl
 Cmpl
 Pred
 Objc
 Adju
-Modi
+Time
 Conj
 Pred
 Objc
@@ -39086,7 +39086,7 @@ Cmpl
 Time
 PreO
 Cmpl
-Modi
+Time
 Adju
 Subj
 Conj
@@ -40695,7 +40695,7 @@ Objc
 Cmpl
 Nega
 Pred
-Modi
+Time
 Conj
 Pred
 Subj
@@ -42444,7 +42444,7 @@ Pred
 Subj
 Cmpl
 Adju
-Modi
+Time
 Conj
 Pred
 Objc
@@ -43350,7 +43350,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Conj
 Pred
 Objc
@@ -44472,7 +44472,7 @@ PreC
 Conj
 Pred
 Subj
-Modi
+Time
 Cmpl
 Pred
 Subj
@@ -45201,7 +45201,7 @@ Conj
 Pred
 Objc
 Modi
-Modi
+Time
 Conj
 Nega
 Pred
@@ -46381,7 +46381,7 @@ Pred
 Objc
 Conj
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -46631,7 +46631,7 @@ Objc
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 PreC
 Conj
@@ -46813,7 +46813,7 @@ Objc
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Cmpl
 Pred
@@ -46979,7 +46979,7 @@ Conj
 Pred
 Cmpl
 Cmpl
-Modi
+Time
 Conj
 Pred
 Objc
@@ -47349,7 +47349,7 @@ Conj
 Pred
 Objc
 Adju
-Modi
+Time
 Conj
 Pred
 Subj
@@ -48190,7 +48190,7 @@ Pred
 Cmpl
 Conj
 Pred
-Modi
+Time
 Subj
 Pred
 Objc
@@ -48391,7 +48391,7 @@ Cmpl
 Conj
 PreO
 Modi
-Modi
+Time
 Conj
 Pred
 Subj
@@ -48454,7 +48454,7 @@ Adju
 Pred
 Objc
 Modi
-Modi
+Time
 Intj
 Subj
 Pred
@@ -48470,7 +48470,7 @@ Conj
 Pred
 Cmpl
 Modi
-Modi
+Time
 Modi
 Pred
 Cmpl
@@ -49109,7 +49109,7 @@ Intj
 Pred
 Modi
 Modi
-Modi
+Time
 Conj
 Time
 Pred
@@ -51205,14 +51205,14 @@ Pred
 Cmpl
 Adju
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
 Cmpl
 Conj
 Pred
-Modi
+Time
 PreO
 Cmpl
 Conj
@@ -53896,7 +53896,7 @@ Nega
 Pred
 Pred
 Cmpl
-Modi
+Time
 Cmpl
 Pred
 Cmpl
@@ -54281,7 +54281,7 @@ Objc
 Conj
 Modi
 Pred
-Modi
+Time
 Cmpl
 Rela
 Subj
@@ -54795,7 +54795,7 @@ PreC
 Subj
 Pred
 Objc
-Modi
+Time
 Conj
 Pred
 Conj
@@ -55224,7 +55224,7 @@ Subj
 Cmpl
 Conj
 PreO
-Modi
+Time
 Conj
 Modi
 Pred
@@ -55441,11 +55441,11 @@ Pred
 Subj
 Objc
 Cmpl
-Modi
+Time
 Nega
 Pred
 PreO
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -55795,7 +55795,7 @@ Conj
 PreO
 Conj
 PreO
-Modi
+Time
 Conj
 Pred
 Subj
@@ -55923,7 +55923,7 @@ Subj
 Cmpl
 Pred
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -55932,7 +55932,7 @@ Rela
 Pred
 Cmpl
 Pred
-Modi
+Time
 Cmpl
 Rela
 PreO
@@ -55986,7 +55986,7 @@ Pred
 Cmpl
 Objc
 Pred
-Modi
+Time
 Cmpl
 Rela
 Pred
@@ -56362,7 +56362,7 @@ Conj
 Objc
 Nega
 Pred
-Modi
+Time
 Conj
 Frnt
 Subj
@@ -56623,7 +56623,7 @@ Pred
 Objc
 Conj
 Pred
-Modi
+Time
 Cmpl
 Rela
 Subj
@@ -57433,7 +57433,7 @@ Pred
 PreC
 Nega
 Pred
-Modi
+Time
 Conj
 Nega
 Pred
@@ -58193,7 +58193,7 @@ Conj
 Pred
 Modi
 PreC
-Modi
+Time
 Pred
 Subj
 Cmpl
@@ -58437,7 +58437,7 @@ Pred
 Conj
 Nega
 Pred
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -58499,7 +58499,7 @@ Nega
 Pred
 Pred
 Cmpl
-Modi
+Time
 Conj
 Nega
 Pred
@@ -58702,7 +58702,7 @@ Conj
 Objc
 Nega
 Pred
-Modi
+Time
 Conj
 Nega
 Pred
@@ -58937,7 +58937,7 @@ Time
 Conj
 Pred
 Cmpl
-Modi
+Time
 Objc
 Adju
 Conj
@@ -59072,7 +59072,7 @@ Conj
 Nega
 Pred
 Pred
-Modi
+Time
 Adju
 Loca
 Conj
@@ -61617,7 +61617,7 @@ Pred
 PreS
 Conj
 PreS
-Modi
+Time
 Cmpl
 Rela
 PreO
@@ -62185,7 +62185,7 @@ Pred
 Cmpl
 Nega
 Pred
-Modi
+Time
 PreO
 Conj
 Pred
@@ -62809,7 +62809,7 @@ Subj
 Time
 Nega
 Pred
-Modi
+Time
 Pred
 Conj
 Pred
@@ -64183,7 +64183,7 @@ Conj
 Nega
 Pred
 Subj
-Modi
+Time
 Cmpl
 Adju
 Rela
@@ -64532,7 +64532,7 @@ Ques
 Pred
 Subj
 Pred
-Modi
+Time
 Cmpl
 Conj
 PreO
@@ -64614,7 +64614,7 @@ Subj
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Adju
 Cmpl
@@ -65334,7 +65334,7 @@ Conj
 Nega
 Pred
 PreC
-Modi
+Time
 Subj
 Adju
 Time
@@ -65348,7 +65348,7 @@ Conj
 Pred
 Pred
 Objc
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -65477,7 +65477,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 PreC
 Subj
 Conj
@@ -65581,7 +65581,7 @@ Objc
 Subj
 Pred
 Objc
-Modi
+Time
 Modi
 Pred
 Time
@@ -65594,7 +65594,7 @@ Conj
 Time
 Pred
 Objc
-Modi
+Time
 Conj
 Subj
 Pred
@@ -65699,7 +65699,7 @@ Pred
 Objc
 Objc
 Pred
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -65740,7 +65740,7 @@ Conj
 Pred
 Objc
 Time
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -65758,11 +65758,11 @@ Conj
 Pred
 Objc
 Adju
-Modi
+Time
 Time
 Pred
 Objc
-Modi
+Time
 Conj
 Pred
 Time
@@ -66612,7 +66612,7 @@ Cmpl
 Conj
 Subj
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -67279,7 +67279,7 @@ Objc
 Cmpl
 Pred
 Cmpl
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -67311,7 +67311,7 @@ Conj
 Pred
 Cmpl
 Subj
-Modi
+Time
 Time
 Pred
 Cmpl
@@ -67785,7 +67785,7 @@ Conj
 Objc
 Pred
 Subj
-Modi
+Time
 Conj
 Subj
 Pred
@@ -67860,7 +67860,7 @@ Pred
 Subj
 Cmpl
 Cmpl
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -69896,7 +69896,7 @@ Time
 Rela
 Pred
 Time
-Modi
+Time
 Pred
 Subj
 Conj
@@ -70899,7 +70899,7 @@ Subj
 Cmpl
 Conj
 Pred
-Modi
+Time
 Cmpl
 Rela
 Pred
@@ -71970,7 +71970,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Pred
 Cmpl
 Adju
@@ -72010,7 +72010,7 @@ Conj
 Pred
 Cmpl
 Pred
-Modi
+Time
 Cmpl
 Rela
 Pred
@@ -72101,7 +72101,7 @@ Pred
 Subj
 Objc
 PreO
-Modi
+Time
 Conj
 Nega
 PreO
@@ -72941,7 +72941,7 @@ Loca
 Loca
 Pred
 Objc
-Modi
+Time
 Pred
 Cmpl
 Subj
@@ -72958,7 +72958,7 @@ Conj
 Pred
 Objc
 Voct
-Modi
+Time
 Pred
 Subj
 Adju
@@ -73024,7 +73024,7 @@ Loca
 Pred
 Subj
 Pred
-Modi
+Time
 Pred
 Subj
 Loca
@@ -73042,7 +73042,7 @@ PreO
 Pred
 Voct
 Objc
-Modi
+Time
 Pred
 Subj
 Adju
@@ -73735,10 +73735,10 @@ Subj
 Cmpl
 Conj
 Pred
-Modi
+Time
 Pred
 Intj
-Modi
+Time
 Cmpl
 Pred
 Intj
@@ -75122,7 +75122,7 @@ PreC
 Adju
 Conj
 Pred
-Modi
+Time
 Subj
 Pred
 Conj
@@ -75360,7 +75360,7 @@ Pred
 Objc
 Conj
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -75799,7 +75799,7 @@ Objc
 Adju
 Conj
 Pred
-Modi
+Time
 Subj
 Conj
 Pred
@@ -76506,7 +76506,7 @@ Rela
 Pred
 Pred
 Intj
-Modi
+Time
 Cmpl
 Conj
 PreO
@@ -76522,7 +76522,7 @@ Cmpl
 Conj
 Pred
 Subj
-Modi
+Time
 Cmpl
 Conj
 Subj
@@ -76696,11 +76696,11 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Pred
 Cmpl
-Modi
+Time
 Pred
 Subj
 Conj
@@ -77138,7 +77138,7 @@ Pred
 Cmpl
 Subj
 Pred
-Modi
+Time
 Cmpl
 Conj
 PreC
@@ -77665,7 +77665,7 @@ Subj
 NCop
 PreC
 Modi
-Modi
+Time
 Pred
 Cmpl
 Conj
@@ -77728,7 +77728,7 @@ Pred
 Cmpl
 Pred
 Pred
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -77900,7 +77900,7 @@ Intj
 Conj
 PreO
 Intj
-Modi
+Time
 Voct
 Conj
 Pred
@@ -79421,7 +79421,7 @@ Time
 Conj
 Pred
 Adju
-Modi
+Time
 Objc
 Modi
 Subj
@@ -79461,7 +79461,7 @@ Time
 Pred
 Ques
 Pred
-Modi
+Time
 Pred
 Cmpl
 Conj
@@ -80309,7 +80309,7 @@ Subj
 Nega
 Pred
 PreC
-Modi
+Time
 Conj
 Pred
 Time
@@ -80964,7 +80964,7 @@ Pred
 Pred
 Conj
 Subj
-Modi
+Time
 Pred
 Conj
 Subj
@@ -81003,7 +81003,7 @@ Conj
 Pred
 Subj
 Pred
-Modi
+Time
 Objc
 Conj
 Pred
@@ -81026,11 +81026,11 @@ Pred
 Pred
 Conj
 Subj
-Modi
+Time
 Pred
 Objc
 Conj
-Modi
+Time
 Pred
 Cmpl
 Subj
@@ -82286,7 +82286,7 @@ Subj
 Conj
 Nega
 Pred
-Modi
+Time
 Pred
 Cmpl
 Conj
@@ -83402,11 +83402,11 @@ Nega
 Pred
 Conj
 Pred
-Modi
+Time
 Cmpl
 Ques
 Pred
-Modi
+Time
 Cmpl
 Subj
 Conj
@@ -85816,7 +85816,7 @@ Pred
 Subj
 Conj
 Pred
-Modi
+Time
 Pred
 Subj
 Conj
@@ -86988,7 +86988,7 @@ Conj
 Pred
 Subj
 Cmpl
-Modi
+Time
 Conj
 Pred
 Subj
@@ -87242,7 +87242,7 @@ Pred
 Subj
 Pred
 Cmpl
-Modi
+Time
 Conj
 Pred
 Subj
@@ -87703,7 +87703,7 @@ NCop
 Subj
 Conj
 Pred
-Modi
+Time
 Subj
 Conj
 Pred
@@ -88248,7 +88248,7 @@ Conj
 Pred
 Subj
 Cmpl
-Modi
+Time
 Pred
 Nega
 Pred
@@ -88291,7 +88291,7 @@ Pred
 Cmpl
 Conj
 Pred
-Modi
+Time
 Conj
 Pred
 Subj
@@ -88975,7 +88975,7 @@ Pred
 Cmpl
 Conj
 Pred
-Modi
+Time
 Subj
 Pred
 Cmpl
@@ -89234,7 +89234,7 @@ Cmpl
 Pred
 Intj
 Pred
-Modi
+Time
 Conj
 Pred
 Conj
@@ -90551,7 +90551,7 @@ Time
 PreO
 Intj
 Cmpl
-Modi
+Time
 Conj
 Nega
 Pred
@@ -90777,7 +90777,7 @@ Conj
 Nega
 Pred
 Cmpl
-Modi
+Time
 Conj
 Pred
 Subj
@@ -90873,7 +90873,7 @@ Pred
 Cmpl
 Subj
 PreO
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -90902,7 +90902,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 PreO
 Conj
 Pred
@@ -91278,7 +91278,7 @@ Cmpl
 Conj
 Nega
 PreO
-Modi
+Time
 Adju
 Conj
 Pred
@@ -92849,7 +92849,7 @@ Pred
 Cmpl
 Conj
 Pred
-Modi
+Time
 Subj
 Pred
 Cmpl
@@ -92967,12 +92967,12 @@ Subj
 Conj
 Nega
 Pred
-Modi
+Time
 Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Pred
 Conj
 Subj
@@ -93138,7 +93138,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Pred
 Objc
 Objc
@@ -93905,14 +93905,14 @@ Adju
 Conj
 Pred
 Subj
-Modi
+Time
 Objc
 Cmpl
 PreS
 Cmpl
 Conj
 Pred
-Modi
+Time
 Cmpl
 Subj
 Conj
@@ -94000,7 +94000,7 @@ PreO
 Subj
 Conj
 Pred
-Modi
+Time
 Subj
 Pred
 Conj
@@ -94048,7 +94048,7 @@ PreS
 Cmpl
 Conj
 Pred
-Modi
+Time
 Subj
 Objc
 Conj
@@ -94304,7 +94304,7 @@ Pred
 Cmpl
 Conj
 Pred
-Modi
+Time
 Adju
 Conj
 Pred
@@ -94453,7 +94453,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Conj
 Nega
 Pred
@@ -94562,7 +94562,7 @@ PreO
 Cmpl
 Conj
 Pred
-Modi
+Time
 Subj
 Adju
 Voct
@@ -94578,7 +94578,7 @@ Conj
 Objc
 Pred
 Subj
-Modi
+Time
 Pred
 Cmpl
 Conj
@@ -95387,7 +95387,7 @@ Conj
 Pred
 Subj
 Pred
-Modi
+Time
 Objc
 Conj
 Pred
@@ -95885,7 +95885,7 @@ Objc
 Conj
 Objc
 Pred
-Modi
+Time
 Conj
 Pred
 Objc
@@ -96191,7 +96191,7 @@ PreC
 Ques
 Pred
 PreO
-Modi
+Time
 Subj
 PreC
 Cmpl
@@ -97089,7 +97089,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Pred
 Cmpl
 Conj
@@ -97403,8 +97403,8 @@ Pred
 Cmpl
 Conj
 Pred
-Modi
-Modi
+Time
+Time
 Conj
 Nega
 Pred
@@ -98606,7 +98606,7 @@ Subj
 Conj
 Time
 Pred
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -98656,7 +98656,7 @@ Cmpl
 Conj
 Pred
 Subj
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -98723,7 +98723,7 @@ Cmpl
 Pred
 Conj
 Pred
-Modi
+Time
 Objc
 Conj
 Modi
@@ -99172,7 +99172,7 @@ Conj
 Pred
 Conj
 Pred
-Modi
+Time
 Subj
 Conj
 Pred
@@ -99836,7 +99836,7 @@ Modi
 PrAd
 Conj
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -99844,7 +99844,7 @@ Cmpl
 Subj
 Ques
 Pred
-Modi
+Time
 Objc
 Pred
 Subj
@@ -99924,13 +99924,13 @@ Rela
 Pred
 Conj
 Pred
-Modi
+Time
 Cmpl
 Conj
 Ques
 Pred
 Subj
-Modi
+Time
 PreC
 Cmpl
 Adju
@@ -100672,7 +100672,7 @@ Cmpl
 Time
 Conj
 Pred
-Modi
+Time
 Subj
 PreC
 Conj
@@ -100715,7 +100715,7 @@ Cmpl
 Pred
 Nega
 Pred
-Modi
+Time
 Adju
 Cmpl
 Conj
@@ -100727,7 +100727,7 @@ Pred
 Time
 Conj
 Pred
-Modi
+Time
 Subj
 PreC
 Time
@@ -100738,7 +100738,7 @@ Rela
 PreC
 Conj
 Pred
-Modi
+Time
 Subj
 PreC
 Conj
@@ -100750,7 +100750,7 @@ Subj
 PreC
 Conj
 Pred
-Modi
+Time
 Subj
 PreC
 Conj
@@ -105861,7 +105861,7 @@ Conj
 Pred
 Subj
 Cmpl
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -106137,13 +106137,13 @@ Cmpl
 Rela
 Pred
 Cmpl
-Modi
+Time
 Pred
 Objc
 Conj
 Pred
 Subj
-Modi
+Time
 Objc
 Cmpl
 Rela
@@ -106232,7 +106232,7 @@ Conj
 Nega
 Pred
 PreC
-Modi
+Time
 Subj
 Conj
 Pred
@@ -106297,7 +106297,7 @@ Objc
 Nega
 Pred
 Adju
-Modi
+Time
 Adju
 Rela
 Pred
@@ -106581,7 +106581,7 @@ Cmpl
 Rela
 Pred
 Cmpl
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -107094,7 +107094,7 @@ Conj
 Pred
 Cmpl
 Pred
-Modi
+Time
 Time
 Conj
 Pred
@@ -109126,7 +109126,7 @@ Nega
 Subj
 PreC
 Cmpl
-Modi
+Time
 Pred
 Subj
 Cmpl
@@ -109568,7 +109568,7 @@ Objc
 Conj
 Pred
 Cmpl
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -110438,7 +110438,7 @@ Pred
 Conj
 Pred
 Subj
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -112427,7 +112427,7 @@ Cmpl
 Subj
 Nega
 Pred
-Modi
+Time
 Subj
 PreC
 Conj
@@ -112475,7 +112475,7 @@ Conj
 Pred
 Subj
 Loca
-Modi
+Time
 Pred
 Subj
 Cmpl
@@ -112725,7 +112725,7 @@ Voct
 Modi
 Pred
 Subj
-Modi
+Time
 Pred
 Conj
 Pred
@@ -113074,7 +113074,7 @@ PreC
 Conj
 Nega
 PreO
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -113234,7 +113234,7 @@ Cmpl
 Nega
 Pred
 PreC
-Modi
+Time
 Subj
 Conj
 Pred
@@ -113752,7 +113752,7 @@ Pred
 Cmpl
 Pred
 Cmpl
-Modi
+Time
 Objc
 Conj
 Pred
@@ -114401,7 +114401,7 @@ Subj
 PreC
 Rela
 PreC
-Modi
+Time
 Pred
 Objc
 Cmpl
@@ -114521,7 +114521,7 @@ Pred
 Pred
 Conj
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -114598,7 +114598,7 @@ Pred
 Conj
 Pred
 Cmpl
-Modi
+Time
 Adju
 Conj
 Pred
@@ -114659,7 +114659,7 @@ Subj
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Objc
 Cmpl
@@ -115185,7 +115185,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Pred
 Cmpl
@@ -115363,7 +115363,7 @@ PreC
 Ques
 Pred
 Cmpl
-Modi
+Time
 Conj
 Pred
 Subj
@@ -116105,7 +116105,7 @@ Pred
 Subj
 Cmpl
 Time
-Modi
+Time
 Pred
 Subj
 Time
@@ -116816,7 +116816,7 @@ Conj
 Pred
 Cmpl
 Objc
-Modi
+Time
 Pred
 Conj
 PreC
@@ -117586,7 +117586,7 @@ Subj
 Subj
 Nega
 Pred
-Modi
+Time
 Subj
 PreC
 Conj
@@ -117756,7 +117756,7 @@ Pred
 Cmpl
 PreC
 Pred
-Modi
+Time
 Pred
 Subj
 Conj
@@ -118048,7 +118048,7 @@ Pred
 Cmpl
 Conj
 Pred
-Modi
+Time
 Conj
 Pred
 Conj
@@ -118065,7 +118065,7 @@ Objc
 Pred
 Conj
 Time
-Modi
+Time
 Pred
 Objc
 Conj
@@ -118145,7 +118145,7 @@ Rela
 Pred
 Cmpl
 Adju
-Modi
+Time
 PreO
 Subj
 Conj
@@ -118181,7 +118181,7 @@ Pred
 Subj
 Nega
 Pred
-Modi
+Time
 Subj
 PreC
 Conj
@@ -118515,7 +118515,7 @@ Subj
 Subj
 Nega
 Pred
-Modi
+Time
 Subj
 PreC
 Conj
@@ -118638,7 +118638,7 @@ Pred
 IntS
 PreC
 Cmpl
-Modi
+Time
 Pred
 Subj
 Objc
@@ -118830,7 +118830,7 @@ Pred
 Subj
 Nega
 Pred
-Modi
+Time
 Subj
 PreC
 Conj
@@ -122104,7 +122104,7 @@ Adju
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Pred
 Cmpl
@@ -122599,7 +122599,7 @@ Pred
 Cmpl
 Cmpl
 Pred
-Modi
+Time
 Pred
 Objc
 Subj
@@ -122931,7 +122931,7 @@ Objc
 Conj
 Nega
 Pred
-Modi
+Time
 Objc
 Voct
 Pred
@@ -123382,7 +123382,7 @@ Intj
 Cmpl
 Subj
 Pred
-Modi
+Time
 Adju
 Conj
 Nega
@@ -123649,7 +123649,7 @@ Nega
 Pred
 Subj
 Conj
-Modi
+Time
 Subj
 PreC
 Conj
@@ -123663,7 +123663,7 @@ Adju
 Cmpl
 Conj
 Intj
-Modi
+Time
 Pred
 NCop
 Subj
@@ -124208,7 +124208,7 @@ Pred
 Subj
 Pred
 Cmpl
-Modi
+Time
 Pred
 Conj
 Pred
@@ -124535,7 +124535,7 @@ Nega
 Pred
 Subj
 Conj
-Modi
+Time
 Subj
 PreC
 Conj
@@ -124591,7 +124591,7 @@ Nega
 Pred
 Subj
 Conj
-Modi
+Time
 Subj
 PreC
 Conj
@@ -124644,7 +124644,7 @@ Nega
 Pred
 Subj
 Conj
-Modi
+Time
 Subj
 PreC
 Intj
@@ -124693,7 +124693,7 @@ Nega
 Pred
 Subj
 Conj
-Modi
+Time
 Subj
 PreC
 Intj
@@ -124878,7 +124878,7 @@ Pred
 Time
 Nega
 Pred
-Modi
+Time
 Subj
 Pred
 Cmpl
@@ -125122,7 +125122,7 @@ Pred
 Time
 Pred
 Subj
-Modi
+Time
 Objc
 Pred
 Objc
@@ -125477,7 +125477,7 @@ Subj
 Objc
 Conj
 Pred
-Modi
+Time
 Cmpl
 Conj
 PreO
@@ -126705,7 +126705,7 @@ Cmpl
 Voct
 Subj
 PreC
-Modi
+Time
 Time
 Conj
 Cmpl
@@ -127136,7 +127136,7 @@ Conj
 Pred
 Nega
 Pred
-Modi
+Time
 Pred
 Voct
 Cmpl
@@ -127761,7 +127761,7 @@ Objc
 Conj
 Nega
 Pred
-Modi
+Time
 Cmpl
 Time
 Pred
@@ -128292,7 +128292,7 @@ Subj
 Conj
 Pred
 Cmpl
-Modi
+Time
 Adju
 Pred
 Cmpl
@@ -128794,7 +128794,7 @@ Objc
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Conj
 Pred
@@ -128859,7 +128859,7 @@ PreC
 Conj
 Subj
 Pred
-Modi
+Time
 PreC
 Time
 Pred
@@ -129126,7 +129126,7 @@ Pred
 Objc
 Nega
 Pred
-Modi
+Time
 Cmpl
 PreC
 Conj
@@ -130706,7 +130706,7 @@ Loca
 Nega
 Pred
 Objc
-Modi
+Time
 Adju
 Subj
 Pred
@@ -131310,7 +131310,7 @@ Subj
 Pred
 Objc
 Pred
-Modi
+Time
 Pred
 Modi
 Adju
@@ -133296,7 +133296,7 @@ Conj
 Pred
 Cmpl
 Subj
-Modi
+Time
 Time
 Adju
 Pred
@@ -133335,7 +133335,7 @@ PreO
 Conj
 Pred
 Cmpl
-Modi
+Time
 Subj
 Nega
 Pred
@@ -133429,7 +133429,7 @@ Cmpl
 Pred
 Conj
 PreO
-Modi
+Time
 Pred
 Conj
 Pred
@@ -133903,7 +133903,7 @@ Cmpl
 Conj
 Pred
 Subj
-Modi
+Time
 Pred
 Cmpl
 Subj
@@ -134376,7 +134376,7 @@ PreC
 Objc
 Conj
 Pred
-Modi
+Time
 Time
 Adju
 Conj
@@ -134484,7 +134484,7 @@ Frnt
 Nega
 Pred
 PreO
-Modi
+Time
 Conj
 PreO
 Cmpl
@@ -134514,7 +134514,7 @@ Nega
 Pred
 Pred
 Cmpl
-Modi
+Time
 Subj
 Pred
 Adju
@@ -134562,7 +134562,7 @@ Subj
 Pred
 PreC
 Conj
-Modi
+Time
 Time
 Subj
 PreC
@@ -134912,7 +134912,7 @@ Conj
 Objc
 Nega
 Pred
-Modi
+Time
 Conj
 PtcO
 Subj
@@ -134956,7 +134956,7 @@ Rela
 Pred
 Pred
 Subj
-Modi
+Time
 Cmpl
 Modi
 Pred
@@ -135351,7 +135351,7 @@ Adju
 PreC
 PreC
 Objc
-Modi
+Time
 Pred
 Cmpl
 Adju
@@ -135769,7 +135769,7 @@ Adju
 Subj
 Conj
 Subj
-Modi
+Time
 Pred
 Conj
 Pred
@@ -135812,7 +135812,7 @@ PreC
 Conj
 PreO
 Subj
-Modi
+Time
 Conj
 Pred
 Loca
@@ -136373,7 +136373,7 @@ Objc
 Objc
 Nega
 Pred
-Modi
+Time
 Subj
 Loca
 Subj
@@ -136388,7 +136388,7 @@ Objc
 Nega
 Pred
 Cmpl
-Modi
+Time
 Subj
 PreC
 Time
@@ -136408,7 +136408,7 @@ Subj
 PreC
 Nega
 Pred
-Modi
+Time
 Subj
 Conj
 Subj
@@ -136620,13 +136620,13 @@ Loca
 Nega
 Pred
 Cmpl
-Modi
+Time
 Objc
 Conj
 Cmpl
 Nega
 Pred
-Modi
+Time
 Objc
 Conj
 Cmpl
@@ -136660,7 +136660,7 @@ Voct
 Pred
 Objc
 Time
-Modi
+Time
 Nega
 Pred
 Rela
@@ -136688,7 +136688,7 @@ Cmpl
 Conj
 Pred
 Objc
-Modi
+Time
 Objc
 Conj
 Conj
@@ -137128,7 +137128,7 @@ Rela
 PreC
 Objc
 Adju
-Modi
+Time
 PreC
 Loca
 Conj
@@ -137369,12 +137369,12 @@ Conj
 Nega
 Pred
 Loca
-Modi
+Time
 Subj
 Nega
 Pred
 Adju
-Modi
+Time
 Subj
 Rela
 Nega
@@ -137435,7 +137435,7 @@ Pred
 Conj
 Subj
 Pred
-Modi
+Time
 Subj
 PreC
 Conj
@@ -137582,7 +137582,7 @@ Time
 Conj
 Pred
 Subj
-Modi
+Time
 Conj
 Pred
 Modi
@@ -137932,7 +137932,7 @@ Conj
 Pred
 Subj
 Cmpl
-Modi
+Time
 Pred
 Objc
 Subj
@@ -138124,7 +138124,7 @@ Conj
 Pred
 Pred
 Modi
-Modi
+Time
 Pred
 Cmpl
 PreC
@@ -138402,7 +138402,7 @@ Subj
 Pred
 Nega
 Pred
-Modi
+Time
 Cmpl
 Ques
 Pred
@@ -138484,7 +138484,7 @@ PreC
 Ques
 Pred
 Cmpl
-Modi
+Time
 Ques
 Nega
 Modi
@@ -138695,7 +138695,7 @@ Time
 PreC
 Nega
 Pred
-Modi
+Time
 Subj
 Conj
 Nega
@@ -138711,7 +138711,7 @@ Pred
 Conj
 Nega
 Pred
-Modi
+Time
 Time
 Pred
 Cmpl
@@ -138725,7 +138725,7 @@ Loca
 Conj
 Nega
 Pred
-Modi
+Time
 Cmpl
 Time
 Pred
@@ -139045,7 +139045,7 @@ Pred
 Conj
 Pred
 Subj
-Modi
+Time
 Pred
 Subj
 Modi
@@ -139930,7 +139930,7 @@ Objc
 Pred
 Cmpl
 Conj
-Modi
+Time
 Pred
 Subj
 Cmpl
@@ -140384,7 +140384,7 @@ PreC
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Conj
 Subj
@@ -141245,7 +141245,7 @@ Conj
 NCoS
 NCop
 PreC
-Modi
+Time
 Objc
 Conj
 PreC
@@ -141525,7 +141525,7 @@ Pred
 Cmpl
 Conj
 Subj
-Modi
+Time
 Pred
 Objc
 Pred
@@ -141558,7 +141558,7 @@ Subj
 PreO
 Conj
 Pred
-Modi
+Time
 PreO
 Objc
 Conj
@@ -141582,7 +141582,7 @@ Conj
 Subj
 Nega
 Pred
-Modi
+Time
 Conj
 Subj
 PreC
@@ -141876,7 +141876,7 @@ Conj
 Pred
 Subj
 Cmpl
-Modi
+Time
 Pred
 Pred
 Objc
@@ -142188,7 +142188,7 @@ Voct
 Nega
 Pred
 Time
-Modi
+Time
 Rela
 Pred
 Subj
@@ -142630,7 +142630,7 @@ Cmpl
 Objc
 Pred
 Cmpl
-Modi
+Time
 Objc
 Pred
 Subj
@@ -143006,7 +143006,7 @@ PreC
 Conj
 Nega
 Pred
-Modi
+Time
 PreC
 Subj
 Rela
@@ -143495,7 +143495,7 @@ PreC
 Subj
 Adju
 Voct
-Modi
+Time
 Pred
 Cmpl
 Pred
@@ -143518,7 +143518,7 @@ Pred
 Pred
 Cmpl
 Conj
-Modi
+Time
 Pred
 Cmpl
 Pred
@@ -143700,7 +143700,7 @@ Conj
 Pred
 Cmpl
 Objc
-Modi
+Time
 Conj
 Pred
 Objc
@@ -143812,7 +143812,7 @@ Conj
 Nega
 Pred
 Cmpl
-Modi
+Time
 Subj
 Conj
 Subj
@@ -143875,7 +143875,7 @@ Rela
 Nega
 Pred
 Pred
-Modi
+Time
 Conj
 Loca
 Pred
@@ -144063,7 +144063,7 @@ PreO
 Conj
 Nega
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -144506,7 +144506,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Conj
 Pred
 Objc
@@ -144524,7 +144524,7 @@ Cmpl
 Nega
 Pred
 Cmpl
-Modi
+Time
 Conj
 Frnt
 Rela
@@ -144536,7 +144536,7 @@ Conj
 Objc
 Nega
 Pred
-Modi
+Time
 Intj
 PreC
 Objc
@@ -144587,7 +144587,7 @@ Pred
 Cmpl
 Pred
 Objc
-Modi
+Time
 Pred
 Ques
 Nega
@@ -144663,7 +144663,7 @@ Subj
 Cmpl
 Pred
 Conj
-Modi
+Time
 Pred
 Conj
 Pred
@@ -144760,7 +144760,7 @@ PreC
 Cmpl
 Conj
 PreC
-Modi
+Time
 Cmpl
 Intj
 Subj
@@ -144817,7 +144817,7 @@ PreO
 Conj
 Nega
 Pred
-Modi
+Time
 Conj
 Nega
 Pred
@@ -144864,7 +144864,7 @@ PreC
 Conj
 Nega
 Pred
-Modi
+Time
 PreC
 Subj
 Rela
@@ -145230,7 +145230,7 @@ Conj
 Objc
 Nega
 Pred
-Modi
+Time
 Conj
 Subj
 Pred
@@ -146329,7 +146329,7 @@ Subj
 PreC
 Cmpl
 Time
-Modi
+Time
 Conj
 Objc
 Subj
@@ -147112,7 +147112,7 @@ Conj
 Nega
 Pred
 Cmpl
-Modi
+Time
 Subj
 Conj
 Pred
@@ -147359,18 +147359,18 @@ PreO
 Adju
 PreO
 Adju
-Modi
+Time
 PreO
 Conj
 Pred
 Voct
-Modi
+Time
 Pred
 Objc
 Conj
 Pred
 Cmpl
-Modi
+Time
 Pred
 Objc
 Loca
@@ -147475,8 +147475,8 @@ Conj
 Nega
 Pred
 Pred
-Modi
-Modi
+Time
+Time
 Pred
 Subj
 Cmpl
@@ -147584,7 +147584,7 @@ PreS
 Cmpl
 Modi
 PreO
-Modi
+Time
 Adju
 Pred
 Subj
@@ -147621,7 +147621,7 @@ Objc
 Modi
 Pred
 Subj
-Modi
+Time
 Pred
 Objc
 Loca
@@ -147686,7 +147686,7 @@ PreC
 Time
 Nega
 Pred
-Modi
+Time
 Subj
 Pred
 Objc
@@ -147756,7 +147756,7 @@ PreC
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Objc
 Conj
@@ -147778,7 +147778,7 @@ Conj
 Cmpl
 Nega
 Pred
-Modi
+Time
 Modi
 Pred
 Subj
@@ -147833,7 +147833,7 @@ Adju
 Adju
 Conj
 Pred
-Modi
+Time
 Subj
 Cmpl
 Cmpl
@@ -147848,7 +147848,7 @@ Pred
 Conj
 Nega
 Pred
-Modi
+Time
 Time
 Subj
 Rela
@@ -147859,7 +147859,7 @@ Time
 Subj
 PreC
 Conj
-Modi
+Time
 Subj
 PreC
 Cmpl
@@ -148028,7 +148028,7 @@ Conj
 Modi
 Pred
 Subj
-Modi
+Time
 Pred
 Subj
 Loca
@@ -148398,7 +148398,7 @@ Conj
 Pred
 Subj
 PreC
-Modi
+Time
 Conj
 Frnt
 ModS
@@ -148504,7 +148504,7 @@ Cmpl
 Modi
 Pred
 Subj
-Modi
+Time
 Pred
 Loca
 Rela
@@ -148539,7 +148539,7 @@ Subj
 Modi
 Pred
 Subj
-Modi
+Time
 Pred
 Loca
 Rela
@@ -148549,7 +148549,7 @@ Subj
 PreC
 Objc
 Loca
-Modi
+Time
 Pred
 Subj
 Cmpl
@@ -148673,7 +148673,7 @@ Conj
 Objc
 Pred
 Pred
-Modi
+Time
 Subj
 PreC
 Modi
@@ -148834,7 +148834,7 @@ Objc
 PrAd
 Pred
 Cmpl
-Modi
+Time
 Conj
 Pred
 Conj
@@ -149702,7 +149702,7 @@ Pred
 Subj
 Cmpl
 Conj
-Modi
+Time
 Pred
 Cmpl
 Subj
@@ -151450,7 +151450,7 @@ PreC
 Conj
 Nega
 Pred
-Modi
+Time
 Objc
 Pred
 Subj
@@ -151977,7 +151977,7 @@ Conj
 Nega
 Pred
 Subj
-Modi
+Time
 Pred
 Adju
 Rela
@@ -152060,7 +152060,7 @@ Pred
 Subj
 Conj
 Pred
-Modi
+Time
 Subj
 PreC
 Cmpl
@@ -154011,7 +154011,7 @@ Subj
 Conj
 Nega
 Pred
-Modi
+Time
 Time
 Conj
 Nega
@@ -154192,7 +154192,7 @@ Subj
 Adju
 Pred
 Subj
-Modi
+Time
 Pred
 Subj
 Conj
@@ -154599,7 +154599,7 @@ Conj
 Nega
 Pred
 Cmpl
-Modi
+Time
 Subj
 Subj
 Pred
@@ -155174,7 +155174,7 @@ Conj
 Pred
 Objc
 Cmpl
-Modi
+Time
 Time
 Conj
 Frnt
@@ -156129,7 +156129,7 @@ Objc
 Conj
 Pred
 Cmpl
-Modi
+Time
 Conj
 Pred
 Objc
@@ -156316,7 +156316,7 @@ Objc
 Cmpl
 Conj
 Cmpl
-Modi
+Time
 Pred
 Conj
 Pred
@@ -156403,7 +156403,7 @@ Rela
 Nega
 Pred
 Cmpl
-Modi
+Time
 Adju
 Modi
 Subj
@@ -157162,7 +157162,7 @@ Loca
 Pred
 Cmpl
 Conj
-Modi
+Time
 Pred
 Pred
 Objc
@@ -157248,7 +157248,7 @@ Objc
 Conj
 Pred
 Cmpl
-Modi
+Time
 Pred
 Pred
 Objc
@@ -157274,7 +157274,7 @@ Cmpl
 Ques
 Pred
 Voct
-Modi
+Time
 Pred
 Pred
 Objc
@@ -158384,7 +158384,7 @@ Conj
 Nega
 Pred
 Objc
-Modi
+Time
 Adju
 Conj
 Pred
@@ -158396,7 +158396,7 @@ Subj
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Adju
 Conj
@@ -158410,7 +158410,7 @@ Conj
 Pred
 Nega
 Pred
-Modi
+Time
 Conj
 Time
 Voct
@@ -158445,7 +158445,7 @@ Pred
 Subj
 Nega
 Pred
-Modi
+Time
 Subj
 Rela
 Pred
@@ -158764,7 +158764,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 PreC
 Adju
 Conj
@@ -158793,7 +158793,7 @@ Conj
 Objc
 Nega
 Pred
-Modi
+Time
 Conj
 Pred
 Objc
@@ -158944,13 +158944,13 @@ Pred
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Adju
 Conj
 Pred
@@ -159187,7 +159187,7 @@ Conj
 Pred
 Conj
 Pred
-Modi
+Time
 Cmpl
 Modi
 Modi
@@ -159740,7 +159740,7 @@ Conj
 Objc
 Nega
 Pred
-Modi
+Time
 Conj
 Pred
 Objc
@@ -159754,7 +159754,7 @@ Pred
 Conj
 Nega
 Pred
-Modi
+Time
 Conj
 Nega
 Pred
@@ -159993,7 +159993,7 @@ Conj
 Nega
 Pred
 PreC
-Modi
+Time
 Subj
 Adju
 PreS
@@ -160363,7 +160363,7 @@ PreC
 Conj
 Pred
 PreC
-Modi
+Time
 Pred
 Objc
 Adju
@@ -160875,7 +160875,7 @@ Conj
 Nega
 Pred
 Subj
-Modi
+Time
 Adju
 Subj
 PreC
@@ -161321,7 +161321,7 @@ Cmpl
 Modi
 Pred
 Subj
-Modi
+Time
 Objc
 Pred
 Objc
@@ -161506,7 +161506,7 @@ Conj
 Objc
 Nega
 Pred
-Modi
+Time
 Adju
 Conj
 Frnt
@@ -161685,7 +161685,7 @@ Objc
 Cmpl
 Nega
 Pred
-Modi
+Time
 Conj
 Subj
 Voct
@@ -162676,7 +162676,7 @@ Conj
 Objc
 Nega
 Pred
-Modi
+Time
 Conj
 Modi
 Pred
@@ -162788,7 +162788,7 @@ Cmpl
 Pred
 Adju
 Adju
-Modi
+Time
 Objc
 Pred
 Adju
@@ -163084,7 +163084,7 @@ Pred
 Cmpl
 Nega
 Pred
-Modi
+Time
 PreS
 Objc
 Adju
@@ -163260,7 +163260,7 @@ Pred
 Conj
 Nega
 Pred
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -163629,7 +163629,7 @@ Conj
 Subj
 Nega
 Pred
-Modi
+Time
 Conj
 PreO
 Cmpl
@@ -163637,7 +163637,7 @@ PreC
 Pred
 Nega
 Pred
-Modi
+Time
 Conj
 Subj
 Pred
@@ -163748,7 +163748,7 @@ Pred
 Conj
 Nega
 Pred
-Modi
+Time
 Time
 PreC
 Conj
@@ -164271,7 +164271,7 @@ PreC
 Conj
 Nega
 Pred
-Modi
+Time
 Cmpl
 PreC
 Adju
@@ -164508,7 +164508,7 @@ PreC
 Conj
 Nega
 Pred
-Modi
+Time
 Adju
 Conj
 PreO
@@ -164517,7 +164517,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Cmpl
 PreC
 PreC
@@ -164744,7 +164744,7 @@ Subj
 Cmpl
 Nega
 Pred
-Modi
+Time
 Conj
 Pred
 Objc
@@ -165277,12 +165277,12 @@ Conj
 Nega
 PreO
 Subj
-Modi
+Time
 Conj
 Subj
 Nega
 PreO
-Modi
+Time
 Pred
 Objc
 Conj
@@ -165837,7 +165837,7 @@ Subj
 Conj
 Nega
 Pred
-Modi
+Time
 Conj
 Pred
 Subj
@@ -166141,7 +166141,7 @@ Objc
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Objc
 Conj
@@ -166291,7 +166291,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -166377,7 +166377,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 PreC
 Cmpl
 Conj
@@ -166397,13 +166397,13 @@ Objc
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Loca
 Conj
 Nega
 Pred
-Modi
+Time
 Objc
 Conj
 Pred
@@ -166763,7 +166763,7 @@ PreC
 Conj
 Nega
 Pred
-Modi
+Time
 PreO
 Modi
 Pred
@@ -166780,29 +166780,29 @@ Modi
 Objc
 Nega
 Pred
-Modi
+Time
 Conj
 Objc
 Nega
 Pred
-Modi
+Time
 PreC
 Conj
 Nega
 Pred
 Cmpl
-Modi
+Time
 Objc
 Conj
 Objc
 Nega
 Pred
-Modi
+Time
 Conj
 Objc
 Nega
 Pred
-Modi
+Time
 PreC
 Conj
 Pred
@@ -166993,7 +166993,7 @@ Objc
 Conj
 Nega
 Pred
-Modi
+Time
 Objc
 Adju
 Conj
@@ -167072,7 +167072,7 @@ Pred
 Modi
 Pred
 Subj
-Modi
+Time
 Objc
 Pred
 Cmpl
@@ -167422,18 +167422,18 @@ PreC
 Conj
 Nega
 Pred
-Modi
+Time
 Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Cmpl
-Modi
+Time
 Conj
 Nega
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -167859,7 +167859,7 @@ Conj
 Nega
 Pred
 Objc
-Modi
+Time
 Conj
 Pred
 Subj
@@ -168126,13 +168126,13 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Cmpl
 Modi
 Conj
 Nega
 Pred
-Modi
+Time
 Objc
 Cmpl
 Conj
@@ -169215,7 +169215,7 @@ Time
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Objc
 Adju
@@ -169913,7 +169913,7 @@ Loca
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Objc
 Conj
@@ -171044,7 +171044,7 @@ Objc
 Loca
 Conj
 Pred
-Modi
+Time
 Conj
 Pred
 Objc
@@ -171057,7 +171057,7 @@ Objc
 Conj
 Nega
 Pred
-Modi
+Time
 Pred
 Objc
 Conj
@@ -171336,7 +171336,7 @@ Conj
 Nega
 Pred
 Cmpl
-Modi
+Time
 PreC
 Conj
 Pred
@@ -171345,7 +171345,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -171414,7 +171414,7 @@ Conj
 Pred
 Subj
 Cmpl
-Modi
+Time
 Pred
 Pred
 Objc
@@ -172790,7 +172790,7 @@ Cmpl
 Subj
 Conj
 Subj
-Modi
+Time
 PreC
 Cmpl
 Conj
@@ -172859,7 +172859,7 @@ Pred
 Conj
 Pred
 Cmpl
-Modi
+Time
 Frnt
 PreC
 Subj
@@ -172884,7 +172884,7 @@ Conj
 Subj
 PreC
 Adju
-Modi
+Time
 PreO
 Cmpl
 Adju
@@ -173140,7 +173140,7 @@ Pred
 Conj
 Nega
 Pred
-Modi
+Time
 PreC
 Cmpl
 Conj
@@ -173640,7 +173640,7 @@ Conj
 Nega
 Pred
 Objc
-Modi
+Time
 Objc
 Adju
 Conj
@@ -173859,7 +173859,7 @@ Conj
 PreC
 Subj
 Cmpl
-Modi
+Time
 Pred
 Objc
 Cmpl
@@ -173999,7 +173999,7 @@ Subj
 Nega
 Pred
 Cmpl
-Modi
+Time
 Conj
 Pred
 Time
@@ -175343,7 +175343,7 @@ Objc
 Cmpl
 Nega
 Pred
-Modi
+Time
 Pred
 Cmpl
 Conj
@@ -175402,7 +175402,7 @@ Conj
 Loca
 Nega
 Pred
-Modi
+Time
 Pred
 Conj
 PreC
@@ -175498,7 +175498,7 @@ Subj
 Cmpl
 Nega
 Pred
-Modi
+Time
 Pred
 Cmpl
 Conj
@@ -175653,7 +175653,7 @@ Pred
 Conj
 Nega
 Pred
-Modi
+Time
 Pred
 Objc
 PreC
@@ -175891,7 +175891,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Cmpl
 Rela
 Pred
@@ -176516,7 +176516,7 @@ Conj
 Pred
 Subj
 Cmpl
-Modi
+Time
 Pred
 Pred
 Pred
@@ -176975,7 +176975,7 @@ Cmpl
 Subj
 PreC
 Adju
-Modi
+Time
 Objc
 Pred
 Cmpl
@@ -177197,7 +177197,7 @@ Adju
 Conj
 Adju
 Loca
-Modi
+Time
 Pred
 Cmpl
 Conj
@@ -177384,7 +177384,7 @@ Objc
 Conj
 Nega
 Pred
-Modi
+Time
 Objc
 Conj
 Pred
@@ -177669,7 +177669,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -178177,7 +178177,7 @@ Subj
 PreC
 Nega
 Pred
-Modi
+Time
 Subj
 Conj
 Adju
@@ -178212,7 +178212,7 @@ Conj
 PreO
 Nega
 PreO
-Modi
+Time
 Conj
 Time
 Pred
@@ -178228,7 +178228,7 @@ Subj
 Nega
 Pred
 Cmpl
-Modi
+Time
 Cmpl
 Pred
 Objc
@@ -178249,7 +178249,7 @@ Objc
 Conj
 Nega
 Pred
-Modi
+Time
 Pred
 Cmpl
 Subj
@@ -178402,7 +178402,7 @@ Objc
 Conj
 Nega
 Pred
-Modi
+Time
 Subj
 Intj
 Voct
@@ -178737,7 +178737,7 @@ Pred
 Objc
 Conj
 PreO
-Modi
+Time
 Pred
 Adju
 Conj
@@ -179769,7 +179769,7 @@ Conj
 Nega
 Pred
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -179818,7 +179818,7 @@ PreC
 Nega
 Pred
 Objc
-Modi
+Time
 Time
 Pred
 Cmpl
@@ -180248,7 +180248,7 @@ Pred
 Conj
 Pred
 Subj
-Modi
+Time
 Cmpl
 Time
 Pred
@@ -180494,24 +180494,24 @@ Conj
 Subj
 Pred
 Cmpl
-Modi
+Time
 Pred
 Pred
 Modi
 Pred
 Subj
-Modi
+Time
 Pred
 Subj
 Adju
 Conj
 Pred
 Subj
-Modi
+Time
 Objc
 Conj
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -180712,7 +180712,7 @@ Adju
 Loca
 Conj
 Pred
-Modi
+Time
 Cmpl
 Pred
 Voct
@@ -181005,7 +181005,7 @@ Subj
 Loca
 Conj
 Pred
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -181561,7 +181561,7 @@ Objc
 Modi
 Pred
 Subj
-Modi
+Time
 Pred
 Subj
 Cmpl
@@ -181892,7 +181892,7 @@ Conj
 Nega
 Pred
 Cmpl
-Modi
+Time
 Subj
 Conj
 Time
@@ -182234,7 +182234,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Cmpl
 PreC
 Conj
@@ -182367,7 +182367,7 @@ Conj
 Pred
 Subj
 Cmpl
-Modi
+Time
 Pred
 Cmpl
 Objc
@@ -182482,7 +182482,7 @@ Objc
 Conj
 Pred
 Subj
-Modi
+Time
 Cmpl
 Loca
 Conj
@@ -182591,7 +182591,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Conj
 Objc
 Pred
@@ -182601,7 +182601,7 @@ Pred
 Conj
 Pred
 Subj
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -182847,7 +182847,7 @@ Conj
 Subj
 Nega
 Pred
-Modi
+Time
 Conj
 Pred
 Subj
@@ -182992,7 +182992,7 @@ Conj
 Nega
 Pred
 Subj
-Modi
+Time
 PreC
 Time
 PreC
@@ -183395,7 +183395,7 @@ Objc
 Cmpl
 Conj
 Objc
-Modi
+Time
 Pred
 Pred
 Subj
@@ -183483,7 +183483,7 @@ Pred
 Objc
 Adju
 Conj
-Modi
+Time
 Pred
 Cmpl
 Subj
@@ -183686,7 +183686,7 @@ Pred
 Objc
 Conj
 Pred
-Modi
+Time
 Pred
 Subj
 Subj
@@ -184265,7 +184265,7 @@ Modi
 Subj
 Pred
 Pred
-Modi
+Time
 PreC
 Rela
 Pred
@@ -184752,7 +184752,7 @@ Pred
 Objc
 Nega
 Pred
-Modi
+Time
 Pred
 Subj
 PreC
@@ -184863,7 +184863,7 @@ PreC
 Adju
 Loca
 PreC
-Modi
+Time
 Subj
 Voct
 PreO
@@ -185094,7 +185094,7 @@ Subj
 Pred
 Objc
 Cmpl
-Modi
+Time
 Conj
 PreC
 Nega
@@ -186860,7 +186860,7 @@ PreO
 Pred
 Cmpl
 Objc
-Modi
+Time
 PreO
 Pred
 Cmpl
@@ -187758,7 +187758,7 @@ PreC
 Objc
 Conj
 Adju
-Modi
+Time
 Pred
 Conj
 Adju
@@ -188423,7 +188423,7 @@ Cmpl
 Objc
 Nega
 Pred
-Modi
+Time
 Pred
 Intj
 Pred
@@ -188464,7 +188464,7 @@ Pred
 Objc
 Cmpl
 Subj
-Modi
+Time
 PreO
 Conj
 Pred
@@ -188513,7 +188513,7 @@ Cmpl
 Subj
 PtcO
 Pred
-Modi
+Time
 Pred
 Subj
 PreC
@@ -188692,7 +188692,7 @@ Cmpl
 Pred
 Cmpl
 Conj
-Modi
+Time
 PreO
 Voct
 Cmpl
@@ -188744,7 +188744,7 @@ Cmpl
 Pred
 Cmpl
 Conj
-Modi
+Time
 PreO
 PreO
 Voct
@@ -188787,7 +188787,7 @@ Cmpl
 Pred
 Cmpl
 Conj
-Modi
+Time
 PreO
 PreC
 PreC
@@ -189379,7 +189379,7 @@ Pred
 Time
 Conj
 Pred
-Modi
+Time
 Time
 Nega
 Pred
@@ -189790,10 +189790,10 @@ Adju
 Objc
 Pred
 Objc
-Modi
+Time
 Pred
 Objc
-Modi
+Time
 Pred
 Cmpl
 Objc
@@ -190268,7 +190268,7 @@ Cmpl
 Ques
 Nega
 PreC
-Modi
+Time
 Pred
 Subj
 Cmpl
@@ -190990,7 +190990,7 @@ Objc
 Pred
 Adju
 Objc
-Modi
+Time
 PreO
 Conj
 Nega
@@ -191016,7 +191016,7 @@ Conj
 PreO
 Subj
 Objc
-Modi
+Time
 Pred
 Subj
 Conj
@@ -191619,7 +191619,7 @@ Modi
 Rela
 Nega
 Pred
-Modi
+Time
 Pred
 Voct
 Subj
@@ -191773,7 +191773,7 @@ Subj
 Pred
 Conj
 Objc
-Modi
+Time
 Pred
 Pred
 Cmpl
@@ -191897,7 +191897,7 @@ Subj
 PtcO
 Conj
 Pred
-Modi
+Time
 Pred
 Subj
 PreC
@@ -192799,7 +192799,7 @@ Conj
 Nega
 Pred
 Pred
-Modi
+Time
 Ques
 Pred
 Time
@@ -193014,7 +193014,7 @@ Adju
 Objc
 Conj
 Pred
-Modi
+Time
 Pred
 Cmpl
 Pred
@@ -193142,7 +193142,7 @@ Objc
 Pred
 Adju
 Pred
-Modi
+Time
 Conj
 Nega
 Pred
@@ -193532,7 +193532,7 @@ Objc
 Conj
 Pred
 Cmpl
-Modi
+Time
 Cmpl
 Objc
 Rela
@@ -193876,7 +193876,7 @@ Conj
 Nega
 Pred
 Subj
-Modi
+Time
 Conj
 Pred
 Objc
@@ -193979,7 +193979,7 @@ Objc
 Voct
 PreC
 Subj
-Modi
+Time
 PreO
 Intj
 PreC
@@ -194348,7 +194348,7 @@ Adju
 Rela
 Nega
 PreO
-Modi
+Time
 Conj
 Subj
 Cmpl
@@ -194566,7 +194566,7 @@ Subj
 Conj
 PreC
 Subj
-Modi
+Time
 Pred
 Adju
 Cmpl
@@ -195109,7 +195109,7 @@ PreC
 Loca
 Loca
 Pred
-Modi
+Time
 Pred
 Time
 PreC
@@ -195479,7 +195479,7 @@ Pred
 Subj
 Rela
 PreC
-Modi
+Time
 Pred
 Subj
 Adju
@@ -196111,7 +196111,7 @@ NCoS
 Conj
 Nega
 PreO
-Modi
+Time
 Subj
 Conj
 Subj
@@ -196942,7 +196942,7 @@ Subj
 Conj
 Pred
 Cmpl
-Modi
+Time
 PreO
 Conj
 Subj
@@ -197434,7 +197434,7 @@ Nega
 Pred
 Pred
 PreC
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -197477,7 +197477,7 @@ PreC
 Pred
 Conj
 PreC
-Modi
+Time
 PreO
 Subj
 PreC
@@ -198272,7 +198272,7 @@ Pred
 Subj
 Pred
 Objc
-Modi
+Time
 Nega
 Pred
 PreO
@@ -198482,7 +198482,7 @@ Pred
 Conj
 Pred
 Objc
-Modi
+Time
 Time
 Conj
 Pred
@@ -198775,7 +198775,7 @@ PreC
 Conj
 Subj
 PreC
-Modi
+Time
 Pred
 Adju
 Time
@@ -199452,19 +199452,19 @@ PreC
 Pred
 Cmpl
 Subj
-Modi
+Time
 PrAd
 PreO
 Pred
 Subj
 Cmpl
-Modi
+Time
 Subj
 PreO
 Subj
 Pred
 Cmpl
-Modi
+Time
 Pred
 Cmpl
 Subj
@@ -199533,14 +199533,14 @@ Subj
 Objc
 Pred
 PreC
-Modi
+Time
 Pred
 Objc
 Subj
 Conj
 Subj
 Objc
-Modi
+Time
 Pred
 Adju
 Pred
@@ -201729,7 +201729,7 @@ Pred
 Subj
 Pred
 Cmpl
-Modi
+Time
 Subj
 PreC
 Conj
@@ -201750,7 +201750,7 @@ Pred
 Subj
 Pred
 Cmpl
-Modi
+Time
 Subj
 PreC
 Conj
@@ -202413,7 +202413,7 @@ PreC
 Conj
 Pred
 Objc
-Modi
+Time
 Pred
 Subj
 Cmpl
@@ -202673,7 +202673,7 @@ Conj
 PreO
 Conj
 Pred
-Modi
+Time
 Subj
 Conj
 Pred
@@ -202905,12 +202905,12 @@ Nega
 Pred
 Nega
 Pred
-Modi
+Time
 Cmpl
 Conj
 Nega
 PreO
-Modi
+Time
 Subj
 Subj
 Nega
@@ -203336,7 +203336,7 @@ PreC
 Conj
 Subj
 Pred
-Modi
+Time
 Cmpl
 Pred
 Subj
@@ -203717,7 +203717,7 @@ Pred
 Cmpl
 Objc
 Conj
-Modi
+Time
 Pred
 Objc
 Cmpl
@@ -204096,7 +204096,7 @@ Objc
 Nega
 Pred
 Cmpl
-Modi
+Time
 Cmpl
 Nega
 Pred
@@ -204207,7 +204207,7 @@ Subj
 Conj
 Pred
 Conj
-Modi
+Time
 Pred
 Conj
 Subj
@@ -205051,7 +205051,7 @@ Conj
 PreO
 Adju
 Modi
-Modi
+Time
 PreO
 Nega
 Pred
@@ -205322,7 +205322,7 @@ Nega
 Pred
 Conj
 Nega
-Modi
+Time
 PreO
 PrAd
 Subj
@@ -205788,7 +205788,7 @@ Subj
 Conj
 PreO
 Subj
-Modi
+Time
 Conj
 Objc
 Nega
@@ -205908,7 +205908,7 @@ PreC
 Conj
 PreC
 Conj
-Modi
+Time
 Cmpl
 Pred
 Conj
@@ -206225,7 +206225,7 @@ PreO
 Subj
 PreO
 Subj
-Modi
+Time
 Nega
 Pred
 Conj
@@ -207625,7 +207625,7 @@ PreO
 Pred
 Nega
 Pred
-Modi
+Time
 Pred
 Cmpl
 Subj
@@ -207638,7 +207638,7 @@ Conj
 Pred
 Nega
 Pred
-Modi
+Time
 Pred
 Subj
 Objc
@@ -207783,7 +207783,7 @@ Pred
 Subj
 Cmpl
 Frnt
-Modi
+Time
 Pred
 Objc
 Conj
@@ -207889,7 +207889,7 @@ Intj
 Objc
 Pred
 Subj
-Modi
+Time
 Cmpl
 Pred
 Objc
@@ -208059,7 +208059,7 @@ Adju
 Conj
 PreC
 Subj
-Modi
+Time
 Pred
 Conj
 Time
@@ -208882,7 +208882,7 @@ Pred
 Objc
 Pred
 Conj
-Modi
+Time
 Pred
 Conj
 Subj
@@ -210319,7 +210319,7 @@ Subj
 Nega
 Pred
 Cmpl
-Modi
+Time
 Conj
 Cmpl
 Conj
@@ -210717,7 +210717,7 @@ PreO
 Cmpl
 Cmpl
 Pred
-Modi
+Time
 Conj
 Ques
 Pred
@@ -210831,7 +210831,7 @@ Time
 Objc
 Pred
 Adju
-Modi
+Time
 Pred
 Subj
 Modi
@@ -210872,7 +210872,7 @@ Pred
 Objc
 PreO
 Cmpl
-Modi
+Time
 PreO
 Cmpl
 PreS
@@ -210951,7 +210951,7 @@ Pred
 Conj
 PreC
 Pred
-Modi
+Time
 Objc
 Pred
 PreC
@@ -211108,7 +211108,7 @@ Cmpl
 PreO
 PreC
 Cmpl
-Modi
+Time
 Adju
 Cmpl
 Pred
@@ -211431,7 +211431,7 @@ Pred
 Cmpl
 Conj
 Pred
-Modi
+Time
 Pred
 Cmpl
 Conj
@@ -211851,7 +211851,7 @@ Exst
 Subj
 Conj
 PreC
-Modi
+Time
 Conj
 PreC
 Cmpl
@@ -213382,7 +213382,7 @@ Objc
 Conj
 Pred
 Conj
-Modi
+Time
 Pred
 Pred
 Objc
@@ -213547,7 +213547,7 @@ Subj
 Conj
 PreC
 Supp
-Modi
+Time
 Pred
 Exst
 Subj
@@ -214287,7 +214287,7 @@ Ques
 Pred
 Pred
 PreO
-Modi
+Time
 Nega
 Pred
 Cmpl
@@ -214455,7 +214455,7 @@ Cmpl
 Nega
 Pred
 Conj
-Modi
+Time
 Pred
 Subj
 Conj
@@ -214600,7 +214600,7 @@ Subj
 Nega
 Pred
 Pred
-Modi
+Time
 Conj
 Objc
 Pred
@@ -215202,7 +215202,7 @@ PreC
 Pred
 PreC
 PreC
-Modi
+Time
 Conj
 PreC
 Objc
@@ -215832,7 +215832,7 @@ Conj
 Objc
 Nega
 Pred
-Modi
+Time
 Pred
 Objc
 Cmpl
@@ -216177,7 +216177,7 @@ Pred
 Objc
 Conj
 Pred
-Modi
+Time
 Conj
 Pred
 Subj
@@ -219053,7 +219053,7 @@ Subj
 Pred
 Objc
 Conj
-Modi
+Time
 Pred
 Loca
 Frnt
@@ -219304,7 +219304,7 @@ Rela
 Nega
 Pred
 Pred
-Modi
+Time
 Conj
 Cmpl
 Pred
@@ -219682,7 +219682,7 @@ Conj
 Conj
 Pred
 Time
-Modi
+Time
 Conj
 Objc
 Nega
@@ -219957,7 +219957,7 @@ Pred
 Objc
 PtcO
 Conj
-Modi
+Time
 Pred
 Subj
 Conj
@@ -220024,7 +220024,7 @@ Modi
 Pred
 Objc
 Rela
-Modi
+Time
 Pred
 Subj
 Conj
@@ -220172,7 +220172,7 @@ Conj
 Nega
 Pred
 Subj
-Modi
+Time
 Adju
 Pred
 Subj
@@ -220506,7 +220506,7 @@ Cmpl
 Conj
 Pred
 Cmpl
-Modi
+Time
 Objc
 Pred
 Objc
@@ -221001,7 +221001,7 @@ Conj
 Pred
 Subj
 PreC
-Modi
+Time
 Pred
 Objc
 Objc
@@ -222809,7 +222809,7 @@ Cmpl
 Adju
 Nega
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -222882,7 +222882,7 @@ Adju
 Conj
 Pred
 Subj
-Modi
+Time
 Conj
 Subj
 PreC
@@ -228550,7 +228550,7 @@ Subj
 Pred
 Cmpl
 Conj
-Modi
+Time
 Subj
 PreC
 Conj
@@ -228564,7 +228564,7 @@ Objc
 Cmpl
 Loca
 Conj
-Modi
+Time
 Subj
 PreC
 Cmpl
@@ -229016,7 +229016,7 @@ Objc
 Pred
 Cmpl
 Intj
-Modi
+Time
 Subj
 PreC
 Adju
@@ -232586,7 +232586,7 @@ Objc
 Conj
 Nega
 Pred
-Modi
+Time
 PreC
 Conj
 Pred
@@ -233066,7 +233066,7 @@ Cmpl
 Conj
 Pred
 Cmpl
-Modi
+Time
 Adju
 Rela
 Pred
@@ -233539,7 +233539,7 @@ Conj
 Pred
 Cmpl
 Adju
-Modi
+Time
 Conj
 Pred
 Objc
@@ -233549,7 +233549,7 @@ Pred
 Cmpl
 Subj
 Cmpl
-Modi
+Time
 Objc
 Conj
 Subj
@@ -235732,7 +235732,7 @@ Conj
 Pred
 Subj
 Loca
-Modi
+Time
 Conj
 Pred
 Cmpl
@@ -238642,7 +238642,7 @@ Rela
 PreC
 Cmpl
 Cmpl
-Modi
+Time
 PreC
 Adju
 Conj
@@ -239147,13 +239147,13 @@ Adju
 Conj
 Pred
 Subj
-Modi
+Time
 Objc
 Loca
 Conj
 Pred
 Subj
-Modi
+Time
 Objc
 Conj
 Subj
@@ -239243,14 +239243,14 @@ Pred
 Cmpl
 Conj
 Pred
-Modi
+Time
 Subj
 Conj
 Pred
 Cmpl
 Conj
 Pred
-Modi
+Time
 Subj
 Cmpl
 Conj
@@ -239270,7 +239270,7 @@ Conj
 Pred
 PreS
 Objc
-Modi
+Time
 Pred
 Cmpl
 Conj
@@ -239311,7 +239311,7 @@ Conj
 Pred
 Cmpl
 Objc
-Modi
+Time
 Pred
 Subj
 Nega
@@ -239762,7 +239762,7 @@ Pred
 Subj
 Rela
 PreC
-Modi
+Time
 Pred
 Subj
 Adju
@@ -239985,7 +239985,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 Conj
 Nega
 Pred
@@ -240100,7 +240100,7 @@ Cmpl
 Voct
 Objc
 Pred
-Modi
+Time
 Subj
 Cmpl
 Adju
@@ -240684,7 +240684,7 @@ Pred
 Subj
 Pred
 Objc
-Modi
+Time
 Conj
 Pred
 Time
@@ -240762,7 +240762,7 @@ Conj
 Pred
 Conj
 Pred
-Modi
+Time
 Subj
 Conj
 Pred
@@ -240773,7 +240773,7 @@ Subj
 PreC
 Conj
 Pred
-Modi
+Time
 Subj
 Loca
 Conj
@@ -241412,7 +241412,7 @@ Cmpl
 Conj
 Pred
 Objc
-Modi
+Time
 Pred
 Conj
 Pred
@@ -242754,7 +242754,7 @@ Objc
 Adju
 Objc
 Conj
-Modi
+Time
 PreO
 Cmpl
 Exst
@@ -242987,7 +242987,7 @@ Time
 Adju
 Conj
 Pred
-Modi
+Time
 Cmpl
 Conj
 Pred
@@ -245118,7 +245118,7 @@ Rela
 PreC
 Cmpl
 Subj
-Modi
+Time
 Pred
 Subj
 Objc
@@ -245164,7 +245164,7 @@ Conj
 PreS
 PreC
 Subj
-Modi
+Time
 Pred
 Subj
 Cmpl
@@ -245238,7 +245238,7 @@ Cmpl
 Conj
 Nega
 Pred
-Modi
+Time
 PreC
 Subj
 Conj
@@ -246432,7 +246432,7 @@ Conj
 Nega
 Pred
 Subj
-Modi
+Time
 Time
 Conj
 PreO
@@ -247070,7 +247070,7 @@ Pred
 Subj
 Cmpl
 Conj
-Modi
+Time
 Pred
 Objc
 Cmpl
@@ -248251,7 +248251,7 @@ Subj
 Nega
 Pred
 Conj
-Modi
+Time
 Subj
 Nega
 Pred
@@ -248419,7 +248419,7 @@ Pred
 Subj
 Cmpl
 Time
-Modi
+Time
 Pred
 Subj
 Time
@@ -249211,7 +249211,7 @@ Subj
 Conj
 Pred
 Cmpl
-Modi
+Time
 Pred
 Subj
 Cmpl
@@ -250083,7 +250083,7 @@ Nega
 Pred
 Cmpl
 Conj
-Modi
+Time
 Subj
 PreC
 Subj
@@ -250359,7 +250359,7 @@ Cmpl
 Pred
 Cmpl
 Conj
-Modi
+Time
 Subj
 Pred
 Conj
@@ -251670,7 +251670,7 @@ Pred
 Objc
 Cmpl
 Conj
-Modi
+Time
 Pred
 Subj
 Cmpl
@@ -252096,7 +252096,7 @@ Cmpl
 Pred
 Objc
 Intj
-Modi
+Time
 Subj
 PreC
 Loca
@@ -252377,7 +252377,7 @@ Objc
 Cmpl
 Conj
 Pred
-Modi
+Time
 Objc
 Objc
 Pred
