@@ -11,14 +11,16 @@ import pandas as pd
 class Figures:
     """Auto config figure titles"""
 
-    def __init__(self, chapter=1):
+    def __init__(self, chapter=1, sep='_'):
         self.chapter = chapter
+        self.sep = sep
         self.fig2num = {}
 
-    def title(self, title_str, chapter=None):
+    def title(self, title_str, chapter=None, sep=None):
         """Configure a title string"""
         
         chapter = chapter or self.chapter
+        sep = sep or self.sep
 
         # configure fig number
         nums = self.fig2num
@@ -27,7 +29,7 @@ class Figures:
             max(nums.values(), default=0) + 1
         )
 
-        return f'fig.{chapter}.{num}_{title_str}'
+        return f'fig{sep}{chapter}{sep}{num}{sep}{title_str}'
 
 def convert2pandas(counterdict):
     ''' 
