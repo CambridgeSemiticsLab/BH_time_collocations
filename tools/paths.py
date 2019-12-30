@@ -13,6 +13,7 @@ github = home.joinpath('github')
 project = github.joinpath('CambridgeSemiticsLab/time_collocations')
 semvector = project.joinpath('data/vectors/semvector.pickle')
 cxs = project.joinpath('data/cxs/cxs.pickle')
+figs = project.joinpath('results/figures')
 
 # Text-Fabric data
 tf_data = {
