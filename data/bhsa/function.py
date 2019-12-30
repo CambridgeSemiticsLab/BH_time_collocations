@@ -32,7 +32,7 @@ def modify_function(functions, api):
     
             # -- single-particle with verb required -- 
             single_lexset = {
-                'TMJD/', '<WD/', 
+                'TMJD/', '<WD/', 'JWMM', 
                 '>Z', 'CNJ/', 'PT>M', 'VRM/',
                 'RG</', '>ZJ'
             }
