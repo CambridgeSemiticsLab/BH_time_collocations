@@ -28,10 +28,6 @@ def modify_function(functions, api):
         for word in L.d(phrase,'word'):
             P = PositionsTF(word, 'phrase')     
     
-            # -- single-particle phrases -- 
-            # many of these are labeled as "Modi" for modifier
-            # whereas they instead describe somehow the quality of event time
-
             # -- single-particle with verb required -- 
             single_lexset = {
                 'TMJD/', '<WD/', 
