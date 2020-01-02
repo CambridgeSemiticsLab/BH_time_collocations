@@ -11,7 +11,7 @@ import pandas as pd
 class Figures:
     """Auto config figure titles"""
 
-    def __init__(self, chapter=1, sep='_'):
+    def __init__(self, chapter=1, sep='.'):
         self.chapter = chapter
         self.sep = sep
         self.fig2num = {}
