@@ -29,7 +29,7 @@ class Figures:
             max(nums.values(), default=0) + 1
         )
 
-        return f'fig{chapter}.{num}{sep}{title_str}'
+        return f'fig{sep}{chapter}{sep}{num}{sep}{title_str}'
 
 def convert2pandas(counterdict):
     ''' 
