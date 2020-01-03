@@ -30,8 +30,16 @@ def convert_tense(word, api):
     
     F, L = api.F, api.L
     
+    tense_map = {
+        'impf': 'yqṭl',
+        'perf': 'qṭl',
+        'wayq': 'wyqṭl',
+    }
+
+    tense = F.vt.v(word)
+
     # check for weqatal
-    if F.vt.v(word) == 'perf' and F.lex.v(word-1) == 'W':
+    if tense == 'perf' and F.lex.v(word-1) == 'W':
 
         # get tense of the ancestor of the verb's clause
         clause = L.u(word, 'clause_atom')[0]
@@ -39,10 +47,10 @@ def convert_tense(word, api):
 
         # check for whether ancestor triggers weqatal analysis
         if qatal_ancestor in {'impf', 'impv'}:
-            return 'weqt' # change tense to weqt
+            return 'wqṭl' # change tense to weqt
         else:
-            return F.vt.v(word) # no change on tense
+            return tense_map.get(tense, tense)
 
     # return tense as-is
     else:
-        return F.vt.v(word)
+        return tense_map.get(tense, tense)
