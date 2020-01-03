@@ -31,9 +31,9 @@ def convert_tense(word, api):
     F, L = api.F, api.L
     
     tense_map = {
-        'impf': 'yqṭl',
-        'perf': 'qṭl',
-        'wayq': 'wyqṭl',
+        'impf': 'yiqtol',
+        'perf': 'qatal',
+        'wayq': 'wayyiqtol',
     }
 
     tense = F.vt.v(word)
@@ -47,7 +47,7 @@ def convert_tense(word, api):
 
         # check for whether ancestor triggers weqatal analysis
         if qatal_ancestor in {'impf', 'impv'}:
-            return 'wqṭl' # change tense to weqt
+            return 'weqatal' # change tense to weqt
         else:
             return tense_map.get(tense, tense)
 
