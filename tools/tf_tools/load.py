@@ -14,7 +14,7 @@ function typ rela
 number label book
 '''
 plus = '''
-g_cons_utf8 trailer_utf8
+lex_sbl g_cons_utf8 trailer_utf8
 nu sp prs ls st
 mother
 freq_lex
