@@ -1,7 +1,7 @@
 import collections
 from tf.fabric import Fabric
 from tf.compose import modify
-from weqatal import convert_tense
+from tenses import convert_tense
 from function import modify_function
 from funct_assoc import calculate
 
@@ -33,7 +33,9 @@ def mod_features(locs, base_metadata):
     # remap certain phrase functions
     modify_function(mod_features['function'], api)
 
-    # modify verb tenses to add weqatal
+    # modify verb tenses: 
+    #   - add weqatal
+    #   - change tense codes   
     for verb in api.F.pdp.s('verb'):
         mod_features['vt'][verb] = convert_tense(verb, api)
 
