@@ -4,6 +4,7 @@ from tf.compose import modify
 from tenses import convert_tense
 from function import modify_function
 from funct_assoc import calculate
+from sbl_transcription import transcribe_lexemes
 
 def mod_features(locs, base_metadata):
     """Remap node features in BHSA
@@ -39,6 +40,9 @@ def mod_features(locs, base_metadata):
     for verb in api.F.pdp.s('verb'):
         mod_features['vt'][verb] = convert_tense(verb, api)
 
+    # add lex_sbl features
+    transcribe_lexemes(mod_features, api)
+
     # add statistical association features for head-words
     assocs = calculate(mod_features['function'], api)
     mod_features['top_assoc'] = assocs['top_assoc']
@@ -53,6 +57,10 @@ def mod_features(locs, base_metadata):
         },
         'vt': {
             'description': 'tense of a verb',
+            'valueType': 'str',
+        },
+        'lex_sbl': {
+            'description': 'A lexeme string for a word/lexeme node, converted from BHSA to SBL style',
             'valueType': 'str',
         },
         'funct_assoc': {
