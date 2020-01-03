@@ -6,7 +6,7 @@
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2020-01-03T16:10:11Z
+@dateWritten=2020-01-03T16:42:57Z
 
 3	qṭl
 15	qṭl

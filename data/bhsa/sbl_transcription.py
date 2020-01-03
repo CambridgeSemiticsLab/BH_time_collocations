@@ -63,14 +63,15 @@ def transcribe_lexemes(nodeFeatures, api):
         raw_lex = re.sub('\[|/|=', '', bhsa_lex)
         sbl_lex = ''.join(etcbc2sbl[c] for c in raw_lex)
         if '/' in bhsa_lex:
-            pos = '-N'
+            pos = 'N'
         elif '[' in bhsa_lex:
-            pos = '-V'
+            pos = 'V'
         else:
-            pos = ''
+            pos = 'P'
         homo = bhsa_lex.count('=')
         homo_count = f'{homo+1}' if homo else ''
-        sbl_lex_final = f'{sbl_lex}{pos}{homo_count}'
+        disambig = f'-{pos}{homo_count}' if pos or homo else ''
+        sbl_lex_final = f'{sbl_lex}{disambig}'
         features[lnode] = sbl_lex_final
         for w in L.d(lnode,'word'):
             features[w] = sbl_lex_final
