@@ -3,6 +3,7 @@ This module generates a custom version of the
 BHSA Hebrew database.
 """
 
+import sys
 import os
 import glob
 from paths import tf_data
@@ -28,15 +29,20 @@ def msg(m, indent=0):
     indent = ' | \t' * indent
     print(f'{indent}{timestamp()} {m}')
 
+do_assoc = '-assoc' in sys.argv
+assoc_files = {os.path.join(tf_data['custom'], f) for f in ('funct_assoc.tf','top_assoc.tf')}
+
 # clean out old data
 out_dir = os.path.join(tf_data['custom'], '*.tf')
 for file in glob.glob(out_dir):
+    if file in assoc_files and not do_assoc:
+        continue
     os.remove(file)
 
 # -- Remap Node Features --
 print()
 msg('Editing node features...')
-mod_features(tf_data, base_metadata)
+mod_features(tf_data, base_metadata, do_assoc=do_assoc)
 msg('done', 1)
 
 msg('Adding new nodes and edges...')
