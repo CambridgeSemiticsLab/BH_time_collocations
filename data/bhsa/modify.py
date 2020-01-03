@@ -6,7 +6,7 @@ from function import modify_function
 from funct_assoc import calculate
 from sbl_transcription import transcribe_lexemes
 
-def mod_features(locs, base_metadata):
+def mod_features(locs, base_metadata, do_assoc=False):
     """Remap node features in BHSA
 
     BHSA contains features of  nodes that 
@@ -43,13 +43,28 @@ def mod_features(locs, base_metadata):
     # add lex_sbl features
     transcribe_lexemes(mod_features, api)
 
+    meta_data = {}
+
     # add statistical association features for head-words
-    assocs = calculate(mod_features['function'], api)
-    mod_features['top_assoc'] = assocs['top_assoc']
-    mod_features['funct_assoc'] = assocs['funct_assoc']
+    if do_assoc:
+        assocs = calculate(mod_features['function'], api)
+        mod_features['top_assoc'] = assocs['top_assoc']
+        mod_features['funct_assoc'] = assocs['funct_assoc']
+        meta_data.update({
+            'funct_assoc': {
+            'description':'a feature on words that function as a head in their enclosing phrase; integer tells how attracted the head word is to its phrase\'s functions',
+            'interpreting scores':'score > 1.3 is significantly attracted; score < -1.3 is significantly repelled',
+            'valueType':'int',
+        },
+        'top_assoc': {
+            'description':'top associated function to this word',
+            'interpreting scores':'score > 1.3 is significantly attracted; score < -1.3 is significantly repelled',
+            'valueType':'str',
+        },
+    })
 
     # data for new features
-    meta_data = {
+    meta_data.update({
         '': base_metadata,
         'function': {
             'description': 'function of a phrase in a clause',
@@ -63,17 +78,7 @@ def mod_features(locs, base_metadata):
             'description': 'A lexeme string for a word/lexeme node, converted from BHSA to SBL style',
             'valueType': 'str',
         },
-        'funct_assoc': {
-            'description':'a feature on words that function as a head in their enclosing phrase; integer tells how attracted the head word is to its phrase\'s functions',
-            'interpreting scores':'score > 1.3 is significantly attracted; score < -1.3 is significantly repelled',
-            'valueType':'int',
-        },
-        'top_assoc': {
-            'description':'top associated function to this word',
-            'interpreting scores':'score > 1.3 is significantly attracted; score < -1.3 is significantly repelled',
-            'valueType':'str',
-        }
-    }
+    })
 
     # enact the changes
     TF = Fabric(locations=output, silent=True)
