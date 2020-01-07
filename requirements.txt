@@ -1,3 +1,4 @@
+adjustText==0.7.3
 appnope==0.1.0
 attrs==19.3.0
 backcall==0.1.0
