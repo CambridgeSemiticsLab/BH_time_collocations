@@ -15,6 +15,7 @@ number label book
 '''
 plus = '''
 lex_sbl lex_sbl_l g_cons_utf8 trailer_utf8
+lex_utf8
 nu sp prs ls st
 mother
 freq_lex
