@@ -78,6 +78,10 @@ def mod_features(locs, base_metadata, do_assoc=False):
             'description': 'A lexeme string for a word/lexeme node, converted from BHSA to SBL style',
             'valueType': 'str',
         },
+        'lex_sbl_l': {
+            'description': 'A light transcribed (no disambiguators) lexeme string for a word/lexeme node, converted from BHSA to SBL style',
+            'valueType': 'str',
+        },
     })
 
     # enact the changes

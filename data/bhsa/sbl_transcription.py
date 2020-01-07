@@ -56,7 +56,7 @@ def transcribe_lexemes(nodeFeatures, api):
 
     F, L = api.F, api.L
     nodeFeatures['lex_sbl'] = {}
-    features = nodeFeatures['lex_sbl'] 
+    nodeFeatures['lex_sbl_l'] = {}
 
     for lnode in F.otype.s('lex'):
         bhsa_lex = F.lex.v(lnode)
@@ -72,6 +72,8 @@ def transcribe_lexemes(nodeFeatures, api):
         homo_count = f'{homo+1}' if homo else ''
         disambig = f'-{pos}{homo_count}' if pos or homo else ''
         sbl_lex_final = f'{sbl_lex}{disambig}'
-        features[lnode] = sbl_lex_final
+        nodeFeatures['lex_sbl'][lnode] = sbl_lex_final
+        nodeFeatures['lex_sbl_l'][lnode] = sbl_lex
         for w in L.d(lnode,'word'):
-            features[w] = sbl_lex_final
+            nodeFeatures['lex_sbl'][w] = sbl_lex_final
+            nodeFeatures['lex_sbl_l'][w] = sbl_lex
