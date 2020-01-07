@@ -4,7 +4,7 @@ from tf.compose import modify
 from tenses import convert_tense
 from function import modify_function
 from funct_assoc import calculate
-from sbl_transcription import transcribe_lexemes
+from transcriptions import transcribe_lexemes
 
 def mod_features(locs, base_metadata, do_assoc=False):
     """Remap node features in BHSA
@@ -21,7 +21,7 @@ def mod_features(locs, base_metadata, do_assoc=False):
     TF = Fabric(locations=[bhsa,heads], silent='deep')
     api = TF.load('''
         function vt mother pdp lex
-        nhead ls nu
+        nhead ls nu lex_utf8
     ''')
     F = api.F
 
@@ -80,6 +80,10 @@ def mod_features(locs, base_metadata, do_assoc=False):
         },
         'lex_sbl_l': {
             'description': 'A light transcribed (no disambiguators) lexeme string for a word/lexeme node, converted from BHSA to SBL style',
+            'valueType': 'str',
+        },
+        'lex_utf8': {
+            'description': 'UTF8 consonantal text without accents; same as BHSA feature but with lexeme nodes',
             'valueType': 'str',
         },
     })
