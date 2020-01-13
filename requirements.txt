@@ -37,7 +37,6 @@ networkx==2.4
 notebook==6.0.2
 numpy==1.17.3
 pandas==0.25.2
-pandoc==1.0.2
 pandocfilters==1.4.2
 parso==0.5.1
 pexpect==4.7.0
