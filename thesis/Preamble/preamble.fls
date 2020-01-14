@@ -1,0 +1,16 @@
+PWD /Users/cody/github/CambridgeSemiticsLab/time_collocations/thesis/Preamble
+INPUT /usr/local/texlive/2019/texmf.cnf
+INPUT /usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2019/texmf-var/web2c/pdftex/latex.fmt
+INPUT preamble.tex
+OUTPUT preamble.log
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/geometry/geometry.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/geometry/geometry.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+INPUT /usr/local/texlive/2019/texmf-dist/tex/generic/ifxetex/ifxetex.sty

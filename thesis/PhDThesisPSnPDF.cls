@@ -556,17 +556,19 @@ supported!}
   \usepackage{fontspec}
   \usepackage[]{unicode-math}
   \setmainfont[
+    Path = /Users/cody/Library/Fonts/,
     Extension = .otf,
-    UprightFont = *-regular,
-    BoldFont = *-bold,
-    ItalicFont = *-italic,
-    BoldItalicFont = *-bolditalic,
-  ]{xits}
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+    ItalicFont = *-Italic,
+    BoldItalicFont = *-BoldItalic,
+  ]{XITS}
   
   \setmathfont[ 
     Extension = .otf,
-    BoldFont = *bold,
-  ]{xits-math}
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+  ]{XITSMath}
   
 \else
   % default: pdfLaTeX

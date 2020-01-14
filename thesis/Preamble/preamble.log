@@ -1,0 +1,99 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex 2019.12.5)  14 JAN 2020 17:31
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**preamble.tex
+(./preamble.tex
+LaTeX2e <2018-12-01>
+! Undefined control sequence.
+l.7 \ifsetCustomMargin
+                      
+? 
+! Interruption.
+l.8 
+      \RequirePackage[left=37mm,right=30mm,top=35mm,bottom=30mm]{geometry}
+? 
+(/usr/local/texlive/2019/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2018/04/16 v5.8 Page Geometry
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2019/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count80
+\Gm@cntv=\count81
+\c@Gm@tempcnt=\count82
+\Gm@bindingoffset=\dimen102
+\Gm@wd@mp=\dimen103
+\Gm@odd@mp=\dimen104
+\Gm@even@mp=\dimen105
+\Gm@layoutwidth=\dimen106
+\Gm@layoutheight=\dimen107
+\Gm@layouthoffset=\dimen108
+\Gm@layoutvoffset=\dimen109
+\Gm@dimlist=\toks15
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \@classoptionslist 
+l.1005 \ProcessOptionsKV[c]{Gm}
+                               %
+? 
+! Interruption.
+\@ifundefined #1->\ifcsname #1
+                              \endcsname \@ifundefin@d@i \else \@ifundefin@d...
+l.1005 \ProcessOptionsKV[c]{Gm}
+                               %
+? 
+
+! Package geometry Error: \paperwidth (0.0pt) too short.
+
+See the geometry package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1008 \Gm@process
+                  
+? 
+! Interruption.
+\GenericError  ...                                
+                                                  \endgroup 
+l.1008 \Gm@process
+                  
+? 
+
+! Package geometry Error: \paperheight (0.0pt) too short.
+
+See the geometry package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1008 \Gm@process
+                  
+? :q
+Type <return> to proceed, S to scroll future error messages,
+R to run without stopping, Q to run quietly,
+I to insert something, E to edit your file,
+1 or ... or 9 to ignore the next 1 to 9 tokens of input,
+H for help, X to quit.
+? X
+ 
+Here is how much of TeX's memory you used:
+ 518 strings out of 492617
+ 7976 string characters out of 6129507
+ 70117 words of memory out of 5000000
+ 4517 multiletter control sequences out of 15000+600000
+ 3640 words of font info for 14 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 23i,0n,19p,192b,15s stack positions out of 5000i,500n,10000p,200000b,80000s
+No pages of output.
