@@ -241,16 +241,16 @@ supported!}
 % ******************************************************************************
 % ******************************** Packages ************************************
 % ******************************************************************************
-% ************************** Layout and Formatting *****************************
-
-\RequirePackage{lscape}   % Supports Landscape Layout
-\RequirePackage{setspace} % Define line spacing in paragraph
-\RequirePackage{calc}     % calculate vertical spacing
 
 % ************************* Conditional Statements *****************************
 \RequirePackage{ifthen}   % Conditional statements
 \RequirePackage{ifpdf}    % Check for pdfLaTeX
 \RequirePackage{ifxetex}  % XeLaTeX
+
+% ************************** Layout and Formatting *****************************
+\RequirePackage{lscape}   % Supports Landscape Layout
+\RequirePackage{setspace} % Define line spacing in paragraph
+\RequirePackage{calc}     % calculate vertical spacing
 
 % *********************** Table of Contents & Appendices ***********************
 % add Bibliography, List of figures and tables to contents
@@ -284,7 +284,6 @@ supported!}
   \DeclareGraphicsExtensions{.eps, .ps}
   \graphicspath{{Figs/Vector/}{Figs/}}
 \fi
-
 
 
 % ******************************* Time Stamp ***********************************
@@ -565,11 +564,11 @@ supported!}
   ]{XITS}
   
   \setmathfont[ 
+    Path = /Users/cody/Library/Fonts/,
     Extension = .otf,
-    UprightFont = *-Regular,
-    BoldFont = *-Bold,
-  ]{XITSMath}
-  
+    BoldFont = XITSMath-Bold,
+  ]{XITSMath-Regular}
+
 \else
   % default: pdfLaTeX
   \RequirePackage[utf8]{inputenc}
@@ -927,7 +926,14 @@ wish to left align your text}
 % ******************************************************************************
 
 % ******************************** Title Page **********************************
-\renewcommand{\maketitle}{
+% NB: maketitle gets over-written when importing 
+% hebrew with polyglossia. This is probl. due to
+% bidi re-writing maketitle, and thus doing away with all modifications
+% see: "https://tex.stackexchange.com/questions/497786/bidi-package-causes-footnotes-not-to-appear-on-dedication-page?newreg=e794d42cea5a47c69c521aa62029f511"
+% for now, makeTitle (camel case) will replace the regular command 
+%\renewcommand{\maketitle}{
+
+\newcommand{\makeTitle}{
 
 % To compute the free vertical space in Title page
 \computeTitlePageSpacing
@@ -946,7 +952,6 @@ wish to left align your text}
 % Title
 {\usebox{\PHD@Title}} % subtitle is defined
 
-
 % Crest
 
 \ifPHD@collegeshield%
@@ -958,7 +963,6 @@ wish to left align your text}
 	{\usebox{\PHD@crest}}
 	\vspace{.15\PHD@titlepagespacing}
 \fi
-
 
 
 % Author
@@ -1006,8 +1010,6 @@ wish to left align your text}
 \centering
 }
 
-
-
 % ******************************* Declaration **********************************
 % The declaration environment puts a large, bold, centered
 % "Declaration" label at the top of the page.
@@ -1023,8 +1025,6 @@ wish to left align your text}
 \@degreedate{}
 \vfill
 }
-
-
 
 % ****************************** Acknowledgements ********************************
 % The acknowledgements environment puts a large, bold, centered
@@ -1277,4 +1277,3 @@ wish to left align your text}
 			- \totalheightof{\usebox{\PHD@collegedate}}
 }
 }
-
