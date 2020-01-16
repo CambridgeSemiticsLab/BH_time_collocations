@@ -16,7 +16,8 @@ This project aims to build a comprehensive semantic taxonomy of the form, functi
 * [archive](archive) – Previous states of this project. Archived before major re-organizations.
 * [data](data) — The data used for the analysis. Sources include [BHSA](https://github.com/ETCBC/bhsa) and custom datasets.
 * [docs](docs) — Project and code documentation, including bibliography.txt, as well as images/files for displaying in markdown. 
-* results — Forthcoming. This is the main analysis. To contain notebooks, graphs, and tables for the dissertation.
+* [results](results) — Work in progress. This is the main analysis. To contain notebooks, graphs, and tables for the dissertation.
+* [thesis](thesis) - Full analysis and discussion of data in form of XeLatex PhD thesis
 * [tools](tools) – Python package containing code for generating data and producing/analyzing results.
 
 
