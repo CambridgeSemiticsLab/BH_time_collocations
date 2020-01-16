@@ -17,12 +17,8 @@ This project aims to build a comprehensive semantic taxonomy of the form, functi
 * [data](data) — The data used for the analysis. Sources include [BHSA](https://github.com/ETCBC/bhsa) and custom datasets.
 * [docs](docs) — Project and code documentation, including bibliography.txt, as well as images/files for displaying in markdown. 
 * [results](results) — Work in progress. This is the main analysis. To contain notebooks, graphs, and tables for the dissertation.
-* [thesis](thesis) - Full analysis and discussion of data in form of XeLatex PhD thesis
+* [thesis](thesis) - Work in progress. My PhD thesis, featuring full analysis and discussion of data. In XeLatex.
 * [tools](tools) – Python package containing code for generating data and producing/analyzing results.
-
-
-## Main Analyses
-Forthcoming.
 
 ## Methodology
 Biblical Hebrew linguists face the unique methodological problem that their target language has no living informants. Therefore, the usual tool of linguistic validation, grammaticality judgments, is unavailable. The approach of this study is to use statistical association between linguistic forms as a way of inducing language generalizations (Goldberg 2006). These generalizations can then be used to identify language defaults. This approach allows simpler forms to illuminate more complex ones through their interdependence. The method thus seeks to mitigate the lack of native intuition.
