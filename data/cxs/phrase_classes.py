@@ -125,6 +125,13 @@ class SinglePhrase(CXbuilder):
                 return c
         # unsuccessful search
         return default
+
+    def getindex(self, indexable, index, default=Construction()):   
+        """Safe index on iterables w/out IndexErrors."""
+        try: 
+            return indexable[index]
+        except:
+            return default
     
     def single(self, cx, cxtuple):
         """Tag CXs as singles.
@@ -448,7 +455,8 @@ class SinglePhrase(CXbuilder):
         """Adjectival modifications via non-definite apposition"""
         head = self.get_headword(cx)
         adjv_ph = self.get_head_modi(head, cx, 'adjv_ph')
-        
+        adjv_head = next(iter(adjv_ph.getsuccroles('adjv')), Construction())
+
         return self.test(
             {
                 'element': cx,
@@ -466,6 +474,17 @@ class SinglePhrase(CXbuilder):
                 'conds': {
                     'cx is a demonstrative phrase':
                         cx.name == 'demon_ph',
+                }
+            },
+            {
+                'element': cx,
+                'class': ['adjective', 'ordinal'],
+                'kind': self.kind,
+                'conds': {
+                    'cx contanis adjectival phrase on head':
+                        bool(adjv_ph),
+                    'adjectival phrase headed by ordinal':
+                        adjv_head.name == 'ordn',
                 }
             }
         )
