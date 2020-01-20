@@ -104,7 +104,7 @@ class Words(CXbuilderTF):
                 'element': w,
                 'name': name,
                 'kind': self.kind,
-                'pattern': 'R>C/',
+                'pattern': 'prep+R>C/',
                 'roles': roles,
                 'conds': {
                     'F.lex.v(w) == R>C/':
@@ -120,6 +120,21 @@ class Words(CXbuilderTF):
                             'Time', 'Adju', 
                             'Cmpl', 'Loca',
                         },
+                }
+            },
+            {
+                'element': w,
+                'name': name,
+                'kind': self.kind,
+                'pattern': 'R>C/ no prep',
+                'roles': roles,
+                'conds': {
+                    'F.lex.v(w) == R>C/':
+                        F.lex.v(w) == 'R>C/',
+                    'F.st.v(w) == c':
+                        F.st.v(w) == 'c',
+                    'phrase is adverbial':
+                        F.function.v(L.u(w,'phrase')[0]) == 'Time',
                 }
             },
             {
