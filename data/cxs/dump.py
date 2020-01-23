@@ -4,10 +4,11 @@ import sys
 import pickle
 import collections
 from datetime import datetime
-from paths import semvector
+from paths import semvector, main_table
 from word_grammar import Words
 from phrase_grammar import Subphrases, Phrases
 from phrase_classes import SinglePhrase
+from dataset import build_dataset
 from tf_tools.load import load_tf
 
 # load semantic vectors
@@ -117,16 +118,21 @@ def load_cxs(tf_api, semdist, debug=False):
         'class2cx': sp.class2cx,
     } 
 
-# -- Dump Construction Objects --
-
+# -- Run Construction Analysis -- 
 TF, api, A = load_tf()
 print()
 cxs = load_cxs(A, semdist)
 
-file = 'cxs.pickle'
+# -- Compile Primary CSV Dataset -- 
+print(f'Building primary dataset')
+constructions = [c for cs in cxs['phrase2cxs'].values() for c in cs]
+dataset = build_dataset(constructions, A.api)
+dataset.to_csv(main_table, sep='\t')
+print(f'DONE! Pushed to {main_table}')
 
+# -- Dump Construction Objects --
+file = 'cxs.pickle'
 with open(file, 'wb') as outfile:
     pickle.dump(cxs, outfile)
-
 print()
-print(f'DONE! Dumping cxs into {file}')
+print(f'Dumping cxs into {file}')
