@@ -6,6 +6,7 @@ phrase classification of time adverbials.
 import collections
 from cx_analysis.build import CXbuilder
 from cx_analysis.cx import Construction
+import cx_analysis.graph_nav as nav
 
 class SinglePhrase(CXbuilder):
     """Modify cx classifications for single phrase CXs
@@ -59,6 +60,9 @@ class SinglePhrase(CXbuilder):
             cx = result['element']
             classi= result['class']
             cx.__dict__.setdefault('classification', []).extend(classi)
+            key_roles = cx.__dict__.setdefault('key_roles', {})
+            if 'key_roles' in result:
+                key_roles.update(result['key_roles'])
             cx.match = result
             cx.conds = result['conds']
             cx.cases = (result,) + cx.cases
@@ -222,11 +226,18 @@ class SinglePhrase(CXbuilder):
     
     def prep(self, cx):
         """Tag prepositional cxs"""
-                
+        head = nav.get_headword(cx)
+        prep_phs = nav.get_modifiers(head, cx, 'prep_ph', Construction())
+        prepositions = sorted(
+            slot for cx in prep_phs 
+                for slot in nav.get_role(cx,'prep', Construction()).slots
+        )
+ 
         return self.test(
             {
                 'element': cx,
                 'class': ['prep'],
+                'key_roles': {'prepositions': prepositions},
                 'kind': self.kind,
                 'conds': {
                     'cx.name == prep_ph':
@@ -318,12 +329,15 @@ class SinglePhrase(CXbuilder):
         
         # get attribute cx if it contains head word
         att_ph = self.get_head_modi(head, cx, 'attrib_ph')
-        
+        attrib = nav.get_role(att_ph, 'attrib')
+        attributive = nav.get_headword(attrib)
+
         return self.test(
             {
                 'element': cx,
                 'class': ['def_apposition'],
                 'kind': self.kind,
+                'key_roles': {'attributive': attributive},
                 'conds': {
                     f'cx contains attrib ph with head':
                         bool(att_ph)
@@ -332,6 +346,7 @@ class SinglePhrase(CXbuilder):
             {
                 'element': cx,
                 'class': ['def_apposition', 'demonstrative'],
+                'key_roles': {'attributive': attributive, 'demonstrative': attributive},
                 'kind': self.kind,
                 'conds': {
                     f'cx contains attrib ph with head':
@@ -345,6 +360,7 @@ class SinglePhrase(CXbuilder):
             {
                 'element': cx,
                 'class': ['def_apposition', 'ordinal'],
+                'key_roles': {'attributive': attributive, 'ordinal': attributive},
                 'kind': self.kind,
                 'conds': {
                     f'cx contains attrib ph with head':
@@ -399,11 +415,12 @@ class SinglePhrase(CXbuilder):
                 or geta(cx,'name') == 'card'
         )
         quant_ph = self.get_head_modi(head, cx, 'numb_ph')
-        
+        quantifier = nav.get_role(quant_ph, 'numb') 
         return self.test(
             {
                 'element': cx,
                 'class': ['quantified', 'cardinal'],
+                'key_roles': {'quantifier': quantifier},
                 'kind': self.kind,
                 'conds': {
                     'cx contains numbered phrase on head':
@@ -419,6 +436,7 @@ class SinglePhrase(CXbuilder):
                 'element': cx,
                 'class': ['quantified', 'qualitative'],
                 'kind': self.kind,
+                'key_roles': {'quantifier': quantifier},
                 'conds': {
                     'cx contains numbered phrase on head':
                         bool(quant_ph),
@@ -455,13 +473,15 @@ class SinglePhrase(CXbuilder):
         """Adjectival modifications via non-definite apposition"""
         head = self.get_headword(cx)
         adjv_ph = self.get_head_modi(head, cx, 'adjv_ph')
-        adjv_head = next(iter(adjv_ph.getsuccroles('adjv')), Construction())
+        adjv = nav.get_role(adjv_ph, 'adjv', Construction())
+        adjective = nav.get_headword(adjv)
 
         return self.test(
             {
                 'element': cx,
                 'class': ['adjective'],
                 'kind': self.kind,
+                'key_roles': {'adjective': adjective},
                 'conds': {
                     'cx contains adjectival phrase on head':
                         bool(adjv_ph),
@@ -471,6 +491,7 @@ class SinglePhrase(CXbuilder):
                 'element': cx,
                 'class': ['demonstrative'],
                 'kind': self.kind,
+                'key_roles': {'demonstrative': adjective},
                 'conds': {
                     'cx is a demonstrative phrase':
                         cx.name == 'demon_ph',
@@ -480,11 +501,12 @@ class SinglePhrase(CXbuilder):
                 'element': cx,
                 'class': ['adjective', 'ordinal'],
                 'kind': self.kind,
+                'key_roles': {'adjective': adjective, 'ordinal': adjective},
                 'conds': {
                     'cx contanis adjectival phrase on head':
                         bool(adjv_ph),
                     'adjectival phrase headed by ordinal':
-                        adjv_head.name == 'ordn',
+                        nav.has_node(adjv, 'name', 'ordn')
                 }
             }
         )
