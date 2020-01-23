@@ -32,6 +32,10 @@ def build_dataset(cxs, tf_api):
     # iterate through time adverbials and make observations
     for cx in cxs:
         
+        # restrict to single-phrased times for now
+        if {'component','not_single'} & set(cx.classification):
+            continue
+
         # head features
         head = nav.get_headword(cx)
         head_pos = F.sp.v(head)
