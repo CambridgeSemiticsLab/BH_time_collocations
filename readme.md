@@ -6,7 +6,7 @@ Analyzing the semantics and collocational tendencies of time adverbial construct
 
 <a href="docs/sponsors.md"><img src="docs/images/sponsor_banner2.png" align="middle"></a>
 
-*Cite:* <a href="https://doi.org/10.5281/zenodo.3246258"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3246258.svg" alt="DOI"></a> or
+*Cite:* <a href="https://doi.org/10.5281/zenodo.3626240"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3626240.svg" alt="DOI"></a> or
 [![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/CambridgeSemiticsLab/BH_time_collocations/)](https://archive.softwareheritage.org/browse/origin/https://github.com/CambridgeSemiticsLab/BH_time_collocations/)
 
 ## See the Data and Results
