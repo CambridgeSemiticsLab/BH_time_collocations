@@ -44,4 +44,4 @@ The classes will be constructed in a cycle of inductive data analysis and data c
 
 # License
 
-All code is licensed under an MIT license; all scientific data and results are under a Creative Commons International 4.0 license. Support open science in the humanities by freely licensing your own projects! 
+All scientific data and results are under a Creative Commons International 4.0 license; all code is licensed under an MIT license. As a matter of academic integrity, please always provide attribution. Support open science in the humanities by freely licensing your own projects! 
