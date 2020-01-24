@@ -32,27 +32,40 @@ def build_dataset(cxs, tf_api):
     # iterate through time adverbials and make observations
     for cx in cxs:
         
-        # restrict to single-phrased times for now
-        if {'component','not_single'} & set(cx.classification):
+        # remove non-time adverbial phrases
+        if {'not_single'} & set(cx.classification):
             continue
 
         # head features
         head = nav.get_headword(cx)
         head_pos = F.sp.v(head)
+        head_pl = F.nu.v(head) == 'pl'
+        head_du = F.nu.v(head) == 'du'
+        head_sffx = F.prs.v(head) not in {'absent', 'n/a'}
         
         # phrase features
         phr_type = cx.name
         tokenized = tokenize_surface(cx.slots, tf_api, feature='lex_utf8')
+
+        # preps
         prepositions = cx.key_roles.get('prepositions', [])
         leading_prep = next(iter(prepositions), 0)
         trailing_prep = next(iter(reversed(prepositions)), 0)
         tokenized_prep = '.'.join(F.lex_utf8.v(p) for p in prepositions)
+        extended_prep = (
+            not {F.pdp.v(p), F.ls.v(p)} & {'prep'}
+                for p in prepositions
+        )
+
+        # quants
         quant = cx.key_roles.get('quantifier', Construction())
         quantified = 'quantified' in cx.classification
         cardinal = 'cardinal' in cx.classification
         qualitative = 'qualitative' in cx.classification
         quantifier = T.text(quant.slots) 
         quant_token = tokenize_surface(quant.slots, tf_api, feature='lex_utf8')
+        
+        # others
         demonstrative = cx.key_roles.get('demonstrative', 0)
         ordinal = cx.key_roles.get('ordinal', 0)
         
@@ -78,13 +91,17 @@ def build_dataset(cxs, tf_api):
             'text': T.text(cx.slots),
             'token': tokenized,
             'clause': T.text(clause),
-            'class': '.'.join(cx.classification),
-            'head': trans(head),
-            'head_etcbc': F.lex.v(head),
-            'head_pos': head_pos,
+            'classi': '.'.join(cx.classification),
+            'time': trans(head),
+            'time_etcbc': F.lex.v(head),
+            'time_pos': head_pos,
+            'time_pl': head_pl,
+            'time_sffx': head_sffx,
             'leading_prep': trans(leading_prep) or na,
             'trailing_prep': trans(trailing_prep) or na,
             'tokenized_prep': tokenized_prep or na,
+            'extended_prep': any(extended_prep) or na,
+            'quantified': quantified or head_du or na,
             'quantifier': quantifier or na,
             'cardinal': quantified and cardinal, 
             'qual_quant': quant_token if (quantified and qualitative) else na,
