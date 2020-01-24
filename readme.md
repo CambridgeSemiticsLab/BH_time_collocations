@@ -12,7 +12,7 @@ Analyzing the semantics and collocational tendencies of time adverbial construct
 ## See the Data and Results
 
 * [primary dataset](data/main_dataset/dataset.tsv) - This is the primary dataset used for analyses in the project
-* [analyses notebooks](results/notebooks) - This section contains active and ongoing analyses in the form of Jupyter notebooks. Research questions are posed, and the data is then explored, analyzed, and plotted to arrive at answers.
+* [analyses notebooks](results/notebooks) - This section contains active and ongoing analyses in the form of Jupyter notebooks. Research questions are posed, and the data is then explored, analyzed, and visualized to arrive at answers.
 
 ## Directory Contents
 * [archive](archive) – Previous states of this project. Archived before major re-organizations.
