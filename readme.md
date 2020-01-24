@@ -16,7 +16,7 @@ Analyzing the semantics and collocational tendencies of time adverbial construct
 
 ## Directory Contents
 * [archive](archive) – Previous states of this project. Archived before major re-organizations.
-* [data](data) — The data used for the analysis. Sources include [BHSA](https://github.com/ETCBC/bhsa) and custom datasets.
+* [data](data) — The data used for the analysis along with scripts used to produce the data. Sources include [BHSA](https://github.com/ETCBC/bhsa) and custom datasets.
 * [docs](docs) — Project and code documentation, including bibliography.txt, as well as images/files for displaying in markdown.
 * [results](results) — Work in progress. This is the main analysis. It contains notebooks, graphs, and tables for the dissertation.
 * [thesis](thesis) - Work in progress. My PhD thesis in (xe)LaTex. Data is imported into the thesis straight from the results directory.
