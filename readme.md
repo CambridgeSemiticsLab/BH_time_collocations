@@ -1,5 +1,7 @@
 # Biblical Hebrew Time Collocations 
 
+Analyzing the semantics and collocational tendencies of time adverbial constructions in Biblical Hebrew
+
 ### Cody Kingham 
 
 <a href="docs/sponsors.md"><img src="docs/images/sponsor_banner2.png" align="middle"></a>
@@ -7,18 +9,22 @@
 *Cite:* <a href="https://doi.org/10.5281/zenodo.3246258"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3246258.svg" alt="DOI"></a> or
 [![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/CambridgeSemiticsLab/BH_time_collocations/)](https://archive.softwareheritage.org/browse/origin/https://github.com/CambridgeSemiticsLab/BH_time_collocations/)
 
+## See the Data and Results
+
+* [primary dataset](data/main_dataset/dataset.tsv) - This is the primary dataset used for analyses in the project
+* [analyses notebooks](results/notebooks) - This section contains active and ongoing analyses in the form of Jupyter notebooks. Research questions are posed, and the data is then explored, analyzed, and plotted to arrive at answers.
+
+## Directory Contents
+* [archive](archive) – Previous states of this project. Archived before major re-organizations.
+* [data](data) — The data used for the analysis. Sources include [BHSA](https://github.com/ETCBC/bhsa) and custom datasets.
+* [docs](docs) — Project and code documentation, including bibliography.txt, as well as images/files for displaying in markdown.
+* [results](results) — Work in progress. This is the main analysis. It contains notebooks, graphs, and tables for the dissertation.
+* [thesis](thesis) - Work in progress. My PhD thesis in (xe)LaTex. Data is imported into the thesis straight from the results directory.
+* [tools](tools) – Python package containing code for generating data and producing/analyzing results.
+
 ## Introduction
 
 This project aims to build a comprehensive semantic taxonomy of the form, function, and distribution of time adverbials in Biblical Hebrew using the statistical tool of collocation analysis. Time expression in Hebrew linguistics remains one of the most controversial topics in the field, due to debate around the Hebrew verb. Despite much research on the verb, little attention has been paid to the most explicit indicators of time: time adverbials. Time adverbials are phrases like "tomorrow" (מָָחָר) or "day by day" (יוֹם יוֹם). Time adverbials can express tense and aspect, anchor text time, and direct focus. Thus they are valuable reference points for inferring the semantics of other forms, such as verbs. This project will apply an empirical semantic approach using inductive, statistical analysis. The [ETCBC syntax data](https://github.com/ETCBC) (Vrije Universiteit Amsterdam) is used to select adverbials that have already been marked as time indicative. A statistical significance test is used to isolate statistically significant collocations of syntactic components in time adverbials (e.g. definite articles, demonstratives, plurals, etc.). Significance scores reveal the interdependency and semantic relatedness of two forms. These patterns are then used to induce a taxonomy of the primary forms and functions of adverbial time. The taxonomy is applied to a collocational analysis of Hebrew verbs with classified time adverbials. The result is a comprehensive overview of both the phrase-level and clause-level semantics of time adverbials in Biblical Hebrew. This study breaks new ground in the field by introducing new computational methods combined with cognitively-informed Construction Grammar.
-
-## Contents 
-
-* [archive](archive) – Previous states of this project. Archived before major re-organizations.
-* [data](data) — The data used for the analysis. Sources include [BHSA](https://github.com/ETCBC/bhsa) and custom datasets.
-* [docs](docs) — Project and code documentation, including bibliography.txt, as well as images/files for displaying in markdown. 
-* [results](results) — Work in progress. This is the main analysis. To contain notebooks, graphs, and tables for the dissertation.
-* [thesis](thesis) - Work in progress. My PhD thesis, featuring full analysis and discussion of data. In XeLatex.
-* [tools](tools) – Python package containing code for generating data and producing/analyzing results.
 
 ## Methodology
 Biblical Hebrew linguists face the unique methodological problem that their target language has no living informants. Therefore, the usual tool of linguistic validation, grammaticality judgments, is unavailable. The approach of this study is to use statistical association between linguistic forms as a way of inducing language generalizations (Goldberg 2006). These generalizations can then be used to identify language defaults. This approach allows simpler forms to illuminate more complex ones through their interdependence. The method thus seeks to mitigate the lack of native intuition.
