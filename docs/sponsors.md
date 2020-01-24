@@ -22,5 +22,5 @@ A special thanks to these institutions and individuals who have made this projec
 
 <hr>
 
-### Text-Fabric, Dirk Roorda, Data Archiving and Networked Services
-<a href="https://www.github.com/annotation/text-fabric"><img src="images/tf.png" width="101" height="101"></a>
+### Text-Fabric, Dirk Roorda, annotation.nl
+<a href="https://www.annotation.nl"><img src="images/tf.png" width="101" height="101"></a>
