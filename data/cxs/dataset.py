@@ -66,8 +66,10 @@ def build_dataset(cxs, tf_api):
         quant_token = tokenize_surface(quant.slots, tf_api, feature='lex_utf8')
         
         # others
+        definite = 'definite' in cx.classification
         demonstrative = cx.key_roles.get('demonstrative', 0)
         ordinal = cx.key_roles.get('ordinal', 0)
+        bare = 'bare' in cx.classification
         
         # clause features
         clause = L.u(head,'clause')[0]
@@ -101,6 +103,8 @@ def build_dataset(cxs, tf_api):
             'trailing_prep': trans(trailing_prep) or na,
             'tokenized_prep': tokenized_prep or na,
             'extended_prep': any(extended_prep) or na,
+            'bare': bare or na,
+            'definite': definite or na,
             'quantified': quantified or head_du or na,
             'quantifier': quantifier or na,
             'cardinal': quantified and cardinal, 
