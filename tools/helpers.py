@@ -28,8 +28,10 @@ class Figures:
             title_str,
             max(nums.values(), default=0) + 1
         )
-
-        return f'fig{sep}{chapter}{sep}{num}{sep}{title_str}'
+        if chapter:
+            return f'fig{sep}{chapter}{sep}{num}{sep}{title_str}'
+        else:
+            return f'fig{sep}{num}{sep}{title_str}'
 
 def convert2pandas(counterdict):
     ''' 
