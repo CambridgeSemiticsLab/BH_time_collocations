@@ -42,12 +42,14 @@ def build_dataset(cxs, tf_api):
         head_pl = F.nu.v(head) == 'pl'
         head_du = F.nu.v(head) == 'du'
         head_sffx = F.prs.v(head) not in {'absent', 'n/a'}
+        genitive = 'genitive' in cx.classification
         
         # phrase features
         phr_type = cx.name
         tokenized = tokenize_surface(cx.slots, tf_api, feature='lex_utf8')
 
         # preps
+        preposition = 'prep' in cx.classification 
         prepositions = cx.key_roles.get('prepositions', [])
         leading_prep = next(iter(prepositions), 0)
         trailing_prep = next(iter(reversed(prepositions)), 0)
@@ -67,8 +69,10 @@ def build_dataset(cxs, tf_api):
         
         # others
         definite = 'definite' in cx.classification
-        demonstrative = cx.key_roles.get('demonstrative', 0)
-        ordinal = cx.key_roles.get('ordinal', 0)
+        demonstrative = 'demonstrative' in cx.classification
+        demon_cx = cx.key_roles.get('demonstrative', 0)
+        ordinal = 'ordinal' in cx.classification
+        ordinal_cx = cx.key_roles.get('ordinal', 0)
         bare = 'bare' in cx.classification
         
         # clause features
@@ -86,7 +90,7 @@ def build_dataset(cxs, tf_api):
         na = False #  none value
         trans = F.lex_utf8.v # transcription
 
-        dataset.append({
+        data = {
             'node': L.u(head,'timephrase')[0],
             'ref': ref,
             'ph_type': phr_type,
@@ -99,21 +103,30 @@ def build_dataset(cxs, tf_api):
             'time_pos': head_pos,
             'time_pl': head_pl,
             'time_sffx': head_sffx,
+            'preposition': preposition or na,
             'leading_prep': trans(leading_prep) or na,
             'trailing_prep': trans(trailing_prep) or na,
             'tokenized_prep': tokenized_prep or na,
             'extended_prep': any(extended_prep) or na,
             'bare': bare or na,
+            'genitive': genitive or na,
             'definite': definite or na,
             'quantified': quantified or head_du or na,
             'quantifier': quantifier or na,
             'cardinal': quantified and cardinal, 
             'qual_quant': quant_token if (quantified and qualitative) else na,
-            'demonstrative': trans(demonstrative) or na,
-            'ordinal': trans(ordinal) or na,
+            'demonstrative': demonstrative or na,
+            'ordinal': ordinal or na,
             'cl_kind': cl_kind,
-            'verb_lex': trans(verb) or na,
+            'verb': bool(verb) or na,
             'tense': tense or na,
-        })
+            'verb_lex': trans(verb) or na,
+        }
+    
+        # add tense data
+        if tense:
+            data[tense] = True    
 
-    return pd.DataFrame(dataset).set_index('node')
+        dataset.append(data)
+
+    return pd.DataFrame(dataset).set_index('node').fillna('False')
