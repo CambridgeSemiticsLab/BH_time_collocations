@@ -6,7 +6,7 @@
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2020-01-07T16:59:42Z
+@dateWritten=2020-01-28T18:37:46Z
 
 b-P
 rʾs̆yt-N

@@ -5,7 +5,7 @@
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2020-01-07T16:59:54Z
+@dateWritten=2020-01-28T18:37:59Z
 
 1-426584	word
 426585-426623	book
