@@ -12,6 +12,19 @@ import numpy as np
 from tf_tools.tokenizers import tokenize_surface
 from tf_tools.formatting import book2sbl
 
+class BoolMap:
+    """Set and map boolean values"""
+    def __init__(self, true=True, false=False):
+        self.true = true
+        self.false = false
+
+    def map(expression): 
+        """Convert boolean to mapped values.""" 
+        if expression:
+            return self.true
+        else:
+            return self.false 
+
 def build_dataset(cxs, tf_api):
     """Tag features across Construction objects
 
@@ -29,27 +42,39 @@ def build_dataset(cxs, tf_api):
     # row data / observation go into here
     dataset = []
 
+    # set dataset defaults
+    true = True
+    false = False
+    null = np.nan
+
+    # function to map expressions
+    def boomap(expression):
+        if expression:
+            return true
+        else:
+            return false
+
+    trans = F.lex_utf8.v # transcription
+
     # iterate through time adverbials and make observations
     for cx in cxs:
         
-        # remove non-time adverbial phrases
+        # avoid non-time adverbial phrases
         if {'not_single'} & set(cx.classification):
             continue
 
+        # cx
+        cxclass = cx.classification
+
         # head features
         head = nav.get_headword(cx)
-        head_pos = F.sp.v(head)
-        head_pl = F.nu.v(head) == 'pl'
         head_du = F.nu.v(head) == 'du'
-        head_sffx = F.prs.v(head) not in {'absent', 'n/a'}
-        genitive = 'genitive' in cx.classification
         
         # phrase features
         phr_type = cx.name
         tokenized = tokenize_surface(cx.slots, tf_api, feature='lex_utf8')
 
         # preps
-        preposition = 'prep' in cx.classification 
         prepositions = cx.key_roles.get('prepositions', [])
         leading_prep = next(iter(prepositions), 0)
         trailing_prep = next(iter(reversed(prepositions)), 0)
@@ -61,23 +86,17 @@ def build_dataset(cxs, tf_api):
 
         # quants
         quant = cx.key_roles.get('quantifier', Construction())
-        quantified = 'quantified' in cx.classification
-        cardinal = 'cardinal' in cx.classification
-        qualitative = 'qualitative' in cx.classification
-        quantifier = T.text(quant.slots) 
+        quantified = 'quantified' in cxclass
+        qualitative = 'qualitative' in cxclass
+        quant_str = T.text(quant.slots) 
         quant_token = tokenize_surface(quant.slots, tf_api, feature='lex_utf8')
         
         # others
-        definite = 'definite' in cx.classification
-        demonstrative = 'demonstrative' in cx.classification
         demon_cx = cx.key_roles.get('demonstrative', 0)
-        ordinal = 'ordinal' in cx.classification
         ordinal_cx = cx.key_roles.get('ordinal', 0)
-        bare = 'bare' in cx.classification
         
         # clause features
         clause = L.u(head,'clause')[0]
-        cl_kind = F.kind.v(clause)
         verb = next((w for w in L.d(clause,'word') if F.pdp.v(w) == 'verb'), 0)
         tense = {'ptca':'ptcp'}.get(F.vt.v(verb), F.vt.v(verb))
 
@@ -86,47 +105,43 @@ def build_dataset(cxs, tf_api):
         sbl_book = book2sbl[book]
         ref = f'{sbl_book} {chapter}:{verse}'
 
-        # set dataset defaults
-        na = False #  none value
-        trans = F.lex_utf8.v # transcription
-
         data = {
             'node': L.u(head,'timephrase')[0],
             'ref': ref,
+            'book': book,
             'ph_type': phr_type,
             'text': T.text(cx.slots),
             'token': tokenized,
             'clause': T.text(clause),
-            'classi': '.'.join(cx.classification),
+            'classi': '.'.join(cxclass),
             'time': trans(head),
             'time_etcbc': F.lex.v(head),
-            'time_pos': head_pos,
-            'time_pl': head_pl,
-            'time_sffx': head_sffx,
-            'preposition': preposition or na,
-            'leading_prep': trans(leading_prep) or na,
-            'trailing_prep': trans(trailing_prep) or na,
-            'tokenized_prep': tokenized_prep or na,
-            'extended_prep': any(extended_prep) or na,
-            'bare': bare or na,
-            'genitive': genitive or na,
-            'definite': definite or na,
-            'quantified': quantified or head_du or na,
-            'quantifier': quantifier or na,
-            'cardinal': quantified and cardinal, 
-            'qual_quant': quant_token if (quantified and qualitative) else na,
-            'demonstrative': demonstrative or na,
-            'ordinal': ordinal or na,
-            'cl_kind': cl_kind,
-            'verb': bool(verb) or na,
-            'tense': tense or na,
-            'verb_lex': trans(verb) or na,
+            'time_pos': F.sp.v(head),
+            'time_pl': boomap(F.nu.v(head) == 'pl'),
+            'time_sffx': boomap(F.prs.v(head) not in {'absent', 'n/a'}), 
+            'preposition': boomap('prep' in cxclass),
+            'leading_prep': trans(leading_prep) or null,
+            'trailing_prep': trans(trailing_prep) or null,
+            'tokenized_prep': tokenized_prep or null,
+            'extended_prep': boomap(any(extended_prep)),
+            'bare': boomap('bare' in cxclass),
+            'genitive': boomap('genitive' in cxclass),
+            'definite': boomap('definite' in cxclass),
+            'quantified': boomap(quantified or head_du), 
+            'quant_str': quant_str or null,
+            'cardinal': boomap(quantified and 'cardinal' in cxclass), 
+            'qualitative': boomap(qualitative),
+            'qual_str': quant_token if (quantified and qualitative) else null,
+            'demonstrative': boomap('demonstrative' in cxclass),
+            'demon_str': trans(demon_cx) or null,
+            'ordinal': boomap('ordinal' in cxclass),
+            'ord_str': trans(ordinal_cx) or null,
+            'cl_kind': F.kind.v(clause),
+            'verb': boomap(bool(verb)),
+            'tense': tense or null,
+            'verb_lex': trans(verb) or null,
         }
     
-        # add tense data
-        if tense:
-            data[tense] = True    
-
         dataset.append(data)
 
-    return pd.DataFrame(dataset).set_index('node').fillna('False')
+    return pd.DataFrame(dataset).set_index(['node'])
