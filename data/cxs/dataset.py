@@ -125,6 +125,7 @@ def build_dataset(cxs, tf_api):
             'tokenized_prep': tokenized_prep or null,
             'extended_prep': boomap(any(extended_prep)),
             'bare': boomap('bare' in cxclass),
+            'øanchor': boomap('øanchor' in cxclass),
             'genitive': boomap('genitive' in cxclass),
             'definite': boomap('definite' in cxclass),
             'quantified': boomap(quantified or head_du), 

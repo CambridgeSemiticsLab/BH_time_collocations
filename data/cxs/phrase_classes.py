@@ -36,7 +36,7 @@ class SinglePhrase(CXbuilder):
         # NB: order matters!
         self.cxs = (
             self.prep,
-            self.bare,
+            self.bare_anchor,
             self.definite,
             self.def_appo,
             self.genitive,
@@ -254,16 +254,27 @@ class SinglePhrase(CXbuilder):
             }
         )
 
-    def bare(self, cx):
-        """Tag bare, non-modified cxs"""
+    def bare_anchor(self, cx):
+        """Tag unanchored and bare, zero-coded cxs.
+        
+        Some constructions deploy reference points
+        to anchor time referents such as demonstratives,
+        definite articles, etc. Another set of CXs
+        avoid any modifications such as plurals or
+        quantifiers. 
+
+        Definitions:
+            øanchor: CXs without anchor modifiers
+                but may have quantifiers
+            bare: CXs with no additional modifier
+                except for prepositions
+        """
         F, E = self.F, self.E
         head_path = list(cx.getsuccroles('head'))
         head = head_path[-1]
         etcbc_phrase = self.L.u(int(head),'phrase')[0]
         
-        # two types of units allowed in the path:
-        # word cxs or prep_ph
-        # trace path to head and collect relations along the way
+        # collect phrase types in the path for testing
         cx_name = cx.name if cx.kind != 'word_cx' else cx.kind
         head_phs = {cx_name}
         for c in head_path:
@@ -272,8 +283,9 @@ class SinglePhrase(CXbuilder):
             else:
                 head_phs.add('word_cx')
         
+        # args common to bare and suffix definitions
         prereqs = {
-            'head_phs is subset of {word_cx, prep_ph}':
+            'head_phs is subset of {word_cx, prep_ph, advb}':
                 head_phs.issubset({'word_cx', 'prep_ph', 'advb'}),
             'F.st.v(head) != c':
                 F.st.v(int(head)) != 'c',
@@ -284,11 +296,28 @@ class SinglePhrase(CXbuilder):
         return self.test(
             {
                 'element': cx,
-                'class': ['bare'],
+                'class': ['øanchor'],
+                'kind': self.kind,
+                'conds': {
+                    'head_phs is subset of {word_cx,prep_ph,numb_ph,adjv_ph,advb}':
+                        head_phs.issubset({'word_cx','prep_ph','numb_ph','adjv_ph','advb'}), 
+                    'F.st.v(head) != c':
+                        F.st.v(int(head)) != 'c',
+                    'F.prs.v(head) in {n/a, absent}':
+                        F.prs.v(int(head)) in {'n/a', 'absent'},
+                    'not daughters(etcbc_phrase)':
+                        not E.mother.t(etcbc_phrase),
+                },
+            },
+            {
+                'element': cx,
+                'class': ['bare', 'øanchor'],
                 'kind': self.kind,
                 'conds': dict({
                     'F.prs.v(head) in {n/a, absent}':
                         F.prs.v(int(head)) in {'n/a', 'absent'},
+                    'F.nu.v(head) not in {pl,du}':
+                        F.nu.v(head) not in {'pl','du'},
                 }, **prereqs)
             },
             {
