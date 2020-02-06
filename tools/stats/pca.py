@@ -8,13 +8,13 @@ import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 import seaborn as sns
 
-def apply_pca(df, target_axis, feature_axis, scree=True, components=0):
+def apply_pca(df, sample_axis, feature_axis, scree=True, components=0):
     """Apply PCA analysis to a supplied dataset.
 
     Args:
         df: dataframe with data
-        targets: 0 or 1, axis of target terms
-        features: 0 or 1, axis of features for analysis
+        sample_axis: 0 (rows) or 1 (columns), axis of samples
+        feature_axis: 0 (rows) or 1 (columns), axis of features 
         scree: whether to display scree plot of explained
             variance
         components: number of components to calculate
