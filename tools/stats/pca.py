@@ -27,9 +27,9 @@ def apply_pca(df, sample_axis, feature_axis, scree=True, components=0):
     # NB from sklearn documentation: pca.fit expects shape of: 
     #     >>> "array-like, shape (n_samples, n_features)"
     # Thus we make sure to invert the table if necesssary
-    if target_axis == 1 and feature_axis == 0:
+    if sample_axis == 1 and feature_axis == 0:
         df = df.T
-    elif target_axis != 0 and feature_axis != 1:
+    elif sample_axis != 0 and feature_axis != 1:
         raise Exception('Invalid axis! Should be 0 or 1')
     targets = df.index
     features = df.columns
