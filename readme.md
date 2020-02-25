@@ -3,6 +3,7 @@
 Analyzing the semantics and collocational tendencies of time adverbial constructions in Biblical Hebrew
 
 ### Cody Kingham 
+#### Supervisor: Geoffrey Khan
 
 <a href="docs/sponsors.md"><img src="docs/images/sponsor_banner2.png" align="middle"></a>
 
