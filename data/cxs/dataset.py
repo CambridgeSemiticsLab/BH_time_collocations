@@ -105,6 +105,18 @@ def build_dataset(cxs, tf_api):
         sbl_book = book2sbl[book]
         ref = f'{sbl_book} {chapter}:{verse}'
 
+        # mappings of features
+        # map demonstratives to near/far labels
+        demon_maps = {
+            'Z>T': 'near',
+            'HJ>': 'far',
+            'HMH': 'far',
+            '>LH': 'near',
+            'HM': 'far',
+            'HW>': 'far',
+            'ZH': 'near'
+        }        
+
         data = {
             'node': L.u(head,'timephrase')[0],
             'ref': ref,
@@ -135,6 +147,7 @@ def build_dataset(cxs, tf_api):
             'qual_str': quant_token if (quantified and qualitative) else null,
             'demonstrative': boomap('demonstrative' in cxclass),
             'demon_str': trans(demon_cx) or null,
+            'demon_dist': demon_map.get(F.lex.v(demon_cx)) or null,
             'ordinal': boomap('ordinal' in cxclass),
             'ord_str': trans(ordinal_cx) or null,
             'cl_kind': F.kind.v(clause),
