@@ -107,7 +107,7 @@ def build_dataset(cxs, tf_api):
 
         # mappings of features
         # map demonstratives to near/far labels
-        demon_maps = {
+        demon_map = {
             'Z>T': 'near',
             'HJ>': 'far',
             'HMH': 'far',
