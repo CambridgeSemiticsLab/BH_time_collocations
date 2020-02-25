@@ -227,7 +227,7 @@ class SinglePhrase(CXbuilder):
     def prep(self, cx):
         """Tag prepositional cxs"""
         head = nav.get_headword(cx)
-        prep_phs = nav.get_modifiers(head, cx, 'prep_ph', Construction())
+        prep_phs = list(nav.get_modifiers(head, cx, 'prep_ph', Construction()))
         prepositions = sorted(
             slot for cx in prep_phs 
                 for slot in nav.get_role(cx,'prep', Construction()).slots
@@ -240,16 +240,16 @@ class SinglePhrase(CXbuilder):
                 'key_roles': {'prepositions': prepositions},
                 'kind': self.kind,
                 'conds': {
-                    'cx.name == prep_ph':
-                        cx.name == 'prep_ph',
+                    'bool(prep_phs) on head':
+                        bool(prep_phs),
                 }
             },
             {
                 'element': cx,
                 'class': ['øprep'],
                 'conds': {
-                    'cx.name != prep_ph':
-                        cx.name != 'prep_ph',
+                    'not bool(prep_phs)':
+                        not bool(prep_phs),
                 }
             }
         )
