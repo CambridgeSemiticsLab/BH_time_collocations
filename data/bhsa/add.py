@@ -40,7 +40,7 @@ def to_graph(locations, base_metadata):
     addTypes = {}
 
     # populate new node data
-    chunk_time(addTypes, api)
+    chunk_time(addTypes, TF)
 
     # add new objects and features 
     maxNode = max(nodeFeatures['otype'])
