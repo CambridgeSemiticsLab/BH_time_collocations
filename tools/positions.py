@@ -139,6 +139,7 @@ class Walker:
                 to keep going in a walk.
             output: return output of the val_funct instead of the
                 node itself.
+            every: return every valid result along the path.
         """
         path = self.positions[self.index+1:]
         if kwargs.get('every'):
