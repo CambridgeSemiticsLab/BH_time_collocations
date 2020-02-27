@@ -5,7 +5,7 @@ __pycache__/
 legacy
 scratch
 .venv
-.swp
+*.swp
 
 
 # MS Office files
