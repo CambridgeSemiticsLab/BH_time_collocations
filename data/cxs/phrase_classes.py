@@ -240,8 +240,8 @@ class SinglePhrase(CXbuilder):
                 'key_roles': {'prepositions': prepositions},
                 'kind': self.kind,
                 'conds': {
-                    'bool(prep_phs) on head':
-                        bool(prep_phs),
+                    'any(prep_phs) on head':
+                        any(prep_phs),
                 }
             },
             {
