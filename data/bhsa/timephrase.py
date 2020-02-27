@@ -1,19 +1,31 @@
 import collections
+from positions import Walker
 
-def chunk_time(addTypes, api):
-    '''
-    There are several cases in BHSA where time phrases 
-    are divided into several pieces whereas elsewhere 
-    the parts are kept together as a single phrase. 
-    This is an undesirable inconsistency. To solve this problem, 
-    new chunk objects are generated and mapped over the two phrase
-    boundaries. The objects have a label=timephrase.
-    This method operates on self.edgeFeatures and self.nodeFeatures
-    to add new objects.
-    '''
+def chunk_time(addTypes, tf):
+    """Combine cleft BHSA time phrases into a single unit. 
+
+    There are several cases in BHSA where adjacent 
+    time phrases are divided into several pieces 
+    whereas elsewhere the parts are kept together 
+    as a single phrase. This is an undesirable inconsistency. 
+    To solve this problem, new chunk objects are generated 
+    and mapped over the two phrase boundaries. The objects 
+    have a label=timephrase. This method operates on self.edgeFeatures 
+    and self.nodeFeatures to add new objects.
+
+    Args:
+        addTypes: a dictionary of otype to slots and feature mappings
+            in the format of 
+            >> addTypes[otype] = {nodeSlots: {node:slots_tuple}}
+        tf: an instance of Text-Fabric with BHSA
+    """
 
     # define shortform TF methods for easy use
-    F, E, L = api.F, api.E, api.L
+    F, E, L = tf.api.F, tf.api.E, tf.api.L
+
+    # validator function for identifying times
+    def is_time(node):
+        return F.function.v(node) == 'Time'
 
     # iterate through all phrases in BHSA
     # if phrase function=Time and is not followed by 
@@ -25,7 +37,12 @@ def chunk_time(addTypes, api):
     addTypes['timephrase'] = {
         'nodeSlots': collections.defaultdict(set),
     }
+    covered = set() # track already-processed phrases
     for phrase in F.function.s('Time'):
+
+        # skip covered phrases
+        if phrase in covered:
+            continue
 
         # only chunk Hebrew cases
         language = F.language.v(L.d(phrase, 'word')[0])
@@ -35,34 +52,32 @@ def chunk_time(addTypes, api):
         # assign chunk boundaries here
         chunkSlots = []
 
-        # examine positions around time phrase
-        thisclause = L.d(L.u(phrase, 'clause')[0], 'phrase') # all phrases in cl
-        nextphrase = next(iter(L.n(phrase, 'phrase')), 0)
-        prevphrase = next(iter(L.p(phrase, 'phrase')), 0)
-        nx_time = F.function.v(nextphrase) == 'Time' and nextphrase in thisclause
-        pr_time = F.function.v(prevphrase) == 'Time' and prevphrase in thisclause
+        # collect phrases within clause
+        # tuple of phrases will serve as a path to walk
+        # NB: we use a method of node-adjacency rather than Text-Fabric 
+        # slot adjacency to capture gapped time phrases, 
+        # the material in between will need to be captured later
+        clause_phrases = L.d(L.u(phrase, 'clause')[0], 'phrase') # all phrases in cl
+        Wk = Walker(phrase, clause_phrases) # walks clause phrases when called
 
-        # Automatically chunk time phrases not preceded 
-        # or followed by another time prhase
-        if not nx_time and not pr_time:
-            chunkSlots = L.d(phrase, 'word')
+        # collect all adjacent times in clause
+        # Walker takes a function to validate nodes along the path
+        # another function, stop, ends the walk 
+        # results are returned as long as they are validated by val function
+        times = [phrase]
+        times.extend(
+            Wk.ahead(
+                is_time, 
+                every=True, 
+                stop=lambda n: not is_time(n),
+                default=[],
+            )
+        )
+        covered |= set(times)
 
-        # Chunk all first position times and their
-        # subsequent daughters into a single chunk
-        if nx_time and not pr_time:
-
-            chunkSlots.extend(L.d(phrase, 'word')) # count existing slots
-
-            # gather all subsequent slots
-            # iteratively reassign nx_time to the next phrase
-            # until all daughters are captured
-            while F.function.v(nextphrase) == 'Time' and nextphrase in thisclause:
-                chunkSlots.extend(L.d(nextphrase, 'word'))
-                nextphrase = next(iter(L.n(nextphrase, 'phrase')), 0)
-
-        # skip non-dominant time phrases
-        elif pr_time:
-            continue
+        # build timephrase oslots
+        for time in times:
+            chunkSlots.extend(L.d(time,'word'))
 
         # finalize time chunk object
         addTypes['timephrase']['nodeSlots'][oid] = set(chunkSlots)
