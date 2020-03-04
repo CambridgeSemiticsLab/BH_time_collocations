@@ -7,6 +7,28 @@ import numpy as np
 import pandas as pd
 import scipy.stats as stats
 
+def normalize_axes(df, sample_axis, feature_axis):
+    """Tests and transposes DataFrame to sample * feature format.
+    
+    Checks to make sure a user's axes inputs are 
+    properly formatted. Flips a DF to put samples in
+    index and features in columns.
+
+    Arguments:
+        df: dataset
+        sample_axis: axis containing samples (0, 1)
+        feature_axis: axis containing features (0,1)
+
+    Returns: 
+        DataFrame as samples * features
+    
+    """
+    if sample_axis == 1 and feature_axis == 0:
+        df = df.T
+    elif sample_axis != 0 and feature_axis != 1:
+        raise Exception('Invalid axis! Should be 0 or 1')
+    return df
+
 def contingency_table(df, sample_axis, feature_axis):
     """Build 2x2 contingency table for calculating association measures.
 
@@ -46,7 +68,7 @@ def contingency_table(df, sample_axis, feature_axis):
 
         >> E = sum(sample) * sum(feature) / sum(dataset)
 
-    Args:
+    Arguments:
         df: a dataframe with co-occurrence frequencies in shape
             of samples*features or feature*samples
         sample_axis: 0 (row) or 1 (column); axis that contains 
@@ -60,10 +82,7 @@ def contingency_table(df, sample_axis, feature_axis):
 
     # put data in sample * feature format for calculations
     # will flip it back at end if needed
-    if sample_axis == 1 and feature_axis == 0:
-        df = df.T
-    elif sample_axis != 0 and feature_axis != 1:
-        raise Exception('Invalid axis! Should be 0 or 1')
+    df = normalize_axes(df, sample_axis, feature_axis)
 
     # get observation sums across samples / features
     # fill each row in a column with the sum across the whole column
@@ -103,7 +122,7 @@ def apply_fishers(df, sample_axis, feature_axis, logtransform=True):
     The resulting values "range from - infinitity (mutual repulsion) 
     to + infinity (mutual attraction)" (Levshina 2015, 232). 
 
-    Args:
+    Arguments:
         df: a dataframe with co-occurrence frequencies in shape
             of samples*features or feature*samples
         sample_axis: 0 (row) or 1 (column); axis that contains 
@@ -117,10 +136,7 @@ def apply_fishers(df, sample_axis, feature_axis, logtransform=True):
 
     # put data in sample * feature format for calculations
     # will flip it back at end if needed
-    if sample_axis == 1 and feature_axis == 0:
-        df = df.T
-    elif sample_axis != 0 and feature_axis != 1:
-        raise Exception('Invalid axis! Should be 0 or 1')
+    df = normalize_axes(df, sample_axis, feature_axis)
     a_df, b_df, c_df, d_df, e_df = contingency_table(df, 0, 1)
     ps = collections.defaultdict(lambda: collections.defaultdict())
     odds = collections.defaultdict(lambda: collections.defaultdict())
@@ -159,3 +175,45 @@ def apply_fishers(df, sample_axis, feature_axis, logtransform=True):
     ps = pd.DataFrame.from_dict(ps, orient=orient)
     odds = pd.DataFrame.from_dict(odds, orient=orient)
     return (ps, odds)
+
+def apply_deltaP(df, sample_axis, feature_axis):
+    """Apply ΔP unidirectional association measure to table.
+
+    ΔP is a unidirectional association measure used in 
+    pyscholinguistic research to model linguistic cues
+    and their respective responses (Nick Ellis, "Language
+    Acquisition as Rational Contingency Learning", 2006.). 
+    The approach is modeled on a theory of associative learning 
+    and language use, by which certain constructions "cue" 
+    or prompt the brain to probabilistically retrieve 
+    another construction. 
+
+    ΔP is contingency-based. Given the normal contingency 
+    data of a, b, c, d, ΔP can be calculated. Mathematically 
+    ΔP can be represented as (Ellis 2006:11):
+
+        >>  a/(a+b) - c/(c+d)
+
+    This represents the probability of an observed collocation
+    (C) given a target construction (CX) minus the probability 
+    of the observed collocation without the target construction 
+    (adapted from Ellis 2006: 11):
+
+        >>  P(C|CX) - P(C|-CX) 
+
+    In this function, the sample_axis is treated as the cue
+    and the feature_axis as the response.
+
+    Arguments:
+        df: a dataframe with co-occurrence frequencies in shape
+            of samples*features or feature*samples
+        sample_axis: 0 (row) or 1 (column); axis that contains 
+            the sample population
+        feature_axis: 0 (row) or 1 (column); axis that contains
+            the collocating features on samples
+    """
+    
+    # get contingency data and calculate ΔP
+    a,b,c,d,e = contingency_table(df, sample_axis, feature_axis)
+    delta_p = a/(a+b) - c/(c+d)
+    return delta_p
