@@ -239,25 +239,25 @@ class Walker:
         """
         stop = kwargs.get('stop') or (lambda n: False)
         go = kwargs.get('go') or (lambda n: True)
-        matches = []
+        match=True
         for node in path:
             # do matches
             test = val_funct(node)
             if test:
                 if not kwargs.get('output', False):
-                    matches.append(node)
+                    yield node
                 else:
-                    return matches.append(test)
+                    yield test
             # do interrupts on go
             elif not go(node):
                 break
             # do interrupts on stop
             elif stop(node):
                 break
-                
-        # give the matches or the default
-        return matches or default
-        
+
+        if not match:
+            yield default
+
     
 class PositionsTF(Positions):
     """A Positions object made for TF searches."""
