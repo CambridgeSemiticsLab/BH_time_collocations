@@ -908,13 +908,13 @@ class Phrases(CXbuilder):
         Wk = self.getWk(cx)
                          
         # get all top-level cxs behind this one that match in name
-        cx_behinds = Wk.back(
+        cx_behinds = list(Wk.back(
             lambda c: c.name == cx.name,
             every=True,
             stop=lambda c: (
                 c.name == 'conj' and (c != P(-1))
             )
-        )
+        ))
         
         # if top level phrases produce no results,
         # use subphrases instead
@@ -935,14 +935,14 @@ class Phrases(CXbuilder):
             
             # walk the new candidates
             Wk2 = Walker(cx, subcontext)
-            cx_behinds = Wk2.back(
+            cx_behinds = list(Wk2.back(
                 lambda c: c.name != 'conj', 
                 default=[P(-2)],
                 every=True,
                 stop=lambda c: (
                     c.name == 'conj' and (c != P(-1))
                 )
-            )
+            ))
         
         # map each back-cx to its last slot to make sure
         # every candidate is the last item in its phrase
