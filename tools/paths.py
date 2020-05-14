@@ -12,9 +12,12 @@ github = home.joinpath('github')
 # project data
 project = github.joinpath('CambridgeSemiticsLab/time_collocations')
 semvector = project.joinpath('data/semvectors/semvector.pickle')
-cxs = project.joinpath('data/cxs/cxs.pickle')
-main_data = project.joinpath('data/main_dataset')
+data = project.joinpath('data')
+cxs = data.joinpath('cxs/cxs.pickle')
+main_data = data.joinpath('main_dataset')
 main_table = main_data.joinpath('dataset.tsv')
+annotations = data.joinpath('annotations')
+genesis_annotations = annotations.joinpath('Genesis_pilot/genesis_times_annotated.csv')
 figs = project.joinpath('results/figures')
 
 # Text-Fabric data
