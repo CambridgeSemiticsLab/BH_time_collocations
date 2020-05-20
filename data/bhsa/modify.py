@@ -27,12 +27,12 @@ def mod_features(locs, base_metadata, do_assoc=False):
 
     # features to be modded
     mod_features = {
-        'function': {n:F.function.v(n) for n in F.otype.s('phrase')},
+        'function2': {n:F.function.v(n) for n in F.otype.s('phrase')},
         'vt': {},
     }
 
     # remap certain phrase functions
-    modify_function(mod_features['function'], api)
+    modify_function(mod_features['function2'], api)
 
     # modify verb tenses: 
     #   - add weqatal
@@ -47,7 +47,7 @@ def mod_features(locs, base_metadata, do_assoc=False):
 
     # add statistical association features for head-words
     if do_assoc:
-        assocs = calculate(mod_features['function'], api)
+        assocs = calculate(mod_features['function2'], api)
         mod_features['top_assoc'] = assocs['top_assoc']
         mod_features['funct_assoc'] = assocs['funct_assoc']
         meta_data.update({
@@ -66,8 +66,8 @@ def mod_features(locs, base_metadata, do_assoc=False):
     # data for new features
     meta_data.update({
         '': base_metadata,
-        'function': {
-            'description': 'function of a phrase in a clause',
+        'function2': {
+            'description': 'function of a phrase in a clause modified for this project',
             'valueType': 'str',
         },
         'vt': {
