@@ -12,24 +12,17 @@ class Dummy:
         return lambda *args, **kwargs: None
 
 class Positions:
-    """Access positions around a node in a context.
-    
-    For a given origin node, provides data on another node
-    that is (+/-)N positions away in a context.
-    """
+    """Access items in an iterable relative to a contained element."""
     
     def __init__(self, element, positions, default=None):
-        """Prepare context and positions for a supplied TF node.
+        """Prepare context and positions for a supplied element.
         
         Arguments:
-            n: an integer that is a Text-Fabric node that serves
-                as the origin node.
-            context: a string that specifies a context in which
-                to search for a position relative to origin node.
-            tf: an instance of Text-Fabric with a loaded corpus.
-            order: The method of order to use for the search.
-                Options are "slot" or "node."
-        """
+            element: an object contained in an iterable
+                which serves as the reference point for positionality
+            positions: an iterable containing element and co-elements
+            default: a default to return when position not found
+       """
         
         # set up elements and positions
         self.element = element
