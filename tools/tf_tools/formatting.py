@@ -83,3 +83,15 @@ Voct	Vocative
 '''.split('\n')
 
 funct2function = dict((funct[0], funct[1].strip('\t')) for funct in [func.split('\t', 1) for func in funct2function] if funct[0])
+
+# simplified function labels
+simplified_functions = {
+    'PreO': 'Pred', 
+    'PreS': 'Pred', 
+    'PtcO': 'Pred',
+    'IntS': 'Intj', 
+    'NCoS': 'NCop',
+    'ModS': 'Modi',
+    'ExsS': 'Exst'
+}
+
