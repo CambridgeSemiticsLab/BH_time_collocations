@@ -8,7 +8,7 @@ from cx_analysis.build import CXbuilder, CXbuilderTF
 class Subphrases(CXbuilderTF):
     """Class for building time phrase constructions."""
     
-    def __init__(self, wordcxs, semdist, tf, **kwargs):
+    def __init__(self, wordcxs, tf, semdist={}, **kwargs):
         
         """Initialize with Constructions attribs/methods."""
         CXbuilderTF.__init__(self, tf, **kwargs)
@@ -16,10 +16,11 @@ class Subphrases(CXbuilderTF):
         self.words = wordcxs
         self.sdist = semdist
         # get maximum semantic distance value from vector space
-        self.max_dist = max((
-            semdist[lex1][lex2] for lex1, lexs in semdist.items()
-                for lex2 in lexs
-        ))
+        if semdist:
+            self.max_dist = max((
+                semdist[lex1][lex2] for lex1, lexs in semdist.items()
+                    for lex2 in lexs
+            ))
         
         # map cx searches for full analyses
         self.cxs = (
