@@ -187,9 +187,11 @@ class CXbuilder(object):
     
     def slots2node(self, cx, slots):
         """Get a CX node from a tuple of slots."""
+        return_node = None # return last matching node
         for node in nx.bfs_tree(cx.graph, cx):
-            if cx.getslots(node) == slots:
-                return node
+            if cx.getslots(node) == slots and type(node) != int:
+                return_node = node
+        return return_node
     
     def intersect_node(self, cx1, cx2):
         """Get node from cx1 with slots common with cx2."""
