@@ -53,7 +53,7 @@ def modify_function(functions, api):
                 'PT<', 'RGL/', 
             }
             cases.append({
-                'funct': 'Time',
+                'funct': 'Freq',
                 'conds': (
                     'verb' in clause_speechs,
                     F.lex.v(word) in multi_lexset_modi,
