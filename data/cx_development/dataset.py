@@ -161,6 +161,7 @@ def build_dataset(cxs, tf_api):
             'tense': tense or null,
             'verb_lex': trans(verb) or null,
             'book_sbl': sbl_book,
+            'lang': F.language.v(head),
         }
     
         dataset.append(data)
