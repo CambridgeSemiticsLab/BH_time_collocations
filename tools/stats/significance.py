@@ -111,7 +111,8 @@ def contingency_table(df, sample_axis, feature_axis):
         df,b,c,d,e = df.T, b.T, c.T, d.T, e.T
     return (df, b, c, d, e)
     
-def apply_fishers(df, sample_axis, feature_axis, logtransform=True):
+def apply_fishers(df, sample_axis, feature_axis, 
+                 logtransform=True, sign=True):
     """Calculate Fisher's Exact Test with optional log10 transform.
 
     This function applies Fisher's Exact test to every 
@@ -151,7 +152,8 @@ def apply_fishers(df, sample_axis, feature_axis, logtransform=True):
             b = b_df[feature][sample]
             c = c_df[feature][sample]
             d = d_df[feature][sample]
-            
+            expected_freq = e_df[feature][sample]
+
             # run Fisher's
             contingency = np.matrix([[a, b], [c, d]])
             oddsratio, p_value = stats.fisher_exact(contingency)
@@ -159,15 +161,24 @@ def apply_fishers(df, sample_axis, feature_axis, logtransform=True):
             # save and transform? scores
             odds[feature][sample] = oddsratio
             if not logtransform:
-                ps[feature][sample] = p_value
+                if not sign:
+                    ps[feature][sample] = p_value
+
+                # apply signs
+                else:
+                    if a < expected_freq:
+                        ps[feature][sample] = -p_value
+                    else:
+                        ps[feature][sample] = p_value
+
+            # apply logtransform 
             else:
-                expected_freq = e_df[feature][sample]
                 if a < expected_freq:
                     with np.errstate(divide='ignore'):
-                        strength = np.log10(p_value)
+                        strength = np.log10(p_value) # NB: log of decimal is negative
                 else:
                     with np.errstate(divide='ignore'):
-                        strength = -np.log10(p_value)
+                        strength = -np.log10(p_value) # NB: *-1 makes negative result positive
                 ps[feature][sample] = strength
 
     # package into dfs, flip axis back if needed
