@@ -160,6 +160,19 @@ class Words(CXbuilderTF):
                 'element': w,
                 'name': name,
                 'kind': self.kind,
+                'pattern': 'L/M PNH/',
+                'roles': roles,
+                'conds': {
+                    'F.lex.v(w) == PNH/':
+                        F.lex.v(w) == 'PNH/',
+                    'P(-1, lex) in {L, MN}':
+                        P(-1, 'lex') in {'L', 'MN'},
+                }
+            },
+            {
+                'element': w,
+                'name': name,
+                'kind': self.kind,
                 'pattern': 'L+BD',
                 'roles': roles,
                 'conds': {
