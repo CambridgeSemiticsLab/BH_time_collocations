@@ -69,6 +69,7 @@ def build_dataset(cxs, tf_api):
         # head features
         head = nav.get_headword(cx)
         head_du = F.nu.v(head) == 'du'
+        head_cx = nav.get_predecessor(head, cx.graph)
         
         # phrase features
         phr_type = cx.name
@@ -135,6 +136,7 @@ def build_dataset(cxs, tf_api):
             'classi': '.'.join(cxclass),
             'head_etcbc': F.lex.v(head),
             'head_pos': F.sp.v(head),
+            'head_type': head_cx.name,
             'plural': boomap(F.nu.v(head) == 'pl'),
             'suffix': boomap(F.prs.v(head) not in {'absent', 'n/a'}), 
             'preposition': boomap('prep' in cxclass),
