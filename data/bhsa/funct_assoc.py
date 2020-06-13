@@ -75,7 +75,7 @@ def calculate(ph_functions, api):
     # the math is done by apply_fishers
     size = functions.shape[0] * functions.shape[1]
     print(f'Applying Fisher\'s tests to {size} pairwise relations...')
-    functions = apply_fishers(functions, 0, 1)
+    functions, odds = apply_fishers(functions, 0, 1)
     print('\tcalculations DONE')
     
     print(f'Substituting infinite scores with max and min associations...')
@@ -84,7 +84,7 @@ def calculate(ph_functions, api):
     print(f'\tmin association: {round(ds_min)}')
     print(f'\tmax association: {round(ds_max)}')
     # replace with min/max scores
-    for funct in functions:
+    for funct in functions.columns:
         for lex in functions.index:
             if functions[funct][lex] == np.inf:
                 functions[funct][lex] = ds_max
