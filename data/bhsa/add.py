@@ -21,12 +21,12 @@ def to_graph(locations, base_metadata):
     # set up existing BHSA graph data 
     nodeFeatures =  {
         'otype': {
-            n:F.otype.v(n) for n in N() 
+            n:F.otype.v(n) for n in N.walk() 
         },
     }
     edgeFeatures =  {
         'oslots': {
-            n:L.d(n,'word') for n in N()
+            n:L.d(n,'word') for n in N.walk()
                 if F.otype.v(n) != 'word'
         },
     }
