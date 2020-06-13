@@ -32,11 +32,13 @@ def modify_function(functions, api):
     
             # -- single-particle with verb required -- 
             single_lexset = {
-                'TMJD/', '<WD/', 'JWMM', 
-                '>Z', 'CNJ/', 'PT>M', 'VRM/',
-                'RG</', '>ZJ'
+                'TMJD/', '>Z', 'VRM/', '>ZJ'
+
+            # put a few terms on ice for now
+            # these have not seen good success -CK, 2020.06.13
+            # '<WD', 'JWMM', 'CNJ', 'RG<', 'PT>M'
             }
-            good_functs = {'Modi', 'Adju'}
+            good_functs = {'Modi',} 
             cases.append({
                 'funct': 'Time',
                 'conds': (
@@ -49,8 +51,13 @@ def modify_function(functions, api):
 
             # -- multiple word phrases with verb required -- 
             multi_lexset_modi = {
-                'P<M/', 'MHR[', 'MHRH/', 
-                'PT<', 'RGL/', 
+                # put these terms on ice for now
+                # frequency terms are not yet in 
+                # view in the project, durational terms
+                # e.g. TMJD (above) ARE needed, but 
+                # the terms below are frequentive, -CK 2020.06.13
+                # 'P<M/', 'MHR[', 'MHRH/', 
+                # 'PT<', 'RGL/', 
             }
             cases.append({
                 'funct': 'Freq',
@@ -61,19 +68,21 @@ def modify_function(functions, api):
                 )
             })
 
+
+            # see note above about frequentives -CK 2020.06.13
             # -- Special Cases -- 
-            cases.append(
-                { # plural/dual cardinals 
-                    'funct':'Time',
-                    'conds': (
-                        not P(1) and not P(-1),
-                        'verb' in clause_speechs,
-                        phrase_funct == 'Modi',
-                        F.ls.v(word) == 'card',
-                        F.nu.v(word) in {'pl','du'},
-                    )
-                },
-            )
+#            cases.append(
+#                { # plural/dual cardinals 
+#                    'funct':'Time',
+#                    'conds': (
+#                        not P(1) and not P(-1),
+#                        'verb' in clause_speechs,
+#                        phrase_funct == 'Modi',
+#                        F.ls.v(word) == 'card',
+#                        F.nu.v(word) in {'pl','du'},
+#                    )
+#                },
+#            )
                          
 
         # apply the mods
@@ -96,8 +105,12 @@ def modify_function(functions, api):
         870273:'Time', # prep and conj belong with time phrase
         870274:'Time', # modifier "KBR" belongs with time phrase
         731915:'Modi', # no reviewed sources took this as temporal
-        677350:'Time', # use indicates incremental activity
-        677350:'Time', # ^
-        706975:'Time', # ^
-        706975:'Time', # ^
+
+        # similar to the frequentive note above,
+        # I no longer want to include incremental
+        # phrases in the sample -CK 2020.06.13
+        #677350:'Time', # use indicates incremental activity
+        #677350:'Time', # ^
+        #706975:'Time', # ^
+        #706975:'Time', # ^
     })  
