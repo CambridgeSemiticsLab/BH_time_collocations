@@ -22,6 +22,7 @@ figs = project.joinpath('results/figures')
 
 # Text-Fabric data
 tf_data = {
+    'bhsa_app': str(github.joinpath('annotation/app-bhsa')),
     'bhsa': str(github.joinpath('etcbc/bhsa/tf/c')),
     'heads': str(github.joinpath('etcbc/heads/tf/c')),
     'custom': str(project.joinpath('data/bhsa/tf')),
