@@ -24,12 +24,21 @@ kind
 '''
 default = standard + plus
 
-locations = list(tf_data.values())
+locations = list(tf_data.values())[1:]
 
 def load_tf(features='', silent=False, **kwargs):
-    """Load an instance of TF with standard and other features"""
+    """Load an instance of TF with standard and other features
+    
+    Args:
+        features: str of features to load
+        silent: str or bool for tf.Fabric load report
+        **kwargs: kwargs to pass to tf.app.use
+
+    Returns:
+        3-tuple of (TF, api, A)
+    """
     TF = Fabric(locations=locations, silent=silent)
     features = default + features
     api = TF.load(features, silent=silent)
-    A = use('bhsa', api=api, silent=True, **kwargs)
+    A = use(tf_data['bhsa_app'], api=api, silent=True, **kwargs)
     return (TF, api, A)
