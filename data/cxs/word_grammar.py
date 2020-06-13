@@ -114,7 +114,7 @@ class Words(CXbuilderTF):
                     'P(-1,pdp) == prep':
                         P(-1,'pdp') == 'prep',
                     'phrase is adverbial':
-                        F.function.v(
+                        F.function2.v(
                             L.u(w,'phrase')[0]
                         ) in {
                             'Time', 'Adju', 
@@ -134,7 +134,7 @@ class Words(CXbuilderTF):
                     'F.st.v(w) == c':
                         F.st.v(w) == 'c',
                     'phrase is adverbial':
-                        F.function.v(L.u(w,'phrase')[0]) == 'Time',
+                        F.function2.v(L.u(w,'phrase')[0]) == 'Time',
                 }
             },
             {
@@ -212,8 +212,8 @@ class Words(CXbuilderTF):
                         F.lex.v(w) == '<YM/',
                     'F.st.v(w) == c':
                         F.st.v(w) == 'c',
-                    'F.function.v(phrase) == Time':
-                        F.function.v(
+                    'F.function2.v(phrase) == Time':
+                        F.function2.v(
                             L.u(w,'phrase')[0]
                         ) == 'Time',
                 }
