@@ -14,6 +14,7 @@ function typ rela code
 number label book
 '''
 plus = '''
+function2
 lex_sbl lex_sbl_l g_cons_utf8 trailer_utf8
 lex_utf8
 nu sp prs ls st
