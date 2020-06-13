@@ -15,7 +15,7 @@ def to_graph(locations, base_metadata):
     # setup data and methods
     bhsa, output = locations['bhsa'], locations['custom']
     TF = Fabric(locations=[bhsa,output], silent='deep') 
-    api = TF.load('function language')
+    api = TF.load('function2 language')
     F, L, N = api.F, api.L, api.N
 
     # set up existing BHSA graph data 

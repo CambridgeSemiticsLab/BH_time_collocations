@@ -25,7 +25,7 @@ def chunk_time(addTypes, tf):
 
     # validator function for identifying times
     def is_time(node):
-        return F.function.v(node) == 'Time'
+        return F.function2.v(node) == 'Time'
 
     # iterate through all phrases in BHSA
     # if phrase function=Time and is not followed by 
@@ -38,7 +38,7 @@ def chunk_time(addTypes, tf):
         'nodeSlots': collections.defaultdict(set),
     }
     covered = set() # track already-processed phrases
-    for phrase in F.function.s('Time'):
+    for phrase in F.function2.s('Time'):
 
         # skip covered phrases
         if phrase in covered:

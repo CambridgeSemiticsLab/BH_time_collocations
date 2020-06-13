@@ -6,7 +6,7 @@
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2020-06-13T13:28:44Z
+@dateWritten=2020-06-13T13:43:19Z
 
 ב
 ראשׁית
