@@ -255,8 +255,8 @@ class Walker:
 class PositionsTF(Positions):
     """A Positions object made for TF searches."""
     
-    def __init__(self, node, context, tf, method='slot'):
-        self.tf = tf.api
+    def __init__(self, node, context, tf_api, method='slot'):
+        self.tf = tf_api
         self.n = node
         self.thisotype = self.tf.F.otype.v(node)
         self.method = method
