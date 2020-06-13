@@ -109,7 +109,7 @@ def build_dataset(cxs, tf_api):
 
         # phrase
         phrase = L.u(head,'phrase')[0]
-        function = F.function.v(phrase)
+        function = F.function2.v(phrase)
 
         # mappings of features
         # map demonstratives to near/far labels
