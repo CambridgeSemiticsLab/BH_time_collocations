@@ -57,7 +57,7 @@ def load_cxs(tf_api, semdist, debug=False):
     # -- SUBPHRASES -- 
     
     # time phrase CX builder
-    spc = Subphrases(wordcxs, semdist, A)
+    spc = Subphrases(wordcxs, A, semdist)
     
     phrase2cxs = collections.defaultdict(list)
     nocxs = []
