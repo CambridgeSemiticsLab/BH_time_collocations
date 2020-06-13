@@ -25,10 +25,16 @@ TF, API, A = load_tf('funct_assoc nhead top_assoc', silent='deep')
 A.displaySetup(condenseType='phrase')
 F, E, T, L = A.api.F, A.api.E, A.api.T, A.api.L # corpus analysis methods
 
-# import single subphrasal phrases for all constructions
-functions_data = paths.data.joinpath('advb_article/function_data.csv')
+# Configure article data paths and loads
+article_data = paths.data.joinpath('advb_article')
+
+# import narrow dataset
+functions_data = article_data.joinpath('function_data.csv')
 functs_df = pd.read_csv(functions_data)
 functs_df.set_index(['node'], inplace=True)
+
+# make broad dataset path
+broad_dataset = article_data.joinpath('broad_dataset.csv')
 
 def savefig(name):
     """Formats filename and save a figure"""
