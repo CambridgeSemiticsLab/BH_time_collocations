@@ -75,7 +75,7 @@ def calculate(ph_functions, api):
     # the math is done by apply_fishers
     size = functions.shape[0] * functions.shape[1]
     print(f'Applying Fisher\'s tests to {size} pairwise relations...')
-    functions = apply_fishers(functions)
+    functions = apply_fishers(functions, 0, 1)
     print('\tcalculations DONE')
     
     print(f'Substituting infinite scores with max and min associations...')
