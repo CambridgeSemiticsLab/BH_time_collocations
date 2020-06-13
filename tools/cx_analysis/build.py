@@ -414,7 +414,7 @@ class CXbuilderTF(CXbuilder):
         context = context or self.context
         if not node:
             return Dummy
-        return PositionsTF(node, context, self.tf).get
+        return PositionsTF(node, context, self.tf.api).get
     
     def getWk(self, node, context=None):
         """Get Walker object for a TF word node.
