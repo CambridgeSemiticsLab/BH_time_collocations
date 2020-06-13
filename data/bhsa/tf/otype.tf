@@ -5,7 +5,7 @@
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2020-02-27T10:21:28Z
+@dateWritten=2020-06-13T13:28:56Z
 
 1-426584	word
 426585-426623	book
@@ -20,4 +20,4 @@
 1300542-1414353	subphrase
 1414354-1437566	verse
 1437567-1446799	lex
-1446800-1451234	timephrase
+1446800-1450668	timephrase
