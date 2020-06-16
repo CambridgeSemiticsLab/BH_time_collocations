@@ -21,6 +21,7 @@ nu sp prs ls st
 mother
 freq_lex
 kind 
+genre
 '''
 default = standard + plus
 

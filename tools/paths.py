@@ -25,5 +25,6 @@ tf_data = {
     'bhsa_app': str(github.joinpath('annotation/app-bhsa')),
     'bhsa': str(github.joinpath('etcbc/bhsa/tf/c')),
     'heads': str(github.joinpath('etcbc/heads/tf/c')),
+    'genre': str(github.joinpath('etcbc/genre_synvar/tf/c'))
     'custom': str(project.joinpath('data/bhsa/tf')),
 }
