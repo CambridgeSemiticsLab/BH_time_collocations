@@ -96,6 +96,10 @@ def build_dataset(cxs, tf_api):
         demon_cx = cx.key_roles.get('demonstrative', 0)
         ordinal_cx = cx.key_roles.get('ordinal', 0)
         
+        # verse features
+        verse_node = L.u(head,'verse')[0]
+        genre = F.genre.v(verse_node)
+
         # clause features
         clause = L.u(head,'clause')[0]
         sentence = L.u(head,'sentence')[0]
@@ -164,6 +168,7 @@ def build_dataset(cxs, tf_api):
             'verb_lex': trans(verb) or null,
             'book_sbl': sbl_book,
             'lang': F.language.v(head),
+            'genre': genre,
         }
     
         dataset.append(data)
