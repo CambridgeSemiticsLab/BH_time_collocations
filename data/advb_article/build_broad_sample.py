@@ -42,6 +42,9 @@ for phrase in F.otype.s('phrase'):
     rela = F.rela.v(phrase)
     time_phrase = L.u(phrase, 'timephrase')
     
+    verse_n = L.u(first_head,'verse')[0]
+    genre = F.genre.v(verse_n)
+    
     phrase_dataset.append({
         'node': phrase,
         'ref': ref,
@@ -49,6 +52,7 @@ for phrase in F.otype.s('phrase'):
         'text': T.text(phrase),
         'sentence': T.text(sentence),
         'type': ph_typ,
+        'genre': genre,
         'function2': function,
         's_function': s_function,
         'rela': rela,
