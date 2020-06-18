@@ -138,6 +138,8 @@ def build_dataset(cxs, tf_api):
             'clause': T.text(clause),
             'sentence': T.text(sentence),
             'classi': '.'.join(cxclass),
+            'head_node': head,
+            'head_voc': F.voc_lex_utf8.v(head),
             'head_etcbc': F.lex.v(head),
             'head_pos': F.sp.v(head),
             'head_type': head_cx.name,
