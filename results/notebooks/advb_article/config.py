@@ -40,3 +40,18 @@ def savefig(name):
     """Formats filename and save a figure"""
     file_name = paths.figs.joinpath(f'advb_article/{name}.svg')
     plt.savefig(file_name, format='svg', bbox_inches='tight')
+    
+def get_spread(len_obj, n):
+    """Retrieve an even spread of indices over an object's length.
+    
+    https://stackoverflow.com/a/50685454/8351428
+    
+    Args:
+        len_obj: object with __len__ function
+        n: number of indices to return
+    Returns:
+        array of integer indices
+    """
+    end = len(len_obj) - 1
+    spread = np.ceil(np.linspace(0, end, n)).astype(int)
+    return np.unique(spread)
