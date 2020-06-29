@@ -68,6 +68,7 @@ def build_dataset(cxs, tf_api):
 
         # head features
         head = nav.get_headword(cx)
+        head_lexn = L.u(head,'lex')[0]
         head_du = F.nu.v(head) == 'du'
         head_cx = nav.get_predecessor(head, cx.graph)
         plural = F.nu.v(head) == 'pl'
@@ -161,6 +162,7 @@ def build_dataset(cxs, tf_api):
             'sentence': T.text(sentence),
             'classi': '.'.join(cxclass),
             'head_node': head,
+            'head_lexn': head_lexn,
             'head_voc': F.voc_lex_utf8.v(head),
             'head_etcbc': F.lex.v(head),
             'head_pos': F.sp.v(head),
