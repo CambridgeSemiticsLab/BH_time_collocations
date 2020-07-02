@@ -7,7 +7,7 @@
 @source=https://github.com/etcbc/bhsa
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2020-06-13T13:43:20Z
+@dateWritten=2020-07-02T11:14:38Z
 
 Cmpl
 Objc
@@ -357844,7 +357844,7 @@ Subj
 Cmpl
 Rela
 Subj
-Adju
+Time
 Conj
 Time
 Cmpl
@@ -367471,7 +367471,7 @@ Adju
 Adju
 Conj
 Adju
-Adju
+Time
 Cmpl
 Subj
 Time
@@ -367570,7 +367570,7 @@ Objc
 Rela
 Subj
 Cmpl
-Adju
+Time
 Adju
 Rela
 Pred
@@ -381008,7 +381008,7 @@ Pred
 Conj
 Pred
 Cmpl
-Adju
+Time
 Conj
 Pred
 Cmpl
