@@ -53,7 +53,7 @@ def get_spread(array, n):
     Returns:
         indexed array or series
     """
-    end = len(len_obj) - 1
+    end = len(array) - 1
     spread = np.ceil(np.linspace(0, end, n)).astype(int)
     indices = np.unique(spread)
     return array[indices]
