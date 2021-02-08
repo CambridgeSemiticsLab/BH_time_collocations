@@ -62,9 +62,10 @@ def apply_pca(df, sample_axis, feature_axis, scree=True, components=0):
     # plot optional scree-plot of explained variance for each component
     if scree:
         plt.figure(figsize=(8,6))
+        explained_variance = pca_fit.explained_variance_ratio_[:n_components]
         sns.barplot(
             x = np.arange(n_components)+1,
-            y = pca_fit.explained_variance_ratio_[:n_components],
+            y = explained_variance,
             color='steelblue',
             edgecolor='black',
         )
@@ -74,6 +75,7 @@ def apply_pca(df, sample_axis, feature_axis, scree=True, components=0):
             f'Ratio of Explained Variance for Principle Components 1-{n_components}',
             size=16)
         plt.show()
+        print(explained_variance)
 
     return pca_targets, loadings
 
