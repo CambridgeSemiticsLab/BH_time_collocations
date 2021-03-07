@@ -1,0 +1,32 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	parse_pos
+	1
+
+[Sun Mar  7 17:21:15 2021]
+rule parse_pos:
+    input: /Users/cody/github/etcbc/bhsa/tf/c
+    output: ../results/parsing/slot2pos.json, ../results/parsing/uniquepos.json
+    jobid: 0
+
+[Sun Mar  7 17:21:34 2021]
+Error in rule parse_pos:
+    jobid: 0
+    output: ../results/parsing/slot2pos.json, ../results/parsing/uniquepos.json
+
+RuleException:
+CalledProcessError in line 17 of /Users/cody/github/CambridgeSemiticsLab/time_collocations/workflow/Snakefile:
+Command 'set -euo pipefail;  /Users/cody/miniconda3/bin/python /Users/cody/github/CambridgeSemiticsLab/time_collocations/workflow/.snakemake/scripts/tmp2ulo3uvs.parse_pos.py' returned non-zero exit status 1.
+  File "/Users/cody/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2326, in run_wrapper
+  File "/Users/cody/github/CambridgeSemiticsLab/time_collocations/workflow/Snakefile", line 17, in __rule_parse_pos
+  File "/Users/cody/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 568, in _callback
+  File "/Users/cody/miniconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/Users/cody/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 554, in cached_or_run
+  File "/Users/cody/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/cody/github/CambridgeSemiticsLab/time_collocations/workflow/.snakemake/log/2021-03-07T172115.809807.snakemake.log

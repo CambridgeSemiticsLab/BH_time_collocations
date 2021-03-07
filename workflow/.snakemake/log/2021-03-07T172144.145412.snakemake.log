@@ -1,0 +1,19 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	parse_pos
+	1
+
+[Sun Mar  7 17:21:44 2021]
+rule parse_pos:
+    input: /Users/cody/github/etcbc/bhsa/tf/c
+    output: ../results/parsing/slot2pos.json, ../results/parsing/uniquepos.json
+    jobid: 0
+
+[Sun Mar  7 17:22:02 2021]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: /Users/cody/github/CambridgeSemiticsLab/time_collocations/workflow/.snakemake/log/2021-03-07T172144.145412.snakemake.log

@@ -2,4 +2,16 @@
 Snakefile for data analysis pipeline.
 """
 
+# locations for Text-Fabric BHSA data
+bhsadata = [
+    "/Users/cody/github/etcbc/bhsa/tf/c"
+]
 
+rule parse_pos:
+    input:
+        bhsadata=bhsadata
+    output:
+        slot2pos="../results/parsing/slot2pos.json",
+        uniquepos="../results/parsing/uniquepos.txt"
+    script:
+        "scripts/parsing/parse_pos.py"
