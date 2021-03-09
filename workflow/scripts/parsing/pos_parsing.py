@@ -1,4 +1,6 @@
-from positions import PositionsTF
+import json
+from tf.fabric import Fabric
+from .positions import PositionsTF
 
 # a class to parse BHSA word nodes into parts of speech
 class posParser:
@@ -182,11 +184,35 @@ class posParser:
             },
         ])
 
-def tag_word(w, tf_api):
-    """Tag grammatical word features on a given BHSA word node."""
+def parse_pos(data_locs, slot2pos_path, uniquepos_path):
+    """Apply parsing using Text-Fabric."""
+
+    # initialize Text-Fabric
+    tf = Fabric(data_locs)
+    tf_api = tf.load('''
+        pdp sp ls lex st 
+        prs function vt
+    ''')
 
     F = tf_api.F
-    gender = F.gn.v(w)
-    number = F.nu.v(w)
-    state = F.st.v(w)
-    sffx = F.prs.v(w)
+
+    # assign parts of speech
+    # if posParser does not return a value, we 
+    # assign it the default BHSA tag in uppercase
+    parser = posParser(tf_api)
+
+    slot2pos = {}
+    for slot in F.otype.s('word'):
+        pos = parser._parse(slot)
+        pos = pos or F.pdp.v(slot).upper()
+        slot2pos[slot] = pos 
+
+    uniquepos = sorted(set(slot2pos.values()))
+
+    # export to JSON
+    with open(slot2pos_path, 'w') as outfile:
+        json.dump(slot2pos, outfile, indent=1)
+
+    # export unique values, which are needed to configure the phrase parser
+    with open(uniquepos_path, 'w') as outfile:
+        outfile.write(',\n'.join(uniquepos))

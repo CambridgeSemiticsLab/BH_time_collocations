@@ -64,14 +64,15 @@ class PhraseParser(Parser):
     def phrase(self, p):
         return p[0]
 
-    @_('ART np')
+    @('ART NOUN', 'ART ADJV', 'ART ADVB')
     def df(self, p):
-        return [p.ART, p.np, 'DEF']
+        return [p.ART, [p[1], 'NP']]
 
     @_('NOUN')
     def np(self, p):
         return [p.NOUN, 'NP']
 
-    @_('PREP np', 'PREP defi', 'PREP pp')
+    @_('PREP NOUN', 'PREP ADJV',
+       'PREP ADVB', 'PREP df', 'PREP pp')
     def pp(self, p):
         return [p[0], p[1], 'PP']

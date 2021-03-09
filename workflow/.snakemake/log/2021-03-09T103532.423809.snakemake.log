@@ -1,0 +1,38 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	parse_pos
+	1
+
+[Tue Mar  9 10:35:32 2021]
+rule parse_pos:
+    input: /Users/cody/github/etcbc/bhsa/tf/c
+    output: ../results/parsing/slot2pos.json, ../results/parsing/uniquepos.txt
+    jobid: 0
+
+[Tue Mar  9 10:35:32 2021]
+Error in rule parse_pos:
+    jobid: 0
+    output: ../results/parsing/slot2pos.json, ../results/parsing/uniquepos.txt
+
+RuleException:
+URLError in line 17 of /Users/cody/github/CambridgeSemiticsLab/time_collocations/workflow/Snakefile:
+<urlopen error [Errno 2] No such file or directory: '/Users/cody/github/CambridgeSemiticsLab/time_collocations/workflow/scripts/parsing/parse_pos.py'>
+  File "/Users/cody/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2326, in run_wrapper
+  File "/Users/cody/github/CambridgeSemiticsLab/time_collocations/workflow/Snakefile", line 17, in __rule_parse_pos
+  File "/Users/cody/miniconda3/lib/python3.8/urllib/request.py", line 222, in urlopen
+  File "/Users/cody/miniconda3/lib/python3.8/urllib/request.py", line 525, in open
+  File "/Users/cody/miniconda3/lib/python3.8/urllib/request.py", line 542, in _open
+  File "/Users/cody/miniconda3/lib/python3.8/urllib/request.py", line 502, in _call_chain
+  File "/Users/cody/miniconda3/lib/python3.8/urllib/request.py", line 1485, in file_open
+  File "/Users/cody/miniconda3/lib/python3.8/urllib/request.py", line 1524, in open_local_file
+  File "/Users/cody/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 568, in _callback
+  File "/Users/cody/miniconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/Users/cody/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 554, in cached_or_run
+  File "/Users/cody/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/cody/github/CambridgeSemiticsLab/time_collocations/workflow/.snakemake/log/2021-03-09T103532.423809.snakemake.log

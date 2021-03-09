@@ -14,4 +14,13 @@ rule parse_pos:
         slot2pos="../results/parsing/slot2pos.json",
         uniquepos="../results/parsing/uniquepos.txt"
     script:
-        "scripts/parsing/parse_pos.py"
+        "scripts/parse_pos.py"
+
+rule build_samples:
+    input:
+        bhsadata=bhsadata
+    output:
+        samples="../results/samples/phrases.json",
+        nonsamples="../results/samples/reject_phrases.json"
+    script:
+        "scripts/sample_phrases.py"
