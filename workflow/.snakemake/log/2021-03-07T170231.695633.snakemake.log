@@ -1,4 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 10 of /Users/cody/github/CambridgeSemiticsLab/time_collocations/workflow/Snakefile:
-Missing input files for rule parse_pos:
-Users/cody/github/etcbc/bhsa/tf/c
