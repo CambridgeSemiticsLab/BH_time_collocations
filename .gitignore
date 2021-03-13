@@ -7,7 +7,7 @@ legacy
 scratch
 .venv
 *.swp
-
+.snakemake
 
 # MS Office files
 

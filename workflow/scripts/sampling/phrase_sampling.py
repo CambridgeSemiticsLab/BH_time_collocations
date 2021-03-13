@@ -7,16 +7,35 @@ def get_phrase_samples(tf_locs, sample_out, unsample_out):
     
     # initialize TF with supplied paths
     TF = Fabric(locations=tf_locs)
-    API = TF.load('language')
+    API = TF.load('language typ st function')
     F, L = API.F, API.L
 
     # loop through all phrases in BHSA and collect samples
-    samples = []
+    samples = {}
     nonsamples = collections.defaultdict(list)
     for phrase_atom in F.otype.s('phrase_atom'):
 
-        # look up contextual data for filtering
+        # skip ineligible phrase types
+        keep_typs = {
+            'NP', 'PP', 'AdjP', 'AdvP', 
+            'PPrP', 'PrNP'
+        }
+        if F.typ.v(phrase_atom) not in keep_typs:
+            nonsamples['typ'].append(phrase_atom)
+            continue
+
+        # skip ineligible functions
         phrase = L.u(phrase_atom, 'phrase')[0]
+        keep_functs = {
+            'Adju', 'Cmpl', 'Loca', 
+            'Modi', 'Objc', 'PreC',
+            'Subj', 'Time'
+        }
+        if F.function.v(phrase) not in keep_functs:
+            nonsamples['function'].append(phrase_atom)
+            continue
+
+        # look up contextual data for filtering
         phrase_words = L.d(phrase, 'word')
         words = L.d(phrase_atom, 'word')
        
@@ -33,9 +52,15 @@ def get_phrase_samples(tf_locs, sample_out, unsample_out):
         consec_end = phrase_words[0] + len(phrase_words)-1
         if consec_end != phrase_words[-1]:
             nonsamples['split'].append(phrase_atom)
+            continue
+
+        # skip phrase_atoms which have a word ending in construct
+        if F.st.v(words[-1]) == 'c':
+            nonsamples['C$'].append(phrase_atom)
+            continue
 
         # anything that makes it here is a match
-        samples.append(phrase_atom)
+        samples[phrase_atom] = words
 
     # export the samples and non-samples
     with open(sample_out, 'w') as outfile:

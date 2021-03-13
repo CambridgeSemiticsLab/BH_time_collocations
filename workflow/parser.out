@@ -1,0 +1,4566 @@
+Grammar:
+
+Rule 0     S' -> phrase
+Rule 1     phrase -> advb
+Rule 2     phrase -> para
+Rule 3     phrase -> quant
+Rule 4     phrase -> gp_num
+Rule 5     phrase -> gp_card
+Rule 6     phrase -> num
+Rule 7     phrase -> cardc
+Rule 8     phrase -> pp
+Rule 9     phrase -> np
+Rule 10    np -> adjv
+Rule 11    np -> gp
+Rule 12    np -> appo
+Rule 13    np -> defi
+Rule 14    np -> CARD SFX  [precedence=left, level=2]
+Rule 15    np -> QUANT SFX  [precedence=left, level=2]
+Rule 16    np -> NOUN SFX  [precedence=left, level=2]
+Rule 17    defi -> ART adjv
+Rule 18    defi -> ART ADJV
+Rule 19    defi -> ART CARD
+Rule 20    defi -> ART QUANT
+Rule 21    defi -> ART PRDE
+Rule 22    defi -> ART ORDN
+Rule 23    defi -> ART PROPN
+Rule 24    defi -> ART NOUN
+Rule 25    pp -> PREP PREP
+Rule 26    pp -> PREP SFX  [precedence=left, level=2]
+Rule 27    pp -> PREP PRPS
+Rule 28    pp -> PREP PRIN
+Rule 29    pp -> PREP INRG
+Rule 30    pp -> PREP QUANT
+Rule 31    pp -> PREP PRDE
+Rule 32    pp -> PREP CARD
+Rule 33    pp -> PREP PROPN
+Rule 34    pp -> PREP ADVB
+Rule 35    pp -> PREP NOUN
+Rule 36    pp -> PREP phrase
+Rule 37    gp -> NOUN C para
+Rule 38    gp -> PROPN C np
+Rule 39    gp -> NOUN C np
+Rule 40    gp -> ADJV C NOUN
+Rule 41    gp -> NOUN C QUANT
+Rule 42    gp -> PROPN C NOUN
+Rule 43    gp -> NOUN C PROPN
+Rule 44    gp -> NOUN C NOUN
+Rule 45    gp_num -> NOUN C num
+Rule 46    gp_card -> NOUN C CARD
+Rule 47    quant -> QUANT C np
+Rule 48    quant -> QUANT C PRDE
+Rule 49    quant -> QUANT C PROPN
+Rule 50    quant -> QUANT C NOUN
+Rule 51    adjv -> ADVB np
+Rule 52    adjv -> ADVB PRPS
+Rule 53    adjv -> ADVB NOUN
+Rule 54    adjv -> NOUN QUANT
+Rule 55    adjv -> NOUN ADVB
+Rule 56    adjv -> NOUN ADJV
+Rule 57    advb -> ADVB ADVB
+Rule 58    appo -> NOUN defi
+Rule 59    appo -> defi defi
+Rule 60    appo -> NOUN gp
+Rule 61    appo -> PROPN appo
+Rule 62    appo -> PROPN NOUN
+Rule 63    appo -> PROPN PROPN
+Rule 64    appo -> NOUN PROPN
+Rule 65    appo -> NOUN NOUN
+Rule 66    para -> PREP PROPN CONJ pp  [precedence=right, level=1]
+Rule 67    para -> PREP NOUN CONJ pp  [precedence=right, level=1]
+Rule 68    para -> NOUN C NOUN CONJ gp  [precedence=right, level=1]
+Rule 69    para -> para CONJ PROPN
+Rule 70    para -> para CONJ NOUN
+Rule 71    para -> NOUN CONJ np  [precedence=right, level=1]
+Rule 72    para -> PROPN CONJ np  [precedence=right, level=1]
+Rule 73    para -> NOUN CONJ para  [precedence=right, level=1]
+Rule 74    para -> PROPN CONJ PROPN
+Rule 75    para -> ADVB CONJ ADVB
+Rule 76    para -> NOUN CONJ NOUN
+Rule 77    cardc -> CARD C CARD
+Rule 78    cardc -> cardc CARD
+Rule 79    cardc -> CARD CONJ cardc  [precedence=right, level=1]
+Rule 80    cardc -> cardc CONJ cardc  [precedence=right, level=1]
+Rule 81    cardc -> CARD CONJ CARD
+Rule 82    cardc -> CARD CARD
+Rule 83    num -> CARD C np
+Rule 84    num -> CARD C NOUN
+Rule 85    num -> np CARD
+Rule 86    num -> CARD np
+Rule 87    num -> cardc np
+Rule 88    num -> cardc NOUN
+Rule 89    num -> CARD NOUN
+Rule 90    num -> NOUN CARD
+
+Terminals, with rules where they appear:
+
+ADJV                 : 18 40 56
+ADVB                 : 34 51 52 53 55 57 57 75 75
+ART                  : 17 18 19 20 21 22 23 24
+C                    : 37 38 39 40 41 42 43 44 45 46 47 48 49 50 68 77 83 84
+CARD                 : 14 19 32 46 77 77 78 79 81 81 82 82 83 84 85 86 89 90
+CONJ                 : 66 67 68 69 70 71 72 73 74 75 76 79 80 81
+INRG                 : 29
+NOUN                 : 16 24 35 37 39 40 41 42 43 44 44 45 46 50 53 54 55 56 58 60 62 64 65 65 67 68 68 70 71 73 76 76 84 88 89 90
+ORDN                 : 22
+PRDE                 : 21 31 48
+PREP                 : 25 25 26 27 28 29 30 31 32 33 34 35 36 66 67
+PRIN                 : 28
+PROPN                : 23 33 38 42 43 49 61 62 63 63 64 66 69 72 74 74
+PRPS                 : 27 52
+QUANT                : 15 20 30 41 47 48 49 50 54
+SFX                  : 14 15 16 26
+error                : 
+
+Nonterminals, with rules where they appear:
+
+adjv                 : 10 17
+advb                 : 1
+appo                 : 12 61
+cardc                : 7 78 79 80 80 87 88
+defi                 : 13 58 59 59
+gp                   : 11 60 68
+gp_card              : 5
+gp_num               : 4
+np                   : 9 38 39 47 51 71 72 83 85 86 87
+num                  : 6 45
+para                 : 2 37 69 70 73
+phrase               : 36 0
+pp                   : 8 66 67
+quant                : 3
+
+
+state 0
+
+    (0) S' -> . phrase
+    (1) phrase -> . advb
+    (2) phrase -> . para
+    (3) phrase -> . quant
+    (4) phrase -> . gp_num
+    (5) phrase -> . gp_card
+    (6) phrase -> . num
+    (7) phrase -> . cardc
+    (8) phrase -> . pp
+    (9) phrase -> . np
+    (57) advb -> . ADVB ADVB
+    (66) para -> . PREP PROPN CONJ pp
+    (67) para -> . PREP NOUN CONJ pp
+    (68) para -> . NOUN C NOUN CONJ gp
+    (69) para -> . para CONJ PROPN
+    (70) para -> . para CONJ NOUN
+    (71) para -> . NOUN CONJ np
+    (72) para -> . PROPN CONJ np
+    (73) para -> . NOUN CONJ para
+    (74) para -> . PROPN CONJ PROPN
+    (75) para -> . ADVB CONJ ADVB
+    (76) para -> . NOUN CONJ NOUN
+    (47) quant -> . QUANT C np
+    (48) quant -> . QUANT C PRDE
+    (49) quant -> . QUANT C PROPN
+    (50) quant -> . QUANT C NOUN
+    (45) gp_num -> . NOUN C num
+    (46) gp_card -> . NOUN C CARD
+    (83) num -> . CARD C np
+    (84) num -> . CARD C NOUN
+    (85) num -> . np CARD
+    (86) num -> . CARD np
+    (87) num -> . cardc np
+    (88) num -> . cardc NOUN
+    (89) num -> . CARD NOUN
+    (90) num -> . NOUN CARD
+    (77) cardc -> . CARD C CARD
+    (78) cardc -> . cardc CARD
+    (79) cardc -> . CARD CONJ cardc
+    (80) cardc -> . cardc CONJ cardc
+    (81) cardc -> . CARD CONJ CARD
+    (82) cardc -> . CARD CARD
+    (25) pp -> . PREP PREP
+    (26) pp -> . PREP SFX
+    (27) pp -> . PREP PRPS
+    (28) pp -> . PREP PRIN
+    (29) pp -> . PREP INRG
+    (30) pp -> . PREP QUANT
+    (31) pp -> . PREP PRDE
+    (32) pp -> . PREP CARD
+    (33) pp -> . PREP PROPN
+    (34) pp -> . PREP ADVB
+    (35) pp -> . PREP NOUN
+    (36) pp -> . PREP phrase
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    ADVB            shift and go to state 11
+    PREP            shift and go to state 12
+    NOUN            shift and go to state 14
+    PROPN           shift and go to state 13
+    QUANT           shift and go to state 16
+    CARD            shift and go to state 17
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    phrase                         shift and go to state 1
+    advb                           shift and go to state 2
+    para                           shift and go to state 3
+    quant                          shift and go to state 4
+    gp_num                         shift and go to state 5
+    gp_card                        shift and go to state 6
+    num                            shift and go to state 7
+    cardc                          shift and go to state 8
+    pp                             shift and go to state 9
+    np                             shift and go to state 10
+    gp                             shift and go to state 15
+    adjv                           shift and go to state 18
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 1
+
+    (0) S' -> phrase .
+
+
+state 2
+
+    (1) phrase -> advb .
+    $end            reduce using rule 1 (phrase -> advb .)
+    CONJ            reduce using rule 1 (phrase -> advb .)
+    CARD            reduce using rule 1 (phrase -> advb .)
+    ART             reduce using rule 1 (phrase -> advb .)
+
+
+state 3
+
+    (2) phrase -> para .
+    (69) para -> para . CONJ PROPN
+    (70) para -> para . CONJ NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+    $end            reduce using rule 2 (phrase -> para .)
+    CARD            reduce using rule 2 (phrase -> para .)
+    ART             reduce using rule 2 (phrase -> para .)
+    CONJ            shift and go to state 23
+
+
+state 4
+
+    (3) phrase -> quant .
+    $end            reduce using rule 3 (phrase -> quant .)
+    CONJ            reduce using rule 3 (phrase -> quant .)
+    CARD            reduce using rule 3 (phrase -> quant .)
+    ART             reduce using rule 3 (phrase -> quant .)
+
+
+state 5
+
+    (4) phrase -> gp_num .
+    $end            reduce using rule 4 (phrase -> gp_num .)
+    CONJ            reduce using rule 4 (phrase -> gp_num .)
+    CARD            reduce using rule 4 (phrase -> gp_num .)
+    ART             reduce using rule 4 (phrase -> gp_num .)
+
+
+state 6
+
+    (5) phrase -> gp_card .
+    $end            reduce using rule 5 (phrase -> gp_card .)
+    CONJ            reduce using rule 5 (phrase -> gp_card .)
+    CARD            reduce using rule 5 (phrase -> gp_card .)
+    ART             reduce using rule 5 (phrase -> gp_card .)
+
+
+state 7
+
+    (6) phrase -> num .
+    $end            reduce using rule 6 (phrase -> num .)
+    CONJ            reduce using rule 6 (phrase -> num .)
+    CARD            reduce using rule 6 (phrase -> num .)
+    ART             reduce using rule 6 (phrase -> num .)
+
+
+state 8
+
+    (7) phrase -> cardc .
+    (87) num -> cardc . np
+    (88) num -> cardc . NOUN
+    (78) cardc -> cardc . CARD
+    (80) cardc -> cardc . CONJ cardc
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+  ! shift/reduce conflict for CARD resolved as shift
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 7 (phrase -> cardc .)
+    NOUN            shift and go to state 25
+    CARD            shift and go to state 26
+    CONJ            shift and go to state 27
+    QUANT           shift and go to state 28
+    ADVB            shift and go to state 29
+    PROPN           shift and go to state 30
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    np                             shift and go to state 24
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 9
+
+    (8) phrase -> pp .
+    $end            reduce using rule 8 (phrase -> pp .)
+    CONJ            reduce using rule 8 (phrase -> pp .)
+    CARD            reduce using rule 8 (phrase -> pp .)
+    ART             reduce using rule 8 (phrase -> pp .)
+
+
+state 10
+
+    (9) phrase -> np .
+    (85) num -> np . CARD
+  ! shift/reduce conflict for CARD resolved as shift
+    $end            reduce using rule 9 (phrase -> np .)
+    CONJ            reduce using rule 9 (phrase -> np .)
+    ART             reduce using rule 9 (phrase -> np .)
+    CARD            shift and go to state 31
+
+
+state 11
+
+    (57) advb -> ADVB . ADVB
+    (75) para -> ADVB . CONJ ADVB
+    (51) adjv -> ADVB . np
+    (52) adjv -> ADVB . PRPS
+    (53) adjv -> ADVB . NOUN
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    ADVB            shift and go to state 32
+    CONJ            shift and go to state 33
+    PRPS            shift and go to state 35
+    NOUN            shift and go to state 36
+    CARD            shift and go to state 37
+    QUANT           shift and go to state 28
+    PROPN           shift and go to state 30
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    np                             shift and go to state 34
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 12
+
+    (66) para -> PREP . PROPN CONJ pp
+    (67) para -> PREP . NOUN CONJ pp
+    (25) pp -> PREP . PREP
+    (26) pp -> PREP . SFX
+    (27) pp -> PREP . PRPS
+    (28) pp -> PREP . PRIN
+    (29) pp -> PREP . INRG
+    (30) pp -> PREP . QUANT
+    (31) pp -> PREP . PRDE
+    (32) pp -> PREP . CARD
+    (33) pp -> PREP . PROPN
+    (34) pp -> PREP . ADVB
+    (35) pp -> PREP . NOUN
+    (36) pp -> PREP . phrase
+    (1) phrase -> . advb
+    (2) phrase -> . para
+    (3) phrase -> . quant
+    (4) phrase -> . gp_num
+    (5) phrase -> . gp_card
+    (6) phrase -> . num
+    (7) phrase -> . cardc
+    (8) phrase -> . pp
+    (9) phrase -> . np
+    (57) advb -> . ADVB ADVB
+    (66) para -> . PREP PROPN CONJ pp
+    (67) para -> . PREP NOUN CONJ pp
+    (68) para -> . NOUN C NOUN CONJ gp
+    (69) para -> . para CONJ PROPN
+    (70) para -> . para CONJ NOUN
+    (71) para -> . NOUN CONJ np
+    (72) para -> . PROPN CONJ np
+    (73) para -> . NOUN CONJ para
+    (74) para -> . PROPN CONJ PROPN
+    (75) para -> . ADVB CONJ ADVB
+    (76) para -> . NOUN CONJ NOUN
+    (47) quant -> . QUANT C np
+    (48) quant -> . QUANT C PRDE
+    (49) quant -> . QUANT C PROPN
+    (50) quant -> . QUANT C NOUN
+    (45) gp_num -> . NOUN C num
+    (46) gp_card -> . NOUN C CARD
+    (83) num -> . CARD C np
+    (84) num -> . CARD C NOUN
+    (85) num -> . np CARD
+    (86) num -> . CARD np
+    (87) num -> . cardc np
+    (88) num -> . cardc NOUN
+    (89) num -> . CARD NOUN
+    (90) num -> . NOUN CARD
+    (77) cardc -> . CARD C CARD
+    (78) cardc -> . cardc CARD
+    (79) cardc -> . CARD CONJ cardc
+    (80) cardc -> . cardc CONJ cardc
+    (81) cardc -> . CARD CONJ CARD
+    (82) cardc -> . CARD CARD
+    (25) pp -> . PREP PREP
+    (26) pp -> . PREP SFX
+    (27) pp -> . PREP PRPS
+    (28) pp -> . PREP PRIN
+    (29) pp -> . PREP INRG
+    (30) pp -> . PREP QUANT
+    (31) pp -> . PREP PRDE
+    (32) pp -> . PREP CARD
+    (33) pp -> . PREP PROPN
+    (34) pp -> . PREP ADVB
+    (35) pp -> . PREP NOUN
+    (36) pp -> . PREP phrase
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    PROPN           shift and go to state 39
+    NOUN            shift and go to state 40
+    PREP            shift and go to state 38
+    SFX             shift and go to state 41
+    PRPS            shift and go to state 42
+    PRIN            shift and go to state 43
+    INRG            shift and go to state 44
+    QUANT           shift and go to state 45
+    PRDE            shift and go to state 46
+    CARD            shift and go to state 47
+    ADVB            shift and go to state 48
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    pp                             shift and go to state 9
+    phrase                         shift and go to state 49
+    advb                           shift and go to state 2
+    para                           shift and go to state 3
+    quant                          shift and go to state 4
+    gp_num                         shift and go to state 5
+    gp_card                        shift and go to state 6
+    num                            shift and go to state 7
+    cardc                          shift and go to state 8
+    np                             shift and go to state 10
+    gp                             shift and go to state 15
+    adjv                           shift and go to state 18
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 13
+
+    (72) para -> PROPN . CONJ np
+    (74) para -> PROPN . CONJ PROPN
+    (38) gp -> PROPN . C np
+    (42) gp -> PROPN . C NOUN
+    (61) appo -> PROPN . appo
+    (62) appo -> PROPN . NOUN
+    (63) appo -> PROPN . PROPN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    CONJ            shift and go to state 51
+    C               shift and go to state 52
+    NOUN            shift and go to state 53
+    PROPN           shift and go to state 50
+    ART             shift and go to state 22
+
+    appo                           shift and go to state 54
+    defi                           shift and go to state 55
+
+state 14
+
+    (68) para -> NOUN . C NOUN CONJ gp
+    (71) para -> NOUN . CONJ np
+    (73) para -> NOUN . CONJ para
+    (76) para -> NOUN . CONJ NOUN
+    (45) gp_num -> NOUN . C num
+    (46) gp_card -> NOUN . C CARD
+    (90) num -> NOUN . CARD
+    (16) np -> NOUN . SFX
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    C               shift and go to state 57
+    CONJ            shift and go to state 58
+    CARD            shift and go to state 60
+    SFX             shift and go to state 61
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    gp                             shift and go to state 59
+    defi                           shift and go to state 66
+
+state 15
+
+    (11) np -> gp .
+    CARD            reduce using rule 11 (np -> gp .)
+    $end            reduce using rule 11 (np -> gp .)
+    CONJ            reduce using rule 11 (np -> gp .)
+    ART             reduce using rule 11 (np -> gp .)
+
+
+state 16
+
+    (47) quant -> QUANT . C np
+    (48) quant -> QUANT . C PRDE
+    (49) quant -> QUANT . C PROPN
+    (50) quant -> QUANT . C NOUN
+    (15) np -> QUANT . SFX
+    C               shift and go to state 67
+    SFX             shift and go to state 68
+
+
+state 17
+
+    (83) num -> CARD . C np
+    (84) num -> CARD . C NOUN
+    (86) num -> CARD . np
+    (89) num -> CARD . NOUN
+    (77) cardc -> CARD . C CARD
+    (79) cardc -> CARD . CONJ cardc
+    (81) cardc -> CARD . CONJ CARD
+    (82) cardc -> CARD . CARD
+    (14) np -> CARD . SFX
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    C               shift and go to state 70
+    NOUN            shift and go to state 72
+    CONJ            shift and go to state 73
+    CARD            shift and go to state 69
+    SFX             shift and go to state 74
+    QUANT           shift and go to state 28
+    ADVB            shift and go to state 29
+    PROPN           shift and go to state 30
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    np                             shift and go to state 71
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 18
+
+    (10) np -> adjv .
+    CARD            reduce using rule 10 (np -> adjv .)
+    $end            reduce using rule 10 (np -> adjv .)
+    CONJ            reduce using rule 10 (np -> adjv .)
+    ART             reduce using rule 10 (np -> adjv .)
+
+
+state 19
+
+    (12) np -> appo .
+    CARD            reduce using rule 12 (np -> appo .)
+    $end            reduce using rule 12 (np -> appo .)
+    CONJ            reduce using rule 12 (np -> appo .)
+    ART             reduce using rule 12 (np -> appo .)
+
+
+state 20
+
+    (13) np -> defi .
+    (59) appo -> defi . defi
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+  ! shift/reduce conflict for ART resolved as shift
+    CARD            reduce using rule 13 (np -> defi .)
+    $end            reduce using rule 13 (np -> defi .)
+    CONJ            reduce using rule 13 (np -> defi .)
+    ART             shift and go to state 22
+
+    defi                           shift and go to state 75
+
+state 21
+
+    (40) gp -> ADJV . C NOUN
+    C               shift and go to state 76
+
+
+state 22
+
+    (17) defi -> ART . adjv
+    (18) defi -> ART . ADJV
+    (19) defi -> ART . CARD
+    (20) defi -> ART . QUANT
+    (21) defi -> ART . PRDE
+    (22) defi -> ART . ORDN
+    (23) defi -> ART . PROPN
+    (24) defi -> ART . NOUN
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    ADJV            shift and go to state 78
+    CARD            shift and go to state 79
+    QUANT           shift and go to state 80
+    PRDE            shift and go to state 81
+    ORDN            shift and go to state 82
+    PROPN           shift and go to state 83
+    NOUN            shift and go to state 84
+    ADVB            shift and go to state 29
+
+    adjv                           shift and go to state 77
+
+state 23
+
+    (69) para -> para CONJ . PROPN
+    (70) para -> para CONJ . NOUN
+    PROPN           shift and go to state 85
+    NOUN            shift and go to state 86
+
+
+state 24
+
+    (87) num -> cardc np .
+    $end            reduce using rule 87 (num -> cardc np .)
+    CONJ            reduce using rule 87 (num -> cardc np .)
+    CARD            reduce using rule 87 (num -> cardc np .)
+    ART             reduce using rule 87 (num -> cardc np .)
+
+
+state 25
+
+    (88) num -> cardc NOUN .
+    (16) np -> NOUN . SFX
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 88 (num -> cardc NOUN .)
+    CONJ            reduce using rule 88 (num -> cardc NOUN .)
+    CARD            reduce using rule 88 (num -> cardc NOUN .)
+    SFX             shift and go to state 61
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    C               shift and go to state 87
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    defi                           shift and go to state 66
+    gp                             shift and go to state 59
+
+state 26
+
+    (78) cardc -> cardc CARD .
+    (14) np -> CARD . SFX
+    NOUN            reduce using rule 78 (cardc -> cardc CARD .)
+    CARD            reduce using rule 78 (cardc -> cardc CARD .)
+    CONJ            reduce using rule 78 (cardc -> cardc CARD .)
+    QUANT           reduce using rule 78 (cardc -> cardc CARD .)
+    ADVB            reduce using rule 78 (cardc -> cardc CARD .)
+    PROPN           reduce using rule 78 (cardc -> cardc CARD .)
+    ADJV            reduce using rule 78 (cardc -> cardc CARD .)
+    ART             reduce using rule 78 (cardc -> cardc CARD .)
+    $end            reduce using rule 78 (cardc -> cardc CARD .)
+    SFX             shift and go to state 74
+
+
+state 27
+
+    (80) cardc -> cardc CONJ . cardc
+    (77) cardc -> . CARD C CARD
+    (78) cardc -> . cardc CARD
+    (79) cardc -> . CARD CONJ cardc
+    (80) cardc -> . cardc CONJ cardc
+    (81) cardc -> . CARD CONJ CARD
+    (82) cardc -> . CARD CARD
+    CARD            shift and go to state 89
+
+    cardc                          shift and go to state 88
+
+state 28
+
+    (15) np -> QUANT . SFX
+    SFX             shift and go to state 68
+
+
+state 29
+
+    (51) adjv -> ADVB . np
+    (52) adjv -> ADVB . PRPS
+    (53) adjv -> ADVB . NOUN
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    PRPS            shift and go to state 35
+    NOUN            shift and go to state 36
+    CARD            shift and go to state 37
+    QUANT           shift and go to state 28
+    ADVB            shift and go to state 29
+    PROPN           shift and go to state 30
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    np                             shift and go to state 34
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 30
+
+    (38) gp -> PROPN . C np
+    (42) gp -> PROPN . C NOUN
+    (61) appo -> PROPN . appo
+    (62) appo -> PROPN . NOUN
+    (63) appo -> PROPN . PROPN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    C               shift and go to state 52
+    NOUN            shift and go to state 53
+    PROPN           shift and go to state 50
+    ART             shift and go to state 22
+
+    appo                           shift and go to state 54
+    defi                           shift and go to state 55
+
+state 31
+
+    (85) num -> np CARD .
+    $end            reduce using rule 85 (num -> np CARD .)
+    CONJ            reduce using rule 85 (num -> np CARD .)
+    CARD            reduce using rule 85 (num -> np CARD .)
+    ART             reduce using rule 85 (num -> np CARD .)
+
+
+state 32
+
+    (57) advb -> ADVB ADVB .
+    (51) adjv -> ADVB . np
+    (52) adjv -> ADVB . PRPS
+    (53) adjv -> ADVB . NOUN
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+  ! shift/reduce conflict for CARD resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 57 (advb -> ADVB ADVB .)
+    CONJ            reduce using rule 57 (advb -> ADVB ADVB .)
+    PRPS            shift and go to state 35
+    NOUN            shift and go to state 36
+    CARD            shift and go to state 37
+    QUANT           shift and go to state 28
+    ADVB            shift and go to state 29
+    PROPN           shift and go to state 30
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    np                             shift and go to state 34
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 33
+
+    (75) para -> ADVB CONJ . ADVB
+    ADVB            shift and go to state 90
+
+
+state 34
+
+    (51) adjv -> ADVB np .
+    CARD            reduce using rule 51 (adjv -> ADVB np .)
+    $end            reduce using rule 51 (adjv -> ADVB np .)
+    CONJ            reduce using rule 51 (adjv -> ADVB np .)
+    ART             reduce using rule 51 (adjv -> ADVB np .)
+
+
+state 35
+
+    (52) adjv -> ADVB PRPS .
+    CARD            reduce using rule 52 (adjv -> ADVB PRPS .)
+    $end            reduce using rule 52 (adjv -> ADVB PRPS .)
+    CONJ            reduce using rule 52 (adjv -> ADVB PRPS .)
+    ART             reduce using rule 52 (adjv -> ADVB PRPS .)
+
+
+state 36
+
+    (53) adjv -> ADVB NOUN .
+    (16) np -> NOUN . SFX
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+  ! shift/reduce conflict for ART resolved as shift
+    CARD            reduce using rule 53 (adjv -> ADVB NOUN .)
+    $end            reduce using rule 53 (adjv -> ADVB NOUN .)
+    CONJ            reduce using rule 53 (adjv -> ADVB NOUN .)
+    SFX             shift and go to state 61
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    C               shift and go to state 87
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    defi                           shift and go to state 66
+    gp                             shift and go to state 59
+
+state 37
+
+    (14) np -> CARD . SFX
+    SFX             shift and go to state 74
+
+
+state 38
+
+    (25) pp -> PREP PREP .
+    (66) para -> PREP . PROPN CONJ pp
+    (67) para -> PREP . NOUN CONJ pp
+    (25) pp -> PREP . PREP
+    (26) pp -> PREP . SFX
+    (27) pp -> PREP . PRPS
+    (28) pp -> PREP . PRIN
+    (29) pp -> PREP . INRG
+    (30) pp -> PREP . QUANT
+    (31) pp -> PREP . PRDE
+    (32) pp -> PREP . CARD
+    (33) pp -> PREP . PROPN
+    (34) pp -> PREP . ADVB
+    (35) pp -> PREP . NOUN
+    (36) pp -> PREP . phrase
+    (1) phrase -> . advb
+    (2) phrase -> . para
+    (3) phrase -> . quant
+    (4) phrase -> . gp_num
+    (5) phrase -> . gp_card
+    (6) phrase -> . num
+    (7) phrase -> . cardc
+    (8) phrase -> . pp
+    (9) phrase -> . np
+    (57) advb -> . ADVB ADVB
+    (66) para -> . PREP PROPN CONJ pp
+    (67) para -> . PREP NOUN CONJ pp
+    (68) para -> . NOUN C NOUN CONJ gp
+    (69) para -> . para CONJ PROPN
+    (70) para -> . para CONJ NOUN
+    (71) para -> . NOUN CONJ np
+    (72) para -> . PROPN CONJ np
+    (73) para -> . NOUN CONJ para
+    (74) para -> . PROPN CONJ PROPN
+    (75) para -> . ADVB CONJ ADVB
+    (76) para -> . NOUN CONJ NOUN
+    (47) quant -> . QUANT C np
+    (48) quant -> . QUANT C PRDE
+    (49) quant -> . QUANT C PROPN
+    (50) quant -> . QUANT C NOUN
+    (45) gp_num -> . NOUN C num
+    (46) gp_card -> . NOUN C CARD
+    (83) num -> . CARD C np
+    (84) num -> . CARD C NOUN
+    (85) num -> . np CARD
+    (86) num -> . CARD np
+    (87) num -> . cardc np
+    (88) num -> . cardc NOUN
+    (89) num -> . CARD NOUN
+    (90) num -> . NOUN CARD
+    (77) cardc -> . CARD C CARD
+    (78) cardc -> . cardc CARD
+    (79) cardc -> . CARD CONJ cardc
+    (80) cardc -> . cardc CONJ cardc
+    (81) cardc -> . CARD CONJ CARD
+    (82) cardc -> . CARD CARD
+    (25) pp -> . PREP PREP
+    (26) pp -> . PREP SFX
+    (27) pp -> . PREP PRPS
+    (28) pp -> . PREP PRIN
+    (29) pp -> . PREP INRG
+    (30) pp -> . PREP QUANT
+    (31) pp -> . PREP PRDE
+    (32) pp -> . PREP CARD
+    (33) pp -> . PREP PROPN
+    (34) pp -> . PREP ADVB
+    (35) pp -> . PREP NOUN
+    (36) pp -> . PREP phrase
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+  ! shift/reduce conflict for CARD resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 25 (pp -> PREP PREP .)
+    CONJ            reduce using rule 25 (pp -> PREP PREP .)
+    PROPN           shift and go to state 39
+    NOUN            shift and go to state 40
+    PREP            shift and go to state 38
+    SFX             shift and go to state 41
+    PRPS            shift and go to state 42
+    PRIN            shift and go to state 43
+    INRG            shift and go to state 44
+    QUANT           shift and go to state 45
+    PRDE            shift and go to state 46
+    CARD            shift and go to state 47
+    ADVB            shift and go to state 48
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    pp                             shift and go to state 9
+    phrase                         shift and go to state 49
+    advb                           shift and go to state 2
+    para                           shift and go to state 3
+    quant                          shift and go to state 4
+    gp_num                         shift and go to state 5
+    gp_card                        shift and go to state 6
+    num                            shift and go to state 7
+    cardc                          shift and go to state 8
+    np                             shift and go to state 10
+    gp                             shift and go to state 15
+    adjv                           shift and go to state 18
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 39
+
+    (66) para -> PREP PROPN . CONJ pp
+    (33) pp -> PREP PROPN .
+    (72) para -> PROPN . CONJ np
+    (74) para -> PROPN . CONJ PROPN
+    (38) gp -> PROPN . C np
+    (42) gp -> PROPN . C NOUN
+    (61) appo -> PROPN . appo
+    (62) appo -> PROPN . NOUN
+    (63) appo -> PROPN . PROPN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    CONJ            shift and go to state 91
+    $end            reduce using rule 33 (pp -> PREP PROPN .)
+    CARD            reduce using rule 33 (pp -> PREP PROPN .)
+    C               shift and go to state 52
+    NOUN            shift and go to state 53
+    PROPN           shift and go to state 50
+    ART             shift and go to state 22
+
+    appo                           shift and go to state 54
+    defi                           shift and go to state 55
+
+state 40
+
+    (67) para -> PREP NOUN . CONJ pp
+    (35) pp -> PREP NOUN .
+    (68) para -> NOUN . C NOUN CONJ gp
+    (71) para -> NOUN . CONJ np
+    (73) para -> NOUN . CONJ para
+    (76) para -> NOUN . CONJ NOUN
+    (45) gp_num -> NOUN . C num
+    (46) gp_card -> NOUN . C CARD
+    (90) num -> NOUN . CARD
+    (16) np -> NOUN . SFX
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for CARD resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    CONJ            shift and go to state 92
+    $end            reduce using rule 35 (pp -> PREP NOUN .)
+    C               shift and go to state 57
+    CARD            shift and go to state 60
+    SFX             shift and go to state 61
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    gp                             shift and go to state 59
+    defi                           shift and go to state 66
+
+state 41
+
+    (26) pp -> PREP SFX .
+    $end            reduce using rule 26 (pp -> PREP SFX .)
+    CONJ            reduce using rule 26 (pp -> PREP SFX .)
+    CARD            reduce using rule 26 (pp -> PREP SFX .)
+    ART             reduce using rule 26 (pp -> PREP SFX .)
+
+
+state 42
+
+    (27) pp -> PREP PRPS .
+    $end            reduce using rule 27 (pp -> PREP PRPS .)
+    CONJ            reduce using rule 27 (pp -> PREP PRPS .)
+    CARD            reduce using rule 27 (pp -> PREP PRPS .)
+    ART             reduce using rule 27 (pp -> PREP PRPS .)
+
+
+state 43
+
+    (28) pp -> PREP PRIN .
+    $end            reduce using rule 28 (pp -> PREP PRIN .)
+    CONJ            reduce using rule 28 (pp -> PREP PRIN .)
+    CARD            reduce using rule 28 (pp -> PREP PRIN .)
+    ART             reduce using rule 28 (pp -> PREP PRIN .)
+
+
+state 44
+
+    (29) pp -> PREP INRG .
+    $end            reduce using rule 29 (pp -> PREP INRG .)
+    CONJ            reduce using rule 29 (pp -> PREP INRG .)
+    CARD            reduce using rule 29 (pp -> PREP INRG .)
+    ART             reduce using rule 29 (pp -> PREP INRG .)
+
+
+state 45
+
+    (30) pp -> PREP QUANT .
+    (47) quant -> QUANT . C np
+    (48) quant -> QUANT . C PRDE
+    (49) quant -> QUANT . C PROPN
+    (50) quant -> QUANT . C NOUN
+    (15) np -> QUANT . SFX
+    $end            reduce using rule 30 (pp -> PREP QUANT .)
+    CONJ            reduce using rule 30 (pp -> PREP QUANT .)
+    CARD            reduce using rule 30 (pp -> PREP QUANT .)
+    ART             reduce using rule 30 (pp -> PREP QUANT .)
+    C               shift and go to state 67
+    SFX             shift and go to state 68
+
+
+state 46
+
+    (31) pp -> PREP PRDE .
+    $end            reduce using rule 31 (pp -> PREP PRDE .)
+    CONJ            reduce using rule 31 (pp -> PREP PRDE .)
+    CARD            reduce using rule 31 (pp -> PREP PRDE .)
+    ART             reduce using rule 31 (pp -> PREP PRDE .)
+
+
+state 47
+
+    (32) pp -> PREP CARD .
+    (83) num -> CARD . C np
+    (84) num -> CARD . C NOUN
+    (86) num -> CARD . np
+    (89) num -> CARD . NOUN
+    (77) cardc -> CARD . C CARD
+    (79) cardc -> CARD . CONJ cardc
+    (81) cardc -> CARD . CONJ CARD
+    (82) cardc -> CARD . CARD
+    (14) np -> CARD . SFX
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for CARD resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 32 (pp -> PREP CARD .)
+    C               shift and go to state 70
+    NOUN            shift and go to state 72
+    CONJ            shift and go to state 73
+    CARD            shift and go to state 69
+    SFX             shift and go to state 74
+    QUANT           shift and go to state 28
+    ADVB            shift and go to state 29
+    PROPN           shift and go to state 30
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    np                             shift and go to state 71
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 48
+
+    (34) pp -> PREP ADVB .
+    (57) advb -> ADVB . ADVB
+    (75) para -> ADVB . CONJ ADVB
+    (51) adjv -> ADVB . np
+    (52) adjv -> ADVB . PRPS
+    (53) adjv -> ADVB . NOUN
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for CARD resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 34 (pp -> PREP ADVB .)
+    ADVB            shift and go to state 32
+    CONJ            shift and go to state 33
+    PRPS            shift and go to state 35
+    NOUN            shift and go to state 36
+    CARD            shift and go to state 37
+    QUANT           shift and go to state 28
+    PROPN           shift and go to state 30
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    np                             shift and go to state 34
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 49
+
+    (36) pp -> PREP phrase .
+    $end            reduce using rule 36 (pp -> PREP phrase .)
+    CONJ            reduce using rule 36 (pp -> PREP phrase .)
+    CARD            reduce using rule 36 (pp -> PREP phrase .)
+    ART             reduce using rule 36 (pp -> PREP phrase .)
+
+
+state 50
+
+    (63) appo -> PROPN PROPN .
+    (61) appo -> PROPN . appo
+    (62) appo -> PROPN . NOUN
+    (63) appo -> PROPN . PROPN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+  ! shift/reduce conflict for ART resolved as shift
+    CARD            reduce using rule 63 (appo -> PROPN PROPN .)
+    $end            reduce using rule 63 (appo -> PROPN PROPN .)
+    CONJ            reduce using rule 63 (appo -> PROPN PROPN .)
+    NOUN            shift and go to state 53
+    PROPN           shift and go to state 50
+    ART             shift and go to state 22
+
+    appo                           shift and go to state 54
+    defi                           shift and go to state 55
+
+state 51
+
+    (72) para -> PROPN CONJ . np
+    (74) para -> PROPN CONJ . PROPN
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    PROPN           shift and go to state 93
+    CARD            shift and go to state 37
+    QUANT           shift and go to state 28
+    NOUN            shift and go to state 95
+    ADVB            shift and go to state 29
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    np                             shift and go to state 94
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 52
+
+    (38) gp -> PROPN C . np
+    (42) gp -> PROPN C . NOUN
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    NOUN            shift and go to state 97
+    CARD            shift and go to state 37
+    QUANT           shift and go to state 28
+    ADVB            shift and go to state 29
+    PROPN           shift and go to state 30
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    np                             shift and go to state 96
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 53
+
+    (62) appo -> PROPN NOUN .
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+  ! shift/reduce conflict for ART resolved as shift
+    CARD            reduce using rule 62 (appo -> PROPN NOUN .)
+    $end            reduce using rule 62 (appo -> PROPN NOUN .)
+    CONJ            reduce using rule 62 (appo -> PROPN NOUN .)
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+    ADJV            shift and go to state 21
+
+    defi                           shift and go to state 66
+    gp                             shift and go to state 59
+
+state 54
+
+    (61) appo -> PROPN appo .
+    CARD            reduce using rule 61 (appo -> PROPN appo .)
+    $end            reduce using rule 61 (appo -> PROPN appo .)
+    CONJ            reduce using rule 61 (appo -> PROPN appo .)
+    ART             reduce using rule 61 (appo -> PROPN appo .)
+
+
+state 55
+
+    (59) appo -> defi . defi
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    ART             shift and go to state 22
+
+    defi                           shift and go to state 75
+
+state 56
+
+    (65) appo -> NOUN NOUN .
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    CARD            reduce using rule 65 (appo -> NOUN NOUN .)
+    $end            reduce using rule 65 (appo -> NOUN NOUN .)
+    CONJ            reduce using rule 65 (appo -> NOUN NOUN .)
+    ART             reduce using rule 65 (appo -> NOUN NOUN .)
+    C               shift and go to state 87
+
+
+state 57
+
+    (68) para -> NOUN C . NOUN CONJ gp
+    (45) gp_num -> NOUN C . num
+    (46) gp_card -> NOUN C . CARD
+    (37) gp -> NOUN C . para
+    (39) gp -> NOUN C . np
+    (41) gp -> NOUN C . QUANT
+    (43) gp -> NOUN C . PROPN
+    (44) gp -> NOUN C . NOUN
+    (83) num -> . CARD C np
+    (84) num -> . CARD C NOUN
+    (85) num -> . np CARD
+    (86) num -> . CARD np
+    (87) num -> . cardc np
+    (88) num -> . cardc NOUN
+    (89) num -> . CARD NOUN
+    (90) num -> . NOUN CARD
+    (66) para -> . PREP PROPN CONJ pp
+    (67) para -> . PREP NOUN CONJ pp
+    (68) para -> . NOUN C NOUN CONJ gp
+    (69) para -> . para CONJ PROPN
+    (70) para -> . para CONJ NOUN
+    (71) para -> . NOUN CONJ np
+    (72) para -> . PROPN CONJ np
+    (73) para -> . NOUN CONJ para
+    (74) para -> . PROPN CONJ PROPN
+    (75) para -> . ADVB CONJ ADVB
+    (76) para -> . NOUN CONJ NOUN
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (77) cardc -> . CARD C CARD
+    (78) cardc -> . cardc CARD
+    (79) cardc -> . CARD CONJ cardc
+    (80) cardc -> . cardc CONJ cardc
+    (81) cardc -> . CARD CONJ CARD
+    (82) cardc -> . CARD CARD
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    NOUN            shift and go to state 98
+    CARD            shift and go to state 100
+    QUANT           shift and go to state 103
+    PROPN           shift and go to state 104
+    PREP            shift and go to state 106
+    ADVB            shift and go to state 107
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    gp                             shift and go to state 15
+    num                            shift and go to state 99
+    para                           shift and go to state 101
+    np                             shift and go to state 102
+    cardc                          shift and go to state 105
+    adjv                           shift and go to state 18
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 58
+
+    (71) para -> NOUN CONJ . np
+    (73) para -> NOUN CONJ . para
+    (76) para -> NOUN CONJ . NOUN
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (66) para -> . PREP PROPN CONJ pp
+    (67) para -> . PREP NOUN CONJ pp
+    (68) para -> . NOUN C NOUN CONJ gp
+    (69) para -> . para CONJ PROPN
+    (70) para -> . para CONJ NOUN
+    (71) para -> . NOUN CONJ np
+    (72) para -> . PROPN CONJ np
+    (73) para -> . NOUN CONJ para
+    (74) para -> . PROPN CONJ PROPN
+    (75) para -> . ADVB CONJ ADVB
+    (76) para -> . NOUN CONJ NOUN
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    NOUN            shift and go to state 108
+    CARD            shift and go to state 37
+    QUANT           shift and go to state 28
+    PREP            shift and go to state 106
+    PROPN           shift and go to state 13
+    ADVB            shift and go to state 107
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    np                             shift and go to state 109
+    para                           shift and go to state 110
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 59
+
+    (60) appo -> NOUN gp .
+    CARD            reduce using rule 60 (appo -> NOUN gp .)
+    $end            reduce using rule 60 (appo -> NOUN gp .)
+    CONJ            reduce using rule 60 (appo -> NOUN gp .)
+    ART             reduce using rule 60 (appo -> NOUN gp .)
+
+
+state 60
+
+    (90) num -> NOUN CARD .
+    $end            reduce using rule 90 (num -> NOUN CARD .)
+    CONJ            reduce using rule 90 (num -> NOUN CARD .)
+    CARD            reduce using rule 90 (num -> NOUN CARD .)
+    ART             reduce using rule 90 (num -> NOUN CARD .)
+
+
+state 61
+
+    (16) np -> NOUN SFX .
+    CARD            reduce using rule 16 (np -> NOUN SFX .)
+    $end            reduce using rule 16 (np -> NOUN SFX .)
+    CONJ            reduce using rule 16 (np -> NOUN SFX .)
+    ART             reduce using rule 16 (np -> NOUN SFX .)
+
+
+state 62
+
+    (54) adjv -> NOUN QUANT .
+    CARD            reduce using rule 54 (adjv -> NOUN QUANT .)
+    $end            reduce using rule 54 (adjv -> NOUN QUANT .)
+    CONJ            reduce using rule 54 (adjv -> NOUN QUANT .)
+    ART             reduce using rule 54 (adjv -> NOUN QUANT .)
+
+
+state 63
+
+    (55) adjv -> NOUN ADVB .
+    CARD            reduce using rule 55 (adjv -> NOUN ADVB .)
+    $end            reduce using rule 55 (adjv -> NOUN ADVB .)
+    CONJ            reduce using rule 55 (adjv -> NOUN ADVB .)
+    ART             reduce using rule 55 (adjv -> NOUN ADVB .)
+
+
+state 64
+
+    (56) adjv -> NOUN ADJV .
+    (40) gp -> ADJV . C NOUN
+    CARD            reduce using rule 56 (adjv -> NOUN ADJV .)
+    $end            reduce using rule 56 (adjv -> NOUN ADJV .)
+    CONJ            reduce using rule 56 (adjv -> NOUN ADJV .)
+    ART             reduce using rule 56 (adjv -> NOUN ADJV .)
+    C               shift and go to state 76
+
+
+state 65
+
+    (64) appo -> NOUN PROPN .
+    (38) gp -> PROPN . C np
+    (42) gp -> PROPN . C NOUN
+    CARD            reduce using rule 64 (appo -> NOUN PROPN .)
+    $end            reduce using rule 64 (appo -> NOUN PROPN .)
+    CONJ            reduce using rule 64 (appo -> NOUN PROPN .)
+    ART             reduce using rule 64 (appo -> NOUN PROPN .)
+    C               shift and go to state 52
+
+
+state 66
+
+    (58) appo -> NOUN defi .
+    CARD            reduce using rule 58 (appo -> NOUN defi .)
+    $end            reduce using rule 58 (appo -> NOUN defi .)
+    CONJ            reduce using rule 58 (appo -> NOUN defi .)
+    ART             reduce using rule 58 (appo -> NOUN defi .)
+
+
+state 67
+
+    (47) quant -> QUANT C . np
+    (48) quant -> QUANT C . PRDE
+    (49) quant -> QUANT C . PROPN
+    (50) quant -> QUANT C . NOUN
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    PRDE            shift and go to state 112
+    PROPN           shift and go to state 113
+    NOUN            shift and go to state 114
+    CARD            shift and go to state 37
+    QUANT           shift and go to state 28
+    ADVB            shift and go to state 29
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    np                             shift and go to state 111
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 68
+
+    (15) np -> QUANT SFX .
+    CARD            reduce using rule 15 (np -> QUANT SFX .)
+    $end            reduce using rule 15 (np -> QUANT SFX .)
+    CONJ            reduce using rule 15 (np -> QUANT SFX .)
+    ART             reduce using rule 15 (np -> QUANT SFX .)
+
+
+state 69
+
+    (82) cardc -> CARD CARD .
+    (14) np -> CARD . SFX
+    NOUN            reduce using rule 82 (cardc -> CARD CARD .)
+    CARD            reduce using rule 82 (cardc -> CARD CARD .)
+    CONJ            reduce using rule 82 (cardc -> CARD CARD .)
+    QUANT           reduce using rule 82 (cardc -> CARD CARD .)
+    ADVB            reduce using rule 82 (cardc -> CARD CARD .)
+    PROPN           reduce using rule 82 (cardc -> CARD CARD .)
+    ADJV            reduce using rule 82 (cardc -> CARD CARD .)
+    ART             reduce using rule 82 (cardc -> CARD CARD .)
+    $end            reduce using rule 82 (cardc -> CARD CARD .)
+    SFX             shift and go to state 74
+
+
+state 70
+
+    (83) num -> CARD C . np
+    (84) num -> CARD C . NOUN
+    (77) cardc -> CARD C . CARD
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    NOUN            shift and go to state 117
+    CARD            shift and go to state 115
+    QUANT           shift and go to state 28
+    ADVB            shift and go to state 29
+    PROPN           shift and go to state 30
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    np                             shift and go to state 116
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 71
+
+    (86) num -> CARD np .
+    $end            reduce using rule 86 (num -> CARD np .)
+    CONJ            reduce using rule 86 (num -> CARD np .)
+    CARD            reduce using rule 86 (num -> CARD np .)
+    ART             reduce using rule 86 (num -> CARD np .)
+
+
+state 72
+
+    (89) num -> CARD NOUN .
+    (16) np -> NOUN . SFX
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 89 (num -> CARD NOUN .)
+    CONJ            reduce using rule 89 (num -> CARD NOUN .)
+    CARD            reduce using rule 89 (num -> CARD NOUN .)
+    SFX             shift and go to state 61
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    C               shift and go to state 87
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    defi                           shift and go to state 66
+    gp                             shift and go to state 59
+
+state 73
+
+    (79) cardc -> CARD CONJ . cardc
+    (81) cardc -> CARD CONJ . CARD
+    (77) cardc -> . CARD C CARD
+    (78) cardc -> . cardc CARD
+    (79) cardc -> . CARD CONJ cardc
+    (80) cardc -> . cardc CONJ cardc
+    (81) cardc -> . CARD CONJ CARD
+    (82) cardc -> . CARD CARD
+    CARD            shift and go to state 118
+
+    cardc                          shift and go to state 119
+
+state 74
+
+    (14) np -> CARD SFX .
+    CARD            reduce using rule 14 (np -> CARD SFX .)
+    $end            reduce using rule 14 (np -> CARD SFX .)
+    CONJ            reduce using rule 14 (np -> CARD SFX .)
+    ART             reduce using rule 14 (np -> CARD SFX .)
+
+
+state 75
+
+    (59) appo -> defi defi .
+    CARD            reduce using rule 59 (appo -> defi defi .)
+    $end            reduce using rule 59 (appo -> defi defi .)
+    CONJ            reduce using rule 59 (appo -> defi defi .)
+    ART             reduce using rule 59 (appo -> defi defi .)
+
+
+state 76
+
+    (40) gp -> ADJV C . NOUN
+    NOUN            shift and go to state 120
+
+
+state 77
+
+    (17) defi -> ART adjv .
+    ART             reduce using rule 17 (defi -> ART adjv .)
+    CARD            reduce using rule 17 (defi -> ART adjv .)
+    $end            reduce using rule 17 (defi -> ART adjv .)
+    CONJ            reduce using rule 17 (defi -> ART adjv .)
+
+
+state 78
+
+    (18) defi -> ART ADJV .
+    ART             reduce using rule 18 (defi -> ART ADJV .)
+    CARD            reduce using rule 18 (defi -> ART ADJV .)
+    $end            reduce using rule 18 (defi -> ART ADJV .)
+    CONJ            reduce using rule 18 (defi -> ART ADJV .)
+
+
+state 79
+
+    (19) defi -> ART CARD .
+    ART             reduce using rule 19 (defi -> ART CARD .)
+    CARD            reduce using rule 19 (defi -> ART CARD .)
+    $end            reduce using rule 19 (defi -> ART CARD .)
+    CONJ            reduce using rule 19 (defi -> ART CARD .)
+
+
+state 80
+
+    (20) defi -> ART QUANT .
+    ART             reduce using rule 20 (defi -> ART QUANT .)
+    CARD            reduce using rule 20 (defi -> ART QUANT .)
+    $end            reduce using rule 20 (defi -> ART QUANT .)
+    CONJ            reduce using rule 20 (defi -> ART QUANT .)
+
+
+state 81
+
+    (21) defi -> ART PRDE .
+    ART             reduce using rule 21 (defi -> ART PRDE .)
+    CARD            reduce using rule 21 (defi -> ART PRDE .)
+    $end            reduce using rule 21 (defi -> ART PRDE .)
+    CONJ            reduce using rule 21 (defi -> ART PRDE .)
+
+
+state 82
+
+    (22) defi -> ART ORDN .
+    ART             reduce using rule 22 (defi -> ART ORDN .)
+    CARD            reduce using rule 22 (defi -> ART ORDN .)
+    $end            reduce using rule 22 (defi -> ART ORDN .)
+    CONJ            reduce using rule 22 (defi -> ART ORDN .)
+
+
+state 83
+
+    (23) defi -> ART PROPN .
+    ART             reduce using rule 23 (defi -> ART PROPN .)
+    CARD            reduce using rule 23 (defi -> ART PROPN .)
+    $end            reduce using rule 23 (defi -> ART PROPN .)
+    CONJ            reduce using rule 23 (defi -> ART PROPN .)
+
+
+state 84
+
+    (24) defi -> ART NOUN .
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    ART             reduce using rule 24 (defi -> ART NOUN .)
+    CARD            reduce using rule 24 (defi -> ART NOUN .)
+    $end            reduce using rule 24 (defi -> ART NOUN .)
+    CONJ            reduce using rule 24 (defi -> ART NOUN .)
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 121
+
+
+state 85
+
+    (69) para -> para CONJ PROPN .
+    CONJ            reduce using rule 69 (para -> para CONJ PROPN .)
+    $end            reduce using rule 69 (para -> para CONJ PROPN .)
+    CARD            reduce using rule 69 (para -> para CONJ PROPN .)
+    ART             reduce using rule 69 (para -> para CONJ PROPN .)
+
+
+state 86
+
+    (70) para -> para CONJ NOUN .
+    CONJ            reduce using rule 70 (para -> para CONJ NOUN .)
+    $end            reduce using rule 70 (para -> para CONJ NOUN .)
+    CARD            reduce using rule 70 (para -> para CONJ NOUN .)
+    ART             reduce using rule 70 (para -> para CONJ NOUN .)
+
+
+state 87
+
+    (37) gp -> NOUN C . para
+    (39) gp -> NOUN C . np
+    (41) gp -> NOUN C . QUANT
+    (43) gp -> NOUN C . PROPN
+    (44) gp -> NOUN C . NOUN
+    (66) para -> . PREP PROPN CONJ pp
+    (67) para -> . PREP NOUN CONJ pp
+    (68) para -> . NOUN C NOUN CONJ gp
+    (69) para -> . para CONJ PROPN
+    (70) para -> . para CONJ NOUN
+    (71) para -> . NOUN CONJ np
+    (72) para -> . PROPN CONJ np
+    (73) para -> . NOUN CONJ para
+    (74) para -> . PROPN CONJ PROPN
+    (75) para -> . ADVB CONJ ADVB
+    (76) para -> . NOUN CONJ NOUN
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    QUANT           shift and go to state 103
+    PROPN           shift and go to state 104
+    NOUN            shift and go to state 122
+    PREP            shift and go to state 106
+    ADVB            shift and go to state 107
+    CARD            shift and go to state 37
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    para                           shift and go to state 101
+    np                             shift and go to state 123
+    gp                             shift and go to state 15
+    adjv                           shift and go to state 18
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 88
+
+    (80) cardc -> cardc CONJ cardc .
+    (78) cardc -> cardc . CARD
+    (80) cardc -> cardc . CONJ cardc
+    NOUN            reduce using rule 80 (cardc -> cardc CONJ cardc .)
+    CARD            reduce using rule 80 (cardc -> cardc CONJ cardc .)
+    QUANT           reduce using rule 80 (cardc -> cardc CONJ cardc .)
+    ADVB            reduce using rule 80 (cardc -> cardc CONJ cardc .)
+    PROPN           reduce using rule 80 (cardc -> cardc CONJ cardc .)
+    ADJV            reduce using rule 80 (cardc -> cardc CONJ cardc .)
+    ART             reduce using rule 80 (cardc -> cardc CONJ cardc .)
+    $end            reduce using rule 80 (cardc -> cardc CONJ cardc .)
+    CONJ            shift and go to state 27
+
+
+state 89
+
+    (77) cardc -> CARD . C CARD
+    (79) cardc -> CARD . CONJ cardc
+    (81) cardc -> CARD . CONJ CARD
+    (82) cardc -> CARD . CARD
+    C               shift and go to state 126
+    CONJ            shift and go to state 73
+    CARD            shift and go to state 125
+
+
+state 90
+
+    (75) para -> ADVB CONJ ADVB .
+    CONJ            reduce using rule 75 (para -> ADVB CONJ ADVB .)
+    $end            reduce using rule 75 (para -> ADVB CONJ ADVB .)
+    CARD            reduce using rule 75 (para -> ADVB CONJ ADVB .)
+    ART             reduce using rule 75 (para -> ADVB CONJ ADVB .)
+
+
+state 91
+
+    (66) para -> PREP PROPN CONJ . pp
+    (72) para -> PROPN CONJ . np
+    (74) para -> PROPN CONJ . PROPN
+    (25) pp -> . PREP PREP
+    (26) pp -> . PREP SFX
+    (27) pp -> . PREP PRPS
+    (28) pp -> . PREP PRIN
+    (29) pp -> . PREP INRG
+    (30) pp -> . PREP QUANT
+    (31) pp -> . PREP PRDE
+    (32) pp -> . PREP CARD
+    (33) pp -> . PREP PROPN
+    (34) pp -> . PREP ADVB
+    (35) pp -> . PREP NOUN
+    (36) pp -> . PREP phrase
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    PROPN           shift and go to state 93
+    PREP            shift and go to state 127
+    CARD            shift and go to state 37
+    QUANT           shift and go to state 28
+    NOUN            shift and go to state 95
+    ADVB            shift and go to state 29
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    pp                             shift and go to state 128
+    np                             shift and go to state 94
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 92
+
+    (67) para -> PREP NOUN CONJ . pp
+    (71) para -> NOUN CONJ . np
+    (73) para -> NOUN CONJ . para
+    (76) para -> NOUN CONJ . NOUN
+    (25) pp -> . PREP PREP
+    (26) pp -> . PREP SFX
+    (27) pp -> . PREP PRPS
+    (28) pp -> . PREP PRIN
+    (29) pp -> . PREP INRG
+    (30) pp -> . PREP QUANT
+    (31) pp -> . PREP PRDE
+    (32) pp -> . PREP CARD
+    (33) pp -> . PREP PROPN
+    (34) pp -> . PREP ADVB
+    (35) pp -> . PREP NOUN
+    (36) pp -> . PREP phrase
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (66) para -> . PREP PROPN CONJ pp
+    (67) para -> . PREP NOUN CONJ pp
+    (68) para -> . NOUN C NOUN CONJ gp
+    (69) para -> . para CONJ PROPN
+    (70) para -> . para CONJ NOUN
+    (71) para -> . NOUN CONJ np
+    (72) para -> . PROPN CONJ np
+    (73) para -> . NOUN CONJ para
+    (74) para -> . PROPN CONJ PROPN
+    (75) para -> . ADVB CONJ ADVB
+    (76) para -> . NOUN CONJ NOUN
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    NOUN            shift and go to state 108
+    PREP            shift and go to state 129
+    CARD            shift and go to state 37
+    QUANT           shift and go to state 28
+    PROPN           shift and go to state 13
+    ADVB            shift and go to state 107
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    pp                             shift and go to state 130
+    np                             shift and go to state 109
+    para                           shift and go to state 110
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 93
+
+    (74) para -> PROPN CONJ PROPN .
+    (38) gp -> PROPN . C np
+    (42) gp -> PROPN . C NOUN
+    (61) appo -> PROPN . appo
+    (62) appo -> PROPN . NOUN
+    (63) appo -> PROPN . PROPN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+  ! shift/reduce conflict for ART resolved as shift
+    CONJ            reduce using rule 74 (para -> PROPN CONJ PROPN .)
+    $end            reduce using rule 74 (para -> PROPN CONJ PROPN .)
+    CARD            reduce using rule 74 (para -> PROPN CONJ PROPN .)
+    C               shift and go to state 52
+    NOUN            shift and go to state 53
+    PROPN           shift and go to state 50
+    ART             shift and go to state 22
+
+    appo                           shift and go to state 54
+    defi                           shift and go to state 55
+
+state 94
+
+    (72) para -> PROPN CONJ np .
+    CONJ            reduce using rule 72 (para -> PROPN CONJ np .)
+    $end            reduce using rule 72 (para -> PROPN CONJ np .)
+    CARD            reduce using rule 72 (para -> PROPN CONJ np .)
+    ART             reduce using rule 72 (para -> PROPN CONJ np .)
+
+
+state 95
+
+    (16) np -> NOUN . SFX
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    SFX             shift and go to state 61
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    C               shift and go to state 87
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    defi                           shift and go to state 66
+    gp                             shift and go to state 59
+
+state 96
+
+    (38) gp -> PROPN C np .
+    CARD            reduce using rule 38 (gp -> PROPN C np .)
+    $end            reduce using rule 38 (gp -> PROPN C np .)
+    CONJ            reduce using rule 38 (gp -> PROPN C np .)
+    ART             reduce using rule 38 (gp -> PROPN C np .)
+
+
+state 97
+
+    (42) gp -> PROPN C NOUN .
+    (16) np -> NOUN . SFX
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+  ! shift/reduce conflict for ART resolved as shift
+    CARD            reduce using rule 42 (gp -> PROPN C NOUN .)
+    $end            reduce using rule 42 (gp -> PROPN C NOUN .)
+    CONJ            reduce using rule 42 (gp -> PROPN C NOUN .)
+    SFX             shift and go to state 61
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    C               shift and go to state 87
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    defi                           shift and go to state 66
+    gp                             shift and go to state 59
+
+state 98
+
+    (68) para -> NOUN C NOUN . CONJ gp
+    (44) gp -> NOUN C NOUN .
+    (90) num -> NOUN . CARD
+    (68) para -> NOUN . C NOUN CONJ gp
+    (71) para -> NOUN . CONJ np
+    (73) para -> NOUN . CONJ para
+    (76) para -> NOUN . CONJ NOUN
+    (16) np -> NOUN . SFX
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for CARD resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    CONJ            shift and go to state 132
+    $end            reduce using rule 44 (gp -> NOUN C NOUN .)
+    CARD            shift and go to state 60
+    C               shift and go to state 131
+    SFX             shift and go to state 61
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    gp                             shift and go to state 59
+    defi                           shift and go to state 66
+
+state 99
+
+    (45) gp_num -> NOUN C num .
+    $end            reduce using rule 45 (gp_num -> NOUN C num .)
+    CONJ            reduce using rule 45 (gp_num -> NOUN C num .)
+    CARD            reduce using rule 45 (gp_num -> NOUN C num .)
+    ART             reduce using rule 45 (gp_num -> NOUN C num .)
+
+
+state 100
+
+    (46) gp_card -> NOUN C CARD .
+    (83) num -> CARD . C np
+    (84) num -> CARD . C NOUN
+    (86) num -> CARD . np
+    (89) num -> CARD . NOUN
+    (14) np -> CARD . SFX
+    (77) cardc -> CARD . C CARD
+    (79) cardc -> CARD . CONJ cardc
+    (81) cardc -> CARD . CONJ CARD
+    (82) cardc -> CARD . CARD
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for CARD resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 46 (gp_card -> NOUN C CARD .)
+    C               shift and go to state 70
+    NOUN            shift and go to state 72
+    SFX             shift and go to state 74
+    CONJ            shift and go to state 73
+    CARD            shift and go to state 69
+    QUANT           shift and go to state 28
+    ADVB            shift and go to state 29
+    PROPN           shift and go to state 30
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    np                             shift and go to state 71
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 101
+
+    (37) gp -> NOUN C para .
+    (69) para -> para . CONJ PROPN
+    (70) para -> para . CONJ NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+    CARD            reduce using rule 37 (gp -> NOUN C para .)
+    $end            reduce using rule 37 (gp -> NOUN C para .)
+    ART             reduce using rule 37 (gp -> NOUN C para .)
+    CONJ            shift and go to state 23
+
+
+state 102
+
+    (39) gp -> NOUN C np .
+    (85) num -> np . CARD
+  ! shift/reduce conflict for CARD resolved as shift
+    $end            reduce using rule 39 (gp -> NOUN C np .)
+    CONJ            reduce using rule 39 (gp -> NOUN C np .)
+    ART             reduce using rule 39 (gp -> NOUN C np .)
+    CARD            shift and go to state 31
+
+
+state 103
+
+    (41) gp -> NOUN C QUANT .
+    (15) np -> QUANT . SFX
+    CARD            reduce using rule 41 (gp -> NOUN C QUANT .)
+    $end            reduce using rule 41 (gp -> NOUN C QUANT .)
+    CONJ            reduce using rule 41 (gp -> NOUN C QUANT .)
+    ART             reduce using rule 41 (gp -> NOUN C QUANT .)
+    SFX             shift and go to state 68
+
+
+state 104
+
+    (43) gp -> NOUN C PROPN .
+    (72) para -> PROPN . CONJ np
+    (74) para -> PROPN . CONJ PROPN
+    (38) gp -> PROPN . C np
+    (42) gp -> PROPN . C NOUN
+    (61) appo -> PROPN . appo
+    (62) appo -> PROPN . NOUN
+    (63) appo -> PROPN . PROPN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    CARD            reduce using rule 43 (gp -> NOUN C PROPN .)
+    $end            reduce using rule 43 (gp -> NOUN C PROPN .)
+    CONJ            shift and go to state 51
+    C               shift and go to state 52
+    NOUN            shift and go to state 53
+    PROPN           shift and go to state 50
+    ART             shift and go to state 22
+
+    appo                           shift and go to state 54
+    defi                           shift and go to state 55
+
+state 105
+
+    (87) num -> cardc . np
+    (88) num -> cardc . NOUN
+    (78) cardc -> cardc . CARD
+    (80) cardc -> cardc . CONJ cardc
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    NOUN            shift and go to state 25
+    CARD            shift and go to state 26
+    CONJ            shift and go to state 27
+    QUANT           shift and go to state 28
+    ADVB            shift and go to state 29
+    PROPN           shift and go to state 30
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    np                             shift and go to state 24
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 106
+
+    (66) para -> PREP . PROPN CONJ pp
+    (67) para -> PREP . NOUN CONJ pp
+    PROPN           shift and go to state 133
+    NOUN            shift and go to state 134
+
+
+state 107
+
+    (75) para -> ADVB . CONJ ADVB
+    (51) adjv -> ADVB . np
+    (52) adjv -> ADVB . PRPS
+    (53) adjv -> ADVB . NOUN
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    CONJ            shift and go to state 33
+    PRPS            shift and go to state 35
+    NOUN            shift and go to state 36
+    CARD            shift and go to state 37
+    QUANT           shift and go to state 28
+    ADVB            shift and go to state 29
+    PROPN           shift and go to state 30
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    np                             shift and go to state 34
+    adjv                           shift and go to state 18
+    gp                             shift and go to state 15
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 108
+
+    (76) para -> NOUN CONJ NOUN .
+    (16) np -> NOUN . SFX
+    (68) para -> NOUN . C NOUN CONJ gp
+    (71) para -> NOUN . CONJ np
+    (73) para -> NOUN . CONJ para
+    (76) para -> NOUN . CONJ NOUN
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 76 (para -> NOUN CONJ NOUN .)
+    CARD            reduce using rule 76 (para -> NOUN CONJ NOUN .)
+    SFX             shift and go to state 61
+    C               shift and go to state 131
+    CONJ            shift and go to state 58
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    gp                             shift and go to state 59
+    defi                           shift and go to state 66
+
+state 109
+
+    (71) para -> NOUN CONJ np .
+    CONJ            reduce using rule 71 (para -> NOUN CONJ np .)
+    $end            reduce using rule 71 (para -> NOUN CONJ np .)
+    CARD            reduce using rule 71 (para -> NOUN CONJ np .)
+    ART             reduce using rule 71 (para -> NOUN CONJ np .)
+
+
+state 110
+
+    (73) para -> NOUN CONJ para .
+    (69) para -> para . CONJ PROPN
+    (70) para -> para . CONJ NOUN
+    $end            reduce using rule 73 (para -> NOUN CONJ para .)
+    CARD            reduce using rule 73 (para -> NOUN CONJ para .)
+    ART             reduce using rule 73 (para -> NOUN CONJ para .)
+    CONJ            shift and go to state 23
+
+
+state 111
+
+    (47) quant -> QUANT C np .
+    $end            reduce using rule 47 (quant -> QUANT C np .)
+    CONJ            reduce using rule 47 (quant -> QUANT C np .)
+    CARD            reduce using rule 47 (quant -> QUANT C np .)
+    ART             reduce using rule 47 (quant -> QUANT C np .)
+
+
+state 112
+
+    (48) quant -> QUANT C PRDE .
+    $end            reduce using rule 48 (quant -> QUANT C PRDE .)
+    CONJ            reduce using rule 48 (quant -> QUANT C PRDE .)
+    CARD            reduce using rule 48 (quant -> QUANT C PRDE .)
+    ART             reduce using rule 48 (quant -> QUANT C PRDE .)
+
+
+state 113
+
+    (49) quant -> QUANT C PROPN .
+    (38) gp -> PROPN . C np
+    (42) gp -> PROPN . C NOUN
+    (61) appo -> PROPN . appo
+    (62) appo -> PROPN . NOUN
+    (63) appo -> PROPN . PROPN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 49 (quant -> QUANT C PROPN .)
+    CONJ            reduce using rule 49 (quant -> QUANT C PROPN .)
+    CARD            reduce using rule 49 (quant -> QUANT C PROPN .)
+    C               shift and go to state 52
+    NOUN            shift and go to state 53
+    PROPN           shift and go to state 50
+    ART             shift and go to state 22
+
+    appo                           shift and go to state 54
+    defi                           shift and go to state 55
+
+state 114
+
+    (50) quant -> QUANT C NOUN .
+    (16) np -> NOUN . SFX
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 50 (quant -> QUANT C NOUN .)
+    CONJ            reduce using rule 50 (quant -> QUANT C NOUN .)
+    CARD            reduce using rule 50 (quant -> QUANT C NOUN .)
+    SFX             shift and go to state 61
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    C               shift and go to state 87
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    defi                           shift and go to state 66
+    gp                             shift and go to state 59
+
+state 115
+
+    (77) cardc -> CARD C CARD .
+    (14) np -> CARD . SFX
+    NOUN            reduce using rule 77 (cardc -> CARD C CARD .)
+    CARD            reduce using rule 77 (cardc -> CARD C CARD .)
+    CONJ            reduce using rule 77 (cardc -> CARD C CARD .)
+    QUANT           reduce using rule 77 (cardc -> CARD C CARD .)
+    ADVB            reduce using rule 77 (cardc -> CARD C CARD .)
+    PROPN           reduce using rule 77 (cardc -> CARD C CARD .)
+    ADJV            reduce using rule 77 (cardc -> CARD C CARD .)
+    ART             reduce using rule 77 (cardc -> CARD C CARD .)
+    $end            reduce using rule 77 (cardc -> CARD C CARD .)
+    SFX             shift and go to state 74
+
+
+state 116
+
+    (83) num -> CARD C np .
+    $end            reduce using rule 83 (num -> CARD C np .)
+    CONJ            reduce using rule 83 (num -> CARD C np .)
+    CARD            reduce using rule 83 (num -> CARD C np .)
+    ART             reduce using rule 83 (num -> CARD C np .)
+
+
+state 117
+
+    (84) num -> CARD C NOUN .
+    (16) np -> NOUN . SFX
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 84 (num -> CARD C NOUN .)
+    CONJ            reduce using rule 84 (num -> CARD C NOUN .)
+    CARD            reduce using rule 84 (num -> CARD C NOUN .)
+    SFX             shift and go to state 61
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    C               shift and go to state 87
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    defi                           shift and go to state 66
+    gp                             shift and go to state 59
+
+state 118
+
+    (81) cardc -> CARD CONJ CARD .
+    (77) cardc -> CARD . C CARD
+    (79) cardc -> CARD . CONJ cardc
+    (81) cardc -> CARD . CONJ CARD
+    (82) cardc -> CARD . CARD
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for CARD resolved as shift
+    NOUN            reduce using rule 81 (cardc -> CARD CONJ CARD .)
+    QUANT           reduce using rule 81 (cardc -> CARD CONJ CARD .)
+    ADVB            reduce using rule 81 (cardc -> CARD CONJ CARD .)
+    PROPN           reduce using rule 81 (cardc -> CARD CONJ CARD .)
+    ADJV            reduce using rule 81 (cardc -> CARD CONJ CARD .)
+    ART             reduce using rule 81 (cardc -> CARD CONJ CARD .)
+    $end            reduce using rule 81 (cardc -> CARD CONJ CARD .)
+    C               shift and go to state 126
+    CONJ            shift and go to state 73
+    CARD            shift and go to state 125
+
+
+state 119
+
+    (79) cardc -> CARD CONJ cardc .
+    (78) cardc -> cardc . CARD
+    (80) cardc -> cardc . CONJ cardc
+    NOUN            reduce using rule 79 (cardc -> CARD CONJ cardc .)
+    CARD            reduce using rule 79 (cardc -> CARD CONJ cardc .)
+    QUANT           reduce using rule 79 (cardc -> CARD CONJ cardc .)
+    ADVB            reduce using rule 79 (cardc -> CARD CONJ cardc .)
+    PROPN           reduce using rule 79 (cardc -> CARD CONJ cardc .)
+    ADJV            reduce using rule 79 (cardc -> CARD CONJ cardc .)
+    ART             reduce using rule 79 (cardc -> CARD CONJ cardc .)
+    $end            reduce using rule 79 (cardc -> CARD CONJ cardc .)
+    CONJ            shift and go to state 27
+
+
+state 120
+
+    (40) gp -> ADJV C NOUN .
+    CARD            reduce using rule 40 (gp -> ADJV C NOUN .)
+    $end            reduce using rule 40 (gp -> ADJV C NOUN .)
+    CONJ            reduce using rule 40 (gp -> ADJV C NOUN .)
+    ART             reduce using rule 40 (gp -> ADJV C NOUN .)
+
+
+state 121
+
+    (56) adjv -> NOUN ADJV .
+    $end            reduce using rule 56 (adjv -> NOUN ADJV .)
+    CONJ            reduce using rule 56 (adjv -> NOUN ADJV .)
+    CARD            reduce using rule 56 (adjv -> NOUN ADJV .)
+    ART             reduce using rule 56 (adjv -> NOUN ADJV .)
+
+
+state 122
+
+    (44) gp -> NOUN C NOUN .
+    (68) para -> NOUN . C NOUN CONJ gp
+    (71) para -> NOUN . CONJ np
+    (73) para -> NOUN . CONJ para
+    (76) para -> NOUN . CONJ NOUN
+    (16) np -> NOUN . SFX
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 44 (gp -> NOUN C NOUN .)
+    CARD            reduce using rule 44 (gp -> NOUN C NOUN .)
+    C               shift and go to state 131
+    CONJ            shift and go to state 58
+    SFX             shift and go to state 61
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    gp                             shift and go to state 59
+    defi                           shift and go to state 66
+
+state 123
+
+    (39) gp -> NOUN C np .
+    $end            reduce using rule 39 (gp -> NOUN C np .)
+    CONJ            reduce using rule 39 (gp -> NOUN C np .)
+    CARD            reduce using rule 39 (gp -> NOUN C np .)
+    ART             reduce using rule 39 (gp -> NOUN C np .)
+
+
+state 124
+
+    (78) cardc -> cardc CARD .
+    CARD            reduce using rule 78 (cardc -> cardc CARD .)
+    CONJ            reduce using rule 78 (cardc -> cardc CARD .)
+    NOUN            reduce using rule 78 (cardc -> cardc CARD .)
+    QUANT           reduce using rule 78 (cardc -> cardc CARD .)
+    ADVB            reduce using rule 78 (cardc -> cardc CARD .)
+    PROPN           reduce using rule 78 (cardc -> cardc CARD .)
+    ADJV            reduce using rule 78 (cardc -> cardc CARD .)
+    ART             reduce using rule 78 (cardc -> cardc CARD .)
+    $end            reduce using rule 78 (cardc -> cardc CARD .)
+
+
+state 125
+
+    (82) cardc -> CARD CARD .
+    CARD            reduce using rule 82 (cardc -> CARD CARD .)
+    CONJ            reduce using rule 82 (cardc -> CARD CARD .)
+    NOUN            reduce using rule 82 (cardc -> CARD CARD .)
+    QUANT           reduce using rule 82 (cardc -> CARD CARD .)
+    ADVB            reduce using rule 82 (cardc -> CARD CARD .)
+    PROPN           reduce using rule 82 (cardc -> CARD CARD .)
+    ADJV            reduce using rule 82 (cardc -> CARD CARD .)
+    ART             reduce using rule 82 (cardc -> CARD CARD .)
+    $end            reduce using rule 82 (cardc -> CARD CARD .)
+
+
+state 126
+
+    (77) cardc -> CARD C . CARD
+    CARD            shift and go to state 135
+
+
+state 127
+
+    (25) pp -> PREP . PREP
+    (26) pp -> PREP . SFX
+    (27) pp -> PREP . PRPS
+    (28) pp -> PREP . PRIN
+    (29) pp -> PREP . INRG
+    (30) pp -> PREP . QUANT
+    (31) pp -> PREP . PRDE
+    (32) pp -> PREP . CARD
+    (33) pp -> PREP . PROPN
+    (34) pp -> PREP . ADVB
+    (35) pp -> PREP . NOUN
+    (36) pp -> PREP . phrase
+    (1) phrase -> . advb
+    (2) phrase -> . para
+    (3) phrase -> . quant
+    (4) phrase -> . gp_num
+    (5) phrase -> . gp_card
+    (6) phrase -> . num
+    (7) phrase -> . cardc
+    (8) phrase -> . pp
+    (9) phrase -> . np
+    (57) advb -> . ADVB ADVB
+    (66) para -> . PREP PROPN CONJ pp
+    (67) para -> . PREP NOUN CONJ pp
+    (68) para -> . NOUN C NOUN CONJ gp
+    (69) para -> . para CONJ PROPN
+    (70) para -> . para CONJ NOUN
+    (71) para -> . NOUN CONJ np
+    (72) para -> . PROPN CONJ np
+    (73) para -> . NOUN CONJ para
+    (74) para -> . PROPN CONJ PROPN
+    (75) para -> . ADVB CONJ ADVB
+    (76) para -> . NOUN CONJ NOUN
+    (47) quant -> . QUANT C np
+    (48) quant -> . QUANT C PRDE
+    (49) quant -> . QUANT C PROPN
+    (50) quant -> . QUANT C NOUN
+    (45) gp_num -> . NOUN C num
+    (46) gp_card -> . NOUN C CARD
+    (83) num -> . CARD C np
+    (84) num -> . CARD C NOUN
+    (85) num -> . np CARD
+    (86) num -> . CARD np
+    (87) num -> . cardc np
+    (88) num -> . cardc NOUN
+    (89) num -> . CARD NOUN
+    (90) num -> . NOUN CARD
+    (77) cardc -> . CARD C CARD
+    (78) cardc -> . cardc CARD
+    (79) cardc -> . CARD CONJ cardc
+    (80) cardc -> . cardc CONJ cardc
+    (81) cardc -> . CARD CONJ CARD
+    (82) cardc -> . CARD CARD
+    (25) pp -> . PREP PREP
+    (26) pp -> . PREP SFX
+    (27) pp -> . PREP PRPS
+    (28) pp -> . PREP PRIN
+    (29) pp -> . PREP INRG
+    (30) pp -> . PREP QUANT
+    (31) pp -> . PREP PRDE
+    (32) pp -> . PREP CARD
+    (33) pp -> . PREP PROPN
+    (34) pp -> . PREP ADVB
+    (35) pp -> . PREP NOUN
+    (36) pp -> . PREP phrase
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    PREP            shift and go to state 38
+    SFX             shift and go to state 41
+    PRPS            shift and go to state 42
+    PRIN            shift and go to state 43
+    INRG            shift and go to state 44
+    QUANT           shift and go to state 45
+    PRDE            shift and go to state 46
+    CARD            shift and go to state 47
+    PROPN           shift and go to state 136
+    ADVB            shift and go to state 48
+    NOUN            shift and go to state 137
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    phrase                         shift and go to state 49
+    advb                           shift and go to state 2
+    para                           shift and go to state 3
+    quant                          shift and go to state 4
+    gp_num                         shift and go to state 5
+    gp_card                        shift and go to state 6
+    num                            shift and go to state 7
+    cardc                          shift and go to state 8
+    pp                             shift and go to state 9
+    np                             shift and go to state 10
+    gp                             shift and go to state 15
+    adjv                           shift and go to state 18
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 128
+
+    (66) para -> PREP PROPN CONJ pp .
+    CONJ            reduce using rule 66 (para -> PREP PROPN CONJ pp .)
+    $end            reduce using rule 66 (para -> PREP PROPN CONJ pp .)
+    CARD            reduce using rule 66 (para -> PREP PROPN CONJ pp .)
+    ART             reduce using rule 66 (para -> PREP PROPN CONJ pp .)
+
+
+state 129
+
+    (25) pp -> PREP . PREP
+    (26) pp -> PREP . SFX
+    (27) pp -> PREP . PRPS
+    (28) pp -> PREP . PRIN
+    (29) pp -> PREP . INRG
+    (30) pp -> PREP . QUANT
+    (31) pp -> PREP . PRDE
+    (32) pp -> PREP . CARD
+    (33) pp -> PREP . PROPN
+    (34) pp -> PREP . ADVB
+    (35) pp -> PREP . NOUN
+    (36) pp -> PREP . phrase
+    (66) para -> PREP . PROPN CONJ pp
+    (67) para -> PREP . NOUN CONJ pp
+    (1) phrase -> . advb
+    (2) phrase -> . para
+    (3) phrase -> . quant
+    (4) phrase -> . gp_num
+    (5) phrase -> . gp_card
+    (6) phrase -> . num
+    (7) phrase -> . cardc
+    (8) phrase -> . pp
+    (9) phrase -> . np
+    (57) advb -> . ADVB ADVB
+    (66) para -> . PREP PROPN CONJ pp
+    (67) para -> . PREP NOUN CONJ pp
+    (68) para -> . NOUN C NOUN CONJ gp
+    (69) para -> . para CONJ PROPN
+    (70) para -> . para CONJ NOUN
+    (71) para -> . NOUN CONJ np
+    (72) para -> . PROPN CONJ np
+    (73) para -> . NOUN CONJ para
+    (74) para -> . PROPN CONJ PROPN
+    (75) para -> . ADVB CONJ ADVB
+    (76) para -> . NOUN CONJ NOUN
+    (47) quant -> . QUANT C np
+    (48) quant -> . QUANT C PRDE
+    (49) quant -> . QUANT C PROPN
+    (50) quant -> . QUANT C NOUN
+    (45) gp_num -> . NOUN C num
+    (46) gp_card -> . NOUN C CARD
+    (83) num -> . CARD C np
+    (84) num -> . CARD C NOUN
+    (85) num -> . np CARD
+    (86) num -> . CARD np
+    (87) num -> . cardc np
+    (88) num -> . cardc NOUN
+    (89) num -> . CARD NOUN
+    (90) num -> . NOUN CARD
+    (77) cardc -> . CARD C CARD
+    (78) cardc -> . cardc CARD
+    (79) cardc -> . CARD CONJ cardc
+    (80) cardc -> . cardc CONJ cardc
+    (81) cardc -> . CARD CONJ CARD
+    (82) cardc -> . CARD CARD
+    (25) pp -> . PREP PREP
+    (26) pp -> . PREP SFX
+    (27) pp -> . PREP PRPS
+    (28) pp -> . PREP PRIN
+    (29) pp -> . PREP INRG
+    (30) pp -> . PREP QUANT
+    (31) pp -> . PREP PRDE
+    (32) pp -> . PREP CARD
+    (33) pp -> . PREP PROPN
+    (34) pp -> . PREP ADVB
+    (35) pp -> . PREP NOUN
+    (36) pp -> . PREP phrase
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    PREP            shift and go to state 38
+    SFX             shift and go to state 41
+    PRPS            shift and go to state 42
+    PRIN            shift and go to state 43
+    INRG            shift and go to state 44
+    QUANT           shift and go to state 45
+    PRDE            shift and go to state 46
+    CARD            shift and go to state 47
+    PROPN           shift and go to state 138
+    ADVB            shift and go to state 48
+    NOUN            shift and go to state 139
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    phrase                         shift and go to state 49
+    pp                             shift and go to state 9
+    advb                           shift and go to state 2
+    para                           shift and go to state 3
+    quant                          shift and go to state 4
+    gp_num                         shift and go to state 5
+    gp_card                        shift and go to state 6
+    num                            shift and go to state 7
+    cardc                          shift and go to state 8
+    np                             shift and go to state 10
+    gp                             shift and go to state 15
+    adjv                           shift and go to state 18
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 130
+
+    (67) para -> PREP NOUN CONJ pp .
+    CONJ            reduce using rule 67 (para -> PREP NOUN CONJ pp .)
+    $end            reduce using rule 67 (para -> PREP NOUN CONJ pp .)
+    CARD            reduce using rule 67 (para -> PREP NOUN CONJ pp .)
+    ART             reduce using rule 67 (para -> PREP NOUN CONJ pp .)
+
+
+state 131
+
+    (68) para -> NOUN C . NOUN CONJ gp
+    (37) gp -> NOUN C . para
+    (39) gp -> NOUN C . np
+    (41) gp -> NOUN C . QUANT
+    (43) gp -> NOUN C . PROPN
+    (44) gp -> NOUN C . NOUN
+    (66) para -> . PREP PROPN CONJ pp
+    (67) para -> . PREP NOUN CONJ pp
+    (68) para -> . NOUN C NOUN CONJ gp
+    (69) para -> . para CONJ PROPN
+    (70) para -> . para CONJ NOUN
+    (71) para -> . NOUN CONJ np
+    (72) para -> . PROPN CONJ np
+    (73) para -> . NOUN CONJ para
+    (74) para -> . PROPN CONJ PROPN
+    (75) para -> . ADVB CONJ ADVB
+    (76) para -> . NOUN CONJ NOUN
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    NOUN            shift and go to state 140
+    QUANT           shift and go to state 103
+    PROPN           shift and go to state 104
+    PREP            shift and go to state 106
+    ADVB            shift and go to state 107
+    CARD            shift and go to state 37
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    gp                             shift and go to state 15
+    para                           shift and go to state 101
+    np                             shift and go to state 123
+    adjv                           shift and go to state 18
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 132
+
+    (68) para -> NOUN C NOUN CONJ . gp
+    (71) para -> NOUN CONJ . np
+    (73) para -> NOUN CONJ . para
+    (76) para -> NOUN CONJ . NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (66) para -> . PREP PROPN CONJ pp
+    (67) para -> . PREP NOUN CONJ pp
+    (68) para -> . NOUN C NOUN CONJ gp
+    (69) para -> . para CONJ PROPN
+    (70) para -> . para CONJ NOUN
+    (71) para -> . NOUN CONJ np
+    (72) para -> . PROPN CONJ np
+    (73) para -> . NOUN CONJ para
+    (74) para -> . PROPN CONJ PROPN
+    (75) para -> . ADVB CONJ ADVB
+    (76) para -> . NOUN CONJ NOUN
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    NOUN            shift and go to state 141
+    PROPN           shift and go to state 143
+    ADJV            shift and go to state 21
+    CARD            shift and go to state 37
+    QUANT           shift and go to state 28
+    PREP            shift and go to state 106
+    ADVB            shift and go to state 107
+    ART             shift and go to state 22
+
+    gp                             shift and go to state 142
+    np                             shift and go to state 109
+    para                           shift and go to state 110
+    adjv                           shift and go to state 18
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 133
+
+    (66) para -> PREP PROPN . CONJ pp
+    CONJ            shift and go to state 144
+
+
+state 134
+
+    (67) para -> PREP NOUN . CONJ pp
+    CONJ            shift and go to state 145
+
+
+state 135
+
+    (77) cardc -> CARD C CARD .
+    CARD            reduce using rule 77 (cardc -> CARD C CARD .)
+    CONJ            reduce using rule 77 (cardc -> CARD C CARD .)
+    NOUN            reduce using rule 77 (cardc -> CARD C CARD .)
+    QUANT           reduce using rule 77 (cardc -> CARD C CARD .)
+    ADVB            reduce using rule 77 (cardc -> CARD C CARD .)
+    PROPN           reduce using rule 77 (cardc -> CARD C CARD .)
+    ADJV            reduce using rule 77 (cardc -> CARD C CARD .)
+    ART             reduce using rule 77 (cardc -> CARD C CARD .)
+    $end            reduce using rule 77 (cardc -> CARD C CARD .)
+
+
+state 136
+
+    (33) pp -> PREP PROPN .
+    (72) para -> PROPN . CONJ np
+    (74) para -> PROPN . CONJ PROPN
+    (38) gp -> PROPN . C np
+    (42) gp -> PROPN . C NOUN
+    (61) appo -> PROPN . appo
+    (62) appo -> PROPN . NOUN
+    (63) appo -> PROPN . PROPN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 33 (pp -> PREP PROPN .)
+    CARD            reduce using rule 33 (pp -> PREP PROPN .)
+    CONJ            shift and go to state 51
+    C               shift and go to state 52
+    NOUN            shift and go to state 53
+    PROPN           shift and go to state 50
+    ART             shift and go to state 22
+
+    appo                           shift and go to state 54
+    defi                           shift and go to state 55
+
+state 137
+
+    (35) pp -> PREP NOUN .
+    (68) para -> NOUN . C NOUN CONJ gp
+    (71) para -> NOUN . CONJ np
+    (73) para -> NOUN . CONJ para
+    (76) para -> NOUN . CONJ NOUN
+    (45) gp_num -> NOUN . C num
+    (46) gp_card -> NOUN . C CARD
+    (90) num -> NOUN . CARD
+    (16) np -> NOUN . SFX
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for CARD resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 35 (pp -> PREP NOUN .)
+    C               shift and go to state 57
+    CONJ            shift and go to state 58
+    CARD            shift and go to state 60
+    SFX             shift and go to state 61
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    gp                             shift and go to state 59
+    defi                           shift and go to state 66
+
+state 138
+
+    (33) pp -> PREP PROPN .
+    (66) para -> PREP PROPN . CONJ pp
+    (72) para -> PROPN . CONJ np
+    (74) para -> PROPN . CONJ PROPN
+    (38) gp -> PROPN . C np
+    (42) gp -> PROPN . C NOUN
+    (61) appo -> PROPN . appo
+    (62) appo -> PROPN . NOUN
+    (63) appo -> PROPN . PROPN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 33 (pp -> PREP PROPN .)
+    CARD            reduce using rule 33 (pp -> PREP PROPN .)
+    CONJ            shift and go to state 91
+    C               shift and go to state 52
+    NOUN            shift and go to state 53
+    PROPN           shift and go to state 50
+    ART             shift and go to state 22
+
+    appo                           shift and go to state 54
+    defi                           shift and go to state 55
+
+state 139
+
+    (35) pp -> PREP NOUN .
+    (67) para -> PREP NOUN . CONJ pp
+    (68) para -> NOUN . C NOUN CONJ gp
+    (71) para -> NOUN . CONJ np
+    (73) para -> NOUN . CONJ para
+    (76) para -> NOUN . CONJ NOUN
+    (45) gp_num -> NOUN . C num
+    (46) gp_card -> NOUN . C CARD
+    (90) num -> NOUN . CARD
+    (16) np -> NOUN . SFX
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for CARD resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 35 (pp -> PREP NOUN .)
+    CONJ            shift and go to state 92
+    C               shift and go to state 57
+    CARD            shift and go to state 60
+    SFX             shift and go to state 61
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    gp                             shift and go to state 59
+    defi                           shift and go to state 66
+
+state 140
+
+    (68) para -> NOUN C NOUN . CONJ gp
+    (44) gp -> NOUN C NOUN .
+    (68) para -> NOUN . C NOUN CONJ gp
+    (71) para -> NOUN . CONJ np
+    (73) para -> NOUN . CONJ para
+    (76) para -> NOUN . CONJ NOUN
+    (16) np -> NOUN . SFX
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    CONJ            shift and go to state 132
+    $end            reduce using rule 44 (gp -> NOUN C NOUN .)
+    CARD            reduce using rule 44 (gp -> NOUN C NOUN .)
+    C               shift and go to state 131
+    SFX             shift and go to state 61
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    gp                             shift and go to state 59
+    defi                           shift and go to state 66
+
+state 141
+
+    (76) para -> NOUN CONJ NOUN .
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (16) np -> NOUN . SFX
+    (68) para -> NOUN . C NOUN CONJ gp
+    (71) para -> NOUN . CONJ np
+    (73) para -> NOUN . CONJ para
+    (76) para -> NOUN . CONJ NOUN
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 76 (para -> NOUN CONJ NOUN .)
+    CARD            reduce using rule 76 (para -> NOUN CONJ NOUN .)
+    C               shift and go to state 146
+    SFX             shift and go to state 61
+    CONJ            shift and go to state 58
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    gp                             shift and go to state 59
+    defi                           shift and go to state 66
+
+state 142
+
+    (68) para -> NOUN C NOUN CONJ gp .
+    (11) np -> gp .
+  ! reduce/reduce conflict for $end resolved using rule 11 (np -> gp .)
+  ! reduce/reduce conflict for CONJ resolved using rule 11 (np -> gp .)
+  ! reduce/reduce conflict for CARD resolved using rule 11 (np -> gp .)
+  ! reduce/reduce conflict for ART resolved using rule 11 (np -> gp .)
+    $end            reduce using rule 11 (np -> gp .)
+    CONJ            reduce using rule 11 (np -> gp .)
+    CARD            reduce using rule 11 (np -> gp .)
+    ART             reduce using rule 11 (np -> gp .)
+
+
+state 143
+
+    (38) gp -> PROPN . C np
+    (42) gp -> PROPN . C NOUN
+    (72) para -> PROPN . CONJ np
+    (74) para -> PROPN . CONJ PROPN
+    (61) appo -> PROPN . appo
+    (62) appo -> PROPN . NOUN
+    (63) appo -> PROPN . PROPN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    C               shift and go to state 52
+    CONJ            shift and go to state 51
+    NOUN            shift and go to state 53
+    PROPN           shift and go to state 50
+    ART             shift and go to state 22
+
+    appo                           shift and go to state 54
+    defi                           shift and go to state 55
+
+state 144
+
+    (66) para -> PREP PROPN CONJ . pp
+    (25) pp -> . PREP PREP
+    (26) pp -> . PREP SFX
+    (27) pp -> . PREP PRPS
+    (28) pp -> . PREP PRIN
+    (29) pp -> . PREP INRG
+    (30) pp -> . PREP QUANT
+    (31) pp -> . PREP PRDE
+    (32) pp -> . PREP CARD
+    (33) pp -> . PREP PROPN
+    (34) pp -> . PREP ADVB
+    (35) pp -> . PREP NOUN
+    (36) pp -> . PREP phrase
+    PREP            shift and go to state 127
+
+    pp                             shift and go to state 128
+
+state 145
+
+    (67) para -> PREP NOUN CONJ . pp
+    (25) pp -> . PREP PREP
+    (26) pp -> . PREP SFX
+    (27) pp -> . PREP PRPS
+    (28) pp -> . PREP PRIN
+    (29) pp -> . PREP INRG
+    (30) pp -> . PREP QUANT
+    (31) pp -> . PREP PRDE
+    (32) pp -> . PREP CARD
+    (33) pp -> . PREP PROPN
+    (34) pp -> . PREP ADVB
+    (35) pp -> . PREP NOUN
+    (36) pp -> . PREP phrase
+    PREP            shift and go to state 127
+
+    pp                             shift and go to state 130
+
+state 146
+
+    (37) gp -> NOUN C . para
+    (39) gp -> NOUN C . np
+    (41) gp -> NOUN C . QUANT
+    (43) gp -> NOUN C . PROPN
+    (44) gp -> NOUN C . NOUN
+    (68) para -> NOUN C . NOUN CONJ gp
+    (66) para -> . PREP PROPN CONJ pp
+    (67) para -> . PREP NOUN CONJ pp
+    (68) para -> . NOUN C NOUN CONJ gp
+    (69) para -> . para CONJ PROPN
+    (70) para -> . para CONJ NOUN
+    (71) para -> . NOUN CONJ np
+    (72) para -> . PROPN CONJ np
+    (73) para -> . NOUN CONJ para
+    (74) para -> . PROPN CONJ PROPN
+    (75) para -> . ADVB CONJ ADVB
+    (76) para -> . NOUN CONJ NOUN
+    (10) np -> . adjv
+    (11) np -> . gp
+    (12) np -> . appo
+    (13) np -> . defi
+    (14) np -> . CARD SFX
+    (15) np -> . QUANT SFX
+    (16) np -> . NOUN SFX
+    (51) adjv -> . ADVB np
+    (52) adjv -> . ADVB PRPS
+    (53) adjv -> . ADVB NOUN
+    (54) adjv -> . NOUN QUANT
+    (55) adjv -> . NOUN ADVB
+    (56) adjv -> . NOUN ADJV
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+    (58) appo -> . NOUN defi
+    (59) appo -> . defi defi
+    (60) appo -> . NOUN gp
+    (61) appo -> . PROPN appo
+    (62) appo -> . PROPN NOUN
+    (63) appo -> . PROPN PROPN
+    (64) appo -> . NOUN PROPN
+    (65) appo -> . NOUN NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    QUANT           shift and go to state 103
+    PROPN           shift and go to state 104
+    NOUN            shift and go to state 147
+    PREP            shift and go to state 106
+    ADVB            shift and go to state 107
+    CARD            shift and go to state 37
+    ADJV            shift and go to state 21
+    ART             shift and go to state 22
+
+    para                           shift and go to state 101
+    np                             shift and go to state 123
+    gp                             shift and go to state 15
+    adjv                           shift and go to state 18
+    appo                           shift and go to state 19
+    defi                           shift and go to state 20
+
+state 147
+
+    (44) gp -> NOUN C NOUN .
+    (68) para -> NOUN C NOUN . CONJ gp
+    (68) para -> NOUN . C NOUN CONJ gp
+    (71) para -> NOUN . CONJ np
+    (73) para -> NOUN . CONJ para
+    (76) para -> NOUN . CONJ NOUN
+    (16) np -> NOUN . SFX
+    (54) adjv -> NOUN . QUANT
+    (55) adjv -> NOUN . ADVB
+    (56) adjv -> NOUN . ADJV
+    (37) gp -> NOUN . C para
+    (39) gp -> NOUN . C np
+    (41) gp -> NOUN . C QUANT
+    (43) gp -> NOUN . C PROPN
+    (44) gp -> NOUN . C NOUN
+    (58) appo -> NOUN . defi
+    (60) appo -> NOUN . gp
+    (64) appo -> NOUN . PROPN
+    (65) appo -> NOUN . NOUN
+    (17) defi -> . ART adjv
+    (18) defi -> . ART ADJV
+    (19) defi -> . ART CARD
+    (20) defi -> . ART QUANT
+    (21) defi -> . ART PRDE
+    (22) defi -> . ART ORDN
+    (23) defi -> . ART PROPN
+    (24) defi -> . ART NOUN
+    (37) gp -> . NOUN C para
+    (38) gp -> . PROPN C np
+    (39) gp -> . NOUN C np
+    (40) gp -> . ADJV C NOUN
+    (41) gp -> . NOUN C QUANT
+    (42) gp -> . PROPN C NOUN
+    (43) gp -> . NOUN C PROPN
+    (44) gp -> . NOUN C NOUN
+  ! shift/reduce conflict for CONJ resolved as shift
+  ! shift/reduce conflict for ART resolved as shift
+    $end            reduce using rule 44 (gp -> NOUN C NOUN .)
+    CARD            reduce using rule 44 (gp -> NOUN C NOUN .)
+    CONJ            shift and go to state 132
+    C               shift and go to state 131
+    SFX             shift and go to state 61
+    QUANT           shift and go to state 62
+    ADVB            shift and go to state 63
+    ADJV            shift and go to state 64
+    PROPN           shift and go to state 65
+    NOUN            shift and go to state 56
+    ART             shift and go to state 22
+
+    gp                             shift and go to state 59
+    defi                           shift and go to state 66
+
+Conflicts:
+
+shift/reduce conflict for CONJ in state 3 resolved as shift
+shift/reduce conflict for CARD in state 8 resolved as shift
+shift/reduce conflict for CONJ in state 8 resolved as shift
+shift/reduce conflict for ART in state 8 resolved as shift
+shift/reduce conflict for CARD in state 10 resolved as shift
+shift/reduce conflict for ART in state 20 resolved as shift
+shift/reduce conflict for ART in state 25 resolved as shift
+shift/reduce conflict for CARD in state 32 resolved as shift
+shift/reduce conflict for ART in state 32 resolved as shift
+shift/reduce conflict for ART in state 36 resolved as shift
+shift/reduce conflict for CARD in state 38 resolved as shift
+shift/reduce conflict for ART in state 38 resolved as shift
+shift/reduce conflict for CONJ in state 39 resolved as shift
+shift/reduce conflict for ART in state 39 resolved as shift
+shift/reduce conflict for CONJ in state 40 resolved as shift
+shift/reduce conflict for CARD in state 40 resolved as shift
+shift/reduce conflict for ART in state 40 resolved as shift
+shift/reduce conflict for CONJ in state 47 resolved as shift
+shift/reduce conflict for CARD in state 47 resolved as shift
+shift/reduce conflict for ART in state 47 resolved as shift
+shift/reduce conflict for CONJ in state 48 resolved as shift
+shift/reduce conflict for CARD in state 48 resolved as shift
+shift/reduce conflict for ART in state 48 resolved as shift
+shift/reduce conflict for ART in state 50 resolved as shift
+shift/reduce conflict for ART in state 53 resolved as shift
+shift/reduce conflict for ART in state 72 resolved as shift
+shift/reduce conflict for ART in state 93 resolved as shift
+shift/reduce conflict for ART in state 97 resolved as shift
+shift/reduce conflict for CONJ in state 98 resolved as shift
+shift/reduce conflict for CARD in state 98 resolved as shift
+shift/reduce conflict for ART in state 98 resolved as shift
+shift/reduce conflict for CONJ in state 100 resolved as shift
+shift/reduce conflict for CARD in state 100 resolved as shift
+shift/reduce conflict for ART in state 100 resolved as shift
+shift/reduce conflict for CONJ in state 101 resolved as shift
+shift/reduce conflict for CARD in state 102 resolved as shift
+shift/reduce conflict for CONJ in state 104 resolved as shift
+shift/reduce conflict for ART in state 104 resolved as shift
+shift/reduce conflict for CONJ in state 108 resolved as shift
+shift/reduce conflict for ART in state 108 resolved as shift
+shift/reduce conflict for ART in state 113 resolved as shift
+shift/reduce conflict for ART in state 114 resolved as shift
+shift/reduce conflict for ART in state 117 resolved as shift
+shift/reduce conflict for CONJ in state 118 resolved as shift
+shift/reduce conflict for CARD in state 118 resolved as shift
+shift/reduce conflict for CONJ in state 122 resolved as shift
+shift/reduce conflict for ART in state 122 resolved as shift
+shift/reduce conflict for CONJ in state 136 resolved as shift
+shift/reduce conflict for ART in state 136 resolved as shift
+shift/reduce conflict for CONJ in state 137 resolved as shift
+shift/reduce conflict for CARD in state 137 resolved as shift
+shift/reduce conflict for ART in state 137 resolved as shift
+shift/reduce conflict for CONJ in state 138 resolved as shift
+shift/reduce conflict for ART in state 138 resolved as shift
+shift/reduce conflict for CONJ in state 139 resolved as shift
+shift/reduce conflict for CARD in state 139 resolved as shift
+shift/reduce conflict for ART in state 139 resolved as shift
+shift/reduce conflict for CONJ in state 140 resolved as shift
+shift/reduce conflict for ART in state 140 resolved as shift
+shift/reduce conflict for CONJ in state 141 resolved as shift
+shift/reduce conflict for ART in state 141 resolved as shift
+shift/reduce conflict for CONJ in state 147 resolved as shift
+shift/reduce conflict for ART in state 147 resolved as shift
+reduce/reduce conflict in state 142 resolved using rule np -> gp
+rejected rule (para -> NOUN C NOUN CONJ gp  [precedence=right, level=1]) in state 142
+Rule (para -> NOUN C NOUN CONJ gp  [precedence=right, level=1]) is never reduced

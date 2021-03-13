@@ -146,10 +146,6 @@ class posParser:
         """
         F = self._F
         return any([
-
-            # vanilla subs
-            F.pdp.v(w) == 'subs',
-
             # potentially substantive participles
             (
                 F.sp.v(w) == 'verb'
@@ -200,11 +196,12 @@ def parse_pos(data_locs, slot2pos_path, uniquepos_path):
     # if posParser does not return a value, we 
     # assign it the default BHSA tag in uppercase
     parser = posParser(tf_api)
-
+    pos_map = {'subs':'NOUN'}
     slot2pos = {}
     for slot in F.otype.s('word'):
+        pdp = F.pdp.v(slot)
         pos = parser._parse(slot)
-        pos = pos or F.pdp.v(slot).upper()
+        pos = pos or pos_map.get(pdp, pdp.upper())
         slot2pos[slot] = pos 
 
     uniquepos = sorted(set(slot2pos.values()))

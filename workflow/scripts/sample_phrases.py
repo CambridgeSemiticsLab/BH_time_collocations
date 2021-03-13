@@ -11,5 +11,5 @@ from sampling.phrase_sampling import get_phrase_samples
 get_phrase_samples(
     snakemake.input.bhsadata,
     snakemake.output.samples,
-    snakemake.output.nonsamples,
+    snakemake.output.nosamples,
 )

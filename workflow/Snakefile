@@ -2,9 +2,30 @@
 Snakefile for data analysis pipeline.
 """
 
+from pathlib import Path
+
 # locations for Text-Fabric BHSA data
 bhsadata = [
     "/Users/cody/github/etcbc/bhsa/tf/c"
+]
+
+home = Path.home()
+github = home.joinpath('github')
+
+stylesheets = [
+
+    ("/Users/cody/github/CambridgeSemiticsLab"
+     "/time_collocations/workflow/css/style.css"),
+
+    ("/Users/cody/github/annotation"
+     "/text-fabric/tf/server/static/base.css"),
+
+    ("/Users/cody/github/annotation"
+     "/text-fabric/tf/server/static/display.css"),
+
+    ("/Users/cody/github/annotation"
+     "/text-fabric/tf/server/static/highlight.css")
+
 ]
 
 rule parse_pos:
@@ -21,6 +42,35 @@ rule build_samples:
         bhsadata=bhsadata
     output:
         samples="../results/samples/phrases.json",
-        nonsamples="../results/samples/reject_phrases.json"
+        nosamples="../results/samples/reject_phrases.json"
     script:
         "scripts/sample_phrases.py"
+
+rule sample_metrics:
+    input:
+        samples=rules.build_samples.output.samples,
+        nosamples=rules.build_samples.output.nosamples,
+        bhsadata=bhsadata
+    params:
+        outdir="../results/data_metrics"
+    output:
+        metrics="../results/data_metrics/phrase_samples.html"
+    script:
+        "scripts/measure_sample.py"
+
+rule parse_phrases:
+    input:
+        samples=rules.build_samples.output.samples,
+        bhsadata=bhsadata,
+        slot2pos=rules.parse_pos.output.slot2pos,
+        styles=stylesheets,
+        script="scripts/parsing/phrase_parser.py",
+        script2="scripts/parsing/pos_parsing.py",
+    params:
+        plotsdir="/Users/cody/github/CambridgeSemiticsLab/time_collocations/results/data_metrics/plots"
+    output:
+        parsed="../results/parsing/phrase_parsings.json",
+        notparsed="../results/parsing/phrase_notparsings.json",
+        metrics="../results/data_metrics/phrase_parsings.html"
+    script:
+        "scripts/parse_phrases.py"
