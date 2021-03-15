@@ -7,7 +7,7 @@ def get_phrase_samples(tf_locs, sample_out, unsample_out):
     
     # initialize TF with supplied paths
     TF = Fabric(locations=tf_locs)
-    API = TF.load('language typ st function')
+    API = TF.load('language typ st function pdp')
     F, L = API.F, API.L
 
     # loop through all phrases in BHSA and collect samples
@@ -38,7 +38,13 @@ def get_phrase_samples(tf_locs, sample_out, unsample_out):
         # look up contextual data for filtering
         phrase_words = L.d(phrase, 'word')
         words = L.d(phrase_atom, 'word')
-       
+
+        # skip phrases with conjunctions
+        pdps = set(F.pdp.v(w) for w in words)
+        if {'conj'} & pdps:
+            nonsamples['conj'].append(phrase_atom)
+            continue
+      
         # skip non-Hebrew phrase_atoms
         if F.language.v(words[0]) != 'Hebrew':
             nonsamples['aramaic'].append(phrase_atom)

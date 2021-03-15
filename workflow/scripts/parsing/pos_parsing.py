@@ -58,7 +58,8 @@ class posParser:
             if parser(wordn):
                 return value
 
-    def _getP(self, node, context='phrase'):
+
+    def _getP(self, node, context='phrase_atom'):
         """Get Positions object for a TF node."""
         return PositionsTF(node, context, self._tfapi).get
 
@@ -154,9 +155,28 @@ class posParser:
         ])    
     
     def CARD(self, w):
-        """A cardinal number."""
+        """A cardinal number followed by other cardinals."""
+        P = self._getP(w)
         return any([
-            self._F.ls.v(w) == 'card',
+            (
+                self._F.ls.v(w) == 'card'
+                and (
+                    P(-1,'ls') == 'card'
+                    or (P(1,'ls') == 'card')
+                    or (P(-1,'lex') == 'W' and P(-2,'ls') == 'card')
+                    or (P(1,'lex') == 'W' and P(2,'ls') == 'card')
+                )
+            ),
+        ])
+
+    def CARD1(self, w):
+        """A standalone cardinal number."""
+        P = self._getP(w)
+        return any([
+            (
+                self._F.ls.v(w) == 'card'
+                and not self.CARD(w)
+            ),
         ])
     
     def ORDN(self, w):

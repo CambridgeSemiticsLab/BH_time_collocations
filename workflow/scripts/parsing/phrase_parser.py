@@ -36,18 +36,16 @@ class BhsaLexer(Lexer):
          CARD,
          CONJ,
          INRG,
-#         INTJ,
-#         NEGA,
          NOUN,
          ORDN,
          PRDE,
          PREP,
+         NEGA,
          PRIN,
          PROPN,
          PRPS,
          QUANT,
          SFX,
-#         VERB,
     }
     
     def get_token(self, cx, cat, index):
@@ -203,15 +201,17 @@ class PhraseParser(Parser):
         return [p[0].slot, p[2], 'QUANT']
     
     # -- adjectival phrases --
-    @_('NOUN ADJV', 'NOUN ADVB', 'NOUN QUANT')
+    @_('NOUN ADJV', 'NOUN ADVB', 
+       'NOUN QUANT', 'NOUN ORDN')
     def adjv(self, p):
         return [p[1].slot, p[0].slot, 'ADJV']
 
-    @_('ADVB NOUN', 'ADVB PRPS')
+    @_('ADVB NOUN', 'ADVB PRPS', 'ADVB PROPN',
+       'NEGA NOUN')
     def adjv(self, p):
         return [p[0].slot, p[1].slot, 'ADJV']
 
-    @_('ADVB np')
+    @_('ADVB np', 'ADVB pp')
     def adjv(self, p):
         return [p[0].slot, p[1], 'ADJV']
 
@@ -236,7 +236,7 @@ class PhraseParser(Parser):
     def appo(self, p):
         return [p[1], p[0].slot, 'APPO']
 
-    @_('defi defi')
+    @_('defi defi', 'np defi')
     def appo(self, p):
         return [p[1], p[0], 'APPO']
 
@@ -250,7 +250,7 @@ class PhraseParser(Parser):
 
     # -- parallel phrases --
     @_('NOUN CONJ NOUN', 'ADVB CONJ ADVB',
-       'PROPN CONJ PROPN')
+       'PROPN CONJ PROPN', 'ADJV CONJ ADJV')
     def para(self, p):
         return [p[0].slot, [p[1].slot, p[2].slot, 'CONJ'], 'PARA']
 
@@ -258,7 +258,7 @@ class PhraseParser(Parser):
     def para(self, p):
         return [p[0].slot, [p[1].slot, p[2], 'CONJ'], 'PARA']
 
-    @_('para CONJ NOUN', 'para CONJ PROPN')
+    @_('para CONJ NOUN', 'para CONJ PROPN', 'appo CONJ NOUN')
     def para(self, p):
         return [p[0], [p[1].slot, p[2].slot, 'CONJ'], 'PARA']
 
@@ -268,7 +268,8 @@ class PhraseParser(Parser):
         cj = [p[3].slot, p[4], 'CONJ']
         return [gp, cj, 'PARA']
 
-    @_('PREP NOUN CONJ pp', 'PREP PROPN CONJ pp')
+    @_('PREP NOUN CONJ pp', 'PREP NOUN CONJ para',
+       'PREP PROPN CONJ pp', 'PREP PROPN CONJ para')
     def para(self, p):
         pp = [p[0].slot, p[1].slot, 'PP']
         cj = [p[2].slot, p[3], 'CONJ']
@@ -279,6 +280,10 @@ class PhraseParser(Parser):
     def cardc(self, p):
         return [p[0].slot, p[1].slot, 'CARDC']
     
+    @_('CARD cardc')
+    def cardc(self, p):
+        return [p[0].slot, p[1], 'CARDC']
+ 
     @_('CARD CONJ CARD')
     def cardc(self, p):
         return [p[0].slot, [p[1].slot, p[2].slot, 'CONJ'], 'CARDC']
@@ -298,6 +303,10 @@ class PhraseParser(Parser):
     @_('CARD C CARD')
     def cardc(self, p):
         return [p[0].slot, p[2].slot, 'CARDC']
+
+    @_('CARD C cardc')
+    def cardc(self, p):
+        return [p[0].slot, p[2], 'CARDC']
     
     # -- cardinal quantifications --
     @_('NOUN CARD', 'CARD NOUN')

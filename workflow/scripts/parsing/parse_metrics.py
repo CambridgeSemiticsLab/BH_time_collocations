@@ -161,7 +161,7 @@ def examine_parsings(parsed_path, notparsed_path,
 
     # counts of phrase strings that are unparsed
     err_df = df[df.parsed == 0]
-    top_err_str = err_df.pos_chain.value_counts().head(25)
+    top_err_str = err_df.pos_chain.value_counts().head(50)
     rep.heading('most missed values', 2)
     rep.table(top_err_str)
 
@@ -169,7 +169,8 @@ def examine_parsings(parsed_path, notparsed_path,
     for string in top_err_str.index:
         rep.heading(string, 3)
         examples = err_df[err_df.pos_chain == string]
-        examples = examples.sample(5, random_state=42)
+        sample_size = min([5, examples.shape[0]])
+        examples = examples.sample(sample_size, random_state=42)
         for i in examples.index:
             rep.append(
                 bhsa.pretty(

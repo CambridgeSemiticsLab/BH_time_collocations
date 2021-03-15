@@ -30,7 +30,9 @@ stylesheets = [
 
 rule parse_pos:
     input:
-        bhsadata=bhsadata
+        bhsadata=bhsadata,
+        script1="scripts/parse_pos.py",
+        script2="scripts/parsing/pos_parsing.py"
     output:
         slot2pos="../results/parsing/slot2pos.json",
         uniquepos="../results/parsing/uniquepos.txt"
@@ -39,7 +41,8 @@ rule parse_pos:
 
 rule build_samples:
     input:
-        bhsadata=bhsadata
+        bhsadata=bhsadata,
+        script="scripts/sample_phrases.py"
     output:
         samples="../results/samples/phrases.json",
         nosamples="../results/samples/reject_phrases.json"

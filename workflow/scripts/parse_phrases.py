@@ -1,6 +1,6 @@
 from tf.fabric import Fabric
 from tf.app import use
-from parsing.phrase_parser import parse_phrases
+from parsing.phrase_parser2 import parse_phrases
 from parsing.parse_metrics import examine_parsings
 
 datalocs = {
