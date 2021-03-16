@@ -32,20 +32,23 @@ class BhsaLexer(Lexer):
          ADJV,
          ADVB,
          ART,
-         C,
          CARD,
+         CARD1,
          CONJ,
+         CONJPP,
+         CONJGP,
          INRG,
          NOUN,
          ORDN,
          PRDE,
          PREP,
-         NEGA,
          PRIN,
          PROPN,
          PRPS,
          QUANT,
-         SFX,
+         C, # construct state
+         A, # absolute state
+         SFX, # pronominal suffixes
     }
     
     def get_token(self, cx, cat, index):
@@ -90,8 +93,10 @@ class BhsaLexer(Lexer):
         prs = F.prs.v(slot)
         st = F.st.v(slot)
         if pos != 'PREP':
-            if st == 'c':
+            if pos not in {'CARD', 'CARD1'} and st == 'c':
                 yield CX(slot, 'C')
+            elif pos in {'NOUN','PROPN'} and prs in {'absent', 'n/a'}:
+                yield CX(slot, 'A')
             #elif st == 'a' and prs in {'absent', 'n/a'}:
             #    yield CX(slot, 'A')
         if F.prs.v(slot) not in {'absent', 'n/a'}:
@@ -105,7 +110,7 @@ class PhraseParser(Parser):
     def __init__(self, error_tracker):
         super().__init__()
         self.error_tracker = error_tracker
-    
+
     tokens = BhsaLexer.tokens
 
     def error(self, token):
@@ -115,51 +120,161 @@ class PhraseParser(Parser):
         except:
             self.error_tracker['e'] = None
 
-    precedence = [
-        ('right', CONJ),
-        ('left', SFX),
-    ]
-    
     debugfile = 'parser.out'
     
     # -- FINAL PHRASE --
-    @_('np', 'pp','cardc',
-       'num', 'gp_card', 'gp_num',
-       'quant', 'para', 'advb')
+    @_('np', 'adjv', 'defi', 'gp',
+       'pp', 'appo', 'quant', 'num',
+       'para', 'demon', 'cardc', 'advb',
+       'quant_sized', 'adjv_para')
     def phrase(self, p):
-        if type(p[0]) == int:
-            return [p[0]]
         return p[0]
 
     # -- noun-based phrases --
-    @_('NOUN SFX', 'QUANT SFX', 'CARD SFX')
+    @_('NOUN A', 'PROPN A')
     def np(self, p):
         return p[0].slot
-    
-    @_('defi', 'appo', 
-       'gp', 'adjv')
+
+    @_('NOUN SFX', 'QUANT SFX', 'CARD1 SFX')
     def np(self, p):
-        return p[0]
-    
+        return p[0].slot
+
+    # -- adjective-based phrases --
+    @_('np ADJV', 'np ADVB', 'np ORDN')
+    def adjv(self, p):
+        return [p[1].slot, p[0], 'ADJV']
+
+    @_('CARD1 ADJV')
+    def adjv(self, p):
+        return [p[1].slot, p[0].slot, 'ADJV']
+
+    @_('np advb', 'np adjv_para')
+    def adjv(self, p):
+        return [p[1], p[0], 'ADJV']
+
+    @_('ADVB PRPS', 'ADVB CARD1')
+    def adjv(self, p):
+        return [p[0].slot, p[1].slot, 'ADJV']
+
+    @_('ADJV np')
+    def adjv(self, p):
+        return [p[0].slot, p[1], 'ADJV']
+
+    @_('ADVB np', 'ADVB pp', 'ADVB quant')
+    def adjv(self, p):
+        return [p[0].slot, p[1], 'ADJV']
+
+    @_('adjv ADJV')
+    def adjv(self, p):
+        return [p[1].slot, p[0], 'ADJV']
+
+    # phrase + PP modification
+    @_('np pp')
+    def adjv(self, p):
+        return [p[0], p[1], 'ADJV']
+ 
+    # -- adverbial phrases -- 
+    # TODO: add rule to recognize distributive 
+    # constructions suhch as סביב סביב
+    @_('ADVB ADVB', 'ADJV ADVB', 'ADJV ADJV')
+    def advb(self, p):
+        return [p[1].slot, p[0].slot, 'ADVB']
+
     # -- definite phrases --
-    @_('ART NOUN', 'ART PROPN', 'ART ORDN', 
-       'ART PRDE', 'ART QUANT', 'ART CARD',
-       'ART ADJV',)
+    @_('ART ORDN', 'ART PRDE', 'ART QUANT', 
+       'ART CARD1', 'ART ADJV', 
+       'ART PREP', # covers some borderline preps (e.g. עֵבֶר 
+      )
     def defi(self, p):
         return [p[0].slot, p[1].slot, 'DEF']
 
-    @_('ART adjv')
+    @_('ART adjv', 'ART np', 'ART gp')
     def defi(self, p):
         return [p[0].slot, p[1], 'DEF']
 
+    # -- genitive phrases --
+    @_('NOUN C', 'PROPN C', 'ADJV C')
+    def constr(self, p): 
+        return p[0].slot
+
+    @_('constr NOUN', 'constr PROPN',
+       'constr QUANT', 'constr CARD1',
+       'constr PRIN', 'constr ORDN',
+       'constr ADVB')
+    def gp(self, p):
+        return [p[1].slot, p[0], 'GP']
+
+    @_('constr phrase')
+    def gp(self, p):
+        return [p[1], p[0], 'GP']
+
+    # -- quantified phrases -- 
+    @_('QUANT C')
+    def qconstr(self, p):
+        return p[0].slot
+
+    @_('qconstr PROPN', 'qconstr PRDE')
+    def quant(self, p):
+        return [p[0], p[1].slot, 'QUANT'] 
+
+    @_('qconstr phrase')
+    def quant(self, p):
+        return [p[0], p[1], 'QUANT']
+
+    @_('QUANT np')
+    def quant(self, p):
+        return [p[0].slot, p[1], 'QUANT']
+
+    @_('np QUANT')
+    def quant(self, p):
+        return [p[1].slot, p[0], 'QUANT']
+    
+    @_('QUANT PRDE')
+    def quant(self, p):
+        return [p[0].slot, p[1].slot, 'QUANT']
+
+    # e.g. רב מאד
+    # NB: need to add recognition for distributive cx: e.g. מעט מעט
+    @_('QUANT ADVB', 'QUANT QUANT')
+    def quant_sized(self, p):
+        return [p[1].slot, p[0].slot, 'ADJV']
+
+    @_('np quant_sized')
+    def quant(self, p):
+        return [p[1], p[0], 'QUANT']
+    
+    # -- demonstrative phrases --
+    @_('CARD1 PRDE', 'PRIN PRDE', 'ADVB PRDE')
+    def demon(self, p):
+        return [p[1].slot, p[0].slot, 'DEMON']
+
+    @_('NOUN C PRDE')
+    def demon(self, p):
+        return [p[2].slot, p[0].slot, 'DEMON']
+
+    @_('np PRDE')
+    def demon(self, p):
+        return [p[1].slot, p[0], 'DEMON']
+
+    # -- appositional phrases --
+    @_('np np', 'np defi', 'defi defi', 
+       'appo appo', 'adjv adjv', 'gp gp',
+       'appo np', 'appo defi', 'num num',
+       'defi np', 'advb advb')
+    def appo(self, p):
+        return [p[1], p[0], 'APPO']
+
     # -- prepositional phrases --
-    @_('PREP phrase')
+    @_('PREP np', 'PREP adjv', 'PREP defi', 'PREP gp',
+       'PREP pp', 'PREP appo', 'PREP quant', 'PREP num',
+       'PREP para', 'PREP demon', 'PREP cardc', 'PREP advb',
+       'PREP quant_sized')
     def pp(self, p):
         return [p[0].slot, p[1], 'PP']
 
-    @_('PREP NOUN', 'PREP ADVB', 'PREP PROPN',
-       'PREP CARD', 'PREP PRDE', 'PREP QUANT',
-       'PREP INRG', 'PREP PRIN', 'PREP PRPS')
+    @_('PREP ADVB', 'PREP PROPN', 'PREP CARD1', 
+       'PREP PRDE', 'PREP QUANT', 'PREP INRG', 
+       'PREP PRIN', 'PREP PRPS', 'PREP ORDN')
     def pp(self, p):
         return [p[0].slot, p[1].slot, 'PP']
     
@@ -170,172 +285,96 @@ class PhraseParser(Parser):
     @_('PREP PREP')
     def pp(self, p):
         return [p[0].slot, p[1].slot, 'PP']
-    
-    # -- genitive phrases --
-    @_('NOUN C NOUN', 'NOUN C PROPN',
-       'PROPN C NOUN', 'NOUN C QUANT',
-       'ADJV C NOUN')
-    def gp(self, p):
-        return [p[2].slot, p[0].slot, 'GP']
-    
-    @_('NOUN C np', 'PROPN C np',
-       'NOUN C para')
-    def gp(self, p):
-        return [p[2], p[0].slot, 'GP']
+  
+    # -- parallel phrases --
+    @_('np CONJ np', 'np CONJ defi', 'np CONJ para', 
+       'np CONJ adjv',
+       'defi CONJ defi', 'defi CONJ para', 'defi CONJ np',
+       'appo CONJ appo', 'appo CONJ para', 
+       'adjv CONJ adjv', 'adjv CONJ para',
+       'demon CONJ demon', 'demon CONJ para', 
+       'quant CONJ quant', 'quant CONJ para',
+       'para CONJ para', 
+       'num CONJ num', 'num CONJ np',
+    ) 
+    def para(self, p):
+        conj = [p[1].slot, p[2], 'CONJ']
+        return [conj, p[0], 'PARA']
 
-    @_('NOUN C num')
-    def gp_num(self, p):
-        return [p[2], p[0].slot, 'GP_CARD']
-    
-    @_('NOUN C CARD')
-    def gp_card(self, p):
-        return [p[0].slot, p[2].slot, 'GP_NUM']
+    @_('PRPS CONJ PRPS')
+    def para(self, p):
+        conj = [p[1].slot, p[2].slot, 'CONJ']
+        return [conj, p[0].slot, 'PARA']
 
-    # -- quantified phrases -- 
-    @_('QUANT C NOUN', 'QUANT C PROPN', 'QUANT C PRDE')
-    def quant(self, p):
-        return [p[0].slot, p[2].slot, 'QUANT'] 
+    @_('PRPS CONJ np')
+    def para(self, p):
+        conj = [p[1].slot, p[2], 'CONJ']
+        return [conj, p[0].slot, 'PARA']
 
-    @_('QUANT C np')
-    def quant(self, p):
-        return [p[0].slot, p[2], 'QUANT']
-    
-    # -- adjectival phrases --
-    @_('NOUN ADJV', 'NOUN ADVB', 
-       'NOUN QUANT', 'NOUN ORDN')
-    def adjv(self, p):
-        return [p[1].slot, p[0].slot, 'ADJV']
+    @_('ADVB CONJ ADVB', 'ADJV CONJ ADJV')
+    def adjv_para(self, p):
+        conj = [p[1].slot, p[2].slot, 'CONJ']
+        return [conj, p[0].slot, 'PARA']
 
-    @_('ADVB NOUN', 'ADVB PRPS', 'ADVB PROPN',
-       'NEGA NOUN')
-    def adjv(self, p):
-        return [p[0].slot, p[1].slot, 'ADJV']
-
-    @_('ADVB np', 'ADVB pp')
-    def adjv(self, p):
-        return [p[0].slot, p[1], 'ADJV']
-
-    # -- adverbial phrases -- 
-    # !! TO DO: add rule to recognize distributive 
-    # constructions suhch as סביב סביב
-    @_('ADVB ADVB')
-    def advb(self, p):
-        return [p[1].slot, p[0].slot, 'ADVB']
-
-    # -- appositional phrases --
-    @_('NOUN NOUN', 'NOUN PROPN', 'PROPN PROPN',
-       'PROPN NOUN')
-    def appo(self, p):
-        return [p[1].slot, p[0].slot, 'APPO']
-    
-    @_('PROPN appo')
-    def appo(self, p):
-        return [p[1], p[0].slot, 'APPO']
-
-    @_('NOUN gp')
-    def appo(self, p):
-        return [p[1], p[0].slot, 'APPO']
-
-    @_('defi defi', 'np defi')
-    def appo(self, p):
-        return [p[1], p[0], 'APPO']
-
-    @_('NOUN defi')
-    def appo(self, p):
-        return [p[1], p[0].slot, 'APPO']
-
-#    @_('np defi')
-#    def appo(self, p):
-#        return [p[0], p[0], 'APPO']
+    @_('np CONJ QUANT')
+    def para(self, p):
+        conj = [p[1].slot, p[2].slot, 'CONJ'] 
+        return [conj, p[0], 'PARA']
 
     # -- parallel phrases --
-    @_('NOUN CONJ NOUN', 'ADVB CONJ ADVB',
-       'PROPN CONJ PROPN', 'ADJV CONJ ADJV')
+    @_('pp CONJPP pp', 'pp CONJPP para',
+       'gp CONJGP gp', 'gp CONJGP para')
     def para(self, p):
-        return [p[0].slot, [p[1].slot, p[2].slot, 'CONJ'], 'PARA']
-
-    @_('NOUN CONJ para', 'PROPN CONJ np', 'NOUN CONJ np')
-    def para(self, p):
-        return [p[0].slot, [p[1].slot, p[2], 'CONJ'], 'PARA']
-
-    @_('para CONJ NOUN', 'para CONJ PROPN', 'appo CONJ NOUN')
-    def para(self, p):
-        return [p[0], [p[1].slot, p[2].slot, 'CONJ'], 'PARA']
-
-    @_('NOUN C NOUN CONJ gp')
-    def para(self, p):
-        gp = [p[0].slot, p[2].slot, 'GP']
-        cj = [p[3].slot, p[4], 'CONJ']
-        return [gp, cj, 'PARA']
-
-    @_('PREP NOUN CONJ pp', 'PREP NOUN CONJ para',
-       'PREP PROPN CONJ pp', 'PREP PROPN CONJ para')
-    def para(self, p):
-        pp = [p[0].slot, p[1].slot, 'PP']
-        cj = [p[2].slot, p[3], 'CONJ']
-        return [pp, cj, 'PARA']
+        conj = [p[1].slot, p[2], 'CONJ']
+        return [conj, p[0], 'PARA']
 
     # -- chained cardinal numbers --
-    @_('CARD CARD')
+    @_('CARD CARD', 'CARD C CARD')
     def cardc(self, p):
-        return [p[0].slot, p[1].slot, 'CARDC']
-    
-    @_('CARD cardc')
-    def cardc(self, p):
-        return [p[0].slot, p[1], 'CARDC']
- 
-    @_('CARD CONJ CARD')
-    def cardc(self, p):
-        return [p[0].slot, [p[1].slot, p[2].slot, 'CONJ'], 'CARDC']
-    
-    @_('cardc CONJ cardc')
-    def cardc(self, p):
-        return [p[0], [p[1].slot, p[2], 'CONJ'], 'CARDC']
-    
-    @_('CARD CONJ cardc')
-    def cardc(self, p):
-        return [p[0].slot, [p[1].slot, p[2], 'CONJ'], 'CARDC']
-    
+        return [p.CARD0.slot, p.CARD1.slot, 'CARDC']
+
     @_('cardc CARD')
     def cardc(self, p):
         return [p[0], p[1].slot, 'CARDC']
 
-    @_('CARD C CARD')
+    @_('CARD cardc')
     def cardc(self, p):
-        return [p[0].slot, p[2].slot, 'CARDC']
+        return [p[0].slot, p[1], 'CARDC']
 
-    @_('CARD C cardc')
+    @_('CARD CONJ cardc')
     def cardc(self, p):
-        return [p[0].slot, p[2], 'CARDC']
-    
+        conj = [p[1].slot, p[2], 'CONJ']
+        return [conj, p[0].slot, 'CARDC']
+
+    @_('CARD CONJ CARD')
+    def cardc(self, p):
+        conj = [p[1].slot, p[2].slot, 'CONJ']
+        return [conj, p[0].slot, 'CARDC']
+
     # -- cardinal quantifications --
-    @_('NOUN CARD', 'CARD NOUN')
+    @_('np cardc', 'gp cardc', 'appo cardc', 
+       'adjv cardc')
     def num(self, p):
-        return [p.CARD.slot, p.NOUN.slot, 'NUM']
+        return [p[1], p[0], 'NUM']
     
-    @_('cardc NOUN')
-    def num(self, p):
-        return [p[0], p[1].slot, 'NUM']
-    
-    @_('cardc np')
+    @_('cardc np', 'cardc gp', 'cardc appo',
+       'cardc adjv')
     def num(self, p):
         return [p[0], p[1], 'NUM']
-    
-    @_('CARD np')
+
+    @_('CARD1 np', 'CARD1 gp', 'CARD1 appo',
+       'CARD1 adjv', 'CARD1 defi')
     def num(self, p):
         return [p[0].slot, p[1], 'NUM']
-    
-    @_('np CARD')
+
+    @_('CARD1 QUANT', 'CARD1 PRPS')
+    def num(self, p):
+        return [p[0].slot, p[1].slot, 'NUM']
+
+    @_('np CARD1', 'defi CARD1', 'adjv CARD1',
+       'appo CARD1')
     def num(self, p):
         return [p[1].slot, p[0], 'NUM']
-
-    @_('CARD C NOUN')
-    def num(self, p):
-        return [p[0].slot, p[1].slot, 'NUM']
-
-    @_('CARD C np')
-    def num(self, p):
-        return [p[0].slot, p[1].slot, 'NUM']
 
 def parse_phrases(samp_path, parsepath, noparsepath, datalocs, API=None):
     """Apply the parser and return metrics on unmatches."""
@@ -384,7 +423,7 @@ def parse_phrases(samp_path, parsepath, noparsepath, datalocs, API=None):
             errors[ph_node] = (error_tracker['e'], str(toks))
 
             # reset error tracker
-            error_tracker['e'] = None
+            error_tracker['e'] = None 
 
     # export
     with open(parsepath, 'w') as outfile:

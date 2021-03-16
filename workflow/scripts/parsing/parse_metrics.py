@@ -31,6 +31,7 @@ def build_row_data(node, tf_api, slot2pos, parsing=[], **features):
     return dict(
         node=node,
         ref=f'{book} {chapter}:{verse}',
+        book=book,
         parse=str(parsing),
         parsed=bool(parsing) * 1,
         typ=F.typ.v(node),
@@ -138,8 +139,8 @@ def examine_parsings(parsed_path, notparsed_path,
     rep.table(funct_ct)
     rep.heading('pr', 3)
     rep.table(funct_pr)
-   
-    # plot % parsed by number of words in phrase
+
+   # plot % parsed by number of words in phrase
     nwd_ct = pd.pivot_table(
         df,
         index='nwords',
@@ -148,6 +149,14 @@ def examine_parsings(parsed_path, notparsed_path,
         fill_value=0,
     )
     nwd_pr = nwd_ct.div(nwd_ct.sum(1), 0)    
+
+    rep.heading('Parsed by number of words', 2)
+    rep.heading('ct (cutoff at 20)', 3)
+    rep.table(nwd_ct[nwd_ct.index < 20].T)
+    rep.heading('pr', 3)
+    rep.table(nwd_pr[nwd_pr.index < 20].round(2).T)
+
+    # make plot of number of words 
     fig, ax = plt.subplots(figsize=(4, 4))
     data = nwd_pr[nwd_pr.index < 20]
     x = data.index
@@ -158,6 +167,14 @@ def examine_parsings(parsed_path, notparsed_path,
     nwd_plotpth = plotpath('nwords_by_parsed.svg')
     plt.savefig(nwd_plotpth, format='svg')
     rep.img(nwd_plotpth)
+
+    # look at DP for books
+    book_ct = pd.pivot_table(
+        df,
+        index='book',
+        columns=['function', 'parsed'],
+    )
+    
 
     # counts of phrase strings that are unparsed
     err_df = df[df.parsed == 0]

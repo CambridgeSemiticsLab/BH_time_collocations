@@ -42,7 +42,8 @@ rule parse_pos:
 rule build_samples:
     input:
         bhsadata=bhsadata,
-        script="scripts/sample_phrases.py"
+        script="scripts/sample_phrases.py",
+        script2="scripts/sampling/phrase_sampling.py"
     output:
         samples="../results/samples/phrases.json",
         nosamples="../results/samples/reject_phrases.json"

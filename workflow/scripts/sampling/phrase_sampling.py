@@ -40,10 +40,10 @@ def get_phrase_samples(tf_locs, sample_out, unsample_out):
         words = L.d(phrase_atom, 'word')
 
         # skip phrases with conjunctions
-        pdps = set(F.pdp.v(w) for w in words)
-        if {'conj'} & pdps:
-            nonsamples['conj'].append(phrase_atom)
-            continue
+        #pdps = set(F.pdp.v(w) for w in words)
+        #if {'conj'} & pdps:
+        #    nonsamples['conj'].append(phrase_atom)
+        #    continue
       
         # skip non-Hebrew phrase_atoms
         if F.language.v(words[0]) != 'Hebrew':

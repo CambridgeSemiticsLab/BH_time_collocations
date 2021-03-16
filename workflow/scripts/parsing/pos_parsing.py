@@ -13,8 +13,10 @@ class posParser:
         self._L = tf_api.L
 
         # precedence assignments for when multiple matches are found
-        # higher value == higher precedence
-        self._prec = {}
+        # higher value == the function will be matched first
+        self._prec = {
+            'CONJPP': 1, # match first to eliminate some eroneous CONJGP matches
+        }
 
     def _getprec(self, name):
         """Get precedence for parse values."""
@@ -57,7 +59,6 @@ class posParser:
         for value, parser in parsers.items():
             if parser(wordn):
                 return value
-
 
     def _getP(self, node, context='phrase_atom'):
         """Get Positions object for a TF node."""
@@ -151,6 +152,7 @@ class posParser:
             (
                 F.sp.v(w) == 'verb'
                 and F.vt.v(w) in {'ptcp', 'ptca'}
+                and F.pdp.v(w) not in {'advb', 'adjv'}
             )
         ])    
     
@@ -198,6 +200,54 @@ class posParser:
                 'M<FR/', '<FRWN/',
                 'XMJCJT/',
             },
+        ])
+
+    def CONJPP(self, w):
+        """A conjunction followed by a preposition.
+
+        This aids the parser which cannot look ahead 
+        more than 1 step. By this method we provide a
+        token that has already looked ahead and prevents
+        the parser from unecessarily shifting tokens over
+        instead of reducing."""
+        P = self._getP(w)
+        nextw = P(1)
+        if nextw:
+            nw_is_prep = (
+                self.PREP(nextw)
+                or self._F.pdp.v(nextw) == 'prep'
+            )
+        else:
+            nw_is_prep = False
+        return any([
+            (
+                self._F.pdp.v(w) == 'conj' 
+                and nw_is_prep
+            )
+        ])
+
+    def CONJGP(self, w):
+        """A conjunction followed by a construct.
+
+        This aids the parser which cannot look ahead 
+        more than 1 step. By this method we provide a
+        token that has already looked ahead and prevents
+        the parser from unecessarily shifting tokens over
+        instead of reducing."""
+        P = self._getP(w)
+        nextw = P(1)
+        if nextw:
+            next_const = (
+                self._F.st.v(nextw) == 'c'
+                and self._F.ls.v(nextw) != 'card'
+            )
+        else:
+            next_const = False
+        return any([
+            (
+                self._F.pdp.v(w) == 'conj'
+                and next_const
+            )
         ])
 
 def parse_pos(data_locs, slot2pos_path, uniquepos_path):
