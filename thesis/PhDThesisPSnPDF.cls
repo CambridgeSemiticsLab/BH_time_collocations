@@ -554,14 +554,16 @@ supported!}
   \usepackage{amsmath}
   \usepackage{fontspec}
   \usepackage[]{unicode-math}
-  \setmainfont[
-    Path = /Users/cody/Library/Fonts/,
-    Extension = .otf,
-    UprightFont = *-Regular,
-    BoldFont = *-Bold,
-    ItalicFont = *-Italic,
-    BoldItalicFont = *-BoldItalic,
-  ]{XITS}
+%  \setmainfont[
+%    Path = /Users/cody/System/Library/Fonts/,
+%    Extension = .ttc,
+%    UprightFont = *-Regular,
+%    BoldFont = *-Bold,
+%    ItalicFont = *-Italic,
+%    BoldItalicFont = *-BoldItalic,
+%  ]{XITS}
+
+  \setmainfont{Times New Roman}
   
   \setmathfont[ 
     Path = /Users/cody/Library/Fonts/,
