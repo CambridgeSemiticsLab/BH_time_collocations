@@ -1,7 +1,7 @@
 % ******************************* PhD Thesis Template **************************
 % Please have a look at the README.md file for info on how to use the template
 
-\documentclass[a4paper,12pt,times,chapter,draft,numbered,print,index]{PhDThesisPSnPDF}
+\documentclass[a4paper,12pt,times,numbered,print,index]{PhDThesisPSnPDF}
 
 % ******************************************************************************
 % ******************************* Class Options ********************************
@@ -103,7 +103,7 @@
 % To use choose `chapter' option in the document class
 
 \ifdefineChapter
- \includeonly{Chapter1/chapter1}
+ \includeonly{Chapter3/chapter3}
 \fi
 
 % ******************************** Front Matter ********************************
@@ -134,10 +134,15 @@
 % ******************************** Main Matter *********************************
 \mainmatter
 
-\include{Chapter1/chapter1}
-\include{Chapter2/chapter2}
-\include{Chapter3/chapter3}
-\include{ExampleChapter/example}
+\include{Times/times}
+%\include{Chapter2/chapter2}
+%\include{Chapter3/chapter3}
+%\include{Chapter4/chapter4}
+%\include{Chapter5/chapter5}
+%\include{Chapter6/chapter6}
+%\include{Chapter7/chapter7}
+
+
 
 % ********************************** Back Matter *******************************
 % Backmatter should be commented out, if you are using appendices after References
