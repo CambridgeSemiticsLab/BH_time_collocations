@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019)  (format=lualatex 2019.12.5)  18 MAR 2021 16:09
+This is LuaTeX, Version 1.10.0 (TeX Live 2019)  (format=lualatex 2019.12.5)  18 MAR 2021 18:33
  system commands enabled.
  file:line:error style messages enabled.
 **thesis.tex
@@ -34,7 +34,7 @@ Inserting `luaotfload.aux.patch_cambria_domh' at position 2 in `luaotfload.patch
 Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_font_unsafe'.
 Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font'.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'.
-luaotfload | main : initialization completed in 0.061 seconds
+luaotfload | main : initialization completed in 0.063 seconds
 (./PhDThesisPSnPDF.cls
 Document Class: PhDThesisPSnPDF 2018/04/12 A PhD thesis class file by Krishna Kumar (v2.4)
 https://github.com/kks32/phd-thesis-template/
@@ -275,12 +275,6 @@ Grid set 16 x 16 = 37.34424pt x 52.81541pt
 \TP@tbargs=\toks22
 \TP@prevdepth=\dimen120
 TextBlockOrigin set to 0pt x 0pt
-) (/usr/local/texlive/2019/texmf-dist/tex/latex/natbib/natbib.sty
-Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip46
-\bibsep=\skip47
-LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count131
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
@@ -415,18 +409,18 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )) (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2019/02/28 v2.7b Micro-typographical refinements (RS)
 \MT@toks=\toks25
-\MT@count=\count132
+\MT@count=\count131
 LaTeX Info: Redefining \textls on input line 790.
 \MT@outer@kern=\dimen121
 LaTeX Info: Redefining \textmicrotypecontext on input line 1336.
-\MT@listname@count=\count133
+\MT@listname@count=\count132
  (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/microtype-luatex.def
 File: microtype-luatex.def 2019/02/28 v2.7b Definitions specific to luatex (RS)
 
 Module microtype Warning: overwriting function `keepligature' on input line 59
 LaTeX Info: Redefining \lsstyle on input line 681.
 LaTeX Info: Redefining \lslig on input line 681.
-\MT@outer@space=\skip48
+\MT@outer@space=\skip46
 )
 Package microtype Info: Loading configuration file microtype.cfg.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/microtype.cfg
@@ -1332,12 +1326,12 @@ l.117 \pdfglyphtounicode
 (That makes 100 errors; please try again.)
 
 Here is how much of LuaTeX's memory you used:
- 5753 strings out of 494291
+ 5422 strings out of 494291
  125171,221844 words of node,token memory allocated
- 11551 words of node memory still in use:
-   4 hlist, 1 rule, 2 local_par, 1 dir, 104 glue, 3 kern, 1 penalty, 1374 glyph, 203 attribute, 48 glue_spec, 203 attribute_list, 1 temp, 1 if_stack, 1 write nodes
-   avail lists: 1:1,3:1,4:2,5:7,9:1
- 9696 multiletter control sequences out of 65536+600000
+ 11541 words of node memory still in use:
+   4 hlist, 1 rule, 2 local_par, 1 dir, 104 glue, 3 kern, 1 penalty, 1374 glyph, 203 attribute, 46 glue_spec, 203 attribute_list, 1 temp, 1 if_stack, 1 write nodes
+   avail lists: 3:2,4:2,5:3,9:1
+ 9374 multiletter control sequences out of 65536+600000
  16 fonts using 806255 bytes
  49i,0n,56p,988b,143s stack positions out of 5000i,500n,10000p,200000b,100000s
 ./glyphtounicode.tex:117:  ==> Fatal error occurred, no output PDF file produced!

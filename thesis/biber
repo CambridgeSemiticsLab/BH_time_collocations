@@ -1,0 +1,289 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./thesis.texentering extended mode
+(./thesis.tex
+LaTeX2e <2018-12-01>
+(./PhDThesisPSnPDF.cls
+LaTeX2e <2018-12-01>
+(./PhDThesisPSnPDF.cls
+Document Class: PhDThesisPSnPDF 2018/04/12 A PhD thesis class file by Krishna K
+umar (v2.4)
+https://github.com/kks32/phd-thesis-template/
+
+Class PhDThesisPSnPDF Warning: You have chosen an option that generates only se
+lected chapters with references, if this was intentional, ignore this warning. 
+If not, please remove the option `chapter' from the document class and recompil
+e. Good luck with your writing! on input line 238.
+
+
+Class PhDThesisPSnPDF Warning: Draft is ON. Don't forget to turn it off in your
+ final version. This enhanced `draft' mode adds watermark with timestamp, line 
+numbering, and version number. Use `draftclassic' if you prefer the \cite {} la
+ssic draft mode. To tweak options see `preamble.tex' on input line 238.
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/book.cls
+Document Class: PhDThesisPSnPDF 2018/04/12 A PhD thesis class file by Krishna K
+umar (v2.4)
+https://github.com/kks32/phd-thesis-template/
+
+Class PhDThesisPSnPDF Warning: You have chosen an option that generates only se
+lected chapters with references, if this was intentional, ignore this warning. 
+If not, please remove the option `chapter' from the document class and recompil
+e. Good luck with your writing! on input line 238.
+
+
+Class PhDThesisPSnPDF Warning: Draft is ON. Don't forget to turn it off in your
+ final version. This enhanced `draft' mode adds watermark with timestamp, line 
+numbering, and version number. Use `draftclassic' if you prefer the \cite {} la
+ssic draft mode. To tweak options see `preamble.tex' on input line 238.
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2018/09/03 v1.4i Standard LaTeX document class
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/bk12.clo
+Document Class: book 2018/09/03 v1.4i Standard LaTeX document class
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/bk12.clo))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/ifthen.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/ifthen.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifpdf.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/ifxetex/ifxetex.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/lscape.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/lscape.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/trig.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/trig.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/graphics.cfg))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/pdftex.def
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/pdftex.def))))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/setspace/setspace.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/setspace/setspace.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/tools/calc.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/tools/calc.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+)
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/appendix/appendix.sty (/usr/local/texlive/2019/texmf-dist/tex/latex/appendix/appendix.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/color.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/color.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/color.cfg
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/color.cfg))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/dvipsnam.def
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/dvipsnam.def))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/infwarerr.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ltxcmds.sty))))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifluatex.sty))))))))
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+(/usr/local/texlive/2019/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphicx.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/datetime/datetime.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/datetime/datetime.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/etoolbox/etoolbox.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/fmtcount/fmtcount.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/fmtcount/fmtcount.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2019/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2019/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/usr/local/texlive/2019/texmf-dist/tex/generic/xkeyval/xkvutils.tex))))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/fmtcount/fcprefix.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/fmtcount/fcprefix.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/fmtcount/fcnumparser.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/fmtcount/fcnumparser.sty))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsgen.sty))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/datetime/datetime-defaults.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/datetime/datetime-defaults.sty))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/lineno/lineno.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/lineno/lineno.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/everypage/everypage.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/everypage/everypage.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/textpos/textpos.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/textpos/textpos.sty
+Package: textpos 2019/04/15 1.9.1, absolute positioning of text on the page
+(/usr/local/texlive/2019/texmf-dist/tex/latex/ms/everyshi.sty
+Package: textpos 2019/04/15 1.9.1, absolute positioning of text on the page
+(/usr/local/texlive/2019/texmf-dist/tex/latex/ms/everyshi.sty))
+Grid set 16 x 16 = 37.34424pt x 52.81541pt
+TextBlockOrigin set to 0pt x 0pt
+)
+Grid set 16 x 16 = 37.34424pt x 52.81541pt
+TextBlockOrigin set to 0pt x 0pt
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/base/textcomp.sty (/usr/local/texlive/2019/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1enc.def
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1enc.def
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1enc.dfu
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1enc.dfu))))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/mathptmx.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/mathptmx.sty))
+PhDThesisPSnPDF: Using Times Roman font
+PhDThesisPSnPDF: Using Times Roman font
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/inputenc.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/t1enc.def
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/t1enc.def))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+(/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/microtype-pdftex.def))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/microtype.cfg
+(/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/microtype.cfg))))
+(./glyphtounicode.tex
+(./glyphtounicode.tex))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsmath.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amstext.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amstext.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsbsy.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsopn.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsopn.sty))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/amssymb.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/auxhook.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/auxhook.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/pd1enc.def
+(/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/pd1enc.def))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+(/usr/local/texlive/2019/texmf-dist/tex/latex/latexconfig/hyperref.cfg))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/puenc.def
+(/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/puenc.def))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/url/url.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/url/url.sty))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/geometry/geometry.sty))
+PhDThesisPSnPDF: The University identity guidelines recommend using left aligne
+d text. Please use `flushleft' in the documentclass option, if you wish to left
+ align your text
+PhDThesisPSnPDF: The University identity guidelines recommend using left aligne
+d text. Please use `flushleft' in the documentclass option, if you wish to left
+ align your text
+(/usr/local/texlive/2019/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/nomencl/nomencl.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/nomencl/nomencl.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/tocbasic.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/tocbasic.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/scrbase.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/scrbase.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/scrlfile.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/scrlfile.sty))))))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/makeidx.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/makeidx.sty))
+Writing index file thesis.idx
+)
+Writing index file thesis.idx
+) (./Preamble/preamble.tex (./Preamble/preamble.tex
+(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/caption3.sty))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/subcaption.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/subcaption.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/booktabs/booktabs.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/booktabs/booktabs.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/multirow/multirow.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/multirow/multirow.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/siunitx/siunitx.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/siunitx/siunitx.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+(/usr/local/texlive/2019/texmf-dist/tex/latex/l3kernel/expl3-code.tex))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
+(/usr/local/texlive/2019/texmf-dist/tex/latex/l3kernel/l3pdfmode.def))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/l3packages/xparse/xparse.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/tools/array.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/tools/array.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty)
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/translator/translator.sty(/usr/local/texlive/2019/texmf-dist/tex/latex/translator/translator.sty))))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/enumitem/enumitem.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/enumitem/enumitem.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/polyglossia/polyglossia.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/polyglossia/polyglossia.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/makecmds/makecmds.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/makecmds/makecmds.sty))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/fontspec/fontspec.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/fontspec/fontspec.sty
+
+! Fatal Package fontspec Error: The fontspec package requires either XeTeX or
+(fontspec)                      LuaTeX.
+(fontspec)                      
+(fontspec)                      You must change your typesetting engine to,
+(fontspec)                      e.g., "xelatex" or "lualatex"instead of
+(fontspec)                      "latex" or "pdflatex".
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.45 \msg_fatal:nn {fontspec} {cannot-use-pdftex}
+                                                 
+? 
+
+! Fatal Package fontspec Error: The fontspec package requires either XeTeX or
+(fontspec)                      LuaTeX.
+(fontspec)                      
+(fontspec)                      You must change your typesetting engine to,
+(fontspec)                      e.g., "xelatex" or "lualatex"instead of
+(fontspec)                      "latex" or "pdflatex".
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.45 \msg_fatal:nn {fontspec} {cannot-use-pdftex}
+                                                 
+? 

@@ -1,5 +1,5 @@
 [0] Config.pm:304> INFO - This is Biber 2.12
 [0] Config.pm:307> INFO - Logfile is '/Users/cody/github/CambridgeSemiticsLab/time_collocations/thesis/.texpadtmp/thesis.blg'
-[46] biber-darwin:315> INFO - === Thu Mar 18, 2021, 16:09:15
-[205] Utils.pm:209> ERROR - Cannot find control file '/Users/cody/github/CambridgeSemiticsLab/time_collocations/thesis/.texpadtmp/thesis.bcf'! - Did latex run successfully on your .tex file before you ran biber?
-[205] Biber.pm:114> INFO - ERRORS: 1
+[38] biber-darwin:315> INFO - === Thu Mar 18, 2021, 18:33:17
+[184] Utils.pm:209> ERROR - Cannot find control file '/Users/cody/github/CambridgeSemiticsLab/time_collocations/thesis/.texpadtmp/thesis.bcf'! - Did latex run successfully on your .tex file before you ran biber?
+[184] Biber.pm:114> INFO - ERRORS: 1
