@@ -6,6 +6,7 @@ from parsing.time_metrics import examine_times
 datalocs = {
     'bhsadata': snakemake.input.bhsadata,
     'plotsdir': snakemake.params.plotsdir,
+    'ph_parsings': snakemake.input.ph_parses,
 }
 
 # initialize TF

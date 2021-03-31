@@ -78,9 +78,20 @@ def unfold_paras(phrase):
         # since the parser has placed conjunctive items first
         # in the parse list (src), we must first process
         # tgt to yield the items in their natural order
-        yield from unfold_paras(tgt)
-        yield from unfold_paras(src)
+        if type(tgt) != int:
+            yield from unfold_paras(tgt)
+        else:
+            yield [tgt]
+        if type(src) != int:
+            yield from unfold_paras(src)
+        else:
+            yield [src]
+
     elif rela == 'CONJ':
-        yield from unfold_paras(tgt)
+        if type(tgt) != int:
+            yield from unfold_paras(tgt)
+        else:
+            yield [tgt]
+
     else:
         yield phrase

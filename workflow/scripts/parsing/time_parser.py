@@ -2,7 +2,8 @@ import json
 from tf.fabric import Fabric
 from sly import Parser as SlyParser
 from sly.lex import Token as SlyToken
-from scripts.tools import nav_tree as nt
+from tools import nav_tree as nt
+from tools.load_parse import ParseLoader
 
 class TimeTokenizer:
     """Generate selected tokens from a time phrase parsing.
@@ -36,13 +37,17 @@ class TimeTokenizer:
         """
         
         # ignore these relations
-        ignore = {'DEF', 'ADJV', 'GP', 'APPO'}
+        ignore = {None, 'DEF', 'ADJV', 'GP', 'APPO'}
         
         def tag_rela(rela, name):
             return rela == name and rela not in ignore
-        
+
         # retrieve the head path and begin walking down it
-        head_phrases = list(nt.get_head_path(parsedphrase))
+        if len(parsedphrase) > 1:
+            head_phrases = list(nt.get_head_path(parsedphrase))
+        else:
+            head_phrases = [[None, parsedphrase[0], None]]
+
         for i, phrase in enumerate(head_phrases):
             
             src, tgt, rela = phrase
@@ -58,8 +63,11 @@ class TimeTokenizer:
                 # phrases below; unfold_paras will stop as 
                 # soon as it encounters a phrase with a rela
                 # that != PARA or CONJ
-                for subphrase in nt.unfold_paras(src):
-                    yield from self.tokenize(subphrase) # recursively tokenize them
+                try:
+                    for subphrase in nt.unfold_paras(src):
+                        yield from self.tokenize(subphrase) # recursively tokenize them
+                except:
+                    raise Exception(phrase)
                 
             # tokenize appositional relations if relevant
             elif tag_rela(rela, 'APPO'):
@@ -156,7 +164,7 @@ class TimeParser(SlyParser):
     def category(self, p): 
         return p[0] 
 
-    @_('B TIME')
+    @_('B TIME', 'TIME')
     def simul(self, p):
         return 'simul'
     
@@ -180,7 +188,7 @@ class TimeParser(SlyParser):
     def in_dur(self, p):
         return 'telic_ext|dist_fut'
     
-    @_('TIME', 'duration')
+    @_('duration')
     def atelic_ext(self, p):
         return 'atelic_ext'
     
@@ -198,24 +206,14 @@ class TimeParser(SlyParser):
     def time(self, p):
         return ''
 
-def parse_times(samp_path, parsepath, noparsepath, datalocs, API=None):
+def parse_times(phrases_path, parsepath, noparsepath, datalocs, API):
     """Apply the time parser."""
 
-    # initialize TF
-    if API is None:
-        TF = Fabric(locations=datalocs['bhsadata'])
-        API = TF.load('lex pdp num')
+    # load phrase parsings
+    phrases = ParseLoader(phrases_path).load()
 
-    # load pre-processed parts of speech values
-    with open(datalocs['slot2pos'], 'r') as infile:
-        slot2pos = json.load(infile)
-
-    # load samples
-    with open(samp_path, 'r') as infile:
-        samples = json.load(infile)
-
-    # initialize lexer/parser
-    lexer = BhsaLexer(API, slot2pos)
+    # initialize tokenizer
+    tokenizer = TimeTokenizer(API)
 
     # initialize parser
     # error_tracker allows us to save
@@ -223,25 +221,24 @@ def parse_times(samp_path, parsepath, noparsepath, datalocs, API=None):
     # the respective phrase node number;
     # gets reset during each iteration of the loop
     error_tracker = {'e': None}
-    parser = PhraseParser(error_tracker)
+    parser = TimeParser(error_tracker)
 
     # run the parser
     parsed = {}
     errors = {}
-    for ph_node, slotset in samples.items():
+    for ph_node, parsing in phrases.items():
 
-        # do not run parser for single-word phrases
-        if len(slotset) == 1:
-            parsed[ph_node] = slotset
+        # skip non-time phrases
+        phrase = API.L.u(ph_node, 'phrase')[0]
+        if API.F.function.v(phrase) != 'Time':
             continue
 
-        # parse multi-word phrases
-        tokens = list(lexer.tokenize(slotset))
+        tokens = list(tokenizer.tokenize(parsing))
         parsing = parser.parse(t for t in tokens)
         if parsing is not None and error_tracker['e'] is None:
             parsed[ph_node] = parsing
         else:
-            toks = [(t.type, t.value.slot) for t in tokens]
+            toks = [t.type for t in tokens]
             errors[ph_node] = (error_tracker['e'], str(toks))
 
             # reset error tracker
