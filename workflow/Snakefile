@@ -12,6 +12,9 @@ bhsadata = [
 home = Path.home()
 github = home.joinpath('github')
 
+# style sheets for styling dataset reports
+# many of these point to Text-Fabric styles in order
+# to style the HTML objects output by TF
 stylesheets = [
 
     ("/Users/cody/github/CambridgeSemiticsLab"
@@ -62,6 +65,12 @@ rule sample_metrics:
     script:
         "scripts/measure_sample.py"
 
+# directory to store plots produced in the data-metrics scripts
+metric_plotsdir = (
+    "/Users/cody/github/CambridgeSemiticsLab/time_collocations"
+    "/results/data_metrics/plots"
+)
+
 rule parse_phrases:
     input:
         samples=rules.build_samples.output.samples,
@@ -71,10 +80,26 @@ rule parse_phrases:
         script="scripts/parsing/phrase_parser.py",
         script2="scripts/parsing/pos_parsing.py",
     params:
-        plotsdir="/Users/cody/github/CambridgeSemiticsLab/time_collocations/results/data_metrics/plots"
+        plotsdir=metric_plotsdir 
     output:
         parsed="../results/parsing/phrase_parsings.json",
         notparsed="../results/parsing/phrase_notparsings.json",
         metrics="../results/data_metrics/phrase_parsings.html"
     script:
         "scripts/parse_phrases.py"
+
+rule parse_times:
+    input: 
+        ph_parses=rules.parse_phrases.output.parsed,
+        bhsadata=bhsadata,
+        styles=stylesheets,
+        script="scripts/parsing/time_parser.py",
+        script2="scripts/parsing/phrase_parser.py",
+    params:
+        plotsdir=metric_plotsdir
+    output:
+        parsed="../results/parsing/time_parsings.json",
+        notparsed="../results/parsing/time_notparsings.json",
+        metrics="../results/data_metrics/time_parsings.html"
+    script:
+        "scripts/parse_times.py"

@@ -112,19 +112,19 @@ def examine_parsings(parsed_path, notparsed_path,
         slot2pos
     )
     
-    rep = HtmlReport(stylepaths)
-    rep.heading('Parsing Report', 1)
+    doc = HtmlReport(stylepaths)
+    doc.heading('Parsing Report', 1)
     
-    rep.heading('top of table', 2)
-    rep.table(df.head())
+    doc.heading('top of table', 2)
+    doc.table(df.head())
 
     # Number of phrases parsed
     parsed_ct = df.parsed.value_counts()
-    rep.heading('parsed counts', 2)
-    rep.table(parsed_ct)
+    doc.heading('parsed counts', 2)
+    doc.table(parsed_ct)
     parsed_pr = parsed_ct / parsed_ct.sum()
-    rep.heading('parsed perc.', 2)
-    rep.table(parsed_pr.round(2))
+    doc.heading('parsed perc.', 2)
+    doc.table(parsed_pr.round(2))
 
     # Number of phrases parsed/not parsed by function
     funct_ct = pd.pivot_table(
@@ -135,10 +135,10 @@ def examine_parsings(parsed_path, notparsed_path,
         fill_value=0,
     )
     funct_pr = funct_ct.div(funct_ct.sum(0), 1)
-    rep.heading('function parsed vs. not parsed', 2)
-    rep.table(funct_ct)
-    rep.heading('pr', 3)
-    rep.table(funct_pr)
+    doc.heading('function parsed vs. not parsed', 2)
+    doc.table(funct_ct)
+    doc.heading('pr', 3)
+    doc.table(funct_pr)
 
    # plot % parsed by number of words in phrase
     nwd_ct = pd.pivot_table(
@@ -150,11 +150,11 @@ def examine_parsings(parsed_path, notparsed_path,
     )
     nwd_pr = nwd_ct.div(nwd_ct.sum(1), 0)    
 
-    rep.heading('Parsed by number of words', 2)
-    rep.heading('ct (cutoff at 20)', 3)
-    rep.table(nwd_ct[nwd_ct.index < 20].T)
-    rep.heading('pr', 3)
-    rep.table(nwd_pr[nwd_pr.index < 20].round(2).T)
+    doc.heading('Parsed by number of words', 2)
+    doc.heading('ct (cutoff at 20)', 3)
+    doc.table(nwd_ct[nwd_ct.index < 20].T)
+    doc.heading('pr', 3)
+    doc.table(nwd_pr[nwd_pr.index < 20].round(2).T)
 
     # make plot of number of words 
     fig, ax = plt.subplots(figsize=(4, 4))
@@ -166,7 +166,7 @@ def examine_parsings(parsed_path, notparsed_path,
     ax.set_xticks(x)
     nwd_plotpth = plotpath('nwords_by_parsed.svg')
     plt.savefig(nwd_plotpth, format='svg')
-    rep.img(nwd_plotpth)
+    doc.img(nwd_plotpth)
 
     # look at DP for books
     book_ct = pd.pivot_table(
@@ -178,28 +178,29 @@ def examine_parsings(parsed_path, notparsed_path,
 
     # counts of phrase strings that are unparsed
     err_df = df[df.parsed == 0]
+    err_df = err_df[err_df.function == 'Time']
     top_err_str = err_df.pos_chain.value_counts().head(50)
-    rep.heading('most missed values', 2)
-    rep.table(top_err_str)
+    doc.heading('most missed values', 2)
+    doc.table(top_err_str)
 
     # display unparsed phrases
     for string in top_err_str.index:
-        rep.heading(string, 3)
+        doc.heading(string, 3)
         examples = err_df[err_df.pos_chain == string]
         sample_size = min([5, examples.shape[0]])
         examples = examples.sample(sample_size, random_state=42)
         for i in examples.index:
-            rep.append(
+            doc.append(
                 bhsa.pretty(
                     err_df.loc[i]['node'], 
                     extraFeatures='typ st',
                     withNodes=True
                 )
             )
-            rep.append(err_df.loc[i]['error'])
-        rep.append('<hr>')
+            doc.append(err_df.loc[i]['error'])
+        doc.append('<hr>')
 
     # finish and export
-    rep.export()
+    doc.export()
     with open(metricspath, 'w') as outfile:
-        outfile.write(rep.html)
+        outfile.write(doc.html)

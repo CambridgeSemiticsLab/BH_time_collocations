@@ -250,6 +250,14 @@ class posParser:
             )
         ])
 
+    def ADVB(self, w):
+        """Identify adverbs.
+    
+        Currently only identifies עוד
+        """
+        return self._F.lex.v(w) == '<WD/'
+            
+
 def parse_pos(data_locs, slot2pos_path, uniquepos_path):
     """Apply parsing using Text-Fabric."""
 

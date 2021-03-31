@@ -46,6 +46,7 @@ class BhsaLexer(Lexer):
          PROPN,
          PRPS,
          QUANT,
+         NEGA,
          C, # construct state
          A, # absolute state
          SFX, # pronominal suffixes
@@ -57,7 +58,7 @@ class BhsaLexer(Lexer):
         token.value = cx
         token.type = cat
         token.index = index
-        token.lineno = index
+        token.lineno = 0
         return token
     
     def tokenize(self, slots):
@@ -93,7 +94,7 @@ class BhsaLexer(Lexer):
         prs = F.prs.v(slot)
         st = F.st.v(slot)
         if pos != 'PREP':
-            if pos not in {'CARD', 'CARD1'} and st == 'c':
+            if pos not in {'CARD', 'CARD1', 'ADVB'} and st == 'c':
                 yield CX(slot, 'C')
             elif pos in {'NOUN','PROPN'} and prs in {'absent', 'n/a'}:
                 yield CX(slot, 'A')
@@ -118,7 +119,7 @@ class PhraseParser(Parser):
         try:
             self.error_tracker['e'] = token.value.slot
         except:
-            self.error_tracker['e'] = None
+            self.error_tracker['e'] = 'reached end'
 
     debugfile = 'parser.out'
     
@@ -135,7 +136,8 @@ class PhraseParser(Parser):
     def np(self, p):
         return p[0].slot
 
-    @_('NOUN SFX', 'QUANT SFX', 'CARD1 SFX')
+    @_('NOUN SFX', 'QUANT SFX', 
+       'CARD1 SFX')
     def np(self, p):
         return p[0].slot
 
@@ -156,11 +158,13 @@ class PhraseParser(Parser):
     def adjv(self, p):
         return [p[0].slot, p[1].slot, 'ADJV']
 
-    @_('ADJV np')
+    @_('ADJV np', 'NEGA np')
     def adjv(self, p):
         return [p[0].slot, p[1], 'ADJV']
 
-    @_('ADVB np', 'ADVB pp', 'ADVB quant')
+    @_('ADVB np', 'ADVB pp', 
+       'ADVB quant', 'PRIN np',
+       'ADVB num', 'ADVB defi')
     def adjv(self, p):
         return [p[0].slot, p[1], 'ADJV']
 
@@ -169,9 +173,9 @@ class PhraseParser(Parser):
         return [p[1].slot, p[0], 'ADJV']
 
     # phrase + PP modification
-    @_('np pp')
-    def adjv(self, p):
-        return [p[0], p[1], 'ADJV']
+    #@_('np pp')
+    #def adjv(self, p):
+    #    return [p[1], p[0], 'ADJV']
  
     # -- adverbial phrases -- 
     # TODO: add rule to recognize distributive 
@@ -200,7 +204,7 @@ class PhraseParser(Parser):
     @_('constr NOUN', 'constr PROPN',
        'constr QUANT', 'constr CARD1',
        'constr PRIN', 'constr ORDN',
-       'constr ADVB')
+       'constr ADVB', 'constr PRPS')
     def gp(self, p):
         return [p[1].slot, p[0], 'GP']
 
@@ -252,7 +256,7 @@ class PhraseParser(Parser):
     def demon(self, p):
         return [p[2].slot, p[0].slot, 'DEMON']
 
-    @_('np PRDE')
+    @_('np PRDE', 'defi PRDE')
     def demon(self, p):
         return [p[1].slot, p[0], 'DEMON']
 
@@ -260,7 +264,7 @@ class PhraseParser(Parser):
     @_('np np', 'np defi', 'defi defi', 
        'appo appo', 'adjv adjv', 'gp gp',
        'appo np', 'appo defi', 'num num',
-       'defi np', 'advb advb')
+       'defi np', 'advb advb', 'pp pp')
     def appo(self, p):
         return [p[1], p[0], 'APPO']
 
@@ -416,7 +420,7 @@ def parse_phrases(samp_path, parsepath, noparsepath, datalocs, API=None):
         # parse multi-word phrases
         tokens = list(lexer.tokenize(slotset))
         parsing = parser.parse(t for t in tokens)
-        if parsing is not None:
+        if parsing is not None and error_tracker['e'] is None:
             parsed[ph_node] = parsing
         else:
             toks = [(t.type, t.value.slot) for t in tokens]
