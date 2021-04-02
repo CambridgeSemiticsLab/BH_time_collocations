@@ -95,3 +95,15 @@ def unfold_paras(phrase):
 
     else:
         yield phrase
+
+def show_relas(parse_tree, stringer, joiner='\n'):
+    """Visualize relationship in a tree."""
+    subphrases = list(traverse_tree(parse_tree))
+    show_strings = []
+    for src, tgt, rela in subphrases:
+        src_slots = sorted(get_slots(src))
+        tgt_slots = sorted(get_slots(tgt))
+        src_str = stringer(src_slots)
+        tgt_str = stringer(tgt_slots)
+        show_strings.append(f'{src_str}  --{rela}-->  {tgt_str}')
+    return joiner.join(show_strings)

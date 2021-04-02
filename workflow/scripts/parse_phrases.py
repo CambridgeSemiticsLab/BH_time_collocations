@@ -3,14 +3,20 @@ from tf.app import use
 from parsing.phrase_parser import parse_phrases
 from parsing.parse_metrics import examine_parsings
 
-datalocs = {
+paths = {
+    'samples': snakemake.input.samples,
     'bhsadata': snakemake.input.bhsadata,
     'slot2pos': snakemake.input.slot2pos,
+    'styles': snakemake.input.styles,
     'plotsdir': snakemake.params.plotsdir,
+    'parsed': snakemake.output.parsed,
+    'notparsed': snakemake.output.notparsed,
+    'parsedmets': snakemake.output.parsemetrics,
+    'notparsedmets': snakemake.output.notparsemetrics,
 }
 
 # initialize TF
-TF = Fabric(locations=datalocs['bhsadata'], silent='deep')
+TF = Fabric(locations=paths['bhsadata'], silent='deep')
 features = ( 
     'rela code gloss function number '
     'pdp vs vt typ language label st '
@@ -21,19 +27,6 @@ bhsa = use('bhsa', api=API, silent='deep')
 bhsa._browse = True
 API = bhsa.api
 
-parse_phrases(
-    snakemake.input.samples,
-    snakemake.output.parsed,
-    snakemake.output.notparsed,
-    datalocs,
-    API=API
-)
-
-examine_parsings(
-    snakemake.output.parsed,
-    snakemake.output.notparsed,
-    datalocs,
-    snakemake.input.styles,
-    snakemake.output.metrics,
-    bhsa=bhsa
-)
+# run the parser and parse metrics
+parse_phrases(paths, API)
+examine_parsings(paths, bhsa)

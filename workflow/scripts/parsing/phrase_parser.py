@@ -239,6 +239,8 @@ class PhraseParser(Parser):
 
     # e.g. רב מאד
     # NB: need to add recognition for distributive cx: e.g. מעט מעט
+    # NOTE: where BHSA ls==nmdi it is a "distributive noun", this feature
+    # might be used to capture more distributive cases
     @_('QUANT ADVB', 'QUANT QUANT')
     def quant_sized(self, p):
         return [p[1].slot, p[0].slot, 'ADJV']
@@ -325,7 +327,6 @@ class PhraseParser(Parser):
         conj = [p[1].slot, p[2].slot, 'CONJ'] 
         return [conj, p[0], 'PARA']
 
-    # -- parallel phrases --
     @_('pp CONJPP pp', 'pp CONJPP para',
        'gp CONJGP gp', 'gp CONJGP para')
     def para(self, p):
@@ -380,20 +381,15 @@ class PhraseParser(Parser):
     def num(self, p):
         return [p[1].slot, p[0], 'NUM']
 
-def parse_phrases(samp_path, parsepath, noparsepath, datalocs, API=None):
+def parse_phrases(paths, API):
     """Apply the parser and return metrics on unmatches."""
 
-    # initialize TF
-    if API is None:
-        TF = Fabric(locations=datalocs['bhsadata'])
-        API = TF.load('prs st')
-
     # load pre-processed parts of speech values
-    with open(datalocs['slot2pos'], 'r') as infile:
+    with open(paths['slot2pos'], 'r') as infile:
         slot2pos = json.load(infile)
 
     # load samples
-    with open(samp_path, 'r') as infile:
+    with open(paths['samples'], 'r') as infile:
         samples = json.load(infile)
 
     # initialize lexer/parser
@@ -430,8 +426,8 @@ def parse_phrases(samp_path, parsepath, noparsepath, datalocs, API=None):
             error_tracker['e'] = None 
 
     # export
-    with open(parsepath, 'w') as outfile:
+    with open(paths['parsed'], 'w') as outfile:
         json.dump(parsed, outfile, indent=2)
 
-    with open(noparsepath, 'w') as outfile:
+    with open(paths['notparsed'], 'w') as outfile:
         json.dump(errors, outfile, indent=2)

@@ -71,6 +71,16 @@ metric_plotsdir = (
     "/results/data_metrics/plots"
 )
 
+# preprocess disambiguation data for phrase parsing
+rule get_disambigs:
+    input:
+        bhsadata=bhsadata,
+    output:
+        accentseps="../results/disambigs/accentseps.json",
+        paraseps="../results/disambigs/paraseps.json",
+    script:
+        "scripts/disambig.py"
+
 rule parse_phrases:
     input:
         samples=rules.build_samples.output.samples,
@@ -84,7 +94,8 @@ rule parse_phrases:
     output:
         parsed="../results/parsing/phrase_parsings.json",
         notparsed="../results/parsing/phrase_notparsings.json",
-        metrics="../results/data_metrics/phrase_parsings.html"
+        parsemetrics="../results/data_metrics/unparsed_phrases.html",
+        notparsemetrics="../results/data_metrics/parsed_phrases.html"
     script:
         "scripts/parse_phrases.py"
 
