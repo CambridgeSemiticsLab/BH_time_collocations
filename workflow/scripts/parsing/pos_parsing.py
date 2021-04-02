@@ -226,27 +226,53 @@ class posParser:
             )
         ])
 
-    def CONJGP(self, w):
-        """A conjunction followed by a construct.
+    # -- Conjunction Types --
+    # These aid the phrase parser later on, which 
+    # cannot look ahead more than 1 step. By these POS tags, 
+    # we provide a token that has already looked around,
+    # preventing the parser from unecessarily shifting tokens 
+    # over instead of reducing.
 
-        This aids the parser which cannot look ahead 
-        more than 1 step. By this method we provide a
-        token that has already looked ahead and prevents
-        the parser from unecessarily shifting tokens over
-        instead of reducing."""
+    def CONJGP(self, w):
+        """A conjunction followed by a construct."""
         P = self._getP(w)
-        nextw = P(1)
-        if nextw:
-            next_const = (
-                self._F.st.v(nextw) == 'c'
-                and self._F.ls.v(nextw) != 'card'
-            )
-        else:
-            next_const = False
         return any([
             (
-                self._F.pdp.v(w) == 'conj'
-                and next_const
+                P(-2,'st') == 'c'
+                and self._F.pdp.v(w) == 'conj'
+                and P(1,'st') == 'c'
+                and P(1,'ls') != 'card'
+            ),
+            (
+                P(-3,'st') == 'c'
+                and P(-2,'lex') == 'H'
+                and self._F.pdp.v(w) == 'conj'
+                and P(1,'st') == 'c'
+                and P(1,'ls') != 'card'
+            )
+        ])
+
+    def CONJADJV(self, w):
+        """Conj connecting 2 adjv phrases"""
+        P = self._getP(w)
+        return any([
+            (
+                P(-1,'pdp') == 'adjv'
+                and self._F.pdp.v(w) == 'conj'
+                and P(2,'pdp') == 'adjv'
+            )
+        ])
+
+    def CONJCARD(self, w):
+        """
+        Conj surrounded by cardinals.
+        """
+        P = self._getP(w)
+        return any([
+            (
+                P(-1,'ls') == 'card'
+                and self._F.pdp.v(w) == 'conj'
+                and P(1,'ls') == 'card'
             )
         ])
 

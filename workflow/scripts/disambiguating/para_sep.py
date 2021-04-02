@@ -34,13 +34,14 @@ para_query = '''
 sp1:subphrase
     w1:word pdp=nmpr|subs
 sp2:subphrase rela=par
-    w2:word pdp=nmpr|subs ls#card
+    w2:word pdp#adjv|advb ls#card
 
 sp1 := w1
 sp1 <: sp2
 sp1 <mother- sp2
 sp2 =: w2
 w1 .lex#lex. w2
+
 '''
 
 def get_para_seps(paths, tf_api):

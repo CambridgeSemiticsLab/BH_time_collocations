@@ -40,7 +40,7 @@ def get_accent_seps(paths, tf_api):
     # gather words with disjunctive accents
     accent_seps = []
     for ph, w1, w2 in sorted(query):
-        accent_type = tagger.tag(w1)
+        accent_type = tagger.tag(w1, phono=False)
         if accent_type == 'disjunct':
             accent_seps.append(w1)
 

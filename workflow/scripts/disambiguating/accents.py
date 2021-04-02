@@ -5,9 +5,9 @@ class AccentTagger:
     
     """Classifies word accent as disjunct or conjunct.
 
-    This is done by looking up the word's phonological
-    context, transcribing it, and then looking for regex
-    matches for particular codes in this context.
+    This is done by looking up the word's transcription
+    and then looking for regex matches for particular 
+    codes in the transcribed text.
 
     The data comes from the ETCBC's BHSA and is processed
     with Text-Fabric methods. The transcription is the
@@ -142,14 +142,18 @@ class AccentTagger:
         """
         return text.replace('_', ' ')
 
-    def transcribe_mword(self, word):
+    def transcribe_word(self, word, **kwargs):
         """Transcribe a word in its phonological context."""
 
         # get the transcription of the 
         # word's phonological unit
-        mword = self.masoretic_word(word)
+        if kwargs.get('phono', True):
+            word = self.masoretic_word(word)
+        else:
+            word = [word]
+            
         mword_trans = self.T.text(
-            mword,
+            word,
             fmt='text-trans-full'
         )
         mword_trans = self.clean(mword_trans)
@@ -178,12 +182,12 @@ class AccentTagger:
                 and not self.conRE['21']['mayela'].match(mword)):
             return True
  
-    def disjunct(self, word):
+    def disjunct(self, word, **kwargs):
         """
         Evaluates simple cases of disjunction
         with a regex match.
         """
-        mword_trans = self.transcribe_mword(word)
+        mword_trans = self.transcribe_word(word, **kwargs)
         bookclass = self.book_class(word)
 
         # identify matches
@@ -197,7 +201,7 @@ class AccentTagger:
             
         return matches
    
-    def conjunct(self, word):
+    def conjunct(self, word, **kwargs):
         """
         Returns a list of conjunctive accent matches.
         !!CAUTION!! Should only be used after a negative
@@ -206,7 +210,7 @@ class AccentTagger:
         be checked. In this class, this method is used
         in an `elif` only AFTER checking disjunctives.
         """
-        mword_trans = self.transcribe_mword(word)
+        mword_trans = self.transcribe_word(word, **kwargs)
         bookclass = self.book_class(word)
         
         # identify matches 
@@ -218,7 +222,7 @@ class AccentTagger:
 
         return matches
 
-    def tag(self, w):
+    def tag(self, w, **kwargs):
         """Tag a word's accent in its phonological context.
 
         Returns a string tag.
@@ -227,9 +231,9 @@ class AccentTagger:
         # look for conjunctive/disjunctive accents
         # we only check for conjunctive accents
         # if no disjunctive ones are found
-        dismatches = self.disjunct(w)
+        dismatches = self.disjunct(w, **kwargs)
         if not dismatches:
-            conmatches = self.conjunct(w)                
+            conmatches = self.conjunct(w, **kwargs)      
 
         # return the tag
         if dismatches:

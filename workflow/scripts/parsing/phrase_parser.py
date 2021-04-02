@@ -20,10 +20,11 @@ class BhsaLexer(Lexer):
 
     # initialize standard methods / attributes
     # and add custom ones
-    def __init__(self, tf_api, slot2pos):
+    def __init__(self, tf_api, slot2pos, word_seps):
         super().__init__()
-        self.tfa = tf_api
+        self.tf_api = tf_api
         self.slot2pos = slot2pos
+        self.word_seps = word_seps
  
     # unique parts of speech values harvested from 
     # the parts of speech parser and pasted here
@@ -37,6 +38,8 @@ class BhsaLexer(Lexer):
          CONJ,
          CONJPP,
          CONJGP,
+         CONJADJV,
+         CONJCARD,
          INRG,
          NOUN,
          ORDN,
@@ -50,6 +53,7 @@ class BhsaLexer(Lexer):
          C, # construct state
          A, # absolute state
          SFX, # pronominal suffixes
+         SEP, # separator for [np np] disambiguation
     }
     
     def get_token(self, cx, cat, index):
@@ -82,26 +86,33 @@ class BhsaLexer(Lexer):
             yield token
             i += 1
             
-            # split off morphological tokens
-            for morph in self.tokenize_morphs(slot):
-                yield self.get_token(morph, morph.cat, i)
+            # add custom tokens at end of word
+            for ending in self.end_tokens(slot):
+                yield self.get_token(ending, ending.cat, i)
                 i += 1
         
-    def tokenize_morphs(self, slot):
-        """Tokenize morphological forms."""
-        F = self.tfa.F
+    def end_tokens(self, slot):
+        """Add disambiguator tokens at the end of words."""
+
+        F = self.tf_api.F
         pos = self.slot2pos[str(slot)]
         prs = F.prs.v(slot)
         st = F.st.v(slot)
+
+        # add state token
         if pos != 'PREP':
             if pos not in {'CARD', 'CARD1', 'ADVB'} and st == 'c':
                 yield CX(slot, 'C')
             elif pos in {'NOUN','PROPN'} and prs in {'absent', 'n/a'}:
                 yield CX(slot, 'A')
-            #elif st == 'a' and prs in {'absent', 'n/a'}:
-            #    yield CX(slot, 'A')
+
+        # add suffix token
         if F.prs.v(slot) not in {'absent', 'n/a'}:
             yield CX(slot, 'SFX')
+
+        # add separator token
+        if slot in self.word_seps:
+            yield CX(slot, 'SEP')
         
 class PhraseParser(Parser):
 
@@ -142,7 +153,7 @@ class PhraseParser(Parser):
         return p[0].slot
 
     # -- adjective-based phrases --
-    @_('np ADJV', 'np ADVB', 'np ORDN')
+    @_('np ADJV', 'np ADVB', 'np ORDN') # num ADJV
     def adjv(self, p):
         return [p[1].slot, p[0], 'ADJV']
 
@@ -156,7 +167,7 @@ class PhraseParser(Parser):
 
     @_('ADVB PRPS', 'ADVB CARD1')
     def adjv(self, p):
-        return [p[0].slot, p[1].slot, 'ADJV']
+        return [p[0].slot, p[1].slot, 'ADJV'] 
 
     @_('ADJV np', 'NEGA np')
     def adjv(self, p):
@@ -164,9 +175,10 @@ class PhraseParser(Parser):
 
     @_('ADVB np', 'ADVB pp', 
        'ADVB quant', 'PRIN np',
-       'ADVB num', 'ADVB defi')
+       'ADVB num', 'ADVB defi',
+       'ADVB gp')
     def adjv(self, p):
-        return [p[0].slot, p[1], 'ADJV']
+        return [p[0].slot, p[1], 'ADJV'] 
 
     @_('adjv ADJV')
     def adjv(self, p):
@@ -213,7 +225,7 @@ class PhraseParser(Parser):
         return [p[1], p[0], 'GP']
 
     # -- quantified phrases -- 
-    @_('QUANT C')
+    @_('QUANT C', 'ORDN C')
     def qconstr(self, p):
         return p[0].slot
 
@@ -294,12 +306,11 @@ class PhraseParser(Parser):
   
     # -- parallel phrases --
     @_('np CONJ np', 'np CONJ defi', 'np CONJ para', 
-       'np CONJ adjv',
+       'np CONJ adjv', 'np CONJ gp', 'np CONJ quant',
        'defi CONJ defi', 'defi CONJ para', 'defi CONJ np',
        'appo CONJ appo', 'appo CONJ para', 
-       'adjv CONJ adjv', 'adjv CONJ para',
        'demon CONJ demon', 'demon CONJ para', 
-       'quant CONJ quant', 'quant CONJ para',
+       'quant CONJ quant', 'quant CONJGP quant', 'quant CONJ para',
        'para CONJ para', 
        'num CONJ num', 'num CONJ np',
     ) 
@@ -307,12 +318,24 @@ class PhraseParser(Parser):
         conj = [p[1].slot, p[2], 'CONJ']
         return [conj, p[0], 'PARA']
 
+    @_('np SEP np', 'np SEP para',
+       'defi SEP defi', 'defi SEP para',
+       'gp SEP gp', 'gp SEP para',
+       'num SEP num', 'num SEP para',
+       'appo SEP appo', 'appo SEP para',
+       'pp SEP pp', 'pp SEP para',
+       'para SEP para')
+    def para(self, p):
+        return [p[2], p[0], 'PARA']
+
     @_('PRPS CONJ PRPS')
     def para(self, p):
         conj = [p[1].slot, p[2].slot, 'CONJ']
         return [conj, p[0].slot, 'PARA']
 
-    @_('PRPS CONJ np')
+    @_('PRPS CONJ np', 'PRPS CONJ quant',
+       'PRPS CONJ defi', 'PRPS CONJ gp',
+       'PRPS CONJ para')
     def para(self, p):
         conj = [p[1].slot, p[2], 'CONJ']
         return [conj, p[0].slot, 'PARA']
@@ -328,7 +351,8 @@ class PhraseParser(Parser):
         return [conj, p[0], 'PARA']
 
     @_('pp CONJPP pp', 'pp CONJPP para',
-       'gp CONJGP gp', 'gp CONJGP para')
+       'gp CONJGP gp', 'gp CONJGP para',
+       'adjv CONJADJV adjv')
     def para(self, p):
         conj = [p[1].slot, p[2], 'CONJ']
         return [conj, p[0], 'PARA']
@@ -346,12 +370,12 @@ class PhraseParser(Parser):
     def cardc(self, p):
         return [p[0].slot, p[1], 'CARDC']
 
-    @_('CARD CONJ cardc')
+    @_('CARD CONJCARD cardc')
     def cardc(self, p):
         conj = [p[1].slot, p[2], 'CONJ']
         return [conj, p[0].slot, 'CARDC']
 
-    @_('CARD CONJ CARD')
+    @_('CARD CONJCARD CARD')
     def cardc(self, p):
         conj = [p[1].slot, p[2].slot, 'CONJ']
         return [conj, p[0].slot, 'CARDC']
@@ -363,7 +387,7 @@ class PhraseParser(Parser):
         return [p[1], p[0], 'NUM']
     
     @_('cardc np', 'cardc gp', 'cardc appo',
-       'cardc adjv')
+       'cardc adjv', 'cardc defi')
     def num(self, p):
         return [p[0], p[1], 'NUM']
 
@@ -392,8 +416,16 @@ def parse_phrases(paths, API):
     with open(paths['samples'], 'r') as infile:
         samples = json.load(infile)
 
+    # load disambiguators
+    with open(paths['paraseps'], 'r') as infile:
+        word_seps = set(json.load(infile))
+
     # initialize lexer/parser
-    lexer = BhsaLexer(API, slot2pos)
+    lexer = BhsaLexer(
+        API, 
+        slot2pos,
+        word_seps,
+    )
 
     # initialize parser
     # error_tracker allows us to save

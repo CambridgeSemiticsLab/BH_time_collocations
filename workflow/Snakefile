@@ -86,9 +86,9 @@ rule parse_phrases:
         samples=rules.build_samples.output.samples,
         bhsadata=bhsadata,
         slot2pos=rules.parse_pos.output.slot2pos,
+        paraseps=rules.get_disambigs.output.paraseps,
         styles=stylesheets,
         script="scripts/parsing/phrase_parser.py",
-        script2="scripts/parsing/pos_parsing.py",
     params:
         plotsdir=metric_plotsdir 
     output:

@@ -260,6 +260,7 @@ class PositionsTF(Positions):
         self.n = node
         self.thisotype = self.tf.F.otype.v(node)
         self.method = method
+        self.cache = {}
         if type(context) == str:
             positions = self.tf.L.d(
                 self.tf.L.u(node, context)[0], 
@@ -281,11 +282,15 @@ class PositionsTF(Positions):
         """
             
         # get next position based on method
-        if self.method == 'slot':
-            get_pos = self.slotpos(position)
-        elif self.method == 'node':
-            get_pos = self.elementpos(position)
-        
+        try:
+            get_pos = self.cache[position]
+        except KeyError:
+            if self.method == 'slot':
+                get_pos = self.slotpos(position)
+            elif self.method == 'node':
+                get_pos = self.elementpos(position)
+            self.cache[position] = get_pos
+            
         # return requested data
         if get_pos:
             Fs = self.tf.Fs
