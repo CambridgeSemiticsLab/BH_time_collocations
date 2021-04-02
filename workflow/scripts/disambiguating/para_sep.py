@@ -34,7 +34,7 @@ para_query = '''
 sp1:subphrase
     w1:word pdp=nmpr|subs
 sp2:subphrase rela=par
-    w2:word pdp#adjv|advb ls#card
+    w2:word ls#card
 
 sp1 := w1
 sp1 <: sp2

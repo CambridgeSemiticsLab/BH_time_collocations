@@ -242,6 +242,7 @@ class posParser:
                 and self._F.pdp.v(w) == 'conj'
                 and P(1,'st') == 'c'
                 and P(1,'ls') != 'card'
+                and not self.QUANT(P(1))
             ),
             (
                 P(-3,'st') == 'c'
@@ -249,6 +250,16 @@ class posParser:
                 and self._F.pdp.v(w) == 'conj'
                 and P(1,'st') == 'c'
                 and P(1,'ls') != 'card'
+                and not self.QUANT(P(1))
+            ),
+            (
+                P(-5,'st') == 'c'
+                and P(-4,'lex') == 'H'
+                and P(-2,'lex') == 'H'
+                and self._F.pdp.v(w) == 'conj'
+                and P(1,'st') == 'c'
+                and P(1,'ls') != 'card'
+                and not self.QUANT(P(1))
             )
         ])
 
@@ -276,13 +287,35 @@ class posParser:
             )
         ])
 
+    def CONJQUANT(self, w):
+        """
+        Conj surrounded by cardinals.
+        """
+        P = self._getP(w)
+        return any([
+            (
+                self.QUANT(P(-2))
+                and self._F.pdp.v(w) == 'conj'
+                and self.QUANT(P(1))
+            ),
+            (
+                self.QUANT(P(-3))
+                and P(-2,'lex') == 'H'
+                and self._F.pdp.v(w) == 'conj'
+                and self.QUANT(P(1))
+            )
+        ])
+
     def ADVB(self, w):
         """Identify adverbs.
     
         Currently only identifies עוד
         """
         return self._F.lex.v(w) == '<WD/'
-            
+
+    def GAM(self, w):
+        """A POS for the adverb גם"""
+        return self._F.lex.v(w) == 'GM'
 
 def parse_pos(data_locs, slot2pos_path, uniquepos_path):
     """Apply parsing using Text-Fabric."""

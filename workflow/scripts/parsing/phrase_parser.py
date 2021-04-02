@@ -2,6 +2,7 @@ import json
 from tf.fabric import Fabric
 from sly import Lexer, Parser
 from sly.lex import Token
+from .positions import PositionsTF
 
 class CX:
     """A construction class for representing a word/morpheme."""
@@ -40,6 +41,7 @@ class BhsaLexer(Lexer):
          CONJGP,
          CONJADJV,
          CONJCARD,
+         CONJQUANT,
          INRG,
          NOUN,
          ORDN,
@@ -50,12 +52,19 @@ class BhsaLexer(Lexer):
          PRPS,
          QUANT,
          NEGA,
+         GAM,
          C, # construct state
          A, # absolute state
          SFX, # pronominal suffixes
          SEP, # separator for [np np] disambiguation
+         SEPPREP,
+         SEPGP,
     }
     
+    def getP(self, node, context='phrase_atom'):
+        """Get Positions object for a TF node."""
+        return PositionsTF(node, context, self.tf_api).get
+
     def get_token(self, cx, cat, index):
         """Compile custom SLY token object."""
         token = Token()
@@ -111,8 +120,24 @@ class BhsaLexer(Lexer):
             yield CX(slot, 'SFX')
 
         # add separator token
-        if slot in self.word_seps:
-            yield CX(slot, 'SEP')
+        septoken = self.get_septoken(slot)
+        if septoken:
+            yield CX(slot, septoken)
+
+    def get_septoken(self, slot):
+        """Retrive separator tokens of various kinds."""
+    
+        if slot not in self.word_seps:
+            return None
+
+        # process various flavors of sep tokens based on context 
+        P = self.getP(slot)
+        if P(1,'pdp') == 'prep':
+            return 'SEPPREP'
+        elif P(1,'st') == 'c':
+            return 'SEPGP'
+        else:
+            return 'SEP'
         
 class PhraseParser(Parser):
 
@@ -138,7 +163,8 @@ class PhraseParser(Parser):
     @_('np', 'adjv', 'defi', 'gp',
        'pp', 'appo', 'quant', 'num',
        'para', 'demon', 'cardc', 'advb',
-       'quant_sized', 'adjv_para')
+       'quant_sized', 'adjv_para', 'gam_adjv',
+       'gam_para',)
     def phrase(self, p):
         return p[0]
 
@@ -180,15 +206,33 @@ class PhraseParser(Parser):
     def adjv(self, p):
         return [p[0].slot, p[1], 'ADJV'] 
 
+    # NB: Work-around solution for these:
+    # point them at themselves, since they
+    # modify their suffix; too bad the ETCBC
+    # doesn't use suffix slots
+    @_('ADVB SFX')
+    def adjv(self, p):
+        return [p[0].slot, p[0].slot, 'ADJV']
+
     @_('adjv ADJV')
     def adjv(self, p):
         return [p[1].slot, p[0], 'ADJV']
 
+    @_('GAM np', 'GAM pp', 
+       'GAM quant', 'GAM num', 
+       'GAM defi', 'GAM gp')
+    def gam_adjv(self, p):
+        return [p[0].slot, p[1], 'ADJV'] 
+
+    @_('GAM PRPS', 'GAM CARD1', 'GAM ADVB')
+    def gam_adjv(self, p):
+        return [p[0].slot, p[1].slot, 'ADJV'] 
+
     # phrase + PP modification
-    #@_('np pp')
-    #def adjv(self, p):
-    #    return [p[1], p[0], 'ADJV']
- 
+    @_('CARD1 pp')
+    def adjv(self, p):
+        return [p[1], p[0].slot, 'ADJV']
+
     # -- adverbial phrases -- 
     # TODO: add rule to recognize distributive 
     # constructions suhch as סביב סביב
@@ -308,9 +352,10 @@ class PhraseParser(Parser):
     @_('np CONJ np', 'np CONJ defi', 'np CONJ para', 
        'np CONJ adjv', 'np CONJ gp', 'np CONJ quant',
        'defi CONJ defi', 'defi CONJ para', 'defi CONJ np',
+       'defi CONJ gp',
        'appo CONJ appo', 'appo CONJ para', 
+       'adjv CONJ np',
        'demon CONJ demon', 'demon CONJ para', 
-       'quant CONJ quant', 'quant CONJGP quant', 'quant CONJ para',
        'para CONJ para', 
        'num CONJ num', 'num CONJ np',
     ) 
@@ -320,10 +365,10 @@ class PhraseParser(Parser):
 
     @_('np SEP np', 'np SEP para',
        'defi SEP defi', 'defi SEP para',
-       'gp SEP gp', 'gp SEP para',
+       'gp SEPGP gp', 'gp SEPGP para',
        'num SEP num', 'num SEP para',
        'appo SEP appo', 'appo SEP para',
-       'pp SEP pp', 'pp SEP para',
+       'pp SEPPREP pp', 'pp SEPPREP para',
        'para SEP para')
     def para(self, p):
         return [p[2], p[0], 'PARA']
@@ -352,10 +397,20 @@ class PhraseParser(Parser):
 
     @_('pp CONJPP pp', 'pp CONJPP para',
        'gp CONJGP gp', 'gp CONJGP para',
-       'adjv CONJADJV adjv')
+       'adjv CONJADJV adjv',
+       'quant CONJQUANT quant', 'quant CONJQUANT para')
     def para(self, p):
         conj = [p[1].slot, p[2], 'CONJ']
         return [conj, p[0], 'PARA']
+
+    # special cases of parallelism
+    @_('gam_adjv gam_adjv', 'gam_adjv gam_para')
+    def gam_para(self, p):
+        return [p[1], p[0], 'PARA']
+
+    @_('gam_adjv SEP gam_adjv')
+    def gam_para(self, p):
+        return [p[2], p[0], 'PARA']
 
     # -- chained cardinal numbers --
     @_('CARD CARD', 'CARD C CARD')
