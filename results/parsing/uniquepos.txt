@@ -1,4 +1,5 @@
 ADJV,
+ADJVPREP,
 ADVB,
 ART,
 CARD,

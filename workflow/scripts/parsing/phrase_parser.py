@@ -2,7 +2,7 @@ import json
 from tf.fabric import Fabric
 from sly import Lexer, Parser
 from sly.lex import Token
-from .positions import PositionsTF
+from tools.positions import PositionsTF
 
 class CX:
     """A construction class for representing a word/morpheme."""
@@ -47,6 +47,7 @@ class BhsaLexer(Lexer):
          ORDN,
          PRDE,
          PREP,
+         ADJVPREP,
          PRIN,
          PROPN,
          PRPS,
@@ -229,10 +230,23 @@ class PhraseParser(Parser):
         return [p[0].slot, p[1].slot, 'ADJV'] 
 
     # phrase + PP modification
-    @_('CARD1 pp')
+    @_('CARD1 adjv_pp')
     def adjv(self, p):
         return [p[1], p[0].slot, 'ADJV']
 
+    @_('np adjv_pp')
+    def adjv(self, p):
+        return [p[1], p[0], 'ADJV']
+
+    # adjectivals with construct
+#    @_('ADJV C')
+#    def adjconstr(self, p):
+#        return p[0].slot
+
+#    @_('adjvconstr phrase')
+#    def adjv(self, p):
+#        return [p[0], p[1], 'ADJV']
+ 
     # -- adverbial phrases -- 
     # TODO: add rule to recognize distributive 
     # constructions suhch as סביב סביב
@@ -322,7 +336,7 @@ class PhraseParser(Parser):
     @_('np np', 'np defi', 'defi defi', 
        'appo appo', 'adjv adjv', 'gp gp',
        'appo np', 'appo defi', 'num num',
-       'defi np', 'advb advb', 'pp pp')
+       'defi np', 'advb advb') 
     def appo(self, p):
         return [p[1], p[0], 'APPO']
 
@@ -347,7 +361,17 @@ class PhraseParser(Parser):
     @_('PREP PREP')
     def pp(self, p):
         return [p[0].slot, p[1].slot, 'PP']
-  
+
+    @_('ADJVPREP defi', 'ADJVPREP np',
+       'ADJVPREP adjv', 'ADJVPREP gp',
+       'ADJVPREP num')
+    def adjv_pp(self, p):
+        return [p[0].slot, p[1], 'PP']
+
+    @_('ADJVPREP SFX')
+    def adjv_pp(self, p):
+        return p[0].slot
+ 
     # -- parallel phrases --
     @_('np CONJ np', 'np CONJ defi', 'np CONJ para', 
        'np CONJ adjv', 'np CONJ gp', 'np CONJ quant',
@@ -372,6 +396,12 @@ class PhraseParser(Parser):
        'para SEP para')
     def para(self, p):
         return [p[2], p[0], 'PARA']
+
+    # Unlike, e.g. np np, a double preposition
+    # pattern typically indicates parallelism
+    @_('pp pp')
+    def para(self, p):
+        return [p[1], p[0], 'PARA']
 
     @_('PRPS CONJ PRPS')
     def para(self, p):

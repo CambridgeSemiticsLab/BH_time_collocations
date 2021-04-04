@@ -1,6 +1,6 @@
 import json
 from tf.fabric import Fabric
-from .positions import PositionsTF
+from tools.positions import PositionsTF
 
 # a class to parse BHSA word nodes into parts of speech
 class posParser:
@@ -128,12 +128,19 @@ class posParser:
                 and not ({P(1,'lex'), P(2,'lex')} & {'>JWB/', 'RC</'})
             ),
 
-            # fix: this should be an adverb
-            #(
-            #    F.lex.v(w) == '<YM/',
-            #    and F.st.v(w) == 'c',
-            #    and F.function.v(phn) == 'Time'
-            #)
+       ])
+
+    def ADJVPREP(self, w):
+        """Preposition that functions adjectivally to a noun."""
+        phrase = self._L.u(w, 'phrase_atom')[0]
+        F = self._F
+        P = self._getP(w)
+        return any([
+            (
+                F.typ.v(phrase) != 'PP'
+                and P(-1,'pdp') not in {'conj', 'prep'}
+                and F.pdp.v(w) == 'prep'
+            ),
         ])
     
     def PROPN(self, w):
@@ -289,7 +296,7 @@ class posParser:
 
     def CONJQUANT(self, w):
         """
-        Conj surrounded by cardinals.
+        Conj of quantifiers.
         """
         P = self._getP(w)
         return any([
@@ -300,9 +307,35 @@ class posParser:
             ),
             (
                 self.QUANT(P(-3))
+                and P(-2,'st') == 'c'
+                and self._F.pdp.v(w) == 'conj'
+                and self.QUANT(P(1))
+            ),
+            (
+                self.QUANT(P(-3))
                 and P(-2,'lex') == 'H'
                 and self._F.pdp.v(w) == 'conj'
                 and self.QUANT(P(1))
+            ),
+            (
+                self.QUANT(P(-5))
+                and P(-4,'lex') == 'H'
+                and P(-2,'lex') == 'H'
+                and self._F.pdp.v(w) == 'conj'
+                and self.QUANT(P(1))
+            )
+ 
+        ])
+
+    def ADJV(self, w):
+        """Identify special adjectives."""
+        F = self._F
+        phrase = self._L.u(w, 'phrase')[0] # containing phrase node
+        return any([
+            (
+                F.lex.v(w) == '<YM/'
+                and F.st.v(w) == 'c'
+                and F.function.v(phrase) == 'Time'
             )
         ])
 
@@ -311,8 +344,22 @@ class posParser:
     
         Currently only identifies עוד
         """
-        return self._F.lex.v(w) == '<WD/'
-
+        F = self._F
+        advbs = {
+            '<WD/'
+        }
+        return any([
+            (
+                F.lex.v(w) in advbs
+            ),
+        ])
+            # fix: this should be an adverb
+            #(
+            #    F.lex.v(w) == '<YM/',
+            #    and F.st.v(w) == 'c',
+            #    and F.function.v(phn) == 'Time'
+            #)
+ 
     def GAM(self, w):
         """A POS for the adverb גם"""
         return self._F.lex.v(w) == 'GM'
@@ -325,6 +372,7 @@ def parse_pos(data_locs, slot2pos_path, uniquepos_path):
     tf_api = tf.load('''
         pdp sp ls lex st 
         prs function vt
+        typ
     ''')
 
     F = tf_api.F

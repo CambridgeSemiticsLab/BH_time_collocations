@@ -1,4 +1,5 @@
 import json
+import html
 from tf.fabric import Fabric
 from sly import Parser as SlyParser
 from sly.lex import Token as SlyToken
@@ -192,7 +193,7 @@ class TimeParser(SlyParser):
     def atelic_ext(self, p):
         return 'atelic_ext'
     
-    # -- TEMPORARY MATCHES --
+    # -- INTERMEDIATE MATCHES --
     @_('TIMES', 'duration duration',
        'NUM TIME', 'NUM time', 'NUM duration')
     def duration(self, p):
@@ -238,8 +239,8 @@ def parse_times(phrases_path, parsepath, noparsepath, datalocs, API):
         if parsing is not None and error_tracker['e'] is None:
             parsed[ph_node] = parsing
         else:
-            toks = [t.type for t in tokens]
-            errors[ph_node] = (error_tracker['e'], str(toks))
+            toks = html.escape(str([t.type for t in tokens]))
+            errors[ph_node] = (error_tracker['e'], toks)
 
             # reset error tracker
             error_tracker['e'] = None 

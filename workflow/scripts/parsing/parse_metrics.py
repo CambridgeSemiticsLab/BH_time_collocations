@@ -109,12 +109,16 @@ def examine_parsings(paths, bhsa):
     
     # build datasets for doing analysis on 
     df, sp_df = build_parse_tables(paths, API)
-    
+
+    # optionally restrict to Time Phrases
+    df = df[df.function == 'Time']
+    sp_df = sp_df[sp_df.phrase.isin(df.index)]
+
     # -- BUILD UN-PARSED INSPECTION DOCUMENT --
 
     doc1 = HtmlReport(paths['styles'])
     doc1.heading('Parsing Report', 1)
-    
+
     doc1.heading('top of table', 2)
     doc1.table(df.head())
 
@@ -140,7 +144,7 @@ def examine_parsings(paths, bhsa):
     doc1.heading('pr', 3)
     doc1.table(funct_pr)
 
-   # plot % parsed by number of words in phrase
+    # plot % parsed by number of words in phrase
     nwd_ct = pd.pivot_table(
         df,
         index='nwords',
@@ -177,7 +181,6 @@ def examine_parsings(paths, bhsa):
 
     # counts of phrase strings that are unparsed
     err_df = df[df.parsed == 0]
-#    err_df = err_df[err_df.function == 'Time']
     top_err_toks = err_df.tokens.value_counts().head(50)
     doc1.heading('most missed values', 2)
     doc1.table(top_err_toks)
@@ -197,7 +200,7 @@ def examine_parsings(paths, bhsa):
                 )
             )
             doc1.append(err_df.loc[i]['error'])
-        doc1.append('<hr>')
+            doc1.append('<hr>')
 
     # -- BUILD PARSED INSPECTION DOCUMENT --
     doc2 = HtmlReport(paths['styles'])
@@ -206,7 +209,7 @@ def examine_parsings(paths, bhsa):
     doc2.heading('Phrase type counts', 2)
     kind_ct = sp_df.kind.value_counts()
     doc2.table(kind_ct)
-    
+
     # get random examples for each kind
     for kind in kind_ct.index:
         kdf = sp_df[sp_df.kind == kind]
