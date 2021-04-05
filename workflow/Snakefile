@@ -111,6 +111,7 @@ rule parse_times:
     output:
         parsed="../results/parsing/time_parsings.json",
         notparsed="../results/parsing/time_notparsings.json",
-        metrics="../results/data_metrics/time_parsings.html"
+        parsemets="../results/data_metrics/time_parsings.html",
+        catmets="../results/data_metrics/time_categories.html",
     script:
         "scripts/parse_times.py"

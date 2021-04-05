@@ -27,7 +27,7 @@ class TimeTokenizer:
         token.lineno = 1
         return token
     
-    def tokenize(self, parsedphrase):
+    def tokenize(self, parsedphrase, start=True):
         """Follow path to right-most item (head) and yield tokens.
         
         tokenize must adjudicate what gets yielded as a token
@@ -39,15 +39,18 @@ class TimeTokenizer:
         
         # ignore these relations
         ignore = {None, 'DEF', 'ADJV', 'GP', 'APPO'}
-        
         def tag_rela(rela, name):
             return rela == name and rela not in ignore
 
         # retrieve the head path and begin walking down it
         if len(parsedphrase) > 1:
             head_phrases = list(nt.get_head_path(parsedphrase))
+            if parsedphrase[-1] != 'PP' and start:
+                yield self.get_sly_token('Ø', 0)
         else:
             head_phrases = [[None, parsedphrase[0], None]]
+            if start:
+                yield self.get_sly_token('Ø', 0)
 
         for i, phrase in enumerate(head_phrases):
             
@@ -64,11 +67,8 @@ class TimeTokenizer:
                 # phrases below; unfold_paras will stop as 
                 # soon as it encounters a phrase with a rela
                 # that != PARA or CONJ
-                try:
-                    for subphrase in nt.unfold_paras(src):
-                        yield from self.tokenize(subphrase) # recursively tokenize them
-                except:
-                    raise Exception(phrase)
+                for subphrase in nt.unfold_paras(src):
+                    yield from self.tokenize(subphrase, start=False) # recursively tokenize them
                 
             # tokenize appositional relations if relevant
             elif tag_rela(rela, 'APPO'):
@@ -138,6 +138,7 @@ class TimeParser(SlyParser):
         self.error_tracker = error_tracker
 
     tokens = {
+        'Ø',
         '<D',
         '>XR/',
         'B',
@@ -160,58 +161,107 @@ class TimeParser(SlyParser):
     #debugfile = 'parser.out'
        
     # -- FINAL MATCHES --
-    @_('simul', 'ante', 'post', 'ant_dur',
-       'post_dur', 'in_dur', 'atelic_ext')
+    @_('atelic_ext', 'simul', 'in_dur',
+       'anterior', 'anterior_dur', 'posts',
+       'posterior')
     def category(self, p): 
         return p[0] 
 
-    @_('B TIME', 'TIME')
+    # -- atelic extent
+    @_('Ø duration')
+    def atelic_ext(self, p):
+        p[1].update({
+            'function': 'atelic_ext',
+        })
+        return p[1]
+
+    # -- simultaneous --
+    @_('B time', 'Ø time')
     def simul(self, p):
-        return 'simul'
+        return {
+            'function': 'simultaneous',
+        } 
     
-    @_('before TIME', 'before duration')
-    def ante(self, p):
-        return 'ante'
-    
-    @_('>XR/ TIME', '>XR/ duration')
-    def post(self, p):
-        return 'post'
-    
-    @_('<D TIME', '<D duration', '<D time')
-    def ant_dur(self, p):
-        return 'ant_dur'
-    
-    @_('MN TIME', 'MN time', 'MN duration')
-    def post_dur(self, p):
-        return 'post_dur'
-    
+    # -- telic extent / distances --
     @_('B duration')
     def in_dur(self, p):
-        return 'telic_ext|dist_fut'
-    
-    @_('duration')
-    def atelic_ext(self, p):
-        return 'atelic_ext'
-    
-    # -- INTERMEDIATE MATCHES --
-    @_('TIMES', 'duration duration',
-       'NUM TIME', 'NUM time', 'NUM duration')
-    def duration(self, p):
-        return ''
-    
-    @_('L PNH/')
-    def before(self, p):
-        return ''
-    
-    @_('QY/ duration', 'QY/ TIME')
-    def time(self, p):
-        return ''
+        p[1].update({
+            'function':'telic_ext, dist_fut, dist_past',
+        })
+        return p[1]
 
-def parse_times(phrases_path, parsepath, noparsepath, datalocs, API):
+    # -- anterior --
+    @_('L PNH/ duration', 'L PNH/ time')
+    def anterior(self, p):
+        p[2].update({
+            'function': 'anterior',
+        })
+        return p[2]
+
+    # -- anterior durative --
+    @_('<D duration', '<D time')
+    def anterior_dur(self, p):
+        p[1].update({
+            'function': 'ant_dur',
+        })
+        return p[1]
+    
+    # -- posteriors --
+    @_('MN time', 'MN duration')
+    def posts(self, p):
+        p[1].update({
+            'function': 'post, post_dur',
+        })
+        return p[1]
+ 
+    # -- posterior durative --
+    @_('>XR/ duration', '>XR/ time')
+    def posterior(self, p):
+        p[1].update({
+            'function': 'posterior'
+        })
+        return p[1]
+
+    # -- reanalyze "end of time" as point
+    @_('QY/ duration', 'QY/ time')
+    def time(self, p):
+        p[1].update({
+            'time': 'singular'
+        })
+        return p[1]
+ 
+    # -- durations --
+    @_('TIMES')
+    def duration(self, p):
+        return {
+            'time': 'durative'
+        } 
+
+    @_('NUM duration', 'NUM time')
+    def duration(self, p):
+        p[1].update({
+            'time': 'durative',
+            'mensural': True,
+        })
+        return p[1]
+
+    @_('duration duration')
+    def duration(self, p):
+        p[1].update(p[0])
+        return p[1]
+
+    # -- time --
+    @_('TIME')
+    def time(self, p):
+        return {
+            'time': '?',
+        }
+  
+def parse_times(paths, API):
     """Apply the time parser."""
 
     # load phrase parsings
-    phrases = ParseLoader(phrases_path).load()
+    phrases = ParseLoader(paths['ph_parses']).load()
 
     # initialize tokenizer
     tokenizer = TimeTokenizer(API)
@@ -246,8 +296,8 @@ def parse_times(phrases_path, parsepath, noparsepath, datalocs, API):
             error_tracker['e'] = None 
 
     # export
-    with open(parsepath, 'w') as outfile:
-        json.dump(parsed, outfile, indent=2)
+    with open(paths['parsed'], 'w') as outfile:
+        json.dump(parsed, outfile, indent=2, ensure_ascii=False)
 
-    with open(noparsepath, 'w') as outfile:
-        json.dump(errors, outfile, indent=2)
+    with open(paths['notparsed'], 'w') as outfile:
+        json.dump(errors, outfile, indent=2, ensure_ascii=False)

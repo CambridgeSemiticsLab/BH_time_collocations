@@ -1,3 +1,4 @@
+import re
 import json
 import pandas as pd
 import numpy as np
@@ -7,38 +8,91 @@ from tools.html_docs import HtmlReport
 import tools.nav_tree as nt
 from tools.load_parse import ParseLoader
 
-def build_row_data(node, tf_api, ph_parse, time_parsing=None, **features):
+def get_phrase_data(node, ph_parse, tf_api):
+    """Retrieve data on parsed phrase for analysis."""
+
+    F, E, L, = tf_api.F, tf_api.E, tf_api.L
+    
+    # get nodes in the local context
+    words = L.d(node, 'word')
+    phrase = L.u(node, 'phrase')[0]
+    parent_atoms = L.d(phrase, 'phrase_atom')
+    ext_relas = bool(E.mother.t(phrase))
+
+    # get heads and head modifiers in the phrase
+    if len(ph_parse) > 1:
+        subphrases = list(nt.unfold_paras(ph_parse))
+        head_nodes = []
+        for sp in subphrases:
+            if len(sp) > 1:
+                head = nt.get_head(sp)
+            else:
+                head = sp[0]
+            head_nodes.append(head)
+
+        heads = '|'.join(F.lex.v(w) for w in head_nodes)
+        numbers = '|'.join(F.nu.v(w) for w in head_nodes)
+
+    else:
+        heads = F.lex.v(ph_parse[0])
+        numbers = F.nu.v(ph_parse[0])
+
+    return {
+        'nwords': len(words),
+        'heads': heads,
+        'nums': numbers,
+        'parent_len': len(parent_atoms),
+        'ext_relas': ext_relas,
+    }
+ 
+
+def build_row_data(node, tf_api, ph_parse, time_parsing={}, **features):
     """Build data that can be analyzed to assess quality of parses."""
     F, T, L = tf_api.F, tf_api.T, tf_api.L
     book, chapter, verse = T.sectionFromNode(node)
     phrase = L.u(node, 'phrase')[0]
-    words = L.d(node, 'word')
-    if len(ph_parse) > 1:
-        head = nt.get_head(ph_parse)
-    else:
-        head = ph_parse[0]
-    return dict(
+
+    # get tokens from error report
+    err = features.get('error', '') 
+    toks = re.findall('[A-Z_Ø]+', err)
+    tokens = ' '.join(toks)
+
+    # build basic data
+    data = dict(
         node=node,
         ref=f'{book} {chapter}:{verse}',
         book=book,
-        parse=time_parsing,
-        parsed=bool(time_parsing) * 1,
+        ph_parse=ph_parse,
         typ=F.typ.v(node),
-        nwords=len(words),
         txt=T.text(node, fmt='text-orig-plain'),
-        head=T.text(head),
-        head_lex=F.lex.v(head),
+        tokens=tokens,
+        parsed=bool(time_parsing) * 1,
         **features
     )
 
-def build_parse_table(parsed_path, notparsed_path, ph_parsings, API):
+    # update with parsing data
+    data.update(time_parsing)
+
+    # update with data about the phrase
+    data.update(
+        get_phrase_data(
+            node, 
+            ph_parse,
+            tf_api
+        )
+    )
+
+    return data
+
+def build_parse_table(paths, API):
     """Produce metrics and reports on the parsings."""
 
-    # load the parsed/not parsed files
-    with open(parsed_path, 'r') as infile:
+    # load phrase data
+    with open(paths['parsed'], 'r') as infile:
         parsed = json.load(infile)
-    with open(notparsed_path, 'r') as infile:
+    with open(paths['notparsed'], 'r') as infile:
         errors = json.load(infile)
+    ph_parsings = ParseLoader(paths['ph_parses']).load()
 
     # build row data for dataframe
     rows = []
@@ -61,67 +115,68 @@ def build_parse_table(parsed_path, notparsed_path, ph_parsings, API):
         )
         rows.append(row)
 
-    df = pd.DataFrame(rows)
+    df = pd.DataFrame(rows)\
+        .set_index('node', drop=True)
     return df
 
-def examine_times(parsed_path, notparsed_path, 
-    datalocs, stylepaths, metricspath, bhsa=None):
+def examine_times(paths, bhsa):
     """Build a report."""
 
     API = bhsa.api
 
-    # load custom pos tags
-    ph_parses = ParseLoader(datalocs['ph_parsings']).load()
-
     # function for getting plot paths
-    plotdir = Path(datalocs['plotsdir'])
+    plotdir = Path(paths['plotsdir'])
     plotpath = lambda fname: str(plotdir.joinpath(fname))
     
     # build dataset
     df = build_parse_table(
-        parsed_path, 
-        notparsed_path,
-        ph_parses,
+        paths,
         API,
     )
+
+    # restrict the analysis
+    df = df[
+       (df.parent_len == 1)
+       & (df.ext_relas == False)
+    ]
     
-    doc = HtmlReport(stylepaths)
-    doc.heading('Time Parsing Report', 1)
+    doc1 = HtmlReport(paths['styles'])
+    doc1.heading('Time Parsing Report', 1)
     
-    doc.heading('top of table', 2)
-    doc.table(df.head())
+    doc1.heading('top of table', 2)
+    doc1.table(df.head())
 
     # Number of phrases parsed
     parsed_ct = df.parsed.value_counts()
-    doc.heading('parsed counts', 2)
-    doc.table(parsed_ct)
+    doc1.heading('parsed counts', 2)
+    doc1.table(parsed_ct)
     parsed_pr = parsed_ct / parsed_ct.sum()
-    doc.heading('parsed perc.', 2)
-    doc.table(parsed_pr.round(2))
+    doc1.heading('parsed perc.', 2)
+    doc1.table(parsed_pr.round(2))
 
     # Counts of parsed semantic classes
-    semclass_ct = df.parse.value_counts()
-    doc.heading('semclass counts', 2)
-    doc.table(semclass_ct)
-    semclass_pr = semclass_ct / semclass_ct.sum()
-    doc.heading('semclass perc.', 2)
-    doc.table(semclass_pr.round(2))
+    function_ct = df.function.value_counts()
+    doc1.heading('function counts', 2)
+    doc1.table(function_ct)
+    function_pr = function_ct / function_ct.sum()
+    doc1.heading('function perc.', 2)
+    doc1.table(function_pr.round(2))
 
-    # Number of phrases parsed/not parsed by type
-    funct_ct = pd.pivot_table(
+    # phrase type ct
+    typ_ct = pd.pivot_table(
         df,
         index='parsed',
         columns='typ',
         aggfunc='size',
         fill_value=0,
     )
-    funct_pr = funct_ct.div(funct_ct.sum(0), 1)
-    doc.heading('phrase type: parsed vs. not parsed', 2)
-    doc.table(funct_ct)
-    doc.heading('pr', 3)
-    doc.table(funct_pr)
+    typ_pr = typ_ct.div(typ_ct.sum(0), 1)
+    doc1.heading('phrase type: parsed vs. not parsed', 2)
+    doc1.table(typ_ct)
+    doc1.heading('pr', 3)
+    doc1.table(typ_pr)
 
-   # plot % parsed by number of words in phrase
+    # plot % parsed by number of words in phrase
     nwd_ct = pd.pivot_table(
         df,
         index='nwords',
@@ -131,11 +186,11 @@ def examine_times(parsed_path, notparsed_path,
     )
     nwd_pr = nwd_ct.div(nwd_ct.sum(1), 0)    
 
-    doc.heading('Parsed by number of words', 2)
-    doc.heading('ct (cutoff at 20)', 3)
-    doc.table(nwd_ct[nwd_ct.index < 20].T)
-    doc.heading('pr', 3)
-    doc.table(nwd_pr[nwd_pr.index < 20].round(2).T)
+    doc1.heading('Parsed by number of words', 2)
+    doc1.heading('ct (cutoff at 20)', 3)
+    doc1.table(nwd_ct[nwd_ct.index < 20].T)
+    doc1.heading('pr', 3)
+    doc1.table(nwd_pr[nwd_pr.index < 20].round(2).T)
 
     # make plot of number of words 
     fig, ax = plt.subplots(figsize=(4, 4))
@@ -147,39 +202,67 @@ def examine_times(parsed_path, notparsed_path,
     ax.set_xticks(x)
     nwd_plotpth = plotpath('nwords_by_parsed_time.svg')
     plt.savefig(nwd_plotpth, format='svg')
-    doc.img(nwd_plotpth)
-
-    # look at DP for books
-#    book_ct = pd.pivot_table(
-#        df,
-#        index='book',
-#        columns=['function', 'parsed'],
-#    )
-    
+    doc1.img(nwd_plotpth)
+   
     # counts of phrase strings that are unparsed
     err_df = df[df.parsed == 0]
-    top_err_str = err_df.error.value_counts().head(50)
-    doc.heading('most missed values', 2)
-    doc.table(top_err_str)
+    top_err_toks = err_df.tokens.value_counts().head(50)
+    doc1.heading('most missed values', 2)
+    doc1.table(top_err_toks)
 
     # display unparsed phrases
-    for string in top_err_str.index:
-        doc.heading(string, 3)
-        examples = err_df[err_df.error == string]
+    for string in top_err_toks.index:
+        doc1.heading(string, 3)
+        examples = err_df[err_df.tokens == string]
         sample_size = min([5, examples.shape[0]])
         examples = examples.sample(sample_size, random_state=42)
         for i in examples.index:
-            doc.append(
+            doc1.append(
                 bhsa.pretty(
-                    err_df.loc[i]['node'], 
+                    i,
                     extraFeatures='typ st',
                     withNodes=True
                 )
             )
-            doc.append(err_df.loc[i]['error'])
-        doc.append('<hr>')
+            doc1.append(err_df.loc[i]['error'])
+            doc1.append('<hr>')   
+
+    # -- BUILD PARSED INSPECTION DOCUMENT --
+    doc2 = HtmlReport(paths['styles'])
+    doc2.heading('Times Analysis', 1)
+
+    # sample unique phrase temporal qualities
+    for funct in function_ct.index:
+        semdf = df[df.function == funct]
+        size = semdf.shape[0]
+        samp = semdf.sample(min(50, size), random_state=42)
+        doc2.heading(funct, 3)
+        for ph in samp.index:
+            ph_parse = eval(str(df.loc[ph]['ph_parse']))
+            if type(ph_parse) != int and len(ph_parse) == 3:
+                ph_show_parse = nt.show_relas(
+                    ph_parse, 
+                    API.T.text,
+                    '<br>'
+                )
+            else:
+                ph_show_parse = f'{API.T.text(ph)}'
+            doc2.append(
+                bhsa.plain(
+                    ph, 
+                ).replace('div class="rtl"', 'div')
+            )   
+            doc2.append(f'{ph}<br>')
+            doc2.append(ph_show_parse) 
+            doc2.append('<br><br>')
+        doc2.append('<hr>')
 
     # finish and export
-    doc.export()
-    with open(metricspath, 'w') as outfile:
-        outfile.write(doc.html)
+    doc1.export()
+    with open(paths['metrics'], 'w') as outfile:
+        outfile.write(doc1.html)
+
+    # finish and export
+    doc2.export()
+    with open(paths['catmetrics'], 'w') as outfile:
+        outfile.write(doc2.html)

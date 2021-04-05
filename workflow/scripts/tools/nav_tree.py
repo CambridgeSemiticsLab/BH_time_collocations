@@ -92,7 +92,6 @@ def unfold_paras(phrase):
             yield from unfold_paras(tgt)
         else:
             yield [tgt]
-
     else:
         yield phrase
 

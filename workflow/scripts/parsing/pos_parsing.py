@@ -1,68 +1,20 @@
 import json
 from tf.fabric import Fabric
-from tools.positions import PositionsTF
+from tools.parsers import PositionsParser
 
 # a class to parse BHSA word nodes into parts of speech
-class posParser:
+class posParser(PositionsParser):
 
     def __init__(self, tf_api):
-        self._tfapi = tf_api
-        self._F = tf_api.F
-        self._E = tf_api.E
-        self._T = tf_api.T
-        self._L = tf_api.L
+        
+        # initialize methods / attribs in parent class
+        super().__init__(tf_api)
 
         # precedence assignments for when multiple matches are found
         # higher value == the function will be matched first
         self._prec = {
             'CONJPP': 1, # match first to eliminate some eroneous CONJGP matches
         }
-
-    def _getprec(self, name):
-        """Get precedence for parse values."""
-        return self._prec.get(name, 0)
-
-    def _getparsers(self):
-        """Retrieve defined parsers in this class.
-
-        Parsers are identified by those methods which
-        are named without a prefixed underscore.
-        """
-
-        # retrieve defined parsers
-        parsenames = [
-            m for m in dir(self) 
-                if not m.startswith('_')
-        ]
-
-        # sort by precedence
-        parsenames = sorted(
-            parsenames,
-            key=self._getprec,
-            reverse=True,
-        )
-
-        # remap method names to actual functions for calls
-        parsers = {
-            p:getattr(self, p) for p in parsenames
-        }
-        
-        return parsers
-
-    def _parse(self, wordn):
-        """Parse a supplied BHSA word node."""
-
-        # get parsers sorted by precedence
-        parsers = self._getparsers()
-
-        # return first match in order of precedence
-        for value, parser in parsers.items():
-            if parser(wordn):
-                return value
-
-    def _getP(self, node, context='phrase_atom'):
-        """Get Positions object for a TF node."""
-        return PositionsTF(node, context, self._tfapi).get
 
     # -- PARSERS defined below --
     # The tag for each parser method is the name
@@ -353,13 +305,7 @@ class posParser:
                 F.lex.v(w) in advbs
             ),
         ])
-            # fix: this should be an adverb
-            #(
-            #    F.lex.v(w) == '<YM/',
-            #    and F.st.v(w) == 'c',
-            #    and F.function.v(phn) == 'Time'
-            #)
- 
+
     def GAM(self, w):
         """A POS for the adverb גם"""
         return self._F.lex.v(w) == 'GM'

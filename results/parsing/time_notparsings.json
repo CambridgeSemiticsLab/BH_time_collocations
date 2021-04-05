@@ -5,11 +5,11 @@
   ],
   "905620": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "905667": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "905727": [
     "reached end",
@@ -21,7 +21,7 @@
   ],
   "906395": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "906617": [
     "reached end",
@@ -65,7 +65,7 @@
   ],
   "907060": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "907185": [
     "reached end",
@@ -91,6 +91,10 @@
     "reached end",
     "[&#x27;B&#x27;, &#x27;DEMON&#x27;, &#x27;TIME&#x27;]"
   ],
+  "910274": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+  ],
   "910602": [
     "reached end",
     "[&#x27;L&#x27;, &#x27;TIME&#x27;]"
@@ -101,7 +105,7 @@
   ],
   "910981": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "911681": [
     "reached end",
@@ -109,7 +113,7 @@
   ],
   "912286": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIMES&#x27;]"
   ],
   "912743": [
     "reached end",
@@ -129,7 +133,7 @@
   ],
   "918188": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "918544": [
     "reached end",
@@ -137,7 +141,7 @@
   ],
   "918808": [
     "reached end",
-    "[&#x27;ADVB&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;ADVB&#x27;, &#x27;TIME&#x27;]"
   ],
   "918819": [
     "reached end",
@@ -149,15 +153,15 @@
   ],
   "920567": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "921365": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "922080": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIMES&#x27;]"
   ],
   "922875": [
     "reached end",
@@ -175,9 +179,21 @@
     "reached end",
     "[&#x27;L&#x27;, &#x27;TIME&#x27;]"
   ],
+  "924556": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+  ],
+  "924557": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+  ],
+  "924558": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+  ],
   "925051": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "925901": [
     "reached end",
@@ -191,13 +207,17 @@
     "reached end",
     "[&#x27;L&#x27;, &#x27;TIME&#x27;]"
   ],
+  "926215": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+  ],
   "926428": [
     "reached end",
     "[&#x27;K&#x27;, &#x27;TIME&#x27;]"
   ],
   "926863": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "926878": [
     "reached end",
@@ -218,6 +238,10 @@
   "927381": [
     "reached end",
     "[&#x27;L&#x27;, &#x27;TIMES&#x27;]"
+  ],
+  "927387": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "927432": [
     "reached end",
@@ -245,15 +269,15 @@
   ],
   "928094": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "928365": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "928376": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "928670": [
     "reached end",
@@ -269,15 +293,15 @@
   ],
   "929107": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "929708": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "929733": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "929823": [
     "reached end",
@@ -293,7 +317,7 @@
   ],
   "930029": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "930036": [
     "reached end",
@@ -309,11 +333,11 @@
   ],
   "930701": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "932687": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "933502": [
     "reached end",
@@ -333,7 +357,7 @@
   ],
   "933681": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "933689": [
     "reached end",
@@ -357,11 +381,11 @@
   ],
   "935270": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "935740": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "936942": [
     "reached end",
@@ -377,27 +401,27 @@
   ],
   "938708": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "938758": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "939721": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "942623": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "942629": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "942638": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "942753": [
     "reached end",
@@ -411,6 +435,10 @@
     "reached end",
     "[&#x27;&lt;D&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
+  "945329": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+  ],
   "945330": [
     "reached end",
     "[&#x27;L&#x27;, &#x27;TIME&#x27;]"
@@ -418,6 +446,10 @@
   "945387": [
     "reached end",
     "[&#x27;L&#x27;, &#x27;TIME&#x27;]"
+  ],
+  "945444": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;NUM&#x27;, &#x27;TIME&#x27;]"
   ],
   "945445": [
     "reached end",
@@ -445,15 +477,15 @@
   ],
   "949269": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "949277": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "949306": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "950424": [
     "reached end",
@@ -473,23 +505,23 @@
   ],
   "950629": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "950642": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "950662": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "950669": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIMES&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIMES&#x27;, &#x27;TIME&#x27;]"
   ],
   "950784": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIMES&#x27;, &#x27;B&#x27;, &#x27;R&gt;C/&#x27;, &#x27;TIMES&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;, &#x27;B&#x27;, &#x27;R&gt;C/&#x27;, &#x27;TIMES&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "951256": [
     "reached end",
@@ -497,7 +529,7 @@
   ],
   "951486": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "953564": [
     "reached end",
@@ -505,11 +537,11 @@
   ],
   "954414": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "954660": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "956199": [
     "reached end",
@@ -561,7 +593,7 @@
   ],
   "958382": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "959115": [
     "reached end",
@@ -573,7 +605,7 @@
   ],
   "960952": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "960953": [
     "reached end",
@@ -581,7 +613,7 @@
   ],
   "960969": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "961079": [
     "reached end",
@@ -597,11 +629,11 @@
   ],
   "961893": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "961916": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "962192": [
     "reached end",
@@ -609,11 +641,11 @@
   ],
   "962351": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "962778": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "962782": [
     "reached end",
@@ -621,11 +653,11 @@
   ],
   "962863": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "963098": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "963852": [
     "reached end",
@@ -633,7 +665,7 @@
   ],
   "964109": [
     "reached end",
-    "[&#x27;&gt;T&#x27;, &#x27;NUM&#x27;, &#x27;TIME&#x27;, &#x27;&gt;T&#x27;, &#x27;NUM&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&gt;T&#x27;, &#x27;NUM&#x27;, &#x27;TIME&#x27;, &#x27;&gt;T&#x27;, &#x27;NUM&#x27;, &#x27;TIME&#x27;]"
   ],
   "964368": [
     "reached end",
@@ -641,15 +673,15 @@
   ],
   "964446": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "964869": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "965099": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "965100": [
     "reached end",
@@ -657,7 +689,7 @@
   ],
   "965761": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "965831": [
     "reached end",
@@ -665,7 +697,7 @@
   ],
   "966215": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "966231": [
     "reached end",
@@ -673,31 +705,31 @@
   ],
   "966731": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "966800": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "967161": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "967580": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "968187": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "968353": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "968422": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "968423": [
     "reached end",
@@ -705,23 +737,23 @@
   ],
   "970060": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "970110": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "970124": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "970526": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "971414": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "971685": [
     "reached end",
@@ -733,15 +765,15 @@
   ],
   "972372": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "972722": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "972774": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "973350": [
     "reached end",
@@ -749,7 +781,7 @@
   ],
   "973751": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "973785": [
     "reached end",
@@ -761,11 +793,15 @@
   ],
   "973851": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "974008": [
     "reached end",
     "[&#x27;L&#x27;, &#x27;TIME&#x27;]"
+  ],
+  "974311": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "974713": [
     "reached end",
@@ -781,7 +817,7 @@
   ],
   "975966": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "976047": [
     "reached end",
@@ -801,7 +837,7 @@
   ],
   "976700": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "977450": [
     "reached end",
@@ -813,7 +849,7 @@
   ],
   "979352": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "979844": [
     "reached end",
@@ -821,11 +857,11 @@
   ],
   "980212": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "980564": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "980738": [
     "reached end",
@@ -845,11 +881,11 @@
   ],
   "981135": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "981292": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "983457": [
     "reached end",
@@ -857,7 +893,7 @@
   ],
   "984667": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "986213": [
     "reached end",
@@ -865,11 +901,11 @@
   ],
   "986926": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "986930": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "986939": [
     "reached end",
@@ -881,7 +917,7 @@
   ],
   "987176": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "988126": [
     "reached end",
@@ -889,7 +925,7 @@
   ],
   "988589": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "989622": [
     "reached end",
@@ -897,7 +933,7 @@
   ],
   "989827": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "989946": [
     "reached end",
@@ -905,7 +941,7 @@
   ],
   "990061": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "990267": [
     "reached end",
@@ -913,19 +949,19 @@
   ],
   "990510": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "990551": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "991954": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "991977": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "992416": [
     "reached end",
@@ -957,11 +993,11 @@
   ],
   "994924": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "995074": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "996788": [
     "reached end",
@@ -969,7 +1005,7 @@
   ],
   "997075": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "997219": [
     "reached end",
@@ -977,7 +1013,7 @@
   ],
   "997494": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "997710": [
     "reached end",
@@ -985,11 +1021,11 @@
   ],
   "997934": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "997990": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "998265": [
     "reached end",
@@ -1005,7 +1041,7 @@
   ],
   "999031": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "999742": [
     "reached end",
@@ -1013,7 +1049,7 @@
   ],
   "999866": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1000245": [
     "reached end",
@@ -1021,19 +1057,19 @@
   ],
   "1000972": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1001028": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1001338": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1001889": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1001890": [
     "reached end",
@@ -1041,7 +1077,7 @@
   ],
   "1002257": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1002996": [
     "reached end",
@@ -1049,15 +1085,15 @@
   ],
   "1003048": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1003089": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1003318": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1003503": [
     "reached end",
@@ -1065,11 +1101,11 @@
   ],
   "1003782": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1003894": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1004636": [
     "reached end",
@@ -1097,11 +1133,11 @@
   ],
   "1007211": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1007265": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1007674": [
     "reached end",
@@ -1113,7 +1149,7 @@
   ],
   "1010018": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1010193": [
     "reached end",
@@ -1129,7 +1165,7 @@
   ],
   "1012276": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1012913": [
     "reached end",
@@ -1145,7 +1181,7 @@
   ],
   "1013923": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1014142": [
     "reached end",
@@ -1157,7 +1193,7 @@
   ],
   "1014253": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1014334": [
     "reached end",
@@ -1165,7 +1201,7 @@
   ],
   "1014652": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1014656": [
     "reached end",
@@ -1173,27 +1209,27 @@
   ],
   "1014680": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1014789": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1016364": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1016555": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1016824": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1016959": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1016980": [
     "reached end",
@@ -1215,25 +1251,29 @@
     "reached end",
     "[&#x27;L&#x27;, &#x27;TIME&#x27;]"
   ],
+  "1017768": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
+  ],
   "1017961": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1018110": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1018135": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1018199": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1018353": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1018733": [
     "reached end",
@@ -1245,7 +1285,7 @@
   ],
   "1019803": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1019823": [
     "reached end",
@@ -1253,11 +1293,11 @@
   ],
   "1019876": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1019883": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1019913": [
     "reached end",
@@ -1265,15 +1305,15 @@
   ],
   "1019969": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1019979": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1020091": [
     "reached end",
-    "[&#x27;L&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;L&#x27;, &#x27;TIME&#x27;]"
   ],
   "1020114": [
     "reached end",
@@ -1285,7 +1325,7 @@
   ],
   "1020200": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1020202": [
     "reached end",
@@ -1313,15 +1353,15 @@
   ],
   "1021003": [
     "reached end",
-    "[&#x27;DEMON&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;DEMON&#x27;, &#x27;TIME&#x27;]"
   ],
   "1021014": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1021413": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1021766": [
     "reached end",
@@ -1381,7 +1421,7 @@
   ],
   "1026307": [
     "reached end",
-    "[&#x27;DEMON&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;DEMON&#x27;, &#x27;TIME&#x27;]"
   ],
   "1026392": [
     "reached end",
@@ -1405,7 +1445,7 @@
   ],
   "1027667": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1027733": [
     "reached end",
@@ -1425,7 +1465,7 @@
   ],
   "1029289": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1029337": [
     "reached end",
@@ -1437,7 +1477,7 @@
   ],
   "1029599": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1029627": [
     "reached end",
@@ -1449,7 +1489,7 @@
   ],
   "1029873": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1029924": [
     "reached end",
@@ -1477,7 +1517,7 @@
   ],
   "1030525": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1030579": [
     "reached end",
@@ -1577,11 +1617,11 @@
   ],
   "1034860": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1034869": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1035141": [
     "reached end",
@@ -1605,7 +1645,7 @@
   ],
   "1036861": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1037047": [
     "reached end",
@@ -1629,7 +1669,7 @@
   ],
   "1039174": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1039933": [
     "reached end",
@@ -1653,19 +1693,19 @@
   ],
   "1040312": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1040658": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1040660": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1040713": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1040767": [
     "reached end",
@@ -1685,7 +1725,7 @@
   ],
   "1042200": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1042203": [
     "reached end",
@@ -1713,23 +1753,23 @@
   ],
   "1043363": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1043386": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1043394": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1043417": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1043468": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1043695": [
     "reached end",
@@ -1738,6 +1778,10 @@
   "1044294": [
     "reached end",
     "[&#x27;MN&#x27;, &#x27;L&#x27;, &#x27;TIMES&#x27;]"
+  ],
+  "1044817": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1045989": [
     "reached end",
@@ -1749,19 +1793,23 @@
   ],
   "1046210": [
     "reached end",
-    "[&#x27;L&#x27;, &#x27;PNH/&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;L&#x27;, &#x27;PNH/&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+  ],
+  "1046224": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1046836": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1047132": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1047325": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1048366": [
     "reached end",
@@ -1773,11 +1821,11 @@
   ],
   "1048952": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1049081": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1049221": [
     "reached end",
@@ -1785,11 +1833,11 @@
   ],
   "1049460": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1049666": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1049756": [
     "reached end",
@@ -1801,11 +1849,11 @@
   ],
   "1049924": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1049969": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1051396": [
     "reached end",
@@ -1821,7 +1869,11 @@
   ],
   "1051694": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIMES&#x27;]"
+  ],
+  "1052327": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1052506": [
     "reached end",
@@ -1833,7 +1885,7 @@
   ],
   "1053651": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1054891": [
     "reached end",
@@ -1841,7 +1893,7 @@
   ],
   "1055427": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1055645": [
     "reached end",
@@ -1849,11 +1901,11 @@
   ],
   "1055680": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1056011": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1056260": [
     "reached end",
@@ -1861,11 +1913,11 @@
   ],
   "1057096": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1057111": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1057408": [
     "reached end",
@@ -1897,7 +1949,7 @@
   ],
   "1061096": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1061148": [
     "reached end",
@@ -1909,39 +1961,39 @@
   ],
   "1061343": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1061653": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1061904": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1061950": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1061968": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1062485": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1062488": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1062504": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1062690": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1062694": [
     "reached end",
@@ -1953,7 +2005,7 @@
   ],
   "1063390": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1063470": [
     "reached end",
@@ -1989,11 +2041,11 @@
   ],
   "1067426": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1067623": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1067853": [
     "reached end",
@@ -2037,11 +2089,11 @@
   ],
   "1069115": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1069125": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1069131": [
     "reached end",
@@ -2057,7 +2109,7 @@
   ],
   "1070071": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1071061": [
     "reached end",
@@ -2157,7 +2209,7 @@
   ],
   "1084463": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIMES&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1084464": [
     "reached end",
@@ -2185,11 +2237,11 @@
   ],
   "1084590": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIMES&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1084676": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIMES&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1084722": [
     "reached end",
@@ -2197,15 +2249,15 @@
   ],
   "1084724": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1084731": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1084743": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1085932": [
     "reached end",
@@ -2213,11 +2265,11 @@
   ],
   "1086006": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1086019": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1086051": [
     "reached end",
@@ -2225,7 +2277,7 @@
   ],
   "1086600": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1086930": [
     "reached end",
@@ -2237,7 +2289,7 @@
   ],
   "1087394": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1088355": [
     "reached end",
@@ -2249,11 +2301,11 @@
   ],
   "1088414": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1088427": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1088659": [
     "reached end",
@@ -2305,11 +2357,11 @@
   ],
   "1092150": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1094447": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1094654": [
     "reached end",
@@ -2385,7 +2437,7 @@
   ],
   "1096289": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1097710": [
     "reached end",
@@ -2393,7 +2445,7 @@
   ],
   "1097724": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1098497": [
     "reached end",
@@ -2405,7 +2457,7 @@
   ],
   "1098765": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1099118": [
     "reached end",
@@ -2473,7 +2525,7 @@
   ],
   "1101159": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1101163": [
     "reached end",
@@ -2481,11 +2533,11 @@
   ],
   "1101276": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1101505": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1101801": [
     "reached end",
@@ -2501,11 +2553,11 @@
   ],
   "1102079": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1102081": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1102222": [
     "reached end",
@@ -2521,11 +2573,11 @@
   ],
   "1102685": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1102973": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1102987": [
     "reached end",
@@ -2541,11 +2593,11 @@
   ],
   "1103133": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1103185": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1103672": [
     "reached end",
@@ -2553,23 +2605,23 @@
   ],
   "1103676": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1103702": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1103705": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1103773": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1103899": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1103902": [
     "reached end",
@@ -2577,11 +2629,11 @@
   ],
   "1103943": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1103994": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1104004": [
     "reached end",
@@ -2597,7 +2649,7 @@
   ],
   "1104378": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1104431": [
     "reached end",
@@ -2617,7 +2669,7 @@
   ],
   "1104938": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1104940": [
     "reached end",
@@ -2625,11 +2677,11 @@
   ],
   "1105151": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1105205": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1105261": [
     "reached end",
@@ -2637,15 +2689,15 @@
   ],
   "1105290": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1105295": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1105317": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1105619": [
     "reached end",
@@ -2677,7 +2729,7 @@
   ],
   "1107089": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1107093": [
     "reached end",
@@ -2685,15 +2737,15 @@
   ],
   "1107139": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1107212": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1107323": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1107356": [
     "reached end",
@@ -2701,7 +2753,7 @@
   ],
   "1107457": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1107488": [
     "reached end",
@@ -2713,7 +2765,7 @@
   ],
   "1107713": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1107793": [
     "reached end",
@@ -2733,7 +2785,7 @@
   ],
   "1108143": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1108580": [
     "reached end",
@@ -2765,7 +2817,7 @@
   ],
   "1109344": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1109410": [
     "reached end",
@@ -2777,7 +2829,7 @@
   ],
   "1109637": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1109652": [
     "reached end",
@@ -2789,7 +2841,7 @@
   ],
   "1109757": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1109836": [
     "reached end",
@@ -2825,7 +2877,7 @@
   ],
   "1110637": [
     "reached end",
-    "[&#x27;L&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;L&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1111034": [
     "reached end",
@@ -2833,7 +2885,7 @@
   ],
   "1111100": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1111128": [
     "reached end",
@@ -2857,7 +2909,7 @@
   ],
   "1111426": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1111676": [
     "reached end",
@@ -2873,7 +2925,7 @@
   ],
   "1112244": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1112875": [
     "reached end",
@@ -2909,15 +2961,15 @@
   ],
   "1113031": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1113050": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1113229": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1113649": [
     "reached end",
@@ -2937,7 +2989,7 @@
   ],
   "1114111": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1114118": [
     "reached end",
@@ -2957,23 +3009,23 @@
   ],
   "1114664": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1114825": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1114979": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1115118": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1115912": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1116400": [
     "reached end",
@@ -3009,7 +3061,7 @@
   ],
   "1116963": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1117771": [
     "reached end",
@@ -3029,7 +3081,7 @@
   ],
   "1119685": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1119726": [
     "reached end",
@@ -3037,11 +3089,11 @@
   ],
   "1119899": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1120067": [
     "reached end",
-    "[&#x27;ADVB&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;ADVB&#x27;, &#x27;TIME&#x27;]"
   ],
   "1120630": [
     "reached end",
@@ -3089,11 +3141,11 @@
   ],
   "1129324": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1129692": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1130986": [
     "reached end",
@@ -3101,7 +3153,7 @@
   ],
   "1131457": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1131637": [
     "reached end",
@@ -3121,7 +3173,7 @@
   ],
   "1133313": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1134037": [
     "reached end",
@@ -3129,27 +3181,31 @@
   ],
   "1134262": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1134423": [
     "reached end",
     "[&#x27;L&#x27;, &#x27;TIME&#x27;]"
   ],
+  "1134524": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+  ],
   "1135238": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1135263": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1135340": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1135452": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1136027": [
     "reached end",
@@ -3173,11 +3229,11 @@
   ],
   "1136978": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1137375": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1137386": [
     "reached end",
@@ -3185,11 +3241,11 @@
   ],
   "1137456": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1137512": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1137559": [
     "reached end",
@@ -3201,7 +3257,7 @@
   ],
   "1137766": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1138118": [
     "reached end",
@@ -3209,7 +3265,7 @@
   ],
   "1138168": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1138546": [
     "reached end",
@@ -3221,7 +3277,7 @@
   ],
   "1138794": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1138849": [
     "reached end",
@@ -3249,15 +3305,19 @@
   ],
   "1139222": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1139438": [
     "reached end",
-    "[&#x27;L&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;L&#x27;, &#x27;TIME&#x27;]"
   ],
   "1139448": [
     "reached end",
     "[&#x27;B&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+  ],
+  "1139739": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1140064": [
     "reached end",
@@ -3274,6 +3334,10 @@
   "1140138": [
     "reached end",
     "[&#x27;L&#x27;, &#x27;TIME&#x27;]"
+  ],
+  "1140348": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1140349": [
     "reached end",
@@ -3341,7 +3405,7 @@
   ],
   "1144822": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1144835": [
     "reached end",
@@ -3385,7 +3449,7 @@
   ],
   "1146569": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1147375": [
     "reached end",
@@ -3445,7 +3509,7 @@
   ],
   "1148753": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1148850": [
     "reached end",
@@ -3453,15 +3517,23 @@
   ],
   "1149669": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+  ],
+  "1149838": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1150002": [
     "reached end",
     "[&#x27;K&#x27;, &#x27;TIME&#x27;]"
   ],
+  "1150055": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+  ],
   "1150062": [
     "reached end",
-    "[&#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;, &#x27;MN&#x27;, &#x27;TIME&#x27;]"
   ],
   "1150063": [
     "reached end",
@@ -3470,6 +3542,10 @@
   "1150125": [
     "reached end",
     "[&#x27;BJN/&#x27;, &#x27;NUM&#x27;, &#x27;TIMES&#x27;]"
+  ],
+  "1150161": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;&lt;D&#x27;, &#x27;TIME&#x27;]"
   ],
   "1150377": [
     "reached end",
@@ -3483,6 +3559,10 @@
     "reached end",
     "[&#x27;L&#x27;, &#x27;NUM&#x27;, &#x27;TIME&#x27;]"
   ],
+  "1150400": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
+  ],
   "1150777": [
     "reached end",
     "[&#x27;L&#x27;, &#x27;TIME&#x27;]"
@@ -3493,15 +3573,15 @@
   ],
   "1151056": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIME&#x27;]"
   ],
   "1151499": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1151721": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1151747": [
     "reached end",
@@ -3513,7 +3593,7 @@
   ],
   "1152379": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIMES&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1152429": [
     "reached end",
@@ -3535,9 +3615,13 @@
     "reached end",
     "[&#x27;&lt;D&#x27;, &#x27;&gt;XR/&#x27;, &#x27;TIME&#x27;]"
   ],
+  "1152702": [
+    "reached end",
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIMES&#x27;]"
+  ],
   "1154844": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1155367": [
     "reached end",
@@ -3553,11 +3637,11 @@
   ],
   "1155434": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1155731": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1156389": [
     "reached end",
@@ -3577,7 +3661,7 @@
   ],
   "1157463": [
     "reached end",
-    "[&#x27;L&#x27;, &#x27;TIME&#x27;, &#x27;L&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;L&#x27;, &#x27;TIME&#x27;, &#x27;L&#x27;, &#x27;TIME&#x27;]"
   ],
   "1157644": [
     "reached end",
@@ -3641,11 +3725,11 @@
   ],
   "1161116": [
     "reached end",
-    "[&#x27;CARDC&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;CARDC&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1161429": [
     "reached end",
-    "[&#x27;L&#x27;, &#x27;TIMES&#x27;, &#x27;L&#x27;, &#x27;TIMES&#x27;, &#x27;L&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;L&#x27;, &#x27;TIMES&#x27;, &#x27;L&#x27;, &#x27;TIMES&#x27;, &#x27;L&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1161431": [
     "reached end",
@@ -3661,11 +3745,11 @@
   ],
   "1162533": [
     "reached end",
-    "[&#x27;TIME&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;TIME&#x27;, &#x27;TIME&#x27;]"
   ],
   "1162723": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1163048": [
     "reached end",
@@ -3673,15 +3757,15 @@
   ],
   "1163151": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1163387": [
     "reached end",
-    "[&#x27;L&#x27;, &#x27;TIMES&#x27;, &#x27;L&#x27;, &#x27;TIMES&#x27;, &#x27;L&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;L&#x27;, &#x27;TIMES&#x27;, &#x27;L&#x27;, &#x27;TIMES&#x27;, &#x27;L&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1163390": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1163568": [
     "reached end",
@@ -3697,7 +3781,7 @@
   ],
   "1163923": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1164269": [
     "reached end",
@@ -3721,11 +3805,11 @@
   ],
   "1164701": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1164708": [
     "reached end",
-    "[&#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;, &#x27;B&#x27;, &#x27;TIME&#x27;]"
   ],
   "1165161": [
     "reached end",
@@ -3737,7 +3821,7 @@
   ],
   "1165244": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1165257": [
     "reached end",
@@ -3753,7 +3837,7 @@
   ],
   "1165752": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1166170": [
     "reached end",
@@ -3765,7 +3849,7 @@
   ],
   "1166927": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1167028": [
     "reached end",
@@ -3781,7 +3865,7 @@
   ],
   "1167641": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1167766": [
     "reached end",
@@ -3789,7 +3873,7 @@
   ],
   "1167816": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1167923": [
     "reached end",
@@ -3841,7 +3925,7 @@
   ],
   "1171636": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1171650": [
     "reached end",
@@ -3865,7 +3949,7 @@
   ],
   "1172241": [
     "reached end",
-    "[&#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
+    "[&#x27;Ø&#x27;, &#x27;QUANT&#x27;, &#x27;TIMES&#x27;]"
   ],
   "1172247": [
     "reached end",
