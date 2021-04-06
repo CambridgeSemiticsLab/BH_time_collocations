@@ -103,6 +103,8 @@ rule parse_times:
     input: 
         ph_parses=rules.parse_phrases.output.parsed,
         bhsadata=bhsadata,
+        slot2pos=rules.parse_pos.output.slot2pos,
+        lexmap="data/lexmap.json",
         styles=stylesheets,
         script="scripts/parsing/time_parser.py",
         script2="scripts/parsing/phrase_parser.py",

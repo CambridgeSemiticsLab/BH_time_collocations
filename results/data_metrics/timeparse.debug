@@ -1,0 +1,3249 @@
+Grammar:
+
+Rule 0     S' -> category
+Rule 1     category -> antdur_simul
+Rule 2     category -> atelic_simul
+Rule 3     category -> posterior
+Rule 4     category -> posts
+Rule 5     category -> anterior_dur
+Rule 6     category -> anterior
+Rule 7     category -> in_dur
+Rule 8     category -> simul
+Rule 9     category -> atelic_ext
+Rule 10    atelic_ext -> Ø duration
+Rule 11    simul -> K time
+Rule 12    simul -> Ø time
+Rule 13    simul -> B time
+Rule 14    atelic_simul -> Ø dur_sing
+Rule 15    in_dur -> B dur_sing
+Rule 16    in_dur -> B duration
+Rule 17    anterior -> L PNH/ dur_sing
+Rule 18    anterior -> L PNH/ time
+Rule 19    anterior -> L PNH/ duration
+Rule 20    anterior_dur -> <D time
+Rule 21    anterior_dur -> <D duration
+Rule 22    antdur_simul -> L time
+Rule 23    antdur_simul -> L duration
+Rule 24    posterior -> >XR/
+Rule 25    posterior -> SFX >XR/
+Rule 26    posterior -> >XR/ dur_sing
+Rule 27    posterior -> >XR/ time
+Rule 28    posterior -> >XR/ duration
+Rule 29    posts -> <D dur_sing
+Rule 30    posts -> MN duration
+Rule 31    posts -> MN time
+Rule 32    time -> THEN
+Rule 33    time -> THUS
+Rule 34    time -> YESTERDAY
+Rule 35    time -> TOMORROW
+Rule 36    time -> NOW
+Rule 37    time -> THAT time
+Rule 38    time -> THIS time
+Rule 39    time -> THE time
+Rule 40    time -> SFX time
+Rule 41    time -> TIME
+Rule 42    time -> END time
+Rule 43    time -> END duration
+Rule 44    time -> MIDDLE time
+Rule 45    time -> MIDDLE duration
+Rule 46    time -> BEGINNING time
+Rule 47    time -> BEGINNING duration
+Rule 48    duration -> THAT duration
+Rule 49    duration -> THIS duration
+Rule 50    duration -> THE duration
+Rule 51    duration -> SFX duration
+Rule 52    duration -> GENDUR time
+Rule 53    duration -> duration duration
+Rule 54    duration -> MANY time
+Rule 55    duration -> MANY duration
+Rule 56    duration -> ALL time
+Rule 57    duration -> ALL duration
+Rule 58    duration -> NUM_ONE duration
+Rule 59    duration -> NUM time
+Rule 60    duration -> NUM duration
+Rule 61    duration -> DURATION
+Rule 62    duration -> TIMES
+Rule 63    dur_sing -> NUM_ONE time
+
+Terminals, with rules where they appear:
+
+<D                   : 20 21 29
+>XR/                 : 24 25 26 27 28
+ALL                  : 56 57
+B                    : 13 15 16
+BEGINNING            : 46 47
+DURATION             : 61
+END                  : 42 43
+GENDUR               : 52
+K                    : 11
+L                    : 17 18 19 22 23
+MANY                 : 54 55
+MIDDLE               : 44 45
+MN                   : 30 31
+NOW                  : 36
+NUM                  : 59 60
+NUM_ONE              : 58 63
+PNH/                 : 17 18 19
+SFX                  : 25 40 51
+THAT                 : 37 48
+THE                  : 39 50
+THEN                 : 32
+THIS                 : 38 49
+THUS                 : 33
+TIME                 : 41
+TIMES                : 62
+TOMORROW             : 35
+YESTERDAY            : 34
+error                : 
+Ø                    : 10 12 14
+
+Nonterminals, with rules where they appear:
+
+antdur_simul         : 1
+anterior             : 6
+anterior_dur         : 5
+atelic_ext           : 9
+atelic_simul         : 2
+category             : 0
+dur_sing             : 14 15 17 26 29
+duration             : 10 16 19 21 23 28 30 43 45 47 48 49 50 51 53 53 55 57 58 60
+in_dur               : 7
+posterior            : 3
+posts                : 4
+simul                : 8
+time                 : 11 12 13 18 20 22 27 31 37 38 39 40 42 44 46 52 54 56 59 63
+
+
+state 0
+
+    (0) S' -> . category
+    (1) category -> . antdur_simul
+    (2) category -> . atelic_simul
+    (3) category -> . posterior
+    (4) category -> . posts
+    (5) category -> . anterior_dur
+    (6) category -> . anterior
+    (7) category -> . in_dur
+    (8) category -> . simul
+    (9) category -> . atelic_ext
+    (22) antdur_simul -> . L time
+    (23) antdur_simul -> . L duration
+    (14) atelic_simul -> . Ø dur_sing
+    (24) posterior -> . >XR/
+    (25) posterior -> . SFX >XR/
+    (26) posterior -> . >XR/ dur_sing
+    (27) posterior -> . >XR/ time
+    (28) posterior -> . >XR/ duration
+    (29) posts -> . <D dur_sing
+    (30) posts -> . MN duration
+    (31) posts -> . MN time
+    (20) anterior_dur -> . <D time
+    (21) anterior_dur -> . <D duration
+    (17) anterior -> . L PNH/ dur_sing
+    (18) anterior -> . L PNH/ time
+    (19) anterior -> . L PNH/ duration
+    (15) in_dur -> . B dur_sing
+    (16) in_dur -> . B duration
+    (11) simul -> . K time
+    (12) simul -> . Ø time
+    (13) simul -> . B time
+    (10) atelic_ext -> . Ø duration
+    L               shift and go to state 11
+    Ø               shift and go to state 12
+    >XR/            shift and go to state 13
+    SFX             shift and go to state 14
+    <D              shift and go to state 15
+    MN              shift and go to state 16
+    B               shift and go to state 17
+    K               shift and go to state 18
+
+    category                       shift and go to state 1
+    antdur_simul                   shift and go to state 2
+    atelic_simul                   shift and go to state 3
+    posterior                      shift and go to state 4
+    posts                          shift and go to state 5
+    anterior_dur                   shift and go to state 6
+    anterior                       shift and go to state 7
+    in_dur                         shift and go to state 8
+    simul                          shift and go to state 9
+    atelic_ext                     shift and go to state 10
+
+state 1
+
+    (0) S' -> category .
+
+
+state 2
+
+    (1) category -> antdur_simul .
+    $end            reduce using rule 1 (category -> antdur_simul .)
+
+
+state 3
+
+    (2) category -> atelic_simul .
+    $end            reduce using rule 2 (category -> atelic_simul .)
+
+
+state 4
+
+    (3) category -> posterior .
+    $end            reduce using rule 3 (category -> posterior .)
+
+
+state 5
+
+    (4) category -> posts .
+    $end            reduce using rule 4 (category -> posts .)
+
+
+state 6
+
+    (5) category -> anterior_dur .
+    $end            reduce using rule 5 (category -> anterior_dur .)
+
+
+state 7
+
+    (6) category -> anterior .
+    $end            reduce using rule 6 (category -> anterior .)
+
+
+state 8
+
+    (7) category -> in_dur .
+    $end            reduce using rule 7 (category -> in_dur .)
+
+
+state 9
+
+    (8) category -> simul .
+    $end            reduce using rule 8 (category -> simul .)
+
+
+state 10
+
+    (9) category -> atelic_ext .
+    $end            reduce using rule 9 (category -> atelic_ext .)
+
+
+state 11
+
+    (22) antdur_simul -> L . time
+    (23) antdur_simul -> L . duration
+    (17) anterior -> L . PNH/ dur_sing
+    (18) anterior -> L . PNH/ time
+    (19) anterior -> L . PNH/ duration
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    PNH/            shift and go to state 21
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 27
+    THIS            shift and go to state 28
+    THE             shift and go to state 29
+    SFX             shift and go to state 30
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    time                           shift and go to state 19
+    duration                       shift and go to state 20
+
+state 12
+
+    (14) atelic_simul -> Ø . dur_sing
+    (12) simul -> Ø . time
+    (10) atelic_ext -> Ø . duration
+    (63) dur_sing -> . NUM_ONE time
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    NUM_ONE         shift and go to state 45
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 27
+    THIS            shift and go to state 28
+    THE             shift and go to state 29
+    SFX             shift and go to state 30
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    dur_sing                       shift and go to state 42
+    time                           shift and go to state 43
+    duration                       shift and go to state 44
+
+state 13
+
+    (24) posterior -> >XR/ .
+    (26) posterior -> >XR/ . dur_sing
+    (27) posterior -> >XR/ . time
+    (28) posterior -> >XR/ . duration
+    (63) dur_sing -> . NUM_ONE time
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    $end            reduce using rule 24 (posterior -> >XR/ .)
+    NUM_ONE         shift and go to state 45
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 27
+    THIS            shift and go to state 28
+    THE             shift and go to state 29
+    SFX             shift and go to state 30
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    dur_sing                       shift and go to state 46
+    time                           shift and go to state 47
+    duration                       shift and go to state 48
+
+state 14
+
+    (25) posterior -> SFX . >XR/
+    >XR/            shift and go to state 49
+
+
+state 15
+
+    (29) posts -> <D . dur_sing
+    (20) anterior_dur -> <D . time
+    (21) anterior_dur -> <D . duration
+    (63) dur_sing -> . NUM_ONE time
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    NUM_ONE         shift and go to state 45
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 27
+    THIS            shift and go to state 28
+    THE             shift and go to state 29
+    SFX             shift and go to state 30
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    dur_sing                       shift and go to state 50
+    time                           shift and go to state 51
+    duration                       shift and go to state 52
+
+state 16
+
+    (30) posts -> MN . duration
+    (31) posts -> MN . time
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    THAT            shift and go to state 55
+    THIS            shift and go to state 56
+    THE             shift and go to state 57
+    SFX             shift and go to state 58
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+
+    duration                       shift and go to state 53
+    time                           shift and go to state 54
+
+state 17
+
+    (15) in_dur -> B . dur_sing
+    (16) in_dur -> B . duration
+    (13) simul -> B . time
+    (63) dur_sing -> . NUM_ONE time
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    NUM_ONE         shift and go to state 45
+    THAT            shift and go to state 55
+    THIS            shift and go to state 56
+    THE             shift and go to state 57
+    SFX             shift and go to state 58
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+
+    dur_sing                       shift and go to state 59
+    duration                       shift and go to state 60
+    time                           shift and go to state 61
+
+state 18
+
+    (11) simul -> K . time
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 63
+    THIS            shift and go to state 64
+    THE             shift and go to state 65
+    SFX             shift and go to state 66
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+
+    time                           shift and go to state 62
+
+state 19
+
+    (22) antdur_simul -> L time .
+    $end            reduce using rule 22 (antdur_simul -> L time .)
+
+
+state 20
+
+    (23) antdur_simul -> L duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    $end            reduce using rule 23 (antdur_simul -> L duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 21
+
+    (17) anterior -> L PNH/ . dur_sing
+    (18) anterior -> L PNH/ . time
+    (19) anterior -> L PNH/ . duration
+    (63) dur_sing -> . NUM_ONE time
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    NUM_ONE         shift and go to state 45
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 27
+    THIS            shift and go to state 28
+    THE             shift and go to state 29
+    SFX             shift and go to state 30
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    dur_sing                       shift and go to state 72
+    time                           shift and go to state 73
+    duration                       shift and go to state 74
+
+state 22
+
+    (32) time -> THEN .
+    $end            reduce using rule 32 (time -> THEN .)
+    THAT            reduce using rule 32 (time -> THEN .)
+    THIS            reduce using rule 32 (time -> THEN .)
+    THE             reduce using rule 32 (time -> THEN .)
+    SFX             reduce using rule 32 (time -> THEN .)
+    GENDUR          reduce using rule 32 (time -> THEN .)
+    MANY            reduce using rule 32 (time -> THEN .)
+    ALL             reduce using rule 32 (time -> THEN .)
+    NUM_ONE         reduce using rule 32 (time -> THEN .)
+    NUM             reduce using rule 32 (time -> THEN .)
+    DURATION        reduce using rule 32 (time -> THEN .)
+    TIMES           reduce using rule 32 (time -> THEN .)
+
+
+state 23
+
+    (33) time -> THUS .
+    $end            reduce using rule 33 (time -> THUS .)
+    THAT            reduce using rule 33 (time -> THUS .)
+    THIS            reduce using rule 33 (time -> THUS .)
+    THE             reduce using rule 33 (time -> THUS .)
+    SFX             reduce using rule 33 (time -> THUS .)
+    GENDUR          reduce using rule 33 (time -> THUS .)
+    MANY            reduce using rule 33 (time -> THUS .)
+    ALL             reduce using rule 33 (time -> THUS .)
+    NUM_ONE         reduce using rule 33 (time -> THUS .)
+    NUM             reduce using rule 33 (time -> THUS .)
+    DURATION        reduce using rule 33 (time -> THUS .)
+    TIMES           reduce using rule 33 (time -> THUS .)
+
+
+state 24
+
+    (34) time -> YESTERDAY .
+    $end            reduce using rule 34 (time -> YESTERDAY .)
+    THAT            reduce using rule 34 (time -> YESTERDAY .)
+    THIS            reduce using rule 34 (time -> YESTERDAY .)
+    THE             reduce using rule 34 (time -> YESTERDAY .)
+    SFX             reduce using rule 34 (time -> YESTERDAY .)
+    GENDUR          reduce using rule 34 (time -> YESTERDAY .)
+    MANY            reduce using rule 34 (time -> YESTERDAY .)
+    ALL             reduce using rule 34 (time -> YESTERDAY .)
+    NUM_ONE         reduce using rule 34 (time -> YESTERDAY .)
+    NUM             reduce using rule 34 (time -> YESTERDAY .)
+    DURATION        reduce using rule 34 (time -> YESTERDAY .)
+    TIMES           reduce using rule 34 (time -> YESTERDAY .)
+
+
+state 25
+
+    (35) time -> TOMORROW .
+    $end            reduce using rule 35 (time -> TOMORROW .)
+    THAT            reduce using rule 35 (time -> TOMORROW .)
+    THIS            reduce using rule 35 (time -> TOMORROW .)
+    THE             reduce using rule 35 (time -> TOMORROW .)
+    SFX             reduce using rule 35 (time -> TOMORROW .)
+    GENDUR          reduce using rule 35 (time -> TOMORROW .)
+    MANY            reduce using rule 35 (time -> TOMORROW .)
+    ALL             reduce using rule 35 (time -> TOMORROW .)
+    NUM_ONE         reduce using rule 35 (time -> TOMORROW .)
+    NUM             reduce using rule 35 (time -> TOMORROW .)
+    DURATION        reduce using rule 35 (time -> TOMORROW .)
+    TIMES           reduce using rule 35 (time -> TOMORROW .)
+
+
+state 26
+
+    (36) time -> NOW .
+    $end            reduce using rule 36 (time -> NOW .)
+    THAT            reduce using rule 36 (time -> NOW .)
+    THIS            reduce using rule 36 (time -> NOW .)
+    THE             reduce using rule 36 (time -> NOW .)
+    SFX             reduce using rule 36 (time -> NOW .)
+    GENDUR          reduce using rule 36 (time -> NOW .)
+    MANY            reduce using rule 36 (time -> NOW .)
+    ALL             reduce using rule 36 (time -> NOW .)
+    NUM_ONE         reduce using rule 36 (time -> NOW .)
+    NUM             reduce using rule 36 (time -> NOW .)
+    DURATION        reduce using rule 36 (time -> NOW .)
+    TIMES           reduce using rule 36 (time -> NOW .)
+
+
+state 27
+
+    (37) time -> THAT . time
+    (48) duration -> THAT . duration
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 27
+    THIS            shift and go to state 28
+    THE             shift and go to state 29
+    SFX             shift and go to state 30
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    time                           shift and go to state 75
+    duration                       shift and go to state 76
+
+state 28
+
+    (38) time -> THIS . time
+    (49) duration -> THIS . duration
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 27
+    THIS            shift and go to state 28
+    THE             shift and go to state 29
+    SFX             shift and go to state 30
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    time                           shift and go to state 77
+    duration                       shift and go to state 78
+
+state 29
+
+    (39) time -> THE . time
+    (50) duration -> THE . duration
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 27
+    THIS            shift and go to state 28
+    THE             shift and go to state 29
+    SFX             shift and go to state 30
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    time                           shift and go to state 79
+    duration                       shift and go to state 80
+
+state 30
+
+    (40) time -> SFX . time
+    (51) duration -> SFX . duration
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 27
+    THIS            shift and go to state 28
+    THE             shift and go to state 29
+    SFX             shift and go to state 30
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    time                           shift and go to state 81
+    duration                       shift and go to state 82
+
+state 31
+
+    (41) time -> TIME .
+    $end            reduce using rule 41 (time -> TIME .)
+    THAT            reduce using rule 41 (time -> TIME .)
+    THIS            reduce using rule 41 (time -> TIME .)
+    THE             reduce using rule 41 (time -> TIME .)
+    SFX             reduce using rule 41 (time -> TIME .)
+    GENDUR          reduce using rule 41 (time -> TIME .)
+    MANY            reduce using rule 41 (time -> TIME .)
+    ALL             reduce using rule 41 (time -> TIME .)
+    NUM_ONE         reduce using rule 41 (time -> TIME .)
+    NUM             reduce using rule 41 (time -> TIME .)
+    DURATION        reduce using rule 41 (time -> TIME .)
+    TIMES           reduce using rule 41 (time -> TIME .)
+
+
+state 32
+
+    (42) time -> END . time
+    (43) time -> END . duration
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 27
+    THIS            shift and go to state 28
+    THE             shift and go to state 29
+    SFX             shift and go to state 30
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    time                           shift and go to state 83
+    duration                       shift and go to state 84
+
+state 33
+
+    (44) time -> MIDDLE . time
+    (45) time -> MIDDLE . duration
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 27
+    THIS            shift and go to state 28
+    THE             shift and go to state 29
+    SFX             shift and go to state 30
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    time                           shift and go to state 85
+    duration                       shift and go to state 86
+
+state 34
+
+    (46) time -> BEGINNING . time
+    (47) time -> BEGINNING . duration
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 27
+    THIS            shift and go to state 28
+    THE             shift and go to state 29
+    SFX             shift and go to state 30
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    time                           shift and go to state 87
+    duration                       shift and go to state 88
+
+state 35
+
+    (52) duration -> GENDUR . time
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 63
+    THIS            shift and go to state 64
+    THE             shift and go to state 65
+    SFX             shift and go to state 66
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+
+    time                           shift and go to state 89
+
+state 36
+
+    (54) duration -> MANY . time
+    (55) duration -> MANY . duration
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 27
+    THIS            shift and go to state 28
+    THE             shift and go to state 29
+    SFX             shift and go to state 30
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    time                           shift and go to state 90
+    duration                       shift and go to state 91
+
+state 37
+
+    (56) duration -> ALL . time
+    (57) duration -> ALL . duration
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 27
+    THIS            shift and go to state 28
+    THE             shift and go to state 29
+    SFX             shift and go to state 30
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    time                           shift and go to state 92
+    duration                       shift and go to state 93
+
+state 38
+
+    (58) duration -> NUM_ONE . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 94
+
+state 39
+
+    (59) duration -> NUM . time
+    (60) duration -> NUM . duration
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 27
+    THIS            shift and go to state 28
+    THE             shift and go to state 29
+    SFX             shift and go to state 30
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    time                           shift and go to state 95
+    duration                       shift and go to state 96
+
+state 40
+
+    (61) duration -> DURATION .
+    THAT            reduce using rule 61 (duration -> DURATION .)
+    THIS            reduce using rule 61 (duration -> DURATION .)
+    THE             reduce using rule 61 (duration -> DURATION .)
+    SFX             reduce using rule 61 (duration -> DURATION .)
+    GENDUR          reduce using rule 61 (duration -> DURATION .)
+    MANY            reduce using rule 61 (duration -> DURATION .)
+    ALL             reduce using rule 61 (duration -> DURATION .)
+    NUM_ONE         reduce using rule 61 (duration -> DURATION .)
+    NUM             reduce using rule 61 (duration -> DURATION .)
+    DURATION        reduce using rule 61 (duration -> DURATION .)
+    TIMES           reduce using rule 61 (duration -> DURATION .)
+    $end            reduce using rule 61 (duration -> DURATION .)
+
+
+state 41
+
+    (62) duration -> TIMES .
+    THAT            reduce using rule 62 (duration -> TIMES .)
+    THIS            reduce using rule 62 (duration -> TIMES .)
+    THE             reduce using rule 62 (duration -> TIMES .)
+    SFX             reduce using rule 62 (duration -> TIMES .)
+    GENDUR          reduce using rule 62 (duration -> TIMES .)
+    MANY            reduce using rule 62 (duration -> TIMES .)
+    ALL             reduce using rule 62 (duration -> TIMES .)
+    NUM_ONE         reduce using rule 62 (duration -> TIMES .)
+    NUM             reduce using rule 62 (duration -> TIMES .)
+    DURATION        reduce using rule 62 (duration -> TIMES .)
+    TIMES           reduce using rule 62 (duration -> TIMES .)
+    $end            reduce using rule 62 (duration -> TIMES .)
+
+
+state 42
+
+    (14) atelic_simul -> Ø dur_sing .
+    $end            reduce using rule 14 (atelic_simul -> Ø dur_sing .)
+
+
+state 43
+
+    (12) simul -> Ø time .
+    $end            reduce using rule 12 (simul -> Ø time .)
+
+
+state 44
+
+    (10) atelic_ext -> Ø duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    $end            reduce using rule 10 (atelic_ext -> Ø duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 45
+
+    (63) dur_sing -> NUM_ONE . time
+    (58) duration -> NUM_ONE . duration
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 27
+    THIS            shift and go to state 28
+    THE             shift and go to state 29
+    SFX             shift and go to state 30
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    time                           shift and go to state 97
+    duration                       shift and go to state 94
+
+state 46
+
+    (26) posterior -> >XR/ dur_sing .
+    $end            reduce using rule 26 (posterior -> >XR/ dur_sing .)
+
+
+state 47
+
+    (27) posterior -> >XR/ time .
+    $end            reduce using rule 27 (posterior -> >XR/ time .)
+
+
+state 48
+
+    (28) posterior -> >XR/ duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    $end            reduce using rule 28 (posterior -> >XR/ duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 49
+
+    (25) posterior -> SFX >XR/ .
+    $end            reduce using rule 25 (posterior -> SFX >XR/ .)
+
+
+state 50
+
+    (29) posts -> <D dur_sing .
+    $end            reduce using rule 29 (posts -> <D dur_sing .)
+
+
+state 51
+
+    (20) anterior_dur -> <D time .
+    $end            reduce using rule 20 (anterior_dur -> <D time .)
+
+
+state 52
+
+    (21) anterior_dur -> <D duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    $end            reduce using rule 21 (anterior_dur -> <D duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 53
+
+    (30) posts -> MN duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    $end            reduce using rule 30 (posts -> MN duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 54
+
+    (31) posts -> MN time .
+    $end            reduce using rule 31 (posts -> MN time .)
+
+
+state 55
+
+    (48) duration -> THAT . duration
+    (37) time -> THAT . time
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    THAT            shift and go to state 55
+    THIS            shift and go to state 56
+    THE             shift and go to state 57
+    SFX             shift and go to state 58
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+
+    duration                       shift and go to state 76
+    time                           shift and go to state 75
+
+state 56
+
+    (49) duration -> THIS . duration
+    (38) time -> THIS . time
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    THAT            shift and go to state 55
+    THIS            shift and go to state 56
+    THE             shift and go to state 57
+    SFX             shift and go to state 58
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+
+    duration                       shift and go to state 78
+    time                           shift and go to state 77
+
+state 57
+
+    (50) duration -> THE . duration
+    (39) time -> THE . time
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    THAT            shift and go to state 55
+    THIS            shift and go to state 56
+    THE             shift and go to state 57
+    SFX             shift and go to state 58
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+
+    duration                       shift and go to state 80
+    time                           shift and go to state 79
+
+state 58
+
+    (51) duration -> SFX . duration
+    (40) time -> SFX . time
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    THAT            shift and go to state 55
+    THIS            shift and go to state 56
+    THE             shift and go to state 57
+    SFX             shift and go to state 58
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+
+    duration                       shift and go to state 82
+    time                           shift and go to state 81
+
+state 59
+
+    (15) in_dur -> B dur_sing .
+    $end            reduce using rule 15 (in_dur -> B dur_sing .)
+
+
+state 60
+
+    (16) in_dur -> B duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    $end            reduce using rule 16 (in_dur -> B duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 61
+
+    (13) simul -> B time .
+    $end            reduce using rule 13 (simul -> B time .)
+
+
+state 62
+
+    (11) simul -> K time .
+    $end            reduce using rule 11 (simul -> K time .)
+
+
+state 63
+
+    (37) time -> THAT . time
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 63
+    THIS            shift and go to state 64
+    THE             shift and go to state 65
+    SFX             shift and go to state 66
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+
+    time                           shift and go to state 75
+
+state 64
+
+    (38) time -> THIS . time
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 63
+    THIS            shift and go to state 64
+    THE             shift and go to state 65
+    SFX             shift and go to state 66
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+
+    time                           shift and go to state 77
+
+state 65
+
+    (39) time -> THE . time
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 63
+    THIS            shift and go to state 64
+    THE             shift and go to state 65
+    SFX             shift and go to state 66
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+
+    time                           shift and go to state 79
+
+state 66
+
+    (40) time -> SFX . time
+    (32) time -> . THEN
+    (33) time -> . THUS
+    (34) time -> . YESTERDAY
+    (35) time -> . TOMORROW
+    (36) time -> . NOW
+    (37) time -> . THAT time
+    (38) time -> . THIS time
+    (39) time -> . THE time
+    (40) time -> . SFX time
+    (41) time -> . TIME
+    (42) time -> . END time
+    (43) time -> . END duration
+    (44) time -> . MIDDLE time
+    (45) time -> . MIDDLE duration
+    (46) time -> . BEGINNING time
+    (47) time -> . BEGINNING duration
+    THEN            shift and go to state 22
+    THUS            shift and go to state 23
+    YESTERDAY       shift and go to state 24
+    TOMORROW        shift and go to state 25
+    NOW             shift and go to state 26
+    THAT            shift and go to state 63
+    THIS            shift and go to state 64
+    THE             shift and go to state 65
+    SFX             shift and go to state 66
+    TIME            shift and go to state 31
+    END             shift and go to state 32
+    MIDDLE          shift and go to state 33
+    BEGINNING       shift and go to state 34
+
+    time                           shift and go to state 81
+
+state 67
+
+    (53) duration -> duration duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+  ! shift/reduce conflict for THAT resolved as shift
+  ! shift/reduce conflict for THIS resolved as shift
+  ! shift/reduce conflict for THE resolved as shift
+  ! shift/reduce conflict for SFX resolved as shift
+  ! shift/reduce conflict for GENDUR resolved as shift
+  ! shift/reduce conflict for MANY resolved as shift
+  ! shift/reduce conflict for ALL resolved as shift
+  ! shift/reduce conflict for NUM_ONE resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+  ! shift/reduce conflict for DURATION resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+    $end            reduce using rule 53 (duration -> duration duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 68
+
+    (48) duration -> THAT . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 76
+
+state 69
+
+    (49) duration -> THIS . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 78
+
+state 70
+
+    (50) duration -> THE . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 80
+
+state 71
+
+    (51) duration -> SFX . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 82
+
+state 72
+
+    (17) anterior -> L PNH/ dur_sing .
+    $end            reduce using rule 17 (anterior -> L PNH/ dur_sing .)
+
+
+state 73
+
+    (18) anterior -> L PNH/ time .
+    $end            reduce using rule 18 (anterior -> L PNH/ time .)
+
+
+state 74
+
+    (19) anterior -> L PNH/ duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+    $end            reduce using rule 19 (anterior -> L PNH/ duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 75
+
+    (37) time -> THAT time .
+    $end            reduce using rule 37 (time -> THAT time .)
+    THAT            reduce using rule 37 (time -> THAT time .)
+    THIS            reduce using rule 37 (time -> THAT time .)
+    THE             reduce using rule 37 (time -> THAT time .)
+    SFX             reduce using rule 37 (time -> THAT time .)
+    GENDUR          reduce using rule 37 (time -> THAT time .)
+    MANY            reduce using rule 37 (time -> THAT time .)
+    ALL             reduce using rule 37 (time -> THAT time .)
+    NUM_ONE         reduce using rule 37 (time -> THAT time .)
+    NUM             reduce using rule 37 (time -> THAT time .)
+    DURATION        reduce using rule 37 (time -> THAT time .)
+    TIMES           reduce using rule 37 (time -> THAT time .)
+
+
+state 76
+
+    (48) duration -> THAT duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+  ! shift/reduce conflict for THAT resolved as shift
+  ! shift/reduce conflict for THIS resolved as shift
+  ! shift/reduce conflict for THE resolved as shift
+  ! shift/reduce conflict for SFX resolved as shift
+  ! shift/reduce conflict for GENDUR resolved as shift
+  ! shift/reduce conflict for MANY resolved as shift
+  ! shift/reduce conflict for ALL resolved as shift
+  ! shift/reduce conflict for NUM_ONE resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+  ! shift/reduce conflict for DURATION resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+    $end            reduce using rule 48 (duration -> THAT duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 77
+
+    (38) time -> THIS time .
+    $end            reduce using rule 38 (time -> THIS time .)
+    THAT            reduce using rule 38 (time -> THIS time .)
+    THIS            reduce using rule 38 (time -> THIS time .)
+    THE             reduce using rule 38 (time -> THIS time .)
+    SFX             reduce using rule 38 (time -> THIS time .)
+    GENDUR          reduce using rule 38 (time -> THIS time .)
+    MANY            reduce using rule 38 (time -> THIS time .)
+    ALL             reduce using rule 38 (time -> THIS time .)
+    NUM_ONE         reduce using rule 38 (time -> THIS time .)
+    NUM             reduce using rule 38 (time -> THIS time .)
+    DURATION        reduce using rule 38 (time -> THIS time .)
+    TIMES           reduce using rule 38 (time -> THIS time .)
+
+
+state 78
+
+    (49) duration -> THIS duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+  ! shift/reduce conflict for THAT resolved as shift
+  ! shift/reduce conflict for THIS resolved as shift
+  ! shift/reduce conflict for THE resolved as shift
+  ! shift/reduce conflict for SFX resolved as shift
+  ! shift/reduce conflict for GENDUR resolved as shift
+  ! shift/reduce conflict for MANY resolved as shift
+  ! shift/reduce conflict for ALL resolved as shift
+  ! shift/reduce conflict for NUM_ONE resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+  ! shift/reduce conflict for DURATION resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+    $end            reduce using rule 49 (duration -> THIS duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 79
+
+    (39) time -> THE time .
+    $end            reduce using rule 39 (time -> THE time .)
+    THAT            reduce using rule 39 (time -> THE time .)
+    THIS            reduce using rule 39 (time -> THE time .)
+    THE             reduce using rule 39 (time -> THE time .)
+    SFX             reduce using rule 39 (time -> THE time .)
+    GENDUR          reduce using rule 39 (time -> THE time .)
+    MANY            reduce using rule 39 (time -> THE time .)
+    ALL             reduce using rule 39 (time -> THE time .)
+    NUM_ONE         reduce using rule 39 (time -> THE time .)
+    NUM             reduce using rule 39 (time -> THE time .)
+    DURATION        reduce using rule 39 (time -> THE time .)
+    TIMES           reduce using rule 39 (time -> THE time .)
+
+
+state 80
+
+    (50) duration -> THE duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+  ! shift/reduce conflict for THAT resolved as shift
+  ! shift/reduce conflict for THIS resolved as shift
+  ! shift/reduce conflict for THE resolved as shift
+  ! shift/reduce conflict for SFX resolved as shift
+  ! shift/reduce conflict for GENDUR resolved as shift
+  ! shift/reduce conflict for MANY resolved as shift
+  ! shift/reduce conflict for ALL resolved as shift
+  ! shift/reduce conflict for NUM_ONE resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+  ! shift/reduce conflict for DURATION resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+    $end            reduce using rule 50 (duration -> THE duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 81
+
+    (40) time -> SFX time .
+    $end            reduce using rule 40 (time -> SFX time .)
+    THAT            reduce using rule 40 (time -> SFX time .)
+    THIS            reduce using rule 40 (time -> SFX time .)
+    THE             reduce using rule 40 (time -> SFX time .)
+    SFX             reduce using rule 40 (time -> SFX time .)
+    GENDUR          reduce using rule 40 (time -> SFX time .)
+    MANY            reduce using rule 40 (time -> SFX time .)
+    ALL             reduce using rule 40 (time -> SFX time .)
+    NUM_ONE         reduce using rule 40 (time -> SFX time .)
+    NUM             reduce using rule 40 (time -> SFX time .)
+    DURATION        reduce using rule 40 (time -> SFX time .)
+    TIMES           reduce using rule 40 (time -> SFX time .)
+
+
+state 82
+
+    (51) duration -> SFX duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+  ! shift/reduce conflict for THAT resolved as shift
+  ! shift/reduce conflict for THIS resolved as shift
+  ! shift/reduce conflict for THE resolved as shift
+  ! shift/reduce conflict for SFX resolved as shift
+  ! shift/reduce conflict for GENDUR resolved as shift
+  ! shift/reduce conflict for MANY resolved as shift
+  ! shift/reduce conflict for ALL resolved as shift
+  ! shift/reduce conflict for NUM_ONE resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+  ! shift/reduce conflict for DURATION resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+    $end            reduce using rule 51 (duration -> SFX duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 83
+
+    (42) time -> END time .
+    $end            reduce using rule 42 (time -> END time .)
+    THAT            reduce using rule 42 (time -> END time .)
+    THIS            reduce using rule 42 (time -> END time .)
+    THE             reduce using rule 42 (time -> END time .)
+    SFX             reduce using rule 42 (time -> END time .)
+    GENDUR          reduce using rule 42 (time -> END time .)
+    MANY            reduce using rule 42 (time -> END time .)
+    ALL             reduce using rule 42 (time -> END time .)
+    NUM_ONE         reduce using rule 42 (time -> END time .)
+    NUM             reduce using rule 42 (time -> END time .)
+    DURATION        reduce using rule 42 (time -> END time .)
+    TIMES           reduce using rule 42 (time -> END time .)
+
+
+state 84
+
+    (43) time -> END duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+  ! shift/reduce conflict for THAT resolved as shift
+  ! shift/reduce conflict for THIS resolved as shift
+  ! shift/reduce conflict for THE resolved as shift
+  ! shift/reduce conflict for SFX resolved as shift
+  ! shift/reduce conflict for GENDUR resolved as shift
+  ! shift/reduce conflict for MANY resolved as shift
+  ! shift/reduce conflict for ALL resolved as shift
+  ! shift/reduce conflict for NUM_ONE resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+  ! shift/reduce conflict for DURATION resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+    $end            reduce using rule 43 (time -> END duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 85
+
+    (44) time -> MIDDLE time .
+    $end            reduce using rule 44 (time -> MIDDLE time .)
+    THAT            reduce using rule 44 (time -> MIDDLE time .)
+    THIS            reduce using rule 44 (time -> MIDDLE time .)
+    THE             reduce using rule 44 (time -> MIDDLE time .)
+    SFX             reduce using rule 44 (time -> MIDDLE time .)
+    GENDUR          reduce using rule 44 (time -> MIDDLE time .)
+    MANY            reduce using rule 44 (time -> MIDDLE time .)
+    ALL             reduce using rule 44 (time -> MIDDLE time .)
+    NUM_ONE         reduce using rule 44 (time -> MIDDLE time .)
+    NUM             reduce using rule 44 (time -> MIDDLE time .)
+    DURATION        reduce using rule 44 (time -> MIDDLE time .)
+    TIMES           reduce using rule 44 (time -> MIDDLE time .)
+
+
+state 86
+
+    (45) time -> MIDDLE duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+  ! shift/reduce conflict for THAT resolved as shift
+  ! shift/reduce conflict for THIS resolved as shift
+  ! shift/reduce conflict for THE resolved as shift
+  ! shift/reduce conflict for SFX resolved as shift
+  ! shift/reduce conflict for GENDUR resolved as shift
+  ! shift/reduce conflict for MANY resolved as shift
+  ! shift/reduce conflict for ALL resolved as shift
+  ! shift/reduce conflict for NUM_ONE resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+  ! shift/reduce conflict for DURATION resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+    $end            reduce using rule 45 (time -> MIDDLE duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 87
+
+    (46) time -> BEGINNING time .
+    $end            reduce using rule 46 (time -> BEGINNING time .)
+    THAT            reduce using rule 46 (time -> BEGINNING time .)
+    THIS            reduce using rule 46 (time -> BEGINNING time .)
+    THE             reduce using rule 46 (time -> BEGINNING time .)
+    SFX             reduce using rule 46 (time -> BEGINNING time .)
+    GENDUR          reduce using rule 46 (time -> BEGINNING time .)
+    MANY            reduce using rule 46 (time -> BEGINNING time .)
+    ALL             reduce using rule 46 (time -> BEGINNING time .)
+    NUM_ONE         reduce using rule 46 (time -> BEGINNING time .)
+    NUM             reduce using rule 46 (time -> BEGINNING time .)
+    DURATION        reduce using rule 46 (time -> BEGINNING time .)
+    TIMES           reduce using rule 46 (time -> BEGINNING time .)
+
+
+state 88
+
+    (47) time -> BEGINNING duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+  ! shift/reduce conflict for THAT resolved as shift
+  ! shift/reduce conflict for THIS resolved as shift
+  ! shift/reduce conflict for THE resolved as shift
+  ! shift/reduce conflict for SFX resolved as shift
+  ! shift/reduce conflict for GENDUR resolved as shift
+  ! shift/reduce conflict for MANY resolved as shift
+  ! shift/reduce conflict for ALL resolved as shift
+  ! shift/reduce conflict for NUM_ONE resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+  ! shift/reduce conflict for DURATION resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+    $end            reduce using rule 47 (time -> BEGINNING duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 89
+
+    (52) duration -> GENDUR time .
+    THAT            reduce using rule 52 (duration -> GENDUR time .)
+    THIS            reduce using rule 52 (duration -> GENDUR time .)
+    THE             reduce using rule 52 (duration -> GENDUR time .)
+    SFX             reduce using rule 52 (duration -> GENDUR time .)
+    GENDUR          reduce using rule 52 (duration -> GENDUR time .)
+    MANY            reduce using rule 52 (duration -> GENDUR time .)
+    ALL             reduce using rule 52 (duration -> GENDUR time .)
+    NUM_ONE         reduce using rule 52 (duration -> GENDUR time .)
+    NUM             reduce using rule 52 (duration -> GENDUR time .)
+    DURATION        reduce using rule 52 (duration -> GENDUR time .)
+    TIMES           reduce using rule 52 (duration -> GENDUR time .)
+    $end            reduce using rule 52 (duration -> GENDUR time .)
+
+
+state 90
+
+    (54) duration -> MANY time .
+    THAT            reduce using rule 54 (duration -> MANY time .)
+    THIS            reduce using rule 54 (duration -> MANY time .)
+    THE             reduce using rule 54 (duration -> MANY time .)
+    SFX             reduce using rule 54 (duration -> MANY time .)
+    GENDUR          reduce using rule 54 (duration -> MANY time .)
+    MANY            reduce using rule 54 (duration -> MANY time .)
+    ALL             reduce using rule 54 (duration -> MANY time .)
+    NUM_ONE         reduce using rule 54 (duration -> MANY time .)
+    NUM             reduce using rule 54 (duration -> MANY time .)
+    DURATION        reduce using rule 54 (duration -> MANY time .)
+    TIMES           reduce using rule 54 (duration -> MANY time .)
+    $end            reduce using rule 54 (duration -> MANY time .)
+
+
+state 91
+
+    (55) duration -> MANY duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+  ! shift/reduce conflict for THAT resolved as shift
+  ! shift/reduce conflict for THIS resolved as shift
+  ! shift/reduce conflict for THE resolved as shift
+  ! shift/reduce conflict for SFX resolved as shift
+  ! shift/reduce conflict for GENDUR resolved as shift
+  ! shift/reduce conflict for MANY resolved as shift
+  ! shift/reduce conflict for ALL resolved as shift
+  ! shift/reduce conflict for NUM_ONE resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+  ! shift/reduce conflict for DURATION resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+    $end            reduce using rule 55 (duration -> MANY duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 92
+
+    (56) duration -> ALL time .
+    THAT            reduce using rule 56 (duration -> ALL time .)
+    THIS            reduce using rule 56 (duration -> ALL time .)
+    THE             reduce using rule 56 (duration -> ALL time .)
+    SFX             reduce using rule 56 (duration -> ALL time .)
+    GENDUR          reduce using rule 56 (duration -> ALL time .)
+    MANY            reduce using rule 56 (duration -> ALL time .)
+    ALL             reduce using rule 56 (duration -> ALL time .)
+    NUM_ONE         reduce using rule 56 (duration -> ALL time .)
+    NUM             reduce using rule 56 (duration -> ALL time .)
+    DURATION        reduce using rule 56 (duration -> ALL time .)
+    TIMES           reduce using rule 56 (duration -> ALL time .)
+    $end            reduce using rule 56 (duration -> ALL time .)
+
+
+state 93
+
+    (57) duration -> ALL duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+  ! shift/reduce conflict for THAT resolved as shift
+  ! shift/reduce conflict for THIS resolved as shift
+  ! shift/reduce conflict for THE resolved as shift
+  ! shift/reduce conflict for SFX resolved as shift
+  ! shift/reduce conflict for GENDUR resolved as shift
+  ! shift/reduce conflict for MANY resolved as shift
+  ! shift/reduce conflict for ALL resolved as shift
+  ! shift/reduce conflict for NUM_ONE resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+  ! shift/reduce conflict for DURATION resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+    $end            reduce using rule 57 (duration -> ALL duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 94
+
+    (58) duration -> NUM_ONE duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+  ! shift/reduce conflict for THAT resolved as shift
+  ! shift/reduce conflict for THIS resolved as shift
+  ! shift/reduce conflict for THE resolved as shift
+  ! shift/reduce conflict for SFX resolved as shift
+  ! shift/reduce conflict for GENDUR resolved as shift
+  ! shift/reduce conflict for MANY resolved as shift
+  ! shift/reduce conflict for ALL resolved as shift
+  ! shift/reduce conflict for NUM_ONE resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+  ! shift/reduce conflict for DURATION resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+    $end            reduce using rule 58 (duration -> NUM_ONE duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 95
+
+    (59) duration -> NUM time .
+    THAT            reduce using rule 59 (duration -> NUM time .)
+    THIS            reduce using rule 59 (duration -> NUM time .)
+    THE             reduce using rule 59 (duration -> NUM time .)
+    SFX             reduce using rule 59 (duration -> NUM time .)
+    GENDUR          reduce using rule 59 (duration -> NUM time .)
+    MANY            reduce using rule 59 (duration -> NUM time .)
+    ALL             reduce using rule 59 (duration -> NUM time .)
+    NUM_ONE         reduce using rule 59 (duration -> NUM time .)
+    NUM             reduce using rule 59 (duration -> NUM time .)
+    DURATION        reduce using rule 59 (duration -> NUM time .)
+    TIMES           reduce using rule 59 (duration -> NUM time .)
+    $end            reduce using rule 59 (duration -> NUM time .)
+
+
+state 96
+
+    (60) duration -> NUM duration .
+    (53) duration -> duration . duration
+    (48) duration -> . THAT duration
+    (49) duration -> . THIS duration
+    (50) duration -> . THE duration
+    (51) duration -> . SFX duration
+    (52) duration -> . GENDUR time
+    (53) duration -> . duration duration
+    (54) duration -> . MANY time
+    (55) duration -> . MANY duration
+    (56) duration -> . ALL time
+    (57) duration -> . ALL duration
+    (58) duration -> . NUM_ONE duration
+    (59) duration -> . NUM time
+    (60) duration -> . NUM duration
+    (61) duration -> . DURATION
+    (62) duration -> . TIMES
+  ! shift/reduce conflict for THAT resolved as shift
+  ! shift/reduce conflict for THIS resolved as shift
+  ! shift/reduce conflict for THE resolved as shift
+  ! shift/reduce conflict for SFX resolved as shift
+  ! shift/reduce conflict for GENDUR resolved as shift
+  ! shift/reduce conflict for MANY resolved as shift
+  ! shift/reduce conflict for ALL resolved as shift
+  ! shift/reduce conflict for NUM_ONE resolved as shift
+  ! shift/reduce conflict for NUM resolved as shift
+  ! shift/reduce conflict for DURATION resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+    $end            reduce using rule 60 (duration -> NUM duration .)
+    THAT            shift and go to state 68
+    THIS            shift and go to state 69
+    THE             shift and go to state 70
+    SFX             shift and go to state 71
+    GENDUR          shift and go to state 35
+    MANY            shift and go to state 36
+    ALL             shift and go to state 37
+    NUM_ONE         shift and go to state 38
+    NUM             shift and go to state 39
+    DURATION        shift and go to state 40
+    TIMES           shift and go to state 41
+
+    duration                       shift and go to state 67
+
+state 97
+
+    (63) dur_sing -> NUM_ONE time .
+    $end            reduce using rule 63 (dur_sing -> NUM_ONE time .)
+
+
+Conflicts:
+
+shift/reduce conflict for THAT in state 67 resolved as shift
+shift/reduce conflict for THIS in state 67 resolved as shift
+shift/reduce conflict for THE in state 67 resolved as shift
+shift/reduce conflict for SFX in state 67 resolved as shift
+shift/reduce conflict for GENDUR in state 67 resolved as shift
+shift/reduce conflict for MANY in state 67 resolved as shift
+shift/reduce conflict for ALL in state 67 resolved as shift
+shift/reduce conflict for NUM_ONE in state 67 resolved as shift
+shift/reduce conflict for NUM in state 67 resolved as shift
+shift/reduce conflict for DURATION in state 67 resolved as shift
+shift/reduce conflict for TIMES in state 67 resolved as shift
+shift/reduce conflict for THAT in state 76 resolved as shift
+shift/reduce conflict for THIS in state 76 resolved as shift
+shift/reduce conflict for THE in state 76 resolved as shift
+shift/reduce conflict for SFX in state 76 resolved as shift
+shift/reduce conflict for GENDUR in state 76 resolved as shift
+shift/reduce conflict for MANY in state 76 resolved as shift
+shift/reduce conflict for ALL in state 76 resolved as shift
+shift/reduce conflict for NUM_ONE in state 76 resolved as shift
+shift/reduce conflict for NUM in state 76 resolved as shift
+shift/reduce conflict for DURATION in state 76 resolved as shift
+shift/reduce conflict for TIMES in state 76 resolved as shift
+shift/reduce conflict for THAT in state 78 resolved as shift
+shift/reduce conflict for THIS in state 78 resolved as shift
+shift/reduce conflict for THE in state 78 resolved as shift
+shift/reduce conflict for SFX in state 78 resolved as shift
+shift/reduce conflict for GENDUR in state 78 resolved as shift
+shift/reduce conflict for MANY in state 78 resolved as shift
+shift/reduce conflict for ALL in state 78 resolved as shift
+shift/reduce conflict for NUM_ONE in state 78 resolved as shift
+shift/reduce conflict for NUM in state 78 resolved as shift
+shift/reduce conflict for DURATION in state 78 resolved as shift
+shift/reduce conflict for TIMES in state 78 resolved as shift
+shift/reduce conflict for THAT in state 80 resolved as shift
+shift/reduce conflict for THIS in state 80 resolved as shift
+shift/reduce conflict for THE in state 80 resolved as shift
+shift/reduce conflict for SFX in state 80 resolved as shift
+shift/reduce conflict for GENDUR in state 80 resolved as shift
+shift/reduce conflict for MANY in state 80 resolved as shift
+shift/reduce conflict for ALL in state 80 resolved as shift
+shift/reduce conflict for NUM_ONE in state 80 resolved as shift
+shift/reduce conflict for NUM in state 80 resolved as shift
+shift/reduce conflict for DURATION in state 80 resolved as shift
+shift/reduce conflict for TIMES in state 80 resolved as shift
+shift/reduce conflict for THAT in state 82 resolved as shift
+shift/reduce conflict for THIS in state 82 resolved as shift
+shift/reduce conflict for THE in state 82 resolved as shift
+shift/reduce conflict for SFX in state 82 resolved as shift
+shift/reduce conflict for GENDUR in state 82 resolved as shift
+shift/reduce conflict for MANY in state 82 resolved as shift
+shift/reduce conflict for ALL in state 82 resolved as shift
+shift/reduce conflict for NUM_ONE in state 82 resolved as shift
+shift/reduce conflict for NUM in state 82 resolved as shift
+shift/reduce conflict for DURATION in state 82 resolved as shift
+shift/reduce conflict for TIMES in state 82 resolved as shift
+shift/reduce conflict for THAT in state 84 resolved as shift
+shift/reduce conflict for THIS in state 84 resolved as shift
+shift/reduce conflict for THE in state 84 resolved as shift
+shift/reduce conflict for SFX in state 84 resolved as shift
+shift/reduce conflict for GENDUR in state 84 resolved as shift
+shift/reduce conflict for MANY in state 84 resolved as shift
+shift/reduce conflict for ALL in state 84 resolved as shift
+shift/reduce conflict for NUM_ONE in state 84 resolved as shift
+shift/reduce conflict for NUM in state 84 resolved as shift
+shift/reduce conflict for DURATION in state 84 resolved as shift
+shift/reduce conflict for TIMES in state 84 resolved as shift
+shift/reduce conflict for THAT in state 86 resolved as shift
+shift/reduce conflict for THIS in state 86 resolved as shift
+shift/reduce conflict for THE in state 86 resolved as shift
+shift/reduce conflict for SFX in state 86 resolved as shift
+shift/reduce conflict for GENDUR in state 86 resolved as shift
+shift/reduce conflict for MANY in state 86 resolved as shift
+shift/reduce conflict for ALL in state 86 resolved as shift
+shift/reduce conflict for NUM_ONE in state 86 resolved as shift
+shift/reduce conflict for NUM in state 86 resolved as shift
+shift/reduce conflict for DURATION in state 86 resolved as shift
+shift/reduce conflict for TIMES in state 86 resolved as shift
+shift/reduce conflict for THAT in state 88 resolved as shift
+shift/reduce conflict for THIS in state 88 resolved as shift
+shift/reduce conflict for THE in state 88 resolved as shift
+shift/reduce conflict for SFX in state 88 resolved as shift
+shift/reduce conflict for GENDUR in state 88 resolved as shift
+shift/reduce conflict for MANY in state 88 resolved as shift
+shift/reduce conflict for ALL in state 88 resolved as shift
+shift/reduce conflict for NUM_ONE in state 88 resolved as shift
+shift/reduce conflict for NUM in state 88 resolved as shift
+shift/reduce conflict for DURATION in state 88 resolved as shift
+shift/reduce conflict for TIMES in state 88 resolved as shift
+shift/reduce conflict for THAT in state 91 resolved as shift
+shift/reduce conflict for THIS in state 91 resolved as shift
+shift/reduce conflict for THE in state 91 resolved as shift
+shift/reduce conflict for SFX in state 91 resolved as shift
+shift/reduce conflict for GENDUR in state 91 resolved as shift
+shift/reduce conflict for MANY in state 91 resolved as shift
+shift/reduce conflict for ALL in state 91 resolved as shift
+shift/reduce conflict for NUM_ONE in state 91 resolved as shift
+shift/reduce conflict for NUM in state 91 resolved as shift
+shift/reduce conflict for DURATION in state 91 resolved as shift
+shift/reduce conflict for TIMES in state 91 resolved as shift
+shift/reduce conflict for THAT in state 93 resolved as shift
+shift/reduce conflict for THIS in state 93 resolved as shift
+shift/reduce conflict for THE in state 93 resolved as shift
+shift/reduce conflict for SFX in state 93 resolved as shift
+shift/reduce conflict for GENDUR in state 93 resolved as shift
+shift/reduce conflict for MANY in state 93 resolved as shift
+shift/reduce conflict for ALL in state 93 resolved as shift
+shift/reduce conflict for NUM_ONE in state 93 resolved as shift
+shift/reduce conflict for NUM in state 93 resolved as shift
+shift/reduce conflict for DURATION in state 93 resolved as shift
+shift/reduce conflict for TIMES in state 93 resolved as shift
+shift/reduce conflict for THAT in state 94 resolved as shift
+shift/reduce conflict for THIS in state 94 resolved as shift
+shift/reduce conflict for THE in state 94 resolved as shift
+shift/reduce conflict for SFX in state 94 resolved as shift
+shift/reduce conflict for GENDUR in state 94 resolved as shift
+shift/reduce conflict for MANY in state 94 resolved as shift
+shift/reduce conflict for ALL in state 94 resolved as shift
+shift/reduce conflict for NUM_ONE in state 94 resolved as shift
+shift/reduce conflict for NUM in state 94 resolved as shift
+shift/reduce conflict for DURATION in state 94 resolved as shift
+shift/reduce conflict for TIMES in state 94 resolved as shift
+shift/reduce conflict for THAT in state 96 resolved as shift
+shift/reduce conflict for THIS in state 96 resolved as shift
+shift/reduce conflict for THE in state 96 resolved as shift
+shift/reduce conflict for SFX in state 96 resolved as shift
+shift/reduce conflict for GENDUR in state 96 resolved as shift
+shift/reduce conflict for MANY in state 96 resolved as shift
+shift/reduce conflict for ALL in state 96 resolved as shift
+shift/reduce conflict for NUM_ONE in state 96 resolved as shift
+shift/reduce conflict for NUM in state 96 resolved as shift
+shift/reduce conflict for DURATION in state 96 resolved as shift
+shift/reduce conflict for TIMES in state 96 resolved as shift

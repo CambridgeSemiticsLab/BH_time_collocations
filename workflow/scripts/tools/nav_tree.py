@@ -86,7 +86,7 @@ def unfold_paras(phrase):
             yield from unfold_paras(src)
         else:
             yield [src]
-
+            
     elif rela == 'CONJ':
         if type(tgt) != int:
             yield from unfold_paras(tgt)

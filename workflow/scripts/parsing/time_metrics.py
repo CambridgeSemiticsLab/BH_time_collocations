@@ -138,6 +138,7 @@ def examine_times(paths, bhsa):
     df = df[
        (df.parent_len == 1)
        & (df.ext_relas == False)
+       & (~df.heads.str.match('\|'))
     ]
     
     doc1 = HtmlReport(paths['styles'])
@@ -239,6 +240,11 @@ def examine_times(paths, bhsa):
         doc2.heading(funct, 3)
         for ph in samp.index:
             ph_parse = eval(str(df.loc[ph]['ph_parse']))
+            time_sem = df.loc[ph]['time']
+            time_loc = df.loc[ph].get('time_loc', None)
+            time_ref = df.loc[ph].get('reference', None)
+            ref_dist = df.loc[ph].get('ref_dist', None)
+            reftype = df.loc[ph].get('ref_type', None)
             if type(ph_parse) != int and len(ph_parse) == 3:
                 ph_show_parse = nt.show_relas(
                     ph_parse, 
@@ -253,6 +259,13 @@ def examine_times(paths, bhsa):
                 ).replace('div class="rtl"', 'div')
             )   
             doc2.append(f'{ph}<br>')
+            doc2.append(
+               f'time={time_sem}; '
+               f'time_loc={time_loc}; '
+               f'ref={time_ref}; '
+               f'refdist={ref_dist}; '
+               f'reftype={reftype}<br>'
+            )
             doc2.append(ph_show_parse) 
             doc2.append('<br><br>')
         doc2.append('<hr>')

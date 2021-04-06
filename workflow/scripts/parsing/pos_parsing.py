@@ -59,7 +59,7 @@ class posParser(PositionsParser):
                 F.lex.v(w) in {
                     'PNH/','TWK/', 
                     'QY/', 'QYH=/', 
-                    'QYT/',
+                    'QYT/', 'TXLH/'
                 }
                 and F.prs.v(w) == 'absent'
                 and F.st.v(w) == 'c'
@@ -68,6 +68,7 @@ class posParser(PositionsParser):
             # key lexemes with certain prepositions
             (
                 F.lex.v(w) == 'PNH/'
+                and F.st.v(w) == 'c'
                 and P(-1, 'lex') in {'L', 'MN'}
             ),
             (
@@ -112,7 +113,12 @@ class posParser(PositionsParser):
                 F.sp.v(w) == 'verb'
                 and F.vt.v(w) in {'ptcp', 'ptca'}
                 and F.pdp.v(w) not in {'advb', 'adjv'}
-            )
+            ),
+
+            # these are sometimes marked as adverbs by BHSA
+            (
+                F.lex.v(w) == 'JWM/'
+            ),
         ])    
     
     def CARD(self, w):

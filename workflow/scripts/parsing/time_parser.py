@@ -13,11 +13,14 @@ class TimeTokenizer:
     semantic function labels for the phrases.
     """
 
-    def __init__(self, tf_api):
+    def __init__(self, paths, tf_api):
         self.F, self.L = tf_api.F, tf_api.L
         self.tokens = set() # to feed to the parser later
+        self.slot2pos = ParseLoader(paths['slot2pos']).load()
+        with open(paths['lexmap'], 'r') as infile:
+            self.lexmap = json.load(infile)
     
-    def get_sly_token(self, tag, index):
+    def sly_token(self, tag, index):
         """Get SLY token object with customized data."""
         token = SlyToken()
         self.tokens.add(tag) # track unique tokens
@@ -26,6 +29,15 @@ class TimeTokenizer:
         token.index = index
         token.lineno = 1
         return token
+
+    def get_head(self, phrase):
+        """Flexible head grabbing, allowing for singular phrases."""
+        if type(phrase) == int:
+            return phrase
+        elif len(phrase) == 1:
+            return phrase[0]
+        else:
+            return nt.get_head(phrase)
     
     def tokenize(self, parsedphrase, start=True):
         """Follow path to right-most item (head) and yield tokens.
@@ -38,24 +50,26 @@ class TimeTokenizer:
         """
         
         # ignore these relations
-        ignore = {None, 'DEF', 'ADJV', 'GP', 'APPO'}
+        ignore = {None, 'ADJV'}
         def tag_rela(rela, name):
             return rela == name and rela not in ignore
 
         # retrieve the head path and begin walking down it
-        if len(parsedphrase) > 1:
+        if len(parsedphrase) == 3:
             head_phrases = list(nt.get_head_path(parsedphrase))
-            if parsedphrase[-1] != 'PP' and start:
-                yield self.get_sly_token('Ø', 0)
         else:
             head_phrases = [[None, parsedphrase[0], None]]
-            if start:
-                yield self.get_sly_token('Ø', 0)
 
         for i, phrase in enumerate(head_phrases):
             
             src, tgt, rela = phrase
-            
+
+            # yield null token if no starting preposition found
+            if (i==0) and start:
+                null = self.null_token(phrase, i)
+                if null:
+                    yield self.sly_token('Ø', 0)
+
             # tokenize prepositions
             if tag_rela(rela, 'PP'):
                 yield self.prep_token(phrase, i)
@@ -76,57 +90,155 @@ class TimeTokenizer:
                 if token:
                     yield token
             
+            # numbered relations
+            elif tag_rela(rela, 'NUM'):            
+                yield self.num_token(phrase, i)
+
+            # quantified relations
+            elif tag_rela(rela, 'QUANT'):
+                token = self.quant_token(phrase, i)
+                if token:
+                    yield token
+
+            # definite relations
+            elif tag_rela(rela, 'DEF'):
+                yield self.def_token(phrase, i)
+
+            elif tag_rela(rela, 'DEMON'):
+                yield self.demon_token(phrase, i)
+
+            # genitival relations
+            elif tag_rela(rela, 'GP'):
+                token = self.gen_token(phrase, i)
+                if token:
+                    yield token
+
             # drip-bucket tokenizer
             elif rela not in ignore:
-                yield self.get_sly_token(rela, i)
+                yield self.sly_token(rela, i)
                 
             # give TIME token once reaching the head
             if i+1 == len(head_phrases):
-                yield self.time_token(phrase, i)
+                yield from self.time_token(phrase, i)
                         
     def time_token(self, phrase, i):
         """Parse times into tokens."""
         time = phrase[1]
-        if self.F.nu.v(time) == 'pl':
+
+        # yield items attached to the time
+        if self.F.prs.v(time) not in {'absent', 'n/a'}:
+            yield self.sly_token('SFX', i)
+        if self.F.nu.v(time) == 'du':
+            yield self.sly_token('NUM', i)
+
+        # yield the time itself
+        lex = self.F.lex.v(time)
+        if self.slot2pos[time] == 'ADVB':
+            token = self.lexmap.get(lex, 'ADVB')
+        elif self.slot2pos[time] == 'PREP':
+            token = self.F.lex.v(time)
+        elif self.F.nu.v(time) == 'pl':
             token = 'TIMES'
         else:
             token = 'TIME'
-        return self.get_sly_token(token, i)
+        yield self.sly_token(token, i)
     
     def prep_token(self, phrase, i):
         """Parse prepositions into singular tokens."""
         token = self.F.lex.v(phrase[0])
-        return self.get_sly_token(token, i)
+        token = self.lexmap.get(token, token)
+        return self.sly_token(token, i)
     
+    def null_token(self, phrase, i):
+        """Parse whether phrase begins without preposition."""
+        
+        # process single-word phrases
+        if phrase[-1] is None:
+            if self.slot2pos[phrase[1]] != 'PREP':
+                return self.sly_token('Ø', i)
+            else:
+                return None # prevent running rest
+
+        # process multi-word phrases;
+        # a bit complicated process; we want to look for a 
+        # first word that is not a preposition, unless the
+        # first word is an adverb, then we ignore it and check
+        # the next first word
+        slots = sorted(
+            s for s in nt.get_slots(phrase)
+                if self.F.pdp.v(s) != 'advb'
+        )
+        is_null = (
+            (not slots) # only advb
+            or (self.slot2pos[slots[0]] != 'PREP')
+        )
+        if is_null:
+            return self.sly_token('Ø', i)
+
+    def def_token(self, phrase, i):
+        """Definite tokens."""
+        return self.sly_token('THE', i)
+
     def appo_token(self, phrase, i):
         """Parse appositional tokens."""
         src, tgt, rela = phrase
         
         # get the head item of the appositional phrase
-        if type(src) == int:
-            appo_head = src
-        else:
-            appo_head = nt.get_head(phrase[0])
+        appo_head = self.get_head(src)
         
         # process appositional demonstratives
         if self.F.pdp.v(appo_head) == 'prde':
             appo_lex = self.F.lex.v(appo_head)
-            dist = self.demon_dist(appo_lex).upper()
-            token = f'DEM_{dist}'
-            return self.get_sly_token(token, i)
+            token = self.lexmap[appo_lex]
+            return self.sly_token(token, i)
             
-    def demon_dist(self, lex):
-        """Get the distance of a demonstrative."""
-        demon_map = { 
-                'Z>T': 'near',
-                'HJ>': 'far',
-                'HMH': 'far',
-                '>LH': 'near',
-                'HM': 'far',
-                'HW>': 'far',
-                'ZH': 'near'
-        }
-        return demon_map[lex]
+    def demon_token(self, phrase, i):
+        """Parse demonstratives."""
+        src, tgt, rela = phrase
+        demon = self.get_head(src)
+        demonlex = self.F.lex.v(demon)
+        token =self.lexmap[demonlex]
+        return self.sly_token(token, i)
+
+    def num_token(self, phrase, i):
+        """Parse number tokens."""
+        number = phrase[0]
+        is_one = (
+            type(number) == int
+            and self.F.lex.v(number) == '>XD/'
+            and type(phrase[1]) == int
+        )
+        if is_one:
+            token = 'NUM_ONE'
+        else:
+            token = 'NUM'
+        return self.sly_token(token, i)
+
+    def gen_token(self, phrase, i):
+        """Parse genitive phrase tokens."""
+        src, tgt, rel = phrase
+        gen_head = self.get_head(src)
+        ph_head = self.get_head(tgt)
+
+        # identify genitive durations
+        # e.g. חדשׁ ימים "month of days"
+        dur_lexs = {'JWM/', 'DWR/', 'NYX/'}
+        gen_dur = (
+            self.F.nu.v(ph_head) == 'sg'
+            and self.F.lex.v(gen_head) in dur_lexs
+            and self.F.nu.v(gen_head) == 'pl'
+        )
+        if gen_dur:
+            return self.sly_token('GENDUR', i)
+
+    def quant_token(self, phrase, i):
+        """Return quantifier tokens."""
+        src, tgt, rel = phrase
+        quant = self.get_head(src)
+        quantlex = self.F.lex.v(quant)
+        token = self.lexmap.get(quantlex)
+        if token:
+            return self.sly_token(token, i) 
 
 class TimeParser(SlyParser):
 
@@ -138,17 +250,32 @@ class TimeParser(SlyParser):
         self.error_tracker = error_tracker
 
     tokens = {
+        'TIME',
+        'TIMES',
         'Ø',
         '<D',
         '>XR/',
         'B',
         'L',
         'MN',
-        'NUM',
+        'K',
         'PNH/',
-        'QY/',
-        'TIME',
-        'TIMES'
+        'THE', 'THIS', 'THAT',
+        'SFX',
+        'NUM',
+        'NUM_ONE',
+        'BEGINNING',
+        'MIDDLE',
+        'END',
+        'MANY',
+        'ALL',
+        'GENDUR',
+        'NOW',
+        'TOMORROW',
+        'YESTERDAY',
+        'DURATION',
+        'THUS',
+        'THEN',
     }
 
     def error(self, token):
@@ -158,12 +285,12 @@ class TimeParser(SlyParser):
         except:
             self.error_tracker['e'] = 'reached end'
 
-    #debugfile = 'parser.out'
+    debugfile = '../results/data_metrics/timeparse.debug'
        
     # -- FINAL MATCHES --
     @_('atelic_ext', 'simul', 'in_dur',
        'anterior', 'anterior_dur', 'posts',
-       'posterior')
+       'posterior', 'atelic_simul', 'antdur_simul')
     def category(self, p): 
         return p[0] 
 
@@ -176,14 +303,24 @@ class TimeParser(SlyParser):
         return p[1]
 
     # -- simultaneous --
-    @_('B time', 'Ø time')
+    @_('B time', 'Ø time',
+       'K time')
     def simul(self, p):
-        return {
+        p[1].update({
             'function': 'simultaneous',
-        } 
+        })
+        return p[1] 
+    
+    # either atelic ext or simul
+    @_('Ø dur_sing')
+    def atelic_simul(self, p):
+        p[1].update({
+            'function': 'atelic_ext, simultaneous',
+        })
+        return p[1]
     
     # -- telic extent / distances --
-    @_('B duration')
+    @_('B duration', 'B dur_sing')
     def in_dur(self, p):
         p[1].update({
             'function':'telic_ext, dist_fut, dist_past',
@@ -191,7 +328,7 @@ class TimeParser(SlyParser):
         return p[1]
 
     # -- anterior --
-    @_('L PNH/ duration', 'L PNH/ time')
+    @_('L PNH/ duration', 'L PNH/ time', 'L PNH/ dur_sing')
     def anterior(self, p):
         p[2].update({
             'function': 'anterior',
@@ -206,27 +343,69 @@ class TimeParser(SlyParser):
         })
         return p[1]
     
+    # -- anterior dur / simultaneous
+    @_('L duration', 'L time')
+    def antdur_simul(self, p):
+        p[1].update({
+            'function': 'ant_dur, simultaneous',
+        })
+        return p[1]
+
     # -- posteriors --
-    @_('MN time', 'MN duration')
+    @_('>XR/ duration', '>XR/ time', '>XR/ dur_sing')
+    def posterior(self, p):
+        p[1].update({
+            'function': 'posterior',
+        })
+        return p[1]
+
+    @_('SFX >XR/')
+    def posterior(self, p):
+        return {
+            'function': 'posterior',
+            'reference': 'deictic',
+            'ref_type': 'personal',
+        }
+
+    # stand-alone >XR, will only match if 
+    # followed by nothing else; causes shift/reduce
+    # conflict, but this is tolerable for this proj.
+    @_('>XR/')
+    def posterior(self, p):
+        return {
+            'function': 'posterior',
+        }
+
+    # -- posteriors (durative?) --
+    @_('MN time', 'MN duration', '<D dur_sing')
     def posts(self, p):
         p[1].update({
             'function': 'post, post_dur',
         })
         return p[1]
- 
-    # -- posterior durative --
-    @_('>XR/ duration', '>XR/ time')
-    def posterior(self, p):
+
+    # -- reanalyze "end of time" as point
+    @_('BEGINNING duration', 'BEGINNING time')
+    def time(self, p):
         p[1].update({
-            'function': 'posterior'
+            'time': 'singular',
+            'time_loc': 'beginning',
         })
         return p[1]
 
-    # -- reanalyze "end of time" as point
-    @_('QY/ duration', 'QY/ time')
+    @_('MIDDLE duration', 'MIDDLE time')
     def time(self, p):
         p[1].update({
-            'time': 'singular'
+            'time': 'singular',
+            'time_loc': 'middle',
+        })
+        return p[1]
+
+    @_('END duration', 'END time')
+    def time(self, p):
+        p[1].update({
+            'time': 'singular',
+            'time_loc': 'end',
         })
         return p[1]
  
@@ -234,14 +413,30 @@ class TimeParser(SlyParser):
     @_('TIMES')
     def duration(self, p):
         return {
-            'time': 'durative'
+            'time': 'durative',
         } 
 
-    @_('NUM duration', 'NUM time')
+    @_('DURATION')
+    def duration(self, p):
+        return {
+            'time': 'durative',
+            'advb': True,
+        }
+
+    @_('NUM duration', 'NUM time',
+       'NUM_ONE duration')
     def duration(self, p):
         p[1].update({
             'time': 'durative',
             'mensural': True,
+        })
+        return p[1]
+
+    @_('ALL duration', 'ALL time',
+       'MANY duration', 'MANY time')
+    def duration(self, p):
+        p[1].update({
+            'time': 'durative',
         })
         return p[1]
 
@@ -250,13 +445,139 @@ class TimeParser(SlyParser):
         p[1].update(p[0])
         return p[1]
 
+    @_('GENDUR time')
+    def duration(self, p):
+        p[1].update({
+            'time': 'durative',
+        })
+        return p[1]
+
+    # add reference data
+    @_('SFX duration')
+    def duration(self, p):
+        p[1].update({
+            'reference': 'deictic',
+            'ref_type': 'personal',
+        })
+        return p[1]
+
+    @_('THE duration')
+    def duration(self, p):
+        p[1].update({
+            'reference': 'anaphora',
+            'ref_type': 'exophoric',
+        })
+        return p[1]
+
+    @_('THIS duration')
+    def duration(self, p):
+        p[1].update({
+            'reference': 'deictic',
+            'ref_type': 'spatial',
+            'ref_dist': 'near'
+        })
+        return p[1]
+
+    @_('THAT duration')
+    def duration(self, p):
+        p[1].update({
+            'reference': 'deictic',
+            'ref_type': 'spatial',
+            'ref_dist': 'far'
+        })
+        return p[1]
+
+    @_('NUM_ONE time')
+    def dur_sing(self, p):
+        p[1].update({
+            'time': 'durative, singular', # disambig needed  
+            'mensural': True,
+        })
+        return p[1]
+
     # -- time --
     @_('TIME')
     def time(self, p):
         return {
             'time': '?',
         }
-  
+   
+    @_('SFX time')
+    def time(self, p):
+        p[1].update({
+            'reference': 'deictic',
+            'ref_type': 'personal',
+        })
+        return p[1]
+
+    @_('THE time')
+    def time(self, p):
+        p[1].update({
+            'reference': 'anaphora',
+            'ref_type': 'exophoric',
+        })
+        return p[1]
+
+    @_('THIS time')
+    def time(self, p):
+        p[1].update({
+            'reference': 'deictic',
+            'ref_type': 'spatial',
+            'ref_dist': 'near'
+        })
+        return p[1]
+
+    @_('THAT time')
+    def time(self, p):
+        p[1].update({
+            'reference': 'deictic',
+            'ref_type': 'spatial',
+            'ref_dist': 'far'
+        })
+        return p[1]
+
+    # -- adverb time --
+    @_('NOW')
+    def time(self, p):
+        return {
+            'time': 'singular',
+            'reference': 'deictic',
+            'tense': 'present',
+        }
+
+    @_('TOMORROW')
+    def time(self, p):
+        return {
+            'time': 'singular',
+            'reference': 'deictic',
+            'tense': 'future',
+        }
+
+    @_('YESTERDAY')
+    def time(self, p):
+        return {
+            'time': 'singular',
+            'reference': 'deictic',
+            'tense': 'past',
+        }
+
+    @_('THUS')
+    def time(self, p):
+        return {
+            'time': 'singular',
+            'reference': 'deictic',
+            'ref_type': 'textual',
+        }
+
+    @_('THEN')
+    def time(self, p):
+        return {
+            'time': 'singular',
+            'reference': 'deictic',
+            'ref_dist': 'far',
+        }
+ 
+
 def parse_times(paths, API):
     """Apply the time parser."""
 
@@ -264,7 +585,7 @@ def parse_times(paths, API):
     phrases = ParseLoader(paths['ph_parses']).load()
 
     # initialize tokenizer
-    tokenizer = TimeTokenizer(API)
+    tokenizer = TimeTokenizer(paths, API)
 
     # initialize parser
     # error_tracker allows us to save
