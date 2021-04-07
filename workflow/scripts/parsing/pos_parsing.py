@@ -57,9 +57,9 @@ class posParser(PositionsParser):
             # key lexemes in construct
             (
                 F.lex.v(w) in {
-                    'PNH/','TWK/', 
-                    'QY/', 'QYH=/', 
-                    'QYT/', 'TXLH/'
+                    'TWK/', 'QY/', 
+                    'QYH=/', 'QYT/', 
+                    'TXLH/', 'PNH/'
                 }
                 and F.prs.v(w) == 'absent'
                 and F.st.v(w) == 'c'
@@ -68,7 +68,7 @@ class posParser(PositionsParser):
             # key lexemes with certain prepositions
             (
                 F.lex.v(w) == 'PNH/'
-                and F.st.v(w) == 'c'
+                and (F.st.v(w) == 'c' or F.prs.v(w) != 'absent')
                 and P(-1, 'lex') in {'L', 'MN'}
             ),
             (
@@ -294,8 +294,12 @@ class posParser(PositionsParser):
                 F.lex.v(w) == '<YM/'
                 and F.st.v(w) == 'c'
                 and F.function.v(phrase) == 'Time'
-            )
-        ])
+            ),
+            (
+                F.lex.v(w) == 'BLT/'
+                and F.function.v(phrase) == 'Time'
+            ),
+       ])
 
     def ADVB(self, w):
         """Identify adverbs.

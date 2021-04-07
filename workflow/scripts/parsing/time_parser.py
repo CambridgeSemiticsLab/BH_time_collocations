@@ -1,5 +1,4 @@
 import json
-import html
 from tf.fabric import Fabric
 from sly import Parser as SlyParser
 from sly.lex import Token as SlyToken
@@ -13,18 +12,19 @@ class TimeTokenizer:
     semantic function labels for the phrases.
     """
 
-    def __init__(self, paths, tf_api):
+    def __init__(self, paths, tf_api, debug=False):
         self.F, self.L = tf_api.F, tf_api.L
         self.tokens = set() # to feed to the parser later
         self.slot2pos = ParseLoader(paths['slot2pos']).load()
+        self.debug = debug
         with open(paths['lexmap'], 'r') as infile:
             self.lexmap = json.load(infile)
     
-    def sly_token(self, tag, index):
+    def sly_token(self, tag, index, value=''):
         """Get SLY token object with customized data."""
         token = SlyToken()
         self.tokens.add(tag) # track unique tokens
-        token.value = ''
+        token.value = value
         token.type = tag
         token.index = index
         token.lineno = 1
@@ -38,7 +38,16 @@ class TimeTokenizer:
             return phrase[0]
         else:
             return nt.get_head(phrase)
-    
+
+    def get_head_phrases(self, phrase):
+        """Retrieve all phrases with head in the path."""
+        # retrieve the head path and begin walking down it
+        if len(phrase) == 3:
+            head_phrases = list(nt.get_head_path(phrase))
+        else:
+            head_phrases = [[None, phrase[0], None]]
+        return head_phrases
+
     def tokenize(self, parsedphrase, start=True):
         """Follow path to right-most item (head) and yield tokens.
         
@@ -50,25 +59,25 @@ class TimeTokenizer:
         """
         
         # ignore these relations
-        ignore = {None, 'ADJV'}
+        ignore = {None, 'ADJV', 'ADVB'}
         def tag_rela(rela, name):
             return rela == name and rela not in ignore
-
-        # retrieve the head path and begin walking down it
-        if len(parsedphrase) == 3:
-            head_phrases = list(nt.get_head_path(parsedphrase))
-        else:
-            head_phrases = [[None, parsedphrase[0], None]]
-
-        for i, phrase in enumerate(head_phrases):
+   
+        # process all internal relations
+        head_phrases = self.get_head_phrases(parsedphrase)
+        paras = []
+        
+        i = 0
+        for phrase in head_phrases:
             
             src, tgt, rela = phrase
 
             # yield null token if no starting preposition found
             if (i==0) and start:
-                null = self.null_token(phrase, i)
-                if null:
-                    yield self.sly_token('Ø', 0)
+                token = self.null_token(phrase, i)
+                if token:
+                    yield token
+                    i += 1
 
             # tokenize prepositions
             if tag_rela(rela, 'PP'):
@@ -76,14 +85,11 @@ class TimeTokenizer:
                 
             # handle parallels
             elif tag_rela(rela, 'PARA'):
-                # we use unfold_paras in case there are 
-                # additional recursively embedded parallel
-                # phrases below; unfold_paras will stop as 
-                # soon as it encounters a phrase with a rela
-                # that != PARA or CONJ
                 for subphrase in nt.unfold_paras(src):
-                    yield from self.tokenize(subphrase, start=False) # recursively tokenize them
-                
+                    paras.extend(
+                        self.tokenize(subphrase, start=False) # recursively tokenize them
+                    )                    
+            
             # tokenize appositional relations if relevant
             elif tag_rela(rela, 'APPO'):
                 token = self.appo_token(phrase, i)
@@ -113,17 +119,43 @@ class TimeTokenizer:
                 if token:
                     yield token
 
+            # card chain relas:
+            # NB: that this will only ever happen if 
+            # a cardinal chain itself is profiled, without
+            # a quantified element
+            elif tag_rela(rela, 'CARDC'):
+                yield self.sly_token('CARD', i)
+    
             # drip-bucket tokenizer
             elif rela not in ignore:
                 yield self.sly_token(rela, i)
+
+            # increase index
+            i += 1
                 
-            # give TIME token once reaching the head
-            if i+1 == len(head_phrases):
-                yield from self.time_token(phrase, i)
+            # give TIME token once reaching the end
+            if head_phrases[-1] == phrase:
+                timetoks = list(self.time_token(phrase, i))
+                seenlex = set(tok.value for tok in timetoks)
+                for tok in timetoks:
+                    yield tok
+                i += 1
+
+                # yield all of the parallel tokens
+                for sp_token in paras:
+                    sp_token.index = i
+
+                    # detect repeated lexemes (distributive construction)
+                    if (sp_token.type in {'TIME'}
+                    and sp_token.value in seenlex):
+                        sp_token.type = 'TIME2'
+
+                    yield sp_token
+                    i += 1
                         
     def time_token(self, phrase, i):
         """Parse times into tokens."""
-        time = phrase[1]
+        src, time, rela = phrase
 
         # yield items attached to the time
         if self.F.prs.v(time) not in {'absent', 'n/a'}:
@@ -137,11 +169,13 @@ class TimeTokenizer:
             token = self.lexmap.get(lex, 'ADVB')
         elif self.slot2pos[time] == 'PREP':
             token = self.F.lex.v(time)
+        elif self.slot2pos[time] == 'CARD' and rela == 'CARDC':
+            token = 'CARD'
         elif self.F.nu.v(time) == 'pl':
             token = 'TIMES'
         else:
             token = 'TIME'
-        yield self.sly_token(token, i)
+        yield self.sly_token(token, i, value=lex)
     
     def prep_token(self, phrase, i):
         """Parse prepositions into singular tokens."""
@@ -151,7 +185,7 @@ class TimeTokenizer:
     
     def null_token(self, phrase, i):
         """Parse whether phrase begins without preposition."""
-        
+      
         # process single-word phrases
         if phrase[-1] is None:
             if self.slot2pos[phrase[1]] != 'PREP':
@@ -197,7 +231,7 @@ class TimeTokenizer:
         src, tgt, rela = phrase
         demon = self.get_head(src)
         demonlex = self.F.lex.v(demon)
-        token =self.lexmap[demonlex]
+        token = self.lexmap[demonlex]
         return self.sly_token(token, i)
 
     def num_token(self, phrase, i):
@@ -251,6 +285,7 @@ class TimeParser(SlyParser):
 
     tokens = {
         'TIME',
+        'TIME2',
         'TIMES',
         'Ø',
         '<D',
@@ -259,6 +294,11 @@ class TimeParser(SlyParser):
         'L',
         'MN',
         'K',
+        'BJN/',
+        '>L',
+        '<L',
+        '>T',
+        'VRM/',
         'PNH/',
         'THE', 'THIS', 'THAT',
         'SFX',
@@ -276,6 +316,7 @@ class TimeParser(SlyParser):
         'DURATION',
         'THUS',
         'THEN',
+        'CARD',
     }
 
     def error(self, token):
@@ -290,9 +331,76 @@ class TimeParser(SlyParser):
     # -- FINAL MATCHES --
     @_('atelic_ext', 'simul', 'in_dur',
        'anterior', 'anterior_dur', 'posts',
-       'posterior', 'atelic_simul', 'antdur_simul')
+       'posterior', 'atelic_simul', 'antdur_simul',
+       'hab_simul', 'begin_to_end', 'multi_simul',
+       'antpost_dur', 'posterior_dur', 'multi_postantdur',
+       'multi_antpost')
     def category(self, p): 
         return p[0] 
+
+    # -- composed constructions
+    @_('simul simul', 'in_dur in_dur')
+    def hab_simul(self, p):
+        data = {
+            'function': 'simul_habitual, multi_simul',
+            'parts': [p[0], p[1]]
+        }
+        if p[1].get('duplicate'):
+            data['distributive'] = True
+        return data
+
+    @_('hab_simul hab_simul')
+    def hab_simul(self, p):
+        p[0]['parts'].extend(
+            p[1]['parts']
+        )
+        return p[0]
+
+    @_('posts anterior_dur', 'posts antdur_simul',
+       'posterior_dur anterior_dur')
+    def begin_to_end(self, p):
+        p[0]['function'] = 'posterior_dur'
+        p[1]['function'] = 'anterior_dur'
+        data = {
+            'function': 'begin_to_end',
+            'parts': [p[0], p[1]]
+        }
+        return data
+
+    @_('in_dur simul', 'simul in_dur')
+    def multi_simul(self, p):
+        p.in_dur['function'] = 'telic_ext'
+        data = {
+            'function': 'multi_simul',
+            'parts': [p[0], p[1]]
+        }
+        return data
+
+    @_('multi_simul simul')
+    def multi_simul(self, p):
+        parts = p[0]['parts'] + [p[1]]
+        data = {
+            'function': 'multi_simul',
+            'parts': parts,
+        }
+        return data
+
+    @_('posts anterior')
+    def multi_postantdur(self, p):
+        p[0]['function'] = 'anterior_dur'
+        data = {
+            'function': 'multi_postant',
+            'parts': [p[0], p[1]]
+        }
+        return data
+
+    @_('anterior posterior')
+    def multi_antpost(self, p):
+        data = {
+            'function': 'multi_antpost',
+            'parts': [p[0], p[1]],
+        }
+        return data
 
     # -- atelic extent
     @_('Ø duration')
@@ -302,15 +410,84 @@ class TimeParser(SlyParser):
         })
         return p[1]
 
+    # NB: this pattern is very significant
+    # as it corroborates Haspelmath's hypothesis
+    # that the zero-marked atelic extent derives
+    # from the accusative / object role
+    @_('>T duration')
+    def atelic_ext(self, p):
+        p[1].update({
+            'function': 'atelic_ext',
+        })
+        return p[1]
+
     # -- simultaneous --
     @_('B time', 'Ø time',
-       'K time')
+       'K time', 'BJN/ duration',
+       '>L time', '<L time')
     def simul(self, p):
         p[1].update({
             'function': 'simultaneous',
         })
         return p[1] 
-    
+
+    @_('B simul', 'K simul', 'L simul')
+    def simul(self, p):
+        return p[1]
+
+    # Very interesting pattern here, somewhat
+    # similar to antpost_dur:
+    # למן־היום (II Sam 19:25)
+    # except here I think this is a simultaneous
+    # position after a duration: 
+    # כמשלש חדשים (Gen 38:24)
+    @_('K posterior_dur')
+    def simul(self, p):
+        data = {
+            'function': 'simultaneous',
+            'parts': [
+                {'function': 'simultaneous'},
+                p[1],
+            ]
+        } 
+        return data
+
+    @_('BEGINNING duration', 'BEGINNING time')
+    def simul(self, p):
+        p[1].update({
+            'function': 'simultaneous',
+            'time': 'singular',
+            'time_loc': 'beginning',
+        })
+        return p[1]
+
+    @_('MIDDLE duration', 'MIDDLE time')
+    def simul(self, p):
+        p[1].update({
+            'function': 'simultaneous',
+            'time': 'singular',
+            'time_loc': 'middle',
+        })
+        return p[1]
+
+    @_('Ø MIDDLE time')
+    def simul(self, p):
+        p[2].update({
+            'function': 'simultaneous',
+            'time': 'singular',
+            'time_loc': 'middle',
+        })
+        return p[2]
+ 
+    @_('END duration', 'END time')
+    def simul(self, p):
+        p[1].update({
+            'function': 'simultaneous',
+            'time': 'singular',
+            'time_loc': 'end',
+        })
+        return p[1]
+
     # either atelic ext or simul
     @_('Ø dur_sing')
     def atelic_simul(self, p):
@@ -320,7 +497,7 @@ class TimeParser(SlyParser):
         return p[1]
     
     # -- telic extent / distances --
-    @_('B duration', 'B dur_sing')
+    @_('B duration', 'B dur_sing', 'K duration')
     def in_dur(self, p):
         p[1].update({
             'function':'telic_ext, dist_fut, dist_past',
@@ -328,28 +505,107 @@ class TimeParser(SlyParser):
         return p[1]
 
     # -- anterior --
-    @_('L PNH/ duration', 'L PNH/ time', 'L PNH/ dur_sing')
+    @_('L PNH/ duration', 'L PNH/ time', 
+       'L PNH/ dur_sing')
     def anterior(self, p):
         p[2].update({
             'function': 'anterior',
         })
         return p[2]
 
+    @_('L SFX PNH/')
+    def anterior(self, p):
+        data = {
+            'function': 'anterior',
+            'reference': 'deictic',
+            'ref_type': 'personal',
+        }
+        return data
+
+    @_('L PNH/ posts')
+    def anterior(self, p):
+        data = {
+            'function': 'anterior',
+            'parts': [
+                {'function': 'anterior'},
+                p[2]
+            ]
+        }
+        return data
+
+    # stand-alone >XR, will only match if 
+    # followed by nothing else; causes shift/reduce
+    # conflict, but this is tolerable for this proj.
+    @_('VRM/')
+    def anterior(self, p):
+        return {
+            'function': 'anterior',
+            'advb': True,
+        }
+
     # -- anterior durative --
-    @_('<D duration', '<D time')
+    @_('<D duration', '<D time', '<D simul',
+       'L posterior')
     def anterior_dur(self, p):
         p[1].update({
-            'function': 'ant_dur',
+            'function': 'anterior_dur',
         })
         return p[1]
-    
+
     # -- anterior dur / simultaneous
-    @_('L duration', 'L time')
+    @_('L time')
     def antdur_simul(self, p):
         p[1].update({
-            'function': 'ant_dur, simultaneous',
+            'function': 'anterior_dur, simultaneous',
         })
         return p[1]
+
+    @_('L dur_sing')
+    def simul(self, p):
+        p[1].update({
+            'function': 'simultaneous',
+            'time': 'singular',
+        })
+        return p[1]
+
+    @_('L duration')
+    def anterior_dur(self, p):
+        p[1].update({
+            'function': 'anterior_dur',
+        })
+        return p[1]
+
+    @_('<D antdur_simul')
+    def anterior_dur(self, p):
+        p[1].update({
+            'function': 'anterior_dur'
+        })
+        return p[1]
+
+    @_('L posts', '<D posts', 'L posterior_dur')
+    def antpost_dur(self, p):
+        p[1].update({
+            'function': 'posterior_dur',   
+        })
+        data = {
+            'function': 'antpost_dur',
+            'parts': [
+                {'function': 'anterior_dur'},
+                p[1]
+            ]
+        }
+        return data
+
+    @_('<D posterior')
+    def antpost_dur(self, p):
+        data = {
+            'function': 'antpost_dur',
+            'parts': [
+                {'function': 'anterior_dur'},
+                p[1],
+            ]
+        }
+        return data
 
     # -- posteriors --
     @_('>XR/ duration', '>XR/ time', '>XR/ dur_sing')
@@ -374,41 +630,41 @@ class TimeParser(SlyParser):
     def posterior(self, p):
         return {
             'function': 'posterior',
+            'advb': True,
         }
 
     # -- posteriors (durative?) --
-    @_('MN time', 'MN duration', '<D dur_sing')
+    @_('MN time')
     def posts(self, p):
         p[1].update({
-            'function': 'post, post_dur',
+            'function': 'posterior, posterior_dur',
         })
         return p[1]
 
-    # -- reanalyze "end of time" as point
-    @_('BEGINNING duration', 'BEGINNING time')
-    def time(self, p):
+    @_('MN duration')
+    def posterior_dur(self, p):
         p[1].update({
-            'time': 'singular',
-            'time_loc': 'beginning',
+            'function': 'posterior_dur',    
         })
         return p[1]
 
-    @_('MIDDLE duration', 'MIDDLE time')
-    def time(self, p):
-        p[1].update({
-            'time': 'singular',
-            'time_loc': 'middle',
-        })
+    @_('MN simul')
+    def posterior(self, p):
+        p[1]['function'] = 'posterior'
         return p[1]
 
-    @_('END duration', 'END time')
-    def time(self, p):
-        p[1].update({
-            'time': 'singular',
-            'time_loc': 'end',
-        })
+    @_('MN posterior')
+    def posterior(self, p):
+        p[1]['function'] = 'posterior'
         return p[1]
- 
+
+    # NB how the opposing duration leads
+    # to a re-evaluation of this type!
+    @_('MN anterior_dur')
+    def posterior_dur(self, p):
+        p[1]['function'] = 'posterior_dur'
+        return p[1]
+
     # -- durations --
     @_('TIMES')
     def duration(self, p):
@@ -423,6 +679,12 @@ class TimeParser(SlyParser):
             'advb': True,
         }
 
+    @_('CARD')
+    def duration(self, p):
+        return {
+            'time': 'durative',
+        }
+
     @_('NUM duration', 'NUM time',
        'NUM_ONE duration')
     def duration(self, p):
@@ -435,15 +697,37 @@ class TimeParser(SlyParser):
     @_('ALL duration', 'ALL time',
        'MANY duration', 'MANY time')
     def duration(self, p):
-        p[1].update({
+       p[1].update({
             'time': 'durative',
         })
-        return p[1]
+       return p[1]
 
     @_('duration duration')
     def duration(self, p):
-        p[1].update(p[0])
-        return p[1]
+        data = {
+            'time': 'durative',
+            'parts': [p[0], p[1]]   
+        }
+        return data
+
+    @_('duration time', 'time duration')
+    def duration(self, p):
+        p.time['time'] = 'durative' # reanalyze as duration
+        data = {
+            'time': 'durative',
+            'parts': [p[0], p[1]] 
+        }
+        return data 
+
+    @_('time time')
+    def duration(self, p):
+        data = {
+            'time': 'durative',
+            'parts': [p[0], p[1]]
+        }
+        if p[1].get('duplicate'):
+            data['distributive'] = True
+        return data
 
     @_('GENDUR time')
     def duration(self, p):
@@ -500,6 +784,13 @@ class TimeParser(SlyParser):
     def time(self, p):
         return {
             'time': '?',
+        }
+
+    @_('TIME2')
+    def time(self, p):
+        return {
+            'time': '?',
+            'duplicate': True,
         }
    
     @_('SFX time')
@@ -577,7 +868,6 @@ class TimeParser(SlyParser):
             'ref_dist': 'far',
         }
  
-
 def parse_times(paths, API):
     """Apply the time parser."""
 
@@ -605,12 +895,17 @@ def parse_times(paths, API):
         if API.F.function.v(phrase) != 'Time':
             continue
 
+        debug = False
+        if ph_node == 1144822:
+            tokenizer.debug = True
+
         tokens = list(tokenizer.tokenize(parsing))
+    
         parsing = parser.parse(t for t in tokens)
         if parsing is not None and error_tracker['e'] is None:
             parsed[ph_node] = parsing
         else:
-            toks = html.escape(str([t.type for t in tokens]))
+            toks = str([t.type for t in tokens])
             errors[ph_node] = (error_tracker['e'], toks)
 
             # reset error tracker

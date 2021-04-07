@@ -250,9 +250,13 @@ class PhraseParser(Parser):
     # -- adverbial phrases -- 
     # TODO: add rule to recognize distributive 
     # constructions suhch as סביב סביב
-    @_('ADVB ADVB', 'ADJV ADVB', 'ADJV ADJV')
+    @_('ADJV ADVB', 'ADJV ADJV')
     def advb(self, p):
         return [p[1].slot, p[0].slot, 'ADVB']
+
+    @_('ADVB ADVB')
+    def advb(self, p):
+        return [p[0].slot, p[1].slot, 'ADVB']
 
     # -- definite phrases --
     @_('ART ORDN', 'ART PRDE', 'ART QUANT', 

@@ -1,5 +1,6 @@
 import re
 import json
+import html
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -54,8 +55,10 @@ def build_row_data(node, tf_api, ph_parse, time_parsing={}, **features):
 
     # get tokens from error report
     err = features.get('error', '') 
-    toks = re.findall('[A-Z_Ø]+', err)
-    tokens = ' '.join(toks)
+    toks = re.findall('[A-Z_Ø<>/=0-9]+', err)
+    tokens = (' '.join(toks)).replace('<', '(').replace('>', ')')
+    if err:
+        features['error'] = html.escape(err)
 
     # build basic data
     data = dict(
@@ -221,7 +224,7 @@ def examine_times(paths, bhsa):
             doc1.append(
                 bhsa.pretty(
                     i,
-                    extraFeatures='typ st',
+                    extraFeatures='st lex pdp',
                     withNodes=True
                 )
             )

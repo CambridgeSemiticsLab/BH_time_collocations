@@ -20,11 +20,21 @@
     "RBH/": "MANY",
     "<TH": "NOW",
     "TMJD/": "DURATION",
+    "NYX/": "DURATION",
+    "JWMM": "DURATION",
+    "<WD/": "DURATION",
     "KN": "THUS",
     "MXR/": "TOMORROW",
     ">MC/": "TOMORROW",
     "TMWL/": "YESTERDAY",
+    ">TMWL/": "YESTERDAY",
+    "CLCWM/": "YESTERDAY",
     ">Z": "THEN",
-    "JWMM": "DURATION",
-    "LJLH/": "TIME"
+    "HNH==": "NOW",
+    "KH": "NOW",
+    "LJLH/": "TIME",
+    "BQR=/": "TIME",
+    ">XRWN/": "TIME",
+    "QDM/": "TIME",
+    "RG</": "TIME" 
 }

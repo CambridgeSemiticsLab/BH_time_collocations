@@ -52,9 +52,9 @@ Rule 48    gam_adjv -> GAM num
 Rule 49    gam_adjv -> GAM quant
 Rule 50    gam_adjv -> GAM pp
 Rule 51    gam_adjv -> GAM np
-Rule 52    advb -> ADJV ADJV
-Rule 53    advb -> ADJV ADVB
-Rule 54    advb -> ADVB ADVB
+Rule 52    advb -> ADVB ADVB
+Rule 53    advb -> ADJV ADJV
+Rule 54    advb -> ADJV ADVB
 Rule 55    defi -> ART gp
 Rule 56    defi -> ART np
 Rule 57    defi -> ART adjv
@@ -215,9 +215,9 @@ Rule 210   num -> np cardc
 Terminals, with rules where they appear:
 
 A                    : 20 21
-ADJV                 : 24 34 39 42 52 52 53 59 64 180 180
+ADJV                 : 24 34 39 42 53 53 54 59 64 180 180
 ADJVPREP             : 128 129 130 131 132 133
-ADVB                 : 25 26 27 28 30 31 32 35 36 41 43 53 54 54 69 86 90 114 181 181
+ADVB                 : 25 26 27 28 30 31 32 35 36 41 43 52 52 54 69 86 90 114 181 181
 ART                  : 55 56 57 58 59 60 61 62 63
 C                    : 64 65 66 76 77 89 189
 CARD                 : 185 185 186 187 188 189 189 190 190
@@ -304,9 +304,9 @@ state 0
     (181) adjv_para -> . ADVB CONJ ADVB
     (85) quant_sized -> . QUANT QUANT
     (86) quant_sized -> . QUANT ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -647,11 +647,11 @@ state 6
 
     (5) phrase -> advb .
     (93) appo -> advb . advb
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
-  ! shift/reduce conflict for ADJV resolved as shift
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
   ! shift/reduce conflict for ADVB resolved as shift
+  ! shift/reduce conflict for ADJV resolved as shift
     $end            reduce using rule 5 (phrase -> advb .)
     CONJQUANT       reduce using rule 5 (phrase -> advb .)
     SEP             reduce using rule 5 (phrase -> advb .)
@@ -672,8 +672,8 @@ state 6
     SEPPREP         reduce using rule 5 (phrase -> advb .)
     PREP            reduce using rule 5 (phrase -> advb .)
     PRDE            reduce using rule 5 (phrase -> advb .)
-    ADJV            shift and go to state 38
-    ADVB            shift and go to state 39
+    ADVB            shift and go to state 38
+    ADJV            shift and go to state 39
 
     advb                           shift and go to state 37
 
@@ -741,9 +741,9 @@ state 7
     (19) np -> . NOUN SFX
     (20) np -> . PROPN A
     (21) np -> . NOUN A
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -966,9 +966,9 @@ state 10
     (73) gp -> . constr QUANT
     (74) gp -> . constr PROPN
     (75) gp -> . constr NOUN
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
@@ -1090,9 +1090,9 @@ state 12
     (101) appo -> . defi defi
     (102) appo -> . np defi
     (103) appo -> . np np
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -1154,8 +1154,8 @@ state 12
   ! shift/reduce conflict for QUANT resolved as shift
   ! shift/reduce conflict for NOUN resolved as shift
   ! shift/reduce conflict for PROPN resolved as shift
-  ! shift/reduce conflict for ADJV resolved as shift
   ! shift/reduce conflict for ADVB resolved as shift
+  ! shift/reduce conflict for ADJV resolved as shift
   ! shift/reduce conflict for PRIN resolved as shift
   ! shift/reduce conflict for NEGA resolved as shift
     $end            reduce using rule 11 (phrase -> appo .)
@@ -1176,8 +1176,8 @@ state 12
     QUANT           shift and go to state 49
     NOUN            shift and go to state 54
     PROPN           shift and go to state 28
-    ADJV            shift and go to state 77
     ADVB            shift and go to state 78
+    ADJV            shift and go to state 77
     PRIN            shift and go to state 52
     NEGA            shift and go to state 33
 
@@ -1506,9 +1506,9 @@ state 17
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
   ! shift/reduce conflict for PRDE resolved as shift
   ! shift/reduce conflict for CONJ resolved as shift
   ! shift/reduce conflict for SEP resolved as shift
@@ -1681,9 +1681,9 @@ state 18
     (190) cardc -> . CARD CARD
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     ADVB            shift and go to state 121
     CARD1           shift and go to state 122
     PRPS            shift and go to state 123
@@ -1714,7 +1714,7 @@ state 18
 state 19
 
     (181) adjv_para -> ADVB . CONJ ADVB
-    (54) advb -> ADVB . ADVB
+    (52) advb -> ADVB . ADVB
     (90) demon -> ADVB . PRDE
     (25) adjv -> ADVB . SFX
     (26) adjv -> ADVB . gp
@@ -1842,9 +1842,9 @@ state 19
     (190) cardc -> . CARD CARD
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     CONJ            shift and go to state 133
     ADVB            shift and go to state 132
     PRDE            shift and go to state 134
@@ -1949,9 +1949,9 @@ state 20
     (131) adjv_pp -> . ADJVPREP adjv
     (132) adjv_pp -> . ADJVPREP np
     (133) adjv_pp -> . ADJVPREP defi
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -2021,8 +2021,8 @@ state 21
 state 22
 
     (180) adjv_para -> ADJV . CONJ ADJV
-    (52) advb -> ADJV . ADJV
-    (53) advb -> ADJV . ADVB
+    (53) advb -> ADJV . ADJV
+    (54) advb -> ADJV . ADVB
     (34) adjv -> ADJV . np
     (64) constr -> ADJV . C
     (17) np -> . CARD1 SFX
@@ -2149,9 +2149,9 @@ state 27
     (181) adjv_para -> . ADVB CONJ ADVB
     (85) quant_sized -> . QUANT QUANT
     (86) quant_sized -> . QUANT ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -2393,9 +2393,9 @@ state 29
     (127) pp -> PREP . np
     (85) quant_sized -> . QUANT QUANT
     (86) quant_sized -> . QUANT ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -2647,9 +2647,9 @@ state 31
     (181) adjv_para -> . ADVB CONJ ADVB
     (85) quant_sized -> . QUANT QUANT
     (86) quant_sized -> . QUANT ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -3035,8 +3035,8 @@ state 37
     QUANT           reduce using rule 93 (appo -> advb advb .)
     NOUN            reduce using rule 93 (appo -> advb advb .)
     PROPN           reduce using rule 93 (appo -> advb advb .)
-    ADJV            reduce using rule 93 (appo -> advb advb .)
     ADVB            reduce using rule 93 (appo -> advb advb .)
+    ADJV            reduce using rule 93 (appo -> advb advb .)
     PRIN            reduce using rule 93 (appo -> advb advb .)
     NEGA            reduce using rule 93 (appo -> advb advb .)
     $end            reduce using rule 93 (appo -> advb advb .)
@@ -3053,16 +3053,16 @@ state 37
 
 state 38
 
-    (52) advb -> ADJV . ADJV
-    (53) advb -> ADJV . ADVB
-    ADJV            shift and go to state 156
-    ADVB            shift and go to state 158
+    (52) advb -> ADVB . ADVB
+    ADVB            shift and go to state 227
 
 
 state 39
 
-    (54) advb -> ADVB . ADVB
-    ADVB            shift and go to state 227
+    (53) advb -> ADJV . ADJV
+    (54) advb -> ADJV . ADVB
+    ADJV            shift and go to state 156
+    ADVB            shift and go to state 158
 
 
 state 40
@@ -3128,9 +3128,9 @@ state 40
     (19) np -> . NOUN SFX
     (20) np -> . PROPN A
     (21) np -> . NOUN A
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -3388,9 +3388,9 @@ state 44
     (188) cardc -> . cardc CARD
     (189) cardc -> . CARD C CARD
     (190) cardc -> . CARD CARD
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -3450,8 +3450,8 @@ state 44
   ! shift/reduce conflict for NOUN resolved as shift
   ! shift/reduce conflict for PROPN resolved as shift
   ! shift/reduce conflict for CARD resolved as shift
-  ! shift/reduce conflict for ADJV resolved as shift
   ! shift/reduce conflict for ADVB resolved as shift
+  ! shift/reduce conflict for ADJV resolved as shift
   ! shift/reduce conflict for PRIN resolved as shift
   ! shift/reduce conflict for NEGA resolved as shift
     SEP             reduce using rule 204 (num -> cardc appo .)
@@ -3472,8 +3472,8 @@ state 44
     NOUN            shift and go to state 54
     PROPN           shift and go to state 28
     CARD            shift and go to state 24
-    ADJV            shift and go to state 77
     ADVB            shift and go to state 78
+    ADJV            shift and go to state 77
     PRIN            shift and go to state 52
     NEGA            shift and go to state 33
 
@@ -3562,9 +3562,9 @@ state 46
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (55) defi -> . ART gp
     (56) defi -> . ART np
     (57) defi -> . ART adjv
@@ -3628,8 +3628,8 @@ state 46
 state 47
 
     (34) adjv -> ADJV . np
-    (52) advb -> ADJV . ADJV
-    (53) advb -> ADJV . ADVB
+    (53) advb -> ADJV . ADJV
+    (54) advb -> ADJV . ADVB
     (64) constr -> ADJV . C
     (17) np -> . CARD1 SFX
     (18) np -> . QUANT SFX
@@ -3719,9 +3719,9 @@ state 48
     (19) np -> . NOUN SFX
     (20) np -> . PROPN A
     (21) np -> . NOUN A
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -3793,7 +3793,7 @@ state 50
     (32) adjv -> ADVB . np
     (35) adjv -> ADVB . CARD1
     (36) adjv -> ADVB . PRPS
-    (54) advb -> ADVB . ADVB
+    (52) advb -> ADVB . ADVB
     (67) gp -> . constr phrase
     (68) gp -> . constr PRPS
     (69) gp -> . constr ADVB
@@ -3911,9 +3911,9 @@ state 50
     (190) cardc -> . CARD CARD
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     SFX             shift and go to state 135
     CARD1           shift and go to state 142
     PRPS            shift and go to state 143
@@ -4026,9 +4026,9 @@ state 51
     (73) gp -> . constr QUANT
     (74) gp -> . constr PROPN
     (75) gp -> . constr NOUN
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
@@ -4071,11 +4071,11 @@ state 52
 state 53
 
     (93) appo -> advb . advb
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
-    ADJV            shift and go to state 38
-    ADVB            shift and go to state 39
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
+    ADVB            shift and go to state 38
+    ADJV            shift and go to state 39
 
     advb                           shift and go to state 37
 
@@ -4256,9 +4256,9 @@ state 55
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -4460,9 +4460,9 @@ state 56
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -4664,9 +4664,9 @@ state 57
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -4787,9 +4787,9 @@ state 58
     (73) gp -> . constr QUANT
     (74) gp -> . constr PROPN
     (75) gp -> . constr NOUN
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
@@ -5009,9 +5009,9 @@ state 59
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     PRPS            shift and go to state 21
     CARD1           shift and go to state 258
     QUANT           shift and go to state 130
@@ -5126,9 +5126,9 @@ state 60
     (73) gp -> . constr QUANT
     (74) gp -> . constr PROPN
     (75) gp -> . constr NOUN
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
@@ -5193,9 +5193,9 @@ state 61
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     CARD1           shift and go to state 111
     ORDN            shift and go to state 117
     ADVB            shift and go to state 118
@@ -5252,9 +5252,9 @@ state 62
     (101) appo -> . defi defi
     (102) appo -> . np defi
     (103) appo -> . np np
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -5314,8 +5314,8 @@ state 62
     QUANT           shift and go to state 49
     NOUN            shift and go to state 54
     PROPN           shift and go to state 28
-    ADJV            shift and go to state 77
     ADVB            shift and go to state 78
+    ADJV            shift and go to state 77
     PRIN            shift and go to state 52
     NEGA            shift and go to state 33
 
@@ -5402,9 +5402,9 @@ state 63
     (131) adjv_pp -> . ADJVPREP adjv
     (132) adjv_pp -> . ADJVPREP np
     (133) adjv_pp -> . ADJVPREP defi
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -5737,9 +5737,9 @@ state 67
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -5814,9 +5814,9 @@ state 68
     (188) cardc -> . cardc CARD
     (189) cardc -> . CARD C CARD
     (190) cardc -> . CARD CARD
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -5876,8 +5876,8 @@ state 68
   ! shift/reduce conflict for NOUN resolved as shift
   ! shift/reduce conflict for PROPN resolved as shift
   ! shift/reduce conflict for CARD resolved as shift
-  ! shift/reduce conflict for ADJV resolved as shift
   ! shift/reduce conflict for ADVB resolved as shift
+  ! shift/reduce conflict for ADJV resolved as shift
   ! shift/reduce conflict for PRIN resolved as shift
   ! shift/reduce conflict for NEGA resolved as shift
     SEP             reduce using rule 100 (appo -> appo appo .)
@@ -5898,8 +5898,8 @@ state 68
     NOUN            shift and go to state 54
     PROPN           shift and go to state 28
     CARD            shift and go to state 24
-    ADJV            shift and go to state 77
     ADVB            shift and go to state 78
+    ADJV            shift and go to state 77
     PRIN            shift and go to state 52
     NEGA            shift and go to state 33
 
@@ -6075,9 +6075,9 @@ state 69
     (90) demon -> . ADVB PRDE
     (91) demon -> . PRIN PRDE
     (92) demon -> . CARD1 PRDE
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
     (64) constr -> . ADJV C
@@ -6280,9 +6280,9 @@ state 70
     (90) demon -> . ADVB PRDE
     (91) demon -> . PRIN PRDE
     (92) demon -> . CARD1 PRDE
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
     (64) constr -> . ADJV C
@@ -6397,9 +6397,9 @@ state 71
     (131) adjv_pp -> . ADJVPREP adjv
     (132) adjv_pp -> . ADJVPREP np
     (133) adjv_pp -> . ADJVPREP defi
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -6540,9 +6540,9 @@ state 72
     (19) np -> . NOUN SFX
     (20) np -> . PROPN A
     (21) np -> . NOUN A
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -6643,8 +6643,8 @@ state 73
     SEP             reduce using rule 96 (appo -> appo defi .)
     CONJ            reduce using rule 96 (appo -> appo defi .)
     CARD            reduce using rule 96 (appo -> appo defi .)
-    ADJV            reduce using rule 96 (appo -> appo defi .)
     ADVB            reduce using rule 96 (appo -> appo defi .)
+    ADJV            reduce using rule 96 (appo -> appo defi .)
     PRIN            reduce using rule 96 (appo -> appo defi .)
     NEGA            reduce using rule 96 (appo -> appo defi .)
     $end            reduce using rule 96 (appo -> appo defi .)
@@ -6707,9 +6707,9 @@ state 74
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
   ! shift/reduce conflict for CARD1 resolved as shift
   ! shift/reduce conflict for ADVB resolved as shift
   ! shift/reduce conflict for ADJV resolved as shift
@@ -6835,8 +6835,8 @@ state 76
 
 state 77
 
-    (52) advb -> ADJV . ADJV
-    (53) advb -> ADJV . ADVB
+    (53) advb -> ADJV . ADJV
+    (54) advb -> ADJV . ADVB
     (34) adjv -> ADJV . np
     (64) constr -> ADJV . C
     (17) np -> . CARD1 SFX
@@ -6856,7 +6856,7 @@ state 77
 
 state 78
 
-    (54) advb -> ADVB . ADVB
+    (52) advb -> ADVB . ADVB
     (25) adjv -> ADVB . SFX
     (26) adjv -> ADVB . gp
     (27) adjv -> ADVB . defi
@@ -6983,9 +6983,9 @@ state 78
     (190) cardc -> . CARD CARD
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     ADVB            shift and go to state 132
     SFX             shift and go to state 135
     CARD1           shift and go to state 142
@@ -7208,9 +7208,9 @@ state 80
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -7413,9 +7413,9 @@ state 81
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -7462,8 +7462,8 @@ state 82
     QUANT           reduce using rule 98 (appo -> gp gp .)
     NOUN            reduce using rule 98 (appo -> gp gp .)
     PROPN           reduce using rule 98 (appo -> gp gp .)
-    ADJV            reduce using rule 98 (appo -> gp gp .)
     ADVB            reduce using rule 98 (appo -> gp gp .)
+    ADJV            reduce using rule 98 (appo -> gp gp .)
     PRIN            reduce using rule 98 (appo -> gp gp .)
     NEGA            reduce using rule 98 (appo -> gp gp .)
     $end            reduce using rule 98 (appo -> gp gp .)
@@ -7645,9 +7645,9 @@ state 83
     (66) constr -> . NOUN C
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -7850,9 +7850,9 @@ state 84
     (66) constr -> . NOUN C
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -7946,8 +7946,8 @@ state 89
     QUANT           reduce using rule 101 (appo -> defi defi .)
     NOUN            reduce using rule 101 (appo -> defi defi .)
     PROPN           reduce using rule 101 (appo -> defi defi .)
-    ADJV            reduce using rule 101 (appo -> defi defi .)
     ADVB            reduce using rule 101 (appo -> defi defi .)
+    ADJV            reduce using rule 101 (appo -> defi defi .)
     PRIN            reduce using rule 101 (appo -> defi defi .)
     NEGA            reduce using rule 101 (appo -> defi defi .)
     $end            reduce using rule 101 (appo -> defi defi .)
@@ -8156,9 +8156,9 @@ state 91
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -8363,9 +8363,9 @@ state 92
     (92) demon -> . CARD1 PRDE
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -8412,8 +8412,8 @@ state 93
     QUANT           reduce using rule 94 (appo -> defi np .)
     NOUN            reduce using rule 94 (appo -> defi np .)
     PROPN           reduce using rule 94 (appo -> defi np .)
-    ADJV            reduce using rule 94 (appo -> defi np .)
     ADVB            reduce using rule 94 (appo -> defi np .)
+    ADJV            reduce using rule 94 (appo -> defi np .)
     PRIN            reduce using rule 94 (appo -> defi np .)
     NEGA            reduce using rule 94 (appo -> defi np .)
     $end            reduce using rule 94 (appo -> defi np .)
@@ -8572,9 +8572,9 @@ state 100
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     ORDN            shift and go to state 117
     ADVB            shift and go to state 118
     ADJV            shift and go to state 119
@@ -8819,9 +8819,9 @@ state 104
     (190) cardc -> . CARD CARD
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     SFX             shift and go to state 135
     CARD1           shift and go to state 142
     PRPS            shift and go to state 143
@@ -8861,8 +8861,8 @@ state 105
     QUANT           reduce using rule 103 (appo -> np np .)
     NOUN            reduce using rule 103 (appo -> np np .)
     PROPN           reduce using rule 103 (appo -> np np .)
-    ADJV            reduce using rule 103 (appo -> np np .)
     ADVB            reduce using rule 103 (appo -> np np .)
+    ADJV            reduce using rule 103 (appo -> np np .)
     PRIN            reduce using rule 103 (appo -> np np .)
     NEGA            reduce using rule 103 (appo -> np np .)
     $end            reduce using rule 103 (appo -> np np .)
@@ -9076,9 +9076,9 @@ state 107
     (90) demon -> . ADVB PRDE
     (91) demon -> . PRIN PRDE
     (92) demon -> . CARD1 PRDE
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -9314,9 +9314,9 @@ state 109
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -9363,8 +9363,8 @@ state 110
     QUANT           reduce using rule 102 (appo -> np defi .)
     NOUN            reduce using rule 102 (appo -> np defi .)
     PROPN           reduce using rule 102 (appo -> np defi .)
-    ADJV            reduce using rule 102 (appo -> np defi .)
     ADVB            reduce using rule 102 (appo -> np defi .)
+    ADJV            reduce using rule 102 (appo -> np defi .)
     PRIN            reduce using rule 102 (appo -> np defi .)
     NEGA            reduce using rule 102 (appo -> np defi .)
     $end            reduce using rule 102 (appo -> np defi .)
@@ -9576,7 +9576,7 @@ state 118
 
     (41) adjv -> np ADVB .
     (181) adjv_para -> ADVB . CONJ ADVB
-    (54) advb -> ADVB . ADVB
+    (52) advb -> ADVB . ADVB
   ! shift/reduce conflict for CONJ resolved as shift
   ! shift/reduce conflict for ADVB resolved as shift
     CONJADJV        reduce using rule 41 (adjv -> np ADVB .)
@@ -9607,8 +9607,8 @@ state 119
 
     (42) adjv -> np ADJV .
     (180) adjv_para -> ADJV . CONJ ADJV
-    (52) advb -> ADJV . ADJV
-    (53) advb -> ADJV . ADVB
+    (53) advb -> ADJV . ADJV
+    (54) advb -> ADJV . ADVB
   ! shift/reduce conflict for CONJ resolved as shift
   ! shift/reduce conflict for ADJV resolved as shift
   ! shift/reduce conflict for ADVB resolved as shift
@@ -9728,9 +9728,9 @@ state 120
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     SFX             shift and go to state 304
     CARD1           shift and go to state 63
     ADVB            shift and go to state 50
@@ -9765,7 +9765,7 @@ state 121
     (32) adjv -> ADVB . np
     (35) adjv -> ADVB . CARD1
     (36) adjv -> ADVB . PRPS
-    (54) advb -> ADVB . ADVB
+    (52) advb -> ADVB . ADVB
     (67) gp -> . constr phrase
     (68) gp -> . constr PRPS
     (69) gp -> . constr ADVB
@@ -9883,9 +9883,9 @@ state 121
     (190) cardc -> . CARD CARD
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
   ! shift/reduce conflict for CARD1 resolved as shift
   ! shift/reduce conflict for ADVB resolved as shift
   ! shift/reduce conflict for ART resolved as shift
@@ -10010,9 +10010,9 @@ state 122
     (131) adjv_pp -> . ADJVPREP adjv
     (132) adjv_pp -> . ADJVPREP np
     (133) adjv_pp -> . ADJVPREP defi
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -10306,9 +10306,9 @@ state 126
     (73) gp -> . constr QUANT
     (74) gp -> . constr PROPN
     (75) gp -> . constr NOUN
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
@@ -10454,9 +10454,9 @@ state 129
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
   ! shift/reduce conflict for CARD1 resolved as shift
   ! shift/reduce conflict for QUANT resolved as shift
   ! shift/reduce conflict for ADVB resolved as shift
@@ -10523,8 +10523,8 @@ state 131
 
     (64) constr -> ADJV . C
     (34) adjv -> ADJV . np
-    (52) advb -> ADJV . ADJV
-    (53) advb -> ADJV . ADVB
+    (53) advb -> ADJV . ADJV
+    (54) advb -> ADJV . ADVB
     (17) np -> . CARD1 SFX
     (18) np -> . QUANT SFX
     (19) np -> . NOUN SFX
@@ -10542,7 +10542,7 @@ state 131
 
 state 132
 
-    (54) advb -> ADVB ADVB .
+    (52) advb -> ADVB ADVB .
     (25) adjv -> ADVB . SFX
     (26) adjv -> ADVB . gp
     (27) adjv -> ADVB . defi
@@ -10552,7 +10552,7 @@ state 132
     (32) adjv -> ADVB . np
     (35) adjv -> ADVB . CARD1
     (36) adjv -> ADVB . PRPS
-    (54) advb -> ADVB . ADVB
+    (52) advb -> ADVB . ADVB
     (67) gp -> . constr phrase
     (68) gp -> . constr PRPS
     (69) gp -> . constr ADVB
@@ -10670,9 +10670,9 @@ state 132
     (190) cardc -> . CARD CARD
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
   ! shift/reduce conflict for CARD1 resolved as shift
   ! shift/reduce conflict for ADVB resolved as shift
   ! shift/reduce conflict for ART resolved as shift
@@ -10684,17 +10684,17 @@ state 132
   ! shift/reduce conflict for PRIN resolved as shift
   ! shift/reduce conflict for NEGA resolved as shift
   ! shift/reduce conflict for CARD resolved as shift
-    $end            reduce using rule 54 (advb -> ADVB ADVB .)
-    CONJQUANT       reduce using rule 54 (advb -> ADVB ADVB .)
-    SEP             reduce using rule 54 (advb -> ADVB ADVB .)
-    GAM             reduce using rule 54 (advb -> ADVB ADVB .)
-    CONJGP          reduce using rule 54 (advb -> ADVB ADVB .)
-    SEPGP           reduce using rule 54 (advb -> ADVB ADVB .)
-    CONJ            reduce using rule 54 (advb -> ADVB ADVB .)
-    CONJADJV        reduce using rule 54 (advb -> ADVB ADVB .)
-    CONJPP          reduce using rule 54 (advb -> ADVB ADVB .)
-    SEPPREP         reduce using rule 54 (advb -> ADVB ADVB .)
-    PRDE            reduce using rule 54 (advb -> ADVB ADVB .)
+    $end            reduce using rule 52 (advb -> ADVB ADVB .)
+    CONJQUANT       reduce using rule 52 (advb -> ADVB ADVB .)
+    SEP             reduce using rule 52 (advb -> ADVB ADVB .)
+    GAM             reduce using rule 52 (advb -> ADVB ADVB .)
+    CONJGP          reduce using rule 52 (advb -> ADVB ADVB .)
+    SEPGP           reduce using rule 52 (advb -> ADVB ADVB .)
+    CONJ            reduce using rule 52 (advb -> ADVB ADVB .)
+    CONJADJV        reduce using rule 52 (advb -> ADVB ADVB .)
+    CONJPP          reduce using rule 52 (advb -> ADVB ADVB .)
+    SEPPREP         reduce using rule 52 (advb -> ADVB ADVB .)
+    PRDE            reduce using rule 52 (advb -> ADVB ADVB .)
     SFX             shift and go to state 135
     CARD1           shift and go to state 142
     PRPS            shift and go to state 143
@@ -10973,9 +10973,9 @@ state 138
     (73) gp -> . constr QUANT
     (74) gp -> . constr PROPN
     (75) gp -> . constr NOUN
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
@@ -11121,9 +11121,9 @@ state 141
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
   ! shift/reduce conflict for CARD1 resolved as shift
   ! shift/reduce conflict for QUANT resolved as shift
   ! shift/reduce conflict for ADVB resolved as shift
@@ -11239,9 +11239,9 @@ state 142
     (131) adjv_pp -> . ADJVPREP adjv
     (132) adjv_pp -> . ADJVPREP np
     (133) adjv_pp -> . ADJVPREP defi
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -11593,9 +11593,9 @@ state 149
     (188) cardc -> . cardc CARD
     (189) cardc -> . CARD C CARD
     (190) cardc -> . CARD CARD
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -11655,8 +11655,8 @@ state 149
   ! shift/reduce conflict for NOUN resolved as shift
   ! shift/reduce conflict for PROPN resolved as shift
   ! shift/reduce conflict for CARD resolved as shift
-  ! shift/reduce conflict for ADJV resolved as shift
   ! shift/reduce conflict for ADVB resolved as shift
+  ! shift/reduce conflict for ADJV resolved as shift
   ! shift/reduce conflict for PRIN resolved as shift
   ! shift/reduce conflict for NEGA resolved as shift
     SEP             reduce using rule 199 (num -> CARD1 appo .)
@@ -11677,8 +11677,8 @@ state 149
     NOUN            shift and go to state 54
     PROPN           shift and go to state 28
     CARD            shift and go to state 24
-    ADJV            shift and go to state 77
     ADVB            shift and go to state 78
+    ADJV            shift and go to state 77
     PRIN            shift and go to state 52
     NEGA            shift and go to state 33
 
@@ -11767,9 +11767,9 @@ state 151
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (55) defi -> . ART gp
     (56) defi -> . ART np
     (57) defi -> . ART adjv
@@ -11861,8 +11861,8 @@ state 153
 
     (39) adjv -> CARD1 ADJV .
     (34) adjv -> ADJV . np
-    (52) advb -> ADJV . ADJV
-    (53) advb -> ADJV . ADVB
+    (53) advb -> ADJV . ADJV
+    (54) advb -> ADJV . ADVB
     (64) constr -> ADJV . C
     (17) np -> . CARD1 SFX
     (18) np -> . QUANT SFX
@@ -12101,9 +12101,9 @@ state 155
     (66) constr -> . NOUN C
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -12141,29 +12141,29 @@ state 155
 
 state 156
 
-    (52) advb -> ADJV ADJV .
-    ADJV            reduce using rule 52 (advb -> ADJV ADJV .)
-    ADVB            reduce using rule 52 (advb -> ADJV ADJV .)
-    $end            reduce using rule 52 (advb -> ADJV ADJV .)
-    SEP             reduce using rule 52 (advb -> ADJV ADJV .)
-    CONJ            reduce using rule 52 (advb -> ADJV ADJV .)
-    CARD1           reduce using rule 52 (advb -> ADJV ADJV .)
-    CARD            reduce using rule 52 (advb -> ADJV ADJV .)
-    ART             reduce using rule 52 (advb -> ADJV ADJV .)
-    QUANT           reduce using rule 52 (advb -> ADJV ADJV .)
-    NOUN            reduce using rule 52 (advb -> ADJV ADJV .)
-    PROPN           reduce using rule 52 (advb -> ADJV ADJV .)
-    PRIN            reduce using rule 52 (advb -> ADJV ADJV .)
-    NEGA            reduce using rule 52 (advb -> ADJV ADJV .)
-    CONJQUANT       reduce using rule 52 (advb -> ADJV ADJV .)
-    GAM             reduce using rule 52 (advb -> ADJV ADJV .)
-    CONJGP          reduce using rule 52 (advb -> ADJV ADJV .)
-    SEPGP           reduce using rule 52 (advb -> ADJV ADJV .)
-    CONJADJV        reduce using rule 52 (advb -> ADJV ADJV .)
-    CONJPP          reduce using rule 52 (advb -> ADJV ADJV .)
-    SEPPREP         reduce using rule 52 (advb -> ADJV ADJV .)
-    PREP            reduce using rule 52 (advb -> ADJV ADJV .)
-    PRDE            reduce using rule 52 (advb -> ADJV ADJV .)
+    (53) advb -> ADJV ADJV .
+    ADVB            reduce using rule 53 (advb -> ADJV ADJV .)
+    ADJV            reduce using rule 53 (advb -> ADJV ADJV .)
+    $end            reduce using rule 53 (advb -> ADJV ADJV .)
+    SEP             reduce using rule 53 (advb -> ADJV ADJV .)
+    CONJ            reduce using rule 53 (advb -> ADJV ADJV .)
+    CARD1           reduce using rule 53 (advb -> ADJV ADJV .)
+    CARD            reduce using rule 53 (advb -> ADJV ADJV .)
+    ART             reduce using rule 53 (advb -> ADJV ADJV .)
+    QUANT           reduce using rule 53 (advb -> ADJV ADJV .)
+    NOUN            reduce using rule 53 (advb -> ADJV ADJV .)
+    PROPN           reduce using rule 53 (advb -> ADJV ADJV .)
+    PRIN            reduce using rule 53 (advb -> ADJV ADJV .)
+    NEGA            reduce using rule 53 (advb -> ADJV ADJV .)
+    CONJQUANT       reduce using rule 53 (advb -> ADJV ADJV .)
+    GAM             reduce using rule 53 (advb -> ADJV ADJV .)
+    CONJGP          reduce using rule 53 (advb -> ADJV ADJV .)
+    SEPGP           reduce using rule 53 (advb -> ADJV ADJV .)
+    CONJADJV        reduce using rule 53 (advb -> ADJV ADJV .)
+    CONJPP          reduce using rule 53 (advb -> ADJV ADJV .)
+    SEPPREP         reduce using rule 53 (advb -> ADJV ADJV .)
+    PREP            reduce using rule 53 (advb -> ADJV ADJV .)
+    PRDE            reduce using rule 53 (advb -> ADJV ADJV .)
 
 
 state 157
@@ -12174,29 +12174,29 @@ state 157
 
 state 158
 
-    (53) advb -> ADJV ADVB .
-    ADJV            reduce using rule 53 (advb -> ADJV ADVB .)
-    ADVB            reduce using rule 53 (advb -> ADJV ADVB .)
-    $end            reduce using rule 53 (advb -> ADJV ADVB .)
-    SEP             reduce using rule 53 (advb -> ADJV ADVB .)
-    CONJ            reduce using rule 53 (advb -> ADJV ADVB .)
-    CARD1           reduce using rule 53 (advb -> ADJV ADVB .)
-    CARD            reduce using rule 53 (advb -> ADJV ADVB .)
-    ART             reduce using rule 53 (advb -> ADJV ADVB .)
-    QUANT           reduce using rule 53 (advb -> ADJV ADVB .)
-    NOUN            reduce using rule 53 (advb -> ADJV ADVB .)
-    PROPN           reduce using rule 53 (advb -> ADJV ADVB .)
-    PRIN            reduce using rule 53 (advb -> ADJV ADVB .)
-    NEGA            reduce using rule 53 (advb -> ADJV ADVB .)
-    CONJQUANT       reduce using rule 53 (advb -> ADJV ADVB .)
-    GAM             reduce using rule 53 (advb -> ADJV ADVB .)
-    CONJGP          reduce using rule 53 (advb -> ADJV ADVB .)
-    SEPGP           reduce using rule 53 (advb -> ADJV ADVB .)
-    CONJADJV        reduce using rule 53 (advb -> ADJV ADVB .)
-    CONJPP          reduce using rule 53 (advb -> ADJV ADVB .)
-    SEPPREP         reduce using rule 53 (advb -> ADJV ADVB .)
-    PREP            reduce using rule 53 (advb -> ADJV ADVB .)
-    PRDE            reduce using rule 53 (advb -> ADJV ADVB .)
+    (54) advb -> ADJV ADVB .
+    ADVB            reduce using rule 54 (advb -> ADJV ADVB .)
+    ADJV            reduce using rule 54 (advb -> ADJV ADVB .)
+    $end            reduce using rule 54 (advb -> ADJV ADVB .)
+    SEP             reduce using rule 54 (advb -> ADJV ADVB .)
+    CONJ            reduce using rule 54 (advb -> ADJV ADVB .)
+    CARD1           reduce using rule 54 (advb -> ADJV ADVB .)
+    CARD            reduce using rule 54 (advb -> ADJV ADVB .)
+    ART             reduce using rule 54 (advb -> ADJV ADVB .)
+    QUANT           reduce using rule 54 (advb -> ADJV ADVB .)
+    NOUN            reduce using rule 54 (advb -> ADJV ADVB .)
+    PROPN           reduce using rule 54 (advb -> ADJV ADVB .)
+    PRIN            reduce using rule 54 (advb -> ADJV ADVB .)
+    NEGA            reduce using rule 54 (advb -> ADJV ADVB .)
+    CONJQUANT       reduce using rule 54 (advb -> ADJV ADVB .)
+    GAM             reduce using rule 54 (advb -> ADJV ADVB .)
+    CONJGP          reduce using rule 54 (advb -> ADJV ADVB .)
+    SEPGP           reduce using rule 54 (advb -> ADJV ADVB .)
+    CONJADJV        reduce using rule 54 (advb -> ADJV ADVB .)
+    CONJPP          reduce using rule 54 (advb -> ADJV ADVB .)
+    SEPPREP         reduce using rule 54 (advb -> ADJV ADVB .)
+    PREP            reduce using rule 54 (advb -> ADJV ADVB .)
+    PRDE            reduce using rule 54 (advb -> ADJV ADVB .)
 
 
 state 159
@@ -12796,9 +12796,9 @@ state 182
     (127) pp -> PREP . np
     (85) quant_sized -> . QUANT QUANT
     (86) quant_sized -> . QUANT ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -13329,9 +13329,9 @@ state 190
     (131) adjv_pp -> . ADJVPREP adjv
     (132) adjv_pp -> . ADJVPREP np
     (133) adjv_pp -> . ADJVPREP defi
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -13443,7 +13443,7 @@ state 191
 state 192
 
     (114) pp -> PREP ADVB .
-    (54) advb -> ADVB . ADVB
+    (52) advb -> ADVB . ADVB
     (90) demon -> ADVB . PRDE
     (25) adjv -> ADVB . SFX
     (26) adjv -> ADVB . gp
@@ -13571,9 +13571,9 @@ state 192
     (190) cardc -> . CARD CARD
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
   ! shift/reduce conflict for ADVB resolved as shift
   ! shift/reduce conflict for PRDE resolved as shift
   ! shift/reduce conflict for CARD1 resolved as shift
@@ -13656,11 +13656,11 @@ state 194
 
     (116) pp -> PREP advb .
     (93) appo -> advb . advb
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
-  ! shift/reduce conflict for ADJV resolved as shift
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
   ! shift/reduce conflict for ADVB resolved as shift
+  ! shift/reduce conflict for ADJV resolved as shift
     CONJPP          reduce using rule 116 (pp -> PREP advb .)
     SEPPREP         reduce using rule 116 (pp -> PREP advb .)
     PREP            reduce using rule 116 (pp -> PREP advb .)
@@ -13681,8 +13681,8 @@ state 194
     QUANT           reduce using rule 116 (pp -> PREP advb .)
     CONJADJV        reduce using rule 116 (pp -> PREP advb .)
     PRDE            reduce using rule 116 (pp -> PREP advb .)
-    ADJV            shift and go to state 38
-    ADVB            shift and go to state 39
+    ADVB            shift and go to state 38
+    ADJV            shift and go to state 39
 
     advb                           shift and go to state 37
 
@@ -13750,9 +13750,9 @@ state 195
     (19) np -> . NOUN SFX
     (20) np -> . PROPN A
     (21) np -> . NOUN A
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -13975,9 +13975,9 @@ state 198
     (73) gp -> . constr QUANT
     (74) gp -> . constr PROPN
     (75) gp -> . constr NOUN
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
@@ -14099,9 +14099,9 @@ state 200
     (101) appo -> . defi defi
     (102) appo -> . np defi
     (103) appo -> . np np
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -14163,8 +14163,8 @@ state 200
   ! shift/reduce conflict for QUANT resolved as shift
   ! shift/reduce conflict for NOUN resolved as shift
   ! shift/reduce conflict for PROPN resolved as shift
-  ! shift/reduce conflict for ADJV resolved as shift
   ! shift/reduce conflict for ADVB resolved as shift
+  ! shift/reduce conflict for ADJV resolved as shift
   ! shift/reduce conflict for PRIN resolved as shift
   ! shift/reduce conflict for NEGA resolved as shift
     CONJPP          reduce using rule 122 (pp -> PREP appo .)
@@ -14185,8 +14185,8 @@ state 200
     QUANT           shift and go to state 49
     NOUN            shift and go to state 54
     PROPN           shift and go to state 28
-    ADJV            shift and go to state 77
     ADVB            shift and go to state 78
+    ADJV            shift and go to state 77
     PRIN            shift and go to state 52
     NEGA            shift and go to state 33
 
@@ -14515,9 +14515,9 @@ state 205
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
   ! shift/reduce conflict for PRDE resolved as shift
   ! shift/reduce conflict for CONJ resolved as shift
   ! shift/reduce conflict for SEP resolved as shift
@@ -14647,7 +14647,7 @@ state 209
 
     (69) gp -> constr ADVB .
     (181) adjv_para -> ADVB . CONJ ADVB
-    (54) advb -> ADVB . ADVB
+    (52) advb -> ADVB . ADVB
     (90) demon -> ADVB . PRDE
     (25) adjv -> ADVB . SFX
     (26) adjv -> ADVB . gp
@@ -14775,9 +14775,9 @@ state 209
     (190) cardc -> . CARD CARD
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
   ! shift/reduce conflict for CONJ resolved as shift
   ! shift/reduce conflict for ADVB resolved as shift
   ! shift/reduce conflict for PRDE resolved as shift
@@ -14974,9 +14974,9 @@ state 212
     (131) adjv_pp -> . ADJVPREP adjv
     (132) adjv_pp -> . ADJVPREP np
     (133) adjv_pp -> . ADJVPREP defi
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -15210,9 +15210,9 @@ state 217
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
   ! shift/reduce conflict for ADVB resolved as shift
   ! shift/reduce conflict for ADJV resolved as shift
     PRDE            reduce using rule 56 (defi -> ART np .)
@@ -15519,29 +15519,29 @@ state 226
 
 state 227
 
-    (54) advb -> ADVB ADVB .
-    SEP             reduce using rule 54 (advb -> ADVB ADVB .)
-    CONJ            reduce using rule 54 (advb -> ADVB ADVB .)
-    CARD1           reduce using rule 54 (advb -> ADVB ADVB .)
-    CARD            reduce using rule 54 (advb -> ADVB ADVB .)
-    ART             reduce using rule 54 (advb -> ADVB ADVB .)
-    QUANT           reduce using rule 54 (advb -> ADVB ADVB .)
-    NOUN            reduce using rule 54 (advb -> ADVB ADVB .)
-    PROPN           reduce using rule 54 (advb -> ADVB ADVB .)
-    ADJV            reduce using rule 54 (advb -> ADVB ADVB .)
-    ADVB            reduce using rule 54 (advb -> ADVB ADVB .)
-    PRIN            reduce using rule 54 (advb -> ADVB ADVB .)
-    NEGA            reduce using rule 54 (advb -> ADVB ADVB .)
-    $end            reduce using rule 54 (advb -> ADVB ADVB .)
-    CONJQUANT       reduce using rule 54 (advb -> ADVB ADVB .)
-    GAM             reduce using rule 54 (advb -> ADVB ADVB .)
-    CONJGP          reduce using rule 54 (advb -> ADVB ADVB .)
-    SEPGP           reduce using rule 54 (advb -> ADVB ADVB .)
-    CONJADJV        reduce using rule 54 (advb -> ADVB ADVB .)
-    CONJPP          reduce using rule 54 (advb -> ADVB ADVB .)
-    SEPPREP         reduce using rule 54 (advb -> ADVB ADVB .)
-    PREP            reduce using rule 54 (advb -> ADVB ADVB .)
-    PRDE            reduce using rule 54 (advb -> ADVB ADVB .)
+    (52) advb -> ADVB ADVB .
+    SEP             reduce using rule 52 (advb -> ADVB ADVB .)
+    CONJ            reduce using rule 52 (advb -> ADVB ADVB .)
+    CARD1           reduce using rule 52 (advb -> ADVB ADVB .)
+    CARD            reduce using rule 52 (advb -> ADVB ADVB .)
+    ART             reduce using rule 52 (advb -> ADVB ADVB .)
+    QUANT           reduce using rule 52 (advb -> ADVB ADVB .)
+    NOUN            reduce using rule 52 (advb -> ADVB ADVB .)
+    PROPN           reduce using rule 52 (advb -> ADVB ADVB .)
+    ADVB            reduce using rule 52 (advb -> ADVB ADVB .)
+    ADJV            reduce using rule 52 (advb -> ADVB ADVB .)
+    PRIN            reduce using rule 52 (advb -> ADVB ADVB .)
+    NEGA            reduce using rule 52 (advb -> ADVB ADVB .)
+    $end            reduce using rule 52 (advb -> ADVB ADVB .)
+    CONJQUANT       reduce using rule 52 (advb -> ADVB ADVB .)
+    GAM             reduce using rule 52 (advb -> ADVB ADVB .)
+    CONJGP          reduce using rule 52 (advb -> ADVB ADVB .)
+    SEPGP           reduce using rule 52 (advb -> ADVB ADVB .)
+    CONJADJV        reduce using rule 52 (advb -> ADVB ADVB .)
+    CONJPP          reduce using rule 52 (advb -> ADVB ADVB .)
+    SEPPREP         reduce using rule 52 (advb -> ADVB ADVB .)
+    PREP            reduce using rule 52 (advb -> ADVB ADVB .)
+    PRDE            reduce using rule 52 (advb -> ADVB ADVB .)
 
 
 state 228
@@ -15795,9 +15795,9 @@ state 235
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (55) defi -> . ART gp
     (56) defi -> . ART np
     (57) defi -> . ART adjv
@@ -15920,9 +15920,9 @@ state 237
     (188) cardc -> . cardc CARD
     (189) cardc -> . CARD C CARD
     (190) cardc -> . CARD CARD
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -15984,8 +15984,8 @@ state 237
     NOUN            shift and go to state 54
     PROPN           shift and go to state 28
     CARD            shift and go to state 24
-    ADJV            shift and go to state 77
     ADVB            shift and go to state 78
+    ADJV            shift and go to state 77
     PRIN            shift and go to state 52
     NEGA            shift and go to state 33
 
@@ -16087,9 +16087,9 @@ state 238
     (73) gp -> . constr QUANT
     (74) gp -> . constr PROPN
     (75) gp -> . constr NOUN
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
@@ -16128,7 +16128,7 @@ state 239
     (32) adjv -> ADVB . np
     (35) adjv -> ADVB . CARD1
     (36) adjv -> ADVB . PRPS
-    (54) advb -> ADVB . ADVB
+    (52) advb -> ADVB . ADVB
     (67) gp -> . constr phrase
     (68) gp -> . constr PRPS
     (69) gp -> . constr ADVB
@@ -16246,9 +16246,9 @@ state 239
     (190) cardc -> . CARD CARD
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     PRDE            shift and go to state 134
     SFX             shift and go to state 135
     CARD1           shift and go to state 142
@@ -16352,9 +16352,9 @@ state 240
     (19) np -> . NOUN SFX
     (20) np -> . PROPN A
     (21) np -> . NOUN A
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -16414,8 +16414,8 @@ state 241
 
     (34) adjv -> ADJV . np
     (64) constr -> ADJV . C
-    (52) advb -> ADJV . ADJV
-    (53) advb -> ADJV . ADVB
+    (53) advb -> ADJV . ADJV
+    (54) advb -> ADJV . ADVB
     (17) np -> . CARD1 SFX
     (18) np -> . QUANT SFX
     (19) np -> . NOUN SFX
@@ -16496,9 +16496,9 @@ state 243
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (55) defi -> . ART gp
     (56) defi -> . ART np
     (57) defi -> . ART adjv
@@ -16660,9 +16660,9 @@ state 246
     (19) np -> . NOUN SFX
     (20) np -> . PROPN A
     (21) np -> . NOUN A
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -16730,7 +16730,7 @@ state 247
     (35) adjv -> ADVB . CARD1
     (36) adjv -> ADVB . PRPS
     (90) demon -> ADVB . PRDE
-    (54) advb -> ADVB . ADVB
+    (52) advb -> ADVB . ADVB
     (67) gp -> . constr phrase
     (68) gp -> . constr PRPS
     (69) gp -> . constr ADVB
@@ -16848,9 +16848,9 @@ state 247
     (190) cardc -> . CARD CARD
     (76) qconstr -> . ORDN C
     (77) qconstr -> . QUANT C
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     SFX             shift and go to state 135
     CARD1           shift and go to state 142
     PRPS            shift and go to state 143
@@ -17028,9 +17028,9 @@ state 251
     (73) gp -> . constr QUANT
     (74) gp -> . constr PROPN
     (75) gp -> . constr NOUN
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
@@ -17243,9 +17243,9 @@ state 255
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (55) defi -> . ART gp
     (56) defi -> . ART np
     (57) defi -> . ART adjv
@@ -17362,9 +17362,9 @@ state 257
     (101) appo -> . defi defi
     (102) appo -> . np defi
     (103) appo -> . np np
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -17426,8 +17426,8 @@ state 257
     QUANT           shift and go to state 49
     NOUN            shift and go to state 54
     PROPN           shift and go to state 28
-    ADJV            shift and go to state 77
     ADVB            shift and go to state 78
+    ADJV            shift and go to state 77
     PRIN            shift and go to state 52
     NEGA            shift and go to state 33
 
@@ -17515,9 +17515,9 @@ state 258
     (131) adjv_pp -> . ADJVPREP adjv
     (132) adjv_pp -> . ADJVPREP np
     (133) adjv_pp -> . ADJVPREP defi
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -17658,9 +17658,9 @@ state 259
     (73) gp -> . constr QUANT
     (74) gp -> . constr PROPN
     (75) gp -> . constr NOUN
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
@@ -17748,9 +17748,9 @@ state 260
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
   ! shift/reduce conflict for CARD1 resolved as shift
   ! shift/reduce conflict for ADVB resolved as shift
   ! shift/reduce conflict for ADJV resolved as shift
@@ -17864,9 +17864,9 @@ state 261
     (131) adjv_pp -> . ADJVPREP adjv
     (132) adjv_pp -> . ADJVPREP np
     (133) adjv_pp -> . ADJVPREP defi
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -18025,9 +18025,9 @@ state 264
     (188) cardc -> . cardc CARD
     (189) cardc -> . CARD C CARD
     (190) cardc -> . CARD CARD
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -18089,8 +18089,8 @@ state 264
   ! shift/reduce conflict for NOUN resolved as shift
   ! shift/reduce conflict for PROPN resolved as shift
   ! shift/reduce conflict for CARD resolved as shift
-  ! shift/reduce conflict for ADJV resolved as shift
   ! shift/reduce conflict for ADVB resolved as shift
+  ! shift/reduce conflict for ADJV resolved as shift
   ! shift/reduce conflict for PRIN resolved as shift
   ! shift/reduce conflict for NEGA resolved as shift
     $end            reduce using rule 153 (para -> appo SEP appo .)
@@ -18111,8 +18111,8 @@ state 264
     NOUN            shift and go to state 54
     PROPN           shift and go to state 28
     CARD            shift and go to state 24
-    ADJV            shift and go to state 77
     ADVB            shift and go to state 78
+    ADJV            shift and go to state 77
     PRIN            shift and go to state 52
     NEGA            shift and go to state 33
 
@@ -18261,9 +18261,9 @@ state 267
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (185) cardc -> . CARD CONJCARD CARD
     (186) cardc -> . CARD CONJCARD cardc
     (187) cardc -> . CARD cardc
@@ -18335,9 +18335,9 @@ state 268
     (188) cardc -> . cardc CARD
     (189) cardc -> . CARD C CARD
     (190) cardc -> . CARD CARD
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -18399,8 +18399,8 @@ state 268
   ! shift/reduce conflict for NOUN resolved as shift
   ! shift/reduce conflict for PROPN resolved as shift
   ! shift/reduce conflict for CARD resolved as shift
-  ! shift/reduce conflict for ADJV resolved as shift
   ! shift/reduce conflict for ADVB resolved as shift
+  ! shift/reduce conflict for ADJV resolved as shift
   ! shift/reduce conflict for PRIN resolved as shift
   ! shift/reduce conflict for NEGA resolved as shift
     $end            reduce using rule 169 (para -> appo CONJ appo .)
@@ -18421,8 +18421,8 @@ state 268
     NOUN            shift and go to state 54
     PROPN           shift and go to state 28
     CARD            shift and go to state 24
-    ADJV            shift and go to state 77
     ADVB            shift and go to state 78
+    ADJV            shift and go to state 77
     PRIN            shift and go to state 52
     NEGA            shift and go to state 33
 
@@ -19106,9 +19106,9 @@ state 283
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (55) defi -> . ART gp
     (56) defi -> . ART np
     (57) defi -> . ART adjv
@@ -19278,9 +19278,9 @@ state 285
     (19) np -> . NOUN SFX
     (20) np -> . PROPN A
     (21) np -> . NOUN A
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (191) num -> . appo CARD1
     (192) num -> . adjv CARD1
     (193) num -> . defi CARD1
@@ -19545,9 +19545,9 @@ state 294
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (55) defi -> . ART gp
     (56) defi -> . ART np
     (57) defi -> . ART adjv
@@ -19979,9 +19979,9 @@ state 302
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (55) defi -> . ART gp
     (56) defi -> . ART np
     (57) defi -> . ART adjv
@@ -20189,9 +20189,9 @@ state 305
     (73) gp -> . constr QUANT
     (74) gp -> . constr PROPN
     (75) gp -> . constr NOUN
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (64) constr -> . ADJV C
     (65) constr -> . PROPN C
     (66) constr -> . NOUN C
@@ -20394,9 +20394,9 @@ state 308
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (55) defi -> . ART gp
     (56) defi -> . ART np
     (57) defi -> . ART adjv
@@ -20780,9 +20780,9 @@ state 316
     (133) adjv_pp -> . ADJVPREP defi
     (180) adjv_para -> . ADJV CONJ ADJV
     (181) adjv_para -> . ADVB CONJ ADVB
-    (52) advb -> . ADJV ADJV
-    (53) advb -> . ADJV ADVB
-    (54) advb -> . ADVB ADVB
+    (52) advb -> . ADVB ADVB
+    (53) advb -> . ADJV ADJV
+    (54) advb -> . ADJV ADVB
     (55) defi -> . ART gp
     (56) defi -> . ART np
     (57) defi -> . ART adjv
@@ -21036,8 +21036,8 @@ Conflicts:
 
 shift/reduce conflict for SEP in state 3 resolved as shift
 shift/reduce conflict for GAM in state 3 resolved as shift
-shift/reduce conflict for ADJV in state 6 resolved as shift
 shift/reduce conflict for ADVB in state 6 resolved as shift
+shift/reduce conflict for ADJV in state 6 resolved as shift
 shift/reduce conflict for CARD in state 7 resolved as shift
 shift/reduce conflict for ART in state 7 resolved as shift
 shift/reduce conflict for CARD1 in state 7 resolved as shift
@@ -21072,8 +21072,8 @@ shift/reduce conflict for ART in state 12 resolved as shift
 shift/reduce conflict for QUANT in state 12 resolved as shift
 shift/reduce conflict for NOUN in state 12 resolved as shift
 shift/reduce conflict for PROPN in state 12 resolved as shift
-shift/reduce conflict for ADJV in state 12 resolved as shift
 shift/reduce conflict for ADVB in state 12 resolved as shift
+shift/reduce conflict for ADJV in state 12 resolved as shift
 shift/reduce conflict for PRIN in state 12 resolved as shift
 shift/reduce conflict for NEGA in state 12 resolved as shift
 shift/reduce conflict for CONJPP in state 13 resolved as shift
@@ -21138,8 +21138,8 @@ shift/reduce conflict for QUANT in state 44 resolved as shift
 shift/reduce conflict for NOUN in state 44 resolved as shift
 shift/reduce conflict for PROPN in state 44 resolved as shift
 shift/reduce conflict for CARD in state 44 resolved as shift
-shift/reduce conflict for ADJV in state 44 resolved as shift
 shift/reduce conflict for ADVB in state 44 resolved as shift
+shift/reduce conflict for ADJV in state 44 resolved as shift
 shift/reduce conflict for PRIN in state 44 resolved as shift
 shift/reduce conflict for NEGA in state 44 resolved as shift
 shift/reduce conflict for CARD in state 45 resolved as shift
@@ -21170,8 +21170,8 @@ shift/reduce conflict for QUANT in state 68 resolved as shift
 shift/reduce conflict for NOUN in state 68 resolved as shift
 shift/reduce conflict for PROPN in state 68 resolved as shift
 shift/reduce conflict for CARD in state 68 resolved as shift
-shift/reduce conflict for ADJV in state 68 resolved as shift
 shift/reduce conflict for ADVB in state 68 resolved as shift
+shift/reduce conflict for ADJV in state 68 resolved as shift
 shift/reduce conflict for PRIN in state 68 resolved as shift
 shift/reduce conflict for NEGA in state 68 resolved as shift
 shift/reduce conflict for QUANT in state 71 resolved as shift
@@ -21339,8 +21339,8 @@ shift/reduce conflict for QUANT in state 149 resolved as shift
 shift/reduce conflict for NOUN in state 149 resolved as shift
 shift/reduce conflict for PROPN in state 149 resolved as shift
 shift/reduce conflict for CARD in state 149 resolved as shift
-shift/reduce conflict for ADJV in state 149 resolved as shift
 shift/reduce conflict for ADVB in state 149 resolved as shift
+shift/reduce conflict for ADJV in state 149 resolved as shift
 shift/reduce conflict for PRIN in state 149 resolved as shift
 shift/reduce conflict for NEGA in state 149 resolved as shift
 shift/reduce conflict for CARD in state 150 resolved as shift
@@ -21410,8 +21410,8 @@ shift/reduce conflict for ADJV in state 192 resolved as shift
 shift/reduce conflict for PRIN in state 192 resolved as shift
 shift/reduce conflict for NEGA in state 192 resolved as shift
 shift/reduce conflict for CARD in state 192 resolved as shift
-shift/reduce conflict for ADJV in state 194 resolved as shift
 shift/reduce conflict for ADVB in state 194 resolved as shift
+shift/reduce conflict for ADJV in state 194 resolved as shift
 shift/reduce conflict for CARD in state 195 resolved as shift
 shift/reduce conflict for ART in state 195 resolved as shift
 shift/reduce conflict for CARD1 in state 195 resolved as shift
@@ -21446,8 +21446,8 @@ shift/reduce conflict for ART in state 200 resolved as shift
 shift/reduce conflict for QUANT in state 200 resolved as shift
 shift/reduce conflict for NOUN in state 200 resolved as shift
 shift/reduce conflict for PROPN in state 200 resolved as shift
-shift/reduce conflict for ADJV in state 200 resolved as shift
 shift/reduce conflict for ADVB in state 200 resolved as shift
+shift/reduce conflict for ADJV in state 200 resolved as shift
 shift/reduce conflict for PRIN in state 200 resolved as shift
 shift/reduce conflict for NEGA in state 200 resolved as shift
 shift/reduce conflict for CONJPP in state 201 resolved as shift
@@ -21583,8 +21583,8 @@ shift/reduce conflict for QUANT in state 264 resolved as shift
 shift/reduce conflict for NOUN in state 264 resolved as shift
 shift/reduce conflict for PROPN in state 264 resolved as shift
 shift/reduce conflict for CARD in state 264 resolved as shift
-shift/reduce conflict for ADJV in state 264 resolved as shift
 shift/reduce conflict for ADVB in state 264 resolved as shift
+shift/reduce conflict for ADJV in state 264 resolved as shift
 shift/reduce conflict for PRIN in state 264 resolved as shift
 shift/reduce conflict for NEGA in state 264 resolved as shift
 shift/reduce conflict for SEP in state 265 resolved as shift
@@ -21597,8 +21597,8 @@ shift/reduce conflict for QUANT in state 268 resolved as shift
 shift/reduce conflict for NOUN in state 268 resolved as shift
 shift/reduce conflict for PROPN in state 268 resolved as shift
 shift/reduce conflict for CARD in state 268 resolved as shift
-shift/reduce conflict for ADJV in state 268 resolved as shift
 shift/reduce conflict for ADVB in state 268 resolved as shift
+shift/reduce conflict for ADJV in state 268 resolved as shift
 shift/reduce conflict for PRIN in state 268 resolved as shift
 shift/reduce conflict for NEGA in state 268 resolved as shift
 shift/reduce conflict for SEP in state 269 resolved as shift
