@@ -51,16 +51,21 @@ def get_head_path(phrase):
         
 def traverse_tree(phrase):
     """Traversing down a phrase tree."""
-    yield phrase
     src, tgt, rela = phrase
-    src_slots = sorted(get_slots(src))
-    tgt_slots = sorted(get_slots(tgt))
-    head = get_head(phrase)
+    branches = []
+    # NB: storing branches before yielding them allows
+    # the tree to be changed during iteration
+    # without causing an infinite loop;
+    # this is because we only access the whole tree once
+    # and return the results all at once
     if type(src) == list:
-        yield from traverse_tree(src)
+        branches.append(traverse_tree(src))
     if type(tgt) == list:
-        yield from traverse_tree(tgt)
-        
+        branches.append(traverse_tree(tgt))
+    yield phrase
+    for branch in branches:
+        yield from branch
+
 def unfold_paras(phrase):
     """Take a parallel phrase and yield its standalone phrases.
     
