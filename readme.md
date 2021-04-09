@@ -12,7 +12,7 @@ Analyzing the semantics and collocational tendencies of time adverbial construct
 
 ## Directory Contents
 
-The base data for the project is produced in a [Snakemake](snakemake.readthedocs.io/) pipeline, which can be found under [workflow/Snakefile](workflow/Snakefile).
+The base data for the project is produced in a [Snakemake](https://snakemake.readthedocs.io/) pipeline, which can be found under [workflow/Snakefile](workflow/Snakefile).
 
 * [workflow](workflow) - scripts, notebooks, and data used for producing the primary datasets for analysis. Includes Snakemake pipeline. 
 * [results](results) - all output from the pipeline and analyses scripts in workflow go here
