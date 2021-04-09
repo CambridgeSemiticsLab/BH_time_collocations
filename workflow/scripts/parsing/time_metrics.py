@@ -16,9 +16,8 @@ def get_phrase_data(node, ph_parse, tf_api):
     
     # get nodes in the local context
     words = L.d(node, 'word')
-    phrase = L.u(node, 'phrase')[0]
-    parent_atoms = L.d(phrase, 'phrase_atom')
-    ext_relas = bool(E.mother.t(phrase))
+    parent_atoms = L.d(node, 'phrase_atom')
+    ext_relas = bool(E.mother.t(node))
 
     # get heads and head modifiers in the phrase
     if len(ph_parse) > 1:
@@ -51,7 +50,6 @@ def build_row_data(node, tf_api, ph_parse, time_parsing={}, **features):
     """Build data that can be analyzed to assess quality of parses."""
     F, T, L = tf_api.F, tf_api.T, tf_api.L
     book, chapter, verse = T.sectionFromNode(node)
-    phrase = L.u(node, 'phrase')[0]
 
     # get tokens from error report
     err = features.get('error', '') 
@@ -138,11 +136,11 @@ def examine_times(paths, bhsa):
     )
 
     # restrict the analysis
-    df = df[
-       (df.parent_len == 1)
-       & (df.ext_relas == False)
-       & (~df.heads.str.match('\|'))
-    ]
+#    df = df[
+#       (df.parent_len == 1)
+#       & (df.ext_relas == False)
+#       & (~df.heads.str.match('\|'))
+#    ]
     
     doc1 = HtmlReport(paths['styles'])
     doc1.heading('Time Parsing Report', 1)
@@ -225,7 +223,8 @@ def examine_times(paths, bhsa):
                 bhsa.pretty(
                     i,
                     extraFeatures='st lex pdp',
-                    withNodes=True
+                    withNodes=True,
+                    hiddenTypes={'subphrase'},
                 )
             )
             doc1.append(err_df.loc[i]['error'])

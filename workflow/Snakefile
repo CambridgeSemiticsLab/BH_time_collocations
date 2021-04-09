@@ -88,12 +88,14 @@ rule parse_phrases:
         slot2pos=rules.parse_pos.output.slot2pos,
         paraseps=rules.get_disambigs.output.paraseps,
         styles=stylesheets,
-        script="scripts/parsing/phrase_parser.py",
+        script="scripts/parsing/phatom_parser.py",
+        script2="scripts/parsing/phatom_composer.py"
     params:
         plotsdir=metric_plotsdir 
     output:
-        parsed="../results/parsing/phrase_parsings.json",
-        notparsed="../results/parsing/phrase_notparsings.json",
+        parsed_atoms="../results/parsing/phatom_parsings.json",
+        unparsed_atoms="../results/parsing/phatom_notparsings.json",
+        parsed_phrases="../results/parsing/phrase_parsings.json",
         parsemetrics="../results/data_metrics/unparsed_phrases.html",
         notparsemetrics="../results/data_metrics/parsed_phrases.html"
     script:
@@ -101,13 +103,12 @@ rule parse_phrases:
 
 rule parse_times:
     input: 
-        ph_parses=rules.parse_phrases.output.parsed,
+        ph_parses=rules.parse_phrases.output.parsed_phrases,
         bhsadata=bhsadata,
         slot2pos=rules.parse_pos.output.slot2pos,
         lexmap="data/lexmap.json",
         styles=stylesheets,
         script="scripts/parsing/time_parser.py",
-        script2="scripts/parsing/phrase_parser.py",
     params:
         plotsdir=metric_plotsdir
     output:

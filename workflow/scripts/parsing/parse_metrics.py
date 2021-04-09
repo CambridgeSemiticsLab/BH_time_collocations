@@ -41,9 +41,9 @@ def build_parse_tables(paths, API):
     """Produce metrics and reports on the parsings."""
     
     # load phrase and POS data
-    with open(paths['parsed'], 'r') as infile:
+    with open(paths['parsed_atoms'], 'r') as infile:
         parsed = json.load(infile)
-    with open(paths['notparsed'], 'r') as infile:
+    with open(paths['unparsed_atoms'], 'r') as infile:
         errors = json.load(infile)
     with open(paths['slot2pos'], 'r') as infile:
         slot2pos = json.load(infile)

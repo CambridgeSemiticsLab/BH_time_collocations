@@ -891,8 +891,7 @@ def parse_times(paths, API):
     for ph_node, parsing in phrases.items():
 
         # skip non-time phrases
-        phrase = API.L.u(ph_node, 'phrase')[0]
-        if API.F.function.v(phrase) != 'Time':
+        if API.F.function.v(ph_node) != 'Time':
             continue
 
         debug = False

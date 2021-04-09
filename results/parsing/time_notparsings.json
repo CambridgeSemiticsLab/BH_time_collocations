@@ -1,82 +1,86 @@
 {
-  "945025": [
+  "690126": [
     "reached end",
-    "['Ø', 'ADVB']"
+    "['MN', 'TIME', 'ADVB']"
   ],
-  "964109": [
+  "707641": [
     "reached end",
     "['>T', 'NUM', 'THE', 'TIME', '>T', 'NUM', 'THE', 'TIME']"
   ],
-  "990000": [
+  "719377": [
+    "reached end",
+    "['TOMORROW']"
+  ],
+  "731915": [
     "reached end",
     "['Ø', 'ADVB']"
   ],
-  "996773": [
+  "738491": [
     "reached end",
-    "['Ø', 'ADVB']"
+    "['MN', 'THAT', 'THE', 'TIME', 'ADVB']"
   ],
-  "1082379": [
+  "747109": [
     "reached end",
-    "['Ø', 'ADVB']"
+    "['B', 'THAT', 'THE', 'TIME', 'MN', 'TIME']"
   ],
-  "1083872": [
+  "789309": [
     "reached end",
-    "['Ø', 'ADVB']"
+    "['MN', 'TIME', 'MN', 'TIME2']"
   ],
-  "1084463": [
+  "791567": [
+    "reached end",
+    "['L', 'MN', 'TIME', '<D', 'TIME2']"
+  ],
+  "797013": [
+    "reached end",
+    "['L', 'MN', 'TIME', '<D', 'TIME2']"
+  ],
+  "819581": [
+    "reached end",
+    "['MN', 'THAT', 'THE', 'TIME', 'ADVB']"
+  ],
+  "820983": [
+    "reached end",
+    "['B', 'THE', 'TIME', 'ADVB']"
+  ],
+  "821526": [
     "reached end",
     "['B', 'THE', 'TIMES', 'B', 'THE', 'TIMES', 'B', 'THE', 'TIMES']"
   ],
-  "1138929": [
+  "831763": [
     "reached end",
-    "['SFX', 'B']"
+    "['MN', 'THIS', 'THE', 'TIME', 'L', 'MN', 'THE', 'TIME2', 'TIME']"
   ],
-  "1140065": [
+  "874577": [
     "reached end",
-    "['SFX', 'B']"
+    "['MN', 'TIME', 'MN', 'TIME']"
   ],
-  "1140384": [
-    "reached end",
-    "['SFX', 'B']"
-  ],
-  "1140395": [
-    "reached end",
-    "['SFX', 'B']"
-  ],
-  "1140398": [
-    "reached end",
-    "['SFX', 'B']"
-  ],
-  "1140402": [
-    "reached end",
-    "['SFX', 'B']"
-  ],
-  "1146367": [
+  "881678": [
     "reached end",
     "['MN', 'NUM_ONE', 'TIME']"
   ],
-  "1148576": [
+  "881852": [
+    "reached end",
+    "['Ø', 'ALL', 'TIMES', '<D', 'TIME']"
+  ],
+  "883595": [
     "reached end",
     "['<D', 'NUM_ONE', 'TIME']"
   ],
-  "1157463": [
+  "890356": [
     "reached end",
-    "['L', 'THE', 'TIME', 'L', 'THE', 'TIME']"
+    "['L', 'TIME', 'B', 'TIME']"
   ],
-  "1161429": [
+  "891357": [
+    "reached end",
+    "['DURATION']"
+  ],
+  "894851": [
     "reached end",
     "['L', 'THE', 'TIMES', 'L', 'THE', 'TIMES', 'L', 'TIMES']"
   ],
-  "1163387": [
+  "896665": [
     "reached end",
     "['L', 'THE', 'TIMES', 'L', 'THE', 'TIMES', 'L', 'THE', 'TIMES']"
-  ],
-  "1163390": [
-    "reached end",
-    "['B', 'TIME', 'B', 'TIME2', 'B', 'TIME2']"
-  ],
-  "1167028": [
-    "reached end",
-    "['<L', 'TIMES']"
   ]
 }
