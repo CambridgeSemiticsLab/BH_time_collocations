@@ -10,18 +10,15 @@ Analyzing the semantics and collocational tendencies of time adverbial construct
 *Cite:* <a href="https://doi.org/10.5281/zenodo.3626240"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3626240.svg" alt="DOI"></a> or
 [![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/CambridgeSemiticsLab/BH_time_collocations/)](https://archive.softwareheritage.org/browse/origin/https://github.com/CambridgeSemiticsLab/BH_time_collocations/)
 
-## See the Data and Results
-
-* [primary dataset](data/main_dataset/) - This is the primary dataset used for analyses in the project
-* [analyses notebooks](results/notebooks) - This section contains active and ongoing analyses in the form of Jupyter notebooks. Research questions are posed, and the data is then explored, analyzed, and visualized to arrive at answers.
-
 ## Directory Contents
-* [archive](archive) – Previous states of this project. Archived before major re-organizations.
-* [data](data) — The data used for the analysis along with scripts used to produce the data. Sources include [BHSA](https://github.com/ETCBC/bhsa) and custom datasets.
-* [docs](docs) — Project and code documentation, including bibliography.txt, as well as images/files for displaying in markdown.
-* [results](results) — Work in progress. This is the main analysis. It contains notebooks, graphs, and tables for the dissertation.
-* [thesis](thesis) - Work in progress. My PhD thesis in (xe)LaTex. Data is imported into the thesis straight from the results directory.
-* [tools](tools) – Python package containing code for generating data and producing/analyzing results.
+
+The base data for the project is produced in a [Snakemake](snakemake.readthedocs.io/) pipeline, which can be found under [workflow/Snakefile](workflow/Snakefile).
+
+* [workflow](workflow) - scripts, notebooks, and data used for producing the primary datasets for analysis. Includes Snakemake pipeline. 
+* [results](results) - all output from the pipeline and analyses scripts in workflow go here
+* [docs](docs) - project and code documentation as well as images/files for displaying in markdown
+* [thesis](thesis) - the PhD thesis in (Xe)Latex; to be updated with full copy when complete
+* [archive](archive) - previous states of the project, kept in archive for easily referring back to
 
 # Project Description
 
