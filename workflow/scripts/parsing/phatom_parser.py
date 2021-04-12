@@ -162,7 +162,7 @@ class PhraseParser(Parser):
         except:
             self.error_tracker['e'] = 'reached end'
 
-    debugfile = 'parser.out'
+    debugfile = '../results/data_metrics/phatom_parse.debug'
     
     # -- FINAL PHRASE --
     @_('np', 'adjv', 'defi', 'gp',
@@ -236,11 +236,11 @@ class PhraseParser(Parser):
     # phrase + PP modification
     @_('CARD1 adjv_pp')
     def adjv(self, p):
-        return [p[1], p[0].slot, 'ADJV']
+        return [p[1], p[0].slot, 'SPEC']
 
     @_('np adjv_pp')
     def adjv(self, p):
-        return [p[1], p[0], 'ADJV']
+        return [p[1], p[0], 'SPEC']
 
     # adjectivals with construct
 #    @_('ADJV C')

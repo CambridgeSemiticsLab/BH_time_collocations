@@ -59,7 +59,7 @@ class TimeTokenizer:
         """
         
         # ignore these relations
-        ignore = {None, 'ADJV', 'ADVB'}
+        ignore = {None, 'ADJV', 'ADVB', 'SPEC'}
         def tag_rela(rela, name):
             return rela == name and rela not in ignore
    
@@ -198,9 +198,10 @@ class TimeTokenizer:
         # first word that is not a preposition, unless the
         # first word is an adverb, then we ignore it and check
         # the next first word
+        head = nt.get_head(phrase)
         slots = sorted(
             s for s in nt.get_slots(phrase)
-                if self.F.pdp.v(s) != 'advb'
+                if (self.F.pdp.v(s) != 'advb' or s == head)
         )
         is_null = (
             (not slots) # only advb
@@ -317,6 +318,7 @@ class TimeParser(SlyParser):
         'THUS',
         'THEN',
         'CARD',
+        'ONWARD',
     }
 
     def error(self, token):
@@ -334,7 +336,8 @@ class TimeParser(SlyParser):
        'posterior', 'atelic_simul', 'antdur_simul',
        'hab_simul', 'begin_to_end', 'multi_simul',
        'antpost_dur', 'posterior_dur', 'multi_postantdur',
-       'multi_antpost')
+       'multi_antpost', 'multi_antdursim', 'dur_to_end',
+       'simul_posts', 'multi_posts', 'simul_to_end')
     def category(self, p): 
         return p[0] 
 
@@ -349,6 +352,14 @@ class TimeParser(SlyParser):
             data['distributive'] = True
         return data
 
+    @_('hab_simul in_dur')
+    def hab_simul(self, p):
+        data = {
+            'function': 'simul_habitual, multi_simul',
+            'parts': p[0]['parts'] + [p[1]]
+        }
+        return data
+
     @_('hab_simul hab_simul')
     def hab_simul(self, p):
         p[0]['parts'].extend(
@@ -357,13 +368,41 @@ class TimeParser(SlyParser):
         return p[0]
 
     @_('posts anterior_dur', 'posts antdur_simul',
-       'posterior_dur anterior_dur')
+       'posterior_dur anterior_dur', 'antpost_dur anterior_dur')
     def begin_to_end(self, p):
         p[0]['function'] = 'posterior_dur'
-        p[1]['function'] = 'anterior_dur'
+        getattr(p, 'posts', {})['function'] = 'anterior_dur'
         data = {
             'function': 'begin_to_end',
             'parts': [p[0], p[1]]
+        }
+        return data
+
+    @_('posts ONWARD')
+    def begin_to_end(self, p):
+        p[0]['function'] = 'posterior_dur'
+        onward = {'time': 'durative'}
+        data = {
+            'function': 'begin_to_end',
+            'parts': [p[0], onward]
+        }
+        return data
+
+    # 'all the days of Koresh and on...'
+    @_('atelic_ext anterior_dur')
+    def dur_to_end(self, p):
+        data = {
+            'function': 'dur_to_end',
+            'parts': [p[0], p[1]]
+        }
+        return data
+
+    # 'on the eigth day and onward'
+    @_('simul ONWARD')
+    def simul_to_end(self, p):
+        data = {
+            'function': 'simul_to_end',
+            'parts': [p[0], {'time': 'single', 'advb': True}]
         }
         return data
 
@@ -402,6 +441,37 @@ class TimeParser(SlyParser):
         }
         return data
 
+    @_('antdur_simul antdur_simul')
+    def multi_antdursim(self, p):
+        data = {
+            'function': 'multi_simul, multi_anterior_dur',
+            'parts': [p[0], p[1]]
+        }
+        return data
+
+    @_('antdur_simul multi_antdursim')
+    def multi_antdursim(self, p):
+        partsb = p[1]['parts'] 
+        p[1]['parts'] = [p[0]] + partsb
+        return p[1]
+
+    # 'in that day and after tomorrow'
+    @_('simul posts')
+    def simul_posts(self, p):
+        data = {
+            'function': 'simul_posts',
+            'parts': [p[0], p[1]]
+        }
+        return data
+
+    @_('posts posts')
+    def multi_posts(self, p):
+        data = {
+            'function': 'multi_posts',
+            'parts': [p[0], p[1]]
+        }
+        return data
+
     # -- atelic extent
     @_('Ø duration')
     def atelic_ext(self, p):
@@ -420,6 +490,14 @@ class TimeParser(SlyParser):
             'function': 'atelic_ext',
         })
         return p[1]
+
+    @_('atelic_ext atelic_ext')
+    def atelic_ext(self, p):
+        data = {
+            'function': 'atelic_ext',
+            'parts': [p[0], p[1]]
+        }
+        return data
 
     # -- simultaneous --
     @_('B time', 'Ø time',
@@ -545,7 +623,7 @@ class TimeParser(SlyParser):
 
     # -- anterior durative --
     @_('<D duration', '<D time', '<D simul',
-       'L posterior')
+       'L posterior', '<D dur_sing')
     def anterior_dur(self, p):
         p[1].update({
             'function': 'anterior_dur',
@@ -553,7 +631,7 @@ class TimeParser(SlyParser):
         return p[1]
 
     # -- anterior dur / simultaneous
-    @_('L time')
+    @_('L time', 'L duration')
     def antdur_simul(self, p):
         p[1].update({
             'function': 'anterior_dur, simultaneous',
@@ -565,13 +643,6 @@ class TimeParser(SlyParser):
         p[1].update({
             'function': 'simultaneous',
             'time': 'singular',
-        })
-        return p[1]
-
-    @_('L duration')
-    def anterior_dur(self, p):
-        p[1].update({
-            'function': 'anterior_dur',
         })
         return p[1]
 
@@ -634,7 +705,7 @@ class TimeParser(SlyParser):
         }
 
     # -- posteriors (durative?) --
-    @_('MN time')
+    @_('MN time', 'MN dur_sing')
     def posts(self, p):
         p[1].update({
             'function': 'posterior, posterior_dur',
@@ -661,6 +732,11 @@ class TimeParser(SlyParser):
     # NB how the opposing duration leads
     # to a re-evaluation of this type!
     @_('MN anterior_dur')
+    def posterior_dur(self, p):
+        p[1]['function'] = 'posterior_dur'
+        return p[1]
+
+    @_('MN antdur_simul')
     def posterior_dur(self, p):
         p[1]['function'] = 'posterior_dur'
         return p[1]

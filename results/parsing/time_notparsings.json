@@ -1,86 +1,14 @@
 {
-  "690126": [
-    "reached end",
-    "['MN', 'TIME', 'ADVB']"
-  ],
-  "707641": [
-    "reached end",
-    "['>T', 'NUM', 'THE', 'TIME', '>T', 'NUM', 'THE', 'TIME']"
-  ],
-  "719377": [
-    "reached end",
-    "['TOMORROW']"
-  ],
   "731915": [
     "reached end",
     "['Ø', 'ADVB']"
-  ],
-  "738491": [
-    "reached end",
-    "['MN', 'THAT', 'THE', 'TIME', 'ADVB']"
-  ],
-  "747109": [
-    "reached end",
-    "['B', 'THAT', 'THE', 'TIME', 'MN', 'TIME']"
-  ],
-  "789309": [
-    "reached end",
-    "['MN', 'TIME', 'MN', 'TIME2']"
-  ],
-  "791567": [
-    "reached end",
-    "['L', 'MN', 'TIME', '<D', 'TIME2']"
-  ],
-  "797013": [
-    "reached end",
-    "['L', 'MN', 'TIME', '<D', 'TIME2']"
-  ],
-  "819581": [
-    "reached end",
-    "['MN', 'THAT', 'THE', 'TIME', 'ADVB']"
-  ],
-  "820983": [
-    "reached end",
-    "['B', 'THE', 'TIME', 'ADVB']"
-  ],
-  "821526": [
-    "reached end",
-    "['B', 'THE', 'TIMES', 'B', 'THE', 'TIMES', 'B', 'THE', 'TIMES']"
   ],
   "831763": [
     "reached end",
     "['MN', 'THIS', 'THE', 'TIME', 'L', 'MN', 'THE', 'TIME2', 'TIME']"
   ],
-  "874577": [
-    "reached end",
-    "['MN', 'TIME', 'MN', 'TIME']"
-  ],
-  "881678": [
-    "reached end",
-    "['MN', 'NUM_ONE', 'TIME']"
-  ],
-  "881852": [
-    "reached end",
-    "['Ø', 'ALL', 'TIMES', '<D', 'TIME']"
-  ],
-  "883595": [
-    "reached end",
-    "['<D', 'NUM_ONE', 'TIME']"
-  ],
   "890356": [
     "reached end",
     "['L', 'TIME', 'B', 'TIME']"
-  ],
-  "891357": [
-    "reached end",
-    "['DURATION']"
-  ],
-  "894851": [
-    "reached end",
-    "['L', 'THE', 'TIMES', 'L', 'THE', 'TIMES', 'L', 'TIMES']"
-  ],
-  "896665": [
-    "reached end",
-    "['L', 'THE', 'TIMES', 'L', 'THE', 'TIMES', 'L', 'THE', 'TIMES']"
   ]
 }

@@ -36,5 +36,7 @@
     "BQR=/": "TIME",
     ">XRWN/": "TIME",
     "QDM/": "TIME",
-    "RG</": "TIME" 
+    "RG</": "TIME",
+    "HL>H": "ONWARD",
+    "M<L/": "ONWARD"
 }

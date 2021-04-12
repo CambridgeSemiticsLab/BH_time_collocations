@@ -52,7 +52,7 @@ class PhraseAtomComposer:
         child2mom = {}
         relamap = {
             'Appo': 'APPO',
-            'Spec': 'ADJV',
+            'Spec': 'SPEC',
             'Link': 'CONJ',
             'Sfxs': 'ADJV',
             'Para': 'PARA',

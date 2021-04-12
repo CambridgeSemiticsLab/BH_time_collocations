@@ -288,7 +288,7 @@
   },
   "653347": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "653351": {
     "time": "durative",
@@ -309,7 +309,7 @@
     "reference": "anaphora",
     "ref_type": "exophoric",
     "mensural": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "653401": {
     "time": "?",
@@ -446,7 +446,7 @@
   },
   "653870": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "654023": {
     "time": "?",
@@ -1511,7 +1511,7 @@
   "665769": {
     "time": "durative",
     "mensural": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "665894": {
     "time": "durative",
@@ -2128,7 +2128,7 @@
     "time": "durative",
     "reference": "deictic",
     "ref_type": "personal",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "673287": {
     "time": "durative",
@@ -2161,7 +2161,7 @@
     "time": "durative",
     "reference": "deictic",
     "ref_type": "personal",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "673338": {
     "time": "durative",
@@ -2216,7 +2216,7 @@
     "time": "durative",
     "reference": "deictic",
     "ref_type": "personal",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "673648": {
     "time": "singular",
@@ -2376,7 +2376,7 @@
         "time": "?"
       }
     ],
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "674586": {
     "time": "durative",
@@ -2575,7 +2575,7 @@
         "time": "?",
         "reference": "anaphora",
         "ref_type": "exophoric",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -2590,7 +2590,7 @@
     "parts": [
       {
         "time": "?",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -2658,7 +2658,7 @@
   "675931": {
     "time": "durative",
     "mensural": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "675937": {
     "time": "?",
@@ -2809,7 +2809,7 @@
     "parts": [
       {
         "time": "?",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -3146,7 +3146,7 @@
     "time": "durative",
     "reference": "deictic",
     "ref_type": "personal",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "682554": {
     "time": "?",
@@ -3751,6 +3751,18 @@
     "time": "durative",
     "mensural": true,
     "function": "atelic_ext"
+  },
+  "690126": {
+    "function": "begin_to_end",
+    "parts": [
+      {
+        "time": "?",
+        "function": "posterior_dur"
+      },
+      {
+        "time": "durative"
+      }
+    ]
   },
   "690135": {
     "time": "durative, singular",
@@ -5105,11 +5117,11 @@
   },
   "704860": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "704877": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "704941": {
     "time": "?",
@@ -5119,7 +5131,7 @@
   },
   "704968": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "704999": {
     "time": "?",
@@ -5449,6 +5461,25 @@
     "ref_type": "spatial",
     "ref_dist": "far",
     "function": "simultaneous"
+  },
+  "707641": {
+    "function": "atelic_ext",
+    "parts": [
+      {
+        "time": "durative",
+        "reference": "anaphora",
+        "ref_type": "exophoric",
+        "mensural": true,
+        "function": "atelic_ext"
+      },
+      {
+        "time": "durative",
+        "reference": "anaphora",
+        "ref_type": "exophoric",
+        "mensural": true,
+        "function": "atelic_ext"
+      }
+    ]
   },
   "707694": {
     "time": "?",
@@ -6751,6 +6782,12 @@
     "ref_dist": "far",
     "function": "simultaneous"
   },
+  "719377": {
+    "time": "singular",
+    "reference": "deictic",
+    "tense": "future",
+    "function": "simultaneous"
+  },
   "719430": {
     "time": "?",
     "reference": "deictic",
@@ -6760,7 +6797,7 @@
   },
   "719440": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "719528": {
     "time": "durative",
@@ -6867,11 +6904,11 @@
   },
   "720108": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "720292": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "720457": {
     "time": "?",
@@ -7108,11 +7145,11 @@
   },
   "723040": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "723051": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "723182": {
     "time": "?",
@@ -7123,7 +7160,7 @@
   },
   "723196": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "723237": {
     "time": "?",
@@ -8063,7 +8100,7 @@
   },
   "731865": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "731903": {
     "time": "?",
@@ -8307,7 +8344,7 @@
   },
   "734273": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "734287": {
     "time": "?",
@@ -8317,7 +8354,7 @@
   },
   "734289": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "734331": {
     "time": "singular",
@@ -8800,6 +8837,21 @@
     "ref_type": "spatial",
     "ref_dist": "far",
     "function": "simultaneous"
+  },
+  "738491": {
+    "function": "begin_to_end",
+    "parts": [
+      {
+        "time": "?",
+        "reference": "deictic",
+        "ref_type": "spatial",
+        "ref_dist": "far",
+        "function": "posterior_dur"
+      },
+      {
+        "time": "durative"
+      }
+    ]
   },
   "738494": {
     "time": "?",
@@ -9413,7 +9465,7 @@
         "time": "?",
         "reference": "anaphora",
         "ref_type": "exophoric",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -9873,6 +9925,22 @@
     "tense": "future",
     "function": "simultaneous"
   },
+  "747109": {
+    "function": "simul_posts",
+    "parts": [
+      {
+        "time": "?",
+        "reference": "deictic",
+        "ref_type": "spatial",
+        "ref_dist": "far",
+        "function": "simultaneous"
+      },
+      {
+        "time": "?",
+        "function": "posterior, posterior_dur"
+      }
+    ]
+  },
   "747123": {
     "time": "?",
     "reference": "anaphora",
@@ -9940,7 +10008,7 @@
   "748216": {
     "time": "durative",
     "mensural": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "748386": {
     "time": "singular",
@@ -10439,7 +10507,7 @@
         "time": "?",
         "reference": "anaphora",
         "ref_type": "exophoric",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -11330,7 +11398,7 @@
         "time": "?",
         "reference": "anaphora",
         "ref_type": "exophoric",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "durative",
@@ -12612,7 +12680,7 @@
         "time": "singular",
         "reference": "deictic",
         "tense": "present",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -12965,7 +13033,7 @@
   },
   "779313": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "779318": {
     "time": "durative",
@@ -13105,7 +13173,7 @@
     "time": "durative",
     "reference": "anaphora",
     "ref_type": "exophoric",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "780827": {
     "time": "?",
@@ -13162,7 +13230,7 @@
   },
   "781152": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "781245": {
     "time": "?",
@@ -13180,7 +13248,7 @@
       }
     ],
     "distributive": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "781289": {
     "time": "singular",
@@ -13285,7 +13353,7 @@
     "parts": [
       {
         "time": "?",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -13302,7 +13370,7 @@
     "parts": [
       {
         "time": "?",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -13461,7 +13529,7 @@
     "time": "durative",
     "reference": "anaphora",
     "ref_type": "exophoric",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "784921": {
     "time": "durative",
@@ -13679,7 +13747,7 @@
         "time": "singular",
         "reference": "deictic",
         "tense": "present",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -13794,6 +13862,20 @@
     "time": "durative, singular",
     "mensural": true,
     "function": "telic_ext, dist_fut, dist_past"
+  },
+  "789309": {
+    "function": "multi_posts",
+    "parts": [
+      {
+        "time": "?",
+        "function": "posterior, posterior_dur"
+      },
+      {
+        "time": "?",
+        "duplicate": true,
+        "function": "posterior, posterior_dur"
+      }
+    ]
   },
   "789344": {
     "time": "durative",
@@ -13969,6 +14051,28 @@
     "reference": "anaphora",
     "ref_type": "exophoric",
     "function": "simultaneous"
+  },
+  "791567": {
+    "function": "begin_to_end",
+    "parts": [
+      {
+        "function": "posterior_dur",
+        "parts": [
+          {
+            "function": "anterior_dur"
+          },
+          {
+            "time": "?",
+            "function": "posterior_dur"
+          }
+        ]
+      },
+      {
+        "time": "?",
+        "duplicate": true,
+        "function": "anterior_dur"
+      }
+    ]
   },
   "791629": {
     "time": "?",
@@ -14239,6 +14343,28 @@
         "reference": "deictic",
         "ref_type": "spatial",
         "ref_dist": "near",
+        "function": "anterior_dur"
+      }
+    ]
+  },
+  "797013": {
+    "function": "begin_to_end",
+    "parts": [
+      {
+        "function": "posterior_dur",
+        "parts": [
+          {
+            "function": "anterior_dur"
+          },
+          {
+            "time": "?",
+            "function": "posterior_dur"
+          }
+        ]
+      },
+      {
+        "time": "?",
+        "duplicate": true,
         "function": "anterior_dur"
       }
     ]
@@ -15429,6 +15555,21 @@
     "function": "posterior",
     "time_loc": "end"
   },
+  "819581": {
+    "function": "begin_to_end",
+    "parts": [
+      {
+        "time": "?",
+        "reference": "deictic",
+        "ref_type": "spatial",
+        "ref_dist": "far",
+        "function": "posterior_dur"
+      },
+      {
+        "time": "durative"
+      }
+    ]
+  },
   "819678": {
     "time": "?",
     "function": "simultaneous"
@@ -15457,11 +15598,49 @@
     "mensural": true,
     "function": "atelic_ext"
   },
+  "820983": {
+    "function": "simul_to_end",
+    "parts": [
+      {
+        "time": "?",
+        "reference": "anaphora",
+        "ref_type": "exophoric",
+        "function": "simultaneous"
+      },
+      {
+        "time": "single",
+        "advb": true
+      }
+    ]
+  },
   "821319": {
     "time": "?",
     "reference": "deictic",
     "ref_type": "personal",
     "function": "posterior"
+  },
+  "821526": {
+    "function": "simul_habitual, multi_simul",
+    "parts": [
+      {
+        "time": "durative",
+        "reference": "anaphora",
+        "ref_type": "exophoric",
+        "function": "telic_ext, dist_fut, dist_past"
+      },
+      {
+        "time": "durative",
+        "reference": "anaphora",
+        "ref_type": "exophoric",
+        "function": "telic_ext, dist_fut, dist_past"
+      },
+      {
+        "time": "durative",
+        "reference": "anaphora",
+        "ref_type": "exophoric",
+        "function": "telic_ext, dist_fut, dist_past"
+      }
+    ]
   },
   "821535": {
     "time": "?",
@@ -15971,7 +16150,7 @@
       }
     ],
     "distributive": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "825590": {
     "function": "simul_habitual, multi_simul",
@@ -16020,7 +16199,7 @@
   "826164": {
     "time": "durative",
     "mensural": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "826198": {
     "time": "durative",
@@ -16217,7 +16396,7 @@
         "time": "?"
       }
     ],
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "828940": {
     "time": "?",
@@ -16233,7 +16412,7 @@
         "time": "singular",
         "reference": "deictic",
         "tense": "present",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -16949,7 +17128,7 @@
         "time": "?"
       }
     ],
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "836034": {
     "time": "?",
@@ -16969,7 +17148,7 @@
   },
   "836152": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "836178": {
     "time": "durative",
@@ -16987,7 +17166,7 @@
       }
     ],
     "distributive": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "836232": {
     "time": "?",
@@ -17093,7 +17272,7 @@
   },
   "837700": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "837810": {
     "time": "durative",
@@ -17168,7 +17347,7 @@
       }
     ],
     "distributive": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "838827": {
     "time": "durative",
@@ -17253,7 +17432,7 @@
         "time": "?",
         "reference": "anaphora",
         "ref_type": "exophoric",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -17341,7 +17520,7 @@
         "time": "?"
       }
     ],
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "840821": {
     "time": "?",
@@ -17674,7 +17853,7 @@
   },
   "844326": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "844336": {
     "time": "?",
@@ -17692,7 +17871,7 @@
       }
     ],
     "distributive": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "844499": {
     "time": "?",
@@ -17737,7 +17916,7 @@
       }
     ],
     "distributive": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "845106": {
     "time": "?",
@@ -17779,7 +17958,7 @@
       }
     ],
     "distributive": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "845684": {
     "time": "durative",
@@ -17837,7 +18016,7 @@
       }
     ],
     "distributive": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "845987": {
     "time": "?",
@@ -17859,7 +18038,7 @@
       }
     ],
     "distributive": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "846083": {
     "time": "durative",
@@ -17973,7 +18152,7 @@
   },
   "846696": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "846898": {
     "time": "?",
@@ -17991,12 +18170,12 @@
     "parts": [
       {
         "time": "?",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
         "duplicate": true,
-        "function": "anterior_dur"
+        "function": "anterior_dur, simultaneous"
       }
     ]
   },
@@ -18004,7 +18183,7 @@
     "time": "durative",
     "reference": "anaphora",
     "ref_type": "exophoric",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "847395": {
     "time": "durative",
@@ -18025,7 +18204,7 @@
   },
   "847507": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "847588": {
     "time": "?",
@@ -18089,7 +18268,7 @@
       }
     ],
     "distributive": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "848513": {
     "function": "begin_to_end",
@@ -18098,7 +18277,7 @@
         "time": "?",
         "reference": "anaphora",
         "ref_type": "exophoric",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -18156,7 +18335,7 @@
         "time": "singular",
         "reference": "deictic",
         "tense": "present",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -18188,7 +18367,7 @@
         "time": "singular",
         "reference": "deictic",
         "tense": "present",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -18216,7 +18395,7 @@
         "time": "?"
       }
     ],
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "850079": {
     "time": "?",
@@ -18293,7 +18472,7 @@
         "time": "singular",
         "reference": "deictic",
         "tense": "present",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -18308,7 +18487,7 @@
         "time": "singular",
         "reference": "deictic",
         "tense": "present",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -18327,7 +18506,7 @@
         "time": "singular",
         "reference": "deictic",
         "tense": "present",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -18373,7 +18552,7 @@
         "time": "?"
       }
     ],
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "852569": {
     "time": "durative",
@@ -18389,7 +18568,7 @@
         "time": "?"
       }
     ],
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "852650": {
     "time": "?",
@@ -18407,7 +18586,7 @@
         "time": "?"
       }
     ],
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "852699": {
     "time": "durative",
@@ -18716,7 +18895,7 @@
   },
   "858510": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "858552": {
     "time": "singular",
@@ -19021,7 +19200,7 @@
         "time": "?",
         "reference": "anaphora",
         "ref_type": "exophoric",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "singular",
@@ -19124,7 +19303,7 @@
   },
   "868611": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "868641": {
     "time": "?",
@@ -19386,7 +19565,7 @@
     "time": "durative",
     "reference": "anaphora",
     "ref_type": "exophoric",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "873404": {
     "time": "?",
@@ -19542,6 +19721,19 @@
   "874571": {
     "time": "?",
     "function": "simultaneous"
+  },
+  "874577": {
+    "function": "multi_posts",
+    "parts": [
+      {
+        "time": "?",
+        "function": "posterior, posterior_dur"
+      },
+      {
+        "time": "?",
+        "function": "posterior, posterior_dur"
+      }
+    ]
   },
   "874639": {
     "time": "?",
@@ -20069,7 +20261,7 @@
         "time": "?"
       }
     ],
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "881187": {
     "time": "?",
@@ -20100,6 +20292,11 @@
     "ref_type": "textual",
     "function": "posterior"
   },
+  "881678": {
+    "time": "durative, singular",
+    "mensural": true,
+    "function": "posterior, posterior_dur"
+  },
   "881700": {
     "time": "?",
     "reference": "anaphora",
@@ -20115,6 +20312,19 @@
   "881815": {
     "time": "durative",
     "function": "posterior_dur"
+  },
+  "881852": {
+    "function": "dur_to_end",
+    "parts": [
+      {
+        "time": "durative",
+        "function": "atelic_ext"
+      },
+      {
+        "time": "?",
+        "function": "anterior_dur"
+      }
+    ]
   },
   "881854": {
     "time": "?",
@@ -20271,14 +20481,14 @@
     "reference": "anaphora",
     "ref_type": "exophoric",
     "mensural": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "883480": {
     "time": "durative",
     "reference": "anaphora",
     "ref_type": "exophoric",
     "mensural": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "883504": {
     "time": "singular",
@@ -20288,12 +20498,17 @@
   },
   "883557": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "883585": {
     "time": "durative, singular",
     "mensural": true,
     "function": "telic_ext, dist_fut, dist_past"
+  },
+  "883595": {
+    "time": "durative, singular",
+    "mensural": true,
+    "function": "anterior_dur"
   },
   "883683": {
     "time": "?",
@@ -20505,7 +20720,7 @@
     "parts": [
       {
         "time": "?",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -20567,7 +20782,7 @@
   "885237": {
     "time": "durative",
     "mensural": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "885258": {
     "time": "durative",
@@ -20722,7 +20937,7 @@
   },
   "886507": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "886508": {
     "time": "?",
@@ -20821,7 +21036,7 @@
   },
   "887066": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "887077": {
     "time": "?",
@@ -20987,7 +21202,7 @@
     "reference": "anaphora",
     "ref_type": "exophoric",
     "mensural": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "889513": {
     "time": "?",
@@ -21129,7 +21344,7 @@
         "time": "?",
         "reference": "anaphora",
         "ref_type": "exophoric",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -21141,6 +21356,11 @@
     ]
   },
   "891340": {
+    "time": "durative",
+    "advb": true,
+    "function": "atelic_ext"
+  },
+  "891357": {
     "time": "durative",
     "advb": true,
     "function": "atelic_ext"
@@ -21366,7 +21586,7 @@
   },
   "893803": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "894052": {
     "time": "?",
@@ -21401,7 +21621,7 @@
     "parts": [
       {
         "time": "?",
-        "function": "posterior_dur"
+        "function": "anterior_dur"
       },
       {
         "time": "?",
@@ -21465,6 +21685,27 @@
     "function": "posterior",
     "reference": "deictic",
     "ref_type": "personal"
+  },
+  "894851": {
+    "function": "multi_simul, multi_anterior_dur",
+    "parts": [
+      {
+        "time": "durative",
+        "reference": "anaphora",
+        "ref_type": "exophoric",
+        "function": "anterior_dur, simultaneous"
+      },
+      {
+        "time": "durative",
+        "reference": "anaphora",
+        "ref_type": "exophoric",
+        "function": "anterior_dur, simultaneous"
+      },
+      {
+        "time": "durative",
+        "function": "anterior_dur, simultaneous"
+      }
+    ]
   },
   "894852": {
     "time": "?",
@@ -21634,6 +21875,29 @@
     "ref_dist": "near",
     "function": "anterior_dur"
   },
+  "896665": {
+    "function": "multi_simul, multi_anterior_dur",
+    "parts": [
+      {
+        "time": "durative",
+        "reference": "anaphora",
+        "ref_type": "exophoric",
+        "function": "anterior_dur, simultaneous"
+      },
+      {
+        "time": "durative",
+        "reference": "anaphora",
+        "ref_type": "exophoric",
+        "function": "anterior_dur, simultaneous"
+      },
+      {
+        "time": "durative",
+        "reference": "anaphora",
+        "ref_type": "exophoric",
+        "function": "anterior_dur, simultaneous"
+      }
+    ]
+  },
   "896693": {
     "time": "?",
     "reference": "anaphora",
@@ -21651,7 +21915,7 @@
   },
   "896867": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "896891": {
     "time": "durative, singular",
@@ -21716,12 +21980,12 @@
   "897470": {
     "time": "durative",
     "mensural": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "897474": {
     "time": "durative",
     "mensural": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "897487": {
     "function": "posterior",
@@ -22057,7 +22321,7 @@
   },
   "900046": {
     "time": "durative",
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "900068": {
     "time": "durative",
@@ -22221,7 +22485,7 @@
   "902209": {
     "time": "durative",
     "mensural": true,
-    "function": "anterior_dur"
+    "function": "anterior_dur, simultaneous"
   },
   "902211": {
     "time": "?",
