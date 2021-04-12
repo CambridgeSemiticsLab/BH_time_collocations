@@ -32,7 +32,9 @@ class TimeTokenizer:
 
     def get_head(self, phrase):
         """Flexible head grabbing, allowing for singular phrases."""
-        if type(phrase) == int:
+        if phrase is None:
+            return None
+        elif type(phrase) == int:
             return phrase
         elif len(phrase) == 1:
             return phrase[0]
@@ -59,7 +61,7 @@ class TimeTokenizer:
         """
         
         # ignore these relations
-        ignore = {None, 'ADJV', 'ADVB', 'SPEC'}
+        ignore = {None, 'ADJV', 'ADVB', 'CARDC'}
         def tag_rela(rela, name):
             return rela == name and rela not in ignore
    
@@ -90,6 +92,14 @@ class TimeTokenizer:
                         self.tokenize(subphrase, start=False) # recursively tokenize them
                     )                    
             
+            # handle 'spec'
+            elif tag_rela(rela, 'SPEC'):
+                if type(src) == int:
+                    src = [None, src, None]
+                paras.extend(
+                    self.tokenize(src, start=False)
+                )
+
             # tokenize appositional relations if relevant
             elif tag_rela(rela, 'APPO'):
                 token = self.appo_token(phrase, i)
@@ -123,8 +133,8 @@ class TimeTokenizer:
             # NB: that this will only ever happen if 
             # a cardinal chain itself is profiled, without
             # a quantified element
-            elif tag_rela(rela, 'CARDC'):
-                yield self.sly_token('CARD', i)
+#            elif tag_rela(rela, 'CARDC'):
+#                yield self.sly_token('CARD', i)
     
             # drip-bucket tokenizer
             elif rela not in ignore:
@@ -158,20 +168,46 @@ class TimeTokenizer:
         src, time, rela = phrase
 
         # yield items attached to the time
-        if self.F.prs.v(time) not in {'absent', 'n/a'}:
-            yield self.sly_token('SFX', i)
+        if (prs := self.F.prs.v(time)) not in {'absent', 'n/a'}:
+            if self.F.lex.v(time) == 'B' and prs == 'W':
+                yield self.sly_token('IT', i) # בו
+            else:
+                yield self.sly_token('SFX', i)
         if self.F.nu.v(time) == 'du':
             yield self.sly_token('NUM', i)
+        if self.F.uvf.v(time) == 'H':
+            yield self.sly_token('LOCALE', i)
 
         # yield the time itself
+        calend_times = {'XDC=/': 'MONTH', 'CNH/': 'YEAR'}
         lex = self.F.lex.v(time)
-        if self.slot2pos[time] == 'ADVB':
-            token = self.lexmap.get(lex, 'ADVB')
+        nu = self.F.nu.v(time)
+        if lex in self.lexmap:
+            token = self.lexmap[lex]
+        elif (lex in calend_times and nu == 'sg'):
+            token = calend_times[lex]
+
+        # process contexts involving 'day'
+        elif lex == 'JWM/' and nu == 'sg':
+            if rela == 'NUM':
+                token = 'DAY'
+            elif (self.F.st.v(time) == 'c' 
+            and self.slot2pos[time+1] == 'CARD'):
+                token = 'DAY'
+            else:
+                token = 'TIME'
+
+        elif self.slot2pos[time] == 'ADVB':
+            token = 'ADVB'
         elif self.slot2pos[time] == 'PREP':
             token = self.F.lex.v(time)
-        elif self.slot2pos[time] == 'CARD' and rela == 'CARDC':
+        elif self.slot2pos[time] in {'CARD', 'CARD1'}:
             token = 'CARD'
-        elif self.F.nu.v(time) == 'pl':
+        elif self.slot2pos[time] == 'ORDN' and lex != 'R>CWN/':
+            token = 'ORDN'
+        elif self.F.nametype.v(time) == 'pers':
+            token = 'PERSON'
+        elif nu == 'pl':
             token = 'TIMES'
         else:
             token = 'TIME'
@@ -214,6 +250,18 @@ class TimeTokenizer:
         """Definite tokens."""
         return self.sly_token('THE', i)
 
+    def map_demon(self, demonlex):
+        demon_map = {
+            "Z>T": "THIS",
+            "HJ>": "THAT",
+            "HMH": "THAT",
+            ">LH": "THIS",
+            "HM": "THAT",
+            "HW>": "THAT",
+            "ZH": "THIS",
+        }
+        return demon_map[demonlex]
+
     def appo_token(self, phrase, i):
         """Parse appositional tokens."""
         src, tgt, rela = phrase
@@ -224,7 +272,7 @@ class TimeTokenizer:
         # process appositional demonstratives
         if self.F.pdp.v(appo_head) == 'prde':
             appo_lex = self.F.lex.v(appo_head)
-            token = self.lexmap[appo_lex]
+            token = self.map_demon(appo_lex)
             return self.sly_token(token, i)
             
     def demon_token(self, phrase, i):
@@ -232,7 +280,7 @@ class TimeTokenizer:
         src, tgt, rela = phrase
         demon = self.get_head(src)
         demonlex = self.F.lex.v(demon)
-        token = self.lexmap[demonlex]
+        token = self.map_demon(demonlex)
         return self.sly_token(token, i)
 
     def num_token(self, phrase, i):
@@ -265,6 +313,13 @@ class TimeTokenizer:
         )
         if gen_dur:
             return self.sly_token('GENDUR', i)
+
+        # identify genitive cardinals
+#        src0 = sorted(nt.get_slots(src))[0]
+#        if self.slot2pos[gen_head] in {'CARD', 'CARD1'}:
+#            return self.sly_token('GENCARD', 1)
+#        elif self.slot2pos[src0] in {'CARD', 'CARD1'}:
+#            return self.sly_token('GENCARD', 1)
 
     def quant_token(self, phrase, i):
         """Return quantifier tokens."""
@@ -311,6 +366,7 @@ class TimeParser(SlyParser):
         'MANY',
         'ALL',
         'GENDUR',
+        'GENCARD',
         'NOW',
         'TOMORROW',
         'YESTERDAY',
@@ -319,6 +375,13 @@ class TimeParser(SlyParser):
         'THEN',
         'CARD',
         'ONWARD',
+        'MONTH',
+        'YEAR',
+        'DAY',
+        'PERSON',
+        'IT',
+        'LOCALE',
+        'ORDN',
     }
 
     def error(self, token):
@@ -337,7 +400,10 @@ class TimeParser(SlyParser):
        'hab_simul', 'begin_to_end', 'multi_simul',
        'antpost_dur', 'posterior_dur', 'multi_postantdur',
        'multi_antpost', 'multi_antdursim', 'dur_to_end',
-       'simul_posts', 'multi_posts', 'simul_to_end')
+       'simul_posts', 'multi_posts', 'simul_to_end', 
+       'simul_dur', 'month_ref', 'month_simul', 'year_simul',
+       'simul_cal', 'oneday_simul', 'habitual', 'day_simul',
+       'ordn_simul', 'multi')
     def category(self, p): 
         return p[0] 
 
@@ -367,18 +433,40 @@ class TimeParser(SlyParser):
         )
         return p[0]
 
+    @_('Ø CARD antdur_simul')
+    def hab_simul(self, p):
+        p[2]['function'] = 'simultaneous'
+        data = {
+            'function': 'simul_habitual, multi_simul',
+            'parts': [
+                {'time': 'single', 'count': 'calendrical'},
+                p[2]
+            ]
+        }
+        return data
+
+    @_('Ø year year_simul', 'Ø day day_simul')
+    def habitual(self, p):
+        data = {
+            'function': 'habitual',
+            'parts': [p[1], p[2]],
+        }
+        return data
+
     @_('posts anterior_dur', 'posts antdur_simul',
        'posterior_dur anterior_dur', 'antpost_dur anterior_dur')
     def begin_to_end(self, p):
         p[0]['function'] = 'posterior_dur'
-        getattr(p, 'posts', {})['function'] = 'anterior_dur'
+        getattr(p, 'posts', {})['function'] = 'posterior_dur'
+        getattr(p, 'antdur_simul', {})['function'] = 'anterior_dur'
         data = {
             'function': 'begin_to_end',
             'parts': [p[0], p[1]]
         }
         return data
 
-    @_('posts ONWARD')
+    @_('posts ONWARD', 'posts LOCALE ONWARD', 
+       'posterior_dur LOCALE duration')
     def begin_to_end(self, p):
         p[0]['function'] = 'posterior_dur'
         onward = {'time': 'durative'}
@@ -421,6 +509,15 @@ class TimeParser(SlyParser):
         data = {
             'function': 'multi_simul',
             'parts': parts,
+        }
+        return data
+
+    @_('antdur_simul simul')
+    def multi_simul(self, p):
+        p[0]['function'] = 'simultaneous'
+        data = {
+            'function': 'multi_simul',
+            'parts': [p[0], p[1]],
         }
         return data
 
@@ -472,9 +569,29 @@ class TimeParser(SlyParser):
         }
         return data
 
+    # very complicated phrase!
+    @_('day_simul simul begin_to_end')
+    def multi(self, p):
+        data = {
+            'function': '?',
+            'parts': list(p),
+        }
+        return data
+
+    # located durations
+    @_('atelic_ext simul', 'atelic_ext year_simul')
+    def simul_dur(self, p):
+        data = {
+            'function': 'simul_dur',
+            'parts': [p[0], p[1]]
+        }
+        return data
+
     # -- atelic extent
-    @_('Ø duration')
+    @_('Ø duration', 'Ø year_num', 'Ø day_num', 
+       'Ø one_year')
     def atelic_ext(self, p):
+        getattr(p, 'one_year', {})['time'] = 'duration'
         p[1].update({
             'function': 'atelic_ext',
         })
@@ -502,7 +619,7 @@ class TimeParser(SlyParser):
     # -- simultaneous --
     @_('B time', 'Ø time',
        'K time', 'BJN/ duration',
-       '>L time', '<L time')
+       '<L time', 'Ø year')
     def simul(self, p):
         p[1].update({
             'function': 'simultaneous',
@@ -557,17 +674,83 @@ class TimeParser(SlyParser):
         })
         return p[2]
  
-    @_('END duration', 'END time')
+    @_('END duration', 'END time', 
+       'END year_num', 'END day_num')
     def simul(self, p):
         p[1].update({
             'function': 'simultaneous',
             'time': 'singular',
             'time_loc': 'end',
+            'count': 'measurement',
         })
         return p[1]
 
-    # either atelic ext or simul
-    @_('Ø dur_sing')
+    # -- CALENDRICAL TIMES -- 
+    @_('B month')
+    def month_simul(self, p):
+        data = {
+            'function': 'simultaneous',
+            'parts': [p[1]]
+        }
+        return data
+
+    @_('B year', 'B year_num')
+    def year_simul(self, p):
+        data = {
+            'function': 'simultaneous',
+            'parts': [p[1]],
+        }
+        return data
+
+    @_('B day', 'B day_num', 'B CARD', 
+       'B THE CARD', 'Ø CARD')
+    def day_simul(self, p):
+        data = {
+            'function': 'simultaneous',
+            'time': 'single',
+            'count': 'calendrical',
+        }
+        return data
+
+    @_('B one_day')
+    def oneday_simul(self, p):
+        p[1].update({
+            'function': 'simultaneous',
+        })
+        return p[1]
+
+    @_('day_simul year_simul')
+    def day_simul(self, p):
+        p[1]['time'] = 'duration'
+        data = {
+            'function': 'simultaneous',
+            'parts': [
+                {'time': 'single', 'count': 'calendrical'},
+                p[1]
+            ]
+        }
+        return data
+
+    @_('B ordinal')
+    def ordn_simul(self, p):
+        data = {
+            'function': 'simultaneous',
+            'parts': [p[1]]
+        }
+        return data
+
+    # -- CALENDRICAL COMPOSITIONS --
+    @_('month_simul day_simul', 'ordn_simul day_simul')
+    def simul_cal(self, p):
+        data = {
+            'function': 'simultaneous',
+            'parts': list(p),
+            'reference': p[-1],
+        } 
+        return data
+
+    # -- either atelic ext or simul --
+    @_('Ø dur_sing', 'Ø one_day')
     def atelic_simul(self, p):
         p[1].update({
             'function': 'atelic_ext, simultaneous',
@@ -575,8 +758,9 @@ class TimeParser(SlyParser):
         return p[1]
     
     # -- telic extent / distances --
-    @_('B duration', 'B dur_sing', 'K duration')
+    @_('B duration', 'B dur_sing', 'K duration', 'B one_year')
     def in_dur(self, p):
+        getattr(p, 'one_year', {})['time'] = 'duration'
         p[1].update({
             'function':'telic_ext, dist_fut, dist_past',
         })
@@ -623,15 +807,24 @@ class TimeParser(SlyParser):
 
     # -- anterior durative --
     @_('<D duration', '<D time', '<D simul',
-       'L posterior', '<D dur_sing')
+       'L posterior', '<D dur_sing', '<D year',
+       '<D year_num', '<D day_num')
     def anterior_dur(self, p):
-        p[1].update({
+        getattr(p, 'year_num', {})['time'] = 'duration'
+        getattr(p, 'day_num', {})['time'] = 'duration'
+        data = {
             'function': 'anterior_dur',
-        })
-        return p[1]
+            'parts': [p[1]],
+        }
+        return data
+
+    @_('anterior_dur person_ref')
+    def anterior_dur(self, p):
+        p[0]['reference'] = 'person'
+        return p[0]
 
     # -- anterior dur / simultaneous
-    @_('L time', 'L duration')
+    @_('L time', 'L duration', '>L time')
     def antdur_simul(self, p):
         p[1].update({
             'function': 'anterior_dur, simultaneous',
@@ -694,6 +887,14 @@ class TimeParser(SlyParser):
             'ref_type': 'personal',
         }
 
+    @_('>XR/ PERSON')
+    def posterior(self, p):
+        data = {
+            'function': 'posterior',
+            'reference': 'person',
+        }
+        return data
+
     # stand-alone >XR, will only match if 
     # followed by nothing else; causes shift/reduce
     # conflict, but this is tolerable for this proj.
@@ -705,7 +906,7 @@ class TimeParser(SlyParser):
         }
 
     # -- posteriors (durative?) --
-    @_('MN time', 'MN dur_sing')
+    @_('MN time', 'MN dur_sing', 'MN one_day')
     def posts(self, p):
         p[1].update({
             'function': 'posterior, posterior_dur',
@@ -755,23 +956,18 @@ class TimeParser(SlyParser):
             'advb': True,
         }
 
-    @_('CARD')
-    def duration(self, p):
-        return {
-            'time': 'durative',
-        }
-
     @_('NUM duration', 'NUM time',
        'NUM_ONE duration')
     def duration(self, p):
         p[1].update({
             'time': 'durative',
-            'mensural': True,
+            'count': 'mensural',
         })
         return p[1]
 
     @_('ALL duration', 'ALL time',
-       'MANY duration', 'MANY time')
+       'MANY duration', 'MANY time',
+       'ALL year')
     def duration(self, p):
        p[1].update({
             'time': 'durative',
@@ -783,6 +979,16 @@ class TimeParser(SlyParser):
         data = {
             'time': 'durative',
             'parts': [p[0], p[1]]   
+        }
+        return data
+
+    @_('year_num year_num', 'duration year_num', 
+       'day_num day_num', 'day_num duration',
+       'duration day_num', 'duration year')
+    def duration(self, p):
+        data = {
+            'time': 'durative',
+            'parts': [p[0], p[1]]
         }
         return data
 
@@ -805,7 +1011,7 @@ class TimeParser(SlyParser):
             data['distributive'] = True
         return data
 
-    @_('GENDUR time')
+    @_('GENDUR time', 'GENDUR month', 'GENDUR duration')
     def duration(self, p):
         p[1].update({
             'time': 'durative',
@@ -846,12 +1052,32 @@ class TimeParser(SlyParser):
             'ref_dist': 'far'
         })
         return p[1]
+    
+    # 2 Chr 21:15, ימים על־ימים
+    # a kind of 'intensive' adjective
+    @_('duration <L duration')
+    def duration(self, p):
+        data = {
+            'time': 'durative',
+            'parts': [p[0], p[2]],
+            'quality': 'intensive',
+        }
+        return data
+
+    @_('year >XR/ year')
+    def duration(self, p):
+        data = {
+            'time': 'durative',
+            'parts': [p[0], p[2]],
+            'quality': 'intensive',
+        }
+        return data
 
     @_('NUM_ONE time')
     def dur_sing(self, p):
         p[1].update({
             'time': 'durative, singular', # disambig needed  
-            'mensural': True,
+            'count': 'mensural',
         })
         return p[1]
 
@@ -903,6 +1129,171 @@ class TimeParser(SlyParser):
         })
         return p[1]
 
+    # define specialized time
+    @_('BEGINNING', 'END')
+    def time(self, p):
+        return {
+            'time': 'single',
+            #'time_loc': 'beginning'
+        }
+
+    # calendrical time references
+    @_('DAY')
+    def day(self, p):
+        return {
+            'time': 'single',
+        }
+
+    @_('THE day')
+    def day(self, p):
+        p[1].update({
+            'reference': 'anaphora',
+            'ref_type': 'exophoric',
+        })
+        return p[1]
+
+    @_('NUM_ONE day')
+    def one_day(self, p):
+        return {
+            'time': 'single',
+        }
+
+    @_('NUM day')
+    def day_num(self, p):
+        p[1].update({
+            'number': 'calendrical',
+        })
+        return p[1]
+
+    @_('day_num month_ref', 'day_num person_ref',
+       'one_day month_ref', 'day month_ref')
+    def day(self, p):
+        data = {
+            'parts': [p[0], p[1]],
+            'reference': p[1]['reference'],
+        }
+        return data
+
+    @_('CARD month_ref', 'CARD ordn_ref')
+    def day(self, p):
+        getattr(p, 'ordn_ref', {})['reference'] = 'month'
+        data = {
+            'parts': [
+                {'time': 'single', 'count': 'calendrical'},
+                p[1]
+            ],
+            'reference': p[1]['reference'],
+        }
+        return data
+
+    @_('MONTH')
+    def month(self, p):
+        return {
+            'time': 'single'
+        }
+
+    @_('THE month')
+    def month(self, p):
+        p[1].update({
+            'reference': 'anaphora',
+            'ref_type': 'exophoric',
+        })
+        return p[1]
+
+    @_('THIS month')
+    def month(self, p):
+        p[1].update({
+            'reference': 'deictic',
+            'ref_type': 'spatial',
+            'ref_dist': 'near'
+        })
+        return p[1]
+
+    @_('THAT month')
+    def month(self, p):
+        p[1].update({
+            'reference': 'deictic',
+            'ref_type': 'spatial',
+            'ref_dist': 'far'
+        })
+        return p[1]
+
+    @_('NUM month')
+    def month(self, p):
+        p[1].update({
+            'number': 'calendrical',
+        })
+        return p[1]
+
+    @_('GENCARD day')
+    def day(self, p):
+        p[1].update({
+            'time': 'single',
+            'count': 'calendrical',
+        })
+        return p[1]
+
+    @_('YEAR')
+    def year(self, p):
+        return {
+            'time': 'single'
+        }
+
+    @_('THE year')
+    def year(self, p):
+        p[1].update({
+            'reference': 'anaphora',
+            'ref_type': 'exophoric',
+        })
+        return p[1]
+
+    @_('THIS year')
+    def year(self, p):
+        p[1].update({
+            'reference': 'deictic',
+            'ref_type': 'spatial',
+            'ref_dist': 'near'
+        })
+        return p[1]
+
+    @_('THAT year')
+    def year(self, p):
+        p[1].update({
+            'reference': 'deictic',
+            'ref_type': 'spatial',
+            'ref_dist': 'far'
+        })
+        return p[1]
+
+    @_('GENCARD year')
+    def year(self, p):
+        p[1].update({
+            'time': 'single',
+            'count': 'calendrical',
+        })
+        return p[1]
+
+    @_('NUM year')
+    def year_num(self, p):
+        p[1].update({
+            'number': 'calendrical',
+        })
+        return p[1]
+
+    @_('NUM_ONE year')
+    def one_year(self, p):
+        return {
+            'time': 'single',
+        }
+
+    @_('year person_ref', 'year_num person_ref')
+    def year(self, p):
+        data = {
+            'parts': [p[0], p[1]],
+            'reference': 'person',    
+        }
+        return data
+
     # -- adverb time --
     @_('NOW')
     def time(self, p):
@@ -943,7 +1334,43 @@ class TimeParser(SlyParser):
             'reference': 'deictic',
             'ref_dist': 'far',
         }
- 
+
+    @_('ORDN')
+    def ordinal(self, p):
+        return {
+            'time': 'singular',
+            'reference': 'absolute', # ??
+        }
+
+    @_('THE ordinal')
+    def ordinal(self, p):
+        return p[1]
+
+    # define reference constructions
+    # TODO: incorporate reference type into these
+    # kinds of constructions to cover THE and THIS, etc.
+    @_('L PERSON', 'L THE PERSON', 'L SFX PERSON')
+    def person_ref(self, p):
+        return {
+            'reference': 'person',
+        }
+
+    @_('L MONTH', 'L THE MONTH', 
+       'L THIS THE MONTH', 'L NUM MONTH',
+       'IT B')
+    def month_ref(self, p):
+        return {
+            'time': 'single',
+            'reference': 'month'
+        }
+    
+    @_('L ordinal')
+    def ordn_ref(self, p):
+        return {
+            'time': 'single',
+            'reference': 'absolute',
+        }
+
 def parse_times(paths, API):
     """Apply the time parser."""
 

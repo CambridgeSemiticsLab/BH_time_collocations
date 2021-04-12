@@ -1,14 +1,318 @@
 {
+  "653347": [
+    "reached end",
+    "['L', 'TIMES', 'CARD']"
+  ],
+  "653401": [
+    "reached end",
+    "['B', 'YEAR', 'L', 'TIMES']"
+  ],
+  "653564": [
+    "reached end",
+    "['<D', 'THE', 'MONTH']"
+  ],
+  "654325": [
+    "reached end",
+    "['Ø', 'NUM', 'TIME', '>XR/', 'THE', 'TIME']"
+  ],
+  "655843": [
+    "reached end",
+    "['L', 'THIS', 'THE', 'TIME', 'B', 'THE', 'YEAR']"
+  ],
+  "677137": [
+    "reached end",
+    "['Ø', 'THE', 'ORDN']"
+  ],
+  "691360": [
+    "reached end",
+    "['B', 'THE', 'TIMES', '<D', 'YEAR']"
+  ],
+  "692180": [
+    "reached end",
+    "['MN', 'YEAR']"
+  ],
+  "694914": [
+    "reached end",
+    "['B', 'NUM', 'TIME', 'B', 'THIS', 'THE', 'MONTH']"
+  ],
+  "694931": [
+    "reached end",
+    "['B', 'THE', 'TIME', 'B', 'NUM', 'TIME', 'L', 'THE', 'MONTH']"
+  ],
+  "695155": [
+    "reached end",
+    "['Ø', 'NUM', 'TIME', 'MONTH', 'TIMES']"
+  ],
+  "695277": [
+    "reached end",
+    "['B', 'THE', 'YEAR', 'B', 'THE', 'MONTH', 'B', 'CARD', 'B', 'THE', 'MONTH']"
+  ],
+  "701681": [
+    "reached end",
+    "['B', 'SFX', 'MONTH', 'L', 'TIMES']"
+  ],
+  "704739": [
+    "reached end",
+    "['Ø', 'MANY', 'TIMES', 'K', 'THE', 'TIMES']"
+  ],
+  "708559": [
+    "reached end",
+    "['Ø', 'ALL', 'SFX', 'TIMES', '<L', 'SFX', 'TIME']"
+  ],
+  "716994": [
+    "reached end",
+    "['B', 'NUM', 'TIME', 'B', 'THE', 'TIME', 'L', 'THE', 'MONTH']"
+  ],
   "731915": [
     "reached end",
     "['Ø', 'ADVB']"
   ],
+  "743428": [
+    "reached end",
+    "['MN', 'THE', 'TIME', '<D', 'THE', 'TIME', 'L', 'SFX', 'TIME']"
+  ],
+  "748892": [
+    "reached end",
+    "['MN', 'END', 'TIMES', 'L', 'THE', 'TIMES']"
+  ],
+  "752133": [
+    "reached end",
+    "['B', 'TIMES', 'B', 'THE', 'TIMES', 'B', 'BEGINNING', 'TIME']"
+  ],
+  "755339": [
+    "reached end",
+    "['L', 'NUM_ONE', 'DAY']"
+  ],
+  "755371": [
+    "reached end",
+    "['Ø', 'SFX', 'MONTH']"
+  ],
+  "755632": [
+    "reached end",
+    "['Ø', 'MONTH']"
+  ],
+  "755680": [
+    "reached end",
+    "['B', 'THE', 'YEAR', 'B', 'MONTH']"
+  ],
+  "759030": [
+    "reached end",
+    "['B', 'THE', 'MONTH', 'B', 'NUM', 'TIME', 'L', 'THE', 'MONTH']"
+  ],
+  "759056": [
+    "reached end",
+    "['B', 'NUM', 'TIME', 'B', 'THE', 'MONTH']"
+  ],
+  "774057": [
+    "reached end",
+    "['B', 'NUM', 'YEAR', 'B', 'NUM', 'MONTH', 'B', 'CARD', 'L', 'TIME']"
+  ],
+  "780717": [
+    "reached end",
+    "['Ø', 'TIMES', '<L', 'YEAR']"
+  ],
+  "789309": [
+    "reached end",
+    "['MN', 'TIME', 'MN', 'TIME2', 'B', 'SFX', 'TIME', 'B', 'SFX', 'MONTH']"
+  ],
+  "789843": [
+    "reached end",
+    "['B', 'SFX', 'MONTH']"
+  ],
+  "796970": [
+    "reached end",
+    "['MN', 'NUM', 'YEAR', '<D', 'THIS', 'THE', 'TIME', 'L', 'PERSON']"
+  ],
+  "797941": [
+    "reached end",
+    "['B', 'THAT', 'THE', 'YEAR', 'B', 'TIME']"
+  ],
+  "797942": [
+    "reached end",
+    "['B', 'THE', 'YEAR', 'B', 'THE', 'MONTH']"
+  ],
+  "798128": [
+    "reached end",
+    "['B', 'THAT', 'THE', 'YEAR', 'B', 'THE', 'MONTH']"
+  ],
+  "801979": [
+    "reached end",
+    "['B', 'THE', 'YEAR', 'B', 'THE', 'MONTH', 'L', 'PERSON']"
+  ],
+  "801986": [
+    "reached end",
+    "['B', 'NUM', 'YEAR', 'B', 'THE', 'MONTH', 'B', 'CARD', 'L', 'THE', 'MONTH', 'L', 'PERSON']"
+  ],
+  "806681": [
+    "reached end",
+    "['B', 'NUM', 'YEAR', 'B', 'NUM', 'MONTH', 'B', 'CARD', 'L', 'THE', 'MONTH', 'L', 'TIME']"
+  ],
+  "821535": [
+    "reached end",
+    "['B', 'THE', 'TIME', 'B', 'CARD', 'L', 'THE', 'MONTH']"
+  ],
+  "821551": [
+    "reached end",
+    "['B', 'CARD', 'B', 'THE', 'MONTH']"
+  ],
+  "821556": [
+    "reached end",
+    "['B', 'THE', 'TIME', 'B', 'NUM', 'DAY', 'L', 'THE', 'MONTH']"
+  ],
+  "825591": [
+    "reached end",
+    "['Ø', 'NUM', 'TIME', 'L', 'PNH/', 'THE', 'TIME']"
+  ],
+  "826198": [
+    "reached end",
+    "['B', 'NUM', 'TIMES', 'L', 'THE', 'TIME']"
+  ],
+  "831414": [
+    "reached end",
+    "['B', 'YEAR', 'B', 'THE', 'MONTH', 'B', 'NUM_ONE', 'DAY', 'L', 'THE', 'MONTH', 'L', 'PERSON']"
+  ],
+  "831565": [
+    "reached end",
+    "['B', 'DAY', 'B', 'THE', 'ORDN', 'B', 'YEAR', 'L', 'PERSON', 'L', 'THE', 'MONTH']"
+  ],
+  "831662": [
+    "reached end",
+    "['B', 'CARD', 'B', 'YEAR', 'L', 'PERSON', 'L', 'THE', 'ORDN']"
+  ],
   "831763": [
     "reached end",
-    "['MN', 'THIS', 'THE', 'TIME', 'L', 'MN', 'THE', 'TIME2', 'TIME']"
+    "['MN', 'THIS', 'THE', 'TIME', 'L', 'MN', 'THE', 'TIME2', 'MN', 'DAY', 'L', 'THE', 'ORDN', 'LOCALE', 'ONWARD']"
   ],
-  "890356": [
+  "831818": [
     "reached end",
-    "['L', 'TIME', 'B', 'TIME']"
+    "['B', 'THE', 'MONTH', 'B', 'YEAR', 'L', 'PERSON']"
+  ],
+  "832918": [
+    "reached end",
+    "['B', 'CARD', 'B', 'TIME', 'L', 'THE', 'MONTH']"
+  ],
+  "832950": [
+    "reached end",
+    "['B', 'THE', 'ORDN', 'B', 'THE', 'ORDN']"
+  ],
+  "845226": [
+    "reached end",
+    "['B', 'THE', 'TIME', 'L', 'TIME']"
+  ],
+  "848402": [
+    "reached end",
+    "['L', 'TIME', '<D', 'TIME', 'TIME2']"
+  ],
+  "862564": [
+    "reached end",
+    "['B', 'TIME', 'B', 'TIME', 'B', 'TIME']"
+  ],
+  "874308": [
+    "reached end",
+    "['Ø', 'NUM', 'MONTH']"
+  ],
+  "874577": [
+    "reached end",
+    "['MN', 'TIME', 'MN', 'MONTH', 'L', 'NUM', 'MONTH', 'L', 'TIME2']"
+  ],
+  "874640": [
+    "reached end",
+    "['B', 'NUM', 'TIME', 'IT', 'B']"
+  ],
+  "876011": [
+    "reached end",
+    "['B', 'CARD', 'B', 'CARD', 'IT', 'B', 'IT', 'B']"
+  ],
+  "879774": [
+    "reached end",
+    "['B', 'END', 'SFX', 'PERSON']"
+  ],
+  "879846": [
+    "reached end",
+    "['B', 'YEAR', 'L', 'PERSON', 'MN', 'TIME']"
+  ],
+  "881852": [
+    "reached end",
+    "['Ø', 'ALL', 'TIMES', '<D', 'PERSON']"
+  ],
+  "881854": [
+    "reached end",
+    "['B', 'PERSON', 'B', 'BEGINNING', 'SFX', 'PERSON']"
+  ],
+  "883595": [
+    "reached end",
+    "['<D', 'NUM_ONE', 'DAY', 'L', 'THE', 'MONTH']"
+  ],
+  "883683": [
+    "reached end",
+    "['B', 'MONTH', 'YEAR']"
+  ],
+  "883841": [
+    "reached end",
+    "['B', 'MONTH', 'YEAR', 'L', 'PERSON']"
+  ],
+  "884936": [
+    "reached end",
+    "['MN', 'YEAR', 'NUM', 'TIMES', 'L', 'PERSON', '<D', 'YEAR']"
+  ],
+  "885236": [
+    "reached end",
+    "['B', 'CARD', 'L', 'TIME']"
+  ],
+  "885237": [
+    "reached end",
+    "['L', 'NUM', 'DAY']"
+  ],
+  "885763": [
+    "reached end",
+    "['B', 'THE', 'TIME', 'B', 'THE', 'MONTH']"
+  ],
+  "885851": [
+    "reached end",
+    "['Ø', 'ORDN']"
+  ],
+  "886837": [
+    "reached end",
+    "['<L', 'PERSON']"
+  ],
+  "886999": [
+    "reached end",
+    "['B', 'TIMES', 'MN', 'TIME']"
+  ],
+  "887795": [
+    "reached end",
+    "['>XR/', 'TIME', 'B', 'PERSON']"
+  ],
+  "891357": [
+    "reached end",
+    "['Ø', 'DURATION', 'L', 'THE', 'TIME', 'L', 'THE', 'TIME']"
+  ],
+  "893802": [
+    "reached end",
+    "['Ø', 'MONTH', 'B', 'MONTH']"
+  ],
+  "895049": [
+    "reached end",
+    "['B', 'THE', 'MONTH', 'B', 'THE', 'ORDN', 'B', 'YEAR', 'L', 'SFX', 'PERSON']"
+  ],
+  "896665": [
+    "reached end",
+    "['L', 'THE', 'TIMES', 'L', 'THE', 'TIMES', 'L', 'THE', 'TIMES', 'NUM', 'TIMES', 'B', 'TIME', 'B', 'TIME2', 'B', 'TIME2', 'B', 'THE', 'YEAR']"
+  ],
+  "898285": [
+    "reached end",
+    "['B', 'THE', 'MONTH', 'L', 'YEAR', 'L', 'PERSON']"
+  ],
+  "900046": [
+    "reached end",
+    "['L', 'TIMES', 'MN', 'TIMES']"
+  ],
+  "902203": [
+    "reached end",
+    "['B', 'TIME', 'L', 'THE', 'MONTH']"
+  ],
+  "902226": [
+    "reached end",
+    "['B', 'SFX', 'PERSON']"
   ]
 }

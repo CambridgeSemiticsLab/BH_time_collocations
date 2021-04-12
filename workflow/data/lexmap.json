@@ -8,13 +8,6 @@
     "TXLH/": "BEGINNING",
     "XYJ/": "MIDDLE",
     "TWK/": "MIDDLE",
-    "Z>T": "THIS",
-    "HJ>": "THAT",
-    "HMH": "THAT",
-    ">LH": "THIS",
-    "HM": "THAT",
-    "HW>": "THAT",
-    "ZH": "THIS",
     "KL/": "ALL",
     "RB/": "MANY",
     "RBH/": "MANY",
@@ -38,5 +31,7 @@
     "QDM/": "TIME",
     "RG</": "TIME",
     "HL>H": "ONWARD",
-    "M<L/": "ONWARD"
+    "M<L/": "ONWARD",
+    "MLK/": "PERSON",
+    "MLKWT/": "PERSON"
 }

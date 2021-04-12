@@ -21,7 +21,7 @@ TF = Fabric(locations=paths['bhsadata'], silent='deep')
 features = ( 
     'rela code gloss function number '
     'pdp vs vt typ language label st '
-    'prs nu mother'
+    'prs nu mother nametype uvf'
 )   
 API = TF.load(features, silent='deep')
 bhsa = use('bhsa', api=API, silent='deep')

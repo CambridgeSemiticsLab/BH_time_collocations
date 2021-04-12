@@ -121,12 +121,19 @@ class posParser(PositionsParser):
             ),
         ])    
     
+    def _is_card(self, w):
+        """Evaluate whether word is a cardinal number."""
+        card_lexs = {'<FWR/'}
+        if (self._F.ls.v(w) == 'card'
+        or self._F.lex.v(w) in card_lexs):
+            return True    
+
     def CARD(self, w):
         """A cardinal number followed by other cardinals."""
         P = self._getP(w)
         return any([
             (
-                self._F.ls.v(w) == 'card'
+                self._is_card(w)
                 and (
                     P(-1,'ls') == 'card'
                     or (P(1,'ls') == 'card')
@@ -141,7 +148,7 @@ class posParser(PositionsParser):
         P = self._getP(w)
         return any([
             (
-                self._F.ls.v(w) == 'card'
+                self._is_card(w)
                 and not self.CARD(w)
             ),
         ])
