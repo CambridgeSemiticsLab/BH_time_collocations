@@ -9,44 +9,38 @@ from tools.html_docs import HtmlReport
 import tools.nav_tree as nt
 from tools.load_parse import ParseLoader
 
-def get_phrase_data(node, ph_parse, tf_api):
+def get_phrase_data(node, tf_api):
     """Retrieve data on parsed phrase for analysis."""
 
     F, E, L, = tf_api.F, tf_api.E, tf_api.L
     
     # get nodes in the local context
     words = L.d(node, 'word')
-    parent_atoms = L.d(node, 'phrase_atom')
-    ext_relas = bool(E.mother.t(node))
+    phatoms = L.d(node, 'phrase_atom')
 
     # get heads and head modifiers in the phrase
-    if len(ph_parse) > 1:
-        subphrases = list(nt.unfold_paras(ph_parse))
-        head_nodes = []
-        for sp in subphrases:
-            if len(sp) > 1:
-                head = nt.get_head(sp)
-            else:
-                head = sp[0]
-            head_nodes.append(head)
-
-        heads = '|'.join(F.lex.v(w) for w in head_nodes)
-        numbers = '|'.join(F.nu.v(w) for w in head_nodes)
-
-    else:
-        heads = F.lex.v(ph_parse[0])
-        numbers = F.nu.v(ph_parse[0])
+#    if len(ph_parse) > 1:
+#        subphrases = list(nt.unfold_paras(ph_parse))
+#        head_nodes = []
+#        for sp in subphrases:
+#            if len(sp) > 1:
+#                head = nt.get_head(sp)
+#            else:
+#                head = sp[0]
+#            head_nodes.append(head)
+#
+#        heads = '|'.join(F.lex.v(w) for w in head_nodes)
+#    else:
+#        heads = F.lex.v(ph_parse[0])
+#        numbers = F.nu.v(ph_parse[0])
 
     return {
         'nwords': len(words),
-        'heads': heads,
-        'nums': numbers,
-        'parent_len': len(parent_atoms),
-        'ext_relas': ext_relas,
+        'n_phatoms': len(phatoms),
     }
  
 
-def build_row_data(node, tf_api, ph_parse, time_parsing={}, **features):
+def build_row_data(node, tf_api, time_parsing={}, **features):
     """Build data that can be analyzed to assess quality of parses."""
     F, T, L = tf_api.F, tf_api.T, tf_api.L
     book, chapter, verse = T.sectionFromNode(node)
@@ -63,7 +57,6 @@ def build_row_data(node, tf_api, ph_parse, time_parsing={}, **features):
         node=node,
         ref=f'{book} {chapter}:{verse}',
         book=book,
-        ph_parse=ph_parse,
         typ=F.typ.v(node),
         txt=T.text(node, fmt='text-orig-plain'),
         tokens=tokens,
@@ -78,7 +71,6 @@ def build_row_data(node, tf_api, ph_parse, time_parsing={}, **features):
     data.update(
         get_phrase_data(
             node, 
-            ph_parse,
             tf_api
         )
     )
@@ -102,7 +94,6 @@ def build_parse_table(paths, API):
         row = build_row_data(
             node, 
             API, 
-            ph_parsings[node],
             time_parsing=parse
         )
         rows.append(row)
@@ -111,7 +102,6 @@ def build_parse_table(paths, API):
         row = build_row_data(
             node, 
             API,
-            ph_parsings[node],
             error=str(reason)
         )
         rows.append(row)
@@ -135,13 +125,6 @@ def examine_times(paths, bhsa):
         API,
     )
 
-    # restrict the analysis
-#    df = df[
-#       (df.parent_len == 1)
-#       & (df.ext_relas == False)
-#       & (~df.heads.str.match('\|'))
-#    ]
-    
     doc1 = HtmlReport(paths['styles'])
     doc1.heading('Time Parsing Report', 1)
     
@@ -208,11 +191,16 @@ def examine_times(paths, bhsa):
    
     # counts of phrase strings that are unparsed
     err_df = df[df.parsed == 0]
-    top_err_toks = err_df.tokens.value_counts().head(50)
+    top_err_toks = err_df.tokens.value_counts().head(100)
+    if top_err_toks.max() == 1:
+        sortindex = top_err_toks.index.sort_values()
+        top_err_toks = top_err_toks[sortindex]
+
     doc1.heading('most missed values', 2)
     doc1.table(top_err_toks)
 
     # display unparsed phrases
+    doc1.table(parsed_ct)
     for string in top_err_toks.index:
         doc1.heading(string, 3)
         examples = err_df[err_df.tokens == string]
@@ -222,9 +210,9 @@ def examine_times(paths, bhsa):
             doc1.append(
                 bhsa.pretty(
                     i,
-                    extraFeatures='st lex pdp',
+                    extraFeatures='st lex pdp function',
                     withNodes=True,
-                    hiddenTypes={'subphrase'},
+                    hiddenTypes={'subphrase', 'clause_atom'},
                 )
             )
             doc1.append(err_df.loc[i]['error'])
@@ -240,27 +228,18 @@ def examine_times(paths, bhsa):
         size = semdf.shape[0]
         samp = semdf.sample(min(50, size), random_state=42)
         doc2.heading(funct, 3)
-        for ph in samp.index:
-            ph_parse = eval(str(df.loc[ph]['ph_parse']))
-            time_sem = df.loc[ph]['time']
-            time_loc = df.loc[ph].get('time_loc', None)
-            time_ref = df.loc[ph].get('reference', None)
-            ref_dist = df.loc[ph].get('ref_dist', None)
-            reftype = df.loc[ph].get('ref_type', None)
-            if type(ph_parse) != int and len(ph_parse) == 3:
-                ph_show_parse = nt.show_relas(
-                    ph_parse, 
-                    API.T.text,
-                    '<br>'
-                )
-            else:
-                ph_show_parse = f'{API.T.text(ph)}'
+        for cl in samp.index:
+            time_sem = df.loc[cl]['time']
+            time_loc = df.loc[cl].get('time_loc', None)
+            time_ref = df.loc[cl].get('reference', None)
+            ref_dist = df.loc[cl].get('ref_dist', None)
+            reftype = df.loc[cl].get('ref_type', None)
             doc2.append(
                 bhsa.plain(
-                    ph, 
+                    cl, 
                 ).replace('div class="rtl"', 'div')
             )   
-            doc2.append(f'{ph}<br>')
+            doc2.append(f'{cl}<br>')
             doc2.append(
                f'time={time_sem}; '
                f'time_loc={time_loc}; '
@@ -268,7 +247,6 @@ def examine_times(paths, bhsa):
                f'refdist={ref_dist}; '
                f'reftype={reftype}<br>'
             )
-            doc2.append(ph_show_parse) 
             doc2.append('<br><br>')
         doc2.append('<hr>')
 

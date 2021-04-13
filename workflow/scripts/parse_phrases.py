@@ -9,6 +9,7 @@ paths = {
     'bhsadata': snakemake.input.bhsadata,
     'slot2pos': snakemake.input.slot2pos,
     'paraseps': snakemake.input.paraseps,
+    'editedges': snakemake.input.editedges,
     'styles': snakemake.input.styles,
     'plotsdir': snakemake.params.plotsdir,
     'parsed_atoms': snakemake.output.parsed_atoms,

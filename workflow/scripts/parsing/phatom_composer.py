@@ -14,15 +14,17 @@ import tools.nav_tree as nt
 
 class PhraseAtomComposer:
 
-    def __init__(self, ph2parse, tf_api, protect_original=False):
+    def __init__(self, ph2parse, editedges, tf_api, protect_original=False):
         self.F, self.E, self.L = tf_api.F, tf_api.E, tf_api.L
         if protect_original:
             self.ph2parse = copy.deepcopy(ph2parse) # write only to local copy
         else:
             self.ph2parse = ph2parse
-        self.mom2kids = self.build_edges()
+        
+        self.mom2kids = self.build_edges(editedges)
+    
    
-    def build_edges(self):
+    def build_edges(self, editedges):
         """Build up an edges dictionary.
         
         The ETCBC phrase atom edges are a bit complex.
@@ -47,6 +49,10 @@ class PhraseAtomComposer:
         phrase. Unfortunately, the ambiguity involved with attempting
         to find the right nominal element makes solving this 
         problem beyond the scope of this project.
+
+        Args:
+            editedges: a dictionary of edge edits for phrase atom
+                relations
        """
         
         child2mom = {}
@@ -63,11 +69,16 @@ class PhraseAtomComposer:
         for ph in self.F.otype.s('phrase_atom'):
             
             # get data on this ph and its mother
-            rela = self.F.rela.v(ph)
-            rela = relamap[rela]
-            mom = self.E.mother.f(ph)
-            momotype = set(self.F.otype.v(m) for m in mom)
-                        
+            if ph in editedges:
+                mom, rela = editedges[ph]            
+                mom = tuple(sorted(mom))
+            else:
+                rela = self.F.rela.v(ph)
+                rela = relamap[rela]
+                mom = self.E.mother.f(ph) or [0]
+
+            momotype = self.F.otype.v(mom[0])
+                            
             # modify Link
             if rela == 'CONJ':
                 # reassign these edges to point at 
@@ -75,11 +86,11 @@ class PhraseAtomComposer:
                 child2mom[ph] = (ph+1, rela)
                
             # deal with normal phrases
-            elif 'phrase_atom' in momotype:
+            elif momotype == 'phrase_atom':
                 child2mom[ph] = (mom[0], rela)
                 
             # word mothers as slots
-            elif 'word' in momotype:
+            elif momotype == 'word':
                 child2mom[ph] = (mom, rela)
                 
         # reverse the dict
@@ -230,9 +241,9 @@ def compose_phrases(paths, tf_api):
     
     F, L = tf_api.F, tf_api.L
     ph2parse = ParseLoader(paths['parsed_atoms']).load()
-    
+    editedges = ParseLoader(paths['editedges']).load()
     whole_phrases = get_complete_phrases(ph2parse, tf_api)
-    composer = PhraseAtomComposer(ph2parse, tf_api)
+    composer = PhraseAtomComposer(ph2parse, editedges, tf_api)
     full_parses = {}
     
     # iterate through all whole phrases and call composer on the 
@@ -255,7 +266,13 @@ def compose_phrases(paths, tf_api):
         elif len(comp_parse) == 1:
             comp_slots = set(comp_parse)
         if ph_slots != comp_slots:
-            raise Exception(f'Missing slots for {phrase}; orig: {ph_slots}; comp: {comp_slots}')
+            if len(ph_slots) > len(comp_slots):
+                raise Exception(
+                    f'Missing slots for {phrase}; '
+                    f'orig: {ph_slots}; comp: {comp_slots}'
+                )
+            else:
+                pass # phrases can be expanded
 
         # save the parse
         full_parses[phrase] = comp_parse

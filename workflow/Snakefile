@@ -87,6 +87,7 @@ rule parse_phrases:
         bhsadata=bhsadata,
         slot2pos=rules.parse_pos.output.slot2pos,
         paraseps=rules.get_disambigs.output.paraseps,
+        editedges="data/edit_edges.json",
         styles=stylesheets,
         script="scripts/parsing/phatom_parser.py",
         script2="scripts/parsing/phatom_composer.py"

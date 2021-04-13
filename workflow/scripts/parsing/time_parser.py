@@ -17,29 +17,41 @@ class TimeTokenizer:
         self.tokens = set() # to feed to the parser later
         self.slot2pos = ParseLoader(paths['slot2pos']).load()
         self.debug = debug
+        self.i = 0 # token indexer
+
         with open(paths['lexmap'], 'r') as infile:
             self.lexmap = json.load(infile)
     
-    def sly_token(self, tag, index, value=''):
+    def sly_token(self, tag, node=0, **values):
         """Get SLY token object with customized data."""
         token = SlyToken()
         self.tokens.add(tag) # track unique tokens
-        token.value = value
+        token.value = dict(values)
+        token.value['node'] = node
+        token.value['phatom'] = self.L.u(node, 'phrase_atom')[0]
         token.type = tag
-        token.index = index
+        token.index = self.i
         token.lineno = 1
+        self.i += 1
         return token
 
     def get_head(self, phrase):
         """Flexible head grabbing, allowing for singular phrases."""
-        if phrase is None:
-            return None
-        elif type(phrase) == int:
+        if type(phrase) == int:
             return phrase
         elif len(phrase) == 1:
             return phrase[0]
         else:
             return nt.get_head(phrase)
+
+    def get_slots(self, phrase):
+        """Get slots without errors."""
+        if type(phrase) == list and None in phrase:
+            for sp in phrase:
+                if type(sp) == int:
+                    yield sp
+        else:
+            yield from nt.get_slots(phrase) 
 
     def get_head_phrases(self, phrase):
         """Retrieve all phrases with head in the path."""
@@ -47,8 +59,15 @@ class TimeTokenizer:
         if len(phrase) == 3:
             head_phrases = list(nt.get_head_path(phrase))
         else:
-            head_phrases = [[None, phrase[0], None]]
+            head_phrases = [phrase]
         return head_phrases
+
+    def get_rela(self, phrase):
+        """Return the edge relation in a phrase."""
+        if len(phrase) == 3:
+            return phrase
+        elif len(phrase) == 1:
+            return (None, phrase[0], None)
 
     def tokenize(self, parsedphrase, start=True):
         """Follow path to right-most item (head) and yield tokens.
@@ -67,23 +86,26 @@ class TimeTokenizer:
    
         # process all internal relations
         head_phrases = self.get_head_phrases(parsedphrase)
+        relas = set(self.get_rela(ph)[-1] for ph in head_phrases)
         paras = []
         
-        i = 0
+        # reset token indexer
+        if start:
+            self.i = 0
+
         for phrase in head_phrases:
-            
-            src, tgt, rela = phrase
+
+            src, tgt, rela = self.get_rela(phrase) 
 
             # yield null token if no starting preposition found
-            if (i==0) and start:
-                token = self.null_token(phrase, i)
+            if (self.i==0) and start:
+                token = self.null_token(phrase)
                 if token:
                     yield token
-                    i += 1
 
             # tokenize prepositions
             if tag_rela(rela, 'PP'):
-                yield self.prep_token(phrase, i)
+                yield self.prep_token(phrase)
                 
             # handle parallels
             elif tag_rela(rela, 'PARA'):
@@ -102,130 +124,128 @@ class TimeTokenizer:
 
             # tokenize appositional relations if relevant
             elif tag_rela(rela, 'APPO'):
-                token = self.appo_token(phrase, i)
+                token = self.appo_token(phrase)
                 if token:
                     yield token
             
             # numbered relations
             elif tag_rela(rela, 'NUM'):            
-                yield self.num_token(phrase, i)
+                yield self.num_token(phrase)
 
             # quantified relations
             elif tag_rela(rela, 'QUANT'):
-                token = self.quant_token(phrase, i)
+                token = self.quant_token(phrase)
                 if token:
                     yield token
 
             # definite relations
             elif tag_rela(rela, 'DEF'):
-                yield self.def_token(phrase, i)
+                yield self.def_token(phrase)
 
             elif tag_rela(rela, 'DEMON'):
-                yield self.demon_token(phrase, i)
+                yield self.demon_token(phrase)
 
             # genitival relations
             elif tag_rela(rela, 'GP'):
-                token = self.gen_token(phrase, i)
+                token = self.gen_token(phrase)
                 if token:
                     yield token
 
-            # card chain relas:
-            # NB: that this will only ever happen if 
-            # a cardinal chain itself is profiled, without
-            # a quantified element
-#            elif tag_rela(rela, 'CARDC'):
-#                yield self.sly_token('CARD', i)
-    
-            # drip-bucket tokenizer
+           # drip-bucket tokenizer
             elif rela not in ignore:
-                yield self.sly_token(rela, i)
+                srchead = self.get_head(src)
+                yield self.sly_token(rela, node=srchead)
 
-            # increase index
-            i += 1
-                
             # give TIME token once reaching the end
             if head_phrases[-1] == phrase:
-                timetoks = list(self.time_token(phrase, i))
-                seenlex = set(tok.value for tok in timetoks)
+                timetoks = list(self.time_token(phrase, relas))
+                seenlex = set(tok.value.get('lex') for tok in timetoks)
                 for tok in timetoks:
                     yield tok
-                i += 1
 
-                # yield all of the parallel tokens
-                for sp_token in paras:
-                    sp_token.index = i
+                # yield all of the parallel tokens in sorted order
+                sort_paras= lambda p: [p.value['phatom'], p.index]
+                for sp_token in sorted(paras, key=sort_paras):
 
                     # detect repeated lexemes (distributive construction)
                     if (sp_token.type in {'TIME'}
-                    and sp_token.value in seenlex):
+                    and sp_token.value['lex'] in seenlex):
                         sp_token.type = 'TIME2'
 
                     yield sp_token
-                    i += 1
                         
-    def time_token(self, phrase, i):
+    def time_token(self, phrase, time_relas):
         """Parse times into tokens."""
-        src, time, rela = phrase
+        src, time, rela = self.get_rela(phrase)
+        F = self.F
 
         # yield items attached to the time
-        if (prs := self.F.prs.v(time)) not in {'absent', 'n/a'}:
-            if self.F.lex.v(time) == 'B' and prs == 'W':
-                yield self.sly_token('IT', i) # בו
+        if (prs := F.prs.v(time)) not in {'absent', 'n/a'}:
+            if F.lex.v(time) == 'B' and prs == 'W':
+                yield self.sly_token('IT', node=time) # בו
             else:
-                yield self.sly_token('SFX', i)
-        if self.F.nu.v(time) == 'du':
-            yield self.sly_token('NUM', i)
-        if self.F.uvf.v(time) == 'H':
-            yield self.sly_token('LOCALE', i)
+                yield self.sly_token('SFX', node=time)
+        if F.nu.v(time) == 'du':
+            yield self.sly_token('NUM', node=time)
+        if F.uvf.v(time) == 'H':
+            yield self.sly_token('LOCALE', node=time)
 
-        # yield the time itself
-        calend_times = {'XDC=/': 'MONTH', 'CNH/': 'YEAR'}
-        lex = self.F.lex.v(time)
-        nu = self.F.nu.v(time)
+        # get data for processing time words
+        calend_times = {
+            'XDC=/': 'MONTH', 'CNH/': 'YEAR',
+            'KSLW/': 'MONTH', '>LWL/': 'MONTH',
+        }
+        lex = F.lex.v(time)
+        nu = F.nu.v(time)
+        st = F.st.v(time)
+
+        # process the time word itself 
         if lex in self.lexmap:
             token = self.lexmap[lex]
         elif (lex in calend_times and nu == 'sg'):
             token = calend_times[lex]
-
-        # process contexts involving 'day'
         elif lex == 'JWM/' and nu == 'sg':
-            if rela == 'NUM':
+            if 'NUM' in time_relas:
                 token = 'DAY'
-            elif (self.F.st.v(time) == 'c' 
-            and self.slot2pos[time+1] == 'CARD'):
+            elif (st == 'c'
+                      and self.slot2pos[time+1] 
+                      in {'CARD', 'CARD1'}): 
+                token = 'DAY'
+            elif (st == 'c'
+                      and F.lex.v(time+1) == 'H'
+                      and F.lex.v(time+2) == 'XDC=/'):
                 token = 'DAY'
             else:
                 token = 'TIME'
-
         elif self.slot2pos[time] == 'ADVB':
             token = 'ADVB'
         elif self.slot2pos[time] == 'PREP':
-            token = self.F.lex.v(time)
+            token = F.lex.v(time)
         elif self.slot2pos[time] in {'CARD', 'CARD1'}:
             token = 'CARD'
-        elif self.slot2pos[time] == 'ORDN' and lex != 'R>CWN/':
+        elif self.slot2pos[time] == 'ORDN':
             token = 'ORDN'
-        elif self.F.nametype.v(time) == 'pers':
+        elif F.nametype.v(time) == 'pers':
             token = 'PERSON'
         elif nu == 'pl':
             token = 'TIMES'
         else:
             token = 'TIME'
-        yield self.sly_token(token, i, value=lex)
+        yield self.sly_token(token, node=time, lex=lex)
     
-    def prep_token(self, phrase, i):
+    def prep_token(self, phrase):
         """Parse prepositions into singular tokens."""
         token = self.F.lex.v(phrase[0])
         token = self.lexmap.get(token, token)
-        return self.sly_token(token, i)
+        return self.sly_token(token, node=phrase[0])
     
-    def null_token(self, phrase, i):
+    def null_token(self, phrase):
         """Parse whether phrase begins without preposition."""
       
         # process single-word phrases
-        if phrase[-1] is None:
-            if self.slot2pos[phrase[1]] != 'PREP':
-                return self.sly_token('Ø', i)
+        if len(phrase) == 1:
+            if self.slot2pos[phrase[0]] != 'PREP':
+                return self.sly_token('Ø', node=phrase[0])
             else:
                 return None # prevent running rest
 
@@ -235,20 +255,24 @@ class TimeTokenizer:
         # first word is an adverb, then we ignore it and check
         # the next first word
         head = nt.get_head(phrase)
-        slots = sorted(
-            s for s in nt.get_slots(phrase)
-                if (self.F.pdp.v(s) != 'advb' or s == head)
-        )
+        slots = sorted(nt.get_slots(phrase))
+        slotsnoadvb = [
+            s for s in slots
+                if (
+                    self.F.pdp.v(s) != 'advb'
+                    or s == head
+                )
+        ]
         is_null = (
-            (not slots) # only advb
-            or (self.slot2pos[slots[0]] != 'PREP')
+            (not slotsnoadvb) 
+            or (self.slot2pos[slotsnoadvb[0]] != 'PREP')
         )
         if is_null:
-            return self.sly_token('Ø', i)
+            return self.sly_token('Ø', node=slots[0])
 
-    def def_token(self, phrase, i):
+    def def_token(self, phrase):
         """Definite tokens."""
-        return self.sly_token('THE', i)
+        return self.sly_token('THE', node=phrase[0])
 
     def map_demon(self, demonlex):
         demon_map = {
@@ -262,9 +286,9 @@ class TimeTokenizer:
         }
         return demon_map[demonlex]
 
-    def appo_token(self, phrase, i):
+    def appo_token(self, phrase):
         """Parse appositional tokens."""
-        src, tgt, rela = phrase
+        src, tgt, rela = self.get_rela(phrase)
         
         # get the head item of the appositional phrase
         appo_head = self.get_head(src)
@@ -273,19 +297,20 @@ class TimeTokenizer:
         if self.F.pdp.v(appo_head) == 'prde':
             appo_lex = self.F.lex.v(appo_head)
             token = self.map_demon(appo_lex)
-            return self.sly_token(token, i)
+            return self.sly_token(token, node=appo_head)
             
-    def demon_token(self, phrase, i):
+    def demon_token(self, phrase):
         """Parse demonstratives."""
-        src, tgt, rela = phrase
+        src, tgt, rela = self.get_rela(phrase)
         demon = self.get_head(src)
         demonlex = self.F.lex.v(demon)
         token = self.map_demon(demonlex)
-        return self.sly_token(token, i)
+        return self.sly_token(token, node=demon)
 
-    def num_token(self, phrase, i):
+    def num_token(self, phrase):
         """Parse number tokens."""
         number = phrase[0]
+        head = self.get_head(phrase[0])
         is_one = (
             type(number) == int
             and self.F.lex.v(number) == '>XD/'
@@ -295,11 +320,11 @@ class TimeTokenizer:
             token = 'NUM_ONE'
         else:
             token = 'NUM'
-        return self.sly_token(token, i)
+        return self.sly_token(token, node=head)
 
-    def gen_token(self, phrase, i):
+    def gen_token(self, phrase):
         """Parse genitive phrase tokens."""
-        src, tgt, rel = phrase
+        src, tgt, rel = self.get_rela(phrase)
         gen_head = self.get_head(src)
         ph_head = self.get_head(tgt)
 
@@ -312,23 +337,23 @@ class TimeTokenizer:
             and self.F.nu.v(gen_head) == 'pl'
         )
         if gen_dur:
-            return self.sly_token('GENDUR', i)
+            return self.sly_token('GENDUR', node=gen_head)
 
         # identify genitive cardinals
 #        src0 = sorted(nt.get_slots(src))[0]
 #        if self.slot2pos[gen_head] in {'CARD', 'CARD1'}:
-#            return self.sly_token('GENCARD', 1)
+#            return self.sly_token('GENCARD', node=gen_head)
 #        elif self.slot2pos[src0] in {'CARD', 'CARD1'}:
-#            return self.sly_token('GENCARD', 1)
+#            return self.sly_token('GENCARD', node=src0)
 
-    def quant_token(self, phrase, i):
+    def quant_token(self, phrase):
         """Return quantifier tokens."""
-        src, tgt, rel = phrase
+        src, tgt, rel = self.get_rela(phrase)
         quant = self.get_head(src)
         quantlex = self.F.lex.v(quant)
         token = self.lexmap.get(quantlex)
         if token:
-            return self.sly_token(token, i) 
+            return self.sly_token(token, node=quant) 
 
 class TimeParser(SlyParser):
 
@@ -382,6 +407,7 @@ class TimeParser(SlyParser):
         'IT',
         'LOCALE',
         'ORDN',
+        'FIRST',
     }
 
     def error(self, token):
@@ -401,9 +427,11 @@ class TimeParser(SlyParser):
        'antpost_dur', 'posterior_dur', 'multi_postantdur',
        'multi_antpost', 'multi_antdursim', 'dur_to_end',
        'simul_posts', 'multi_posts', 'simul_to_end', 
-       'simul_dur', 'month_ref', 'month_simul', 'year_simul',
-       'simul_cal', 'oneday_simul', 'habitual', 'day_simul',
-       'ordn_simul', 'multi')
+       'dur_simul', 'month_ref', 'month_simul', 'year_simul',
+       'cal_simul', 'oneday_simul', 'habitual', 'day_simul',
+       'ordn_simul', 'multi', 'first_simul', 'simul_ref',
+       'multi_begintoend', 'posterior_dist', 'anterior_dist',
+       'simul_dur', 'postdur_dist', 'antdur_dur')
     def category(self, p): 
         return p[0] 
 
@@ -418,19 +446,20 @@ class TimeParser(SlyParser):
             data['distributive'] = True
         return data
 
-    @_('hab_simul in_dur')
+    @_('hab_simul in_dur', 'simul hab_simul')
     def hab_simul(self, p):
         data = {
             'function': 'simul_habitual, multi_simul',
-            'parts': p[0]['parts'] + [p[1]]
+            'parts': list(p),
         }
         return data
 
     @_('hab_simul hab_simul')
     def hab_simul(self, p):
-        p[0]['parts'].extend(
-            p[1]['parts']
-        )
+        data = {
+            'function': 'simul_habitual, multi_simul',
+            'parts': list(p),
+        }
         return p[0]
 
     @_('Ø CARD antdur_simul')
@@ -476,7 +505,25 @@ class TimeParser(SlyParser):
         }
         return data
 
-    # 'all the days of Koresh and on...'
+    @_('MN month month_ref')
+    def begin_to_end(self, p):
+        data = {
+            'function': 'begin_to_end',
+            'parts': [
+                {'time': p[1]['time'], 'function': 'posterior_dur'},
+                p[1]
+            ]
+        }
+        return data
+
+    @_('begin_to_end begin_to_end')
+    def multi_begintoend(self, p):
+        data = {
+            'function': 'multi_begin_to_end',
+            'parts': list(p),
+        }
+        return data
+
     @_('atelic_ext anterior_dur')
     def dur_to_end(self, p):
         data = {
@@ -486,7 +533,7 @@ class TimeParser(SlyParser):
         return data
 
     # 'on the eigth day and onward'
-    @_('simul ONWARD')
+    @_('simul ONWARD', 'in_dur anterior_dur', 'simul anterior_dur')
     def simul_to_end(self, p):
         data = {
             'function': 'simul_to_end',
@@ -494,9 +541,15 @@ class TimeParser(SlyParser):
         }
         return data
 
-    @_('in_dur simul', 'simul in_dur')
+    @_('in_dur simul', 'simul in_dur',
+       'day_simul day_simul', 'day_simul simul',
+       'year_simul simul', 'ordn_simul ordn_simul',
+       'simul month_simul', 'in_dur first_simul',
+       'oneday_simul day_simul', 'month_simul simul',
+       'cal_simul simul', 'cal_simul cal_simul', 
+       'simul cal_simul', 'in_dur year_simul') 
     def multi_simul(self, p):
-        p.in_dur['function'] = 'telic_ext'
+        getattr(p, 'in_dur', {})['function'] = 'telic_ext'
         data = {
             'function': 'multi_simul',
             'parts': [p[0], p[1]]
@@ -512,7 +565,7 @@ class TimeParser(SlyParser):
         }
         return data
 
-    @_('antdur_simul simul')
+    @_('antdur_simul simul', 'antdur_simul year_simul')
     def multi_simul(self, p):
         p[0]['function'] = 'simultaneous'
         data = {
@@ -552,6 +605,14 @@ class TimeParser(SlyParser):
         p[1]['parts'] = [p[0]] + partsb
         return p[1]
 
+    # (cl)
+    @_('anterior_dur atelic_ext')
+    def antdur_dur(self, p):
+        data = {
+            'function': 'antdur_dur',
+            'parts': list(p),
+        }
+
     # 'in that day and after tomorrow'
     @_('simul posts')
     def simul_posts(self, p):
@@ -570,7 +631,8 @@ class TimeParser(SlyParser):
         return data
 
     # very complicated phrase!
-    @_('day_simul simul begin_to_end')
+    @_('day_simul simul begin_to_end',
+       'hab_simul anterior_dist')
     def multi(self, p):
         data = {
             'function': '?',
@@ -580,15 +642,45 @@ class TimeParser(SlyParser):
 
     # located durations
     @_('atelic_ext simul', 'atelic_ext year_simul')
-    def simul_dur(self, p):
+    def dur_simul(self, p):
         data = {
-            'function': 'simul_dur',
+            'function': 'dur_simul',
             'parts': [p[0], p[1]]
         }
         return data
 
+    # (cl)
+    @_('year_simul atelic_ext', 'day_simul atelic_ext',
+       'in_dur atelic_ext', 'simul atelic_ext',
+       'cal_simul multi_begintoend', 'cal_simul atelic_ext')
+    def simul_dur(self, p):
+        getattr(p,'in_dur',{})['function'] = 'simultaneous'
+        data = {
+            'function': 'simul_dur',
+            'parts': list(p),
+        }
+        return data
+
+    # (cl)
+    @_('posterior atelic_ext')
+    def postdur_dist(self, p):
+        data = {
+            'function': 'postdur_dist',
+            'parts': list(p),
+        }
+        return data
+
+    # simul phrases followed by potential references
+    @_('simul antdur_simul', 'in_dur antdur_simul')
+    def simul_ref(self, p):
+        data = {
+            'function': 'simul_ref',
+            'parts': list(p),
+        }
+        return data
+
     # -- atelic extent
-    @_('Ø duration', 'Ø year_num', 'Ø day_num', 
+    @_('Ø duration', 'Ø num_year', 'Ø num_day', 
        'Ø one_year')
     def atelic_ext(self, p):
         getattr(p, 'one_year', {})['time'] = 'duration'
@@ -601,8 +693,9 @@ class TimeParser(SlyParser):
     # as it corroborates Haspelmath's hypothesis
     # that the zero-marked atelic extent derives
     # from the accusative / object role
-    @_('>T duration')
+    @_('>T duration', '>T num_day')
     def atelic_ext(self, p):
+        getattr(p, 'num_day', {})['time'] = 'duration'
         p[1].update({
             'function': 'atelic_ext',
         })
@@ -619,14 +712,25 @@ class TimeParser(SlyParser):
     # -- simultaneous --
     @_('B time', 'Ø time',
        'K time', 'BJN/ duration',
-       '<L time', 'Ø year')
+       '<L time', 'B person', 'Ø ordinal')
     def simul(self, p):
         p[1].update({
             'function': 'simultaneous',
         })
         return p[1] 
 
-    @_('B simul', 'K simul', 'L simul')
+    @_('<L person')
+    def simul(self, p):
+        data = {
+            'function': 'simultaneous',
+            'parts': [
+                {'time': 'duration', 'reference': 'person'},
+            ],
+        }
+        return data
+
+    @_('B simul', 'K simul', 'L simul',
+       'K first_simul')
     def simul(self, p):
         return p[1]
 
@@ -647,7 +751,8 @@ class TimeParser(SlyParser):
         } 
         return data
 
-    @_('BEGINNING duration', 'BEGINNING time')
+    @_('BEGINNING duration', 'BEGINNING time',
+       'BEGINNING person',)
     def simul(self, p):
         p[1].update({
             'function': 'simultaneous',
@@ -675,7 +780,8 @@ class TimeParser(SlyParser):
         return p[2]
  
     @_('END duration', 'END time', 
-       'END year_num', 'END day_num')
+       'END num_year', 'END num_day',
+       'END person')
     def simul(self, p):
         p[1].update({
             'function': 'simultaneous',
@@ -694,7 +800,7 @@ class TimeParser(SlyParser):
         }
         return data
 
-    @_('B year', 'B year_num')
+    @_('B year', 'B num_year')
     def year_simul(self, p):
         data = {
             'function': 'simultaneous',
@@ -702,7 +808,15 @@ class TimeParser(SlyParser):
         }
         return data
 
-    @_('B day', 'B day_num', 'B CARD', 
+    @_('year_simul num_year')
+    def year_simul(self, p):
+        data = {
+            'function': 'simultaneous',
+            'parts': list(p),
+        }
+        return data
+
+    @_('B day', 'B num_day', 'B CARD', 
        'B THE CARD', 'Ø CARD')
     def day_simul(self, p):
         data = {
@@ -711,13 +825,6 @@ class TimeParser(SlyParser):
             'count': 'calendrical',
         }
         return data
-
-    @_('B one_day')
-    def oneday_simul(self, p):
-        p[1].update({
-            'function': 'simultaneous',
-        })
-        return p[1]
 
     @_('day_simul year_simul')
     def day_simul(self, p):
@@ -731,6 +838,13 @@ class TimeParser(SlyParser):
         }
         return data
 
+    @_('B one_day')
+    def oneday_simul(self, p):
+        p[1].update({
+            'function': 'simultaneous',
+        })
+        return p[1]
+
     @_('B ordinal')
     def ordn_simul(self, p):
         data = {
@@ -739,18 +853,47 @@ class TimeParser(SlyParser):
         }
         return data
 
+    @_('B first')
+    def first_simul(self, p):
+        data = {
+            'function': 'simultaneous',
+            'parts': [p[1]],
+        }
+        return data
+
     # -- CALENDRICAL COMPOSITIONS --
-    @_('month_simul day_simul', 'ordn_simul day_simul')
-    def simul_cal(self, p):
+    @_('day_simul month_simul', 
+       'day_simul ordn_simul year_simul',
+       'month_simul day_simul', 
+       'month_simul ordn_simul year_simul',
+       'month_simul year_simul',
+       'month_simul year_simul day_simul',
+       'month_simul year',
+       'ordn_simul day_simul',
+       'first_simul day_simul',
+       'year_simul month_simul day_simul',
+       'year_simul ordn_simul day_simul',
+       'year_simul month_simul', 
+        # NB: last month_simul below belongs to day_simul
+        # this is a work-around, but might be a better model
+       'year_simul month_simul day_simul month_simul',
+       'year_simul month_simul oneday_simul',
+       'year_simul first_simul day_simul',
+      )
+    def cal_simul(self, p):
+        getattr(p, 'ordn_simul', {})['number'] =  'calendrical'
+        getattr(p, 'first_simul', {})['number'] =  'calendrical'
+        getattr(p, 'year', {})['function'] =  'simultaneous'
         data = {
             'function': 'simultaneous',
             'parts': list(p),
-            'reference': p[-1],
+            'reference': p[-1], # TODO: fix this properly
         } 
         return data
 
     # -- either atelic ext or simul --
-    @_('Ø dur_sing', 'Ø one_day')
+    @_('Ø dur_sing', 'Ø one_day', 'Ø year',
+       'Ø month')
     def atelic_simul(self, p):
         p[1].update({
             'function': 'atelic_ext, simultaneous',
@@ -804,27 +947,37 @@ class TimeParser(SlyParser):
             'function': 'anterior',
             'advb': True,
         }
+    @_('atelic_ext anterior')
+    def anterior_dist(self, p):
+        data = {
+            'function': 'anterior_dist',
+            'parts': list(p), 
+        }
+        return data
 
     # -- anterior durative --
     @_('<D duration', '<D time', '<D simul',
        'L posterior', '<D dur_sing', '<D year',
-       '<D year_num', '<D day_num')
+       '<D num_year', '<D num_day', '<D one_day',
+       '<D month', '<D person')
     def anterior_dur(self, p):
-        getattr(p, 'year_num', {})['time'] = 'duration'
-        getattr(p, 'day_num', {})['time'] = 'duration'
+        getattr(p, 'num_year', {})['time'] = 'duration'
+        getattr(p, 'num_day', {})['time'] = 'duration'
         data = {
             'function': 'anterior_dur',
             'parts': [p[1]],
         }
         return data
 
-    @_('anterior_dur person_ref')
+    @_('antdur_simul anterior_dur')
     def anterior_dur(self, p):
-        p[0]['reference'] = 'person'
+        p[0]['function'] = 'anterior_dur'
+        p[0]['parts'] = [p[0]['time'], p[1]]
         return p[0]
 
     # -- anterior dur / simultaneous
-    @_('L time', 'L duration', '>L time')
+    @_('L time', 'L duration', '>L time', 
+       'L first', 'L num_day', 'L one_day')
     def antdur_simul(self, p):
         p[1].update({
             'function': 'anterior_dur, simultaneous',
@@ -905,8 +1058,17 @@ class TimeParser(SlyParser):
             'advb': True,
         }
 
+    @_('atelic_ext posterior')
+    def posterior_dist(self, p):
+        data = {
+            'function': 'posterior_dist',
+            'parts': list(p), 
+        }
+        return data
+
     # -- posteriors (durative?) --
-    @_('MN time', 'MN dur_sing', 'MN one_day')
+    @_('MN time', 'MN dur_sing', 'MN one_day',
+       'MN first', 'MN year', 'MN num_year', 'MN month')
     def posts(self, p):
         p[1].update({
             'function': 'posterior, posterior_dur',
@@ -920,7 +1082,7 @@ class TimeParser(SlyParser):
         })
         return p[1]
 
-    @_('MN simul')
+    @_('MN simul', 'MN first_simul')
     def posterior(self, p):
         p[1]['function'] = 'posterior'
         return p[1]
@@ -982,9 +1144,10 @@ class TimeParser(SlyParser):
         }
         return data
 
-    @_('year_num year_num', 'duration year_num', 
-       'day_num day_num', 'day_num duration',
-       'duration day_num', 'duration year')
+    @_('num_year num_year', 'duration num_year', 
+       'num_day num_day', 'num_day duration',
+       'duration num_day', 'duration year',
+       'duration month')
     def duration(self, p):
         data = {
             'time': 'durative',
@@ -1159,13 +1322,13 @@ class TimeParser(SlyParser):
         }
 
     @_('NUM day')
-    def day_num(self, p):
+    def num_day(self, p):
         p[1].update({
             'number': 'calendrical',
         })
         return p[1]
 
-    @_('day_num month_ref', 'day_num person_ref',
+    @_('num_day month_ref', 'num_day person_ref',
        'one_day month_ref', 'day month_ref')
     def day(self, p):
         data = {
@@ -1225,6 +1388,33 @@ class TimeParser(SlyParser):
         })
         return p[1]
 
+    @_('SFX month')
+    def month(self, p):
+        p[1].update({
+            'reference': 'personal',
+        })
+        return p[1]
+
+    @_('month antdur_simul')
+    def month(self, p):
+        data = {
+            'reference': 'time',
+            'parts': [
+                {'time': p[1]['time']}
+            ]
+        }
+        return data
+
+    @_('month L year')
+    def month(self, p):
+        data = {
+            'reference': 'year',
+            'parts': [
+                p[0], p[2]
+            ]
+        }
+        return data
+
     @_('GENCARD day')
     def day(self, p):
         p[1].update({
@@ -1274,7 +1464,7 @@ class TimeParser(SlyParser):
         return p[1]
 
     @_('NUM year')
-    def year_num(self, p):
+    def num_year(self, p):
         p[1].update({
             'number': 'calendrical',
         })
@@ -1286,11 +1476,21 @@ class TimeParser(SlyParser):
             'time': 'single',
         }
 
-    @_('year person_ref', 'year_num person_ref')
+    @_('year person_ref', 'num_year person_ref')
     def year(self, p):
         data = {
-            'parts': [p[0], p[1]],
+            'parts': [p[1]],
             'reference': 'person',    
+        }
+        return data
+    
+    @_('year antdur_simul')
+    def year(self, p):
+        data = {
+            'reference': 'time',
+            'parts': [
+                {'time': p[1]['time']}
+            ]
         }
         return data
 
@@ -1346,17 +1546,50 @@ class TimeParser(SlyParser):
     def ordinal(self, p):
         return p[1]
 
-    # define reference constructions
-    # TODO: incorporate reference type into these
-    # kinds of constructions to cover THE and THIS, etc.
-    @_('L PERSON', 'L THE PERSON', 'L SFX PERSON')
-    def person_ref(self, p):
+    # see Gen 28:19 for why this pattern is needed:
+    # לראשנה
+    # to treat RISHON as a normal ordinal would mean
+    # that this phrase would get interpreted as a 
+    # calendrical reference; whereas it never occurs
+    # as such in calendrical simultaneous phrases
+    @_('FIRST')
+    def first(self, p):
+        return {
+            'time': 'singular',
+            'reference': 'absolute',
+        }
+    @_('THE first')
+    def first(self, p):
+        return p[1]
+
+    @_('PERSON')
+    def person(self, p):
         return {
             'reference': 'person',
         }
+    @_('THE person')
+    def person(self, p):
+        p[1].update({
+            'reference': 'anaphora',
+            'ref_type': 'exophoric',
+        })
+        return p[1]
+    @_('SFX person')
+    def person(self, p):
+        p[1].update({
+            'reference': 'deictic',
+            'ref_type': 'personal',
+        })
+        return p[1]
+    
+    # define reference constructions
+    @_('L person')
+    def person_ref(self, p):
+        return {
+            'reference': 'person', # TODO: convert to list to keep person refs
+        }
 
-    @_('L MONTH', 'L THE MONTH', 
-       'L THIS THE MONTH', 'L NUM MONTH',
+    @_('L month',
        'IT B')
     def month_ref(self, p):
         return {
@@ -1391,24 +1624,41 @@ def parse_times(paths, API):
     # run the parser
     parsed = {}
     errors = {}
-    for ph_node, parsing in phrases.items():
 
-        # skip non-time phrases
-        if API.F.function.v(ph_node) != 'Time':
-            continue
-
-        debug = False
-        if ph_node == 1144822:
-            tokenizer.debug = True
-
-        tokens = list(tokenizer.tokenize(parsing))
+    F, L = API.F, API.L
     
+    # gather eligible clauses
+    # an eligible clause is one for which all
+    # its phrases are parsed
+    clauses = {}
+    good_phrases = set(phrases)
+    for clause in F.otype.s('clause'):
+        time_phrases = [
+            ph for ph in L.d(clause, 'phrase')
+                if F.function.v(ph) == 'Time'
+        ]
+        if time_phrases and good_phrases.issuperset(set(time_phrases)):
+            clauses[clause] = time_phrases
+
+    print(len(clauses), 'clauses ready for parsing...')
+
+    for clause, time_phrases in clauses.items(): 
+
+        # collect tokens for all phrase parsings
+        tokens = []
+        for ph in time_phrases:
+            parsing = phrases[ph]
+            tokens.extend(
+                tokenizer.tokenize(parsing)
+            )
+
+        # attempt parsing
         parsing = parser.parse(t for t in tokens)
         if parsing is not None and error_tracker['e'] is None:
-            parsed[ph_node] = parsing
+            parsed[clause] = parsing
         else:
             toks = str([t.type for t in tokens])
-            errors[ph_node] = (error_tracker['e'], toks)
+            errors[clause] = (error_tracker['e'], toks)
 
             # reset error tracker
             error_tracker['e'] = None 
