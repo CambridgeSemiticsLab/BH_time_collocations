@@ -3,6 +3,7 @@ edits = {
     673340: 'Time', # mislabeled as Adju
     673345: 'Time', # mislabled as Adju
     821588: 'Time', # Ezek 45:25, mislabled as Adju (בֶּחָג)
+    714474: 'Time', # Deut 31:10, mislabled as Adju (חג)
     741477: 'Time', # 1 Sam 25: 15, mislabled as Loca
     792873: 'Time', # Jer 11: 4, mislabled as Loca
     849296: 'Loca', # Ps 113: 6, mislabled as Time

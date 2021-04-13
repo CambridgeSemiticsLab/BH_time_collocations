@@ -524,11 +524,13 @@ class TimeParser(SlyParser):
         }
         return data
 
-    @_('atelic_ext anterior_dur')
+    @_('atelic_ext anterior_dur', 
+       'atelic_ext antdur_simul')
     def dur_to_end(self, p):
+        getattr(p,'antdur_simul',{})['function'] = 'anterior_dur'
         data = {
             'function': 'dur_to_end',
-            'parts': [p[0], p[1]]
+            'parts': list(p),
         }
         return data
 
@@ -612,6 +614,7 @@ class TimeParser(SlyParser):
             'function': 'antdur_dur',
             'parts': list(p),
         }
+        return data
 
     # 'in that day and after tomorrow'
     @_('simul posts')
@@ -630,9 +633,22 @@ class TimeParser(SlyParser):
         }
         return data
 
+    @_('multi_posts posts')
+    def multi_posts(self, p):
+        data = {
+            'function': 'multi_posts',
+            'parts': list(p),
+        } 
+        return data
+    
     # very complicated phrase!
     @_('day_simul simul begin_to_end',
-       'hab_simul anterior_dist')
+       'hab_simul anterior_dist', 
+       'antdur_simul habitual',
+       'posterior simul', 'posts simul',
+       'posts begin_to_end', 'posterior_dur in_dur',
+       'habitual begin_to_end',
+       'hab_simul begin_to_end')
     def multi(self, p):
         data = {
             'function': '?',
@@ -641,18 +657,21 @@ class TimeParser(SlyParser):
         return data
 
     # located durations
-    @_('atelic_ext simul', 'atelic_ext year_simul')
+    @_('atelic_ext simul', 'atelic_ext year_simul',
+       'atelic_ext in_dur')
     def dur_simul(self, p):
+        getattr(p,'in_time',{})['function'] = 'simultaneous'
         data = {
             'function': 'dur_simul',
-            'parts': [p[0], p[1]]
+            'parts': list(p),
         }
         return data
 
     # (cl)
     @_('year_simul atelic_ext', 'day_simul atelic_ext',
        'in_dur atelic_ext', 'simul atelic_ext',
-       'cal_simul multi_begintoend', 'cal_simul atelic_ext')
+       'cal_simul multi_begintoend', 'cal_simul atelic_ext',
+       'antdur_simul atelic_ext')
     def simul_dur(self, p):
         getattr(p,'in_dur',{})['function'] = 'simultaneous'
         data = {
