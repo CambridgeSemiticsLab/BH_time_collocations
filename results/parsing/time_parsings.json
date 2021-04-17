@@ -42,7 +42,8 @@
     "function": "simultaneous"
   },
   "427870": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "427887": {
@@ -254,7 +255,8 @@
     "function": "atelic_ext"
   },
   "428066": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "428069": {
@@ -305,6 +307,51 @@
     "ref_type": "exophoric",
     "count": "mensural",
     "function": "anterior_dur, simultaneous"
+  },
+  "428158": {
+    "function": "multi_simul",
+    "parts": [
+      {
+        "function": "simul",
+        "parts": [
+          {
+            "function": "simultaneous",
+            "parts": [
+              {
+                "reference": "time",
+                "parts": [
+                  {
+                    "time": "durative"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "function": "simultaneous",
+            "parts": [
+              {
+                "time": "single",
+                "reference": "anaphora",
+                "ref_type": "exophoric"
+              }
+            ]
+          },
+          {
+            "function": "simultaneous",
+            "time": "single",
+            "count": "calendrical"
+          }
+        ]
+      },
+      {
+        "time": "?",
+        "reference": "deictic",
+        "ref_type": "spatial",
+        "ref_dist": "near",
+        "function": "simultaneous"
+      }
+    ]
   },
   "428160": {
     "time": "durative",
@@ -743,7 +790,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -1955,7 +2003,8 @@
     "function": "simultaneous"
   },
   "433804": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "433820": {
@@ -2345,7 +2394,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -2496,7 +2546,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -2543,10 +2594,11 @@
     "time": "durative",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       },
       {
-        "time": "?"
+        "time": "durative"
       }
     ],
     "function": "anterior_dur, simultaneous"
@@ -2836,7 +2888,8 @@
     "function": "simultaneous"
   },
   "435621": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "435625": {
@@ -2909,7 +2962,8 @@
     ]
   },
   "435792": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "435841": {
@@ -3190,7 +3244,8 @@
     "function": "simultaneous"
   },
   "436869": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "436870": {
@@ -3215,7 +3270,8 @@
     "function": "simultaneous"
   },
   "436957": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "437030": {
@@ -4560,7 +4616,8 @@
     ]
   },
   "440627": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "440641": {
@@ -5067,36 +5124,24 @@
     "function": "atelic_ext"
   },
   "441950": {
-    "function": "simul_habitual, multi_simul",
+    "function": "multi_simul",
     "parts": [
       {
         "time": "?",
         "function": "simultaneous"
       },
       {
-        "function": "simul_habitual, multi_simul",
-        "parts": [
-          {
-            "time": "durative",
-            "reference": "deictic",
-            "ref_type": "personal",
-            "function": "telic_ext, dist_fut, dist_past"
-          },
-          {
-            "time": "durative",
-            "parts": [
-              {
-                "time": "durative"
-              },
-              {
-                "time": "durative",
-                "reference": "deictic",
-                "ref_type": "personal"
-              }
-            ],
-            "function": "telic_ext, dist_fut, dist_past"
-          }
-        ]
+        "time": "durative",
+        "reference": "deictic",
+        "ref_type": "personal",
+        "function": "telic_ext"
+      },
+      {
+        "time": "singular",
+        "reference": "deictic",
+        "ref_type": "personal",
+        "function": "simultaneous",
+        "time_loc": "beginning"
       }
     ]
   },
@@ -6286,7 +6331,8 @@
     "function": "atelic_ext"
   },
   "445607": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "445634": {
@@ -6610,7 +6656,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -6840,7 +6887,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -6854,7 +6902,8 @@
         "function": "atelic_ext"
       },
       {
-        "time": "?",
+        "time": "durative",
+        "advb": true,
         "function": "anterior_dur"
       }
     ]
@@ -7007,7 +7056,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -7098,7 +7148,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -7238,7 +7289,8 @@
     "count": "measurement"
   },
   "448536": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "448554": {
@@ -7412,7 +7464,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -7976,7 +8029,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -8277,8 +8331,9 @@
     "function": "simultaneous"
   },
   "450955": {
-    "time": "?",
-    "function": "posterior, posterior_dur"
+    "time": "durative",
+    "advb": true,
+    "function": "posterior_dur"
   },
   "450968": {
     "function": "posterior",
@@ -8379,7 +8434,8 @@
     ]
   },
   "451228": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "451248": {
@@ -8452,7 +8508,7 @@
     "function": "simultaneous"
   },
   "451573": {
-    "function": "simul_habitual, multi_simul",
+    "function": "multi_simul",
     "parts": [
       {
         "time": "durative",
@@ -9473,7 +9529,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -9511,7 +9568,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -9562,7 +9620,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -9570,7 +9629,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -10434,7 +10494,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -10446,7 +10507,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -10510,7 +10572,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -11176,7 +11239,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -11378,7 +11442,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -11386,7 +11451,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -11394,7 +11460,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -11402,7 +11469,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -11416,7 +11484,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -11424,7 +11493,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -11441,11 +11511,13 @@
     "function": "simultaneous"
   },
   "458748": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "458751": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "458752": {
@@ -11529,7 +11601,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -12021,10 +12094,6 @@
     "function": "multi_simul",
     "parts": [
       {
-        "time": "durative",
-        "function": "telic_ext"
-      },
-      {
         "function": "simultaneous",
         "parts": [
           {
@@ -12037,6 +12106,25 @@
         "time": "singular",
         "function": "simultaneous",
         "time_loc": "beginning"
+      },
+      {
+        "function": "multi_simul",
+        "parts": [
+          {
+            "function": "simultaneous",
+            "parts": [
+              {
+                "time": "singular",
+                "reference": "absolute"
+              }
+            ]
+          },
+          {
+            "time": "singular",
+            "function": "simultaneous",
+            "time_loc": "beginning"
+          }
+        ]
       }
     ]
   },
@@ -12086,7 +12174,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -12229,7 +12318,8 @@
     "function": "simultaneous"
   },
   "461265": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "461336": {
@@ -12286,14 +12376,16 @@
     "function": "simultaneous"
   },
   "461539": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "461540": {
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -12311,7 +12403,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -12462,6 +12555,56 @@
     "count": "mensural",
     "function": "atelic_ext"
   },
+  "461908": {
+    "function": "multi_simul",
+    "parts": [
+      {
+        "time": "durative",
+        "parts": [
+          {
+            "time": "single",
+            "number": "calendrical"
+          },
+          {
+            "time": "single",
+            "number": "calendrical"
+          }
+        ],
+        "function": "telic_ext"
+      },
+      {
+        "function": "simultaneous",
+        "parts": [
+          {
+            "function": "simultaneous",
+            "parts": [
+              {
+                "time": "single",
+                "reference": "anaphora",
+                "ref_type": "exophoric"
+              }
+            ]
+          },
+          {
+            "function": "simultaneous",
+            "parts": [
+              {
+                "time": "single"
+              }
+            ]
+          }
+        ],
+        "reference": {
+          "function": "simultaneous",
+          "parts": [
+            {
+              "time": "single"
+            }
+          ]
+        }
+      }
+    ]
+  },
   "462018": {
     "function": "multi_simul",
     "parts": [
@@ -12537,6 +12680,7 @@
   },
   "462232": {
     "time": "durative",
+    "advb": true,
     "function": "atelic_ext"
   },
   "462241": {
@@ -12637,7 +12781,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -12648,7 +12793,8 @@
     "function": "atelic_ext"
   },
   "462499": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "462527": {
@@ -12692,7 +12838,8 @@
     "function": "atelic_ext"
   },
   "462618": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "462628": {
@@ -13695,7 +13842,8 @@
     "function": "simultaneous"
   },
   "465552": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "465627": {
@@ -14555,7 +14703,8 @@
     "function": "atelic_ext"
   },
   "467647": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "467699": {
@@ -14965,7 +15114,8 @@
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?"
+            "time": "durative",
+            "advb": true
           }
         ]
       }
@@ -15055,7 +15205,8 @@
     ]
   },
   "469231": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "469264": {
@@ -15274,7 +15425,8 @@
     "function": "posterior_dur"
   },
   "469926": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "469940": {
@@ -15471,7 +15623,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -15528,7 +15681,8 @@
     "function": "atelic_ext"
   },
   "470740": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "470741": {
@@ -15554,7 +15708,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -15770,7 +15925,8 @@
     "function": "telic_ext, dist_fut, dist_past"
   },
   "471233": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "471286": {
@@ -15790,8 +15946,9 @@
     "function": "posterior_dur"
   },
   "471541": {
-    "time": "?",
-    "function": "posterior, posterior_dur"
+    "time": "durative",
+    "advb": true,
+    "function": "posterior_dur"
   },
   "471606": {
     "time": "singular",
@@ -15825,7 +15982,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "durative"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -15872,7 +16030,8 @@
     "function": "posterior, posterior_dur"
   },
   "472136": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "472139": {
@@ -16061,11 +16220,13 @@
     "function": "simultaneous"
   },
   "473017": {
-    "time": "?",
-    "function": "posterior, posterior_dur"
+    "time": "durative",
+    "advb": true,
+    "function": "posterior_dur"
   },
   "473041": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "473042": {
@@ -16123,7 +16284,8 @@
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?"
+            "time": "durative",
+            "advb": true
           }
         ]
       }
@@ -16159,7 +16321,8 @@
     "function": "atelic_ext"
   },
   "473333": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "473338": {
@@ -16195,16 +16358,19 @@
     "function": "anterior_dur, simultaneous"
   },
   "473525": {
-    "time": "?",
-    "function": "posterior, posterior_dur"
+    "time": "durative",
+    "advb": true,
+    "function": "posterior_dur"
   },
   "473539": {
-    "time": "?",
-    "function": "posterior, posterior_dur"
+    "time": "durative",
+    "advb": true,
+    "function": "posterior_dur"
   },
   "473547": {
-    "time": "?",
-    "function": "simultaneous"
+    "time": "durative",
+    "advb": true,
+    "function": "atelic_ext"
   },
   "473558": {
     "time": "singular",
@@ -16306,8 +16472,9 @@
     "function": "simultaneous"
   },
   "473998": {
-    "time": "?",
-    "function": "posterior, posterior_dur"
+    "time": "durative",
+    "advb": true,
+    "function": "posterior_dur"
   },
   "474025": {
     "function": "simultaneous",
@@ -16337,7 +16504,8 @@
     "function": "posterior, posterior_dur"
   },
   "474110": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "474111": {
@@ -16350,7 +16518,8 @@
     "function": "telic_ext, dist_fut, dist_past"
   },
   "474149": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "474165": {
@@ -16468,7 +16637,8 @@
             "function": "anterior_dur"
           },
           {
-            "time": "?",
+            "time": "durative",
+            "advb": true,
             "function": "posterior_dur"
           }
         ]
@@ -16477,8 +16647,8 @@
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?",
-            "duplicate": true
+            "time": "durative",
+            "advb": true
           }
         ]
       }
@@ -16620,7 +16790,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -16806,7 +16977,8 @@
             "function": "anterior_dur"
           },
           {
-            "time": "?",
+            "time": "durative",
+            "advb": true,
             "function": "posterior_dur"
           }
         ]
@@ -16815,8 +16987,8 @@
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?",
-            "duplicate": true
+            "time": "durative",
+            "advb": true
           }
         ]
       }
@@ -16927,10 +17099,11 @@
     }
   },
   "476971": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "reference": "anaphora",
     "ref_type": "exophoric",
-    "function": "posterior, posterior_dur"
+    "function": "posterior_dur"
   },
   "477007": {
     "time": "single",
@@ -17035,7 +17208,8 @@
     "function": "atelic_ext"
   },
   "477457": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "477459": {
@@ -17155,7 +17329,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -18240,7 +18415,8 @@
     "count": "calendrical"
   },
   "483013": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "483085": {
@@ -18488,20 +18664,24 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
   "484321": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "484326": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "484332": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "484355": {
@@ -18600,11 +18780,13 @@
     "function": "simultaneous"
   },
   "484944": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "484953": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "485006": {
@@ -18645,7 +18827,7 @@
     "function": "posterior"
   },
   "485201": {
-    "function": "simul_habitual, multi_simul",
+    "function": "multi_simul",
     "parts": [
       {
         "time": "durative",
@@ -18655,9 +18837,52 @@
       },
       {
         "time": "durative",
-        "reference": "anaphora",
-        "ref_type": "exophoric",
         "function": "telic_ext, dist_fut, dist_past"
+      },
+      {
+        "function": "multi_simul",
+        "parts": [
+          {
+            "time": "durative",
+            "reference": "anaphora",
+            "ref_type": "exophoric",
+            "function": "telic_ext, dist_fut, dist_past"
+          },
+          {
+            "time": "durative",
+            "function": "telic_ext, dist_fut, dist_past"
+          }
+        ]
+      },
+      {
+        "function": "multi_simul",
+        "parts": [
+          {
+            "time": "durative",
+            "reference": "anaphora",
+            "ref_type": "exophoric",
+            "function": "telic_ext, dist_fut, dist_past"
+          },
+          {
+            "time": "durative",
+            "function": "telic_ext, dist_fut, dist_past"
+          },
+          {
+            "function": "multi_simul",
+            "parts": [
+              {
+                "time": "durative",
+                "reference": "anaphora",
+                "ref_type": "exophoric",
+                "function": "telic_ext, dist_fut, dist_past"
+              },
+              {
+                "time": "durative",
+                "function": "telic_ext, dist_fut, dist_past"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -18843,7 +19068,7 @@
     ]
   },
   "485231": {
-    "function": "simul_habitual, multi_simul",
+    "function": "multi_simul",
     "parts": [
       {
         "time": "durative",
@@ -18875,7 +19100,7 @@
     "function": "telic_ext, dist_fut, dist_past"
   },
   "485258": {
-    "function": "simul_habitual, multi_simul",
+    "function": "multi_simul",
     "parts": [
       {
         "time": "durative",
@@ -18971,7 +19196,7 @@
     "function": "posterior, posterior_dur"
   },
   "485538": {
-    "function": "simul_habitual, multi_simul",
+    "function": "multi_simul",
     "parts": [
       {
         "time": "durative",
@@ -19029,7 +19254,8 @@
     "function": "simultaneous"
   },
   "485663": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "485667": {
@@ -19197,10 +19423,11 @@
     "function": "telic_ext, dist_fut, dist_past"
   },
   "486452": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "reference": "anaphora",
     "ref_type": "exophoric",
-    "function": "posterior, posterior_dur"
+    "function": "posterior_dur"
   },
   "486453": {
     "function": "anterior_dur",
@@ -19217,11 +19444,13 @@
     "function": "simultaneous"
   },
   "486565": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "486570": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "486571": {
@@ -19277,7 +19506,8 @@
     "function": "simultaneous"
   },
   "486665": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "486666": {
@@ -19298,31 +19528,31 @@
     "function": "?",
     "parts": [
       {
-        "function": "simul_habitual, multi_simul",
-        "parts": [
-          {
-            "time": "durative",
-            "function": "telic_ext, dist_fut, dist_past"
-          },
-          {
-            "time": "durative",
-            "function": "telic_ext, dist_fut, dist_past"
-          }
-        ]
+        "time": "durative",
+        "function": "telic_ext, dist_fut, dist_past"
       },
       {
-        "function": "anterior_dist",
+        "function": "?",
         "parts": [
           {
             "time": "durative",
-            "count": "mensural",
-            "function": "atelic_ext"
+            "function": "telic_ext, dist_fut, dist_past"
           },
           {
-            "time": "?",
-            "reference": "anaphora",
-            "ref_type": "exophoric",
-            "function": "anterior"
+            "function": "anterior_dist",
+            "parts": [
+              {
+                "time": "durative",
+                "count": "mensural",
+                "function": "atelic_ext"
+              },
+              {
+                "time": "?",
+                "reference": "anaphora",
+                "ref_type": "exophoric",
+                "function": "anterior"
+              }
+            ]
           }
         ]
       }
@@ -19455,7 +19685,8 @@
     "function": "simultaneous"
   },
   "487347": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "487356": {
@@ -19498,7 +19729,8 @@
     "function": "atelic_ext"
   },
   "487505": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "487531": {
@@ -19539,7 +19771,8 @@
     "function": "simultaneous"
   },
   "487731": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "487771": {
@@ -19561,10 +19794,11 @@
     "time": "durative",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       },
       {
-        "time": "?"
+        "time": "durative"
       }
     ],
     "function": "anterior_dur, simultaneous"
@@ -19589,7 +19823,8 @@
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?"
+            "time": "durative",
+            "advb": true
           }
         ]
       }
@@ -19744,7 +19979,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -20038,7 +20274,8 @@
     }
   },
   "488964": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "488976": {
@@ -20397,7 +20634,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -20489,7 +20727,8 @@
     "function": "simultaneous"
   },
   "490366": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "490396": {
@@ -20504,10 +20743,11 @@
     "time": "durative",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       },
       {
-        "time": "?"
+        "time": "durative"
       }
     ],
     "function": "anterior_dur, simultaneous"
@@ -20518,7 +20758,8 @@
     "function": "anterior_dur, simultaneous"
   },
   "490511": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "490544": {
@@ -20622,7 +20863,8 @@
     ]
   },
   "490738": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "490759": {
@@ -20646,7 +20888,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -20722,15 +20965,18 @@
     "function": "simultaneous"
   },
   "491460": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "491483": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "491488": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "491575": {
@@ -20753,7 +20999,8 @@
     "function": "atelic_ext"
   },
   "491635": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "491636": {
@@ -20805,11 +21052,13 @@
     "function": "atelic_ext"
   },
   "491938": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "491941": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "491944": {
@@ -20843,14 +21092,16 @@
     "function": "simultaneous"
   },
   "492218": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "492219": {
     "function": "begin_to_end",
     "parts": [
       {
-        "time": "?",
+        "time": "durative",
+        "advb": true,
         "reference": "anaphora",
         "ref_type": "exophoric",
         "function": "posterior_dur"
@@ -20859,8 +21110,8 @@
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?",
-            "duplicate": true,
+            "time": "durative",
+            "advb": true,
             "reference": "anaphora",
             "ref_type": "exophoric"
           }
@@ -20900,7 +21151,7 @@
     "function": "atelic_ext"
   },
   "492287": {
-    "function": "simul_habitual, multi_simul",
+    "function": "multi_simul",
     "parts": [
       {
         "time": "durative",
@@ -20921,7 +21172,8 @@
     "function": "atelic_ext"
   },
   "492307": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "492323": {
@@ -20942,17 +21194,19 @@
     "function": "anterior_dur, simultaneous"
   },
   "492360": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "492399": {
     "time": "durative",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       },
       {
-        "time": "?"
+        "time": "durative"
       }
     ],
     "function": "anterior_dur, simultaneous"
@@ -20961,7 +21215,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -20969,10 +21224,11 @@
     "time": "durative",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       },
       {
-        "time": "?"
+        "time": "durative"
       }
     ],
     "function": "atelic_ext"
@@ -20982,7 +21238,8 @@
     "function": "telic_ext, dist_fut, dist_past"
   },
   "492526": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "492527": {
@@ -21029,16 +21286,18 @@
     "time": "durative",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       },
       {
-        "time": "?"
+        "time": "durative"
       }
     ],
     "function": "atelic_ext"
   },
   "492723": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "492815": {
@@ -21080,7 +21339,8 @@
     "function": "simultaneous"
   },
   "492850": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "492863": {
@@ -21121,11 +21381,13 @@
   },
   "493111": {
     "time": "durative",
+    "advb": true,
     "function": "atelic_ext"
   },
   "493119": {
-    "time": "?",
-    "function": "simultaneous"
+    "time": "durative",
+    "advb": true,
+    "function": "atelic_ext"
   },
   "493122": {
     "time": "?",
@@ -21148,8 +21410,9 @@
     "function": "telic_ext, dist_fut, dist_past"
   },
   "493291": {
-    "time": "?",
-    "function": "simultaneous"
+    "time": "durative",
+    "advb": true,
+    "function": "atelic_ext"
   },
   "493407": {
     "time": "durative",
@@ -21165,7 +21428,8 @@
     "function": "simultaneous"
   },
   "493613": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "493619": {
@@ -21237,7 +21501,8 @@
     "function": "atelic_ext"
   },
   "493739": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "493773": {
@@ -21260,7 +21525,8 @@
     "advb": true
   },
   "493804": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "493817": {
@@ -21293,7 +21559,8 @@
     "function": "atelic_ext"
   },
   "493904": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "493950": {
@@ -21312,6 +21579,7 @@
   },
   "493967": {
     "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "493970": {
@@ -21349,7 +21617,8 @@
     "function": "atelic_ext"
   },
   "494186": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "494204": {
@@ -21369,7 +21638,8 @@
     "function": "multi_simul, multi_anterior_dur",
     "parts": [
       {
-        "time": "?",
+        "time": "durative",
+        "advb": true,
         "function": "anterior_dur, simultaneous"
       },
       {
@@ -21438,7 +21708,8 @@
     ]
   },
   "494469": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "494470": {
@@ -21466,7 +21737,8 @@
     "function": "simultaneous"
   },
   "494532": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "494580": {
@@ -21496,8 +21768,9 @@
     "function": "atelic_ext"
   },
   "494629": {
-    "time": "?",
-    "function": "simultaneous"
+    "time": "durative",
+    "advb": true,
+    "function": "atelic_ext"
   },
   "494630": {
     "time": "durative",
@@ -21514,14 +21787,16 @@
     "function": "anterior_dur, simultaneous"
   },
   "494632": {
-    "time": "?",
-    "function": "simultaneous"
+    "time": "durative",
+    "advb": true,
+    "function": "atelic_ext"
   },
   "494637": {
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -21546,12 +21821,14 @@
     "function": "atelic_ext"
   },
   "494699": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "494717": {
-    "time": "?",
-    "function": "simultaneous"
+    "time": "durative",
+    "advb": true,
+    "function": "atelic_ext"
   },
   "494738": {
     "time": "durative",
@@ -21559,7 +21836,8 @@
     "function": "anterior_dur, simultaneous"
   },
   "494759": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "494763": {
@@ -21580,15 +21858,16 @@
     "function": "begin_to_end",
     "parts": [
       {
-        "time": "?",
+        "time": "durative",
+        "advb": true,
         "function": "posterior_dur"
       },
       {
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?",
-            "duplicate": true
+            "time": "durative",
+            "advb": true
           }
         ]
       }
@@ -21655,7 +21934,8 @@
     ]
   },
   "494879": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "494895": {
@@ -21710,7 +21990,8 @@
     "function": "atelic_ext"
   },
   "495217": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "495248": {
@@ -21730,17 +22011,19 @@
     "function": "anterior_dur, simultaneous"
   },
   "495282": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "495331": {
     "time": "durative",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       },
       {
-        "time": "?"
+        "time": "durative"
       }
     ],
     "function": "atelic_ext"
@@ -21772,7 +22055,8 @@
     "function": "atelic_ext"
   },
   "495439": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "495538": {
@@ -21787,7 +22071,8 @@
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?"
+            "time": "durative",
+            "advb": true
           }
         ]
       }
@@ -21799,7 +22084,8 @@
     "function": "begin_to_end",
     "parts": [
       {
-        "time": "?",
+        "time": "durative",
+        "advb": true,
         "reference": "anaphora",
         "ref_type": "exophoric",
         "function": "posterior_dur"
@@ -21808,8 +22094,8 @@
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?",
-            "duplicate": true,
+            "time": "durative",
+            "advb": true,
             "reference": "anaphora",
             "ref_type": "exophoric"
           }
@@ -21826,7 +22112,8 @@
     "function": "simultaneous"
   },
   "495876": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "495877": {
@@ -21838,7 +22125,8 @@
     "function": "anterior_dur, simultaneous"
   },
   "495892": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "495897": {
@@ -21849,13 +22137,15 @@
         "function": "anterior_dur, simultaneous"
       },
       {
-        "time": "?",
+        "time": "durative",
+        "advb": true,
         "function": "anterior_dur, simultaneous"
       }
     ]
   },
   "495900": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "495904": {
@@ -21863,7 +22153,8 @@
     "function": "anterior_dur, simultaneous"
   },
   "495917": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "495938": {
@@ -21879,7 +22170,8 @@
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?"
+            "time": "durative",
+            "advb": true
           }
         ]
       }
@@ -21915,7 +22207,8 @@
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?"
+            "time": "durative",
+            "advb": true
           }
         ]
       }
@@ -21935,10 +22228,11 @@
     "time": "durative",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       },
       {
-        "time": "?"
+        "time": "durative"
       }
     ],
     "function": "anterior_dur, simultaneous"
@@ -21960,7 +22254,8 @@
     "function": "simultaneous"
   },
   "496358": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "496363": {
@@ -21970,7 +22265,8 @@
     "function": "simultaneous"
   },
   "496367": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "496378": {
@@ -21980,15 +22276,18 @@
     "function": "atelic_ext"
   },
   "496380": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "496408": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "496411": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "496424": {
@@ -21997,7 +22296,8 @@
     "function": "atelic_ext"
   },
   "496504": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "496593": {
@@ -22024,7 +22324,8 @@
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?"
+            "time": "durative",
+            "advb": true
           }
         ]
       }
@@ -22043,7 +22344,8 @@
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?"
+            "time": "durative",
+            "advb": true
           }
         ]
       }
@@ -22066,7 +22368,8 @@
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?"
+            "time": "durative",
+            "advb": true
           }
         ]
       }
@@ -22112,10 +22415,11 @@
     "time": "durative",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       },
       {
-        "time": "?"
+        "time": "durative"
       }
     ],
     "function": "anterior_dur, simultaneous"
@@ -22128,10 +22432,11 @@
     "time": "durative",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       },
       {
-        "time": "?"
+        "time": "durative"
       }
     ],
     "function": "anterior_dur, simultaneous"
@@ -22146,10 +22451,11 @@
     "time": "durative",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       },
       {
-        "time": "?"
+        "time": "durative"
       }
     ],
     "function": "anterior_dur, simultaneous"
@@ -22175,11 +22481,13 @@
     "function": "simultaneous"
   },
   "497357": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "497367": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "497441": {
@@ -22190,7 +22498,8 @@
         "function": "anterior_dur, simultaneous"
       },
       {
-        "time": "?",
+        "time": "durative",
+        "advb": true,
         "function": "anterior_dur, simultaneous"
       }
     ]
@@ -22688,8 +22997,9 @@
     "function": "simultaneous"
   },
   "501000": {
-    "time": "?",
-    "function": "posterior, posterior_dur"
+    "time": "durative",
+    "advb": true,
+    "function": "posterior_dur"
   },
   "501001": {
     "function": "multi_posts",
@@ -22735,7 +23045,8 @@
     "function": "simultaneous"
   },
   "501166": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "501180": {
@@ -23030,7 +23341,8 @@
     "function": "simultaneous"
   },
   "503750": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "503844": {
@@ -23044,7 +23356,8 @@
     "function": "simultaneous"
   },
   "503896": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "503897": {
@@ -23120,7 +23433,8 @@
     "ref_type": "personal"
   },
   "504514": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "504520": {
@@ -23242,7 +23556,8 @@
     "function": "anterior_dur, simultaneous"
   },
   "505046": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "505095": {
@@ -23256,7 +23571,8 @@
     "function": "atelic_ext"
   },
   "505252": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "505262": {
@@ -24093,10 +24409,11 @@
     "time": "durative",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       },
       {
-        "time": "?"
+        "time": "durative"
       }
     ],
     "function": "anterior_dur, simultaneous"
@@ -24364,7 +24681,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -24372,7 +24690,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -24910,7 +25229,8 @@
     "function": "begin_to_end",
     "parts": [
       {
-        "time": "?",
+        "time": "durative",
+        "advb": true,
         "reference": "anaphora",
         "ref_type": "exophoric",
         "function": "posterior_dur"
@@ -24919,8 +25239,8 @@
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?",
-            "duplicate": true,
+            "time": "durative",
+            "advb": true,
             "reference": "anaphora",
             "ref_type": "exophoric"
           }
@@ -25089,7 +25409,7 @@
     ]
   },
   "509666": {
-    "function": "simul_habitual, multi_simul",
+    "function": "multi_simul",
     "parts": [
       {
         "time": "durative",
@@ -25120,7 +25440,7 @@
     "function": "telic_ext, dist_fut, dist_past"
   },
   "509713": {
-    "function": "simul_habitual, multi_simul",
+    "function": "multi_simul",
     "parts": [
       {
         "time": "durative",
@@ -25143,7 +25463,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -25307,7 +25628,7 @@
     "function": "telic_ext, dist_fut, dist_past"
   },
   "510236": {
-    "function": "simul_habitual, multi_simul",
+    "function": "multi_simul",
     "parts": [
       {
         "time": "durative",
@@ -25488,7 +25809,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -25535,7 +25857,8 @@
     "function": "atelic_ext"
   },
   "511156": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "511176": {
@@ -25556,7 +25879,8 @@
     "function": "begin_to_end",
     "parts": [
       {
-        "time": "?",
+        "time": "durative",
+        "advb": true,
         "reference": "anaphora",
         "ref_type": "exophoric",
         "function": "posterior_dur"
@@ -25565,8 +25889,8 @@
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?",
-            "duplicate": true,
+            "time": "durative",
+            "advb": true,
             "reference": "anaphora",
             "ref_type": "exophoric"
           }
@@ -25635,7 +25959,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -25643,7 +25968,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?",
+        "time": "durative",
+        "advb": true,
         "reference": "anaphora",
         "ref_type": "exophoric"
       }
@@ -25653,7 +25979,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -25661,7 +25988,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -25675,7 +26003,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -25683,7 +26012,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -25700,11 +26030,13 @@
     "function": "simultaneous"
   },
   "511362": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "511365": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "511366": {
@@ -25787,7 +26119,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -25795,7 +26128,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -25803,12 +26137,14 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
   "511836": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur"
   },
   "511843": {
@@ -25876,11 +26212,13 @@
     "function": "atelic_ext, simultaneous"
   },
   "512172": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "512186": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur"
   },
   "512189": {
@@ -25893,7 +26231,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -25911,15 +26250,16 @@
     "function": "begin_to_end",
     "parts": [
       {
-        "time": "?",
+        "time": "durative",
+        "advb": true,
         "function": "posterior_dur"
       },
       {
         "function": "anterior_dur",
         "parts": [
           {
-            "time": "?",
-            "duplicate": true
+            "time": "durative",
+            "advb": true
           }
         ]
       }
@@ -25938,7 +26278,8 @@
     "function": "simultaneous"
   },
   "512319": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "512332": {
@@ -25996,7 +26337,8 @@
     ]
   },
   "512436": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "512446": {
@@ -26093,6 +26435,7 @@
   },
   "512678": {
     "time": "durative",
+    "advb": true,
     "function": "atelic_ext"
   },
   "512687": {
@@ -26199,7 +26542,8 @@
     "function": "anterior_dur",
     "parts": [
       {
-        "time": "?"
+        "time": "durative",
+        "advb": true
       }
     ]
   },
@@ -26274,7 +26618,8 @@
     "function": "atelic_ext"
   },
   "513076": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "513086": {
@@ -26407,7 +26752,8 @@
     "function": "atelic_ext"
   },
   "513382": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "513390": {
@@ -26672,7 +27018,8 @@
     "function": "posterior"
   },
   "513936": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "513946": {
@@ -27026,7 +27373,8 @@
     "function": "simultaneous"
   },
   "514959": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "514977": {
@@ -27138,7 +27486,8 @@
     "function": "atelic_ext"
   },
   "515253": {
-    "time": "?",
+    "time": "durative",
+    "advb": true,
     "function": "anterior_dur, simultaneous"
   },
   "515267": {

@@ -1,14 +1,6 @@
 {
-  "428158": [
-    "reached end",
-    "['B', 'YEAR', 'L', 'TIMES', 'B', 'THE', 'MONTH', 'B', 'NUM', 'DAY', 'L', 'THE', 'MONTH', 'B', 'THIS', 'THE', 'TIME']"
-  ],
   "454045": [
     "reached end",
     "['Ø', 'ADVB']"
-  ],
-  "461908": [
-    "reached end",
-    "['B', 'NUM', 'YEAR', 'NUM', 'YEAR', 'B', 'THE', 'YEAR', 'B', 'MONTH']"
   ]
 }

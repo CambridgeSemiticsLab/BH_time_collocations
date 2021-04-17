@@ -22,13 +22,13 @@ class TimeTokenizer:
         with open(paths['lexmap'], 'r') as infile:
             self.lexmap = json.load(infile)
     
-    def sly_token(self, tag, node=0, **values):
+    def sly_token(self, tag, slot=0, **values):
         """Get SLY token object with customized data."""
         token = SlyToken()
         self.tokens.add(tag) # track unique tokens
         token.value = dict(values)
-        token.value['node'] = node
-        token.value['phatom'] = self.L.u(node, 'phrase_atom')[0]
+        token.value['slot'] = slot
+        token.value['phatom'] = self.L.u(slot, 'phrase_atom')[0]
         token.type = tag
         token.index = self.i
         token.lineno = 1
@@ -154,7 +154,7 @@ class TimeTokenizer:
            # drip-bucket tokenizer
             elif rela not in ignore:
                 srchead = self.get_head(src)
-                yield self.sly_token(rela, node=srchead)
+                yield self.sly_token(rela, slot=srchead)
 
             # give TIME token once reaching the end
             if head_phrases[-1] == phrase:
@@ -182,13 +182,13 @@ class TimeTokenizer:
         # yield items attached to the time
         if (prs := F.prs.v(time)) not in {'absent', 'n/a'}:
             if F.lex.v(time) == 'B' and prs == 'W':
-                yield self.sly_token('IT', node=time) # בו
+                yield self.sly_token('IT', slot=time) # בו
             else:
-                yield self.sly_token('SFX', node=time)
+                yield self.sly_token('SFX', slot=time)
         if F.nu.v(time) == 'du':
-            yield self.sly_token('NUM', node=time)
+            yield self.sly_token('NUM', slot=time)
         if F.uvf.v(time) == 'H':
-            yield self.sly_token('LOCALE', node=time)
+            yield self.sly_token('LOCALE', slot=time)
 
         # get data for processing time words
         calend_times = {
@@ -231,13 +231,13 @@ class TimeTokenizer:
             token = 'TIMES'
         else:
             token = 'TIME'
-        yield self.sly_token(token, node=time, lex=lex)
+        yield self.sly_token(token, slot=time, lex=lex)
     
     def prep_token(self, phrase):
         """Parse prepositions into singular tokens."""
         token = self.F.lex.v(phrase[0])
         token = self.lexmap.get(token, token)
-        return self.sly_token(token, node=phrase[0])
+        return self.sly_token(token, slot=phrase[0])
     
     def null_token(self, phrase):
         """Parse whether phrase begins without preposition."""
@@ -245,7 +245,7 @@ class TimeTokenizer:
         # process single-word phrases
         if len(phrase) == 1:
             if self.slot2pos[phrase[0]] != 'PREP':
-                return self.sly_token('Ø', node=phrase[0])
+                return self.sly_token('Ø', slot=phrase[0])
             else:
                 return None # prevent running rest
 
@@ -268,11 +268,11 @@ class TimeTokenizer:
             or (self.slot2pos[slotsnoadvb[0]] != 'PREP')
         )
         if is_null:
-            return self.sly_token('Ø', node=slots[0])
+            return self.sly_token('Ø', slot=slots[0])
 
     def def_token(self, phrase):
         """Definite tokens."""
-        return self.sly_token('THE', node=phrase[0])
+        return self.sly_token('THE', slot=phrase[0])
 
     def map_demon(self, demonlex):
         demon_map = {
@@ -297,7 +297,7 @@ class TimeTokenizer:
         if self.F.pdp.v(appo_head) == 'prde':
             appo_lex = self.F.lex.v(appo_head)
             token = self.map_demon(appo_lex)
-            return self.sly_token(token, node=appo_head)
+            return self.sly_token(token, slot=appo_head)
             
     def demon_token(self, phrase):
         """Parse demonstratives."""
@@ -305,7 +305,7 @@ class TimeTokenizer:
         demon = self.get_head(src)
         demonlex = self.F.lex.v(demon)
         token = self.map_demon(demonlex)
-        return self.sly_token(token, node=demon)
+        return self.sly_token(token, slot=demon)
 
     def num_token(self, phrase):
         """Parse number tokens."""
@@ -320,7 +320,7 @@ class TimeTokenizer:
             token = 'NUM_ONE'
         else:
             token = 'NUM'
-        return self.sly_token(token, node=head)
+        return self.sly_token(token, slot=head)
 
     def gen_token(self, phrase):
         """Parse genitive phrase tokens."""
@@ -337,14 +337,14 @@ class TimeTokenizer:
             and self.F.nu.v(gen_head) == 'pl'
         )
         if gen_dur:
-            return self.sly_token('GENDUR', node=gen_head)
+            return self.sly_token('GENDUR', slot=gen_head)
 
         # identify genitive cardinals
 #        src0 = sorted(nt.get_slots(src))[0]
 #        if self.slot2pos[gen_head] in {'CARD', 'CARD1'}:
-#            return self.sly_token('GENCARD', node=gen_head)
+#            return self.sly_token('GENCARD', slot=gen_head)
 #        elif self.slot2pos[src0] in {'CARD', 'CARD1'}:
-#            return self.sly_token('GENCARD', node=src0)
+#            return self.sly_token('GENCARD', slot=src0)
 
     def quant_token(self, phrase):
         """Return quantifier tokens."""
@@ -353,7 +353,39 @@ class TimeTokenizer:
         quantlex = self.F.lex.v(quant)
         token = self.lexmap.get(quantlex)
         if token:
-            return self.sly_token(token, node=quant) 
+            return self.sly_token(token, slot=quant) 
+
+
+# TimeParser helper functions for organizing the data
+def init_time(p, **kwargs):
+    """Initialize time data."""
+    slot = p['slot']
+    time_data = {
+        'times': [slot],
+        'slots': [slot],
+        'refs': [],
+        'quality': '?', 
+        'quants': [],
+    }    
+    time_data.update(**kwargs)
+    return time_data
+
+def expand(time, key, val):
+    """Append to a list-based value in the time dicts."""
+    return time[key].append(val)
+
+def expand_key(key):
+    """Return func for expanding a given key."""
+    def key_adder(val_str, val, time):
+        """Add data to a time based on key/val."""
+        tag = [val_str, val['slot']]
+        expand(time, key, tag) 
+        expand(time, 'slots', val['slot'])
+        return time
+    return key_adder
+
+add_ref = expand_key('refs')
+add_quant = expand_key('quants')
 
 class TimeParser(SlyParser):
 
@@ -436,7 +468,7 @@ class TimeParser(SlyParser):
         return p[0] 
 
     # -- composed constructions
-    @_('simul simul', 'in_dur in_dur')
+    @_('simul simul')
     def hab_simul(self, p):
         data = {
             'function': 'simul_habitual, multi_simul',
@@ -543,13 +575,14 @@ class TimeParser(SlyParser):
         }
         return data
 
-    @_('in_dur simul', 'simul in_dur',
+    @_('in_dur simul', 'simul in_dur', 'in_dur in_dur',
        'day_simul day_simul', 'day_simul simul',
        'year_simul simul', 'ordn_simul ordn_simul',
        'simul month_simul', 'in_dur first_simul',
        'oneday_simul day_simul', 'month_simul simul',
        'cal_simul simul', 'cal_simul cal_simul', 
-       'simul cal_simul', 'in_dur year_simul') 
+       'simul cal_simul', 'in_dur year_simul',
+       'in_dur cal_simul', 'first_simul simul') 
     def multi_simul(self, p):
         getattr(p, 'in_dur', {})['function'] = 'telic_ext'
         data = {
@@ -558,9 +591,10 @@ class TimeParser(SlyParser):
         }
         return data
 
-    @_('multi_simul simul')
+    @_('multi_simul simul', 'in_dur multi_simul')
     def multi_simul(self, p):
-        parts = p[0]['parts'] + [p[1]]
+        single = getattr(p, 'simul', p.multi_simul)
+        parts = p.multi_simul['parts'] + [single]
         data = {
             'function': 'multi_simul',
             'parts': parts,
@@ -643,16 +677,28 @@ class TimeParser(SlyParser):
     
     # very complicated phrase!
     @_('day_simul simul begin_to_end',
-       'hab_simul anterior_dist', 
+       'in_dur anterior_dist', 
        'antdur_simul habitual',
        'posterior simul', 'posts simul',
        'posts begin_to_end', 'posterior_dur in_dur',
        'habitual begin_to_end',
-       'hab_simul begin_to_end')
+       'hab_simul begin_to_end', 'in_dur multi',)
     def multi(self, p):
         data = {
             'function': '?',
             'parts': list(p),
+        }
+        return data
+
+    @_('year_simul month_simul day_simul simul')
+    def multi_simul(self, p):
+        cal_simul = {
+            'function': 'simul',
+            'parts': list(p)[:-1],
+        }
+        data = {
+            'function': 'multi_simul',
+            'parts': [cal_simul, p[-1]]
         }
         return data
 
@@ -966,6 +1012,7 @@ class TimeParser(SlyParser):
             'function': 'anterior',
             'advb': True,
         }
+
     @_('atelic_ext anterior')
     def anterior_dist(self, p):
         data = {
@@ -1266,237 +1313,143 @@ class TimeParser(SlyParser):
     # -- time --
     @_('TIME')
     def time(self, p):
-        return {
-            'time': '?',
-        }
+        return init_time(p.TIME)
 
     @_('TIME2')
     def time(self, p):
-        return {
-            'time': '?',
-            'duplicate': True,
-        }
+        return init_time(p.TIME2)
    
     @_('SFX time')
     def time(self, p):
-        p[1].update({
-            'reference': 'deictic',
-            'ref_type': 'personal',
-        })
-        return p[1]
+        return add_ref('SFX', p[0], p.time)
 
     @_('THE time')
     def time(self, p):
-        p[1].update({
-            'reference': 'anaphora',
-            'ref_type': 'exophoric',
-        })
-        return p[1]
+        return add_ref('THE', p[0], p.time)
 
     @_('THIS time')
     def time(self, p):
-        p[1].update({
-            'reference': 'deictic',
-            'ref_type': 'spatial',
-            'ref_dist': 'near'
-        })
-        return p[1]
+        return add_ref('THIS', p[0], p.time)
 
     @_('THAT time')
     def time(self, p):
-        p[1].update({
-            'reference': 'deictic',
-            'ref_type': 'spatial',
-            'ref_dist': 'far'
-        })
-        return p[1]
+        return add_ref('THAT', p[0], p.time)
 
     # define specialized time
     @_('BEGINNING', 'END')
     def time(self, p):
-        return {
-            'time': 'single',
-            #'time_loc': 'beginning'
-        }
+        return init_time(p[0], quality='point')
 
     # calendrical time references
     @_('DAY')
     def day(self, p):
-        return {
-            'time': 'single',
-        }
+        return init_time(p.DAY)
 
     @_('THE day')
     def day(self, p):
-        p[1].update({
-            'reference': 'anaphora',
-            'ref_type': 'exophoric',
-        })
-        return p[1]
+        return add_ref('THE', p[0], p.day)
 
     @_('NUM_ONE day')
     def one_day(self, p):
-        return {
-            'time': 'single',
-        }
+        return add_quant('NUM_ONE', p[0], p.day)
 
     @_('NUM day')
     def num_day(self, p):
-        p[1].update({
-            'number': 'calendrical',
-        })
-        return p[1]
+        return add_quant('NUM', p[0], p.day)
 
     @_('num_day month_ref', 'num_day person_ref',
        'one_day month_ref', 'day month_ref')
     def day(self, p):
-        data = {
-            'parts': [p[0], p[1]],
-            'reference': p[1]['reference'],
-        }
-        return data
+        return add_ref(
+            p[1]['ref'], 
+            p[1]['slot'], 
+            p[0]
+        )
 
     @_('CARD month_ref', 'CARD ordn_ref')
     def day(self, p):
-        getattr(p, 'ordn_ref', {})['reference'] = 'month'
-        data = {
-            'parts': [
-                {'time': 'single', 'count': 'calendrical'},
-                p[1]
-            ],
-            'reference': p[1]['reference'],
-        }
-        return data
+        day = init_time(p.CARD)
+        getattr(p, 'ordn_ref', {})['ref'] = 'month'
+        return add_ref(
+            p[1]['ref'],
+            p[1]['slot',
+            day,
+        )
 
     @_('MONTH')
     def month(self, p):
-        return {
-            'time': 'single'
-        }
+        return init_time(p[0])
 
     @_('THE month')
     def month(self, p):
-        p[1].update({
-            'reference': 'anaphora',
-            'ref_type': 'exophoric',
-        })
-        return p[1]
+        return add_ref('THE', p[0], p[1])
 
     @_('THIS month')
     def month(self, p):
-        p[1].update({
-            'reference': 'deictic',
-            'ref_type': 'spatial',
-            'ref_dist': 'near'
-        })
-        return p[1]
+        return add_ref('THIS', p[0], p[1])
 
     @_('THAT month')
     def month(self, p):
-        p[1].update({
-            'reference': 'deictic',
-            'ref_type': 'spatial',
-            'ref_dist': 'far'
-        })
-        return p[1]
+        return add_ref('THAT', p[0], p[1])
 
     @_('NUM month')
     def month(self, p):
-        p[1].update({
-            'number': 'calendrical',
-        })
-        return p[1]
+        return add_ref('CALNUM', p[0], p[1])
 
     @_('SFX month')
     def month(self, p):
-        p[1].update({
-            'reference': 'personal',
-        })
-        return p[1]
+        return add_ref('SFX', p[0], p[1])
 
     @_('month antdur_simul')
     def month(self, p):
-        data = {
-            'reference': 'time',
-            'parts': [
-                {'time': p[1]['time']}
-            ]
-        }
-        return data
+        ref = p[1]['times'][0]
+        return add_ref('TIME', p[0], p[1]) 
 
     @_('month L year')
     def month(self, p):
-        data = {
-            'reference': 'year',
-            'parts': [
-                p[0], p[2]
-            ]
-        }
-        return data
+        ref = p[1]['times'][0]
+        return add_ref('YEAR', p[0], p[1])
 
     @_('GENCARD day')
     def day(self, p):
-        p[1].update({
-            'time': 'single',
-            'count': 'calendrical',
-        })
-        return p[1]
+        return add_ref('CALNUM', p[0], p[1])
 
     @_('YEAR')
     def year(self, p):
-        return {
-            'time': 'single'
-        }
+        return init_time(p.YEAR)
 
     @_('THE year')
     def year(self, p):
-        p[1].update({
-            'reference': 'anaphora',
-            'ref_type': 'exophoric',
-        })
-        return p[1]
+        return add_ref('THE', p[0], p[1])
 
     @_('THIS year')
     def year(self, p):
-        p[1].update({
-            'reference': 'deictic',
-            'ref_type': 'spatial',
-            'ref_dist': 'near'
-        })
-        return p[1]
+        return add_ref('THIS', p[0], p[1])
 
     @_('THAT year')
     def year(self, p):
-        p[1].update({
-            'reference': 'deictic',
-            'ref_type': 'spatial',
-            'ref_dist': 'far'
-        })
-        return p[1]
+        return add_ref('THAT', p[0], p[1])
 
     @_('GENCARD year')
     def year(self, p):
-        p[1].update({
-            'time': 'single',
-            'count': 'calendrical',
-        })
-        return p[1]
+        return add_ref('CALNUM', p[0], p[1])
 
     @_('NUM year')
     def num_year(self, p):
-        p[1].update({
-            'number': 'calendrical',
-        })
-        return p[1]
+        return add_ref('CALNUM', p[0], p[1])
 
     @_('NUM_ONE year')
     def one_year(self, p):
-        return {
-            'time': 'single',
-        }
+        return add_quant('NUM_ONE', p[0], p.year)
 
     @_('year person_ref', 'num_year person_ref')
     def year(self, p):
+        
+        PICK BACK UP HERE
+
+        return add_ref(
+            
+        )
         data = {
             'parts': [p[1]],
             'reference': 'person',    
