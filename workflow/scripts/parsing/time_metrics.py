@@ -9,36 +9,15 @@ from tools.html_docs import HtmlReport
 import tools.nav_tree as nt
 from tools.load_parse import ParseLoader
 
-def get_phrase_data(node, tf_api):
+def get_node_data(node, tf_api):
     """Retrieve data on parsed phrase for analysis."""
-
     F, E, L, = tf_api.F, tf_api.E, tf_api.L
-    
-    # get nodes in the local context
     words = L.d(node, 'word')
     phatoms = L.d(node, 'phrase_atom')
-
-    # get heads and head modifiers in the phrase
-#    if len(ph_parse) > 1:
-#        subphrases = list(nt.unfold_paras(ph_parse))
-#        head_nodes = []
-#        for sp in subphrases:
-#            if len(sp) > 1:
-#                head = nt.get_head(sp)
-#            else:
-#                head = sp[0]
-#            head_nodes.append(head)
-#
-#        heads = '|'.join(F.lex.v(w) for w in head_nodes)
-#    else:
-#        heads = F.lex.v(ph_parse[0])
-#        numbers = F.nu.v(ph_parse[0])
-
     return {
         'nwords': len(words),
         'n_phatoms': len(phatoms),
     }
- 
 
 def build_row_data(node, tf_api, time_parsing={}, **features):
     """Build data that can be analyzed to assess quality of parses."""
@@ -61,15 +40,18 @@ def build_row_data(node, tf_api, time_parsing={}, **features):
         txt=T.text(node, fmt='text-orig-plain'),
         tokens=tokens,
         parsed=bool(time_parsing) * 1,
+        time_parsing=time_parsing,
         **features
     )
 
-    # update with parsing data
-    data.update(time_parsing)
+    # update with time parsing data
+    data['function'] = time_parsing.get('functions', [None])[0]
+    data['quality'] = time_parsing.get('quals', [None])[0]
+    data['slots'] = time_parsing.get('slots', [])
 
     # update with data about the phrase
     data.update(
-        get_phrase_data(
+        get_node_data(
             node, 
             tf_api
         )
@@ -229,24 +211,15 @@ def examine_times(paths, bhsa):
         samp = semdf.sample(min(50, size), random_state=42)
         doc2.heading(funct, 3)
         for cl in samp.index:
-            time_sem = df.loc[cl]['time']
-            time_loc = df.loc[cl].get('time_loc', None)
-            time_ref = df.loc[cl].get('reference', None)
-            ref_dist = df.loc[cl].get('ref_dist', None)
-            reftype = df.loc[cl].get('ref_type', None)
+            #function = df.loc[cl]['function']
+            parsing = df.loc[cl]['time_parsing']
             doc2.append(
                 bhsa.plain(
                     cl, 
                 ).replace('div class="rtl"', 'div')
             )   
             doc2.append(f'{cl}<br>')
-            doc2.append(
-               f'time={time_sem}; '
-               f'time_loc={time_loc}; '
-               f'ref={time_ref}; '
-               f'refdist={ref_dist}; '
-               f'reftype={reftype}<br>'
-            )
+            doc2.append(html.escape(f'{parsing}'))
             doc2.append('<br><br>')
         doc2.append('<hr>')
 

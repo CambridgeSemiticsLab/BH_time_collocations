@@ -16,34 +16,16 @@
       <th>txt</th>
       <th>tokens</th>
       <th>parsed</th>
-      <th>time</th>
+      <th>time_parsing</th>
       <th>function</th>
+      <th>quality</th>
+      <th>slots</th>
       <th>nwords</th>
       <th>n_phatoms</th>
-      <th>reference</th>
-      <th>ref_type</th>
-      <th>advb</th>
-      <th>tense</th>
-      <th>time_loc</th>
-      <th>count</th>
-      <th>ref_dist</th>
-      <th>number</th>
-      <th>parts</th>
-      <th>distributive</th>
-      <th>quality</th>
       <th>error</th>
     </tr>
     <tr>
       <th>node</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -68,21 +50,12 @@
       <td>בראשׁית ברא אלהים את השׁמים ואת הארץ׃</td>
       <td></td>
       <td>1</td>
-      <td>?</td>
+      <td>{'times': [2], 'slots': [1, 2], 'refs': [], 'quals': ['point?'], 'quants': [], 'functions': ['simultaneous'], 'preps': [['B', 1]]}</td>
       <td>simultaneous</td>
+      <td>point?</td>
+      <td>[1, 2]</td>
       <td>11</td>
       <td>4</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
@@ -93,21 +66,12 @@
       <td>ויכל אלהים ביום השׁביעי מלאכתו</td>
       <td></td>
       <td>1</td>
-      <td>?</td>
+      <td>{'times': [689], 'slots': [687, 688, 689], 'refs': [['THE', 688]], 'quals': ['point?'], 'quants': [], 'functions': ['simultaneous'], 'preps': [['B', 687]]}</td>
       <td>simultaneous</td>
+      <td>point?</td>
+      <td>[687, 688, 689]</td>
       <td>9</td>
       <td>5</td>
-      <td>anaphora</td>
-      <td>exophoric</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
@@ -118,21 +82,12 @@
       <td>וישׁבת ביום השׁביעי מכל־מלאכתו</td>
       <td></td>
       <td>1</td>
-      <td>?</td>
+      <td>{'times': [699], 'slots': [697, 698, 699], 'refs': [['THE', 698]], 'quals': ['point?'], 'quants': [], 'functions': ['simultaneous'], 'preps': [['B', 697]]}</td>
       <td>simultaneous</td>
+      <td>point?</td>
+      <td>[697, 698, 699]</td>
       <td>10</td>
       <td>4</td>
-      <td>anaphora</td>
-      <td>exophoric</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
@@ -143,21 +98,12 @@
       <td>וכל׀ שׂיח השׂדה טרם יהיה בארץ</td>
       <td></td>
       <td>1</td>
-      <td>NaN</td>
+      <td>{'times': [750], 'slots': [750], 'refs': [], 'quals': ['point?'], 'quants': [], 'functions': ['anterior']}</td>
       <td>anterior</td>
+      <td>point?</td>
+      <td>[750]</td>
       <td>10</td>
       <td>5</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>True</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
@@ -168,21 +114,12 @@
       <td>וכל־עשׂב השׂדה טרם יצמח</td>
       <td></td>
       <td>1</td>
-      <td>NaN</td>
+      <td>{'times': [760], 'slots': [760], 'refs': [], 'quals': ['point?'], 'quants': [], 'functions': ['anterior']}</td>
       <td>anterior</td>
+      <td>point?</td>
+      <td>[760]</td>
       <td>7</td>
       <td>4</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>True</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
     </tr>
   </tbody>
@@ -236,7 +173,7 @@
   <tbody>
     <tr>
       <th>simultaneous</th>
-      <td>1779</td>
+      <td>1734</td>
     </tr>
     <tr>
       <th>atelic_ext</th>
@@ -256,15 +193,19 @@
     </tr>
     <tr>
       <th>telic_ext, dist_fut, dist_past</th>
-      <td>160</td>
+      <td>161</td>
     </tr>
     <tr>
       <th>posterior, posterior_dur</th>
-      <td>71</td>
+      <td>72</td>
     </tr>
     <tr>
       <th>begin_to_end</th>
       <td>58</td>
+    </tr>
+    <tr>
+      <th>cal_simul</th>
+      <td>47</td>
     </tr>
     <tr>
       <th>multi_simul</th>
@@ -283,12 +224,12 @@
       <td>24</td>
     </tr>
     <tr>
-      <th>anterior</th>
-      <td>19</td>
-    </tr>
-    <tr>
       <th>atelic_ext, simultaneous</th>
       <td>16</td>
+    </tr>
+    <tr>
+      <th>anterior</th>
+      <td>13</td>
     </tr>
     <tr>
       <th>?</th>
@@ -299,10 +240,6 @@
       <td>8</td>
     </tr>
     <tr>
-      <th>dur_to_end</th>
-      <td>6</td>
-    </tr>
-    <tr>
       <th>simul_to_end</th>
       <td>6</td>
     </tr>
@@ -311,12 +248,20 @@
       <td>6</td>
     </tr>
     <tr>
-      <th>postdur_dist</th>
-      <td>4</td>
+      <th>dur_to_end</th>
+      <td>6</td>
     </tr>
     <tr>
       <th>habitual</th>
       <td>4</td>
+    </tr>
+    <tr>
+      <th>postdur_dist</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>simul_posts</th>
+      <td>3</td>
     </tr>
     <tr>
       <th>dur_simul</th>
@@ -324,18 +269,10 @@
     </tr>
     <tr>
       <th>multi_posts</th>
-      <td>3</td>
+      <td>2</td>
     </tr>
     <tr>
-      <th>simul_ref</th>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>simul_posts</th>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>anterior_dist</th>
+      <th>multi_postant</th>
       <td>1</td>
     </tr>
     <tr>
@@ -343,15 +280,15 @@
       <td>1</td>
     </tr>
     <tr>
-      <th>multi_postant</th>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>antdur_dur</th>
+      <th>anterior_dist</th>
       <td>1</td>
     </tr>
     <tr>
       <th>multi_antpost</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>antdur_dur</th>
       <td>1</td>
     </tr>
   </tbody>
@@ -367,7 +304,7 @@
   <tbody>
     <tr>
       <th>simultaneous</th>
-      <td>0.48</td>
+      <td>0.47</td>
     </tr>
     <tr>
       <th>atelic_ext</th>
@@ -398,6 +335,10 @@
       <td>0.02</td>
     </tr>
     <tr>
+      <th>cal_simul</th>
+      <td>0.01</td>
+    </tr>
+    <tr>
       <th>multi_simul</th>
       <td>0.01</td>
     </tr>
@@ -414,11 +355,11 @@
       <td>0.01</td>
     </tr>
     <tr>
-      <th>anterior</th>
-      <td>0.01</td>
+      <th>atelic_ext, simultaneous</th>
+      <td>0.00</td>
     </tr>
     <tr>
-      <th>atelic_ext, simultaneous</th>
+      <th>anterior</th>
       <td>0.00</td>
     </tr>
     <tr>
@@ -430,10 +371,6 @@
       <td>0.00</td>
     </tr>
     <tr>
-      <th>dur_to_end</th>
-      <td>0.00</td>
-    </tr>
-    <tr>
       <th>simul_to_end</th>
       <td>0.00</td>
     </tr>
@@ -442,11 +379,19 @@
       <td>0.00</td>
     </tr>
     <tr>
-      <th>postdur_dist</th>
+      <th>dur_to_end</th>
       <td>0.00</td>
     </tr>
     <tr>
       <th>habitual</th>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>postdur_dist</th>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>simul_posts</th>
       <td>0.00</td>
     </tr>
     <tr>
@@ -458,15 +403,7 @@
       <td>0.00</td>
     </tr>
     <tr>
-      <th>simul_ref</th>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>simul_posts</th>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>anterior_dist</th>
+      <th>multi_postant</th>
       <td>0.00</td>
     </tr>
     <tr>
@@ -474,15 +411,15 @@
       <td>0.00</td>
     </tr>
     <tr>
-      <th>multi_postant</th>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>antdur_dur</th>
+      <th>anterior_dist</th>
       <td>0.00</td>
     </tr>
     <tr>
       <th>multi_antpost</th>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>antdur_dur</th>
       <td>0.00</td>
     </tr>
   </tbody>

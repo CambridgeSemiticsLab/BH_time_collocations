@@ -357,6 +357,56 @@ class TimeTokenizer:
 
 
 # TimeParser helper functions for organizing the data
+
+def expand(time, key, val):
+    """Append to a list-based value in the time dicts."""
+    try:
+        time[key].insert(0, val)
+    except KeyError:
+        time[key] = [val]
+    except TypeError:
+        raise Exception(time, key, val)
+
+def expand_key(key):
+    """Return func for expanding a given key."""
+    def key_adder(val_str, val, time):
+        """Add data to a time based on key/val."""
+
+        # determine if the item to be added is a token
+        # with only a 'slot' key or is itself a time
+        # phrase which has its own data
+        if 'times' in val:
+            obj = val
+        else: 
+            obj = val['slot']
+
+        # append the tag to the appropriate key, its val is a list
+        tag = [val_str, obj]
+        expand(time, key, tag) 
+        if 'slot' in val:
+            expand(time, 'slots', val['slot'])
+        elif 'slots' in val:
+            time['slots'].extend(val['slots'])
+        else:
+            raise Exception(f'val missing slot(s) key! {val}')
+        return time
+
+    return key_adder
+
+add_ref = expand_key('refs')
+add_quant = expand_key('quants')
+add_prep = expand_key('preps')
+
+def add_function(funct, time):
+    """Add a new function."""
+    expand(time, 'functions', funct)
+    return time
+
+def add_qual(qual, time):
+    """Add new temporal qualities."""
+    expand(time, 'quals', qual)
+    return time
+
 def init_time(p, **kwargs):
     """Initialize time data."""
     slot = p['slot']
@@ -364,28 +414,47 @@ def init_time(p, **kwargs):
         'times': [slot],
         'slots': [slot],
         'refs': [],
-        'quality': '?', 
+        'quals': ['point?'], 
         'quants': [],
     }    
     time_data.update(**kwargs)
     return time_data
 
-def expand(time, key, val):
-    """Append to a list-based value in the time dicts."""
-    return time[key].append(val)
+def init_ctime(*times, **kwargs):
+    """Initialize new time composed of times."""
+    time_data = {
+        'times': [],
+        'slots': [],
+    }
+    for time in times:
+        time_data['times'].append(time)
+        time_data['slots'].extend(time['slots'])
+    time_data.update(**kwargs)
+    return time_data
 
-def expand_key(key):
-    """Return func for expanding a given key."""
-    def key_adder(val_str, val, time):
-        """Add data to a time based on key/val."""
-        tag = [val_str, val['slot']]
-        expand(time, key, tag) 
-        expand(time, 'slots', val['slot'])
-        return time
-    return key_adder
+def mergetime(small, big):
+    """Merge one time into another."""
+    big['slots'].extend(small['slots'])
+    big['times'].append(small)
+    return big
 
-add_ref = expand_key('refs')
-add_quant = expand_key('quants')
+def conv_num(numtype, time, as_dur=False):
+    """Convert num to a calendar num or quant."""
+    if numtype == 'CALNUM':
+        add_ref(numtype, time['NUM'], time)
+    elif numtype == 'NUMQ':
+        add_quant(numtype, time['NUM'], time)
+        if as_dur:
+            add_qual('duration', time)
+
+    del time['NUM']
+    return time
+
+def conv_nums(numtype, times, **kwargs):
+    """Convert multiple nums at once."""
+    for time in times:
+        if type(time) == dict and 'NUM' in time:
+            conv_num(numtype, time, **kwargs)
 
 class TimeParser(SlyParser):
 
@@ -470,110 +539,147 @@ class TimeParser(SlyParser):
     # -- composed constructions
     @_('simul simul')
     def hab_simul(self, p):
-        data = {
-            'function': 'simul_habitual, multi_simul',
-            'parts': [p[0], p[1]]
-        }
-        if p[1].get('duplicate'):
-            data['distributive'] = True
-        return data
-
-    @_('hab_simul in_dur', 'simul hab_simul')
+        return init_ctime(
+            *p,    
+            functions=['simul_habitual, multi_simul'],
+            quals=['iterative'],
+        )
+        
+    @_('hab_simul in_dur') 
     def hab_simul(self, p):
-        data = {
-            'function': 'simul_habitual, multi_simul',
-            'parts': list(p),
-        }
-        return data
+        return mergetime(p[1], p[0])
+
+    @_('simul hab_simul')
+    def hab_simul(self, p):
+        return mergetime(p[0], p[1])
 
     @_('hab_simul hab_simul')
     def hab_simul(self, p):
-        data = {
-            'function': 'simul_habitual, multi_simul',
-            'parts': list(p),
-        }
-        return p[0]
+        return mergetime(p[1], p[0])
 
-    @_('Ø CARD antdur_simul')
+    @_('Ø card antdur_simul')
     def hab_simul(self, p):
-        p[2]['function'] = 'simultaneous'
-        data = {
-            'function': 'simul_habitual, multi_simul',
-            'parts': [
-                {'time': 'single', 'count': 'calendrical'},
-                p[2]
-            ]
-        }
-        return data
-
+        p[2]['functions'][0] = 'simultaneous'
+        add_function('simultaneous', p[1])
+        return init_ctime(
+            p[1], p[2],
+            functions=['simul_habitual, multi_simul'],
+            quals=['iterative'],
+        )    
+    
     @_('Ø year year_simul', 'Ø day day_simul')
     def habitual(self, p):
-        data = {
-            'function': 'habitual',
-            'parts': [p[1], p[2]],
-        }
-        return data
+        add_function('simultaneous', p[1])
+        return init_ctime(
+            p[1], p[2],
+            functions=['habitual'],
+            quals=['iterative'],
+        )
 
-    @_('posts anterior_dur', 'posts antdur_simul',
-       'posterior_dur anterior_dur', 'antpost_dur anterior_dur')
+    @_('posterior_dur anterior_dur', 'antpost_dur anterior_dur')
     def begin_to_end(self, p):
-        p[0]['function'] = 'posterior_dur'
-        getattr(p, 'posts', {})['function'] = 'posterior_dur'
-        getattr(p, 'antdur_simul', {})['function'] = 'anterior_dur'
-        data = {
-            'function': 'begin_to_end',
-            'parts': [p[0], p[1]]
-        }
-        return data
+        p[0]['functions'][0] = 'posterior_dur'
+        return init_ctime(
+            *p,
+            functions=['begin_to_end'],
+            quals=['durative'],
+        )
 
-    @_('posts ONWARD', 'posts LOCALE ONWARD', 
-       'posterior_dur LOCALE duration')
+    @_('posts anterior_dur', 'posts antdur_simul')
     def begin_to_end(self, p):
-        p[0]['function'] = 'posterior_dur'
-        onward = {'time': 'durative'}
-        data = {
-            'function': 'begin_to_end',
-            'parts': [p[0], onward]
-        }
-        return data
+        p[0]['functions'][0] = 'posterior_dur'        
+        p[1]['functions'][0] = 'anterior_dur'
+        return init_ctime(
+            *p,
+            functions=['begin_to_end'],
+            quals=['durative'],
+        )
+
+    @_('posts ONWARD')
+    def begin_to_end(self, p):
+        p[0]['functions'][0] = 'posterior_dur'
+        onward = init_time(p[1], quals=['durative'])
+        return init_ctime(
+            p[0], onward,
+            functions=['begin_to_end'],
+            quals=['durative'],
+        )
+
+    @_('posts LOCALE ONWARD')
+    def begin_to_end(self, p):
+        p[0]['functions'][0] = 'posterior_dur'
+        onward = init_time(
+            p[2], 
+            quals=['durative'], 
+            locale=True
+        )
+        return init_ctime(
+            p[0], onward,
+            functions=['begin_to_end'],
+            quals=['durative'],
+        )
+
+    @_('posterior_dur LOCALE duration')
+    def begin_to_end(self, p):
+        p[2]['locale'] = True
+        return init_ctime(
+            p[0], p[2],
+            functions=['begin_to_end'],
+            quals=['durative'],
+        )
 
     @_('MN month month_ref')
     def begin_to_end(self, p):
-        data = {
-            'function': 'begin_to_end',
-            'parts': [
-                {'time': p[1]['time'], 'function': 'posterior_dur'},
-                p[1]
-            ]
-        }
-        return data
+        add_prep('MN', p[0], p[1])
+        add_function('posterior_dur', p[1])
+        return init_ctime(
+            p[1], p[2],
+            functions=['begin_to_end'],
+            quals=['durative'],
+        )
 
     @_('begin_to_end begin_to_end')
     def multi_begintoend(self, p):
-        data = {
-            'function': 'multi_begin_to_end',
-            'parts': list(p),
-        }
-        return data
+        return init_ctime(
+            *p,
+            functions=['multi_begin_to_end'],
+            quals=['duration'],
+        )
 
-    @_('atelic_ext anterior_dur', 
-       'atelic_ext antdur_simul')
+    @_('atelic_ext anterior_dur')
     def dur_to_end(self, p):
-        getattr(p,'antdur_simul',{})['function'] = 'anterior_dur'
-        data = {
-            'function': 'dur_to_end',
-            'parts': list(p),
-        }
-        return data
+        return init_ctime(
+            *p,
+            functions=['dur_to_end'],
+            quals=['duration'],
+        )
+
+    @_('atelic_ext antdur_simul')
+    def dur_to_end(self, p):
+        p[1]['functions'][0] = 'anterior_dur'
+        return init_ctime(
+            *p,
+            functions=['dur_to_end'],
+            quals=['duration'],
+        )
 
     # 'on the eigth day and onward'
-    @_('simul ONWARD', 'in_dur anterior_dur', 'simul anterior_dur')
+    @_('in_dur anterior_dur', 'simul anterior_dur')
     def simul_to_end(self, p):
-        data = {
-            'function': 'simul_to_end',
-            'parts': [p[0], {'time': 'single', 'advb': True}]
-        }
-        return data
+        return init_ctime(
+            *p,
+            functions=['simul_to_end'],
+            quals=['duration'],
+        )
+
+    @_('simul ONWARD')
+    def simul_to_end(self, p):
+        onward = init_time(p[1], quals=['durative'])
+        return init_ctime(
+            p[0], onward,
+            functions=['simul_to_end'],
+            quals=['duration'],
+        )
 
     @_('in_dur simul', 'simul in_dur', 'in_dur in_dur',
        'day_simul day_simul', 'day_simul simul',
@@ -584,98 +690,81 @@ class TimeParser(SlyParser):
        'simul cal_simul', 'in_dur year_simul',
        'in_dur cal_simul', 'first_simul simul') 
     def multi_simul(self, p):
-        getattr(p, 'in_dur', {})['function'] = 'telic_ext'
-        data = {
-            'function': 'multi_simul',
-            'parts': [p[0], p[1]]
-        }
-        return data
+        return init_ctime(
+            *p,
+            functions=['multi_simul'],
+        )
 
-    @_('multi_simul simul', 'in_dur multi_simul')
+    @_('multi_simul simul') 
     def multi_simul(self, p):
-        single = getattr(p, 'simul', p.multi_simul)
-        parts = p.multi_simul['parts'] + [single]
-        data = {
-            'function': 'multi_simul',
-            'parts': parts,
-        }
-        return data
+        return mergetime(p[1], p[0])
+
+    @_('in_dur multi_simul')
+    def multi_simul(self, p):
+        return mergetime(p[0], p[1]) 
 
     @_('antdur_simul simul', 'antdur_simul year_simul')
     def multi_simul(self, p):
-        p[0]['function'] = 'simultaneous'
-        data = {
-            'function': 'multi_simul',
-            'parts': [p[0], p[1]],
-        }
-        return data
+        p[0]['functions'][0] = 'simultaneous'
+        return init_ctime(
+            *p,
+            functions=['multi_simul'],
+        )
 
     @_('posts anterior')
     def multi_postantdur(self, p):
-        p[0]['function'] = 'anterior_dur'
-        data = {
-            'function': 'multi_postant',
-            'parts': [p[0], p[1]]
-        }
-        return data
+        p[0]['functions'][0] = 'anterior_dur'
+        return init_ctime(
+            *p,
+            functions=['multi_postant'],
+        )
 
     @_('anterior posterior')
     def multi_antpost(self, p):
-        data = {
-            'function': 'multi_antpost',
-            'parts': [p[0], p[1]],
-        }
-        return data
+        return init_ctime(
+            *p,
+            functions=['multi_antpost'],
+        )
 
     @_('antdur_simul antdur_simul')
     def multi_antdursim(self, p):
-        data = {
-            'function': 'multi_simul, multi_anterior_dur',
-            'parts': [p[0], p[1]]
-        }
-        return data
-
+        return init_ctime(
+            *p,
+            functions=['multi_simul, multi_anterior_dur'],
+        )
+   
     @_('antdur_simul multi_antdursim')
     def multi_antdursim(self, p):
-        partsb = p[1]['parts'] 
-        p[1]['parts'] = [p[0]] + partsb
-        return p[1]
+        return mergetime(p[0], p[1])
 
     # (cl)
     @_('anterior_dur atelic_ext')
     def antdur_dur(self, p):
-        data = {
-            'function': 'antdur_dur',
-            'parts': list(p),
-        }
-        return data
+        return init_ctime(
+            *p,  
+            functions=['antdur_dur'],
+        )
 
     # 'in that day and after tomorrow'
     @_('simul posts')
     def simul_posts(self, p):
-        data = {
-            'function': 'simul_posts',
-            'parts': [p[0], p[1]]
-        }
-        return data
+        return init_ctime(
+            *p,  
+            functions=['simul_posts'],
+        ) 
 
     @_('posts posts')
     def multi_posts(self, p):
-        data = {
-            'function': 'multi_posts',
-            'parts': [p[0], p[1]]
-        }
-        return data
+        return init_ctime(
+            *p,
+            functions=['multi_posts'],
+        )
 
     @_('multi_posts posts')
     def multi_posts(self, p):
-        data = {
-            'function': 'multi_posts',
-            'parts': list(p),
-        } 
-        return data
-    
-    # very complicated phrase!
+        return mergetime(p[0], p[1])
+
+    # complicated phrases to be disambiguated by hand
     @_('day_simul simul begin_to_end',
        'in_dur anterior_dist', 
        'antdur_simul habitual',
@@ -684,74 +773,77 @@ class TimeParser(SlyParser):
        'habitual begin_to_end',
        'hab_simul begin_to_end', 'in_dur multi',)
     def multi(self, p):
-        data = {
-            'function': '?',
-            'parts': list(p),
-        }
-        return data
+        return init_ctime(
+            *p,
+            functions=['?'],
+        )
 
     @_('year_simul month_simul day_simul simul')
     def multi_simul(self, p):
-        cal_simul = {
-            'function': 'simul',
-            'parts': list(p)[:-1],
-        }
-        data = {
-            'function': 'multi_simul',
-            'parts': [cal_simul, p[-1]]
-        }
-        return data
+        cal_simul = init_ctime(
+            *list(p)[:-1],
+            functions=['cal_simul'],
+        )
+        return init_ctime(
+            cal_simul, p[-1],
+            functions=['multi_simul'],
+        )
 
     # located durations
-    @_('atelic_ext simul', 'atelic_ext year_simul',
-       'atelic_ext in_dur')
+    @_('atelic_ext simul', 'atelic_ext year_simul')
     def dur_simul(self, p):
-        getattr(p,'in_time',{})['function'] = 'simultaneous'
-        data = {
-            'function': 'dur_simul',
-            'parts': list(p),
-        }
-        return data
+       return init_ctime(
+            *p,
+            functions=['dur_simul'],
+        )
+
+    @_('atelic_ext in_dur')
+    def dur_simul(self, p):
+        p[1]['functions'][0] = 'simultaneous'
+        return init_ctime(
+            *p,
+            functions=['dur_simul'],
+        )
 
     # (cl)
     @_('year_simul atelic_ext', 'day_simul atelic_ext',
-       'in_dur atelic_ext', 'simul atelic_ext',
-       'cal_simul multi_begintoend', 'cal_simul atelic_ext',
-       'antdur_simul atelic_ext')
+       'simul atelic_ext', 'cal_simul multi_begintoend', 
+       'cal_simul atelic_ext', 'antdur_simul atelic_ext')
     def simul_dur(self, p):
-        getattr(p,'in_dur',{})['function'] = 'simultaneous'
-        data = {
-            'function': 'simul_dur',
-            'parts': list(p),
-        }
-        return data
+        return init_ctime(
+            *p,
+            functions=['simul_dur']
+        )         
+
+    @_('in_dur atelic_ext')
+    def simul_dur(self, p):
+        p[0]['functions'][0] = 'simultaneous'
+        return init_ctime(
+            *p,
+            functions=['simul_dur']
+        )         
 
     # (cl)
     @_('posterior atelic_ext')
     def postdur_dist(self, p):
-        data = {
-            'function': 'postdur_dist',
-            'parts': list(p),
-        }
-        return data
+        return init_ctime(
+            *p,
+            functions=['postdur_dist'],
+        )
 
     # simul phrases followed by potential references
     @_('simul antdur_simul', 'in_dur antdur_simul')
     def simul_ref(self, p):
-        data = {
-            'function': 'simul_ref',
-            'parts': list(p),
-        }
-        return data
+        p[1]['functions'][0] = 'reference'
+        add_ref('LREF', p[1], p[0])
+        return p[0]
 
     # -- atelic extent
-    @_('Ø duration', 'Ø num_year', 'Ø num_day', 
-       'Ø one_year')
+    @_('Ø duration', 'Ø num_year', 
+       'Ø num_day', 'Ø one_year')
     def atelic_ext(self, p):
-        getattr(p, 'one_year', {})['time'] = 'duration'
-        p[1].update({
-            'function': 'atelic_ext',
-        })
+        conv_nums('NUMQ', p, as_dur=True)
+        add_function('atelic_ext', p[1])
         return p[1]
 
     # NB: this pattern is very significant
@@ -760,43 +852,63 @@ class TimeParser(SlyParser):
     # from the accusative / object role
     @_('>T duration', '>T num_day')
     def atelic_ext(self, p):
-        getattr(p, 'num_day', {})['time'] = 'duration'
-        p[1].update({
-            'function': 'atelic_ext',
-        })
+        conv_nums('NUMQ', p, as_dur=True)
+        add_function('atelic_ext', p[1])
+        add_prep('>T', p[0], p[1])
         return p[1]
 
     @_('atelic_ext atelic_ext')
     def atelic_ext(self, p):
-        data = {
-            'function': 'atelic_ext',
-            'parts': [p[0], p[1]]
-        }
-        return data
+        time = init_ctime(
+            *p,
+            functions=['atelic_ext']
+        )
+        return time
 
     # -- simultaneous --
-    @_('B time', 'Ø time',
-       'K time', 'BJN/ duration',
-       '<L time', 'B person', 'Ø ordinal')
+    @_('B time', 'B person')
     def simul(self, p):
-        p[1].update({
-            'function': 'simultaneous',
-        })
+        add_function('simultaneous', p[1])
+        add_prep('B', p[0], p[1])
         return p[1] 
 
-    @_('<L person')
+    @_('BJN/ duration')
     def simul(self, p):
-        data = {
-            'function': 'simultaneous',
-            'parts': [
-                {'time': 'duration', 'reference': 'person'},
-            ],
-        }
-        return data
+        add_function('simultaneous', p[1])
+        add_prep('BJN/', p[0], p[1])
+        return p[1] 
 
-    @_('B simul', 'K simul', 'L simul',
+    @_('K time')
+    def simul(self, p):
+        add_function('simultaneous', p[1])
+        add_prep('K', p[0], p[1])
+        return p[1] 
+
+    @_('<L time', '<L person')
+    def simul(self, p):
+        add_function('simultaneous', p[1])
+        add_prep('<L', p[0], p[1])
+        return p[1] 
+
+    @_('Ø time', 'Ø ordinal')
+    def simul(self, p):
+        add_function('simultaneous', p[1])
+        return p[1] 
+
+    @_('B simul')
+    def simul(self, p):
+        add_prep('B', p[0], p[1])
+        return p[1]
+
+    @_('K simul', 
        'K first_simul')
     def simul(self, p):
+        add_prep('K', p[0], p[1])
+        return p[1]
+
+    @_('L simul')
+    def simul(self, p):
+        add_prep('L', p[0], p[1])
         return p[1]
 
     # Very interesting pattern here, somewhat
@@ -807,124 +919,100 @@ class TimeParser(SlyParser):
     # כמשלש חדשים (Gen 38:24)
     @_('K posterior_dur')
     def simul(self, p):
-        data = {
-            'function': 'simultaneous',
-            'parts': [
-                {'function': 'simultaneous'},
-                p[1],
-            ]
-        } 
-        return data
+        add_function('simultaneous', p[1])
+        add_prep('K', p[0], p[1])
+        return p[1]
 
     @_('BEGINNING duration', 'BEGINNING time',
        'BEGINNING person',)
     def simul(self, p):
-        p[1].update({
-            'function': 'simultaneous',
-            'time': 'singular',
-            'time_loc': 'beginning',
-        })
+        add_function('simultaneous', p[1])
+        add_prep('BEGINNING', p[0], p[1])
         return p[1]
 
     @_('MIDDLE duration', 'MIDDLE time')
     def simul(self, p):
-        p[1].update({
-            'function': 'simultaneous',
-            'time': 'singular',
-            'time_loc': 'middle',
-        })
+        add_function('simultaneous', p[1])
+        add_prep('MIDDLE', p[0], p[1])
         return p[1]
-
+ 
     @_('Ø MIDDLE time')
     def simul(self, p):
-        p[2].update({
-            'function': 'simultaneous',
-            'time': 'singular',
-            'time_loc': 'middle',
-        })
+        add_function('simultaneous', p[2])
+        add_prep('MIDDLE', p[1], p[2])
         return p[2]
  
     @_('END duration', 'END time', 
        'END num_year', 'END num_day',
        'END person')
     def simul(self, p):
-        p[1].update({
-            'function': 'simultaneous',
-            'time': 'singular',
-            'time_loc': 'end',
-            'count': 'measurement',
-        })
+        conv_nums('NUMQ', p, as_dur=True)
+        add_function('simultaneous', p[1])
+        add_prep('END', p[0], p[1])
         return p[1]
 
     # -- CALENDRICAL TIMES -- 
     @_('B month')
     def month_simul(self, p):
-        data = {
-            'function': 'simultaneous',
-            'parts': [p[1]]
-        }
-        return data
+        add_function('simultaneous', p[1])
+        add_prep('B', p[0], p[1])
+        return p[1]
 
     @_('B year', 'B num_year')
     def year_simul(self, p):
-        data = {
-            'function': 'simultaneous',
-            'parts': [p[1]],
-        }
-        return data
+        add_function('simultaneous', p[1])
+        add_prep('B', p[0], p[1])
+        return p[1]
 
     @_('year_simul num_year')
     def year_simul(self, p):
-        data = {
-            'function': 'simultaneous',
-            'parts': list(p),
-        }
-        return data
+        return init_ctime(
+            p[0], p[1],
+            functions=['simultaneous'],
+        )
 
-    @_('B day', 'B num_day', 'B CARD', 
-       'B THE CARD', 'Ø CARD')
+    @_('B day', 'B num_day')
     def day_simul(self, p):
-        data = {
-            'function': 'simultaneous',
-            'time': 'single',
-            'count': 'calendrical',
-        }
-        return data
+        add_function('simultaneous', p[1])
+        add_prep('B', p[0], p[1])
+        return p[1]
+
+    @_('B card')
+    def day_simul(self, p):
+        add_function('simultaneous', p[1])
+        add_prep('B', p[0], p[1])
+        return p[1]
+
+    @_('Ø card')
+    def day_simul(self, p):
+        add_function('simultaneous', p[1])
+        return p[1]
 
     @_('day_simul year_simul')
     def day_simul(self, p):
-        p[1]['time'] = 'duration'
-        data = {
-            'function': 'simultaneous',
-            'parts': [
-                {'time': 'single', 'count': 'calendrical'},
-                p[1]
-            ]
-        }
-        return data
+        add_qual('duration', p[1])
+        return init_ctime(
+            p[0], p[1],
+            functions=['simultaneous'],
+        )
 
     @_('B one_day')
     def oneday_simul(self, p):
-        p[1].update({
-            'function': 'simultaneous',
-        })
+        add_function('simultaneous', p[1])
+        add_prep('B', p[0], p[1])
         return p[1]
 
     @_('B ordinal')
     def ordn_simul(self, p):
-        data = {
-            'function': 'simultaneous',
-            'parts': [p[1]]
-        }
-        return data
+        add_function('simultaneous', p[1])
+        add_prep('B', p[0], p[1])
+        return p[1]
 
     @_('B first')
     def first_simul(self, p):
-        data = {
-            'function': 'simultaneous',
-            'parts': [p[1]],
-        }
-        return data
+        add_function('simultaneous', p[1])
+        add_prep('B', p[0], p[1])
+        return p[1]
 
     # -- CALENDRICAL COMPOSITIONS --
     @_('day_simul month_simul', 
@@ -946,369 +1034,353 @@ class TimeParser(SlyParser):
        'year_simul first_simul day_simul',
       )
     def cal_simul(self, p):
-        getattr(p, 'ordn_simul', {})['number'] =  'calendrical'
-        getattr(p, 'first_simul', {})['number'] =  'calendrical'
-        getattr(p, 'year', {})['function'] =  'simultaneous'
-        data = {
-            'function': 'simultaneous',
-            'parts': list(p),
-            'reference': p[-1], # TODO: fix this properly
-        } 
-        return data
+        conv_nums('CALNUM', p)
+        getattr(p, 'year', {})['functions'] =  ['simultaneous']
+        return init_ctime(
+            *p,
+            functions=['cal_simul']
+        )
 
     # -- either atelic ext or simul --
-    @_('Ø dur_sing', 'Ø one_day', 'Ø year',
-       'Ø month')
+    @_('Ø one_time', 'Ø one_day', 
+       'Ø year', 'Ø month')
     def atelic_simul(self, p):
-        p[1].update({
-            'function': 'atelic_ext, simultaneous',
-        })
+        add_function('atelic_ext, simultaneous', p[1])
         return p[1]
     
     # -- telic extent / distances --
-    @_('B duration', 'B dur_sing', 'K duration', 'B one_year')
+    @_('B duration', 'B one_time')
     def in_dur(self, p):
-        getattr(p, 'one_year', {})['time'] = 'duration'
-        p[1].update({
-            'function':'telic_ext, dist_fut, dist_past',
-        })
+        conv_nums('NUMQ', p)
+        add_function('telic_ext, dist_fut, dist_past', p[1])
+        add_prep('B', p[0], p[1])
+        return p[1]
+
+    @_('B one_year')
+    def in_dur(self, p):
+        conv_num('NUMQ', p[1], as_dur=True)
+        add_function('telic_ext, dist_fut, dist_past', p[1])
+        add_prep('B', p[0], p[1])
+        return p[1]
+
+    @_('K duration')
+    def in_dur(self, p):
+        add_function('telic_ext, dist_fut, dist_past', p[1])
+        add_prep('K', p[0], p[1])
         return p[1]
 
     # -- anterior --
-    @_('L PNH/ duration', 'L PNH/ time', 
-       'L PNH/ dur_sing')
+    @_('L PNH/ duration', 
+       'L PNH/ time', 
+       'L PNH/ one_time')
     def anterior(self, p):
-        p[2].update({
-            'function': 'anterior',
-        })
+        add_function('anterior', p[2])
+        add_prep('L PNH/', p[0], p[2])
         return p[2]
 
     @_('L SFX PNH/')
     def anterior(self, p):
-        data = {
-            'function': 'anterior',
-            'reference': 'deictic',
-            'ref_type': 'personal',
-        }
-        return data
+        time = init_time(p[2])
+        add_ref('SFX', p[1], time)
+        add_prep('L', p[0], time)
+        return time
 
     @_('L PNH/ posts')
     def anterior(self, p):
-        data = {
-            'function': 'anterior',
-            'parts': [
-                {'function': 'anterior'},
-                p[2]
-            ]
-        }
-        return data
+        add_function('anterior', p[2])
+        add_prep('L PNH/', p[0], p[2])
+        return p[2]
 
-    # stand-alone >XR, will only match if 
-    # followed by nothing else; causes shift/reduce
-    # conflict, but this is tolerable for this proj.
+    # stand-alone VRM/, will only match if 
+    # followed by nothing else 
     @_('VRM/')
     def anterior(self, p):
-        return {
-            'function': 'anterior',
-            'advb': True,
-        }
+        return init_time(
+            p[0],
+            functions=['anterior']
+        )
 
     @_('atelic_ext anterior')
     def anterior_dist(self, p):
-        data = {
-            'function': 'anterior_dist',
-            'parts': list(p), 
-        }
-        return data
+        return init_ctime(
+            *p,
+            functions=['anterior_dist']
+        )
 
     # -- anterior durative --
-    @_('<D duration', '<D time', '<D simul',
-       'L posterior', '<D dur_sing', '<D year',
-       '<D num_year', '<D num_day', '<D one_day',
+    @_('<D duration', '<D time', 
+       '<D simul', '<D one_time', 
+       '<D year', '<D num_year', 
+       '<D num_day', '<D one_day',
        '<D month', '<D person')
     def anterior_dur(self, p):
-        getattr(p, 'num_year', {})['time'] = 'duration'
-        getattr(p, 'num_day', {})['time'] = 'duration'
-        data = {
-            'function': 'anterior_dur',
-            'parts': [p[1]],
-        }
-        return data
-
-    @_('antdur_simul anterior_dur')
-    def anterior_dur(self, p):
-        p[0]['function'] = 'anterior_dur'
-        p[0]['parts'] = [p[0]['time'], p[1]]
-        return p[0]
-
-    # -- anterior dur / simultaneous
-    @_('L time', 'L duration', '>L time', 
-       'L first', 'L num_day', 'L one_day')
-    def antdur_simul(self, p):
-        p[1].update({
-            'function': 'anterior_dur, simultaneous',
-        })
+        conv_nums('NUMQ', p, as_dur=True)
+        add_function('anterior_dur', p[1])
+        add_prep('<D', p[0], p[1])
+        add_qual('durative', p[1])
         return p[1]
 
-    @_('L dur_sing')
+    @_('L posterior')
+    def anterior_dur(self, p):
+        add_function('anterior_dur', p[1])
+        add_prep('<D', p[0], p[1])
+        add_qual('durative', p[1])
+        return p[1]
+
+    # TODO: Revisit this and see what phrases 
+    # it's supposed to apply to
+    @_('antdur_simul anterior_dur')
+    def anterior_dur(self, p):
+        p[0]['functions'][0] = 'anterior_dur'
+        add_qual('durative', p[0])
+        return init_ctime(
+            p[0], p[1],
+            functions=['anterior_dur']
+        )
+
+    # -- anterior dur / simultaneous
+    @_('L time', 'L duration', 
+       'L first', 'L num_day', 'L one_day')
+    def antdur_simul(self, p):
+        conv_nums('NUMQ', p)
+        add_function('anterior_dur, simultaneous', p[1])
+        add_prep('L', p[0], p[1])
+        return p[1]
+
+    @_('>L time')
+    def antdur_simul(self, p):
+        add_function('anterior_dur, simultaneous', p[1])
+        add_prep('>L', p[0], p[1])
+        return p[1]
+
+    @_('L one_time')
     def simul(self, p):
-        p[1].update({
-            'function': 'simultaneous',
-            'time': 'singular',
-        })
+        conv_num('NUMQ', p[1])
+        add_function('simultaneous', p[1])
+        add_prep('L', p[0], p[1])
         return p[1]
 
     @_('<D antdur_simul')
     def anterior_dur(self, p):
-        p[1].update({
-            'function': 'anterior_dur'
-        })
+        p[1]['functions'][0] = 'anterior_dur'
+        add_prep('<D', p[0], p[1])
         return p[1]
 
-    @_('L posts', '<D posts', 'L posterior_dur')
+    @_('L posts', 'L posterior_dur')
     def antpost_dur(self, p):
-        p[1].update({
-            'function': 'posterior_dur',   
-        })
-        data = {
-            'function': 'antpost_dur',
-            'parts': [
-                {'function': 'anterior_dur'},
-                p[1]
-            ]
-        }
-        return data
+        p[1]['functions'][0] = 'posterior_dur' 
+        add_function('antpost_dur', p[1])
+        add_prep('L', p[0], p[1])
+        return p[1] 
+
+    @_('<D posts')
+    def antpost_dur(self, p):
+        p[1]['functions'][0] = 'posterior_dur' 
+        add_function('antpost_dur', p[1])
+        add_prep('<D', p[0], p[1])
+        return p[1] 
 
     @_('<D posterior')
     def antpost_dur(self, p):
-        data = {
-            'function': 'antpost_dur',
-            'parts': [
-                {'function': 'anterior_dur'},
-                p[1],
-            ]
-        }
-        return data
+        add_function('antpost_dur', p[1])
+        add_prep('<D', p[0], p[1])
+        return p[1]
 
     # -- posteriors --
-    @_('>XR/ duration', '>XR/ time', '>XR/ dur_sing')
+    @_('>XR/ duration', '>XR/ time', '>XR/ one_time')
     def posterior(self, p):
-        p[1].update({
-            'function': 'posterior',
-        })
+        conv_nums('NUMQ', p)
+        add_function('posterior', p[1])
+        add_prep('>XR/', p[0], p[1])
         return p[1]
 
     @_('SFX >XR/')
     def posterior(self, p):
-        return {
-            'function': 'posterior',
-            'reference': 'deictic',
-            'ref_type': 'personal',
-        }
+        time = init_time(p[1])
+        add_function('posterior', time)
+        add_ref('SFX', p[0], time)
+        return time
 
     @_('>XR/ PERSON')
     def posterior(self, p):
-        data = {
-            'function': 'posterior',
-            'reference': 'person',
-        }
-        return data
+        time = init_time(p[1])
+        add_function('posterior', time)
+        add_prep('>XR/', p[0], time) 
+        add_ref('PERS', p[1], time)
+        return time
 
-    # stand-alone >XR, will only match if 
-    # followed by nothing else; causes shift/reduce
-    # conflict, but this is tolerable for this proj.
+    # stand-alone >XR; will only match if 
+    # followed by nothing else 
     @_('>XR/')
     def posterior(self, p):
-        return {
-            'function': 'posterior',
-            'advb': True,
-        }
+        return init_time(
+            p[0], 
+            functions=['posterior'],
+        )
 
     @_('atelic_ext posterior')
     def posterior_dist(self, p):
-        data = {
-            'function': 'posterior_dist',
-            'parts': list(p), 
-        }
-        return data
+        return init_ctime(
+            p[0], p[1],
+            functions= ['posterior_dist'],
+        )
 
     # -- posteriors (durative?) --
-    @_('MN time', 'MN dur_sing', 'MN one_day',
+    @_('MN time', 'MN one_time', 'MN one_day',
        'MN first', 'MN year', 'MN num_year', 'MN month')
     def posts(self, p):
-        p[1].update({
-            'function': 'posterior, posterior_dur',
-        })
+        conv_nums('NUMQ', p)
+        add_function('posterior, posterior_dur', p[1])
+        add_prep('MN', p[0], p[1])
         return p[1]
 
     @_('MN duration')
     def posterior_dur(self, p):
-        p[1].update({
-            'function': 'posterior_dur',    
-        })
+        add_function('posterior_dur', p[1])
+        add_prep('MN', p[0], p[1])
         return p[1]
 
     @_('MN simul', 'MN first_simul')
     def posterior(self, p):
-        p[1]['function'] = 'posterior'
+        add_function('posterior', p[1])
+        add_prep('MN', p[0], p[1])
         return p[1]
 
     @_('MN posterior')
     def posterior(self, p):
-        p[1]['function'] = 'posterior'
+        add_function('posterior', p[1])
+        add_prep('MN', p[0], p[1])
         return p[1]
 
     # NB how the opposing duration leads
     # to a re-evaluation of this type!
     @_('MN anterior_dur')
     def posterior_dur(self, p):
-        p[1]['function'] = 'posterior_dur'
+        add_function('posterior_dur', p[1])
+        add_prep('MN', p[0], p[1])
         return p[1]
 
     @_('MN antdur_simul')
     def posterior_dur(self, p):
-        p[1]['function'] = 'posterior_dur'
+        add_function('posterior_dur', p[1])
+        add_prep('MN', p[0], p[1])
         return p[1]
 
     # -- durations --
     @_('TIMES')
     def duration(self, p):
-        return {
-            'time': 'durative',
-        } 
+        return init_time(p[0], quals=['durative'])
 
     @_('DURATION')
     def duration(self, p):
-        return {
-            'time': 'durative',
-            'advb': True,
-        }
+        return init_time(p[0], quals=['durative'])
 
-    @_('NUM duration', 'NUM time',
+    @_('NUM duration', 
+       'NUM time',
        'NUM_ONE duration')
     def duration(self, p):
-        p[1].update({
-            'time': 'durative',
-            'count': 'mensural',
-        })
-        return p[1]
+        return add_quant('NUMQ', p[0], p[1])
 
-    @_('ALL duration', 'ALL time',
-       'MANY duration', 'MANY time',
+    @_('ALL duration', 
+       'ALL time',
        'ALL year')
     def duration(self, p):
-       p[1].update({
-            'time': 'durative',
-        })
-       return p[1]
+        add_quant('ALL', p[0], p[1])        
+        add_qual('durative', p[1])
+        return p[1]
+
+    @_('MANY duration', 'MANY time')
+    def duration(self, p):
+        add_quant('MANY', p[0], p[1])        
+        add_qual('durative', p[1])
+        return p[1]
 
     @_('duration duration')
     def duration(self, p):
-        data = {
-            'time': 'durative',
-            'parts': [p[0], p[1]]   
-        }
-        return data
+        return init_ctime(
+            p[0], p[1],
+            quals=['durative'],
+        )
 
     @_('num_year num_year', 'duration num_year', 
        'num_day num_day', 'num_day duration',
        'duration num_day', 'duration year',
        'duration month')
     def duration(self, p):
-        data = {
-            'time': 'durative',
-            'parts': [p[0], p[1]]
-        }
-        return data
+        # set numbers to quantifiers
+        conv_nums('NUMQ', p)
+        time = init_ctime( 
+            p[0], p[1],
+            quals=['durative']
+        )
+        return time
 
     @_('duration time', 'time duration')
     def duration(self, p):
-        p.time['time'] = 'durative' # reanalyze as duration
-        data = {
-            'time': 'durative',
-            'parts': [p[0], p[1]] 
-        }
-        return data 
+        return init_ctime(
+            p[0], p[1],
+            quals=['durative'],
+        )
 
     @_('time time')
     def duration(self, p):
-        data = {
-            'time': 'durative',
-            'parts': [p[0], p[1]]
-        }
+        time = init_ctime(
+            p[0], p[1],
+            quals=['durative'],
+        )
         if p[1].get('duplicate'):
-            data['distributive'] = True
-        return data
+            time['distributive'] = True
+        return time
 
     @_('GENDUR time', 'GENDUR month', 'GENDUR duration')
     def duration(self, p):
-        p[1].update({
-            'time': 'durative',
-        })
+        p[1]['GENDUR'] = init_time(p[0], quals=['duration'])
+        add_qual('durative', p[1])
         return p[1]
 
     # add reference data
     @_('SFX duration')
     def duration(self, p):
-        p[1].update({
-            'reference': 'deictic',
-            'ref_type': 'personal',
-        })
-        return p[1]
+        return add_ref('SFX', p[0], p.duration)
 
     @_('THE duration')
     def duration(self, p):
-        p[1].update({
-            'reference': 'anaphora',
-            'ref_type': 'exophoric',
-        })
-        return p[1]
+        return add_ref('THE', p[0], p.duration)
 
     @_('THIS duration')
     def duration(self, p):
-        p[1].update({
-            'reference': 'deictic',
-            'ref_type': 'spatial',
-            'ref_dist': 'near'
-        })
-        return p[1]
+        return add_ref('THIS', p[0], p.duration)
 
     @_('THAT duration')
     def duration(self, p):
-        p[1].update({
-            'reference': 'deictic',
-            'ref_type': 'spatial',
-            'ref_dist': 'far'
-        })
-        return p[1]
+        return add_ref('THAT', p[0], p.duration)
     
     # 2 Chr 21:15, ימים על־ימים
     # a kind of 'intensive' adjective
     @_('duration <L duration')
     def duration(self, p):
-        data = {
-            'time': 'durative',
-            'parts': [p[0], p[2]],
-            'quality': 'intensive',
-        }
-        return data
+        prep = ['<L', p[1]]
+        time = init_ctime(
+            p[0], p[2],
+            quals=['iterative'],
+            preps=[{}, prep],
+        )
+        return time
 
     @_('year >XR/ year')
     def duration(self, p):
-        data = {
-            'time': 'durative',
-            'parts': [p[0], p[2]],
-            'quality': 'intensive',
-        }
-        return data
+        prep = ['>XR/', p[1]]
+        time = init_ctime(
+            p[0], p[2],
+            quals=['iterative'],
+            preps=[{}, prep],
+        )
+        return time
 
     @_('NUM_ONE time')
-    def dur_sing(self, p):
-        p[1].update({
-            'time': 'durative, singular', # disambig needed  
-            'count': 'mensural',
-        })
-        return p[1]
+    def one_time(self, p):
+        p.time['NUM'] = p.NUM_ONE
+        return p.time
 
     # -- time --
     @_('TIME')
@@ -1317,7 +1389,7 @@ class TimeParser(SlyParser):
 
     @_('TIME2')
     def time(self, p):
-        return init_time(p.TIME2)
+        return init_time(p.TIME2, duplicate=True)
    
     @_('SFX time')
     def time(self, p):
@@ -1338,7 +1410,7 @@ class TimeParser(SlyParser):
     # define specialized time
     @_('BEGINNING', 'END')
     def time(self, p):
-        return init_time(p[0], quality='point')
+        return init_time(p[0], quals=['point'])
 
     # calendrical time references
     @_('DAY')
@@ -1351,29 +1423,52 @@ class TimeParser(SlyParser):
 
     @_('NUM_ONE day')
     def one_day(self, p):
-        return add_quant('NUM_ONE', p[0], p.day)
+        p.day['NUM'] = p[0]
+        return p.day
 
     @_('NUM day')
     def num_day(self, p):
-        return add_quant('NUM', p[0], p.day)
+        p.day['NUM'] = p[0]
+        return p.day
 
-    @_('num_day month_ref', 'num_day person_ref',
-       'one_day month_ref', 'day month_ref')
+    @_('num_day month_ref', 
+       'num_day person_ref',
+       'one_day month_ref')
     def day(self, p):
+        conv_num('CALNUM', p[0])   
         return add_ref(
             p[1]['ref'], 
-            p[1]['slot'], 
-            p[0]
+            p[1],
+            p[0],
         )
 
-    @_('CARD month_ref', 'CARD ordn_ref')
+    @_('day month_ref')
     def day(self, p):
-        day = init_time(p.CARD)
-        getattr(p, 'ordn_ref', {})['ref'] = 'month'
         return add_ref(
             p[1]['ref'],
-            p[1]['slot',
-            day,
+            p[1],
+            p[0],
+        )
+    
+    @_('CARD')
+    def card(self, p):
+        return init_time(
+            p[0],
+            NUM=p[0],
+        )
+
+    @_('THE card')
+    def card(self, p):
+        add_ref('THE', p[0], p[1])
+        return p[1]
+
+    @_('card month_ref', 'card ordn_ref')
+    def day(self, p):
+        conv_num('CALNUM', p[0])
+        return add_ref(
+            'CALORDN',
+            p[1],
+            p[0],
         )
 
     @_('MONTH')
@@ -1402,13 +1497,13 @@ class TimeParser(SlyParser):
 
     @_('month antdur_simul')
     def month(self, p):
-        ref = p[1]['times'][0]
-        return add_ref('TIME', p[0], p[1]) 
+        return add_ref('TIME', p[1], p[0]) 
 
     @_('month L year')
     def month(self, p):
-        ref = p[1]['times'][0]
-        return add_ref('YEAR', p[0], p[1])
+        add_function('reference', p[2])
+        add_prep('L', p[1], p[2])
+        return add_ref('YEAR', p[2], p[0])
 
     @_('GENCARD day')
     def day(self, p):
@@ -1436,87 +1531,63 @@ class TimeParser(SlyParser):
 
     @_('NUM year')
     def num_year(self, p):
-        return add_ref('CALNUM', p[0], p[1])
+        p.year['NUM'] = p.NUM
+        return p.year
 
     @_('NUM_ONE year')
     def one_year(self, p):
-        return add_quant('NUM_ONE', p[0], p.year)
+        p.year['NUM'] = p.NUM_ONE
+        return p.year
 
-    @_('year person_ref', 'num_year person_ref')
+    @_('year person_ref')
     def year(self, p):
-        
-        PICK BACK UP HERE
-
-        return add_ref(
-            
-        )
-        data = {
-            'parts': [p[1]],
-            'reference': 'person',    
-        }
-        return data
+        return add_ref('PERS', p[1], p.year) 
+    
+    @_('num_year person_ref')
+    def year(self, p):
+        conv_num('CALNUM', p.num_year)
+        add_ref('PERS', p[1], p.num_year)
+        return p.num_year
     
     @_('year antdur_simul')
     def year(self, p):
-        data = {
-            'reference': 'time',
-            'parts': [
-                {'time': p[1]['time']}
-            ]
-        }
-        return data
+        return add_ref('TIME', p[1], p[0]) 
 
     # -- adverb time --
     @_('NOW')
     def time(self, p):
-        return {
-            'time': 'singular',
-            'reference': 'deictic',
-            'tense': 'present',
-        }
+        time = init_time(p[0], tense='present')
+        return add_ref('DEICTIC', p[0], time)
 
     @_('TOMORROW')
     def time(self, p):
-        return {
-            'time': 'singular',
-            'reference': 'deictic',
-            'tense': 'future',
-        }
+        time = init_time(p[0], tense='future')
+        return add_ref('DEICTIC', p[0], time)
 
     @_('YESTERDAY')
     def time(self, p):
-        return {
-            'time': 'singular',
-            'reference': 'deictic',
-            'tense': 'past',
-        }
+        time = init_time(p[0], tense='past')
+        return add_ref('DEICTIC', p[0], time)
 
     @_('THUS')
     def time(self, p):
-        return {
-            'time': 'singular',
-            'reference': 'deictic',
-            'ref_type': 'textual',
-        }
+        time = init_time(p[0])
+        return add_ref('DEICTIC', p[0], time)
 
     @_('THEN')
     def time(self, p):
-        return {
-            'time': 'singular',
-            'reference': 'deictic',
-            'ref_dist': 'far',
-        }
+        time = init_time(p[0])
+        return add_ref('DEICTIC', p[0], time)
 
     @_('ORDN')
     def ordinal(self, p):
-        return {
-            'time': 'singular',
-            'reference': 'absolute', # ??
-        }
+        time = init_time(p[0])
+        add_ref('CALORDN', p[0], time)
+        return time
 
     @_('THE ordinal')
     def ordinal(self, p):
-        return p[1]
+        return add_ref('THE', p[0], p[1]) 
 
     # see Gen 28:19 for why this pattern is needed:
     # לראשנה
@@ -1526,55 +1597,61 @@ class TimeParser(SlyParser):
     # as such in calendrical simultaneous phrases
     @_('FIRST')
     def first(self, p):
-        return {
-            'time': 'singular',
-            'reference': 'absolute',
-        }
+        return init_time(p[0])
+
     @_('THE first')
     def first(self, p):
-        return p[1]
+        return add_ref('THE', p[0], p[1])
 
     @_('PERSON')
     def person(self, p):
-        return {
-            'reference': 'person',
-        }
+        pers = init_time(p[0]) 
+        add_ref('PERS', p[0], pers)
+        return pers
+
     @_('THE person')
     def person(self, p):
-        p[1].update({
-            'reference': 'anaphora',
-            'ref_type': 'exophoric',
-        })
+        add_ref('THE', p[0], p[1])
         return p[1]
+
     @_('SFX person')
     def person(self, p):
-        p[1].update({
-            'reference': 'deictic',
-            'ref_type': 'personal',
-        })
+        add_ref('SFX', p[0], p[1])
         return p[1]
     
-    # define reference constructions
+    # NB: reference constructions are not 
+    # treated as typical times; so we convert
+    # the time to a simplified dictionary
     @_('L person')
     def person_ref(self, p):
-        return {
-            'reference': 'person', # TODO: convert to list to keep person refs
-        }
+        add_prep('L', p[0], p[1])
+        add_function('reference', p[1])
+        p[1]['ref'] = 'PERS'
+        return p[1]
 
-    @_('L month',
-       'IT B')
+    @_('L month')
     def month_ref(self, p):
-        return {
-            'time': 'single',
-            'reference': 'month'
-        }
-    
+        add_prep('L', p[0], p[1])
+        add_function('reference', p[1])
+        p[1]['ref'] = 'MONTH'
+        return p[1]
+
+    @_('IT B')
+    def month_ref(self, p):
+        time = init_time(p[1])
+        add_ref('SFX', p[0], time)
+        add_prep('B', p[1], time)
+        add_function('simultaneous', time)
+        add_function('reference', time)
+        time['ref'] = 'MONTH'
+        return time 
+
     @_('L ordinal')
     def ordn_ref(self, p):
-        return {
-            'time': 'single',
-            'reference': 'absolute',
-        }
+        add_prep('L', p[0], p[1])
+        add_function('reference', p[1])
+        p[1]['ref'] = 'ORDN'
+        return p[1]
 
 def parse_times(paths, API):
     """Apply the time parser."""
@@ -1637,7 +1714,10 @@ def parse_times(paths, API):
 
     # export
     with open(paths['parsed'], 'w') as outfile:
-        json.dump(parsed, outfile, indent=2, ensure_ascii=False)
+        json.dump(
+            parsed, outfile, 
+            indent=2, ensure_ascii=False,
+        )
 
     with open(paths['notparsed'], 'w') as outfile:
-        json.dump(errors, outfile, indent=2, ensure_ascii=False)
+        json.dump(errors, outfile, indent=2, ensure_ascii=False) 
