@@ -22,13 +22,15 @@ class TimeTokenizer:
         with open(paths['lexmap'], 'r') as infile:
             self.lexmap = json.load(infile)
     
-    def sly_token(self, tag, slot=0, **values):
+    def sly_token(self, tag, parse, **values):
         """Get SLY token object with customized data."""
         token = SlyToken()
         self.tokens.add(tag) # track unique tokens
         token.value = dict(values)
-        token.value['slot'] = slot
-        token.value['phatom'] = self.L.u(slot, 'phrase_atom')[0]
+        token.value['parse'] = parse
+        slots = sorted(self.get_slots(parse))
+        token.value['phatom'] = self.L.u(slots[0], 'phrase_atom')[0]
+        token.value['slots'] = slots
         token.type = tag
         token.index = self.i
         token.lineno = 1
@@ -36,7 +38,7 @@ class TimeTokenizer:
         return token
 
     def get_head(self, phrase):
-        """Flexible head grabbing, allowing for singular phrases."""
+        """Error-free head grabbing, allowing for singular phrases."""
         if type(phrase) == int:
             return phrase
         elif len(phrase) == 1:
@@ -69,7 +71,7 @@ class TimeTokenizer:
         elif len(phrase) == 1:
             return (None, phrase[0], None)
 
-    def tokenize(self, parsedphrase, start=True):
+    def tokenize(self, parsedphrase, start=True, prefixes=[]):
         """Follow path to right-most item (head) and yield tokens.
         
         tokenize must adjudicate what gets yielded as a token
@@ -88,10 +90,16 @@ class TimeTokenizer:
         head_phrases = self.get_head_phrases(parsedphrase)
         relas = set(self.get_rela(ph)[-1] for ph in head_phrases)
         paras = []
-        
+
         # reset token indexer
         if start:
             self.i = 0
+
+        # yield any before-phrase tokens
+        # e.g. TIMEAPPO
+        for prefix in prefixes:
+            prefix.index = self.i
+            yield prefix 
 
         for phrase in head_phrases:
 
@@ -114,12 +122,18 @@ class TimeTokenizer:
                         self.tokenize(subphrase, start=False) # recursively tokenize them
                     )                    
             
-            # handle 'spec'
-            elif tag_rela(rela, 'SPEC'):
+            # handle phrases which should be parsed in total
+            # includes SPEC and TIMEAPPO
+            elif tag_rela(rela, 'SPEC') or tag_rela(rela, 'TIMEAPPO'): 
                 if type(src) == int:
                     src = [None, src, None]
+                pref = []
+                strt = False
+                if rela == 'TIMEAPPO':
+                    pref.append(self.timeappo_token(phrase))
+                    strt = True
                 paras.extend(
-                    self.tokenize(src, start=False)
+                    self.tokenize(src, start=strt, prefixes=pref)
                 )
 
             # tokenize appositional relations if relevant
@@ -151,10 +165,10 @@ class TimeTokenizer:
                 if token:
                     yield token
 
+           # TODO: test if this can now be eliminated safely
            # drip-bucket tokenizer
             elif rela not in ignore:
-                srchead = self.get_head(src)
-                yield self.sly_token(rela, slot=srchead)
+                yield self.sly_token(rela, src)
 
             # give TIME token once reaching the end
             if head_phrases[-1] == phrase:
@@ -182,13 +196,13 @@ class TimeTokenizer:
         # yield items attached to the time
         if (prs := F.prs.v(time)) not in {'absent', 'n/a'}:
             if F.lex.v(time) == 'B' and prs == 'W':
-                yield self.sly_token('IT', slot=time) # בו
+                yield self.sly_token('IT', time) # בו
             else:
-                yield self.sly_token('SFX', slot=time)
+                yield self.sly_token('SFX', time)
         if F.nu.v(time) == 'du':
-            yield self.sly_token('NUM', slot=time)
+            yield self.sly_token('NUM', time)
         if F.uvf.v(time) == 'H':
-            yield self.sly_token('LOCALE', slot=time)
+            yield self.sly_token('LOCALE', time)
 
         # get data for processing time words
         calend_times = {
@@ -231,13 +245,13 @@ class TimeTokenizer:
             token = 'TIMES'
         else:
             token = 'TIME'
-        yield self.sly_token(token, slot=time, lex=lex)
+        yield self.sly_token(token, time, lex=lex)
     
     def prep_token(self, phrase):
         """Parse prepositions into singular tokens."""
         token = self.F.lex.v(phrase[0])
         token = self.lexmap.get(token, token)
-        return self.sly_token(token, slot=phrase[0])
+        return self.sly_token(token, phrase[0])
     
     def null_token(self, phrase):
         """Parse whether phrase begins without preposition."""
@@ -245,7 +259,7 @@ class TimeTokenizer:
         # process single-word phrases
         if len(phrase) == 1:
             if self.slot2pos[phrase[0]] != 'PREP':
-                return self.sly_token('Ø', slot=phrase[0])
+                return self.sly_token('Ø', phrase[0])
             else:
                 return None # prevent running rest
 
@@ -268,11 +282,11 @@ class TimeTokenizer:
             or (self.slot2pos[slotsnoadvb[0]] != 'PREP')
         )
         if is_null:
-            return self.sly_token('Ø', slot=slots[0])
+            return self.sly_token('Ø', slots[0])
 
     def def_token(self, phrase):
         """Definite tokens."""
-        return self.sly_token('THE', slot=phrase[0])
+        return self.sly_token('THE', phrase[0])
 
     def map_demon(self, demonlex):
         demon_map = {
@@ -292,20 +306,36 @@ class TimeTokenizer:
         
         # get the head item of the appositional phrase
         appo_head = self.get_head(src)
+        appo_lex = self.F.lex.v(appo_head)
+        seqmap = {
+            '>XRWN/': 'POST',
+            '>XR=/': 'POST',
+            'MXR/': 'POST',
+            'TJKWN/': 'MIDDLE',
+        }
         
         # process appositional demonstratives
         if self.F.pdp.v(appo_head) == 'prde':
-            appo_lex = self.F.lex.v(appo_head)
             token = self.map_demon(appo_lex)
-            return self.sly_token(token, slot=appo_head)
-            
+            return self.sly_token(token, appo_head)
+
+        elif self.slot2pos[appo_head] == 'ORDN':
+            return self.sly_token('ORDNA', appo_head) 
+
+        elif appo_lex == 'RB/':
+            return self.sly_token('MANY', appo_head)
+
+        elif appo_lex in seqmap:
+            seq = seqmap[appo_lex]
+            return self.sly_token('SEQ', appo_head, seq=seq)
+
     def demon_token(self, phrase):
         """Parse demonstratives."""
         src, tgt, rela = self.get_rela(phrase)
         demon = self.get_head(src)
         demonlex = self.F.lex.v(demon)
         token = self.map_demon(demonlex)
-        return self.sly_token(token, slot=demon)
+        return self.sly_token(token, demon)
 
     def num_token(self, phrase):
         """Parse number tokens."""
@@ -320,7 +350,7 @@ class TimeTokenizer:
             token = 'NUM_ONE'
         else:
             token = 'NUM'
-        return self.sly_token(token, slot=head)
+        return self.sly_token(token, phrase[0])
 
     def gen_token(self, phrase):
         """Parse genitive phrase tokens."""
@@ -337,14 +367,11 @@ class TimeTokenizer:
             and self.F.nu.v(gen_head) == 'pl'
         )
         if gen_dur:
-            return self.sly_token('GENDUR', slot=gen_head)
-
-        # identify genitive cardinals
-#        src0 = sorted(nt.get_slots(src))[0]
-#        if self.slot2pos[gen_head] in {'CARD', 'CARD1'}:
-#            return self.sly_token('GENCARD', slot=gen_head)
-#        elif self.slot2pos[src0] in {'CARD', 'CARD1'}:
-#            return self.sly_token('GENCARD', slot=src0)
+            return self.sly_token('GENDUR', src)
+        elif self.slot2pos[gen_head] in {'CARD1', 'CARD'}:
+            return self.sly_token('GENCARD', src)
+        else:
+            return self.sly_token('GENREF', src)        
 
     def quant_token(self, phrase):
         """Return quantifier tokens."""
@@ -353,8 +380,12 @@ class TimeTokenizer:
         quantlex = self.F.lex.v(quant)
         token = self.lexmap.get(quantlex)
         if token:
-            return self.sly_token(token, slot=quant) 
+            return self.sly_token(token, src)
 
+    def timeappo_token(self, phrase):
+        """Return time appositional token."""
+        src, tgt, rel = self.get_rela(phrase)
+        return self.sly_token('TIMEAPPO', src)
 
 # TimeParser helper functions for organizing the data
 
@@ -372,23 +403,17 @@ def expand_key(key):
     def key_adder(val_str, val, time):
         """Add data to a time based on key/val."""
 
-        # determine if the item to be added is a token
-        # with only a 'slot' key or is itself a time
-        # phrase which has its own data
+        # determine if the item is a parsed time or a token
         if 'times' in val:
             obj = val
         else: 
-            obj = val['slot']
+            obj = val['parse']
 
         # append the tag to the appropriate key, its val is a list
         tag = [val_str, obj]
         expand(time, key, tag) 
-        if 'slot' in val:
-            expand(time, 'slots', val['slot'])
-        elif 'slots' in val:
-            time['slots'].extend(val['slots'])
-        else:
-            raise Exception(f'val missing slot(s) key! {val}')
+        time['slots'].extend(val['slots'])
+        time['slots'] = sorted(set(time['slots']))
         return time
 
     return key_adder
@@ -396,6 +421,7 @@ def expand_key(key):
 add_ref = expand_key('refs')
 add_quant = expand_key('quants')
 add_prep = expand_key('preps')
+add_seq = expand_key('seqs')
 
 def add_function(funct, time):
     """Add a new function."""
@@ -409,13 +435,9 @@ def add_qual(qual, time):
 
 def init_time(p, **kwargs):
     """Initialize time data."""
-    slot = p['slot']
     time_data = {
-        'times': [slot],
-        'slots': [slot],
-        'refs': [],
-        'quals': ['point?'], 
-        'quants': [],
+        'times': [p['parse']],
+        'slots': p['slots'],
     }    
     time_data.update(**kwargs)
     return time_data
@@ -455,6 +477,12 @@ def conv_nums(numtype, times, **kwargs):
     for time in times:
         if type(time) == dict and 'NUM' in time:
             conv_num(numtype, time, **kwargs)
+
+def check_nums(time):
+    """Checks for conditions to convert numbers."""
+    refs = set(r[0] for r in time.get('refs', []))
+    if {'PERS', 'YEAR', 'MONTH'} & refs:
+        conv_num('CALNUM', time)
 
 class TimeParser(SlyParser):
 
@@ -508,7 +536,11 @@ class TimeParser(SlyParser):
         'IT',
         'LOCALE',
         'ORDN',
+        'ORDNA',
         'FIRST',
+        'SEQ',
+        'GENREF',
+        'TIMEAPPO',
     }
 
     def error(self, token):
@@ -521,6 +553,10 @@ class TimeParser(SlyParser):
     debugfile = '../results/data_metrics/timeparse.debug'
        
     # -- FINAL MATCHES --
+    @_('timephrase', 'timeappo')
+    def final(self, p):
+        return p[0]
+
     @_('atelic_ext', 'simul', 'in_dur',
        'anterior', 'anterior_dur', 'posts',
        'posterior', 'atelic_simul', 'antdur_simul',
@@ -533,9 +569,19 @@ class TimeParser(SlyParser):
        'ordn_simul', 'multi', 'first_simul', 'simul_ref',
        'multi_begintoend', 'posterior_dist', 'anterior_dist',
        'simul_dur', 'postdur_dist', 'antdur_dur')
-    def category(self, p): 
+    def timephrase(self, p): 
         return p[0] 
 
+    @_('timephrase TIMEAPPO timephrase')
+    def timeappo(self, p):
+        p[0]['timeappos'] = [p[2]]
+        return p[0]
+
+    @_('timephrase TIMEAPPO timeappo')
+    def timeappo(self, p):
+        p[0]['timeappos'] = [p[2]]
+        return p[0]
+         
     # -- composed constructions
     @_('simul simul')
     def hab_simul(self, p):
@@ -686,10 +732,19 @@ class TimeParser(SlyParser):
        'year_simul simul', 'ordn_simul ordn_simul',
        'simul month_simul', 'in_dur first_simul',
        'oneday_simul day_simul', 'month_simul simul',
-       'cal_simul simul', 'cal_simul cal_simul', 
-       'simul cal_simul', 'in_dur year_simul',
-       'in_dur cal_simul', 'first_simul simul') 
+       'cal_simul cal_simul', 
+       'in_dur year_simul',
+       'first_simul simul') 
     def multi_simul(self, p):
+        return init_ctime(
+            *p,
+            functions=['multi_simul'],
+        )
+
+    @_('cal_simul simul', 'simul cal_simul',
+       'in_dur cal_simul')
+    def multi_simul(self, p):
+        conv_nums('CALNUM', p)
         return init_ctime(
             *p,
             functions=['multi_simul'],
@@ -1227,7 +1282,8 @@ class TimeParser(SlyParser):
 
     # -- posteriors (durative?) --
     @_('MN time', 'MN one_time', 'MN one_day',
-       'MN first', 'MN year', 'MN num_year', 'MN month')
+       'MN first', 'MN year', 'MN num_year', 'MN month',
+       'MN day')
     def posts(self, p):
         conv_nums('NUMQ', p)
         add_function('posterior, posterior_dur', p[1])
@@ -1294,6 +1350,10 @@ class TimeParser(SlyParser):
         add_quant('MANY', p[0], p[1])        
         add_qual('durative', p[1])
         return p[1]
+
+    @_('GENREF duration')
+    def duration(self, p):
+        return add_ref('GEN', p[0], p[1])
 
     @_('duration duration')
     def duration(self, p):
@@ -1379,7 +1439,7 @@ class TimeParser(SlyParser):
 
     @_('NUM_ONE time')
     def one_time(self, p):
-        p.time['NUM'] = p.NUM_ONE
+        add_quant('NUMQ', p[0], p[1])
         return p.time
 
     # -- time --
@@ -1407,6 +1467,20 @@ class TimeParser(SlyParser):
     def time(self, p):
         return add_ref('THAT', p[0], p.time)
 
+    @_('ORDNA time')
+    def time(self, p):
+        return add_ref('ORDN', p[0], p[1])
+
+    @_('SEQ time')
+    def time(self, p):
+        seq = p[0]['seq']
+        del p[0]['seq']
+        return add_seq(seq, p[0], p[1])
+
+    @_('GENREF time')
+    def time(self, p):
+        return add_ref('GEN', p[0], p[1])
+
     # define specialized time
     @_('BEGINNING', 'END')
     def time(self, p):
@@ -1421,14 +1495,24 @@ class TimeParser(SlyParser):
     def day(self, p):
         return add_ref('THE', p[0], p.day)
 
+    @_('ORDNA day')
+    def day(self, p):
+        return add_ref('ORDN', p[0], p[1])
+
+    @_('GENREF day')
+    def day(self, p):
+        return add_ref('GEN', p[0], p[1])
+
     @_('NUM_ONE day')
     def one_day(self, p):
         p.day['NUM'] = p[0]
+        check_nums(p.day)
         return p.day
 
     @_('NUM day')
     def num_day(self, p):
         p.day['NUM'] = p[0]
+        check_nums(p.day)
         return p.day
 
     @_('num_day month_ref', 
@@ -1449,7 +1533,7 @@ class TimeParser(SlyParser):
             p[1],
             p[0],
         )
-    
+
     @_('CARD')
     def card(self, p):
         return init_time(
@@ -1462,9 +1546,10 @@ class TimeParser(SlyParser):
         add_ref('THE', p[0], p[1])
         return p[1]
 
-    @_('card month_ref', 'card ordn_ref')
+    @_('card month_ref', 'card ordn_ref', 
+       'day ordn_ref')
     def day(self, p):
-        conv_num('CALNUM', p[0])
+        conv_nums('CALNUM', p)
         return add_ref(
             'CALORDN',
             p[1],
@@ -1486,6 +1571,14 @@ class TimeParser(SlyParser):
     @_('THAT month')
     def month(self, p):
         return add_ref('THAT', p[0], p[1])
+
+    @_('ORDNA month')
+    def month(self, p):
+        return add_ref('ORDN', p[0], p[1])
+
+    @_('GENREF month')
+    def month(self, p):
+        return add_ref('GEN', p[0], p[1])
 
     @_('NUM month')
     def month(self, p):
@@ -1525,6 +1618,20 @@ class TimeParser(SlyParser):
     def year(self, p):
         return add_ref('THAT', p[0], p[1])
 
+    @_('ORDNA year')
+    def year(self, p):
+        return add_ref('ORDN', p[0], p[1])
+
+    @_('SEQ year')
+    def year(self, p):
+        seq = p[0]['seq']
+        del p[0]['seq']
+        return add_seq(seq, p[0], p[1])
+
+    @_('GENREF year')
+    def year(self, p):
+        return add_ref('GEN', p[0], p[1])
+
     @_('GENCARD year')
     def year(self, p):
         return add_ref('CALNUM', p[0], p[1])
@@ -1532,11 +1639,13 @@ class TimeParser(SlyParser):
     @_('NUM year')
     def num_year(self, p):
         p.year['NUM'] = p.NUM
+        check_nums(p[1])
         return p.year
 
     @_('NUM_ONE year')
     def one_year(self, p):
         p.year['NUM'] = p.NUM_ONE
+        check_nums(p[1])
         return p.year
 
     @_('year person_ref')
@@ -1582,7 +1691,6 @@ class TimeParser(SlyParser):
     @_('ORDN')
     def ordinal(self, p):
         time = init_time(p[0])
-        add_ref('CALORDN', p[0], time)
         return time
 
     @_('THE ordinal')
@@ -1618,6 +1726,10 @@ class TimeParser(SlyParser):
     def person(self, p):
         add_ref('SFX', p[0], p[1])
         return p[1]
+
+    @_('GENREF person')
+    def person(self, p):
+        return add_ref('GEN', p[0], p[1])
     
     # NB: reference constructions are not 
     # treated as typical times; so we convert
@@ -1650,7 +1762,6 @@ class TimeParser(SlyParser):
     def ordn_ref(self, p):
         add_prep('L', p[0], p[1])
         add_function('reference', p[1])
-        p[1]['ref'] = 'ORDN'
         return p[1]
 
 def parse_times(paths, API):

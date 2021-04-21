@@ -18,7 +18,6 @@
       <th>parsed</th>
       <th>time_parsing</th>
       <th>function</th>
-      <th>quality</th>
       <th>slots</th>
       <th>nwords</th>
       <th>n_phatoms</th>
@@ -26,7 +25,6 @@
     </tr>
     <tr>
       <th>node</th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -50,9 +48,8 @@
       <td>בראשׁית ברא אלהים את השׁמים ואת הארץ׃</td>
       <td></td>
       <td>1</td>
-      <td>{'times': [2], 'slots': [1, 2], 'refs': [], 'quals': ['point?'], 'quants': [], 'functions': ['simultaneous'], 'preps': [['B', 1]]}</td>
+      <td>{'times': [2], 'slots': [1, 2], 'functions': ['simultaneous'], 'preps': [['B', 1]]}</td>
       <td>simultaneous</td>
-      <td>point?</td>
       <td>[1, 2]</td>
       <td>11</td>
       <td>4</td>
@@ -66,10 +63,9 @@
       <td>ויכל אלהים ביום השׁביעי מלאכתו</td>
       <td></td>
       <td>1</td>
-      <td>{'times': [689], 'slots': [687, 688, 689], 'refs': [['THE', 688]], 'quals': ['point?'], 'quants': [], 'functions': ['simultaneous'], 'preps': [['B', 687]]}</td>
+      <td>{'times': [689], 'slots': [687, 688, 689, 691], 'refs': [['ORDN', 691], ['THE', 688]], 'functions': ['simultaneous'], 'preps': [['B', 687]]}</td>
       <td>simultaneous</td>
-      <td>point?</td>
-      <td>[687, 688, 689]</td>
+      <td>[687, 688, 689, 691]</td>
       <td>9</td>
       <td>5</td>
       <td>NaN</td>
@@ -82,10 +78,9 @@
       <td>וישׁבת ביום השׁביעי מכל־מלאכתו</td>
       <td></td>
       <td>1</td>
-      <td>{'times': [699], 'slots': [697, 698, 699], 'refs': [['THE', 698]], 'quals': ['point?'], 'quants': [], 'functions': ['simultaneous'], 'preps': [['B', 697]]}</td>
+      <td>{'times': [699], 'slots': [697, 698, 699, 701], 'refs': [['ORDN', 701], ['THE', 698]], 'functions': ['simultaneous'], 'preps': [['B', 697]]}</td>
       <td>simultaneous</td>
-      <td>point?</td>
-      <td>[697, 698, 699]</td>
+      <td>[697, 698, 699, 701]</td>
       <td>10</td>
       <td>4</td>
       <td>NaN</td>
@@ -98,9 +93,8 @@
       <td>וכל׀ שׂיח השׂדה טרם יהיה בארץ</td>
       <td></td>
       <td>1</td>
-      <td>{'times': [750], 'slots': [750], 'refs': [], 'quals': ['point?'], 'quants': [], 'functions': ['anterior']}</td>
+      <td>{'times': [750], 'slots': [750], 'functions': ['anterior']}</td>
       <td>anterior</td>
-      <td>point?</td>
       <td>[750]</td>
       <td>10</td>
       <td>5</td>
@@ -114,9 +108,8 @@
       <td>וכל־עשׂב השׂדה טרם יצמח</td>
       <td></td>
       <td>1</td>
-      <td>{'times': [760], 'slots': [760], 'refs': [], 'quals': ['point?'], 'quants': [], 'functions': ['anterior']}</td>
+      <td>{'times': [760], 'slots': [760], 'functions': ['anterior']}</td>
       <td>anterior</td>
-      <td>point?</td>
       <td>[760]</td>
       <td>7</td>
       <td>4</td>
@@ -240,7 +233,7 @@
       <td>8</td>
     </tr>
     <tr>
-      <th>simul_to_end</th>
+      <th>dur_to_end</th>
       <td>6</td>
     </tr>
     <tr>
@@ -248,28 +241,32 @@
       <td>6</td>
     </tr>
     <tr>
-      <th>dur_to_end</th>
+      <th>simul_to_end</th>
       <td>6</td>
-    </tr>
-    <tr>
-      <th>habitual</th>
-      <td>4</td>
     </tr>
     <tr>
       <th>postdur_dist</th>
       <td>4</td>
     </tr>
     <tr>
-      <th>simul_posts</th>
-      <td>3</td>
+      <th>habitual</th>
+      <td>4</td>
     </tr>
     <tr>
       <th>dur_simul</th>
       <td>3</td>
     </tr>
     <tr>
+      <th>simul_posts</th>
+      <td>3</td>
+    </tr>
+    <tr>
       <th>multi_posts</th>
       <td>2</td>
+    </tr>
+    <tr>
+      <th>antdur_dur</th>
+      <td>1</td>
     </tr>
     <tr>
       <th>multi_postant</th>
@@ -285,10 +282,6 @@
     </tr>
     <tr>
       <th>multi_antpost</th>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>antdur_dur</th>
       <td>1</td>
     </tr>
   </tbody>
@@ -371,7 +364,7 @@
       <td>0.00</td>
     </tr>
     <tr>
-      <th>simul_to_end</th>
+      <th>dur_to_end</th>
       <td>0.00</td>
     </tr>
     <tr>
@@ -379,11 +372,7 @@
       <td>0.00</td>
     </tr>
     <tr>
-      <th>dur_to_end</th>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>habitual</th>
+      <th>simul_to_end</th>
       <td>0.00</td>
     </tr>
     <tr>
@@ -391,7 +380,7 @@
       <td>0.00</td>
     </tr>
     <tr>
-      <th>simul_posts</th>
+      <th>habitual</th>
       <td>0.00</td>
     </tr>
     <tr>
@@ -399,7 +388,15 @@
       <td>0.00</td>
     </tr>
     <tr>
+      <th>simul_posts</th>
+      <td>0.00</td>
+    </tr>
+    <tr>
       <th>multi_posts</th>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>antdur_dur</th>
       <td>0.00</td>
     </tr>
     <tr>
@@ -416,10 +413,6 @@
     </tr>
     <tr>
       <th>multi_antpost</th>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>antdur_dur</th>
       <td>0.00</td>
     </tr>
   </tbody>
@@ -992,7 +985,7 @@
   </tbody>
 </table>
 <h3> Ø ADVB </h3>
-<div class="section rtl"><a target="_blank" href="https://shebanq.ancient-data.org/hebrew/text?book=Samuel_I&amp;chapter=1&amp;verse=23&amp;version=c&amp;mr=m&amp;qw=q&amp;tp=txt_p&amp;tr=hb&amp;wget=v&amp;qget=v&amp;nget=vt" title="Show this on SHEBANQ" sec="1_Samuel 1:23">1_Samuel 1:23</a></div><div class="rtl children"><div class="contnr c2  rtl  " ><div class="lbl c2  " ><a href="#" class="nd">clause:454045</a></div><div class="children hor wrap rtl"><div class="contnr c1  rtl  " ><div class="lbl c1  " ><a href="#" class="nd">phrase:731915</a></div><div class='features'><span class="function xft" ><span class="f">function=</span>Time</span></div><div class="children hor wrap rtl"><div class="contnr c1  rtl  " ><div class="lbl c1  " ><a href="#" class="nd">phrase_atom:990000</a></div><div class="children hor wrap rtl"><div class="contnr c0 trm rtl  " ><div class="lbl c0 trm " ><a href="#" class="nd">142005</a> <a class=" txtu hbo" target="_blank" href="https://shebanq.ancient-data.org/hebrew/word?version=c&amp;id=1AK" title="Show this on SHEBANQ"><span class="txtu hbo">אַ֛ךְ </span></a></div><div class='features'><span class="lex xft" ><span class="f">lex=</span>>K</span><span class="pdp xft" ><span class="f">pdp=</span>advb</span></div></div></div></div></div></div><div class="contnr c1  rtl  " ><div class="lbl c1  " ><a href="#" class="nd">phrase:731916</a></div><div class='features'><span class="function xft" ><span class="f">function=</span>Pred</span></div><div class="children hor wrap rtl"><div class="contnr c1  rtl  " ><div class="lbl c1  " ><a href="#" class="nd">phrase_atom:990001</a></div><div class="children hor wrap rtl"><div class="contnr c0 trm rtl  " ><div class="lbl c0 trm " ><a href="#" class="nd">142006</a> <a class=" txtu hbo" target="_blank" href="https://shebanq.ancient-data.org/hebrew/word?version=c&amp;id=1QWMv" title="Show this on SHEBANQ"><span class="txtu hbo">יָקֵ֥ם </span></a></div><div class='features'><span class="lex xft" ><span class="f">lex=</span>QWM[</span><span class="pdp xft" ><span class="f">pdp=</span>verb</span></div></div></div></div></div></div><div class="contnr c1  rtl  " ><div class="lbl c1  " ><a href="#" class="nd">phrase:731917</a></div><div class='features'><span class="function xft" ><span class="f">function=</span>Subj</span></div><div class="children hor wrap rtl"><div class="contnr c1  rtl  " ><div class="lbl c1  " ><a href="#" class="nd">phrase_atom:990002</a></div><div class="children hor wrap rtl"><div class="contnr c0 trm rtl  " ><div class="lbl c0 trm " ><a href="#" class="nd">142007</a> <a class=" txtu hbo" target="_blank" href="https://shebanq.ancient-data.org/hebrew/word?version=c&amp;id=1JHWHn" title="Show this on SHEBANQ"><span class="txtu hbo">יְהוָ֖ה </span></a></div><div class='features'><span class="lex xft" ><span class="f">lex=</span>JHWH/</span><span class="pdp xft" ><span class="f">pdp=</span>nmpr</span><span class="st xft" ><span class="f">st=</span>a</span></div></div></div></div></div></div><div class="contnr c1  rtl  " ><div class="lbl c1  " ><a href="#" class="nd">phrase:731918</a></div><div class='features'><span class="function xft" ><span class="f">function=</span>Objc</span></div><div class="children hor wrap rtl"><div class="contnr c1  rtl  " ><div class="lbl c1  " ><a href="#" class="nd">phrase_atom:990003</a></div><div class="children hor wrap rtl"><div class="contnr c0 trm rtl  " ><div class="lbl c0 trm " ><a href="#" class="nd">142008</a> <a class=" txtu hbo" target="_blank" href="https://shebanq.ancient-data.org/hebrew/word?version=c&amp;id=1AT" title="Show this on SHEBANQ"><span class="txtu hbo">אֶת־</span></a></div><div class='features'><span class="lex xft" ><span class="f">lex=</span>>T</span><span class="pdp xft" ><span class="f">pdp=</span>prep</span></div></div><div class="contnr c0 trm rtl  " ><div class="lbl c0 trm " ><a href="#" class="nd">142009</a> <a class=" txtu hbo" target="_blank" href="https://shebanq.ancient-data.org/hebrew/word?version=c&amp;id=1DBRn" title="Show this on SHEBANQ"><span class="txtu hbo">דְּבָרֹ֑ו </span></a></div><div class='features'><span class="lex xft" ><span class="f">lex=</span>DBR/</span><span class="pdp xft" ><span class="f">pdp=</span>subs</span><span class="st xft" ><span class="f">st=</span>a</span></div></div></div></div></div></div></div></div></div>
+<div class="tfsechead rtl"><a target="_blank" href="https://shebanq.ancient-data.org/hebrew/text?book=Samuel_I&amp;chapter=1&amp;verse=23&amp;version=c&amp;mr=m&amp;qw=q&amp;tp=txt_p&amp;tr=hb&amp;wget=v&amp;qget=v&amp;nget=vt" title="Show this on SHEBANQ" sec="1_Samuel 1:23">1_Samuel 1:23</a></div><div class="rtl children"><div class="contnr c2  rtl  " ><div class="lbl c2  " ><a href="#" class="nd">clause:454045</a></div><div class="children hor wrap rtl"><div class="contnr c1  rtl  " ><div class="lbl c1  " ><a href="#" class="nd">phrase:731915</a></div><div class='features'><span class="function xft" ><span class="f">function=</span>Time</span></div><div class="children hor wrap rtl"><div class="contnr c1  rtl  " ><div class="lbl c1  " ><a href="#" class="nd">phrase_atom:990000</a></div><div class="children hor wrap rtl"><div class="contnr c0 trm rtl  " ><div class="lbl c0 trm " ><a href="#" class="nd">142005</a> <a class=" txtu hbo" target="_blank" href="https://shebanq.ancient-data.org/hebrew/word?version=c&amp;id=1AK" title="Show this on SHEBANQ"><span class="txtu hbo">אַ֛ךְ </span></a></div><div class='features'><span class="lex xft" ><span class="f">lex=</span>>K</span><span class="pdp xft" ><span class="f">pdp=</span>advb</span></div></div></div></div></div></div><div class="contnr c1  rtl  " ><div class="lbl c1  " ><a href="#" class="nd">phrase:731916</a></div><div class='features'><span class="function xft" ><span class="f">function=</span>Pred</span></div><div class="children hor wrap rtl"><div class="contnr c1  rtl  " ><div class="lbl c1  " ><a href="#" class="nd">phrase_atom:990001</a></div><div class="children hor wrap rtl"><div class="contnr c0 trm rtl  " ><div class="lbl c0 trm " ><a href="#" class="nd">142006</a> <a class=" txtu hbo" target="_blank" href="https://shebanq.ancient-data.org/hebrew/word?version=c&amp;id=1QWMv" title="Show this on SHEBANQ"><span class="txtu hbo">יָקֵ֥ם </span></a></div><div class='features'><span class="lex xft" ><span class="f">lex=</span>QWM[</span><span class="pdp xft" ><span class="f">pdp=</span>verb</span></div></div></div></div></div></div><div class="contnr c1  rtl  " ><div class="lbl c1  " ><a href="#" class="nd">phrase:731917</a></div><div class='features'><span class="function xft" ><span class="f">function=</span>Subj</span></div><div class="children hor wrap rtl"><div class="contnr c1  rtl  " ><div class="lbl c1  " ><a href="#" class="nd">phrase_atom:990002</a></div><div class="children hor wrap rtl"><div class="contnr c0 trm rtl  " ><div class="lbl c0 trm " ><a href="#" class="nd">142007</a> <a class=" txtu hbo" target="_blank" href="https://shebanq.ancient-data.org/hebrew/word?version=c&amp;id=1JHWHn" title="Show this on SHEBANQ"><span class="txtu hbo">יְהוָ֖ה </span></a></div><div class='features'><span class="lex xft" ><span class="f">lex=</span>JHWH/</span><span class="pdp xft" ><span class="f">pdp=</span>nmpr</span><span class="st xft" ><span class="f">st=</span>a</span></div></div></div></div></div></div><div class="contnr c1  rtl  " ><div class="lbl c1  " ><a href="#" class="nd">phrase:731918</a></div><div class='features'><span class="function xft" ><span class="f">function=</span>Objc</span></div><div class="children hor wrap rtl"><div class="contnr c1  rtl  " ><div class="lbl c1  " ><a href="#" class="nd">phrase_atom:990003</a></div><div class="children hor wrap rtl"><div class="contnr c0 trm rtl  " ><div class="lbl c0 trm " ><a href="#" class="nd">142008</a> <a class=" txtu hbo" target="_blank" href="https://shebanq.ancient-data.org/hebrew/word?version=c&amp;id=1AT" title="Show this on SHEBANQ"><span class="txtu hbo">אֶת־</span></a></div><div class='features'><span class="lex xft" ><span class="f">lex=</span>>T</span><span class="pdp xft" ><span class="f">pdp=</span>prep</span></div></div><div class="contnr c0 trm rtl  " ><div class="lbl c0 trm " ><a href="#" class="nd">142009</a> <a class=" txtu hbo" target="_blank" href="https://shebanq.ancient-data.org/hebrew/word?version=c&amp;id=1DBRn" title="Show this on SHEBANQ"><span class="txtu hbo">דְּבָרֹ֑ו </span></a></div><div class='features'><span class="lex xft" ><span class="f">lex=</span>DBR/</span><span class="pdp xft" ><span class="f">pdp=</span>subs</span><span class="st xft" ><span class="f">st=</span>a</span></div></div></div></div></div></div></div></div></div>
 [&#x27;reached end&#x27;, &quot;[&#x27;Ø&#x27;, &#x27;ADVB&#x27;]&quot;]
 <hr>
 </body>

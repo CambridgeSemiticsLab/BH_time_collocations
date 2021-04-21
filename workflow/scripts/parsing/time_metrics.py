@@ -8,6 +8,7 @@ from pathlib import Path
 from tools.html_docs import HtmlReport
 import tools.nav_tree as nt
 from tools.load_parse import ParseLoader
+from pprint import pformat
 
 def get_node_data(node, tf_api):
     """Retrieve data on parsed phrase for analysis."""
@@ -46,7 +47,6 @@ def build_row_data(node, tf_api, time_parsing={}, **features):
 
     # update with time parsing data
     data['function'] = time_parsing.get('functions', [None])[0]
-    data['quality'] = time_parsing.get('quals', [None])[0]
     data['slots'] = time_parsing.get('slots', [])
 
     # update with data about the phrase
@@ -212,7 +212,7 @@ def examine_times(paths, bhsa):
         doc2.heading(funct, 3)
         for cl in samp.index:
             #function = df.loc[cl]['function']
-            parsing = df.loc[cl]['time_parsing']
+            parsing = pformat(df.loc[cl]['time_parsing'])
             doc2.append(
                 bhsa.plain(
                     cl, 
