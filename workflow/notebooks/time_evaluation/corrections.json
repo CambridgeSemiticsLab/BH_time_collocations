@@ -1,0 +1,45 @@
+{
+  "427553": [],
+  "427680": [],
+  "427682": [],
+  "427693": [],
+  "427694": [
+    [
+      "remove",
+      "quals",
+      [
+        [
+          0,
+          "point?"
+        ]
+      ]
+    ]
+  ],
+  "427805": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "427870": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "427835": []
+}

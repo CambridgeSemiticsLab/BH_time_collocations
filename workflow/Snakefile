@@ -119,3 +119,18 @@ rule parse_times:
         catmets="../results/data_metrics/time_categories.html",
     script:
         "scripts/parse_times.py"
+
+# human review process
+rule eval_times:
+    input:
+        bhsadata=bhsadata,
+        corrections="../results/parsing/time_corrections.json",
+        parsed=rules.parse_times.output.parsed,
+        translations="_private_/verse2text.json",
+    params:
+        ntoget=100,
+    output:
+        todo="notebooks/time_evaluation/to_eval.ipynb",
+        evaled="../results/parsing/time_evaled.json",
+    script:
+        "scripts/eval_times.py"
