@@ -79,6 +79,7 @@ def build_eval_notebook(todos, timeparses, paths):
             clause,
             withNodes=True,
             highlights=parsing['slots'],
+            hiddenTypes={'subphrase', 'phrase'},
         )
         esv = transs['esv'].get(ref, 'NOT AVAILABLE')
         if 'badcorr' in cldata:

@@ -245,11 +245,17 @@ def compose_phrases(paths, tf_api):
     whole_phrases = get_complete_phrases(ph2parse, tf_api)
     composer = PhraseAtomComposer(ph2parse, editedges, tf_api)
     full_parses = {}
+    covered = set()
     
     # iterate through all whole phrases and call composer on the 
     # first phrase atom of each one; the network connections between
     # all of the atoms should cause them all to be grabbed
     for phrase in whole_phrases:
+
+        # skip phrases that have already been covered
+        if phrase in covered:
+            continue
+
         first_atom = L.d(phrase, 'phrase_atom')[0]
         comp_parse = composer.compose_phrase(first_atom)
 
@@ -257,22 +263,32 @@ def compose_phrases(paths, tf_api):
         if type(comp_parse) == int:
             comp_parse = [comp_parse]
 
-        # sanity check: 
-        # compare slots in parse with slots in atom 
-        # to make sure all slots are accounted for
-        ph_slots = set(L.d(phrase,'word'))
+        # some composed phrases have drawn in other 
+        # phrases due to edges drawn between their 
+        # constituent atoms; So we must build an
+        # inventory of the phrases contained in the
+        # parse in order to add them to a skip
+        # list (avoiding double-parsing them), and 
+        # also for the sanity check below
         if len(comp_parse) == 3:
             comp_slots = set(nt.get_slots(comp_parse))
         elif len(comp_parse) == 1:
             comp_slots = set(comp_parse)
+        ph_nodes = set(L.u(w,'phrase')[0] for w in comp_slots)
+        covered |= ph_nodes
+
+        # sanity check: 
+        # compare slots in parse with slots in atom 
+        # to make sure all slots are accounted for
+        ph_slots = set(w for ph in ph_nodes for w in L.d(ph,'word'))
         if ph_slots != comp_slots:
             if len(ph_slots) > len(comp_slots):
                 raise Exception(
-                    f'Missing slots for {phrase}; '
+                    f'Missing slots for {ph_nodes}; '
                     f'orig: {ph_slots}; comp: {comp_slots}'
                 )
             else:
-                pass # phrases can be expanded
+                pass # phrase has been expanded
 
         # save the parse
         full_parses[phrase] = comp_parse

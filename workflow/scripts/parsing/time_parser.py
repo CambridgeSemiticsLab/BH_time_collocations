@@ -4,6 +4,7 @@ from sly import Parser as SlyParser
 from sly.lex import Token as SlyToken
 from tools import nav_tree as nt
 from tools.load_parse import ParseLoader
+from pprint import pprint
 
 class TimeTokenizer:
     """Generate selected tokens from a time phrase parsing.
@@ -35,6 +36,11 @@ class TimeTokenizer:
         token.index = self.i
         token.lineno = 1
         self.i += 1
+
+#        if token.value['phatom'] in {906675, 906676, 906677, 906678, 906679, 906680}:
+#            print(f'phatom={token.value["phatom"]}; val={tag}, index={token.index}')
+#            print(f'\t{slots}')
+
         return token
 
     def get_head(self, phrase):
@@ -71,7 +77,7 @@ class TimeTokenizer:
         elif len(phrase) == 1:
             return (None, phrase[0], None)
 
-    def tokenize(self, parsedphrase, start=True, prefixes=[]):
+    def tokenize(self, parsedphrase, start=True, nulltoken=False, prefixes=[]):
         """Follow path to right-most item (head) and yield tokens.
         
         tokenize must adjudicate what gets yielded as a token
@@ -88,6 +94,10 @@ class TimeTokenizer:
    
         # process all internal relations
         head_phrases = self.get_head_phrases(parsedphrase)
+#        if self.debug and start:
+#            print('START')
+#            pprint(head_phrases)
+#            print()
         relas = set(self.get_rela(ph)[-1] for ph in head_phrases)
         paras = []
 
@@ -97,19 +107,21 @@ class TimeTokenizer:
 
         # yield any before-phrase tokens
         # e.g. TIMEAPPO
-        for prefix in prefixes:
-            prefix.index = self.i
-            yield prefix 
-
+        for pre in prefixes:
+            yield pre
+        
+        first_sp = True
         for phrase in head_phrases:
 
             src, tgt, rela = self.get_rela(phrase) 
 
             # yield null token if no starting preposition found
-            if (self.i==0) and start:
+            if first_sp and (start or nulltoken):
                 token = self.null_token(phrase)
                 if token:
                     yield token
+
+            first_sp = False
 
             # tokenize prepositions
             if tag_rela(rela, 'PP'):
@@ -123,17 +135,25 @@ class TimeTokenizer:
                     )                    
             
             # handle phrases which should be parsed in total
-            # includes SPEC and TIMEAPPO
-            elif tag_rela(rela, 'SPEC') or tag_rela(rela, 'TIMEAPPO'): 
+            elif tag_rela(rela, 'SPEC'):
                 if type(src) == int:
                     src = [None, src, None]
-                pref = []
-                strt = False
-                if rela == 'TIMEAPPO':
-                    pref.append(self.timeappo_token(phrase))
-                    strt = True
                 paras.extend(
-                    self.tokenize(src, start=strt, prefixes=pref)
+                    self.tokenize(
+                        src, 
+                        start=False,
+                    )
+                )
+    
+            elif tag_rela(rela, 'TIMEAPPO'):
+                token = self.timeappo_token(phrase)
+                paras.extend(
+                    self.tokenize(
+                        src,
+                        start=False,
+                        nulltoken=True,
+                        prefixes=[token]
+                    )
                 )
 
             # tokenize appositional relations if relevant
@@ -178,8 +198,12 @@ class TimeTokenizer:
                     yield tok
 
                 # yield all of the parallel tokens in sorted order
-                sort_paras= lambda p: [p.value['phatom'], p.index]
-                for sp_token in sorted(paras, key=sort_paras):
+                sort_paras = lambda p: [p.value['phatom'], p.index]
+                sorted_paras = sorted(paras, key=sort_paras)
+#                if self.debug:
+#                    print([p.type for p in paras])
+
+                for sp_token in sorted_paras:
 
                     # detect repeated lexemes (distributive construction)
                     if (sp_token.type in {'TIME'}
@@ -187,7 +211,7 @@ class TimeTokenizer:
                         sp_token.type = 'TIME2'
 
                     yield sp_token
-                        
+
     def time_token(self, phrase, time_relas):
         """Parse times into tokens."""
         src, time, rela = self.get_rela(phrase)
@@ -1804,12 +1828,19 @@ def parse_times(paths, API):
 
     for clause, time_phrases in clauses.items(): 
 
+#        if clause == 428158:
+#            tokenizer.debug = True
+#            print(len(time_phrases))
+#        else:
+#            tokenizer.debug = False
+
         # collect tokens for all phrase parsings
         tokens = []
         for ph in time_phrases:
             parsing = phrases[ph]
+            ph_tokens = tokenizer.tokenize(parsing)
             tokens.extend(
-                tokenizer.tokenize(parsing)
+                ph_tokens
             )
 
         # attempt parsing
