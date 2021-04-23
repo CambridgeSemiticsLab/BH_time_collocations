@@ -491,7 +491,7 @@ def conv_num(numtype, time, as_dur=False):
     elif numtype == 'NUMQ':
         add_quant(numtype, time['NUM'], time)
         if as_dur:
-            add_qual('duration', time)
+            add_qual('durative', time)
 
     del time['NUM']
     return time
@@ -598,11 +598,13 @@ class TimeParser(SlyParser):
 
     @_('timephrase TIMEAPPO timephrase')
     def timeappo(self, p):
+        p[0]['slots'].extend(p[2]['slots'])
         p[0]['timeappos'] = [p[2]]
         return p[0]
 
     @_('timephrase TIMEAPPO timeappo')
     def timeappo(self, p):
+        p[0]['slots'].extend(p[2]['slots'])
         p[0]['timeappos'] = [p[2]]
         return p[0]
          
@@ -1069,7 +1071,7 @@ class TimeParser(SlyParser):
 
     @_('day_simul year_simul')
     def day_simul(self, p):
-        add_qual('duration', p[1])
+        add_qual('durative', p[1])
         return init_ctime(
             p[0], p[1],
             functions=['simultaneous'],
@@ -1359,7 +1361,9 @@ class TimeParser(SlyParser):
        'NUM time',
        'NUM_ONE duration')
     def duration(self, p):
-        return add_quant('NUMQ', p[0], p[1])
+        add_quant('NUMQ', p[0], p[1])
+        add_qual('durative', p[1])
+        return p[1]
 
     @_('ALL duration', 
        'ALL time',
@@ -1392,7 +1396,7 @@ class TimeParser(SlyParser):
        'duration month')
     def duration(self, p):
         # set numbers to quantifiers
-        conv_nums('NUMQ', p)
+        conv_nums('NUMQ', p, as_dur=True)
         time = init_ctime( 
             p[0], p[1],
             quals=['durative']
@@ -1811,18 +1815,33 @@ def parse_times(paths, API):
 
     F, L = API.F, API.L
     
-    # gather eligible clauses
+    # gather eligible clauses;
     # an eligible clause is one for which all
-    # its phrases are parsed
+    # its phrases are parsed; There is some
+    # complexity here in that some phrases have been
+    # subsumed into another's parse. We use the 
+    # value "has_phrases" to inventory all phrases that are
+    # parsed; then we cross reference that with the time
+    # phrases found in the clause; finally we filter out 
+    # all of the clause's time phrases that have indeed
+    # been subsumed since they will be parsed as part of
+    # their head phrase 
     clauses = {}
-    good_phrases = set(phrases)
+    parsed_phrases = set(
+        ph_node for head_ph in phrases
+            for ph_node in phrases[head_ph]['has_phrases']
+    )
     for clause in F.otype.s('clause'):
         time_phrases = [
             ph for ph in L.d(clause, 'phrase')
                 if F.function.v(ph) == 'Time'
         ]
-        if time_phrases and good_phrases.issuperset(set(time_phrases)):
-            clauses[clause] = time_phrases
+        if time_phrases and parsed_phrases.issuperset(set(time_phrases)):
+            # filter out those phrases which are subsumed
+            clauses[clause] = [
+                ph for ph in time_phrases 
+                    if ph in phrases
+            ]
 
     print(len(clauses), 'clauses ready for parsing...')
 
@@ -1837,7 +1856,7 @@ def parse_times(paths, API):
         # collect tokens for all phrase parsings
         tokens = []
         for ph in time_phrases:
-            parsing = phrases[ph]
+            parsing = phrases[ph]['parse']
             ph_tokens = tokenizer.tokenize(parsing)
             tokens.extend(
                 ph_tokens

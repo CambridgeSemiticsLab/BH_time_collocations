@@ -331,7 +331,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -363,6 +363,9 @@
             "NUMQ",
             2204
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -373,6 +376,7 @@
       2205
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -416,6 +420,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -427,6 +434,7 @@
       2222
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -454,7 +462,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -480,6 +488,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -500,6 +511,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -533,7 +547,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -554,6 +568,9 @@
             "NUMQ",
             2299
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -574,6 +591,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -617,6 +637,9 @@
             "NUMQ",
             2329
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -627,6 +650,7 @@
       2330
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -654,6 +678,9 @@
             "NUMQ",
             2342
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -674,6 +701,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -716,6 +746,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -731,6 +764,9 @@
             "NUMQ",
             2376
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -769,7 +805,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -800,7 +836,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -826,7 +862,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -857,6 +893,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -872,6 +911,9 @@
             "NUMQ",
             2474
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -915,6 +957,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -935,6 +980,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -979,6 +1027,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -994,6 +1045,9 @@
             "NUMQ",
             2523
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -1037,6 +1091,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -1057,6 +1114,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -1220,6 +1280,9 @@
                 "NUMQ",
                 3115
               ]
+            ],
+            "quals": [
+              "durative"
             ]
           },
           {
@@ -1235,6 +1298,9 @@
                 "NUMQ",
                 3118
               ]
+            ],
+            "quals": [
+              "durative"
             ]
           }
         ],
@@ -1275,6 +1341,7 @@
       3219
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "refs": [
@@ -1299,6 +1366,231 @@
       ]
     ]
   },
+  "428158": {
+    "times": [
+      {
+        "times": [
+          3229
+        ],
+        "slots": [
+          3228,
+          3229,
+          3230,
+          3231,
+          3232,
+          3233,
+          3234,
+          3235
+        ],
+        "refs": [
+          [
+            "GEN",
+            [
+              [
+                3230,
+                3231,
+                "CARDC"
+              ],
+              3232,
+              "NUM"
+            ]
+          ],
+          [
+            "TIME",
+            {
+              "times": [
+                3234
+              ],
+              "slots": [
+                3233,
+                3234,
+                3235
+              ],
+              "quals": [
+                "durative"
+              ],
+              "refs": [
+                [
+                  "GEN",
+                  3235
+                ]
+              ],
+              "functions": [
+                "anterior_dur, simultaneous"
+              ],
+              "preps": [
+                [
+                  "L",
+                  3233
+                ]
+              ]
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            3228
+          ]
+        ]
+      },
+      {
+        "times": [
+          3238
+        ],
+        "slots": [
+          3236,
+          3237,
+          3238,
+          3240
+        ],
+        "refs": [
+          [
+            "ORDN",
+            3240
+          ],
+          [
+            "THE",
+            3237
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            3236
+          ]
+        ]
+      },
+      {
+        "times": [
+          3244
+        ],
+        "slots": [
+          3241,
+          3242,
+          3243,
+          3244,
+          3245,
+          3246,
+          3247
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              3242,
+              3243,
+              "CARDC"
+            ]
+          ],
+          [
+            "MONTH",
+            {
+              "times": [
+                3247
+              ],
+              "slots": [
+                3245,
+                3246,
+                3247
+              ],
+              "refs": [
+                [
+                  "THE",
+                  3246
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  3245
+                ]
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "MONTH"
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            3241
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      3228,
+      3229,
+      3230,
+      3231,
+      3232,
+      3233,
+      3234,
+      3235,
+      3236,
+      3237,
+      3238,
+      3240,
+      3241,
+      3242,
+      3243,
+      3244,
+      3245,
+      3246,
+      3247,
+      3248,
+      3249,
+      3250,
+      3252
+    ],
+    "functions": [
+      "cal_simul"
+    ],
+    "timeappos": [
+      {
+        "times": [
+          3250
+        ],
+        "slots": [
+          3248,
+          3249,
+          3250,
+          3252
+        ],
+        "refs": [
+          [
+            "THIS",
+            3252
+          ],
+          [
+            "THE",
+            3249
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            3248
+          ]
+        ]
+      }
+    ]
+  },
   "428160": {
     "times": [
       {
@@ -1314,6 +1606,9 @@
             "NUMQ",
             3270
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -1329,6 +1624,9 @@
             "NUMQ",
             3273
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -1347,32 +1645,22 @@
   },
   "428161": {
     "times": [
-      3276
+      3278
     ],
     "slots": [
       3275,
-      3276,
       3277,
       3278,
-      3279,
       3280
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            3279,
-            3280,
-            "DEF"
-          ],
-          [
-            3277,
-            3278,
-            "DEF"
-          ],
-          "APPO"
-        ]
+        "THIS",
+        3280
+      ],
+      [
+        "THE",
+        3277
       ]
     ],
     "functions": [
@@ -1400,7 +1688,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -1431,7 +1719,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -1464,7 +1752,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "posterior",
@@ -1741,7 +2029,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "posterior",
@@ -1767,6 +2055,7 @@
       3743
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -1813,6 +2102,7 @@
       3784
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -2196,6 +2486,9 @@
                   "CARDC"
                 ]
               ]
+            ],
+            "quals": [
+              "durative"
             ]
           },
           {
@@ -2211,6 +2504,9 @@
                 "NUMQ",
                 4524
               ]
+            ],
+            "quals": [
+              "durative"
             ]
           }
         ],
@@ -2263,6 +2559,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -2278,6 +2577,9 @@
             "NUMQ",
             4535
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -2416,6 +2718,9 @@
             5148
           ]
         ],
+        "quals": [
+          "durative"
+        ],
         "functions": [
           "atelic_ext"
         ]
@@ -2476,7 +2781,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -2507,7 +2812,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -2544,6 +2849,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -2555,6 +2863,7 @@
       5190
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -2582,7 +2891,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -2619,6 +2928,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -2630,6 +2942,7 @@
       5217
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -2667,7 +2980,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -2688,6 +3001,9 @@
             "NUMQ",
             5241
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -2708,6 +3024,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -2740,7 +3059,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -2772,6 +3091,9 @@
             "NUMQ",
             5271
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -2782,6 +3104,7 @@
       5272
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -2819,7 +3142,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -2851,6 +3174,9 @@
             "NUMQ",
             5299
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -2861,6 +3187,7 @@
       5300
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -2888,7 +3215,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -2909,7 +3236,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -2940,7 +3267,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -2966,6 +3293,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -2981,6 +3311,9 @@
             "NUMQ",
             5351
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -3013,7 +3346,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -3244,7 +3577,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -3270,7 +3603,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -3337,7 +3670,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -3436,6 +3769,7 @@
       7083
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -3540,32 +3874,22 @@
   },
   "428937": {
     "times": [
-      7742
+      7744
     ],
     "slots": [
       7741,
-      7742,
       7743,
       7744,
-      7745,
       7746
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            7745,
-            7746,
-            "DEF"
-          ],
-          [
-            7743,
-            7744,
-            "DEF"
-          ],
-          "APPO"
-        ]
+        "THIS",
+        7746
+      ],
+      [
+        "THE",
+        7743
       ]
     ],
     "functions": [
@@ -3580,32 +3904,22 @@
   },
   "428943": {
     "times": [
-      7776
+      7778
     ],
     "slots": [
       7775,
-      7776,
       7777,
       7778,
-      7779,
       7780
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            7779,
-            7780,
-            "DEF"
-          ],
-          [
-            7777,
-            7778,
-            "DEF"
-          ],
-          "APPO"
-        ]
+        "THIS",
+        7780
+      ],
+      [
+        "THE",
+        7777
       ]
     ],
     "functions": [
@@ -4111,21 +4425,16 @@
   },
   "429462": {
     "times": [
-      10103
+      10105
     ],
     "slots": [
-      10103,
       10104,
       10105
     ],
     "refs": [
       [
-        "GEN",
-        [
-          10104,
-          10105,
-          "DEF"
-        ]
+        "THE",
+        10104
       ]
     ],
     "functions": [
@@ -4879,6 +5188,7 @@
       14442
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -4993,6 +5303,7 @@
       15290
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -5014,6 +5325,7 @@
       15317
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -5085,6 +5397,7 @@
       15439
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -5106,6 +5419,7 @@
       15487
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -5495,7 +5809,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -5571,7 +5885,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -5586,6 +5900,7 @@
       17159
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -6096,6 +6411,7 @@
       21278
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -6329,6 +6645,7 @@
       22135
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -6357,6 +6674,7 @@
       22263
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -6389,6 +6707,9 @@
         "NUMQ",
         22356
       ]
+    ],
+    "quals": [
+      "durative"
     ],
     "functions": [
       "posterior",
@@ -6561,6 +6882,7 @@
       22975
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "refs": [
@@ -6601,6 +6923,7 @@
       23014
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "refs": [
@@ -6641,6 +6964,7 @@
       23222
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "refs": [
@@ -6696,6 +7020,7 @@
       23709
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -6800,6 +7125,9 @@
         24468
       ]
     ],
+    "quals": [
+      "durative"
+    ],
     "refs": [
       [
         "THE",
@@ -6830,6 +7158,9 @@
         "NUMQ",
         24647
       ]
+    ],
+    "quals": [
+      "durative"
     ],
     "refs": [
       [
@@ -6988,6 +7319,9 @@
         "NUMQ",
         25556
       ]
+    ],
+    "quals": [
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -7283,7 +7617,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -7605,7 +7939,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -7638,6 +7972,7 @@
       28446
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -7751,6 +8086,7 @@
       28679
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -7780,6 +8116,7 @@
       29140
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -8836,6 +9173,7 @@
       34322
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -8857,6 +9195,7 @@
       34335
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -9033,6 +9372,9 @@
         34804
       ]
     ],
+    "quals": [
+      "durative"
+    ],
     "refs": [
       [
         "THE",
@@ -9187,6 +9529,7 @@
       34987
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -9291,32 +9634,22 @@
   },
   "434796": {
     "times": [
-      35061
+      35063
     ],
     "slots": [
       35060,
-      35061,
       35062,
       35063,
-      35064,
       35065
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            35064,
-            35065,
-            "DEF"
-          ],
-          [
-            35062,
-            35063,
-            "DEF"
-          ],
-          "APPO"
-        ]
+        "THIS",
+        35065
+      ],
+      [
+        "THE",
+        35062
       ]
     ],
     "functions": [
@@ -9365,6 +9698,7 @@
       35111
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -9474,32 +9808,22 @@
   },
   "434891": {
     "times": [
-      35589
+      35591
     ],
     "slots": [
       35588,
-      35589,
       35590,
       35591,
-      35592,
       35593
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            35592,
-            35593,
-            "DEF"
-          ],
-          [
-            35590,
-            35591,
-            "DEF"
-          ],
-          "APPO"
-        ]
+        "THIS",
+        35593
+      ],
+      [
+        "THE",
+        35590
       ]
     ],
     "functions": [
@@ -9575,32 +9899,22 @@
   },
   "434919": {
     "times": [
-      35747
+      35749
     ],
     "slots": [
       35746,
-      35747,
       35748,
       35749,
-      35750,
       35751
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            35750,
-            35751,
-            "DEF"
-          ],
-          [
-            35748,
-            35749,
-            "DEF"
-          ],
-          "APPO"
-        ]
+        "THIS",
+        35751
+      ],
+      [
+        "THE",
+        35748
       ]
     ],
     "functions": [
@@ -9715,6 +10029,7 @@
       35874
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -9768,6 +10083,7 @@
       35891
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "refs": [
@@ -10195,6 +10511,7 @@
       37229
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -10380,6 +10697,9 @@
         "NUMQ",
         37624
       ]
+    ],
+    "quals": [
+      "durative"
     ],
     "refs": [
       [
@@ -10750,6 +11070,7 @@
       37917
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -10948,7 +11269,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -11447,6 +11768,7 @@
       39374
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -11504,6 +11826,7 @@
       39718
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -11525,6 +11848,7 @@
       39753
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -11576,6 +11900,7 @@
       40028
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -11657,6 +11982,9 @@
             "NUMQ",
             40314
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -11730,6 +12058,7 @@
       41033
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -11781,6 +12110,7 @@
       41175
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -11820,6 +12150,7 @@
       41206
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -11896,6 +12227,7 @@
       41258
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -11924,7 +12256,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "telic_ext, dist_fut, dist_past"
@@ -11970,6 +12302,7 @@
       41923
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -12027,6 +12360,9 @@
             "NUMQ",
             41970
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -12042,6 +12378,9 @@
             "NUMQ",
             41973
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -12178,6 +12517,7 @@
       45202
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -12227,6 +12567,7 @@
       45313
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -12273,6 +12614,7 @@
       45340
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -12350,6 +12692,9 @@
         45394
       ]
     ],
+    "quals": [
+      "durative"
+    ],
     "refs": [
       [
         "THE",
@@ -12380,6 +12725,9 @@
         "NUMQ",
         45425
       ]
+    ],
+    "quals": [
+      "durative"
     ],
     "refs": [
       [
@@ -12481,6 +12829,9 @@
         45649
       ]
     ],
+    "quals": [
+      "durative"
+    ],
     "refs": [
       [
         "THE",
@@ -12543,7 +12894,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ]
       }
     ],
@@ -12603,7 +12954,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ]
       }
     ],
@@ -12626,6 +12977,7 @@
       46412
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -12698,6 +13050,7 @@
       46463
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -13079,6 +13432,7 @@
       48141
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -13165,6 +13519,7 @@
       48193
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -13290,6 +13645,9 @@
             "NUMQ",
             48327
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -13305,6 +13663,9 @@
             "NUMQ",
             48330
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -13354,6 +13715,7 @@
       48522
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -14059,6 +14421,7 @@
       56822
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -14145,6 +14508,7 @@
           56850
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -14513,6 +14877,7 @@
       58728
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -14570,6 +14935,9 @@
             "NUMQ",
             58744
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -14581,6 +14949,7 @@
           58748
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -14617,6 +14986,9 @@
         58774
       ]
     ],
+    "quals": [
+      "durative"
+    ],
     "functions": [
       "atelic_ext"
     ]
@@ -14636,6 +15008,9 @@
             "NUMQ",
             58778
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -14647,6 +15022,7 @@
           58782
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -14679,6 +15055,7 @@
       58976
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -14730,6 +15107,7 @@
       59005
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -14781,6 +15159,7 @@
       59323
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -14802,6 +15181,7 @@
       59432
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -14853,6 +15233,7 @@
       59560
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -14904,6 +15285,7 @@
       59610
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -14979,6 +15361,7 @@
       59935
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -15030,6 +15413,7 @@
       60059
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -15087,6 +15471,7 @@
       60385
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -15233,6 +15618,7 @@
       61102
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -15622,6 +16008,7 @@
       61878
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -15755,6 +16142,7 @@
       61979
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -16196,7 +16584,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ]
       }
     ],
@@ -16401,6 +16789,7 @@
       64185
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -16521,6 +16910,7 @@
       65854
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -16676,6 +17066,7 @@
       65967
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -16697,6 +17088,7 @@
       66034
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -16748,6 +17140,7 @@
       66057
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -16792,32 +17185,22 @@
   },
   "440306": {
     "times": [
-      66168
+      66170
     ],
     "slots": [
       66167,
-      66168,
       66169,
       66170,
-      66171,
       66172
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            66171,
-            66172,
-            "DEF"
-          ],
-          [
-            66169,
-            66170,
-            "DEF"
-          ],
-          "APPO"
-        ]
+        "THIS",
+        66172
+      ],
+      [
+        "THE",
+        66169
       ]
     ],
     "functions": [
@@ -16881,32 +17264,22 @@
   },
   "440325": {
     "times": [
-      66306
+      66308
     ],
     "slots": [
       66305,
-      66306,
       66307,
       66308,
-      66309,
       66310
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            66309,
-            66310,
-            "DEF"
-          ],
-          [
-            66307,
-            66308,
-            "DEF"
-          ],
-          "APPO"
-        ]
+        "THIS",
+        66310
+      ],
+      [
+        "THE",
+        66307
       ]
     ],
     "functions": [
@@ -16994,32 +17367,22 @@
   },
   "440348": {
     "times": [
-      66437
+      66439
     ],
     "slots": [
       66436,
-      66437,
       66438,
       66439,
-      66440,
       66441
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            66440,
-            66441,
-            "DEF"
-          ],
-          [
-            66438,
-            66439,
-            "DEF"
-          ],
-          "APPO"
-        ]
+        "THIS",
+        66441
+      ],
+      [
+        "THE",
+        66438
       ]
     ],
     "functions": [
@@ -17034,32 +17397,22 @@
   },
   "440352": {
     "times": [
-      66461
+      66463
     ],
     "slots": [
       66460,
-      66461,
       66462,
       66463,
-      66464,
       66465
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            66464,
-            66465,
-            "DEF"
-          ],
-          [
-            66462,
-            66463,
-            "DEF"
-          ],
-          "APPO"
-        ]
+        "THIS",
+        66465
+      ],
+      [
+        "THE",
+        66462
       ]
     ],
     "functions": [
@@ -17074,32 +17427,22 @@
   },
   "440355": {
     "times": [
-      66479
+      66481
     ],
     "slots": [
       66478,
-      66479,
       66480,
       66481,
-      66482,
       66483
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            66482,
-            66483,
-            "DEF"
-          ],
-          [
-            66480,
-            66481,
-            "DEF"
-          ],
-          "APPO"
-        ]
+        "THIS",
+        66483
+      ],
+      [
+        "THE",
+        66480
       ]
     ],
     "functions": [
@@ -17280,6 +17623,7 @@
       66555
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -17301,6 +17645,7 @@
       66571
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -17422,6 +17767,7 @@
           66667
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -17490,6 +17836,7 @@
       66708
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -17513,6 +17860,7 @@
           66716
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -17601,6 +17949,7 @@
       66736
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -17758,6 +18107,7 @@
       67196
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -17779,6 +18129,7 @@
       67201
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -18647,7 +18998,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ]
       }
     ],
@@ -19596,6 +19947,9 @@
             75796
           ]
         ],
+        "quals": [
+          "durative"
+        ],
         "refs": [
           [
             "THE",
@@ -19752,6 +20106,9 @@
             "NUMQ",
             75837
           ]
+        ],
+        "quals": [
+          "durative"
         ],
         "refs": [
           [
@@ -19942,6 +20299,9 @@
             "NUMQ",
             75968
           ]
+        ],
+        "quals": [
+          "durative"
         ],
         "refs": [
           [
@@ -20220,6 +20580,9 @@
                 "NUMQ",
                 76222
               ]
+            ],
+            "quals": [
+              "durative"
             ]
           },
           {
@@ -20594,6 +20957,9 @@
         77205
       ]
     ],
+    "quals": [
+      "durative"
+    ],
     "functions": [
       "atelic_ext"
     ]
@@ -20607,6 +20973,7 @@
       77209
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -20628,6 +20995,7 @@
       77213
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -20655,7 +21023,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -20844,6 +21212,7 @@
       77821
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -20865,6 +21234,7 @@
       77824
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -20897,6 +21267,7 @@
       77842
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -20931,6 +21302,7 @@
           78148
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -20989,7 +21361,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "posterior",
@@ -21175,7 +21547,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -21196,7 +21568,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -21451,6 +21823,7 @@
       82238
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -21592,6 +21965,7 @@
       82330
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -21613,6 +21987,7 @@
       82365
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -21884,7 +22259,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -22522,6 +22897,9 @@
         87407
       ]
     ],
+    "quals": [
+      "durative"
+    ],
     "refs": [
       [
         "THE",
@@ -22552,6 +22930,9 @@
         "NUMQ",
         87462
       ]
+    ],
+    "quals": [
+      "durative"
     ],
     "refs": [
       [
@@ -22704,6 +23085,7 @@
       87651
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -22735,6 +23117,7 @@
           87746
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -23112,6 +23495,7 @@
       88087
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -23425,6 +23809,7 @@
       89229
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -23604,7 +23989,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -24265,7 +24650,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -25026,6 +25411,7 @@
       96531
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -25274,7 +25660,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -25295,7 +25681,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -25419,6 +25805,9 @@
             "NUMQ",
             98640
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -25434,6 +25823,9 @@
             "NUMQ",
             98643
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -25495,6 +25887,9 @@
             "NUMQ",
             98690
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -25510,6 +25905,9 @@
             "NUMQ",
             98693
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -25554,6 +25952,9 @@
             "NUMQ",
             98838
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -25569,6 +25970,9 @@
             "NUMQ",
             98841
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -25640,7 +26044,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ],
         "functions": [
           "atelic_ext"
@@ -25673,6 +26077,9 @@
             "NUMQ",
             99010
           ]
+        ],
+        "quals": [
+          "durative"
         ],
         "functions": [
           "atelic_ext"
@@ -25837,6 +26244,9 @@
             "NUMQ",
             99339
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -25852,6 +26262,9 @@
             "NUMQ",
             99342
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -26358,6 +26771,7 @@
       101939
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -26392,6 +26806,7 @@
       101994
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -26442,6 +26857,7 @@
       102252
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -26511,6 +26927,7 @@
       102370
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -26631,6 +27048,7 @@
       102512
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -26681,6 +27099,7 @@
       102545
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -26826,6 +27245,7 @@
       102630
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -26847,6 +27267,7 @@
       102744
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -26868,6 +27289,7 @@
       102781
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -27318,7 +27740,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -27716,6 +28138,9 @@
         108646
       ]
     ],
+    "quals": [
+      "durative"
+    ],
     "refs": [
       [
         "THE",
@@ -27971,7 +28396,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -28281,6 +28706,7 @@
           110882
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -28680,32 +29106,22 @@
   },
   "448563": {
     "times": [
-      112119
+      112121
     ],
     "slots": [
       112118,
-      112119,
       112120,
       112121,
-      112122,
       112123
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            112122,
-            112123,
-            "DEF"
-          ],
-          [
-            112120,
-            112121,
-            "DEF"
-          ],
-          "APPO"
-        ]
+        "THIS",
+        112123
+      ],
+      [
+        "THE",
+        112120
       ]
     ],
     "functions": [
@@ -28818,7 +29234,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -28973,6 +29389,7 @@
       113167
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -29072,6 +29489,7 @@
       113742
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -29104,6 +29522,7 @@
       113876
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -29152,6 +29571,7 @@
       113971
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -29593,7 +30013,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -29790,32 +30210,22 @@
       },
       {
         "times": [
-          115229
+          115231
         ],
         "slots": [
           115228,
-          115229,
           115230,
           115231,
-          115232,
           115233
         ],
         "refs": [
           [
-            "GEN",
-            [
-              [
-                115232,
-                115233,
-                "DEF"
-              ],
-              [
-                115230,
-                115231,
-                "DEF"
-              ],
-              "APPO"
-            ]
+            "THIS",
+            115233
+          ],
+          [
+            "THE",
+            115230
           ]
         ],
         "functions": [
@@ -29835,10 +30245,8 @@
       115223,
       115224,
       115228,
-      115229,
       115230,
       115231,
-      115232,
       115233
     ],
     "functions": [
@@ -29902,6 +30310,7 @@
       115401
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -30008,6 +30417,7 @@
       115685
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -30803,6 +31213,7 @@
       118070
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -31143,32 +31554,22 @@
   },
   "449830": {
     "times": [
-      119020
+      119022
     ],
     "slots": [
       119019,
-      119020,
       119021,
       119022,
-      119023,
       119024
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            119023,
-            119024,
-            "DEF"
-          ],
-          [
-            119021,
-            119022,
-            "DEF"
-          ],
-          "APPO"
-        ]
+        "THIS",
+        119024
+      ],
+      [
+        "THE",
+        119021
       ]
     ],
     "functions": [
@@ -31635,7 +32036,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -33164,6 +33565,7 @@
       128879
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -33191,7 +33593,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -33217,7 +33619,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -33268,7 +33670,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -33289,7 +33691,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -33483,7 +33885,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -33498,6 +33900,7 @@
       130435
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -33926,7 +34329,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ],
         "functions": [
           "atelic_ext"
@@ -34040,6 +34443,7 @@
       133338
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -34217,7 +34621,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -34265,7 +34669,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -34354,7 +34758,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -34539,7 +34943,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -34602,6 +35006,7 @@
       135302
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -34623,6 +35028,7 @@
       135324
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -34646,6 +35052,7 @@
       135342
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -34728,6 +35135,7 @@
           135378
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -34809,6 +35217,7 @@
       135566
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -34847,6 +35256,7 @@
       135610
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -34885,6 +35295,7 @@
       135631
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -34923,6 +35334,7 @@
       135672
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -34950,7 +35362,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -35193,6 +35605,7 @@
       136500
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "refs": [
@@ -35224,6 +35637,7 @@
       136557
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -35276,6 +35690,7 @@
       136637
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "refs": [
@@ -35530,7 +35945,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ],
         "functions": [
           "atelic_ext"
@@ -35763,7 +36178,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -36037,6 +36452,7 @@
       139174
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -36869,6 +37285,7 @@
       140962
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -37904,7 +38321,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -38027,6 +38444,7 @@
       144131
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -38759,6 +39177,7 @@
           145992
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "refs": [
@@ -38926,6 +39345,7 @@
       146418
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -39038,6 +39458,7 @@
       146894
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -39430,6 +39851,7 @@
       147792
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -39451,6 +39873,7 @@
       147977
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -40306,7 +40729,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -41995,6 +42418,7 @@
       157405
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "refs": [
@@ -42810,6 +43234,9 @@
             "NUMQ",
             159707
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -42820,6 +43247,7 @@
       159708
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -42854,7 +43282,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -43108,6 +43536,7 @@
       160465
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -43154,6 +43583,7 @@
       160485
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -43293,6 +43723,7 @@
       161173
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -43925,7 +44356,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -43953,6 +44384,7 @@
           163027
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -43970,6 +44402,7 @@
       163027
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -44007,7 +44440,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -44149,6 +44582,7 @@
       163649
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -45075,6 +45509,9 @@
         167640
       ]
     ],
+    "quals": [
+      "durative"
+    ],
     "functions": [
       "anterior_dur, simultaneous"
     ],
@@ -45141,6 +45578,7 @@
       168002
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -45251,6 +45689,9 @@
         168715
       ]
     ],
+    "quals": [
+      "durative"
+    ],
     "functions": [
       "atelic_ext"
     ]
@@ -45320,7 +45761,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "posterior",
@@ -46413,6 +46854,7 @@
       173193
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -46541,6 +46983,7 @@
           173719
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -46985,6 +47428,9 @@
             "NUMQ",
             175611
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -46997,6 +47443,7 @@
       175612
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -47096,6 +47543,7 @@
       175725
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -47117,6 +47565,7 @@
       175731
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -47138,6 +47587,7 @@
       175743
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -47464,6 +47914,7 @@
       177544
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -47487,6 +47938,7 @@
       177552
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -47667,6 +48119,7 @@
       178220
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -48263,6 +48716,7 @@
       179973
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -48292,6 +48746,9 @@
                 "NUMQ",
                 180063
               ]
+            ],
+            "quals": [
+              "durative"
             ]
           },
           {
@@ -48312,6 +48769,9 @@
                   "CARDC"
                 ]
               ]
+            ],
+            "quals": [
+              "durative"
             ]
           }
         ],
@@ -48507,6 +48967,7 @@
       180843
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -48539,7 +49000,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -48979,6 +49440,7 @@
               183625
             ],
             "quals": [
+              "durative",
               "durative"
             ],
             "quants": [
@@ -48996,6 +49458,7 @@
           183625
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -49142,7 +49605,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "posterior",
@@ -49326,7 +49789,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "telic_ext, dist_fut, dist_past"
@@ -49397,6 +49860,7 @@
           184842
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -49512,6 +49976,7 @@
       185307
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -49707,6 +50172,7 @@
       186025
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -50230,7 +50696,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -50406,6 +50872,7 @@
       188378
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -50556,7 +51023,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -50710,6 +51177,9 @@
         "NUMQ",
         188883
       ]
+    ],
+    "quals": [
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -50880,7 +51350,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ],
         "functions": [
           "atelic_ext"
@@ -50976,6 +51446,9 @@
             "NUMQ",
             189229
           ]
+        ],
+        "quals": [
+          "durative"
         ],
         "functions": [
           "atelic_ext"
@@ -51145,6 +51618,7 @@
           189370
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -51296,7 +51770,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ],
         "functions": [
           "atelic_ext"
@@ -51329,6 +51803,7 @@
       189567
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -51436,7 +51911,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -51906,6 +52381,10 @@
             190920
           ]
         ],
+        "quals": [
+          "durative",
+          "durative"
+        ],
         "refs": [
           [
             "THE",
@@ -51920,9 +52399,6 @@
             "<D",
             190918
           ]
-        ],
-        "quals": [
-          "durative"
         ]
       }
     ],
@@ -51955,6 +52431,9 @@
         "NUMQ",
         190943
       ]
+    ],
+    "quals": [
+      "durative"
     ],
     "refs": [
       [
@@ -52055,6 +52534,9 @@
             "NUMQ",
             191564
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -52070,6 +52552,9 @@
             "NUMQ",
             191567
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -52143,6 +52628,9 @@
         "NUMQ",
         192295
       ]
+    ],
+    "quals": [
+      "durative"
     ],
     "refs": [
       [
@@ -52229,6 +52717,7 @@
       192604
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -52411,6 +52900,7 @@
       193655
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -52651,7 +53141,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -52752,6 +53242,9 @@
         "NUMQ",
         194717
       ]
+    ],
+    "quals": [
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -52900,6 +53393,7 @@
       195676
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -53025,7 +53519,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -53397,6 +53891,10 @@
         196884
       ]
     ],
+    "quals": [
+      "durative",
+      "durative"
+    ],
     "refs": [
       [
         "THE",
@@ -53411,9 +53909,6 @@
         "<D",
         196882
       ]
-    ],
-    "quals": [
-      "durative"
     ]
   },
   "465250": {
@@ -53791,6 +54286,7 @@
       199558
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -53812,6 +54308,7 @@
       199581
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -53835,6 +54332,7 @@
       199587
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -53940,6 +54438,7 @@
       199963
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -54162,7 +54661,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -54443,6 +54942,7 @@
       202065
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -54535,7 +55035,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -54739,7 +55239,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ],
         "functions": [
           "atelic_ext"
@@ -54903,7 +55403,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ],
         "functions": [
           "atelic_ext"
@@ -55101,7 +55601,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -55204,7 +55704,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ],
         "functions": [
           "atelic_ext"
@@ -55315,7 +55815,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ],
         "functions": [
           "atelic_ext"
@@ -55428,7 +55928,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -55533,6 +56033,7 @@
           204421
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -55720,6 +56221,7 @@
           204595
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -55844,6 +56346,9 @@
             204725
           ]
         ],
+        "quals": [
+          "durative"
+        ],
         "functions": [
           "atelic_ext"
         ]
@@ -55941,7 +56446,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ],
         "functions": [
           "atelic_ext"
@@ -56124,7 +56629,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -56238,7 +56743,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -56395,6 +56900,7 @@
           205588
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -56431,6 +56937,7 @@
       205667
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -56682,7 +57189,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -56816,6 +57323,7 @@
       206715
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -57392,7 +57900,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -57428,6 +57936,7 @@
       209107
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -57465,7 +57974,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -57677,6 +58186,7 @@
       210738
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -57709,7 +58219,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -57751,6 +58261,7 @@
       210903
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -57772,6 +58283,7 @@
       211048
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -57859,7 +58371,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -59613,6 +60125,9 @@
         217504
       ]
     ],
+    "quals": [
+      "durative"
+    ],
     "functions": [
       "simultaneous"
     ],
@@ -60098,6 +60613,7 @@
       218657
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -60383,7 +60899,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -60406,7 +60922,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "posterior",
@@ -60440,7 +60956,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "posterior",
@@ -63699,6 +64215,9 @@
         232389
       ]
     ],
+    "quals": [
+      "durative"
+    ],
     "refs": [
       [
         "THE",
@@ -65145,6 +65664,9 @@
         "NUMQ",
         237720
       ]
+    ],
+    "quals": [
+      "durative"
     ],
     "refs": [
       [
@@ -66645,7 +67167,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -67830,6 +68352,7 @@
       253467
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -67862,6 +68385,7 @@
       253480
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -69016,6 +69540,7 @@
       257951
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -70012,7 +70537,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -70973,32 +71498,22 @@
   },
   "480138": {
     "times": [
-      265373
+      265375
     ],
     "slots": [
       265372,
-      265373,
       265374,
       265375,
-      265376,
       265377
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            265376,
-            265377,
-            "DEF"
-          ],
-          [
-            265374,
-            265375,
-            "DEF"
-          ],
-          "APPO"
-        ]
+        "THIS",
+        265377
+      ],
+      [
+        "THE",
+        265374
       ]
     ],
     "functions": [
@@ -71023,6 +71538,7 @@
       265799
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -71046,6 +71562,7 @@
       265808
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -71105,7 +71622,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -72119,32 +72636,22 @@
   },
   "482731": {
     "times": [
-      276598
+      276600
     ],
     "slots": [
       276597,
-      276598,
       276599,
       276600,
-      276601,
       276602
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            276601,
-            276602,
-            "DEF"
-          ],
-          [
-            276599,
-            276600,
-            "DEF"
-          ],
-          "APPO"
-        ]
+        "THIS",
+        276602
+      ],
+      [
+        "THE",
+        276599
       ]
     ],
     "functions": [
@@ -72516,7 +73023,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -72537,7 +73044,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -73742,6 +74249,7 @@
       284518
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -73793,6 +74301,7 @@
       284600
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -73816,6 +74325,7 @@
       284641
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -73899,32 +74409,22 @@
   },
   "484552": {
     "times": [
-      284967
+      284969
     ],
     "slots": [
       284966,
-      284967,
       284968,
       284969,
-      284970,
       284971
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            284970,
-            284971,
-            "DEF"
-          ],
-          [
-            284968,
-            284969,
-            "DEF"
-          ],
-          "APPO"
-        ]
+        "THIS",
+        284971
+      ],
+      [
+        "THE",
+        284968
       ]
     ],
     "functions": [
@@ -74018,6 +74518,7 @@
       287675
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -74039,6 +74540,7 @@
       287694
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -74591,6 +75093,7 @@
           288991
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "refs": [
@@ -74633,6 +75136,7 @@
               289007
             ],
             "quals": [
+              "durative",
               "durative"
             ],
             "refs": [
@@ -74839,6 +75343,7 @@
           289051
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "refs": [
@@ -74888,6 +75393,7 @@
       289083
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "refs": [
@@ -76046,6 +76552,9 @@
         292242
       ]
     ],
+    "quals": [
+      "durative"
+    ],
     "functions": [
       "posterior_dur"
     ],
@@ -77023,6 +77532,9 @@
                     295409
                   ]
                 ],
+                "quals": [
+                  "durative"
+                ],
                 "functions": [
                   "atelic_ext"
                 ]
@@ -77169,7 +77681,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -77240,6 +77752,7 @@
       296303
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -77271,6 +77784,7 @@
       296358
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -77364,7 +77878,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -77534,6 +78048,9 @@
         "NUMQ",
         297668
       ]
+    ],
+    "quals": [
+      "durative"
     ],
     "refs": [
       [
@@ -77852,6 +78369,9 @@
             "NUMQ",
             298946
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -77862,6 +78382,7 @@
       298947
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -78870,6 +79391,9 @@
         303530
       ]
     ],
+    "quals": [
+      "durative"
+    ],
     "refs": [
       [
         "THE",
@@ -79698,7 +80222,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ]
       }
     ],
@@ -79845,7 +80369,19 @@
       304857,
       304858,
       304860,
-      304862
+      304862,
+      304863,
+      304864,
+      304865,
+      304866,
+      304867,
+      304868,
+      304869,
+      304870,
+      304871,
+      304872,
+      304873,
+      304874
     ],
     "functions": [
       "begin_to_end"
@@ -79866,7 +80402,11 @@
           304867,
           304868,
           304869,
-          304870
+          304870,
+          304871,
+          304872,
+          304873,
+          304874
         ],
         "refs": [
           [
@@ -80250,7 +80790,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -80654,7 +81194,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -84276,6 +84816,9 @@
                 "NUMQ",
                 319533
               ]
+            ],
+            "quals": [
+              "durative"
             ]
           }
         ],
@@ -86415,6 +86958,9 @@
         326466
       ]
     ],
+    "quals": [
+      "durative"
+    ],
     "functions": [
       "atelic_ext"
     ]
@@ -86618,7 +87164,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -88813,6 +89359,9 @@
             "NUMQ",
             336818
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -88823,6 +89372,7 @@
       336819
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -89049,6 +89599,9 @@
         "NUMQ",
         337434
       ]
+    ],
+    "quals": [
+      "durative"
     ],
     "refs": [
       [
@@ -89278,18 +89831,15 @@
   },
   "498473": {
     "times": [
-      339634
+      339635
     ],
     "slots": [
       339633,
-      339634,
       339635
     ],
-    "refs": [
-      [
-        "GEN",
-        339635
-      ]
+    "quals": [
+      "durative",
+      "durative"
     ],
     "functions": [
       "anterior_dur"
@@ -89299,9 +89849,6 @@
         "<D",
         339633
       ]
-    ],
-    "quals": [
-      "durative"
     ]
   },
   "498483": {
@@ -90045,7 +90592,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ],
         "functions": [
           "atelic_ext"
@@ -91158,6 +91705,7 @@
       355879
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -91740,6 +92288,9 @@
         357683
       ]
     ],
+    "quals": [
+      "durative"
+    ],
     "refs": [
       [
         "THE",
@@ -92104,6 +92655,7 @@
       361358
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -93159,6 +93711,9 @@
               "CARDC"
             ]
           ]
+        ],
+        "quals": [
+          "durative"
         ]
       }
     ],
@@ -93193,6 +93748,7 @@
       365561
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -93405,6 +93961,7 @@
       366336
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -93426,6 +93983,7 @@
       366343
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -94237,7 +94795,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -95424,6 +95982,7 @@
       370201
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -95472,6 +96031,7 @@
       370347
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -95493,6 +96053,7 @@
       370393
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -95516,6 +96077,7 @@
       370398
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -95911,6 +96473,7 @@
       376362
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -96073,6 +96636,7 @@
           376480
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -96171,7 +96735,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -96470,6 +97034,7 @@
       377350
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -97370,6 +97935,7 @@
       380924
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -97633,6 +98199,7 @@
       381732
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -97716,6 +98283,7 @@
       382143
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -98114,6 +98682,7 @@
       382891
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "refs": [
@@ -98149,6 +98718,7 @@
       382920
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "refs": [
@@ -98613,6 +99183,7 @@
       383991
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -99302,7 +99873,10 @@
       385743,
       385744,
       385745,
-      385746
+      385746,
+      385749,
+      385750,
+      385751
     ],
     "functions": [
       "?"
@@ -99318,6 +99892,7 @@
           385751
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -99357,6 +99932,7 @@
       385859
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -100097,6 +100673,7 @@
       387717
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -100398,7 +100975,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -101824,6 +102401,7 @@
           392602
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -101841,6 +102419,7 @@
       392602
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -101878,7 +102457,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -102233,6 +102812,7 @@
       396390
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "refs": [
@@ -102401,6 +102981,7 @@
       396954
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -102611,6 +103192,7 @@
       398407
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -102723,6 +103305,7 @@
       398753
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -103057,7 +103640,13 @@
       400147
     ],
     "slots": [
-      400147
+      400147,
+      400152,
+      400153,
+      400154,
+      400148,
+      400149,
+      400150
     ],
     "quals": [
       "durative"
@@ -103636,6 +104225,7 @@
       402020
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -103657,6 +104247,7 @@
       402025
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -103678,6 +104269,7 @@
       402038
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -104503,6 +105095,7 @@
       406749
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -105192,6 +105785,7 @@
           410227
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -105256,6 +105850,7 @@
       410256
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -105277,6 +105872,7 @@
       410261
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -105473,7 +106069,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "posterior",
@@ -105619,7 +106215,24 @@
       410884,
       410874,
       410875,
-      410876
+      410876,
+      410885,
+      410886,
+      410887,
+      410888,
+      410889,
+      410900,
+      410901,
+      410902,
+      410903,
+      410890,
+      410891,
+      410892,
+      410893,
+      410895,
+      410896,
+      410897,
+      410898
     ],
     "functions": [
       "multi_simul, multi_anterior_dur"
@@ -105636,6 +106249,7 @@
               410886
             ],
             "quals": [
+              "durative",
               "durative"
             ],
             "quants": [
@@ -105679,7 +106293,19 @@
           410886,
           410887,
           410888,
-          410889
+          410889,
+          410900,
+          410901,
+          410902,
+          410903,
+          410890,
+          410891,
+          410892,
+          410893,
+          410895,
+          410896,
+          410897,
+          410898
         ],
         "functions": [
           "dur_simul"
@@ -105936,7 +106562,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "telic_ext, dist_fut, dist_past"
@@ -106007,6 +106633,7 @@
           411533
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -106054,7 +106681,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -106245,6 +106872,7 @@
       412480
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -106273,6 +106901,7 @@
       412490
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -106394,7 +107023,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -106475,6 +107104,7 @@
       412991
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -106816,6 +107446,7 @@
           413496
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -107701,6 +108332,7 @@
       416578
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -107796,7 +108428,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -107835,6 +108467,7 @@
       416916
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -108084,6 +108717,7 @@
       417253
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -108111,7 +108745,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -108151,6 +108785,7 @@
       417597
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -108208,7 +108843,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -108498,7 +109133,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -108571,7 +109206,7 @@
           ]
         ],
         "quals": [
-          "duration"
+          "durative"
         ],
         "functions": [
           "atelic_ext"
@@ -108637,7 +109272,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -108719,7 +109354,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -108775,7 +109410,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -108801,7 +109436,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -108923,7 +109558,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -109058,6 +109693,7 @@
       421340
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -109372,6 +110008,7 @@
       422326
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -109439,6 +110076,7 @@
       422368
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "refs": [
@@ -109466,6 +110104,7 @@
       422386
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -109487,6 +110126,7 @@
       422391
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -109759,7 +110399,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -109837,6 +110477,7 @@
       424368
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -109874,7 +110515,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -109890,6 +110531,7 @@
       424479
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -110159,6 +110801,7 @@
       425820
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -110358,6 +111001,7 @@
       426093
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -110390,7 +111034,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"
@@ -110418,6 +111062,7 @@
           426226
         ],
         "quals": [
+          "durative",
           "durative"
         ],
         "quants": [
@@ -110435,6 +111080,7 @@
       426226
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "quants": [
@@ -110497,7 +111143,7 @@
       ]
     ],
     "quals": [
-      "duration"
+      "durative"
     ],
     "functions": [
       "atelic_ext"

@@ -169,7 +169,7 @@ class PhraseParser(Parser):
        'pp', 'appo', 'quant', 'num',
        'para', 'demon', 'cardc', 'advb',
        'quant_sized', 'adjv_para', 'gam_adjv',
-       'gam_para',)
+       'gam_para')
     def phrase(self, p):
         return p[0]
 
@@ -243,13 +243,13 @@ class PhraseParser(Parser):
         return [p[1], p[0], 'SPEC']
 
     # adjectivals with construct
-#    @_('ADJV C')
-#    def adjconstr(self, p):
-#        return p[0].slot
+    @_('ADJV C')
+    def adjvconstr(self, p):
+        return p[0].slot
 
-#    @_('adjvconstr phrase')
-#    def adjv(self, p):
-#        return [p[0], p[1], 'ADJV']
+    @_('adjvconstr phrase')
+    def adjv(self, p):
+        return [p[0], p[1], 'ADJV']
  
     # -- adverbial phrases -- 
     # TODO: add rule to recognize distributive 
@@ -275,7 +275,7 @@ class PhraseParser(Parser):
         return [p[0].slot, p[1], 'DEF']
 
     # -- genitive phrases --
-    @_('NOUN C', 'PROPN C', 'ADJV C')
+    @_('NOUN C', 'PROPN C',)
     def constr(self, p): 
         return p[0].slot
 

@@ -111,8 +111,8 @@ def examine_parsings(paths, bhsa):
     df, sp_df = build_parse_tables(paths, API)
 
     # optionally restrict to Time Phrases
-#    df = df[df.function == 'Time']
-#    sp_df = sp_df[sp_df.phrase.isin(df.index)]
+    df = df[df.function == 'Time']
+    sp_df = sp_df[sp_df.phrase.isin(df.index)]
 
     # -- BUILD UN-PARSED INSPECTION DOCUMENT --
 

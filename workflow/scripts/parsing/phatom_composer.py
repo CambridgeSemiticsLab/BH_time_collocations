@@ -291,7 +291,10 @@ def compose_phrases(paths, tf_api):
                 pass # phrase has been expanded
 
         # save the parse
-        full_parses[phrase] = comp_parse
+        full_parses[phrase] = {
+            'parse': comp_parse, 
+            'has_phrases': sorted(ph_nodes),
+        }
             
     # export
     with open(paths['parsed_phrases'], 'w') as outfile:
