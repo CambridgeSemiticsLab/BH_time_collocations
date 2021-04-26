@@ -38,30 +38,30 @@ rule patch_function:
     output:
         patched="../results/parsing/patched_function.json"
     script:
-        "scripts/snakemake/patch_function.py"
+        "scripts/patch_function.py"
 
 rule parse_pos:
     input:
         bhsadata=bhsadata,
         functions=rules.patch_function.output.patched,
-        script1="scripts/snakemake/parse_pos.py",
+        script1="scripts/parse_pos.py",
         script2="scripts/parsing/pos_parsing.py"
     output:
         slot2pos="../results/parsing/slot2pos.json",
         uniquepos="../results/parsing/uniquepos.txt"
     script:
-        "scripts/snakemake/parse_pos.py"
+        "scripts/parse_pos.py"
 
 rule build_samples:
     input:
         bhsadata=bhsadata,
-        script="scripts/snakemake/sample_phrases.py",
+        script="scripts/sample_phrases.py",
         script2="scripts/sampling/phrase_sampling.py"
     output:
         samples="../results/samples/phrases.json",
         nosamples="../results/samples/reject_phrases.json"
     script:
-        "scripts/snakemake/sample_phrases.py"
+        "scripts/sample_phrases.py"
 
 rule sample_metrics:
     input:
@@ -73,7 +73,7 @@ rule sample_metrics:
     output:
         metrics="../results/data_metrics/phrase_samples.html"
     script:
-        "scripts/snakemake/measure_sample.py"
+        "scripts/measure_sample.py"
 
 # directory to store plots produced in the data-metrics scripts
 metric_plotsdir = (
@@ -89,7 +89,7 @@ rule get_disambigs:
         accentseps="../results/disambigs/accentseps.json",
         paraseps="../results/disambigs/paraseps.json",
     script:
-        "scripts/snakemake/disambig.py"
+        "scripts/disambig.py"
 
 rule parse_phrases:
     input:
@@ -111,7 +111,7 @@ rule parse_phrases:
         parsemetrics="../results/data_metrics/unparsed_phrases.html",
         notparsemetrics="../results/data_metrics/parsed_phrases.html"
     script:
-        "scripts/snakemake/parse_phrases.py"
+        "scripts/parse_phrases.py"
 
 rule parse_times:
     input: 
@@ -130,7 +130,7 @@ rule parse_times:
         parsemets="../results/data_metrics/time_parsings.html",
         catmets="../results/data_metrics/time_categories.html",
     script:
-        "scripts/snakemake/parse_times.py"
+        "scripts/parse_times.py"
 
 # human review process
 rule eval_times:
@@ -145,4 +145,4 @@ rule eval_times:
         todo="notebooks/time_evaluation/to_eval.ipynb",
         evaled="../results/parsing/time_evaled.json",
     script:
-        "scripts/snakemake/eval_times.py"
+        "scripts/eval_times.py"
