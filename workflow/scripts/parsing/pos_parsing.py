@@ -1,14 +1,17 @@
 import json
 from tf.fabric import Fabric
 from tools.parsers import PositionsParser
+from tools.load_parse import ParseLoader
 
 # a class to parse BHSA word nodes into parts of speech
 class posParser(PositionsParser):
 
-    def __init__(self, tf_api):
+    def __init__(self, tf_api, functs):
         
         # initialize methods / attribs in parent class
         super().__init__(tf_api)
+
+        self._functs = functs
 
         # precedence assignments for when multiple matches are found
         # higher value == the function will be matched first
@@ -43,7 +46,7 @@ class posParser(PositionsParser):
                 F.lex.v(w) == 'R>C/'
                 and F.st.v(w) == 'c'
                 and P(-1,'pdp') == 'prep'
-                and F.function.v(phn) in {
+                and self._functs[phn] in {
                         'Time', 'Adju', 
                         'Cmpl', 'Loca',
                 }
@@ -51,7 +54,7 @@ class posParser(PositionsParser):
             (
                 F.lex.v(w) == 'R>C/'
                 and F.st.v(w) == 'c'
-                and F.function.v(phn) == 'Time'
+                and self._functs[phn] == 'Time'
             ),
 
             # key lexemes in construct
@@ -300,11 +303,11 @@ class posParser(PositionsParser):
             (
                 F.lex.v(w) == '<YM/'
                 and F.st.v(w) == 'c'
-                and F.function.v(phrase) == 'Time'
+                and self._functs[phrase] == 'Time'
             ),
             (
                 F.lex.v(w) == 'BLT/'
-                and F.function.v(phrase) == 'Time'
+                and self._functs[phrase] == 'Time'
             ),
        ])
 
@@ -327,23 +330,24 @@ class posParser(PositionsParser):
         """A POS for the adverb גם"""
         return self._F.lex.v(w) == 'GM'
 
-def parse_pos(data_locs, slot2pos_path, uniquepos_path):
+def parse_pos(paths):
     """Apply parsing using Text-Fabric."""
 
     # initialize Text-Fabric
-    tf = Fabric(data_locs)
+    tf = Fabric(paths['bhsadata'])
     tf_api = tf.load('''
         pdp sp ls lex st 
-        prs function vt
-        typ
+        prs vt typ
     ''')
-
     F = tf_api.F
+
+    # open up patched functions
+    functs = ParseLoader(paths['functions']).load()
 
     # assign parts of speech
     # if posParser does not return a value, we 
     # assign it the default BHSA tag in uppercase
-    parser = posParser(tf_api)
+    parser = posParser(tf_api, functs)
     pos_map = {'subs':'NOUN'}
     slot2pos = {}
     for slot in F.otype.s('word'):
@@ -355,9 +359,9 @@ def parse_pos(data_locs, slot2pos_path, uniquepos_path):
     uniquepos = sorted(set(slot2pos.values()))
 
     # export to JSON
-    with open(slot2pos_path, 'w') as outfile:
+    with open(paths['slot2pos'], 'w') as outfile:
         json.dump(slot2pos, outfile, indent=1)
 
     # export unique values, which are needed to configure the phrase parser
-    with open(uniquepos_path, 'w') as outfile:
+    with open(paths['uniquepos'], 'w') as outfile:
         outfile.write(',\n'.join(uniquepos))

@@ -145,4 +145,4 @@ def time_evaler(paths):
 
     # export the corrected data
     with open(paths['evaled'], 'w') as outfile:
-        json.dump(corrected, outfile, indent=2)
+        json.dump(corrected, outfile, indent=2, ensure_ascii=False)

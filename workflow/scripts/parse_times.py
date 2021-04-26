@@ -7,6 +7,7 @@ paths = {
     'bhsadata': snakemake.input.bhsadata,
     'ph_parses': snakemake.input.ph_parses,
     'styles': snakemake.input.styles,
+    'functions': snakemake.input.functions,
     'slot2pos': snakemake.input.slot2pos,
     'lexmap': snakemake.input.lexmap,
     'plotsdir': snakemake.params.plotsdir,

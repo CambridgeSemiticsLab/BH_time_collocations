@@ -33,7 +33,7 @@ class Tracker:
         self.tracked[clause] = corrections
 
         with open(self.trackpath, 'w') as outfile:
-            json.dump(self.tracked, outfile, indent=2)
+            json.dump(self.tracked, outfile, indent=2, ensure_ascii=False)
         if not self.silent:
             spans = [
                 f'clause {clause} saved (total {len(self.tracked)})'

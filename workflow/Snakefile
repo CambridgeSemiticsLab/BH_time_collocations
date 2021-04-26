@@ -31,9 +31,19 @@ stylesheets = [
 
 ]
 
+rule patch_function:
+    input:
+        bhsadata=bhsadata,
+        editfuncts="data/edit_function.json",
+    output:
+        patched="../results/parsing/patched_function.json"
+    script:
+        "scripts/patch_function.py"
+
 rule parse_pos:
     input:
         bhsadata=bhsadata,
+        functions=rules.patch_function.output.patched,
         script1="scripts/parse_pos.py",
         script2="scripts/parsing/pos_parsing.py"
     output:
@@ -86,6 +96,7 @@ rule parse_phrases:
         samples=rules.build_samples.output.samples,
         bhsadata=bhsadata,
         slot2pos=rules.parse_pos.output.slot2pos,
+        functions=rules.patch_function.output.patched,
         paraseps=rules.get_disambigs.output.paraseps,
         editedges="data/edit_edges.json",
         styles=stylesheets,
@@ -107,6 +118,7 @@ rule parse_times:
         ph_parses=rules.parse_phrases.output.parsed_phrases,
         bhsadata=bhsadata,
         slot2pos=rules.parse_pos.output.slot2pos,
+        functions=rules.patch_function.output.patched,
         lexmap="data/lexmap.json",
         styles=stylesheets,
         script="scripts/parsing/time_parser.py",

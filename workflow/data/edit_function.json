@@ -1,0 +1,78 @@
+{
+    "673337": {
+        "function": "Time",
+        "note": "mislabeled as Adju"
+    },
+    "673340": {
+        "function": "Time",
+        "note": "mislabeled as Adju"
+    },
+    "673345": {
+        "function": "Time",
+        "note": "mislabled as Adju"
+    },
+    "821588": {
+        "function": "Time",
+        "note": "Ezek 45:25, mislabled as Adju (בֶּחָג)"
+    },
+    "714474": {
+        "function": "Time",
+        "note": "Deut 31:10, mislabled as Adju (חג)"
+    },
+    "741477": {
+        "function": "Time",
+        "note": "1 Sam 25: 15, mislabled as Loca"
+    },
+    "792873": {
+        "function": "Time",
+        "note": "Jer 11: 4, mislabled as Loca"
+    },
+    "849296": {
+        "function": "Loca",
+        "note": "Ps 113: 6, mislabled as Time"
+    },
+    "825329": {
+        "function": "Loca",
+        "note": "Joel 3: 5, mislabeled as Time"
+    },
+    "828081": {
+        "function": "Cmpl",
+        "note": "Jonah 3: 4, prob. mislabel Time"
+    },
+    "774349": {
+        "function": "Adju",
+        "note": "Isa 1: 26, prob. misabel Time"
+    },
+    "774352": {
+        "function": "Adju",
+        "note": "Isa 1: 26, .."
+    },
+    "775948": {
+        "function": "Adju",
+        "note": "Isa 8: 23, .."
+    },
+    "775985": {
+        "function": "Adju",
+        "note": "Isa 9: 3, .."
+    },
+    "881665": {
+        "function": "Objc",
+        "note": "phrase belongs with previous as adjectival element"
+    },
+    "870273": {
+        "function": "Time",
+        "note": "prep and conj belong with time phrase"
+    },
+    "870274": {
+        "function": "Time",
+        "note": "modifier 'KBR' belongs with time phrase"
+    },
+    "731915": {
+        "function": "Modi",
+        "note": "no reviewed sources took this as temporal"
+    },
+    "654028": {
+        "function": "PreC",
+        "note": "Gen 9:29; phrase is pred. complement"
+    }
+}
