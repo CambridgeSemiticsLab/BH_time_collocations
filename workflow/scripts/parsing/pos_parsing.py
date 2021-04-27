@@ -62,7 +62,8 @@ class posParser(PositionsParser):
                 F.lex.v(w) in {
                     'TWK/', 'QY/', 
                     'QYH=/', 'QYT/', 
-                    'TXLH/', 'PNH/'
+                    'TXLH/', 'PNH/',
+                    'XYWT/'
                 }
                 and F.prs.v(w) == 'absent'
                 and F.st.v(w) == 'c'
@@ -169,7 +170,7 @@ class posParser(PositionsParser):
             F.lex.v(w) in {
                 'KL/', 'M<V/', 'JTR/',
                 'XYJ/', 'C>R=/', 'MSPR/', 
-                'RB/', 'RB=/',
+                'RB/', 'RB=/', 
             },
             F.lex.v(w) in {
                 'M<FR/', '<FRWN/',

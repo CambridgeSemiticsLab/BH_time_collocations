@@ -1,30 +1,250 @@
 {
-    "1001890": [[159829, 159830], "ADJV"],
-    "1153242": [[1153241], "ADJV"],
-    "1152374": [[390468, 390469, 390470, 390471], "ADJV"],
-    "1144440": [[1144438], "APPO"],
-    "1163388": [[410884], "TIMEAPPO"],
-    "1163389": [[1163388], "SPEC"],
-    "1163390": [[1163388], "TIMEAPPO"],
-    "906618":  [[3107], "ADJV"],
-    "1167067": [[417214], "ADJV"],
-    "1007674": [[168671], "ADJV"],
-    "1095066": [[1095063], "TIMEAPPO"],
-    "1095068": [[1095063], "TIMEAPPO"],
-    "965100":  [[965099], "ADJV"],
-    "1050598": [[234958], "ADJV"],
-    "1050601": [[234964], "ADJV"],
-    "1150065": [[1150062], "TIMEAPPO"],
-    "1157463": [[1157462], "TIMEAPPO"],
-    "960953":  [[960952], "ADJV"],
-    "1160172": [[1160171], "ADJV"],
-    "1041759": [[1041758], "ADJV"],
-    "906677": [[906675], "SPEC"],
-    "906678": [[906675], "SPEC"],
-    "906680": [[906675], "TIMEAPPO"],
-    "1088687": [[1088681], "TIMEAPPO"],
-    "1010946": [[1010945], "TIMEAPPO"],
-    "1138169": [[1138168], "TIMEAPPO"],
-    "1084522": [[1084517], "TIMEAPPO"],
-    "1084542": [[1084539], "TIMEAPPO"]
+    "1001890": {
+        "edge": [[159829, 159830], "ADJV"],
+        "note": "manually input"
+    },
+    "1153242": {
+        "edge": [[1153241], "ADJV"],
+        "note": "manually input"
+    },
+    "1152374": {
+        "edge": [[390468, 390469, 390470, 390471], "ADJV"],
+        "note": "manually input"
+    },
+    "1144440": {
+        "edge": [[1144438], "APPO"],
+        "note": "manually input"
+    },
+    "1163388": {
+        "edge": [[410884], "TIMEAPPO"],
+        "note": "manually input"
+    },
+    "1163389": {
+        "edge": [[1163388], "SPEC"],
+        "note": "manually input"
+    },
+    "1163390": {
+        "edge": [[1163388], "TIMEAPPO"],
+        "note": "manually input"
+    },
+    "906618": {
+        "edge":  [[3107], "ADJV"],
+        "note": "manually input"
+    },
+    "1167067": {
+        "edge": [[417214], "ADJV"],
+        "note": "manually input"
+    },
+    "1007674": {
+        "edge": [[168671], "ADJV"],
+        "note": "manually input"
+    },
+    "1095066": {
+        "edge": [[1095063], "TIMEAPPO"],
+        "note": "manually input"
+    },
+    "1095068": {
+        "edge": [[1095063], "TIMEAPPO"],
+        "note": "manually input"
+    },
+    "965100": {
+        "edge":  [[965099], "ADJV"],
+        "note": "manually input"
+    },
+    "1050598": {
+        "edge": [[234958], "ADJV"],
+        "note": "manually input"
+    },
+    "1050601": {
+        "edge": [[234964], "ADJV"],
+        "note": "manually input"
+    },
+    "1150065": {
+        "edge": [[1150062], "TIMEAPPO"],
+        "note": "manually input"
+    },
+    "1157463": {
+        "edge": [[1157462], "TIMEAPPO"],
+        "note": "manually input"
+    },
+    "960953": {
+        "edge":  [[960952], "ADJV"],
+        "note": "manually input"
+    },
+    "1160172": {
+        "edge": [[1160171], "ADJV"],
+        "note": "manually input"
+    },
+    "1041759": {
+        "edge": [[1041758], "ADJV"],
+        "note": "manually input"
+    },
+    "906677": {
+        "edge": [[906675], "SPEC"],
+        "note": "manually input"
+    },
+    "906678": {
+        "edge": [[906675], "SPEC"],
+        "note": "manually input"
+    },
+    "906680": {
+        "edge": [[906675], "TIMEAPPO"],
+        "note": "manually input"
+    },
+    "1088687": {
+        "edge": [[1088681], "TIMEAPPO"],
+        "note": "manually input"
+    },
+    "1010946": {
+        "edge": [[1010945], "TIMEAPPO"],
+        "note": "manually input"
+    },
+    "1138169": {
+        "edge": [[1138168], "TIMEAPPO"],
+        "note": "manually input"
+    },
+    "1084522": {
+        "edge": [[1084517], "TIMEAPPO"],
+        "note": "manually input"
+    },
+    "1084542": {
+        "edge": [[1084539], "TIMEAPPO"],
+        "note": "manually input"
+    },
+    "1046027": {
+        "edge": [[1046026], "SPEC"],
+        "note": "Isa 47:9, modifying rega"
+    },
+    "1167815": {
+        "edge": [[1167816], "ADJV"],
+        "note": "2 Chr 24:14; Similar to <WD with atelic ext"
+    },
+    "929896": {
+        "edge": [[929892], "TIMEAPPO"],
+        "note": "Exod 19:1; doesn't add any temporal precision / quality"
+    },
+    "906370": {
+        "edge": [[906371], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "906921": {
+        "edge": [[906922], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "906946": {
+        "edge": [[906947], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "907059": {
+        "edge": [[907060], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "914577": {
+        "edge": [[914578], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "914612": {
+        "edge": [[914613], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "915756": {
+        "edge": [[915757], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "921479": {
+        "edge": [[921480], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "961034": {
+        "edge": [[961035], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "963503": {
+        "edge": [[963504], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "963549": {
+        "edge": [[963550], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "977366": {
+        "edge": [[977367], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "979351": {
+        "edge": [[979352], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1007264": {
+        "edge": [[1007265], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1018305": {
+        "edge": [[1018306], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1037371": {
+        "edge": [[1037372], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1039168": {
+        "edge": [[1039169], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1047131": {
+        "edge": [[1047132], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1047324": {
+        "edge": [[1047325], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1061147": {
+        "edge": [[1061148], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1067852": {
+        "edge": [[1067853], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1069114": {
+        "edge": [[1069115], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1077921": {
+        "edge": [[1077922], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1095296": {
+        "edge": [[1095297], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1096291": {
+        "edge": [[1096292], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1104434": {
+        "edge": [[1104435], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1113785": {
+        "edge": [[1113786], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1134425": {
+        "edge": [[1134426], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1136104": {
+        "edge": [[1136105], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1139164": {
+        "edge": [[1139165], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1164817": {
+        "edge": [[1164818], "ADJV"],
+        "note": "ETCBC separated modifier; copied/pasted from query"
+    }
 }

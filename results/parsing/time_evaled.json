@@ -2077,10 +2077,17 @@
     ],
     "slots": [
       3742,
-      3743
+      3743,
+      3744
     ],
-    "quals": [
+    "qualts": [
       "durative"
+    ],
+    "seqs": [
+      [
+        "POST",
+        3744
+      ]
     ],
     "quants": [
       [
@@ -2123,10 +2130,17 @@
     ],
     "slots": [
       3783,
-      3784
+      3784,
+      3785
     ],
-    "quals": [
+    "qualts": [
       "durative"
+    ],
+    "seqs": [
+      [
+        "POST",
+        3785
+      ]
     ],
     "quants": [
       [
@@ -4461,6 +4475,56 @@
       "simultaneous"
     ]
   },
+  "429462": {
+    "times": [
+      10105
+    ],
+    "slots": [
+      10103,
+      10104,
+      10105
+    ],
+    "refs": [
+      [
+        "THE",
+        10104
+      ]
+    ],
+    "functions": [
+      "anterior_dur_except"
+    ],
+    "modis": [
+      [
+        "EXCEPT",
+        10103
+      ]
+    ],
+    "notes": [
+      "See possible link in Haspelmath 1997, 64—when \"not yet\" serves as a source for antdur"
+    ]
+  },
+  "429481": {
+    "times": [
+      10219
+    ],
+    "slots": [
+      10219,
+      10220
+    ],
+    "quals": [
+      "durative",
+      "durative"
+    ],
+    "quants": [
+      [
+        "MANY",
+        10220
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
   "429482": {
     "times": [
       10225
@@ -4492,6 +4556,8054 @@
         ">XR/",
         10223
       ]
+    ]
+  },
+  "429494": {
+    "times": [
+      10277
+    ],
+    "slots": [
+      10275,
+      10276,
+      10277
+    ],
+    "refs": [
+      [
+        "THE",
+        10276
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        10275
+      ]
+    ]
+  },
+  "429543": {
+    "times": [
+      10499
+    ],
+    "slots": [
+      10499
+    ],
+    "tenses": [
+      [
+        "PRES",
+        10499
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        10499
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "429555": {
+    "times": [
+      10557
+    ],
+    "slots": [
+      10556,
+      10557
+    ],
+    "refs": [
+      [
+        "THE",
+        10556
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "429574": {
+    "times": [
+      10657
+    ],
+    "slots": [
+      10655,
+      10656,
+      10657,
+      10659
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "THIS",
+        10659
+      ],
+      [
+        "THE",
+        10656
+      ]
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        ">XR/",
+        10655
+      ]
+    ]
+  },
+  "429656": {
+    "times": [
+      11071
+    ],
+    "slots": [
+      11070,
+      11071
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        11071
+      ]
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        ">XR/",
+        11070
+      ]
+    ]
+  },
+  "429703": {
+    "times": [
+      11361
+    ],
+    "slots": [
+      11360,
+      11361
+    ],
+    "refs": [
+      [
+        "THE",
+        11360
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "429833": {
+    "times": [
+      11894
+    ],
+    "slots": [
+      11894
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        11894
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "429837": {
+    "times": [
+      11915
+    ],
+    "slots": [
+      11914,
+      11915
+    ],
+    "refs": [
+      [
+        "THE",
+        11914
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "429882": {
+    "times": [
+      12081
+    ],
+    "slots": [
+      12081
+    ],
+    "tenses": [
+      [
+        "PRES",
+        12081
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        12081
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "429908": {
+    "times": [
+      12193
+    ],
+    "slots": [
+      12191,
+      12192,
+      12193
+    ],
+    "refs": [
+      [
+        "THE",
+        12192
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        12191
+      ]
+    ]
+  },
+  "429913": {
+    "times": [
+      12211
+    ],
+    "slots": [
+      12211
+    ],
+    "functions": [
+      "posterior"
+    ]
+  },
+  "429990": {
+    "times": [
+      12591
+    ],
+    "slots": [
+      12590,
+      12591,
+      12592
+    ],
+    "refs": [
+      [
+        "GEN",
+        12592
+      ]
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        ">XR/",
+        12590
+      ]
+    ]
+  },
+  "430037": {
+    "times": [
+      12826
+    ],
+    "slots": [
+      12825,
+      12826
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        12826
+      ]
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        ">XR/",
+        12825
+      ]
+    ]
+  },
+  "430059": {
+    "times": [
+      12920
+    ],
+    "slots": [
+      12918,
+      12919,
+      12920
+    ],
+    "refs": [
+      [
+        "THE",
+        12919
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "K",
+        12918
+      ]
+    ]
+  },
+  "430065": {
+    "times": [
+      12944
+    ],
+    "slots": [
+      12942,
+      12943,
+      12944
+    ],
+    "refs": [
+      [
+        "THE",
+        12943
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "K",
+        12942
+      ]
+    ]
+  },
+  "430124": {
+    "times": [
+      13225
+    ],
+    "slots": [
+      13223,
+      13224,
+      13225,
+      13227
+    ],
+    "refs": [
+      [
+        "THAT",
+        13227
+      ],
+      [
+        "THE",
+        13224
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        13223
+      ]
+    ]
+  },
+  "430132": {
+    "times": [
+      13270
+    ],
+    "slots": [
+      13269,
+      13270,
+      13271,
+      13272
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "GEN",
+        [
+          13272,
+          13271,
+          "APPO"
+        ]
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        13269
+      ]
+    ]
+  },
+  "430143": {
+    "times": [
+      13315
+    ],
+    "slots": [
+      13314,
+      13315,
+      13316,
+      13317
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "GEN",
+        [
+          13317,
+          13316,
+          "APPO"
+        ]
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        13314
+      ]
+    ]
+  },
+  "430144": {
+    "times": [
+      13322
+    ],
+    "slots": [
+      13321,
+      13322,
+      13323
+    ],
+    "refs": [
+      [
+        "GEN",
+        13323
+      ]
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        ">XR/",
+        13321
+      ]
+    ]
+  },
+  "430162": {
+    "times": [
+      13400
+    ],
+    "slots": [
+      13400
+    ],
+    "tenses": [
+      [
+        "PRES",
+        13400
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        13400
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "430165": {
+    "times": [
+      13421
+    ],
+    "slots": [
+      13419,
+      13420,
+      13421,
+      13423
+    ],
+    "refs": [
+      [
+        "THAT",
+        13423
+      ],
+      [
+        "THE",
+        13420
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        13419
+      ]
+    ]
+  },
+  "430196": {
+    "times": [
+      13548
+    ],
+    "slots": [
+      13546,
+      13547,
+      13548
+    ],
+    "refs": [
+      [
+        "THE",
+        13547
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        13546
+      ]
+    ]
+  },
+  "430201": {
+    "times": [
+      13567
+    ],
+    "slots": [
+      13565,
+      13566,
+      13567,
+      13569
+    ],
+    "refs": [
+      [
+        "THAT",
+        13569
+      ],
+      [
+        "THE",
+        13566
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        13565
+      ]
+    ]
+  },
+  "430208": {
+    "times": [
+      13601
+    ],
+    "slots": [
+      13599,
+      13600,
+      13601,
+      13603
+    ],
+    "refs": [
+      [
+        "THIS",
+        13603
+      ],
+      [
+        "THE",
+        13600
+      ]
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        13599
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "430224": {
+    "times": [
+      13670
+    ],
+    "slots": [
+      13670
+    ],
+    "tenses": [
+      [
+        "PRES",
+        13670
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        13670
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "430247": {
+    "times": [
+      13757
+    ],
+    "slots": [
+      13755,
+      13756,
+      13757
+    ],
+    "refs": [
+      [
+        "SFX",
+        13757
+      ]
+    ],
+    "functions": [
+      "anterior"
+    ],
+    "preps": [
+      [
+        "L",
+        13755
+      ],
+      [
+        "PNH/",
+        13756
+      ]
+    ]
+  },
+  "430248": {
+    "times": [
+      13759
+    ],
+    "slots": [
+      13759
+    ],
+    "tenses": [
+      [
+        "PRES",
+        13759
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        13759
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "430258": {
+    "times": [
+      13804
+    ],
+    "slots": [
+      13802,
+      13803,
+      13804
+    ],
+    "refs": [
+      [
+        "SFX",
+        13804
+      ]
+    ],
+    "functions": [
+      "anterior"
+    ],
+    "preps": [
+      [
+        "L",
+        13802
+      ],
+      [
+        "PNH/",
+        13803
+      ]
+    ]
+  },
+  "430428": {
+    "times": [
+      14425
+    ],
+    "slots": [
+      14425
+    ],
+    "tenses": [
+      [
+        "PRES",
+        14425
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        14425
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "430433": {
+    "times": [
+      14441
+    ],
+    "slots": [
+      14441,
+      14442
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        14442
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "430440": {
+    "times": [
+      14469
+    ],
+    "slots": [
+      14469,
+      14470
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        14470
+      ]
+    ]
+  },
+  "430516": {
+    "times": [
+      14851
+    ],
+    "slots": [
+      14849,
+      14850,
+      14851
+    ],
+    "refs": [
+      [
+        "THE",
+        14850
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        14849
+      ]
+    ]
+  },
+  "430522": {
+    "times": [
+      14886
+    ],
+    "slots": [
+      14884,
+      14885,
+      14886
+    ],
+    "ordn": {
+      "lex": "R>CWN/",
+      "parse": 14886,
+      "phatom": 914183,
+      "slots": [
+        14886,
+        14885
+      ]
+    },
+    "refs": [
+      [
+        "THE",
+        14885
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "L",
+        14884
+      ]
+    ]
+  },
+  "430602": {
+    "times": [
+      15237
+    ],
+    "slots": [
+      15237,
+      15238
+    ],
+    "quants": [
+      [
+        "GENDUR",
+        15238
+      ]
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "430615": {
+    "times": [
+      15290
+    ],
+    "slots": [
+      15289,
+      15290
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        15289
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "430621": {
+    "times": [
+      15317
+    ],
+    "slots": [
+      15316,
+      15317
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        15316
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "430629": {
+    "times": [
+      15357
+    ],
+    "slots": [
+      15355,
+      15356,
+      15357
+    ],
+    "refs": [
+      [
+        "THE",
+        15356
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        15355
+      ]
+    ]
+  },
+  "430635": {
+    "times": [
+      15385
+    ],
+    "slots": [
+      15383,
+      15384,
+      15385
+    ],
+    "refs": [
+      [
+        "THE",
+        15384
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        15383
+      ]
+    ]
+  },
+  "430646": {
+    "times": [
+      15439
+    ],
+    "slots": [
+      15438,
+      15439,
+      15440
+    ],
+    "qualts": [
+      "durative"
+    ],
+    "seqs": [
+      [
+        "POST",
+        15440
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        15438
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "430655": {
+    "times": [
+      15487
+    ],
+    "slots": [
+      15486,
+      15487,
+      15488
+    ],
+    "qualts": [
+      "durative"
+    ],
+    "seqs": [
+      [
+        "POST",
+        15488
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        15486
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "430665": {
+    "times": [
+      15520
+    ],
+    "slots": [
+      15520
+    ],
+    "tenses": [
+      [
+        "PRES",
+        15520
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        15520
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "430676": {
+    "times": [
+      15555
+    ],
+    "slots": [
+      15555
+    ],
+    "tenses": [
+      [
+        "PRES",
+        15555
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        15555
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "430731": {
+    "times": [
+      15779
+    ],
+    "slots": [
+      15778,
+      15779,
+      15780,
+      15781
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "GEN",
+        [
+          15781,
+          15780,
+          "GP"
+        ]
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        15778
+      ]
+    ]
+  },
+  "430741": {
+    "times": [
+      15827
+    ],
+    "slots": [
+      15826,
+      15827
+    ],
+    "refs": [
+      [
+        "THE",
+        15826
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "430742": {
+    "times": [
+      15839
+    ],
+    "slots": [
+      15837,
+      15838,
+      15839
+    ],
+    "refs": [
+      [
+        "THE",
+        15838
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        15837
+      ]
+    ]
+  },
+  "430748": {
+    "times": [
+      15860
+    ],
+    "slots": [
+      15858,
+      15859,
+      15860
+    ],
+    "refs": [
+      [
+        "THE",
+        15859
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        15858
+      ]
+    ]
+  },
+  "430763": {
+    "times": [
+      15923
+    ],
+    "slots": [
+      15923
+    ],
+    "functions": [
+      "posterior"
+    ]
+  },
+  "430797": {
+    "times": [
+      16050
+    ],
+    "slots": [
+      16049,
+      16050
+    ],
+    "functions": [
+      "anterior"
+    ],
+    "refs": [
+      [
+        "SFX",
+        16050
+      ]
+    ],
+    "preps": [
+      [
+        "L",
+        16049
+      ]
+    ]
+  },
+  "430800": {
+    "times": [
+      16062
+    ],
+    "slots": [
+      16062
+    ],
+    "tenses": [
+      [
+        "PRES",
+        16062
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        16062
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "430810": {
+    "times": [
+      16097
+    ],
+    "slots": [
+      16096,
+      16097
+    ],
+    "refs": [
+      [
+        "THE",
+        16096
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "430813": {
+    "times": [
+      16128
+    ],
+    "slots": [
+      16127,
+      16128,
+      16129
+    ],
+    "tenses": [
+      [
+        "FUT",
+        16129
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        16127
+      ]
+    ]
+  },
+  "430821": {
+    "times": [
+      16165
+    ],
+    "slots": [
+      16163,
+      16164,
+      16165,
+      16167
+    ],
+    "refs": [
+      [
+        "THAT",
+        16167
+      ],
+      [
+        "THE",
+        16164
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        16163
+      ]
+    ]
+  },
+  "430917": {
+    "times": [
+      16667
+    ],
+    "slots": [
+      16667
+    ],
+    "tenses": [
+      [
+        "PRES",
+        16667
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        16667
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "430938": {
+    "times": [
+      16770
+    ],
+    "slots": [
+      16768,
+      16769,
+      16770,
+      16772
+    ],
+    "refs": [
+      [
+        "ORDN",
+        16772
+      ],
+      [
+        "THE",
+        16769
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        16768
+      ]
+    ]
+  },
+  "430943": {
+    "times": [
+      16804
+    ],
+    "slots": [
+      16803,
+      16804
+    ],
+    "refs": [
+      [
+        "THE",
+        16803
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "430965": {
+    "times": [
+      16905
+    ],
+    "slots": [
+      16905
+    ],
+    "tenses": [
+      [
+        "PAST",
+        16905
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        16905
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "430969": {
+    "times": [
+      16921
+    ],
+    "slots": [
+      16921
+    ],
+    "tenses": [
+      [
+        "PRES",
+        16921
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        16921
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "431012": {
+    "times": [
+      17101
+    ],
+    "slots": [
+      17099,
+      17100,
+      17101
+    ],
+    "refs": [
+      [
+        "THIS",
+        17099
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        17100
+      ]
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "431019": {
+    "times": [
+      17131
+    ],
+    "slots": [
+      17129,
+      17130,
+      17131
+    ],
+    "refs": [
+      [
+        "THE",
+        17130
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        17129
+      ]
+    ]
+  },
+  "431020": {
+    "times": [
+      17138
+    ],
+    "slots": [
+      17136,
+      17137,
+      17138
+    ],
+    "refs": [
+      [
+        "THE",
+        17137
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        17136
+      ]
+    ]
+  },
+  "431024": {
+    "times": [
+      17153
+    ],
+    "slots": [
+      17151,
+      17152,
+      17153
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        [
+          17151,
+          17152,
+          "CARDC"
+        ]
+      ]
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "431025": {
+    "times": [
+      17159
+    ],
+    "slots": [
+      17158,
+      17159
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        17158
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "431028": {
+    "times": [
+      17179
+    ],
+    "slots": [
+      17179
+    ],
+    "tenses": [
+      [
+        "PRES",
+        17179
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        17179
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "431030": {
+    "times": [
+      17192
+    ],
+    "slots": [
+      17192
+    ],
+    "tenses": [
+      [
+        "PAST",
+        17192
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        17192
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "431040": {
+    "times": [
+      17226
+    ],
+    "slots": [
+      17225,
+      17226
+    ],
+    "refs": [
+      [
+        "THE",
+        17225
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "431043": {
+    "times": [
+      17233
+    ],
+    "slots": [
+      17233
+    ],
+    "tenses": [
+      [
+        "PRES",
+        17233
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        17233
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "431057": {
+    "times": [
+      17296
+    ],
+    "slots": [
+      17295,
+      17296
+    ],
+    "refs": [
+      [
+        "THE",
+        17295
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "431084": {
+    "times": [
+      17436
+    ],
+    "slots": [
+      17434,
+      17435,
+      17436
+    ],
+    "refs": [
+      [
+        "THE",
+        17435
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        17434
+      ]
+    ]
+  },
+  "431128": {
+    "times": [
+      17656
+    ],
+    "slots": [
+      17656
+    ],
+    "tenses": [
+      [
+        "PRES",
+        17656
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        17656
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "431137": {
+    "times": [
+      17704
+    ],
+    "slots": [
+      17702,
+      17703,
+      17704,
+      17706
+    ],
+    "refs": [
+      [
+        "THAT",
+        17706
+      ],
+      [
+        "THE",
+        17703
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        17702
+      ]
+    ]
+  },
+  "431169": {
+    "times": [
+      17863
+    ],
+    "slots": [
+      17862,
+      17863
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        17863
+      ]
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        ">XR/",
+        17862
+      ]
+    ]
+  },
+  "431172": {
+    "times": [
+      17880
+    ],
+    "slots": [
+      17878,
+      17879,
+      17880,
+      17882
+    ],
+    "refs": [
+      [
+        "THAT",
+        17882
+      ],
+      [
+        "THE",
+        17879
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        17878
+      ]
+    ]
+  },
+  "431173": {
+    "times": [
+      17890
+    ],
+    "slots": [
+      17888,
+      17889,
+      17890
+    ],
+    "refs": [
+      [
+        "THE",
+        17889
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        17888
+      ]
+    ]
+  },
+  "431215": {
+    "times": [
+      18063
+    ],
+    "slots": [
+      18061,
+      18062,
+      18063,
+      18065
+    ],
+    "refs": [
+      [
+        "THIS",
+        18065
+      ],
+      [
+        "THE",
+        18062
+      ]
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        18061
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "431246": {
+    "times": [
+      18202
+    ],
+    "slots": [
+      18202
+    ],
+    "functions": [
+      "posterior"
+    ]
+  },
+  "431279": {
+    "times": [
+      18314
+    ],
+    "slots": [
+      18314,
+      18315
+    ],
+    "functions": [
+      "atelic_ext"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        18315
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "431290": {
+    "times": [
+      18374
+    ],
+    "slots": [
+      18372,
+      18373,
+      18374,
+      18376
+    ],
+    "refs": [
+      [
+        "THAT",
+        18376
+      ],
+      [
+        "THE",
+        18373
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        18372
+      ]
+    ]
+  },
+  "431399": {
+    "times": [
+      18897
+    ],
+    "slots": [
+      18895,
+      18896,
+      18897,
+      18899
+    ],
+    "refs": [
+      [
+        "ORDN",
+        18899
+      ],
+      [
+        "THE",
+        18896
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        18895
+      ]
+    ]
+  },
+  "431443": {
+    "times": [
+      19111
+    ],
+    "slots": [
+      19110,
+      19111,
+      19112
+    ],
+    "refs": [
+      [
+        "GEN",
+        19112
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        19110
+      ]
+    ]
+  },
+  "431513": {
+    "times": [
+      19422
+    ],
+    "slots": [
+      19420,
+      19421,
+      19422
+    ],
+    "refs": [
+      [
+        "THE",
+        19421
+      ]
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        19420
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "431719": {
+    "times": [
+      20520
+    ],
+    "slots": [
+      20520
+    ],
+    "tenses": [
+      [
+        "PRES",
+        20520
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        20520
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "431795": {
+    "times": [
+      20804
+    ],
+    "slots": [
+      20804,
+      20805
+    ],
+    "quals": [
+      "durative",
+      "durative"
+    ],
+    "quants": [
+      [
+        "MANY",
+        20805
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "431805": {
+    "times": [
+      20849
+    ],
+    "slots": [
+      20847,
+      20848,
+      20849,
+      20851
+    ],
+    "refs": [
+      [
+        "THAT",
+        20851
+      ],
+      [
+        "THE",
+        20848
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        20847
+      ]
+    ]
+  },
+  "431913": {
+    "times": [
+      21278
+    ],
+    "slots": [
+      21275,
+      21276,
+      21277,
+      21278
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        21277
+      ]
+    ],
+    "functions": [
+      "simultaneous",
+      "posterior"
+    ],
+    "preps": [
+      [
+        "K",
+        21275
+      ],
+      [
+        "MN",
+        21276
+      ]
+    ]
+  },
+  "431951": {
+    "times": [
+      21404
+    ],
+    "slots": [
+      21404
+    ],
+    "functions": [
+      "posterior"
+    ]
+  },
+  "431981": {
+    "times": [
+      21560
+    ],
+    "slots": [
+      21558,
+      21559,
+      21560,
+      21562
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "THIS",
+        21562
+      ],
+      [
+        "THE",
+        21559
+      ]
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        ">XR/",
+        21558
+      ]
+    ]
+  },
+  "431998": {
+    "times": [
+      21638,
+      21639
+    ],
+    "slots": [
+      21638
+    ],
+    "functions": [
+      "habitual"
+    ],
+    "quals": [
+      "iterative"
+    ],
+    "duplicate": true
+  },
+  "432002": {
+    "times": [
+      21654
+    ],
+    "slots": [
+      21652,
+      21653,
+      21654,
+      21656
+    ],
+    "refs": [
+      [
+        "THIS",
+        21656
+      ],
+      [
+        "THE",
+        21653
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "K",
+        21652
+      ]
+    ]
+  },
+  "432065": {
+    "times": [
+      21918
+    ],
+    "slots": [
+      21916,
+      21917,
+      21918,
+      21920
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "THIS",
+        21920
+      ],
+      [
+        "THE",
+        21917
+      ]
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        ">XR/",
+        21916
+      ]
+    ]
+  },
+  "432072": {
+    "times": [
+      21979
+    ],
+    "slots": [
+      21979
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "432074": {
+    "times": [
+      21989
+    ],
+    "slots": [
+      21988,
+      21989,
+      21990
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        21990
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        21988
+      ]
+    ],
+    "notes": [
+      "NET reads the >XD here as \"same night\""
+    ]
+  },
+  "432078": {
+    "times": [
+      22016
+    ],
+    "slots": [
+      22014,
+      22015,
+      22016
+    ],
+    "refs": [
+      [
+        "THE",
+        22015
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        22014
+      ]
+    ]
+  },
+  "432084": {
+    "times": [
+      22040
+    ],
+    "slots": [
+      22039,
+      22040
+    ],
+    "refs": [
+      [
+        "THE",
+        22039
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "432107": {
+    "times": [
+      22135
+    ],
+    "slots": [
+      22132,
+      22133,
+      22134,
+      22135
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        22134
+      ]
+    ],
+    "tenses": [
+      [
+        "FUT",
+        22133
+      ]
+    ],
+    "preps": [
+      [
+        "B",
+        22132
+      ]
+    ],
+    "functions": [
+      "fut_dist"
+    ]
+  },
+  "432132": {
+    "times": [
+      22263
+    ],
+    "slots": [
+      22260,
+      22261,
+      22262,
+      22263
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        22262
+      ]
+    ],
+    "tenses": [
+      [
+        "FUT",
+        22261
+      ]
+    ],
+    "preps": [
+      [
+        "B",
+        22260
+      ]
+    ],
+    "functions": [
+      "fut_dist"
+    ]
+  },
+  "432145": {
+    "times": [
+      22356
+    ],
+    "slots": [
+      22354,
+      22355,
+      22356
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        22356
+      ]
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "posterior",
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "MN",
+        22354
+      ],
+      [
+        "END",
+        22355
+      ]
+    ]
+  },
+  "432150": {
+    "times": [
+      22391
+    ],
+    "slots": [
+      22391
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "refs": [
+      [
+        "SFX",
+        22391
+      ]
+    ]
+  },
+  "432161": {
+    "times": [
+      22484
+    ],
+    "slots": [
+      22482,
+      22483,
+      22484
+    ],
+    "refs": [
+      [
+        "THE",
+        22483
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        22482
+      ]
+    ]
+  },
+  "432170": {
+    "times": [
+      22526
+    ],
+    "slots": [
+      22525,
+      22526
+    ],
+    "refs": [
+      [
+        "THE",
+        22525
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "432173": {
+    "times": [
+      22550
+    ],
+    "slots": [
+      22549,
+      22550,
+      22551
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        22551
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        22549
+      ]
+    ]
+  },
+  "432234": {
+    "times": [
+      22841
+    ],
+    "slots": [
+      22841
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "refs": [
+      [
+        "SFX",
+        22841
+      ]
+    ]
+  },
+  "432247": {
+    "times": [
+      22918
+    ],
+    "slots": [
+      22917,
+      22918
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        22918
+      ]
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        ">XR/",
+        22917
+      ]
+    ]
+  },
+  "432253": {
+    "times": [
+      22946
+    ],
+    "slots": [
+      22946
+    ],
+    "tenses": [
+      [
+        "PRES",
+        22946
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        22946
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "432258": {
+    "times": [
+      22973
+    ],
+    "slots": [
+      22971,
+      22972,
+      22973,
+      22974,
+      22975
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "GENREF",
+        [
+          22974,
+          22975,
+          "DEF"
+        ]
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        22972
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        22971
+      ]
+    ]
+  },
+  "432263": {
+    "times": [
+      23012
+    ],
+    "slots": [
+      23010,
+      23011,
+      23012,
+      23013,
+      23014
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "GENREF",
+        [
+          23013,
+          23014,
+          "DEF"
+        ]
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        23011
+      ]
+    ],
+    "functions": [
+      "purposive_ext"
+    ],
+    "preps": [
+      [
+        "L",
+        23010
+      ]
+    ],
+    "notes": [
+      "the atelicity of the verb here might distinguish it from the purposive extent (Haspelmath 48); but it is a hard call; in the end I rely on the modal sense of the verb",
+      "extent can be derived from the benefactive sense of L: Hasplemath 1997, 128; BHRG 351",
+      "another option could be the purdurative, \"throughout\" (see NET)",
+      "LXX εις; NET throughout; Segond pour"
+    ]
+  },
+  "432298": {
+    "times": [
+      23220
+    ],
+    "slots": [
+      23218,
+      23219,
+      23220,
+      23221,
+      23222
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "GENREF",
+        [
+          23221,
+          23222,
+          "DEF"
+        ]
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        23219
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        23218
+      ]
+    ]
+  },
+  "432397": {
+    "times": [
+      23645
+    ],
+    "slots": [
+      23644,
+      23645
+    ],
+    "refs": [
+      [
+        "THE",
+        23644
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "432418": {
+    "times": [
+      23709
+    ],
+    "slots": [
+      23708,
+      23709
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        23708
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "432419": {
+    "times": [
+      23716
+    ],
+    "slots": [
+      23714,
+      23715,
+      23716,
+      23718
+    ],
+    "refs": [
+      [
+        "ORDN",
+        23718
+      ],
+      [
+        "THE",
+        23715
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        23714
+      ]
+    ]
+  },
+  "432490": {
+    "times": [
+      23988
+    ],
+    "slots": [
+      23987,
+      23988
+    ],
+    "refs": [
+      [
+        "THE",
+        23987
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "432574": {
+    "times": [
+      24311
+    ],
+    "slots": [
+      24309,
+      24310,
+      24311
+    ],
+    "quals": [
+      "durative",
+      "durative"
+    ],
+    "refs": [
+      [
+        "THE",
+        24310
+      ]
+    ],
+    "quants": [
+      [
+        "ALL",
+        24309
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "432606": {
+    "times": [
+      24468
+    ],
+    "slots": [
+      24466,
+      24467,
+      24468
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "THE",
+        24467
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        24468
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        24466
+      ]
+    ]
+  },
+  "432646": {
+    "times": [
+      24647
+    ],
+    "slots": [
+      24645,
+      24646,
+      24647
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "THE",
+        24646
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        24647
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        24645
+      ]
+    ]
+  },
+  "432738": {
+    "times": [
+      25006
+    ],
+    "slots": [
+      25006
+    ],
+    "tenses": [
+      [
+        "PRES",
+        25006
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        25006
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "432829": {
+    "times": [
+      25338
+    ],
+    "slots": [
+      25337,
+      25338
+    ],
+    "tenses": [
+      [
+        "PRES",
+        25338
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        25338
+      ]
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        25337
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "432833": {
+    "times": [
+      25358
+    ],
+    "slots": [
+      25358
+    ],
+    "tenses": [
+      [
+        "PRES",
+        25358
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        25358
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "432846": {
+    "times": [
+      25415
+    ],
+    "slots": [
+      25413,
+      25414,
+      25415
+    ],
+    "quals": [
+      "durative",
+      "durative"
+    ],
+    "refs": [
+      [
+        "THE",
+        25414
+      ]
+    ],
+    "quants": [
+      [
+        "ALL",
+        25413
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "432847": {
+    "times": [
+      25417
+    ],
+    "slots": [
+      25417
+    ],
+    "tenses": [
+      [
+        "PRES",
+        25417
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        25417
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "432877": {
+    "times": [
+      25535
+    ],
+    "slots": [
+      25535
+    ],
+    "tenses": [
+      [
+        "PRES",
+        25535
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        25535
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "432882": {
+    "times": [
+      25556
+    ],
+    "slots": [
+      25555,
+      25556
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        25556
+      ]
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "THIS",
+        25555
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "432888": {
+    "times": [
+      25592
+    ],
+    "slots": [
+      25592
+    ],
+    "tenses": [
+      [
+        "PRES",
+        25592
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        25592
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "432919": {
+    "times": [
+      25740
+    ],
+    "slots": [
+      25739,
+      25740
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        25740
+      ]
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        ">XR/",
+        25739
+      ]
+    ]
+  },
+  "433071": {
+    "times": [
+      {
+        "times": [
+          26536
+        ],
+        "slots": [
+          26535,
+          26536
+        ],
+        "quals": [
+          "durative"
+        ],
+        "refs": [
+          [
+            "SFX",
+            26536
+          ]
+        ],
+        "functions": [
+          "posterior_dur"
+        ],
+        "preps": [
+          [
+            "MN",
+            26535
+          ]
+        ]
+      },
+      {
+        "times": [
+          26539
+        ],
+        "slots": [
+          26538,
+          26539
+        ],
+        "tenses": [
+          [
+            "PRES",
+            26539
+          ]
+        ],
+        "refs": [
+          [
+            "DEICTIC",
+            26539
+          ]
+        ],
+        "functions": [
+          "anterior_dur"
+        ],
+        "preps": [
+          [
+            "<D",
+            26538
+          ]
+        ],
+        "quals": [
+          "durative"
+        ]
+      }
+    ],
+    "slots": [
+      26535,
+      26536,
+      26538,
+      26539
+    ],
+    "functions": [
+      "begin_to_end"
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "433093": {
+    "times": [
+      26642
+    ],
+    "slots": [
+      26642
+    ],
+    "tenses": [
+      [
+        "PRES",
+        26642
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        26642
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "433140": {
+    "times": [
+      26939
+    ],
+    "slots": [
+      26937,
+      26938,
+      26939,
+      26941
+    ],
+    "refs": [
+      [
+        "THAT",
+        26941
+      ],
+      [
+        "THE",
+        26938
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        26937
+      ]
+    ]
+  },
+  "433142": {
+    "times": [
+      26953
+    ],
+    "slots": [
+      26951,
+      26952,
+      26953,
+      26955
+    ],
+    "refs": [
+      [
+        "ORDN",
+        26955
+      ],
+      [
+        "THE",
+        26952
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        26951
+      ]
+    ]
+  },
+  "433168": {
+    "times": [
+      27100
+    ],
+    "slots": [
+      27099,
+      27100
+    ],
+    "refs": [
+      [
+        "THE",
+        27099
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "433171": {
+    "times": [
+      27118
+    ],
+    "slots": [
+      27116,
+      27117,
+      27118
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "THE",
+        27117
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        27116
+      ]
+    ]
+  },
+  "433180": {
+    "times": [
+      27168
+    ],
+    "slots": [
+      27166,
+      27167,
+      27168,
+      27170
+    ],
+    "refs": [
+      [
+        "THIS",
+        27170
+      ],
+      [
+        "THE",
+        27167
+      ]
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        27166
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "433187": {
+    "times": [
+      27214
+    ],
+    "slots": [
+      27212,
+      27213,
+      27214
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        [
+          27212,
+          27213,
+          "CARDC"
+        ]
+      ]
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "433206": {
+    "times": [
+      27301
+    ],
+    "slots": [
+      27299,
+      27300,
+      27301,
+      27303
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "THIS",
+        27303
+      ],
+      [
+        "THE",
+        27300
+      ]
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        ">XR/",
+        27299
+      ]
+    ]
+  },
+  "433223": {
+    "times": [
+      27383
+    ],
+    "slots": [
+      27383
+    ],
+    "tenses": [
+      [
+        "PRES",
+        27383
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        27383
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "433230": {
+    "times": [
+      27411
+    ],
+    "slots": [
+      27411
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "refs": [
+      [
+        "SFX",
+        27411
+      ]
+    ]
+  },
+  "433234": {
+    "times": [
+      27436
+    ],
+    "slots": [
+      27435,
+      27436,
+      27437,
+      27438
+    ],
+    "refs": [
+      [
+        "GENREF",
+        [
+          27438,
+          27437,
+          "GEN"
+        ]
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        27435
+      ]
+    ]
+  },
+  "433275": {
+    "times": [
+      {
+        "times": [
+          27601
+        ],
+        "slots": [
+          27600,
+          27601
+        ],
+        "quals": [
+          "durative"
+        ],
+        "refs": [
+          [
+            "SFX",
+            27601
+          ]
+        ],
+        "functions": [
+          "posterior_dur"
+        ],
+        "preps": [
+          [
+            "MN",
+            27600
+          ]
+        ]
+      },
+      {
+        "times": [
+          27604
+        ],
+        "slots": [
+          27602,
+          27603,
+          27604,
+          27606
+        ],
+        "refs": [
+          [
+            "THIS",
+            27606
+          ],
+          [
+            "THE",
+            27603
+          ]
+        ],
+        "functions": [
+          "anterior_dur"
+        ],
+        "preps": [
+          [
+            "<D",
+            27602
+          ]
+        ],
+        "quals": [
+          "durative"
+        ]
+      }
+    ],
+    "slots": [
+      27600,
+      27601,
+      27602,
+      27603,
+      27604,
+      27606
+    ],
+    "functions": [
+      "begin_to_end"
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "433299": {
+    "times": [
+      27716
+    ],
+    "slots": [
+      27714,
+      27715,
+      27716,
+      27718
+    ],
+    "refs": [
+      [
+        "THAT",
+        27718
+      ],
+      [
+        "THE",
+        27715
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        27714
+      ]
+    ]
+  },
+  "433315": {
+    "times": [
+      27795
+    ],
+    "slots": [
+      27792,
+      27793,
+      27794,
+      27795
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "THE",
+        27794
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        27792
+      ],
+      [
+        "END",
+        27793
+      ]
+    ]
+  },
+  "433327": {
+    "times": [
+      27828
+    ],
+    "slots": [
+      27828
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        27828
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "433409": {
+    "times": [
+      28125
+    ],
+    "slots": [
+      28123,
+      28124,
+      28125
+    ],
+    "refs": [
+      [
+        "THE",
+        28124
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        28123
+      ]
+    ]
+  },
+  "433410": {
+    "times": [
+      28131
+    ],
+    "slots": [
+      28129,
+      28130,
+      28131
+    ],
+    "refs": [
+      [
+        "THE",
+        28130
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "L",
+        28129
+      ]
+    ]
+  },
+  "433445": {
+    "times": [
+      28305
+    ],
+    "slots": [
+      28304,
+      28305
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        28304
+      ]
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "433458": {
+    "times": [
+      28349
+    ],
+    "slots": [
+      28349
+    ],
+    "tenses": [
+      [
+        "PRES",
+        28349
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        28349
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "433476": {
+    "times": [
+      28446
+    ],
+    "slots": [
+      28445,
+      28446
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        28445
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "433499": {
+    "times": [
+      28570
+    ],
+    "slots": [
+      28568,
+      28569,
+      28570
+    ],
+    "refs": [
+      [
+        "SFX",
+        28570
+      ]
+    ],
+    "functions": [
+      "anterior"
+    ],
+    "preps": [
+      [
+        "L",
+        28568
+      ],
+      [
+        "PNH/",
+        28569
+      ]
+    ]
+  },
+  "433504": {
+    "times": [
+      28588
+    ],
+    "slots": [
+      28588
+    ],
+    "tenses": [
+      [
+        "PRES",
+        28588
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        28588
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "433517": {
+    "times": [
+      28640
+    ],
+    "slots": [
+      28638,
+      28639,
+      28640,
+      28642
+    ],
+    "refs": [
+      [
+        "THIS",
+        28642
+      ],
+      [
+        "THE",
+        28639
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "K",
+        28638
+      ]
+    ]
+  },
+  "433519": {
+    "times": [
+      28648
+    ],
+    "slots": [
+      28648
+    ],
+    "tenses": [
+      [
+        "PRES",
+        28648
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        28648
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "433525": {
+    "times": [
+      28679
+    ],
+    "slots": [
+      28676,
+      28677,
+      28678,
+      28679
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        [
+          [
+            28677,
+            28678,
+            "CONJ"
+          ],
+          28676,
+          "CARDC"
+        ]
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "433617": {
+    "times": [
+      29140
+    ],
+    "slots": [
+      29139,
+      29140
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        29139
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "433659": {
+    "times": [
+      29331
+    ],
+    "slots": [
+      29329,
+      29330,
+      29331,
+      29333
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "THAT",
+        29333
+      ],
+      [
+        "THE",
+        29330
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        29329
+      ]
+    ]
+  },
+  "433670": {
+    "times": [
+      29378
+    ],
+    "slots": [
+      29376,
+      29377,
+      29378,
+      29380
+    ],
+    "refs": [
+      [
+        "ORDN",
+        29380
+      ],
+      [
+        "THE",
+        29377
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        29376
+      ]
+    ]
+  },
+  "433703": {
+    "times": [
+      29500
+    ],
+    "slots": [
+      29499,
+      29500
+    ],
+    "refs": [
+      [
+        "THE",
+        29499
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "notes": [
+      "weird ETCBC clause"
+    ]
+  },
+  "433720": {
+    "times": [
+      29571
+    ],
+    "slots": [
+      29569,
+      29570,
+      29571,
+      29573,
+      29575
+    ],
+    "quals": [
+      "durative",
+      "durative"
+    ],
+    "refs": [
+      [
+        "THAT",
+        29575
+      ],
+      [
+        "THE",
+        29570
+      ]
+    ],
+    "quants": [
+      [
+        "MANY",
+        29573
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        29569
+      ]
+    ]
+  },
+  "433769": {
+    "times": [
+      29828
+    ],
+    "slots": [
+      29828
+    ],
+    "tenses": [
+      [
+        "PRES",
+        29828
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        29828
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "433773": {
+    "times": [
+      29846
+    ],
+    "slots": [
+      29846
+    ],
+    "tenses": [
+      [
+        "PRES",
+        29846
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        29846
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "433804": {
+    "times": [
+      29980
+    ],
+    "slots": [
+      29979,
+      29980
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "L",
+        29979
+      ]
+    ]
+  },
+  "433820": {
+    "times": [
+      30073
+    ],
+    "slots": [
+      30073
+    ],
+    "tenses": [
+      [
+        "PRES",
+        30073
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        30073
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "433830": {
+    "times": [
+      30120
+    ],
+    "slots": [
+      30119,
+      30120
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        30120
+      ]
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        ">XR/",
+        30119
+      ]
+    ]
+  },
+  "433888": {
+    "times": [
+      {
+        "times": [
+          30377
+        ],
+        "slots": [
+          30376,
+          30377
+        ],
+        "tenses": [
+          [
+            "PAST",
+            30377
+          ]
+        ],
+        "refs": [
+          [
+            "DEICTIC",
+            30377
+          ]
+        ],
+        "functions": [
+          "posterior_dur"
+        ],
+        "preps": [
+          [
+            "MN",
+            30376
+          ]
+        ]
+      },
+      {
+        "times": [
+          30380
+        ],
+        "slots": [
+          30379,
+          30380
+        ],
+        "tenses": [
+          [
+            "PAST",
+            30380
+          ]
+        ],
+        "refs": [
+          [
+            "DEICTIC",
+            30380
+          ]
+        ],
+        "functions": [
+          "posterior_dur"
+        ],
+        "preps": [
+          [
+            "MN",
+            30379
+          ]
+        ]
+      },
+      {
+        "times": [
+          30383
+        ],
+        "slots": [
+          30382,
+          30383
+        ],
+        "refs": [
+          [
+            "DEICTIC",
+            30383
+          ]
+        ],
+        "functions": [
+          "posterior_dur"
+        ],
+        "preps": [
+          [
+            "MN",
+            30382
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      30376,
+      30377,
+      30379,
+      30380,
+      30382,
+      30383
+    ],
+    "functions": [
+      "multi_posterior_dur"
+    ]
+  },
+  "433895": {
+    "times": [
+      30419
+    ],
+    "slots": [
+      30419
+    ],
+    "tenses": [
+      [
+        "PRES",
+        30419
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        30419
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "433994": {
+    "times": [
+      30808
+    ],
+    "slots": [
+      30808
+    ],
+    "functions": [
+      "posterior"
+    ]
+  },
+  "434015": {
+    "times": [
+      30906
+    ],
+    "slots": [
+      30906
+    ],
+    "tenses": [
+      [
+        "PRES",
+        30906
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        30906
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "434017": {
+    "times": [
+      30920
+    ],
+    "slots": [
+      30918,
+      30919,
+      30920,
+      30922
+    ],
+    "refs": [
+      [
+        "THAT",
+        30922
+      ],
+      [
+        "THE",
+        30919
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        30918
+      ]
+    ]
+  },
+  "434071": {
+    "times": [
+      31138
+    ],
+    "slots": [
+      31138
+    ],
+    "tenses": [
+      [
+        "PRES",
+        31138
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        31138
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "434099": {
+    "times": [
+      31254
+    ],
+    "slots": [
+      31254
+    ],
+    "tenses": [
+      [
+        "PRES",
+        31254
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        31254
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "434239": {
+    "times": [
+      32034
+    ],
+    "slots": [
+      32032,
+      32033,
+      32034
+    ],
+    "refs": [
+      [
+        "THE",
+        32033
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        32032
+      ]
+    ]
+  },
+  "434251": {
+    "times": [
+      32081
+    ],
+    "slots": [
+      32080,
+      32081
+    ],
+    "tenses": [
+      [
+        "PRES",
+        32081
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        32081
+      ]
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        32080
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "434327": {
+    "times": [
+      32490
+    ],
+    "slots": [
+      32489,
+      32490
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "L",
+        32489
+      ]
+    ]
+  },
+  "434331": {
+    "times": [
+      32515
+    ],
+    "slots": [
+      32514,
+      32515
+    ],
+    "tenses": [
+      [
+        "FUT",
+        32515
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        32515
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "L",
+        32514
+      ]
+    ]
+  },
+  "434370": {
+    "times": [
+      32732
+    ],
+    "slots": [
+      32730,
+      32731,
+      32732
+    ],
+    "refs": [
+      [
+        "THE",
+        32731
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        32730
+      ]
+    ]
+  },
+  "434382": {
+    "times": [
+      32791
+    ],
+    "slots": [
+      32789,
+      32790,
+      32791,
+      32793
+    ],
+    "refs": [
+      [
+        "THAT",
+        32793
+      ],
+      [
+        "THE",
+        32790
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        32789
+      ]
+    ]
+  },
+  "434388": {
+    "times": [
+      32824
+    ],
+    "slots": [
+      32823,
+      32824
+    ],
+    "tenses": [
+      [
+        "FUT",
+        32824
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        32824
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "L",
+        32823
+      ]
+    ]
+  },
+  "434416": {
+    "times": [
+      32958
+    ],
+    "slots": [
+      32958
+    ],
+    "tenses": [
+      [
+        "FUT",
+        32958
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        32958
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "434426": {
+    "times": [
+      33012
+    ],
+    "slots": [
+      33010,
+      33011,
+      33012,
+      33014
+    ],
+    "refs": [
+      [
+        "THIS",
+        33014
+      ],
+      [
+        "THE",
+        33011
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        33010
+      ]
+    ]
+  },
+  "434445": {
+    "times": [
+      33107
+    ],
+    "slots": [
+      33107
+    ],
+    "tenses": [
+      [
+        "FUT",
+        33107
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        33107
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "434446": {
+    "times": [
+      33126
+    ],
+    "slots": [
+      33125,
+      33126
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        "MN",
+        33125
+      ]
+    ]
+  },
+  "434478": {
+    "times": [
+      33310
+    ],
+    "slots": [
+      33308,
+      33309,
+      33310,
+      33312
+    ],
+    "refs": [
+      [
+        "THIS",
+        33312
+      ],
+      [
+        "THE",
+        33309
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        33308
+      ]
+    ]
+  },
+  "434482": {
+    "times": [
+      33337
+    ],
+    "slots": [
+      33337
+    ],
+    "tenses": [
+      [
+        "PRES",
+        33337
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        33337
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "434491": {
+    "times": [
+      33385
+    ],
+    "slots": [
+      33383,
+      33384,
+      33385,
+      33386
+    ],
+    "tenses": [
+      [
+        "FUT",
+        33386
+      ]
+    ],
+    "refs": [
+      [
+        "THE",
+        33384
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "K",
+        33383
+      ]
+    ]
+  },
+  "434494": {
+    "times": [
+      33405
+    ],
+    "slots": [
+      33405
+    ],
+    "tenses": [
+      [
+        "PRES",
+        33405
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        33405
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "434577": {
+    "times": [
+      33849
+    ],
+    "slots": [
+      33848,
+      33849
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        33848
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "434581": {
+    "times": [
+      33869
+    ],
+    "slots": [
+      33869
+    ],
+    "tenses": [
+      [
+        "FUT",
+        33869
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        33869
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "434597": {
+    "times": [
+      33953
+    ],
+    "slots": [
+      33952,
+      33953
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        33952
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "434600": {
+    "times": [
+      33969
+    ],
+    "slots": [
+      33969
+    ],
+    "functions": [
+      "anterior"
+    ]
+  },
+  "434629": {
+    "times": [
+      {
+        "times": [
+          34109
+        ],
+        "slots": [
+          34107,
+          34108,
+          34109,
+          34111
+        ],
+        "refs": [
+          [
+            "THAT",
+            34111
+          ],
+          [
+            "THE",
+            34108
+          ]
+        ],
+        "quants": [
+          [
+            "ALL",
+            34107
+          ]
+        ],
+        "quals": [
+          "durative"
+        ]
+      },
+      {
+        "times": [
+          34115
+        ],
+        "slots": [
+          34113,
+          34114,
+          34115
+        ],
+        "refs": [
+          [
+            "THE",
+            34114
+          ]
+        ],
+        "quants": [
+          [
+            "ALL",
+            34113
+          ]
+        ],
+        "quals": [
+          "durative"
+        ]
+      }
+    ],
+    "slots": [
+      34107,
+      34108,
+      34109,
+      34111,
+      34113,
+      34114,
+      34115
+    ],
+    "functions": [
+      "atelic_ext"
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "434635": {
+    "times": [
+      34144
+    ],
+    "slots": [
+      34143,
+      34144
+    ],
+    "functions": [
+      "anterior"
+    ],
+    "refs": [
+      [
+        "SFX",
+        34144
+      ]
+    ],
+    "preps": [
+      [
+        "L",
+        34143
+      ]
+    ]
+  },
+  "434636": {
+    "times": [
+      34151
+    ],
+    "slots": [
+      34151
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "refs": [
+      [
+        "SFX",
+        34151
+      ]
+    ]
+  },
+  "434646": {
+    "times": [
+      34219
+    ],
+    "slots": [
+      34219
+    ],
+    "tenses": [
+      [
+        "PRES",
+        34219
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        34219
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "434663": {
+    "times": [
+      34322
+    ],
+    "slots": [
+      34321,
+      34322
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        34321
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "434664": {
+    "times": [
+      34335
+    ],
+    "slots": [
+      34334,
+      34335
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        34334
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "434701": {
+    "times": [
+      34463
+    ],
+    "slots": [
+      34462,
+      34463
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        34463
+      ]
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        ">XR/",
+        34462
+      ]
+    ]
+  },
+  "434712": {
+    "times": [
+      34535
+    ],
+    "slots": [
+      34532,
+      34533,
+      34534,
+      34535
+    ],
+    "refs": [
+      [
+        "THE",
+        34534
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "K",
+        34532
+      ],
+      [
+        "MIDDLE",
+        34533
+      ]
+    ]
+  },
+  "434728": {
+    "times": [
+      34630
+    ],
+    "slots": [
+      34629,
+      34630
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        34630
+      ]
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        ">XR/",
+        34629
+      ]
+    ]
+  },
+  "434753": {
+    "times": [
+      34789
+    ],
+    "slots": [
+      34786,
+      34787,
+      34788,
+      34789,
+      34790,
+      34791,
+      34792,
+      34794
+    ],
+    "refs": [
+      [
+        "CALNUM",
+        [
+          34787,
+          34788,
+          "CARDC"
+        ]
+      ],
+      [
+        "MONTH",
+        {
+          "times": [
+            34792
+          ],
+          "slots": [
+            34790,
+            34791,
+            34792,
+            34794
+          ],
+          "refs": [
+            [
+              "THIS",
+              34794
+            ],
+            [
+              "THE",
+              34791
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              34790
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "MONTH"
+        }
+      ]
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        34786
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "434754": {
+    "times": [
+      34804
+    ],
+    "slots": [
+      34802,
+      34803,
+      34804
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "THE",
+        34803
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        34804
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "BJN/",
+        34802
+      ]
+    ]
+  },
+  "434758": {
+    "times": [
+      34834
+    ],
+    "slots": [
+      34832,
+      34833,
+      34834,
+      34836
+    ],
+    "refs": [
+      [
+        "THIS",
+        34836
+      ],
+      [
+        "THE",
+        34833
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        34832
+      ]
+    ]
+  },
+  "434763": {
+    "times": [
+      34869
+    ],
+    "slots": [
+      34868,
+      34869
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        34868
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "434765": {
+    "times": [
+      34875
+    ],
+    "slots": [
+      34874,
+      34875
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        34874
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "434772": {
+    "times": [
+      34909
+    ],
+    "slots": [
+      34907,
+      34908,
+      34909,
+      34911
+    ],
+    "refs": [
+      [
+        "THIS",
+        34911
+      ],
+      [
+        "THE",
+        34908
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        34907
+      ]
+    ]
+  },
+  "434783": {
+    "times": [
+      34982
+    ],
+    "slots": [
+      34981,
+      34982
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "SFX",
+        34982
+      ]
+    ],
+    "functions": [
+      "atelic_ext?"
+    ],
+    "preps": [
+      [
+        "L",
+        34981
+      ]
+    ],
+    "notes": [
+      "see similarly difficult case in 432263 Gen 31:6",
+      "could be purdurative \"throughout\"",
+      "possible \"purposive extent\"; but here the habitual nature seems to militate against that",
+      "see habitual לבקר לבקר which may be related to this use"
+    ]
+  },
+  "434785": {
+    "times": [
+      34987
+    ],
+    "slots": [
+      34986,
+      34987
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        34986
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "434786": {
+    "times": [
+      34993
+    ],
+    "slots": [
+      34991,
+      34992,
+      34993,
+      34995
+    ],
+    "refs": [
+      [
+        "ORDN",
+        34995
+      ],
+      [
+        "THE",
+        34992
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        34991
+      ]
+    ]
+  },
+  "434790": {
+    "times": [
+      35023
+    ],
+    "slots": [
+      35021,
+      35022,
+      35023,
+      35025
+    ],
+    "refs": [
+      [
+        "ORDN",
+        35025
+      ],
+      [
+        "THE",
+        35022
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        35021
+      ]
+    ]
+  },
+  "434791": {
+    "times": [
+      35031
+    ],
+    "slots": [
+      35029,
+      35030,
+      35031,
+      35033
+    ],
+    "refs": [
+      [
+        "ORDN",
+        35033
+      ],
+      [
+        "THE",
+        35030
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        35029
+      ]
+    ]
+  },
+  "434796": {
+    "times": [
+      35063
+    ],
+    "slots": [
+      35060,
+      35062,
+      35063,
+      35065
+    ],
+    "refs": [
+      [
+        "THIS",
+        35065
+      ],
+      [
+        "THE",
+        35062
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        35060
+      ]
+    ]
+  },
+  "434797": {
+    "times": [
+      35080
+    ],
+    "slots": [
+      35079,
+      35080
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "SFX",
+        35080
+      ]
+    ],
+    "functions": [
+      "atelic_ext?"
+    ],
+    "preps": [
+      [
+        "L",
+        35079
+      ]
+    ],
+    "notes": [
+      "link:434783"
+    ]
+  },
+  "434799": {
+    "times": [
+      35111
+    ],
+    "slots": [
+      35110,
+      35111
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        35110
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "434815": {
+    "times": [
+      35207
+    ],
+    "slots": [
+      35206,
+      35207
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        35206
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "434824": {
+    "times": [
+      35259
+    ],
+    "slots": [
+      35258,
+      35259
+    ],
+    "quals": [
+      "durative",
+      "durative"
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        35258
+      ]
+    ]
+  },
+  "434844": {
+    "times": [
+      35343
+    ],
+    "slots": [
+      35340,
+      35341,
+      35342,
+      35343
+    ],
+    "refs": [
+      [
+        "THE",
+        35342
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        35340
+      ],
+      [
+        "MIDDLE",
+        35341
+      ]
+    ]
+  },
+  "434848": {
+    "times": [
+      35375
+    ],
+    "slots": [
+      35375
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "434852": {
+    "times": [
+      35403
+    ],
+    "slots": [
+      35403
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "434891": {
+    "times": [
+      35591
+    ],
+    "slots": [
+      35588,
+      35590,
+      35591,
+      35593
+    ],
+    "refs": [
+      [
+        "THIS",
+        35593
+      ],
+      [
+        "THE",
+        35590
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        35588
+      ]
+    ]
+  },
+  "434895": {
+    "times": [
+      35624
+    ],
+    "slots": [
+      35623,
+      35624
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "SFX",
+        35624
+      ]
+    ],
+    "functions": [
+      "atelic_ext?"
+    ],
+    "preps": [
+      [
+        "L",
+        35623
+      ]
+    ]
+  },
+  "434901": {
+    "times": [
+      35651
+    ],
+    "slots": [
+      35651
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        35651
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "434910": {
+    "times": [
+      35698
+    ],
+    "slots": [
+      35698
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        35698
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "434919": {
+    "times": [
+      35749
+    ],
+    "slots": [
+      35746,
+      35748,
+      35749,
+      35751
+    ],
+    "refs": [
+      [
+        "THIS",
+        35751
+      ],
+      [
+        "THE",
+        35748
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        35746
+      ]
+    ]
+  },
+  "434931": {
+    "times": [
+      {
+        "times": [
+          35821
+        ],
+        "slots": [
+          35820,
+          35821
+        ],
+        "refs": [
+          [
+            "THE",
+            35820
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ]
+      },
+      {
+        "times": [
+          35825
+        ],
+        "slots": [
+          35824,
+          35825,
+          35826,
+          35827
+        ],
+        "refs": [
+          [
+            "GEN",
+            [
+              35826,
+              35827,
+              "DEF"
+            ]
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            35824
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      35820,
+      35821,
+      35824,
+      35825,
+      35826,
+      35827
+    ],
+    "functions": [
+      "multi_simul"
+    ]
+  },
+  "434936": {
+    "times": [
+      35870
+    ],
+    "slots": [
+      35868,
+      35869,
+      35870,
+      35872
+    ],
+    "refs": [
+      [
+        "THIS",
+        35872
+      ],
+      [
+        "THE",
+        35869
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        35868
+      ]
+    ]
+  },
+  "434937": {
+    "times": [
+      35874
+    ],
+    "slots": [
+      35873,
+      35874
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        35873
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "434938": {
+    "times": [
+      35880
+    ],
+    "slots": [
+      35878,
+      35879,
+      35880,
+      35882
+    ],
+    "refs": [
+      [
+        "ORDN",
+        35882
+      ],
+      [
+        "THE",
+        35879
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        35878
+      ]
+    ]
+  },
+  "434939": {
+    "times": [
+      35891
+    ],
+    "slots": [
+      35888,
+      35889,
+      35890,
+      35891
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "THE",
+        35890
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        35889
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ],
+    "preps": [
+      [
+        ">T",
+        35888
+      ]
+    ]
+  },
+  "434942": {
+    "times": [
+      35911
+    ],
+    "slots": [
+      35909,
+      35910,
+      35911,
+      35913
+    ],
+    "refs": [
+      [
+        "THAT",
+        35913
+      ],
+      [
+        "THE",
+        35910
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        35909
+      ]
+    ]
+  },
+  "434963": {
+    "times": [
+      36027
+    ],
+    "slots": [
+      36027
+    ],
+    "tenses": [
+      [
+        "FUT",
+        36027
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        36027
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "434994": {
+    "times": [
+      36195
+    ],
+    "slots": [
+      36195
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "434996": {
+    "times": [
+      36204
+    ],
+    "slots": [
+      36204
+    ],
+    "functions": [
+      "atelic_ext"
+    ],
+    "notes": [
+      "difficult call; the durative adverbials in the context make me lean towards the extent use; see end of this verse"
+    ]
+  },
+  "434998": {
+    "times": [
+      {
+        "times": [
+          36213
+        ],
+        "slots": [
+          36213
+        ],
+        "quals": [
+          "durative"
+        ]
+      },
+      {
+        "times": [
+          36215
+        ],
+        "slots": [
+          36215
+        ]
+      }
+    ],
+    "slots": [
+      36213,
+      36215
+    ],
+    "functions": [
+      "atelic_ext"
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "434999": {
+    "times": [
+      36221
+    ],
+    "slots": [
+      36221
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "435000": {
+    "times": [
+      36226
+    ],
+    "slots": [
+      36226
+    ],
+    "functions": [
+      "atelic_ext"
+    ],
+    "notes": [
+      "link:434996"
+    ]
+  },
+  "435057": {
+    "times": [
+      36494
+    ],
+    "slots": [
+      36493,
+      36494
+    ],
+    "refs": [
+      [
+        "THE",
+        36493
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "435058": {
+    "times": [
+      36508
+    ],
+    "slots": [
+      36507,
+      36508
+    ],
+    "quals": [
+      "durative",
+      "durative"
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        36507
+      ]
+    ]
+  },
+  "435059": {
+    "times": [
+      36501
+    ],
+    "slots": [
+      36500,
+      36501
+    ],
+    "refs": [
+      [
+        "THE",
+        36500
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "435086": {
+    "times": [
+      36647
+    ],
+    "slots": [
+      36645,
+      36646,
+      36647
+    ],
+    "refs": [
+      [
+        "THE",
+        36646
+      ]
+    ],
+    "quants": [
+      [
+        "ALL",
+        36645
+      ]
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "435088": {
+    "times": [
+      36668
+    ],
+    "slots": [
+      36666,
+      36667,
+      36668
+    ],
+    "refs": [
+      [
+        "THE",
+        36667
+      ]
+    ],
+    "quants": [
+      [
+        "ALL",
+        36666
+      ]
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "435095": {
+    "times": [
+      36721
+    ],
+    "slots": [
+      36720,
+      36721,
+      36722,
+      36723
+    ],
+    "refs": [
+      [
+        "GEN",
+        [
+          36722,
+          36723,
+          "DEF"
+        ]
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        36720
+      ]
+    ]
+  },
+  "435118": {
+    "times": [
+      36869
+    ],
+    "slots": [
+      36867,
+      36868,
+      36869,
+      36871
+    ],
+    "refs": [
+      [
+        "THAT",
+        36871
+      ],
+      [
+        "THE",
+        36868
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        36867
+      ]
+    ]
+  },
+  "435125": {
+    "times": [
+      36914
+    ],
+    "slots": [
+      36914
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        36914
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "435196": {
+    "times": [
+      {
+        "times": [
+          37139
+        ],
+        "slots": [
+          37139
+        ],
+        "quals": [
+          "durative"
+        ]
+      },
+      {
+        "times": [
+          37141
+        ],
+        "slots": [
+          37141
+        ]
+      }
+    ],
+    "slots": [
+      37138,
+      37139,
+      37141
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "quals": [
+      "durative"
+    ],
+    "preps": [
+      [
+        "L",
+        37138
+      ]
+    ]
+  },
+  "435208": {
+    "times": [
+      37229
+    ],
+    "slots": [
+      37228,
+      37229
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        37228
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "435237": {
+    "times": [
+      37369
+    ],
+    "slots": [
+      37366,
+      37367,
+      37368,
+      37369,
+      37370,
+      37371,
+      37372,
+      37374
+    ],
+    "refs": [
+      [
+        "CALNUM",
+        [
+          37367,
+          37368,
+          "CARDC"
+        ]
+      ],
+      [
+        "MONTH",
+        {
+          "times": [
+            37372
+          ],
+          "slots": [
+            37370,
+            37371,
+            37372,
+            37374
+          ],
+          "refs": [
+            [
+              "ORDN",
+              37374
+            ],
+            [
+              "THE",
+              37371
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              37370
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "MONTH"
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        37366
+      ]
+    ]
+  },
+  "435255": {
+    "times": [
+      37472
+    ],
+    "slots": [
+      37470,
+      37471,
+      37472,
+      37474
+    ],
+    "refs": [
+      [
+        "ORDN",
+        37474
+      ],
+      [
+        "THE",
+        37471
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        37470
+      ]
+    ]
+  },
+  "435271": {
+    "times": [
+      37535
+    ],
+    "slots": [
+      37533,
+      37534,
+      37535
+    ],
+    "refs": [
+      [
+        "THE",
+        37534
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        37533
+      ]
+    ]
+  },
+  "435273": {
+    "times": [
+      37543
+    ],
+    "slots": [
+      37541,
+      37542,
+      37543
+    ],
+    "refs": [
+      [
+        "THE",
+        37542
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        37541
+      ]
+    ]
+  },
+  "435295": {
+    "times": [
+      37624
+    ],
+    "slots": [
+      37622,
+      37623,
+      37624
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "THE",
+        37623
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        37624
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "BJN/",
+        37622
+      ]
+    ]
+  },
+  "435296": {
+    "times": [
+      37630
+    ],
+    "slots": [
+      37628,
+      37629,
+      37630
+    ],
+    "refs": [
+      [
+        "THE",
+        37629
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        37628
+      ]
+    ]
+  },
+  "435299": {
+    "times": [
+      37643
+    ],
+    "slots": [
+      37641,
+      37642,
+      37643
+    ],
+    "refs": [
+      [
+        "THE",
+        37642
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        37641
+      ]
+    ]
+  },
+  "435302": {
+    "times": [
+      37656
+    ],
+    "slots": [
+      37654,
+      37655,
+      37656
+    ],
+    "refs": [
+      [
+        "THE",
+        37655
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        37654
+      ]
+    ]
+  },
+  "435336": {
+    "times": [
+      37779
+    ],
+    "slots": [
+      37778,
+      37779
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        37778
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "435338": {
+    "times": [
+      37790
+    ],
+    "slots": [
+      37789,
+      37790
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        37789
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "435342": {
+    "times": [
+      {
+        "times": [
+          37805
+        ],
+        "slots": [
+          37803,
+          37804,
+          37805
+        ],
+        "refs": [
+          [
+            "THE",
+            37804
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            37803
+          ]
+        ]
+      },
+      {
+        "times": [
+          37808
+        ],
+        "slots": [
+          37806,
+          37807,
+          37808
+        ],
+        "duplicate": true,
+        "refs": [
+          [
+            "THE",
+            37807
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            37806
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      37803,
+      37804,
+      37805,
+      37806,
+      37807,
+      37808
+    ],
+    "functions": [
+      "habitual"
+    ],
+    "quals": [
+      "iterative"
+    ]
+  },
+  "435347": {
+    "times": [
+      37823
+    ],
+    "slots": [
+      37821,
+      37822,
+      37823,
+      37825
+    ],
+    "refs": [
+      [
+        "ORDN",
+        37825
+      ],
+      [
+        "THE",
+        37822
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        37821
+      ]
+    ]
+  },
+  "435353": {
+    "times": [
+      37857
+    ],
+    "slots": [
+      37857
+    ],
+    "tenses": [
+      [
+        "FUT",
+        37857
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        37857
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "435358": {
+    "times": [
+      37878
+    ],
+    "slots": [
+      37876,
+      37877,
+      37878
+    ],
+    "refs": [
+      [
+        "THE",
+        37877
+      ]
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        37876
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "435359": {
+    "times": [
+      37884
+    ],
+    "slots": [
+      37882,
+      37883,
+      37884
+    ],
+    "refs": [
+      [
+        "THE",
+        37883
+      ]
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        37882
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "435364": {
+    "times": [
+      37902
+    ],
+    "slots": [
+      37901,
+      37902
+    ],
+    "refs": [
+      [
+        "THE",
+        37901
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "435365": {
+    "times": [
+      37906
+    ],
+    "slots": [
+      37905,
+      37906
+    ],
+    "refs": [
+      [
+        "THE",
+        37905
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "435366": {
+    "times": [
+      37910
+    ],
+    "slots": [
+      37909,
+      37910
+    ],
+    "refs": [
+      [
+        "THE",
+        37909
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "435367": {
+    "times": [
+      37917
+    ],
+    "slots": [
+      37916,
+      37917
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        37916
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "435368": {
+    "times": [
+      37922
+    ],
+    "slots": [
+      37920,
+      37921,
+      37922,
+      37924
+    ],
+    "refs": [
+      [
+        "ORDN",
+        37924
+      ],
+      [
+        "THE",
+        37921
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        37920
+      ]
+    ]
+  },
+  "435371": {
+    "times": [
+      37933
+    ],
+    "slots": [
+      37931,
+      37932,
+      37933,
+      37935
+    ],
+    "refs": [
+      [
+        "ORDN",
+        37935
+      ],
+      [
+        "THE",
+        37932
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        37931
+      ]
+    ]
+  },
+  "435375": {
+    "times": [
+      37951
+    ],
+    "slots": [
+      37950,
+      37951
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        37950
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "435379": {
+    "times": [
+      37972
+    ],
+    "slots": [
+      37970,
+      37971,
+      37972,
+      37974
+    ],
+    "refs": [
+      [
+        "ORDN",
+        37974
+      ],
+      [
+        "THE",
+        37971
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        37970
+      ]
+    ]
+  },
+  "435382": {
+    "times": [
+      37987
+    ],
+    "slots": [
+      37985,
+      37986,
+      37987,
+      37989
+    ],
+    "refs": [
+      [
+        "ORDN",
+        37989
+      ],
+      [
+        "THE",
+        37986
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        37985
+      ]
+    ]
+  },
+  "435383": {
+    "times": [
+      37996
+    ],
+    "slots": [
+      37994,
+      37995,
+      37996,
+      37998
+    ],
+    "refs": [
+      [
+        "ORDN",
+        37998
+      ],
+      [
+        "THE",
+        37995
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        37994
+      ]
+    ]
+  },
+  "435400": {
+    "times": [
+      38100
+    ],
+    "slots": [
+      38099,
+      38100
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        38099
+      ]
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "435450": {
+    "times": [
+      38331
+    ],
+    "slots": [
+      38331
+    ],
+    "tenses": [
+      [
+        "FUT",
+        38331
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        38331
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "435485": {
+    "times": [
+      38514
+    ],
+    "slots": [
+      38513,
+      38514
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "SFX",
+        38514
+      ]
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        ">XR/",
+        38513
+      ]
+    ]
+  },
+  "435526": {
+    "times": [
+      38721
+    ],
+    "slots": [
+      38720,
+      38721
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        "MN",
+        38720
+      ]
+    ]
+  },
+  "435529": {
+    "times": [
+      {
+        "times": [
+          38738
+        ],
+        "slots": [
+          38736,
+          38737,
+          38738
+        ],
+        "refs": [
+          [
+            "THE",
+            38737
+          ]
+        ],
+        "functions": [
+          "posterior_dur"
+        ],
+        "preps": [
+          [
+            "MN",
+            38736
+          ]
+        ]
+      },
+      {
+        "times": [
+          38741
+        ],
+        "slots": [
+          38739,
+          38740,
+          38741
+        ],
+        "refs": [
+          [
+            "THE",
+            38740
+          ]
+        ],
+        "functions": [
+          "anterior_dur"
+        ],
+        "preps": [
+          [
+            "<D",
+            38739
+          ]
+        ],
+        "quals": [
+          "durative"
+        ]
+      }
+    ],
+    "slots": [
+      38736,
+      38737,
+      38738,
+      38739,
+      38740,
+      38741
+    ],
+    "functions": [
+      "begin_to_end"
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "435536": {
+    "times": [
+      {
+        "times": [
+          38779
+        ],
+        "slots": [
+          38778,
+          38779
+        ],
+        "functions": [
+          "posterior_dur"
+        ],
+        "preps": [
+          [
+            "MN",
+            38778
+          ]
+        ]
+      },
+      {
+        "times": [
+          38781
+        ],
+        "slots": [
+          38780,
+          38781
+        ],
+        "functions": [
+          "anterior_dur"
+        ],
+        "preps": [
+          [
+            "<D",
+            38780
+          ]
+        ],
+        "quals": [
+          "durative"
+        ]
+      }
+    ],
+    "slots": [
+      38778,
+      38779,
+      38780,
+      38781
+    ],
+    "functions": [
+      "begin_to_end"
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "435564": {
+    "times": [
+      38934
+    ],
+    "slots": [
+      38932,
+      38933,
+      38934
+    ],
+    "quants": [
+      [
+        "ALL",
+        38933
+      ]
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        38932
+      ]
+    ]
+  },
+  "435585": {
+    "times": [
+      39055
+    ],
+    "slots": [
+      39053,
+      39054,
+      39055,
+      39057,
+      39065,
+      39066,
+      39067,
+      39069
+    ],
+    "refs": [
+      [
+        "ORDN",
+        39057
+      ],
+      [
+        "THE",
+        39054
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        39053
+      ]
+    ],
+    "timeappos": [
+      {
+        "times": [
+          39067
+        ],
+        "slots": [
+          39065,
+          39066,
+          39067,
+          39069
+        ],
+        "refs": [
+          [
+            "THIS",
+            39069
+          ],
+          [
+            "THE",
+            39066
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            39065
+          ]
+        ]
+      }
+    ]
+  },
+  "435600": {
+    "times": [
+      39135
+    ],
+    "slots": [
+      39135
+    ],
+    "tenses": [
+      [
+        "PRES",
+        39135
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        39135
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "435621": {
+    "times": [
+      39245
+    ],
+    "slots": [
+      39244,
+      39245
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "L",
+        39244
+      ]
+    ]
+  },
+  "435628": {
+    "times": [
+      39284
+    ],
+    "slots": [
+      39282,
+      39283,
+      39284,
+      39286
+    ],
+    "refs": [
+      [
+        "ORDN",
+        39286
+      ],
+      [
+        "THE",
+        39283
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        39282
+      ]
+    ]
+  },
+  "435650": {
+    "times": [
+      39383
+    ],
+    "slots": [
+      39381,
+      39382,
+      39383,
+      39385
+    ],
+    "refs": [
+      [
+        "ORDN",
+        39385
+      ],
+      [
+        "THE",
+        39382
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        39381
+      ]
+    ]
+  },
+  "435717": {
+    "times": [
+      39718
+    ],
+    "slots": [
+      39717,
+      39718
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        39717
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "435722": {
+    "times": [
+      39753
+    ],
+    "slots": [
+      39752,
+      39753
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        39752
+      ]
+    ],
+    "functions": [
+      "telic_ext?"
+    ],
+    "notes": [
+      "possible to see another rendering \"for six days YHWH prepared the heavens...\"",
+      "LXX has εις as do all modern transs. + French",
+      "some various modern English Targum translations and Youngs/Smiths literal have \"for six days\""
+    ]
+  },
+  "435724": {
+    "times": [
+      39775
+    ],
+    "slots": [
+      39773,
+      39774,
+      39775,
+      39777
+    ],
+    "refs": [
+      [
+        "ORDN",
+        39777
+      ],
+      [
+        "THE",
+        39774
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        39773
+      ]
+    ]
+  },
+  "435776": {
+    "times": [
+      40028
+    ],
+    "slots": [
+      40027,
+      40028
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        40027
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "435792": {
+    "times": [
+      40120
+    ],
+    "slots": [
+      40119,
+      40120
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "L",
+        40119
+      ]
+    ]
+  },
+  "435841": {
+    "times": [
+      {
+        "times": [
+          40312
+        ],
+        "slots": [
+          40312
+        ],
+        "functions": [
+          "atelic_ext"
+        ]
+      },
+      {
+        "times": [
+          40314
+        ],
+        "slots": [
+          40314
+        ],
+        "quants": [
+          [
+            "NUMQ",
+            40314
+          ]
+        ],
+        "quals": [
+          "durative"
+        ],
+        "functions": [
+          "atelic_ext"
+        ]
+      }
+    ],
+    "slots": [
+      40312,
+      40314
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "436006": {
+    "times": [
+      41033
+    ],
+    "slots": [
+      41032,
+      41033
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        41032
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "436007": {
+    "times": [
+      41039
+    ],
+    "slots": [
+      41037,
+      41038,
+      41039,
+      41041
+    ],
+    "refs": [
+      [
+        "ORDN",
+        41041
+      ],
+      [
+        "THE",
+        41038
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        41037
+      ]
+    ]
+  },
+  "436038": {
+    "times": [
+      41175
+    ],
+    "slots": [
+      41174,
+      41175
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        41174
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "436045": {
+    "times": [
+      41206
+    ],
+    "slots": [
+      41205,
+      41206
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        41205
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "436046": {
+    "times": [
+      41212
+    ],
+    "slots": [
+      41210,
+      41211,
+      41212,
+      41214
+    ],
+    "refs": [
+      [
+        "ORDN",
+        41214
+      ],
+      [
+        "THE",
+        41211
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        41210
+      ]
+    ]
+  },
+  "436053": {
+    "times": [
+      41251
+    ],
+    "slots": [
+      41249,
+      41250,
+      41251
+    ],
+    "refs": [
+      [
+        "THE",
+        41250
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        41249
+      ]
+    ]
+  },
+  "436055": {
+    "times": [
+      41258
+    ],
+    "slots": [
+      41257,
+      41258
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        41257
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "436129": {
+    "times": [
+      41684
+    ],
+    "slots": [
+      41682,
+      41683,
+      41684
+    ],
+    "refs": [
+      [
+        "THE",
+        41683
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        41682
+      ]
+    ]
+  },
+  "436175": {
+    "times": [
+      41923
+    ],
+    "slots": [
+      41922,
+      41923
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        41922
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "436176": {
+    "times": [
+      41930
+    ],
+    "slots": [
+      41928,
+      41929,
+      41930,
+      41932
+    ],
+    "refs": [
+      [
+        "ORDN",
+        41932
+      ],
+      [
+        "THE",
+        41929
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        41928
+      ]
+    ]
+  },
+  "436180": {
+    "times": [
+      {
+        "times": [
+          41971
+        ],
+        "slots": [
+          41970,
+          41971
+        ],
+        "quants": [
+          [
+            "NUMQ",
+            41970
+          ]
+        ],
+        "quals": [
+          "durative"
+        ]
+      },
+      {
+        "times": [
+          41974
+        ],
+        "slots": [
+          41973,
+          41974
+        ],
+        "quants": [
+          [
+            "NUMQ",
+            41973
+          ]
+        ],
+        "quals": [
+          "durative"
+        ]
+      }
+    ],
+    "slots": [
+      41970,
+      41971,
+      41973,
+      41974
+    ],
+    "functions": [
+      "atelic_ext"
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "436257": {
+    "times": [
+      42440
+    ],
+    "slots": [
+      42440
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "436445": {
+    "times": [
+      {
+        "times": [
+          43706
+        ],
+        "slots": [
+          43705,
+          43706
+        ],
+        "functions": [
+          "posterior_dur"
+        ],
+        "preps": [
+          [
+            "MN",
+            43705
+          ]
+        ]
+      },
+      {
+        "times": [
+          43708
+        ],
+        "slots": [
+          43707,
+          43708
+        ],
+        "functions": [
+          "anterior_dur"
+        ],
+        "preps": [
+          [
+            "<D",
+            43707
+          ]
+        ],
+        "quals": [
+          "durative"
+        ]
+      }
+    ],
+    "slots": [
+      43705,
+      43706,
+      43707,
+      43708
+    ],
+    "functions": [
+      "begin_to_end"
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "436514": {
+    "times": [
+      44251
+    ],
+    "slots": [
+      44251
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "436519": {
+    "times": [
+      44287
+    ],
+    "slots": [
+      44287
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "436544": {
+    "times": [
+      44426
+    ],
+    "slots": [
+      44426
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "436654": {
+    "times": [
+      45202
+    ],
+    "slots": [
+      45201,
+      45202
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        45201
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "436667": {
+    "times": [
+      45285
+    ],
+    "slots": [
+      45283,
+      45284,
+      45285
+    ],
+    "refs": [
+      [
+        "THE",
+        45284
+      ]
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        45283
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "436680": {
+    "times": [
+      45340
+    ],
+    "slots": [
+      45339,
+      45340
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        45339
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
     ]
   }
 }

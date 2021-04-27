@@ -74,5 +74,9 @@
     "654028": {
         "function": "PreC",
         "note": "Gen 9:29; phrase is pred. complement"
+    },
+    "784830": {
+        "function": "Time",
+        "note": "Isa 47:9; רגע, mis-marked as Modi, this is a simul time, 'at a moment'"
     }
 }

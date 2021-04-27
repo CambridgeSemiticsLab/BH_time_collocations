@@ -2079,10 +2079,17 @@
     ],
     "slots": [
       3742,
-      3743
+      3743,
+      3744
     ],
-    "quals": [
+    "qualts": [
       "durative"
+    ],
+    "seqs": [
+      [
+        "POST",
+        3744
+      ]
     ],
     "quants": [
       [
@@ -2125,10 +2132,17 @@
     ],
     "slots": [
       3783,
-      3784
+      3784,
+      3785
     ],
-    "quals": [
+    "qualts": [
       "durative"
+    ],
+    "seqs": [
+      [
+        "POST",
+        3785
+      ]
     ],
     "quants": [
       [
@@ -5135,6 +5149,7 @@
     ],
     "slots": [
       13755,
+      13756,
       13757
     ],
     "refs": [
@@ -5148,8 +5163,12 @@
     ],
     "preps": [
       [
-        "L PNH/",
+        "L",
         13755
+      ],
+      [
+        "PNH/",
+        13756
       ]
     ]
   },
@@ -5182,6 +5201,7 @@
     ],
     "slots": [
       13802,
+      13803,
       13804
     ],
     "refs": [
@@ -5195,8 +5215,12 @@
     ],
     "preps": [
       [
-        "L PNH/",
+        "L",
         13802
+      ],
+      [
+        "PNH/",
+        13803
       ]
     ]
   },
@@ -5249,17 +5273,17 @@
       14469
     ],
     "slots": [
-      14469
+      14469,
+      14470
     ],
-    "NUM": {
-      "parse": 14470,
-      "phatom": 913897,
-      "slots": [
+    "functions": [
+      "simultaneous"
+    ],
+    "quants": [
+      [
+        "NUMQ",
         14470
       ]
-    },
-    "functions": [
-      "atelic_ext, simultaneous"
     ]
   },
   "430516": {
@@ -5326,19 +5350,15 @@
       15237
     ],
     "slots": [
-      15237
+      15237,
+      15238
     ],
-    "GENDUR": {
-      "times": [
+    "quants": [
+      [
+        "GENDUR",
         15238
-      ],
-      "slots": [
-        15238
-      ],
-      "quals": [
-        "duration"
       ]
-    },
+    ],
     "quals": [
       "durative"
     ],
@@ -5444,10 +5464,17 @@
     ],
     "slots": [
       15438,
-      15439
+      15439,
+      15440
     ],
-    "quals": [
+    "qualts": [
       "durative"
+    ],
+    "seqs": [
+      [
+        "POST",
+        15440
+      ]
     ],
     "quants": [
       [
@@ -5465,10 +5492,17 @@
     ],
     "slots": [
       15486,
-      15487
+      15487,
+      15488
     ],
-    "quals": [
+    "qualts": [
       "durative"
+    ],
+    "seqs": [
+      [
+        "POST",
+        15488
+      ]
     ],
     "quants": [
       [
@@ -5646,6 +5680,9 @@
       16049,
       16050
     ],
+    "functions": [
+      "anterior"
+    ],
     "refs": [
       [
         "SFX",
@@ -5709,9 +5746,9 @@
       16128,
       16129
     ],
-    "seqs": [
+    "tenses": [
       [
-        "POST",
+        "FUT",
         16129
       ]
     ],
@@ -5877,8 +5914,15 @@
       17101
     ],
     "slots": [
+      17099,
       17100,
       17101
+    ],
+    "refs": [
+      [
+        "THIS",
+        17099
+      ]
     ],
     "quants": [
       [
@@ -6301,17 +6345,17 @@
       18314
     ],
     "slots": [
-      18314
+      18314,
+      18315
     ],
-    "NUM": {
-      "parse": 18315,
-      "phatom": 916563,
-      "slots": [
+    "functions": [
+      "simultaneous"
+    ],
+    "quants": [
+      [
+        "NUMQ",
         18315
       ]
-    },
-    "functions": [
-      "atelic_ext, simultaneous"
     ]
   },
   "431290": {
@@ -6523,7 +6567,7 @@
     ],
     "functions": [
       "simultaneous",
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -7451,6 +7495,7 @@
       25556
     ],
     "slots": [
+      25555,
       25556
     ],
     "quants": [
@@ -7461,6 +7506,12 @@
     ],
     "quals": [
       "durative"
+    ],
+    "refs": [
+      [
+        "THIS",
+        25555
+      ]
     ],
     "functions": [
       "atelic_ext"
@@ -8154,6 +8205,7 @@
     ],
     "slots": [
       28568,
+      28569,
       28570
     ],
     "refs": [
@@ -8167,8 +8219,12 @@
     ],
     "preps": [
       [
-        "L PNH/",
+        "L",
         28568
+      ],
+      [
+        "PNH/",
+        28569
       ]
     ]
   },
@@ -8538,103 +8594,101 @@
   },
   "433888": {
     "times": [
-      30383,
       {
         "times": [
-          {
-            "times": [
-              30377
-            ],
-            "slots": [
-              30376,
-              30377
-            ],
-            "tenses": [
-              [
-                "PAST",
-                30377
-              ]
-            ],
-            "refs": [
-              [
-                "DEICTIC",
-                30377
-              ]
-            ],
-            "functions": [
-              "posterior, posterior_dur"
-            ],
-            "preps": [
-              [
-                "MN",
-                30376
-              ]
-            ]
-          },
-          {
-            "times": [
-              30380
-            ],
-            "slots": [
-              30379,
-              30380
-            ],
-            "tenses": [
-              [
-                "PAST",
-                30380
-              ]
-            ],
-            "refs": [
-              [
-                "DEICTIC",
-                30380
-              ]
-            ],
-            "functions": [
-              "posterior, posterior_dur"
-            ],
-            "preps": [
-              [
-                "MN",
-                30379
-              ]
-            ]
-          }
+          30377
         ],
         "slots": [
           30376,
-          30377,
+          30377
+        ],
+        "tenses": [
+          [
+            "PAST",
+            30377
+          ]
+        ],
+        "refs": [
+          [
+            "DEICTIC",
+            30377
+          ]
+        ],
+        "functions": [
+          "posterior, posterior_dur"
+        ],
+        "preps": [
+          [
+            "MN",
+            30376
+          ]
+        ]
+      },
+      {
+        "times": [
+          30380
+        ],
+        "slots": [
           30379,
           30380
         ],
+        "tenses": [
+          [
+            "PAST",
+            30380
+          ]
+        ],
+        "refs": [
+          [
+            "DEICTIC",
+            30380
+          ]
+        ],
         "functions": [
-          "multi_posts"
+          "posterior, posterior_dur"
+        ],
+        "preps": [
+          [
+            "MN",
+            30379
+          ]
+        ]
+      },
+      {
+        "times": [
+          30383
+        ],
+        "slots": [
+          30382,
+          30383
+        ],
+        "refs": [
+          [
+            "DEICTIC",
+            30383
+          ]
+        ],
+        "functions": [
+          "posterior, posterior_dur"
+        ],
+        "preps": [
+          [
+            "MN",
+            30382
+          ]
         ]
       }
     ],
     "slots": [
-      30382,
-      30383,
       30376,
       30377,
       30379,
-      30380
-    ],
-    "refs": [
-      [
-        "DEICTIC",
-        30383
-      ]
+      30380,
+      30382,
+      30383
     ],
     "functions": [
-      "posterior, posterior_dur"
-    ],
-    "preps": [
-      [
-        "MN",
-        30382
-      ]
+      "multi_posts"
     ]
   },
   "433895": {
@@ -9188,7 +9242,14 @@
     "slots": [
       33383,
       33384,
-      33385
+      33385,
+      33386
+    ],
+    "tenses": [
+      [
+        "FUT",
+        33386
+      ]
     ],
     "refs": [
       [
@@ -9312,7 +9373,29 @@
           34109
         ],
         "slots": [
-          34109
+          34107,
+          34108,
+          34109,
+          34111
+        ],
+        "refs": [
+          [
+            "THAT",
+            34111
+          ],
+          [
+            "THE",
+            34108
+          ]
+        ],
+        "quants": [
+          [
+            "ALL",
+            34107
+          ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -9354,24 +9437,7 @@
       "atelic_ext"
     ],
     "quals": [
-      "durative",
       "durative"
-    ],
-    "refs": [
-      [
-        "THAT",
-        34111
-      ],
-      [
-        "THE",
-        34108
-      ]
-    ],
-    "quants": [
-      [
-        "ALL",
-        34107
-      ]
     ]
   },
   "434635": {
@@ -9381,6 +9447,9 @@
     "slots": [
       34143,
       34144
+    ],
+    "functions": [
+      "anterior"
     ],
     "refs": [
       [
@@ -9503,7 +9572,7 @@
   },
   "434712": {
     "times": [
-      34533
+      34535
     ],
     "slots": [
       34532,
@@ -9513,12 +9582,8 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          34534,
-          34535,
-          "DEF"
-        ]
+        "THE",
+        34534
       ]
     ],
     "functions": [
@@ -9528,6 +9593,10 @@
       [
         "K",
         34532
+      ],
+      [
+        "MIDDLE",
+        34533
       ]
     ]
   },
@@ -10415,7 +10484,7 @@
       "durative"
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -11818,36 +11887,38 @@
   },
   "435585": {
     "times": [
-      {
-        "times": [
-          39055
-        ],
-        "slots": [
-          39053,
-          39054,
-          39055,
-          39057
-        ],
-        "refs": [
-          [
-            "ORDN",
-            39057
-          ],
-          [
-            "THE",
-            39054
-          ]
-        ],
-        "functions": [
-          "simultaneous"
-        ],
-        "preps": [
-          [
-            "B",
-            39053
-          ]
-        ]
-      },
+      39055
+    ],
+    "slots": [
+      39053,
+      39054,
+      39055,
+      39057,
+      39065,
+      39066,
+      39067,
+      39069
+    ],
+    "refs": [
+      [
+        "ORDN",
+        39057
+      ],
+      [
+        "THE",
+        39054
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        39053
+      ]
+    ],
+    "timeappos": [
       {
         "times": [
           39067
@@ -11878,19 +11949,6 @@
           ]
         ]
       }
-    ],
-    "slots": [
-      39053,
-      39054,
-      39055,
-      39057,
-      39065,
-      39066,
-      39067,
-      39069
-    ],
-    "functions": [
-      "multi_simul"
     ]
   },
   "435600": {
@@ -21250,17 +21308,17 @@
       77200
     ],
     "slots": [
-      77200
+      77200,
+      77201
     ],
-    "NUM": {
-      "parse": 77201,
-      "phatom": 951279,
-      "slots": [
+    "functions": [
+      "simultaneous"
+    ],
+    "quants": [
+      [
+        "NUMQ",
         77201
       ]
-    },
-    "functions": [
-      "atelic_ext, simultaneous"
     ]
   },
   "442104": {
@@ -21352,19 +21410,15 @@
     ],
     "slots": [
       77218,
-      77219
+      77219,
+      77220
     ],
-    "GENDUR": {
-      "times": [
+    "quants": [
+      [
+        "GENDUR",
         77220
-      ],
-      "slots": [
-        77220
-      ],
-      "quals": [
-        "duration"
       ]
-    },
+    ],
     "quals": [
       "durative",
       "durative"
@@ -21384,19 +21438,15 @@
       77271
     ],
     "slots": [
-      77271
+      77271,
+      77272
     ],
-    "GENDUR": {
-      "times": [
+    "quants": [
+      [
+        "GENDUR",
         77272
-      ],
-      "slots": [
-        77272
-      ],
-      "quals": [
-        "duration"
       ]
-    },
+    ],
     "quals": [
       "durative"
     ],
@@ -21411,7 +21461,29 @@
           77509
         ],
         "slots": [
-          77509
+          77507,
+          77508,
+          77509,
+          77511
+        ],
+        "refs": [
+          [
+            "THAT",
+            77511
+          ],
+          [
+            "THE",
+            77508
+          ]
+        ],
+        "quants": [
+          [
+            "ALL",
+            77507
+          ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -21421,7 +21493,24 @@
               77515
             ],
             "slots": [
+              77513,
+              77514,
               77515
+            ],
+            "refs": [
+              [
+                "THE",
+                77514
+              ]
+            ],
+            "quants": [
+              [
+                "ALL",
+                77513
+              ]
+            ],
+            "quals": [
+              "durative"
             ]
           },
           {
@@ -21467,20 +21556,7 @@
         ],
         "functions": [],
         "quals": [
-          "durative",
           "durative"
-        ],
-        "refs": [
-          [
-            "THE",
-            77514
-          ]
-        ],
-        "quants": [
-          [
-            "ALL",
-            77513
-          ]
         ]
       }
     ],
@@ -21501,24 +21577,7 @@
       "atelic_ext"
     ],
     "quals": [
-      "durative",
       "durative"
-    ],
-    "refs": [
-      [
-        "THAT",
-        77511
-      ],
-      [
-        "THE",
-        77508
-      ]
-    ],
-    "quants": [
-      [
-        "ALL",
-        77507
-      ]
     ]
   },
   "442232": {
@@ -21635,6 +21694,7 @@
         ],
         "slots": [
           78150,
+          78151,
           78152
         ],
         "functions": [
@@ -21642,8 +21702,12 @@
         ],
         "preps": [
           [
-            "L PNH/",
+            "L",
             78150
+          ],
+          [
+            "PNH/",
+            78151
           ]
         ]
       }
@@ -21652,6 +21716,7 @@
       78147,
       78148,
       78150,
+      78151,
       78152
     ],
     "functions": [
@@ -25022,8 +25087,15 @@
       93871
     ],
     "slots": [
+      93869,
       93870,
       93871
+    ],
+    "refs": [
+      [
+        "THIS",
+        93869
+      ]
     ],
     "quants": [
       [
@@ -26051,8 +26123,15 @@
       98035
     ],
     "slots": [
+      98033,
       98034,
       98035
+    ],
+    "refs": [
+      [
+        "THIS",
+        98033
+      ]
     ],
     "quants": [
       [
@@ -26072,8 +26151,15 @@
       98102
     ],
     "slots": [
+      98100,
       98101,
       98102
+    ],
+    "refs": [
+      [
+        "THIS",
+        98100
+      ]
     ],
     "quants": [
       [
@@ -27949,19 +28035,15 @@
       105044
     ],
     "slots": [
-      105044
+      105044,
+      105045
     ],
-    "GENDUR": {
-      "times": [
+    "quants": [
+      [
+        "GENDUR",
         105045
-      ],
-      "slots": [
-        105045
-      ],
-      "quals": [
-        "duration"
       ]
-    },
+    ],
     "quals": [
       "durative"
     ],
@@ -32022,6 +32104,9 @@
           118705,
           118706
         ],
+        "functions": [
+          "anterior"
+        ],
         "refs": [
           [
             "SFX",
@@ -32593,10 +32678,17 @@
       121234
     ],
     "slots": [
+      121230,
       121231,
       121232,
       121233,
       121234
+    ],
+    "refs": [
+      [
+        "THIS",
+        121230
+      ]
     ],
     "quants": [
       [
@@ -33126,6 +33218,7 @@
           125276
         ],
         "slots": [
+          125275,
           125276,
           125277
         ],
@@ -33137,6 +33230,12 @@
           [
             "MANY",
             125277
+          ]
+        ],
+        "refs": [
+          [
+            "THIS",
+            125275
           ]
         ],
         "functions": [
@@ -33179,6 +33278,7 @@
       }
     ],
     "slots": [
+      125275,
       125276,
       125277,
       125278,
@@ -33532,7 +33632,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -33637,7 +33737,7 @@
       "durative"
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -33813,10 +33913,25 @@
           127375
         ],
         "slots": [
-          127375
+          127374,
+          127375,
+          127376
         ],
         "quals": [
+          "durative",
           "durative"
+        ],
+        "refs": [
+          [
+            "GEN",
+            127376
+          ]
+        ],
+        "quants": [
+          [
+            "ALL",
+            127374
+          ]
         ]
       },
       {
@@ -33864,20 +33979,7 @@
       "atelic_ext"
     ],
     "quals": [
-      "durative",
       "durative"
-    ],
-    "refs": [
-      [
-        "GEN",
-        127376
-      ]
-    ],
-    "quants": [
-      [
-        "ALL",
-        127374
-      ]
     ]
   },
   "451086": {
@@ -34097,10 +34199,25 @@
           128341
         ],
         "slots": [
-          128341
+          128340,
+          128341,
+          128342
         ],
         "quals": [
+          "durative",
           "durative"
+        ],
+        "refs": [
+          [
+            "GEN",
+            128342
+          ]
+        ],
+        "quants": [
+          [
+            "ALL",
+            128340
+          ]
         ]
       },
       {
@@ -34148,20 +34265,7 @@
       "atelic_ext"
     ],
     "quals": [
-      "durative",
       "durative"
-    ],
-    "refs": [
-      [
-        "GEN",
-        128342
-      ]
-    ],
-    "quants": [
-      [
-        "ALL",
-        128340
-      ]
     ]
   },
   "451292": {
@@ -35501,7 +35605,7 @@
       "durative"
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -35789,7 +35893,7 @@
           "durative"
         ],
         "functions": [
-          "posterior_dur"
+          "posterior, posterior_dur"
         ],
         "preps": [
           [
@@ -36294,7 +36398,7 @@
       "durative"
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -36489,7 +36593,7 @@
           "durative"
         ],
         "functions": [
-          "posterior_dur"
+          "posterior, posterior_dur"
         ],
         "preps": [
           [
@@ -38172,7 +38276,7 @@
           "durative"
         ],
         "functions": [
-          "posterior_dur"
+          "posterior, posterior_dur"
         ],
         "preps": [
           [
@@ -38308,7 +38412,7 @@
           "durative"
         ],
         "functions": [
-          "posterior_dur"
+          "posterior, posterior_dur"
         ],
         "preps": [
           [
@@ -38658,7 +38762,7 @@
           "durative"
         ],
         "functions": [
-          "posterior_dur"
+          "posterior, posterior_dur"
         ],
         "preps": [
           [
@@ -39873,17 +39977,17 @@
       145872
     ],
     "slots": [
-      145872
+      145872,
+      145873
     ],
-    "NUM": {
-      "parse": 145873,
-      "phatom": 992530,
-      "slots": [
+    "functions": [
+      "simultaneous"
+    ],
+    "quants": [
+      [
+        "NUMQ",
         145873
       ]
-    },
-    "functions": [
-      "atelic_ext, simultaneous"
     ]
   },
   "454868": {
@@ -39893,7 +39997,14 @@
     "slots": [
       145880,
       145881,
-      145882
+      145882,
+      145883
+    ],
+    "tenses": [
+      [
+        "FUT",
+        145883
+      ]
     ],
     "refs": [
       [
@@ -41687,7 +41798,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -42147,7 +42258,29 @@
           153393
         ],
         "slots": [
-          153393
+          153391,
+          153392,
+          153393,
+          153395
+        ],
+        "refs": [
+          [
+            "THAT",
+            153395
+          ],
+          [
+            "THE",
+            153392
+          ]
+        ],
+        "quants": [
+          [
+            "ALL",
+            153391
+          ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -42189,24 +42322,7 @@
       "atelic_ext"
     ],
     "quals": [
-      "durative",
       "durative"
-    ],
-    "refs": [
-      [
-        "THAT",
-        153395
-      ],
-      [
-        "THE",
-        153392
-      ]
-    ],
-    "quants": [
-      [
-        "ALL",
-        153391
-      ]
     ]
   },
   "456490": {
@@ -43303,7 +43419,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -43649,17 +43765,17 @@
       158210
     ],
     "slots": [
-      158210
+      158210,
+      158211
     ],
-    "NUM": {
-      "parse": 158211,
-      "phatom": 1000815,
-      "slots": [
+    "functions": [
+      "simultaneous"
+    ],
+    "quants": [
+      [
+        "NUMQ",
         158211
       ]
-    },
-    "functions": [
-      "atelic_ext, simultaneous"
     ]
   },
   "457526": {
@@ -43898,7 +44014,24 @@
           158994
         ],
         "slots": [
+          158992,
+          158993,
           158994
+        ],
+        "refs": [
+          [
+            "THE",
+            158993
+          ]
+        ],
+        "quants": [
+          [
+            "ALL",
+            158992
+          ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -43939,20 +44072,7 @@
       "atelic_ext"
     ],
     "quals": [
-      "durative",
       "durative"
-    ],
-    "refs": [
-      [
-        "THE",
-        158993
-      ]
-    ],
-    "quants": [
-      [
-        "ALL",
-        158992
-      ]
     ]
   },
   "457670": {
@@ -46714,6 +46834,7 @@
       168058
     ],
     "slots": [
+      168057,
       168058,
       168059
     ],
@@ -46725,6 +46846,12 @@
       [
         "MANY",
         168059
+      ]
+    ],
+    "refs": [
+      [
+        "THIS",
+        168057
       ]
     ],
     "functions": [
@@ -47383,7 +47510,14 @@
     ],
     "slots": [
       171588,
-      171589
+      171589,
+      171590
+    ],
+    "seqs": [
+      [
+        "POST",
+        171590
+      ]
     ],
     "functions": [
       "simultaneous"
@@ -48903,7 +49037,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -49488,6 +49622,9 @@
     "slots": [
       178686,
       178687
+    ],
+    "functions": [
+      "anterior"
     ],
     "refs": [
       [
@@ -53503,7 +53640,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -53768,7 +53905,14 @@
     "slots": [
       191432,
       191433,
-      191434
+      191434,
+      191435
+    ],
+    "tenses": [
+      [
+        "FUT",
+        191435
+      ]
     ],
     "refs": [
       [
@@ -53845,7 +53989,14 @@
     "slots": [
       192027,
       192028,
-      192029
+      192029,
+      192030
+    ],
+    "tenses": [
+      [
+        "FUT",
+        192030
+      ]
     ],
     "refs": [
       [
@@ -55446,7 +55597,14 @@
     "slots": [
       198927,
       198928,
-      198929
+      198929,
+      198930
+    ],
+    "tenses": [
+      [
+        "FUT",
+        198930
+      ]
     ],
     "refs": [
       [
@@ -55578,7 +55736,14 @@
     "slots": [
       199465,
       199466,
-      199467
+      199467,
+      199468
+    ],
+    "tenses": [
+      [
+        "FUT",
+        199468
+      ]
     ],
     "refs": [
       [
@@ -56113,7 +56278,14 @@
     "slots": [
       201267,
       201268,
-      201269
+      201269,
+      201270
+    ],
+    "tenses": [
+      [
+        "FUT",
+        201270
+      ]
     ],
     "refs": [
       [
@@ -57448,19 +57620,15 @@
       204508
     ],
     "slots": [
-      204508
+      204508,
+      204509
     ],
-    "GENDUR": {
-      "times": [
+    "quants": [
+      [
+        "GENDUR",
         204509
-      ],
-      "slots": [
-        204509
-      ],
-      "quals": [
-        "duration"
       ]
-    },
+    ],
     "quals": [
       "durative"
     ],
@@ -59426,6 +59594,9 @@
       210568,
       210569
     ],
+    "functions": [
+      "anterior"
+    ],
     "refs": [
       [
         "SFX",
@@ -60949,17 +61120,17 @@
       215384
     ],
     "slots": [
-      215384
+      215384,
+      215385
     ],
-    "NUM": {
-      "parse": 215385,
-      "phatom": 1036930,
-      "slots": [
+    "functions": [
+      "simultaneous"
+    ],
+    "quants": [
+      [
+        "NUMQ",
         215385
       ]
-    },
-    "functions": [
-      "atelic_ext, simultaneous"
     ]
   },
   "468896": {
@@ -62241,7 +62412,7 @@
       "durative"
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -63308,23 +63479,19 @@
     ],
     "slots": [
       223433,
-      223434
+      223434,
+      223435
     ],
     "quals": [
       "durative",
       "durative"
     ],
-    "GENDUR": {
-      "times": [
+    "quants": [
+      [
+        "GENDUR",
         223435
-      ],
-      "slots": [
-        223435
-      ],
-      "quals": [
-        "duration"
       ]
-    },
+    ],
     "functions": [
       "anterior_dur, simultaneous"
     ],
@@ -63608,7 +63775,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -63782,19 +63949,15 @@
     ],
     "slots": [
       225192,
-      225193
+      225193,
+      225194
     ],
-    "GENDUR": {
-      "times": [
+    "quants": [
+      [
+        "GENDUR",
         225194
-      ],
-      "slots": [
-        225194
-      ],
-      "quals": [
-        "duration"
       ]
-    },
+    ],
     "quals": [
       "durative"
     ],
@@ -64247,7 +64410,7 @@
       "durative"
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -64598,27 +64761,50 @@
   },
   "472148": {
     "times": [
-      228655
+      {
+        "times": [
+          228653
+        ],
+        "slots": [
+          228653
+        ],
+        "functions": [
+          "simultaneous"
+        ]
+      },
+      {
+        "times": [
+          228655
+        ],
+        "slots": [
+          228654,
+          228655
+        ],
+        "NUM": {
+          "parse": 228656,
+          "phatom": 1046027,
+          "slots": [
+            228656
+          ]
+        },
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            228654
+          ]
+        ]
+      }
     ],
     "slots": [
+      228653,
       228654,
       228655
     ],
-    "NUM": {
-      "parse": 228656,
-      "phatom": 1046027,
-      "slots": [
-        228656
-      ]
-    },
     "functions": [
-      "simultaneous"
-    ],
-    "preps": [
-      [
-        "B",
-        228654
-      ]
+      "multi_simul"
     ]
   },
   "472167": {
@@ -64639,7 +64825,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -64694,7 +64880,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -64836,6 +65022,7 @@
         ],
         "slots": [
           228902,
+          228903,
           228904
         ],
         "functions": [
@@ -64843,8 +65030,12 @@
         ],
         "preps": [
           [
-            "L PNH/",
+            "L",
             228902
+          ],
+          [
+            "PNH/",
+            228903
           ]
         ]
       }
@@ -64853,6 +65044,7 @@
       228899,
       228900,
       228902,
+      228903,
       228904
     ],
     "functions": [
@@ -64982,7 +65174,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -65372,7 +65564,7 @@
       "durative"
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -65767,7 +65959,24 @@
           233335
         ],
         "slots": [
+          233333,
+          233334,
           233335
+        ],
+        "refs": [
+          [
+            "THE",
+            233334
+          ]
+        ],
+        "quants": [
+          [
+            "ALL",
+            233333
+          ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -65808,20 +66017,7 @@
       "atelic_ext"
     ],
     "quals": [
-      "durative",
       "durative"
-    ],
-    "refs": [
-      [
-        "THE",
-        233334
-      ]
-    ],
-    "quants": [
-      [
-        "ALL",
-        233333
-      ]
     ]
   },
   "473491": {
@@ -65890,7 +66086,7 @@
       "durative"
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -65911,7 +66107,7 @@
       "durative"
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -66417,7 +66613,7 @@
       "durative"
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -69008,7 +69204,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -72693,7 +72889,27 @@
           264732
         ],
         "slots": [
-          264732
+          264731,
+          264732,
+          264733
+        ],
+        "refs": [
+          [
+            "GEN",
+            264733
+          ]
+        ],
+        "functions": [
+          "anterior_dur"
+        ],
+        "preps": [
+          [
+            "<D",
+            264731
+          ]
+        ],
+        "quals": [
+          "durative"
         ]
       },
       {
@@ -72706,6 +72922,7 @@
           264736
         ],
         "quals": [
+          "durative",
           "durative",
           "durative"
         ],
@@ -72720,6 +72937,9 @@
             "ALL",
             264734
           ]
+        ],
+        "functions": [
+          "atelic_ext"
         ]
       }
     ],
@@ -72732,23 +72952,7 @@
       264736
     ],
     "functions": [
-      "anterior_dur"
-    ],
-    "quals": [
-      "durative",
-      "durative"
-    ],
-    "refs": [
-      [
-        "GEN",
-        264733
-      ]
-    ],
-    "preps": [
-      [
-        "<D",
-        264731
-      ]
+      "antdur_dur"
     ]
   },
   "480003": {
@@ -73831,6 +74035,9 @@
     "slots": [
       275697,
       275698
+    ],
+    "functions": [
+      "anterior"
     ],
     "refs": [
       [
@@ -75515,7 +75722,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -78093,7 +78300,7 @@
       "durative"
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -78404,7 +78611,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -78599,7 +78806,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -79046,6 +79253,7 @@
       295408,
       295409,
       295410,
+      295411,
       295412,
       295413
     ],
@@ -79084,6 +79292,7 @@
             ],
             "slots": [
               295410,
+              295411,
               295412,
               295413
             ],
@@ -79098,8 +79307,12 @@
             ],
             "preps": [
               [
-                "L PNH/",
+                "L",
                 295410
+              ],
+              [
+                "PNH/",
+                295411
               ]
             ]
           }
@@ -79107,6 +79320,7 @@
         "slots": [
           295409,
           295410,
+          295411,
           295412,
           295413
         ],
@@ -80603,7 +80817,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -82370,8 +82584,15 @@
       305260
     ],
     "slots": [
+      305258,
       305259,
       305260
+    ],
+    "refs": [
+      [
+        "THIS",
+        305258
+      ]
     ],
     "quants": [
       [
@@ -82792,8 +83013,15 @@
       306798
     ],
     "slots": [
+      306796,
       306797,
       306798
+    ],
+    "refs": [
+      [
+        "THIS",
+        306796
+      ]
     ],
     "quants": [
       [
@@ -82898,6 +83126,7 @@
     ],
     "slots": [
       307153,
+      307154,
       307155,
       307156,
       307158
@@ -82920,8 +83149,12 @@
     ],
     "preps": [
       [
-        "L PNH/",
+        "L",
         307153
+      ],
+      [
+        "PNH/",
+        307154
       ]
     ]
   },
@@ -84936,19 +85169,15 @@
     ],
     "slots": [
       313960,
-      313961
+      313961,
+      313962
     ],
-    "GENDUR": {
-      "times": [
+    "quants": [
+      [
+        "GENDUR",
         313962
-      ],
-      "slots": [
-        313962
-      ],
-      "quals": [
-        "duration"
       ]
-    },
+    ],
     "quals": [
       "durative"
     ],
@@ -87070,19 +87299,15 @@
       322354
     ],
     "slots": [
-      322354
+      322354,
+      322355
     ],
-    "GENDUR": {
-      "times": [
+    "quants": [
+      [
+        "GENDUR",
         322355
-      ],
-      "slots": [
-        322355
-      ],
-      "quals": [
-        "duration"
       ]
-    },
+    ],
     "quals": [
       "durative"
     ],
@@ -88771,19 +88996,15 @@
     ],
     "slots": [
       326758,
-      326759
+      326759,
+      326760
     ],
-    "GENDUR": {
-      "times": [
+    "quants": [
+      [
+        "GENDUR",
         326760
-      ],
-      "slots": [
-        326760
-      ],
-      "quals": [
-        "duration"
       ]
-    },
+    ],
     "quals": [
       "durative"
     ],
@@ -89386,7 +89607,14 @@
     ],
     "slots": [
       330084,
-      330085
+      330085,
+      330086
+    ],
+    "seqs": [
+      [
+        "POST",
+        330086
+      ]
     ],
     "functions": [
       "simultaneous"
@@ -89893,20 +90121,20 @@
   },
   "496291": {
     "times": [
-      331772
+      331773
     ],
     "slots": [
       331772,
       331773
     ],
-    "refs": [
-      [
-        "GEN",
-        331773
-      ]
-    ],
     "functions": [
       "simultaneous"
+    ],
+    "preps": [
+      [
+        "MIDDLE",
+        331772
+      ]
     ]
   },
   "496305": {
@@ -91417,6 +91645,7 @@
     ],
     "slots": [
       338181,
+      338182,
       338183,
       338184
     ],
@@ -91434,8 +91663,12 @@
     ],
     "preps": [
       [
-        "L PNH/",
+        "L",
         338181
+      ],
+      [
+        "PNH/",
+        338182
       ]
     ]
   },
@@ -91445,6 +91678,7 @@
     ],
     "slots": [
       338215,
+      338216,
       338217
     ],
     "functions": [
@@ -91452,8 +91686,12 @@
     ],
     "preps": [
       [
-        "L PNH/",
+        "L",
         338215
+      ],
+      [
+        "PNH/",
+        338216
       ]
     ]
   },
@@ -92134,20 +92372,20 @@
   },
   "499821": {
     "times": [
-      344546
+      344547
     ],
     "slots": [
       344546,
       344547
     ],
-    "refs": [
-      [
-        "GEN",
-        344547
-      ]
-    ],
     "functions": [
       "simultaneous"
+    ],
+    "preps": [
+      [
+        "MIDDLE",
+        344546
+      ]
     ]
   },
   "499835": {
@@ -92814,7 +93052,7 @@
       "durative"
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -94593,6 +94831,9 @@
       362337,
       362338
     ],
+    "functions": [
+      "anterior"
+    ],
     "refs": [
       [
         "SFX",
@@ -94900,7 +95141,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -95011,7 +95252,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -96507,8 +96748,15 @@
       367410
     ],
     "slots": [
+      367408,
       367409,
       367410
+    ],
+    "refs": [
+      [
+        "THIS",
+        367408
+      ]
     ],
     "quants": [
       [
@@ -97521,17 +97769,7 @@
           369683
         ],
         "slots": [
-          369682,
           369683
-        ],
-        "quants": [
-          [
-            "ALL",
-            369682
-          ]
-        ],
-        "quals": [
-          "durative"
         ]
       },
       {
@@ -97553,7 +97791,14 @@
       "simultaneous"
     ],
     "quals": [
+      "durative",
       "durative"
+    ],
+    "quants": [
+      [
+        "ALL",
+        369682
+      ]
     ],
     "preps": [
       [
@@ -97569,17 +97814,7 @@
           369868
         ],
         "slots": [
-          369867,
           369868
-        ],
-        "quants": [
-          [
-            "ALL",
-            369867
-          ]
-        ],
-        "quals": [
-          "durative"
         ]
       },
       {
@@ -97601,7 +97836,14 @@
       "simultaneous"
     ],
     "quals": [
+      "durative",
       "durative"
+    ],
+    "quants": [
+      [
+        "ALL",
+        369867
+      ]
     ],
     "preps": [
       [
@@ -99391,7 +99633,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -103980,6 +104222,7 @@
     ],
     "slots": [
       390964,
+      390965,
       390966,
       390967
     ],
@@ -103994,8 +104237,12 @@
     ],
     "preps": [
       [
-        "L PNH/",
+        "L",
         390964
+      ],
+      [
+        "PNH/",
+        390965
       ]
     ]
   },
@@ -106220,6 +106467,7 @@
     ],
     "slots": [
       402616,
+      402617,
       402618
     ],
     "refs": [
@@ -106233,8 +106481,12 @@
     ],
     "preps": [
       [
-        "L PNH/",
+        "L",
         402616
+      ],
+      [
+        "PNH/",
+        402617
       ]
     ]
   },
@@ -110901,59 +111153,6 @@
       "multi_simul"
     ]
   },
-  "514360": {
-    "times": [
-      {
-        "times": [
-          418580
-        ],
-        "slots": [
-          418580
-        ],
-        "quals": [
-          "durative"
-        ]
-      },
-      {
-        "times": [
-          418582
-        ],
-        "slots": [
-          418581,
-          418582,
-          418583
-        ],
-        "quals": [
-          "durative",
-          "durative"
-        ],
-        "refs": [
-          [
-            "GEN",
-            418583
-          ]
-        ],
-        "quants": [
-          [
-            "ALL",
-            418581
-          ]
-        ]
-      }
-    ],
-    "slots": [
-      418580,
-      418581,
-      418582,
-      418583
-    ],
-    "functions": [
-      "atelic_ext"
-    ],
-    "quals": [
-      "durative"
-    ]
-  },
   "514364": {
     "times": [
       418598
@@ -112057,10 +112256,17 @@
     ],
     "slots": [
       422385,
-      422386
+      422386,
+      422387
     ],
-    "quals": [
+    "qualts": [
       "durative"
+    ],
+    "seqs": [
+      [
+        "POST",
+        422387
+      ]
     ],
     "quants": [
       [
@@ -112132,7 +112338,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [
@@ -112799,7 +113005,7 @@
       ]
     ],
     "functions": [
-      "posterior_dur"
+      "posterior, posterior_dur"
     ],
     "preps": [
       [

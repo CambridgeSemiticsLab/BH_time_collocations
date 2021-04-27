@@ -21,7 +21,7 @@ class PhraseAtomComposer:
         else:
             self.ph2parse = ph2parse
         
-        self.mom2kids = self.build_edges(editedges)
+        self.mom2kids, self.child2mom = self.build_edges(editedges)
     
    
     def build_edges(self, editedges):
@@ -70,7 +70,7 @@ class PhraseAtomComposer:
             
             # get data on this ph and its mother
             if ph in editedges:
-                mom, rela = editedges[ph]            
+                mom, rela = editedges[ph]['edge']
                 mom = tuple(sorted(mom))
             else:
                 rela = self.F.rela.v(ph)
@@ -98,8 +98,8 @@ class PhraseAtomComposer:
         for child, edge in child2mom.items():
             mom, rela = edge
             mom2kids[mom].append((child, rela))
-        
-        return mom2kids
+
+        return mom2kids, child2mom
         
     def get_parse(self, ph_atom):
         """Retrieve phrase atom parsing."""
@@ -252,12 +252,17 @@ def compose_phrases(paths, tf_api):
     # all of the atoms should cause them all to be grabbed
     for phrase in whole_phrases:
 
-        # skip phrases that have already been covered
-        if phrase in covered:
+        phatoms = L.d(phrase, 'phrase_atom')
+        head_atom = list(
+            a for a in phatoms
+                if a not in composer.child2mom
+        )
+        assert len(head_atom) < 2, f'phrase {phrase} has > 1 phatom that\'s a head!'
+        if head_atom:
+            comp_parse = composer.compose_phrase(head_atom[0])
+        else:
+            # skip phrases that are subsumed another another
             continue
-
-        first_atom = L.d(phrase, 'phrase_atom')[0]
-        comp_parse = composer.compose_phrase(first_atom)
 
         # re-wrap single-word parses
         if type(comp_parse) == int:
@@ -265,17 +270,13 @@ def compose_phrases(paths, tf_api):
 
         # some composed phrases have drawn in other 
         # phrases due to edges drawn between their 
-        # constituent atoms; So we must build an
-        # inventory of the phrases contained in the
-        # parse in order to add them to a skip
-        # list (avoiding double-parsing them), and 
-        # also for the sanity check below
+        # constituent atoms; So we keep track of those 
+        # phrase nodes that are stored under another
         if len(comp_parse) == 3:
             comp_slots = set(nt.get_slots(comp_parse))
         elif len(comp_parse) == 1:
             comp_slots = set(comp_parse)
         ph_nodes = set(L.u(w,'phrase')[0] for w in comp_slots)
-        covered |= ph_nodes
 
         # sanity check: 
         # compare slots in parse with slots in atom 
@@ -288,7 +289,7 @@ def compose_phrases(paths, tf_api):
                     f'orig: {ph_slots}; comp: {comp_slots}'
                 )
             else:
-                pass # phrase has been expanded
+                print(f'enlarging phrases {ph_nodes}') # phrase has been expanded
 
         # save the parse
         full_parses[phrase] = {
@@ -299,6 +300,3 @@ def compose_phrases(paths, tf_api):
     # export
     with open(paths['parsed_phrases'], 'w') as outfile:
         json.dump(full_parses, outfile, indent=2)
-
-#    whole_atoms= set(at for ph in whole_phrases for at in L.d(ph,'phrase_atom') if at in parsed_atoms)
-#    part_atoms = parsed_atoms - whole_atoms
