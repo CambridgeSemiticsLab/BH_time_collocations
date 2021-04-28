@@ -78,5 +78,62 @@
     "784830": {
         "function": "Time",
         "note": "Isa 47:9; רגע, mis-marked as Modi, this is a simul time, 'at a moment'"
+    },
+    "716784": {
+        "function": "Adju",
+        "note": "Josh 4:18; waters flowed 'as before'; not temporal"
+    },
+    "769411": {
+        "function": "Adju",
+        "note": "2 Kgs 13:5; 'as before'; not temporal"
+    },
+    "738919": {
+        "function": "Adju",
+        "note": "1 Sam 19:7; 'as before'; not temporal"
+    },
+    "739942": {
+        "function": "Adju",
+        "note": "1 Sam 21:6; 'as before'; not temporal"
+    },
+    "679379": {
+        "function": "Freq",
+        "note": "Exod 30:10; This is frequentive not time location / duration"
+    },
+    "679381": {
+        "function": "Freq",
+        "note": "Exod 30:10; This is frequentive not time location / duration"
+    },
+    "688339": {
+        "function": "Freq",
+        "note": "Lev 16:34; This is frequentive not time location / duration"
+    },
+    "690307": {
+        "function": "Adju",
+        "note": "Lev 23:16; how far one should count, not temporal"
+    },
+    "690470": {
+        "function": "Time",
+        "note": "Lev 23:34; orig. PreC—even though this is verbless clause, such cases are handled as Time elsewhere"
+    },
+    "691616": {
+        "function": "Adju",
+        "note": "Lev 26:18; No transs interprets as temporal"
+    },
+    "695140": {
+        "function": "Time",
+        "note": "Num 9:21; orig. PreC—even though this is verbless clause, such cases are handled as Time elsewhere"
+    },
+    "692763": {
+        "function": "Adju",
+        "note": "Num 2:31; 'set out last', this is sequential but not with respect to timeline"
+    },
+    "718078": {
+        "function": "Adju",
+        "note": "Josh 8:14; most take as locative; LXX omits; though Targum reads as ZMN, 'time'"
+    },
+    "738506": {
+        "function": "Adju",
+        "note": "1 Sam 18:10; comparative not temporal"
     }
+
 }

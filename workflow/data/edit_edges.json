@@ -246,5 +246,9 @@
     "1164817": {
         "edge": [[1164818], "ADJV"],
         "note": "ETCBC separated modifier; copied/pasted from query"
+    },
+    "1163424": {
+        "edge": [[410976], "GP"],
+        "note": "2 Chr 8:16, MWSD clearly belongs to JWM"
     }
 }
