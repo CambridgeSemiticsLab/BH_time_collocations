@@ -140,7 +140,7 @@ rule eval_times:
         parsed=rules.parse_times.output.parsed,
         translations="_private_/verse2text.json",
     params:
-        ntoget=100,
+        ntoget=200,
     output:
         todo="notebooks/time_evaluation/to_eval.ipynb",
         evaled="../results/parsing/time_evaled.json",

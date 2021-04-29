@@ -134,6 +134,57 @@
     "738506": {
         "function": "Adju",
         "note": "1 Sam 18:10; comparative not temporal"
+    },
+    "701681": {
+        "function": "PreC",
+        "note": "Num 28:14; the phrase belongs to prev phrase as part of genitive; 'חדש בחדו' is the complete idiom; =burnt offfering of each month"
+    },
+    "757950": {
+        "function": "Freq",
+        "note": "1 Kgs 10:22; this frequentive explains some L+time cx"
+    },
+    "774873": {
+        "function": "Spec",
+        "note": "Isa 4:6; seems to be adjectival to YL 'shadow'"
+    },
+    "777449": {
+        "function": "Spec",
+        "note": "Isa 16:3; Modifies YL 'shadow'"
+    },
+    "813900": {
+        "function": "Loca",
+        "note": "Ezek 22:30; locative / adjunctive"
+    },
+    "815023": {
+        "function": "Time",
+        "note": "Ezek 26:1; a year in a calendrical time; completely mislabeled"
+    },
+    "816065": {
+        "function": "Time",
+        "note": "Ezek 29:17; a year in a calendrical time; completely mislabeled"
+    },
+    "816351": {
+        "function": "Time",
+        "note": "Ezek 30:20; a year in a calendrical time; completely mislabeled"
+    },
+    "816440": {
+        "function": "Time",
+        "note": "Ezek 31:1; a year in a calendrical time; completely mislabeled"
+    },
+    "816664": {
+        "function": "Time",
+        "note": "Ezek 32:1; a year in a calendrical time; completely mislabeled"
+    },
+    "816782": {
+        "function": "Time",
+        "note": "Ezek 32:10; marked as Time elsewhwere"
+    },
+    "816853": {
+        "function": "Time",
+        "note": "Ezek 32:17; a year in a calendrical time; completely mislabeled"
+    },
+    "817341": {
+        "function": "Time",
+        "note": "Ezek 33:21; a year in a calendrical time; completely mislabeled"
     }
-
 }

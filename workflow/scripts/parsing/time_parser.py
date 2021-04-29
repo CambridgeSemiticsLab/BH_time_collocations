@@ -206,7 +206,7 @@ class TimeTokenizer:
 
             # genitival relations
             elif tag_rela(rela, 'GP'):
-                token = self.gen_token(phrase)
+                token = self.gen_token(phrase, paras)
                 if token:
                     yield token
 
@@ -441,7 +441,7 @@ class TimeTokenizer:
             tok = self.demon_map[adjv_lex]
             return self.sly_token(tok, src)
 
-    def gen_token(self, phrase):
+    def gen_token(self, phrase, paras):
         """Parse genitive phrase tokens."""
         src, tgt, rel = self.get_rela(phrase)
         gen_head = self.get_head(src)
@@ -470,9 +470,15 @@ class TimeTokenizer:
             and F.lex.v(gen_head) == F.lex.v(ph_head) 
         ):
             return self.sly_token('NUM', src)
-
+        
+        elif (
+            F.lex.v(gen_head) == 'XDC=/'
+            and F.lex.v(ph_head) == 'JWM/'
+        ):
+            paras.append(self.sly_token('MONTHREF', src))
+            paras.extend(self.tokenize(src, start=False))
         else:
-            return self.sly_token('GENREF', src)        
+            return self.sly_token('GENREF', src) 
 
     def quant_token(self, phrase):
         """Return quantifier tokens."""
@@ -665,6 +671,7 @@ class TimeParser(SlyParser):
         'TIMEAPPO',
         'YETDUR',
         'DISTAGO',
+        'MONTHREF'
     }
 
     def error(self, token):
@@ -686,11 +693,11 @@ class TimeParser(SlyParser):
        'posterior', 'atelic_simul', 'antdur_simul',
        'hab_simul', 'begin_to_end', 'multi_simul',
        'antpost_dur', 'posterior_dur', 'multi_postantdur',
-       'multi_antpost', 'multi_antdursim', 'dur_to_end',
+       'anterior_posterior', 'multi_antdursim', 'dur_to_end',
        'simul_posts', 'multi_posts', 'simul_to_end', 
        'dur_simul', 'month_ref', 
-       'cal_simul', 'oneday_simul', 'habitual', 
-       'multi', 'first_simul', 'simul_ref',
+       'cal_simul', 'habitual', 
+       'multi',  'simul_ref',
        'multi_begintoend', 'posterior_dist', 'anterior_dist',
        'simul_dur', 'postdur_dist', 'antdur_dur', 'dist_fut',
        'distfut_dur', 'dist_past', 'multi_simuls', 
@@ -703,10 +710,20 @@ class TimeParser(SlyParser):
         conv_nums('CALNUM', p)
         return p[0]
 
+    @_('oneday_simul')
+    def timephrase(self, p):
+        conv_nums('NUMQ', p)
+        return p[0]
+
     @_('ordn_simul')
     def timephrase(self, p):
         add_ref('ORDN', p[0]['ordn'], p[0])
         del p[0]['ordn']
+        return p[0]
+
+    @_('first_simul')
+    def timephrase(self, p):
+        del p[0]['ordn'] # treat it as stand-alone word
         return p[0]
 
     @_('timephrase TIMEAPPO timephrase')
@@ -936,14 +953,14 @@ class TimeParser(SlyParser):
         p[0]['functions'][0] = 'anterior_dur'
         return init_ctime(
             *p,
-            functions=['multi_postant'],
+            functions=['anterior_dur + anterior'],
         )
 
     @_('anterior posterior')
-    def multi_antpost(self, p):
+    def anterior_posterior(self, p):
         return init_ctime(
             *p,
-            functions=['multi_antpost'],
+            functions=['anterior + posterior'],
         )
 
     @_('antdur_simul antdur_simul')
@@ -962,7 +979,7 @@ class TimeParser(SlyParser):
     def antdur_dur(self, p):
         return init_ctime(
             *p,  
-            functions=['antdur_dur'],
+            functions=['anterior_dur + duration'],
         )
 
     @_('anterior_dur all_dur')
@@ -971,7 +988,7 @@ class TimeParser(SlyParser):
         add_qual('durative', p[1])
         return init_ctime(
             *p,  
-            functions=['antdur_dur'],
+            functions=['anterior_dur + duration'],
         )
 
     # 'in that day and after tomorrow'
@@ -1033,7 +1050,7 @@ class TimeParser(SlyParser):
     def dur_simul(self, p):
        return init_ctime(
             *p,
-            functions=['dur_simul'],
+            functions=['atelic_ext + simultaneous'],
         )
 
     @_('atelic_ext in_dur')
@@ -1041,7 +1058,7 @@ class TimeParser(SlyParser):
         p[1]['functions'][0] = 'simultaneous'
         return init_ctime(
             *p,
-            functions=['dur_simul'],
+            functions=['atelic_ext + simultaneous'],
         )
 
     # (cl)
@@ -1051,7 +1068,7 @@ class TimeParser(SlyParser):
     def simul_dur(self, p):
         return init_ctime(
             *p,
-            functions=['simul_dur']
+            functions=['simultaneous + atelic_ext']
         )         
 
     @_('Ø THE time num_dur')
@@ -1061,7 +1078,7 @@ class TimeParser(SlyParser):
         add_function('atelic_ext', p.num_dur)
         return init_ctime(
             p.time, p.num_dur,
-            functions=['simul_dur'],
+            functions=['simultaneous + atelic_ext'],
         )
 
     @_('L THE time num_dur')
@@ -1072,7 +1089,7 @@ class TimeParser(SlyParser):
         add_function('atelic_ext', p.num_dur)
         return init_ctime(
             p.time, p.num_dur,
-            functions=['simul_dur'],
+            functions=['simultaneous + atelic_ext'],
         )
 
     @_('in_dur atelic_ext')
@@ -1080,7 +1097,7 @@ class TimeParser(SlyParser):
         p[0]['functions'][0] = 'simultaneous'
         return init_ctime(
             *p,
-            functions=['simul_dur']
+            functions=['simultaneous + atelic_ext']
         )         
 
     @_('dist_fut atelic_ext')
@@ -1095,7 +1112,7 @@ class TimeParser(SlyParser):
     def postdur_dist(self, p):
         return init_ctime(
             *p,
-            functions=['postdur_dist'],
+            functions=['posterior + atelic_ext'],
         )
 
     # simul phrases followed by potential references
@@ -1360,6 +1377,7 @@ class TimeParser(SlyParser):
         # this is a work-around, but might be a better model
        'year_simul month_simul day_simul month_simul',
        'year_simul month_simul oneday_simul',
+       'year_simul day_simul',
     )
     def cal_simul(self, p):
         conv_nums('CALNUM', p)
@@ -1482,7 +1500,7 @@ class TimeParser(SlyParser):
 
     @_('L multi_time')
     def anterior_dur(self, p):
-        add_function('anteriod_dur', p[1])
+        add_function('anterior_dur', p[1])
         add_prep('L', p[0], p[1])
         add_qual('durative', p[1])
         p[1]['distributive'] = True
@@ -1490,7 +1508,7 @@ class TimeParser(SlyParser):
 
     @_('<D multi_time')
     def anterior_dur(self, p):
-        add_function('anteriod_dur', p[1])
+        add_function('anterior_dur', p[1])
         add_prep('<D', p[0], p[1])
         add_qual('durative', p[1])
         p[1]['distributive'] = True
@@ -1514,9 +1532,17 @@ class TimeParser(SlyParser):
 
     # -- anterior dur / simultaneous
     @_('L time', 'L duration', 'L num_dur',
-       'L first', 'L num_day', 'L one_day',
+       'L num_day', 'L one_day',
        'L all_dur')
     def antdur_simul(self, p):
+        conv_nums('NUMQ', p)
+        add_function('anterior_dur, simultaneous', p[1])
+        add_prep('L', p[0], p[1])
+        return p[1]
+
+    @_('L first')
+    def antdur_simul(self, p):
+        del p[1]['ordn']
         conv_nums('NUMQ', p)
         add_function('anterior_dur, simultaneous', p[1])
         add_prep('L', p[0], p[1])
@@ -1544,20 +1570,20 @@ class TimeParser(SlyParser):
     @_('L posts', 'L posterior_dur')
     def antpost_dur(self, p):
         p[1]['functions'][0] = 'posterior_dur' 
-        add_function('antpost_dur', p[1])
+        add_function('anterior_dur_past?', p[1])
         add_prep('L', p[0], p[1])
         return p[1] 
 
     @_('<D posts')
     def antpost_dur(self, p):
         p[1]['functions'][0] = 'posterior_dur' 
-        add_function('antpost_dur', p[1])
+        add_function('anterior_dur_past?', p[1])
         add_prep('<D', p[0], p[1])
         return p[1] 
 
     @_('<D posterior')
     def antpost_dur(self, p):
-        add_function('antpost_dur', p[1])
+        add_function('anterior_dur_past?', p[1])
         add_prep('<D', p[0], p[1])
         return p[1]
 
@@ -1721,10 +1747,15 @@ class TimeParser(SlyParser):
 
     @_('all_dur all_dur')
     def all_dur(self, p):
-        return init_ctime(
-            *p,
-            quals=['durative'],
-        )
+        if type(p[1]['times'][0]) == dict:
+            return mergetime(
+                p[0], p[1]
+            )
+        else:
+            return init_ctime(
+                *p,
+                quals=['durative'], 
+            )
 
     @_('ALL multi_time')
     def all_dur(self, p):
@@ -2156,6 +2187,12 @@ class TimeParser(SlyParser):
     @_('L month')
     def month_ref(self, p):
         add_prep('L', p[0], p[1])
+        add_function('reference', p[1])
+        p[1]['ref'] = 'MONTH'
+        return p[1]
+
+    @_('MONTHREF month')
+    def month_ref(self, p):
         add_function('reference', p[1])
         p[1]['ref'] = 'MONTH'
         return p[1]

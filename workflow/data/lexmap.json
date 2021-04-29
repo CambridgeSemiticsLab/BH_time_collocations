@@ -12,6 +12,7 @@
     "KL/": "ALL",
     "RB/": "MANY",
     "RBH/": "MANY",
+    "RB=/": "MANY",
     "<TH": "NOW",
     "TMJD/": "DURATION",
     "NYX/": "DURATION",

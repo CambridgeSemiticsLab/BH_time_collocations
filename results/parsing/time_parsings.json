@@ -2579,7 +2579,7 @@
       4525
     ],
     "functions": [
-      "postdur_dist"
+      "posterior + atelic_ext"
     ]
   },
   "428353": {
@@ -3419,15 +3419,6 @@
       5930,
       5931
     ],
-    "ordn": {
-      "lex": "R>CWN/",
-      "parse": 5931,
-      "phatom": 908149,
-      "slots": [
-        5931,
-        5930
-      ]
-    },
     "refs": [
       [
         "THE",
@@ -5320,15 +5311,6 @@
       14885,
       14886
     ],
-    "ordn": {
-      "lex": "R>CWN/",
-      "parse": 14886,
-      "phatom": 914183,
-      "slots": [
-        14886,
-        14885
-      ]
-    },
     "refs": [
       [
         "THE",
@@ -14393,25 +14375,35 @@
           51870,
           51871,
           51872,
-          51873,
           51874
         ],
         "refs": [
           [
-            "GEN",
-            [
-              [
-                51873,
-                51874,
-                "DEF"
+            "MONTH",
+            {
+              "times": [
+                51872
               ],
-              [
+              "slots": [
                 51871,
                 51872,
-                "DEF"
+                51874
               ],
-              "APPO"
-            ]
+              "refs": [
+                [
+                  "ORDN",
+                  51874
+                ],
+                [
+                  "THE",
+                  51871
+                ]
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "MONTH"
+            }
           ]
         ],
         "functions": [
@@ -14486,7 +14478,6 @@
       51870,
       51871,
       51872,
-      51873,
       51874,
       51875,
       51876,
@@ -17436,15 +17427,9 @@
     ],
     "slots": [
       65880,
-      65881
+      65881,
+      65882
     ],
-    "NUM": {
-      "parse": 65882,
-      "phatom": 945034,
-      "slots": [
-        65882
-      ]
-    },
     "functions": [
       "simultaneous"
     ],
@@ -17452,6 +17437,12 @@
       [
         "B",
         65880
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        65882
       ]
     ]
   },
@@ -18129,7 +18120,7 @@
       66555
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "440369": {
@@ -18288,7 +18279,7 @@
       66667
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "440383": {
@@ -18399,7 +18390,7 @@
       66719
     ],
     "functions": [
-      "dur_simul"
+      "atelic_ext + simultaneous"
     ]
   },
   "440387": {
@@ -21597,6 +21588,62 @@
     "times": [
       {
         "times": [
+          77515
+        ],
+        "slots": [
+          77513,
+          77514,
+          77515
+        ],
+        "refs": [
+          [
+            "THE",
+            77514
+          ]
+        ],
+        "quants": [
+          [
+            "ALL",
+            77513
+          ]
+        ],
+        "quals": [
+          "durative"
+        ]
+      },
+      {
+        "times": [
+          77518
+        ],
+        "slots": [
+          77517,
+          77518,
+          77519,
+          77520
+        ],
+        "duplicate": true,
+        "refs": [
+          [
+            "GEN",
+            [
+              77519,
+              77520,
+              "DEF"
+            ]
+          ]
+        ],
+        "quants": [
+          [
+            "ALL",
+            77517
+          ]
+        ],
+        "quals": [
+          "durative"
+        ]
+      },
+      {
+        "times": [
           77509
         ],
         "slots": [
@@ -21624,93 +21671,20 @@
         "quals": [
           "durative"
         ]
-      },
-      {
-        "times": [
-          {
-            "times": [
-              77515
-            ],
-            "slots": [
-              77513,
-              77514,
-              77515
-            ],
-            "refs": [
-              [
-                "THE",
-                77514
-              ]
-            ],
-            "quants": [
-              [
-                "ALL",
-                77513
-              ]
-            ],
-            "quals": [
-              "durative"
-            ]
-          },
-          {
-            "times": [
-              77518
-            ],
-            "slots": [
-              77517,
-              77518,
-              77519,
-              77520
-            ],
-            "duplicate": true,
-            "refs": [
-              [
-                "GEN",
-                [
-                  77519,
-                  77520,
-                  "DEF"
-                ]
-              ]
-            ],
-            "quants": [
-              [
-                "ALL",
-                77517
-              ]
-            ],
-            "quals": [
-              "durative"
-            ]
-          }
-        ],
-        "slots": [
-          77513,
-          77514,
-          77515,
-          77517,
-          77518,
-          77519,
-          77520
-        ],
-        "functions": [],
-        "quals": [
-          "durative"
-        ]
       }
     ],
     "slots": [
-      77507,
-      77508,
-      77509,
-      77511,
       77513,
       77514,
       77515,
       77517,
       77518,
       77519,
-      77520
+      77520,
+      77507,
+      77508,
+      77509,
+      77511
     ],
     "functions": [
       "atelic_ext"
@@ -23595,70 +23569,6 @@
       ]
     ]
   },
-  "444088": {
-    "times": [
-      87603
-    ],
-    "slots": [
-      87602,
-      87603,
-      87604,
-      87605,
-      87606,
-      87607
-    ],
-    "refs": [
-      [
-        "SFX",
-        87603
-      ],
-      [
-        "TIME",
-        {
-          "times": [
-            87605
-          ],
-          "slots": [
-            87604,
-            87605,
-            87606,
-            87607
-          ],
-          "quals": [
-            "durative"
-          ],
-          "refs": [
-            [
-              "GEN",
-              [
-                87606,
-                87607,
-                "DEF"
-              ]
-            ]
-          ],
-          "functions": [
-            "anterior_dur, simultaneous"
-          ],
-          "preps": [
-            [
-              "L",
-              87604
-            ]
-          ]
-        }
-      ]
-    ],
-    "functions": [
-      "simultaneous"
-    ],
-    "preps": [
-      [
-        "B",
-        87602
-      ]
-    ]
-  },
   "444093": {
     "times": [
       87651
@@ -23737,7 +23647,7 @@
       87746
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "444110": {
@@ -26456,7 +26366,7 @@
       ]
     ],
     "functions": [
-      "antpost_dur",
+      "anterior_dur_past?",
       "posterior_dur"
     ],
     "preps": [
@@ -31717,15 +31627,6 @@
       116930,
       116931
     ],
-    "ordn": {
-      "lex": "R>CWN/",
-      "parse": 116931,
-      "phatom": 975013,
-      "slots": [
-        116931,
-        116930
-      ]
-    },
     "refs": [
       [
         "THE",
@@ -31751,15 +31652,6 @@
       116953,
       116954
     ],
-    "ordn": {
-      "lex": "R>CWN/",
-      "parse": 116954,
-      "phatom": 975028,
-      "slots": [
-        116954,
-        116953
-      ]
-    },
     "refs": [
       [
         "THE",
@@ -32016,15 +31908,6 @@
       117688,
       117689
     ],
-    "ordn": {
-      "lex": "R>CWN/",
-      "parse": 117689,
-      "phatom": 975439,
-      "slots": [
-        117689,
-        117688
-      ]
-    },
     "refs": [
       [
         "THE",
@@ -32446,7 +32329,7 @@
       118708
     ],
     "functions": [
-      "multi_antpost"
+      "anterior + posterior"
     ]
   },
   "449819": {
@@ -35493,7 +35376,7 @@
       132759
     ],
     "functions": [
-      "dur_simul"
+      "atelic_ext + simultaneous"
     ]
   },
   "452229": {
@@ -36334,7 +36217,7 @@
       135381
     ],
     "functions": [
-      "dur_simul"
+      "atelic_ext + simultaneous"
     ]
   },
   "452672": {
@@ -37128,7 +37011,7 @@
       137200
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "453064": {
@@ -37573,15 +37456,6 @@
       139037,
       139038
     ],
-    "ordn": {
-      "lex": "R>CWN/",
-      "parse": 139038,
-      "phatom": 988126,
-      "slots": [
-        139038,
-        139037
-      ]
-    },
     "refs": [
       [
         "THE",
@@ -39233,15 +39107,9 @@
     ],
     "slots": [
       142807,
-      142808
+      142808,
+      142809
     ],
-    "NUM": {
-      "parse": 142809,
-      "phatom": 990534,
-      "slots": [
-        142809
-      ]
-    },
     "functions": [
       "simultaneous"
     ],
@@ -39249,6 +39117,12 @@
       [
         "B",
         142807
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        142809
       ]
     ]
   },
@@ -40525,7 +40399,7 @@
       145992
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "454918": {
@@ -43077,25 +42951,35 @@
       154162,
       154163,
       154164,
-      154165,
       154166
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            154165,
-            154166,
-            "DEF"
+        "MONTH",
+        {
+          "times": [
+            154164
           ],
-          [
+          "slots": [
             154163,
             154164,
-            "DEF"
+            154166
           ],
-          "APPO"
-        ]
+          "refs": [
+            [
+              "ORDN",
+              154166
+            ],
+            [
+              "THE",
+              154163
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "MONTH"
+        }
       ]
     ],
     "functions": [
@@ -46317,15 +46201,6 @@
       164181,
       164182
     ],
-    "ordn": {
-      "lex": "R>CWN/",
-      "parse": 164182,
-      "phatom": 1004634,
-      "slots": [
-        164182,
-        164181
-      ]
-    },
     "refs": [
       [
         "THE",
@@ -46359,7 +46234,7 @@
       ]
     ],
     "functions": [
-      "antpost_dur",
+      "anterior_dur_past?",
       "posterior_dur"
     ],
     "preps": [
@@ -48604,15 +48479,6 @@
       173537,
       173538
     ],
-    "ordn": {
-      "lex": "R>CWN/",
-      "parse": 173538,
-      "phatom": 1010831,
-      "slots": [
-        173538,
-        173537
-      ]
-    },
     "refs": [
       [
         "THE",
@@ -48691,7 +48557,7 @@
       173719
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ],
     "timeappos": [
       {
@@ -51283,7 +51149,7 @@
       183625
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "462474": {
@@ -51627,69 +51493,6 @@
         "B",
         184822
       ]
-    ]
-  },
-  "462655": {
-    "times": [
-      {
-        "times": [
-          184839
-        ],
-        "slots": [
-          184839
-        ],
-        "NUM": {
-          "lex": ">XD/",
-          "parse": 184839,
-          "phatom": 1017541,
-          "slots": [
-            184839
-          ]
-        },
-        "functions": [
-          "simultaneous"
-        ]
-      },
-      {
-        "times": [
-          184842
-        ],
-        "slots": [
-          184840,
-          184841,
-          184842
-        ],
-        "quals": [
-          "durative"
-        ],
-        "quants": [
-          [
-            "NUMQ",
-            184841
-          ]
-        ],
-        "functions": [
-          "simultaneous"
-        ],
-        "preps": [
-          [
-            "L",
-            184840
-          ]
-        ]
-      }
-    ],
-    "slots": [
-      184839,
-      184840,
-      184841,
-      184842
-    ],
-    "functions": [
-      "habitual, multi_simul"
-    ],
-    "quals": [
-      "distributive"
     ]
   },
   "462686": {
@@ -53175,7 +52978,7 @@
       189039
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "463478": {
@@ -53267,7 +53070,7 @@
       189229
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "463485": {
@@ -53442,7 +53245,7 @@
       189370
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "463511": {
@@ -53588,7 +53391,7 @@
       189562
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "463541": {
@@ -53852,15 +53655,6 @@
       190073,
       190074
     ],
-    "ordn": {
-      "lex": "R>CWN/",
-      "parse": 190074,
-      "phatom": 1020848,
-      "slots": [
-        190074,
-        190073
-      ]
-    },
     "refs": [
       [
         "THE",
@@ -54611,15 +54405,9 @@
     ],
     "slots": [
       192625,
-      192626
+      192626,
+      192627
     ],
-    "NUM": {
-      "parse": 192627,
-      "phatom": 1022578,
-      "slots": [
-        192627
-      ]
-    },
     "functions": [
       "simultaneous"
     ],
@@ -54627,6 +54415,12 @@
       [
         "B",
         192625
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        192627
       ]
     ]
   },
@@ -57193,7 +56987,7 @@
       203102
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "466617": {
@@ -57322,7 +57116,7 @@
       203291
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "466688": {
@@ -57626,7 +57420,7 @@
       204027
     ],
     "functions": [
-      "postdur_dist"
+      "posterior + atelic_ext"
     ]
   },
   "466799": {
@@ -57737,7 +57531,7 @@
       204130
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "466823": {
@@ -57950,7 +57744,7 @@
       204421
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "466862": {
@@ -58125,7 +57919,7 @@
       204595
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "466880": {
@@ -58235,7 +58029,7 @@
       204725
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "466909": {
@@ -58329,7 +58123,7 @@
       204815
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "466914": {
@@ -58785,7 +58579,7 @@
       205588
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "467036": {
@@ -59422,7 +59216,7 @@
       ]
     ],
     "functions": [
-      "antpost_dur",
+      "anterior_dur_past?",
       "posterior_dur"
     ],
     "preps": [
@@ -61096,20 +60890,6 @@
       "simultaneous"
     ]
   },
-  "468426": {
-    "times": [
-      213408
-    ],
-    "slots": [
-      213408
-    ],
-    "quals": [
-      "durative"
-    ],
-    "functions": [
-      "atelic_ext"
-    ]
-  },
   "468438": {
     "times": [
       213464
@@ -61566,15 +61346,9 @@
     ],
     "slots": [
       215834,
-      215835
+      215835,
+      215836
     ],
-    "NUM": {
-      "parse": 215836,
-      "phatom": 1037238,
-      "slots": [
-        215836
-      ]
-    },
     "functions": [
       "simultaneous"
     ],
@@ -61582,6 +61356,12 @@
       [
         "B",
         215834
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        215836
       ]
     ]
   },
@@ -61830,7 +61610,7 @@
       216779
     ],
     "functions": [
-      "anteriod_dur"
+      "anterior_dur"
     ],
     "preps": [
       [
@@ -61896,39 +61676,6 @@
       [
         "B",
         217244
-      ]
-    ]
-  },
-  "469328": {
-    "times": [
-      217504
-    ],
-    "slots": [
-      217502,
-      217503,
-      217504
-    ],
-    "quants": [
-      [
-        "NUMQ",
-        217504
-      ]
-    ],
-    "quals": [
-      "durative"
-    ],
-    "functions": [
-      "simultaneous",
-      "simultaneous"
-    ],
-    "preps": [
-      [
-        "B",
-        217502
-      ],
-      [
-        "MIDDLE",
-        217503
       ]
     ]
   },
@@ -62808,10 +62555,18 @@
     ],
     "slots": [
       220030,
+      220031,
       220032
     ],
     "quals": [
+      "durative",
       "durative"
+    ],
+    "quants": [
+      [
+        "MANY",
+        220031
+      ]
     ],
     "functions": [
       "posterior, posterior_dur"
@@ -63958,7 +63713,7 @@
       223563
     ],
     "functions": [
-      "anteriod_dur"
+      "anterior_dur"
     ],
     "preps": [
       [
@@ -64150,7 +63905,7 @@
       224753
     ],
     "functions": [
-      "antpost_dur",
+      "anterior_dur_past?",
       "posterior_dur"
     ],
     "preps": [
@@ -65462,7 +65217,7 @@
       228904
     ],
     "functions": [
-      "multi_postant"
+      "anterior_dur + anterior"
     ]
   },
   "472231": {
@@ -65831,15 +65586,6 @@
       230355,
       230356
     ],
-    "ordn": {
-      "lex": "R>CWN/",
-      "parse": 230356,
-      "phatom": 1047303,
-      "slots": [
-        230356,
-        230355
-      ]
-    },
     "refs": [
       [
         "THE",
@@ -66694,15 +66440,9 @@
     ],
     "slots": [
       234622,
-      234623
+      234623,
+      234624
     ],
-    "NUM": {
-      "parse": 234624,
-      "phatom": 1050393,
-      "slots": [
-        234624
-      ]
-    },
     "functions": [
       "simultaneous"
     ],
@@ -66710,6 +66450,12 @@
       [
         "B",
         234622
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        234624
       ]
     ]
   },
@@ -67776,15 +67522,6 @@
       238427,
       238428
     ],
-    "ordn": {
-      "lex": "R>CWN/",
-      "parse": 238428,
-      "phatom": 1053025,
-      "slots": [
-        238428,
-        238427
-      ]
-    },
     "refs": [
       [
         "THE",
@@ -72458,7 +72195,7 @@
       262592
     ],
     "functions": [
-      "anteriod_dur"
+      "anterior_dur"
     ],
     "preps": [
       [
@@ -73401,7 +73138,7 @@
       264736
     ],
     "functions": [
-      "antdur_dur"
+      "anterior_dur + duration"
     ]
   },
   "480003": {
@@ -74478,30 +74215,6 @@
       "posterior"
     ]
   },
-  "482530": {
-    "times": [
-      275698
-    ],
-    "slots": [
-      275697,
-      275698
-    ],
-    "functions": [
-      "anterior"
-    ],
-    "refs": [
-      [
-        "SFX",
-        275698
-      ]
-    ],
-    "preps": [
-      [
-        "L",
-        275697
-      ]
-    ]
-  },
   "482542": {
     "times": [
       275743
@@ -74902,58 +74615,106 @@
   },
   "482924": {
     "times": [
-      277404
+      {
+        "times": [
+          277402
+        ],
+        "slots": [
+          277399,
+          277400,
+          277401,
+          277402
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            277399
+          ]
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              277400,
+              277401,
+              "CARDC"
+            ]
+          ]
+        ]
+      },
+      {
+        "times": [
+          277404
+        ],
+        "slots": [
+          277403,
+          277404,
+          277405,
+          277406,
+          277407
+        ],
+        "refs": [
+          [
+            "MONTH",
+            {
+              "times": [
+                277407
+              ],
+              "slots": [
+                277405,
+                277406,
+                277407
+              ],
+              "refs": [
+                [
+                  "THE",
+                  277406
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  277405
+                ]
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "MONTH"
+            }
+          ],
+          [
+            "CALNUM",
+            277404
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            277403
+          ]
+        ]
+      }
     ],
     "slots": [
+      277399,
+      277400,
+      277401,
+      277402,
       277403,
       277404,
       277405,
       277406,
       277407
     ],
-    "refs": [
-      [
-        "MONTH",
-        {
-          "times": [
-            277407
-          ],
-          "slots": [
-            277405,
-            277406,
-            277407
-          ],
-          "refs": [
-            [
-              "THE",
-              277406
-            ]
-          ],
-          "preps": [
-            [
-              "L",
-              277405
-            ]
-          ],
-          "functions": [
-            "reference"
-          ],
-          "ref": "MONTH"
-        }
-      ],
-      [
-        "CALNUM",
-        277404
-      ]
-    ],
     "functions": [
-      "simultaneous"
-    ],
-    "preps": [
-      [
-        "B",
-        277403
-      ]
+      "cal_simul"
     ]
   },
   "483013": {
@@ -75371,6 +75132,36 @@
     "times": [
       {
         "times": [
+          279624
+        ],
+        "slots": [
+          279621,
+          279622,
+          279623,
+          279624
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            279621
+          ]
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              279622,
+              279623,
+              "CARDC"
+            ]
+          ]
+        ]
+      },
+      {
+        "times": [
           279627
         ],
         "slots": [
@@ -75456,6 +75247,10 @@
       }
     ],
     "slots": [
+      279621,
+      279622,
+      279623,
+      279624,
       279625,
       279626,
       279627,
@@ -75471,6 +75266,36 @@
   },
   "483417": {
     "times": [
+      {
+        "times": [
+          279780
+        ],
+        "slots": [
+          279777,
+          279778,
+          279779,
+          279780
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            279777
+          ]
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              279778,
+              279779,
+              "CARDC"
+            ]
+          ]
+        ]
+      },
       {
         "times": [
           279783
@@ -75558,6 +75383,10 @@
       }
     ],
     "slots": [
+      279777,
+      279778,
+      279779,
+      279780,
       279781,
       279782,
       279783,
@@ -75573,6 +75402,36 @@
   },
   "483486": {
     "times": [
+      {
+        "times": [
+          280182
+        ],
+        "slots": [
+          280179,
+          280180,
+          280181,
+          280182
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            280179
+          ]
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              280180,
+              280181,
+              "CARDC"
+            ]
+          ]
+        ]
+      },
       {
         "times": [
           280186
@@ -75661,6 +75520,10 @@
       }
     ],
     "slots": [
+      280179,
+      280180,
+      280181,
+      280182,
       280183,
       280184,
       280185,
@@ -75677,83 +75540,163 @@
   },
   "483525": {
     "times": [
-      280372
+      {
+        "times": [
+          280367
+        ],
+        "slots": [
+          280366,
+          280367
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "L",
+            280366
+          ]
+        ]
+      },
+      {
+        "times": [
+          280372
+        ],
+        "slots": [
+          280371,
+          280372,
+          280373
+        ],
+        "refs": [
+          [
+            "GEN",
+            280373
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            280371
+          ]
+        ]
+      }
     ],
     "slots": [
+      280366,
+      280367,
       280371,
       280372,
       280373
     ],
-    "refs": [
-      [
-        "GEN",
-        280373
-      ]
-    ],
     "functions": [
-      "simultaneous"
-    ],
-    "preps": [
-      [
-        "B",
-        280371
-      ]
+      "multi_simul"
     ]
   },
   "483550": {
     "times": [
-      280482
+      {
+        "times": [
+          280479
+        ],
+        "slots": [
+          280476,
+          280477,
+          280478,
+          280479
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            280476
+          ]
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              280477,
+              280478,
+              "CARDC"
+            ]
+          ]
+        ]
+      },
+      {
+        "times": [
+          280482
+        ],
+        "slots": [
+          280480,
+          280482,
+          280483,
+          280484,
+          280485
+        ],
+        "refs": [
+          [
+            "MONTH",
+            {
+              "times": [
+                280485
+              ],
+              "slots": [
+                280483,
+                280484,
+                280485
+              ],
+              "refs": [
+                [
+                  "THE",
+                  280484
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  280483
+                ]
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "MONTH"
+            }
+          ],
+          [
+            "CALNUM",
+            280482
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            280480
+          ]
+        ]
+      }
     ],
     "slots": [
+      280476,
+      280477,
+      280478,
+      280479,
       280480,
       280482,
       280483,
       280484,
       280485
     ],
-    "refs": [
-      [
-        "MONTH",
-        {
-          "times": [
-            280485
-          ],
-          "slots": [
-            280483,
-            280484,
-            280485
-          ],
-          "refs": [
-            [
-              "THE",
-              280484
-            ]
-          ],
-          "preps": [
-            [
-              "L",
-              280483
-            ]
-          ],
-          "functions": [
-            "reference"
-          ],
-          "ref": "MONTH"
-        }
-      ],
-      [
-        "CALNUM",
-        280482
-      ]
-    ],
     "functions": [
-      "simultaneous"
-    ],
-    "preps": [
-      [
-        "B",
-        280480
-      ]
+      "cal_simul"
     ]
   },
   "483686": {
@@ -75783,6 +75726,36 @@
   },
   "483731": {
     "times": [
+      {
+        "times": [
+          281215
+        ],
+        "slots": [
+          281212,
+          281213,
+          281214,
+          281215
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            281212
+          ]
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              281213,
+              281214,
+              "CARDC"
+            ]
+          ]
+        ]
+      },
       {
         "times": [
           281218
@@ -75870,6 +75843,10 @@
       }
     ],
     "slots": [
+      281212,
+      281213,
+      281214,
+      281215,
       281216,
       281217,
       281218,
@@ -76354,7 +76331,7 @@
       284197
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "484415": {
@@ -77341,7 +77318,7 @@
           289007
         ],
         "functions": [
-          "simul_dur"
+          "simultaneous + atelic_ext"
         ]
       }
     ]
@@ -77552,7 +77529,7 @@
           289051
         ],
         "functions": [
-          "simul_dur"
+          "simultaneous + atelic_ext"
         ]
       }
     ]
@@ -77632,12 +77609,26 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          289093,
-          289094,
-          "DEF"
-        ]
+        "MONTH",
+        {
+          "times": [
+            289094
+          ],
+          "slots": [
+            289093,
+            289094
+          ],
+          "refs": [
+            [
+              "THE",
+              289093
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "MONTH"
+        }
       ]
     ],
     "functions": [
@@ -77794,12 +77785,26 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          289198,
-          289199,
-          "DEF"
-        ]
+        "MONTH",
+        {
+          "times": [
+            289199
+          ],
+          "slots": [
+            289198,
+            289199
+          ],
+          "refs": [
+            [
+              "THE",
+              289198
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "MONTH"
+        }
       ]
     ],
     "functions": [
@@ -79591,7 +79596,7 @@
       295372
     ],
     "functions": [
-      "anteriod_dur"
+      "anterior_dur"
     ],
     "preps": [
       [
@@ -82747,7 +82752,7 @@
               ]
             ],
             "functions": [
-              "antpost_dur",
+              "anterior_dur_past?",
               "posterior_dur"
             ],
             "preps": [
@@ -83108,15 +83113,9 @@
     ],
     "slots": [
       305863,
-      305864
+      305864,
+      305865
     ],
-    "NUM": {
-      "parse": 305865,
-      "phatom": 1095713,
-      "slots": [
-        305865
-      ]
-    },
     "functions": [
       "simultaneous"
     ],
@@ -83124,6 +83123,12 @@
       [
         "B",
         305863
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        305865
       ]
     ]
   },
@@ -84627,7 +84632,7 @@
       ]
     ],
     "functions": [
-      "antpost_dur",
+      "anterior_dur_past?",
       "posterior_dur"
     ],
     "preps": [
@@ -85163,7 +85168,7 @@
       311828
     ],
     "functions": [
-      "anteriod_dur"
+      "anterior_dur"
     ],
     "preps": [
       [
@@ -85264,7 +85269,7 @@
       312162
     ],
     "functions": [
-      "antdur_dur"
+      "anterior_dur + duration"
     ]
   },
   "490676": {
@@ -85957,7 +85962,7 @@
       315470
     ],
     "functions": [
-      "anteriod_dur"
+      "anterior_dur"
     ],
     "preps": [
       [
@@ -88256,7 +88261,7 @@
       323343
     ],
     "functions": [
-      "anteriod_dur"
+      "anterior_dur"
     ],
     "preps": [
       [
@@ -88449,7 +88454,7 @@
           324405
         ],
         "functions": [
-          "anteriod_dur"
+          "anterior_dur"
         ],
         "preps": [
           [
@@ -88665,7 +88670,7 @@
       325195
     ],
     "functions": [
-      "anteriod_dur"
+      "anterior_dur"
     ],
     "preps": [
       [
@@ -88909,7 +88914,7 @@
       325734
     ],
     "functions": [
-      "anteriod_dur"
+      "anterior_dur"
     ],
     "preps": [
       [
@@ -88984,7 +88989,7 @@
       325765
     ],
     "functions": [
-      "anteriod_dur"
+      "anterior_dur"
     ],
     "preps": [
       [
@@ -89995,7 +90000,7 @@
           329268
         ],
         "functions": [
-          "anteriod_dur"
+          "anterior_dur"
         ],
         "preps": [
           [
@@ -93089,7 +93094,7 @@
       346915
     ],
     "functions": [
-      "postdur_dist"
+      "posterior + atelic_ext"
     ]
   },
   "500484": {
@@ -95584,16 +95589,24 @@
     ],
     "slots": [
       363031,
+      363032,
       363033,
       363034
     ],
     "quals": [
+      "durative",
       "durative"
     ],
     "refs": [
       [
         "THE",
         363033
+      ]
+    ],
+    "quants": [
+      [
+        "MANY",
+        363032
       ]
     ],
     "functions": [
@@ -97154,7 +97167,7 @@
       366839
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "505479": {
@@ -99302,7 +99315,7 @@
       376480
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "507409": {
@@ -101768,7 +101781,7 @@
       383560
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "508602": {
@@ -105001,7 +105014,7 @@
       ]
     ],
     "functions": [
-      "antpost_dur",
+      "anterior_dur_past?",
       "posterior"
     ],
     "preps": [
@@ -106700,7 +106713,7 @@
       "durative"
     ],
     "functions": [
-      "antpost_dur",
+      "anterior_dur_past?",
       "posterior_dur"
     ],
     "preps": [
@@ -108726,7 +108739,7 @@
       410227
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "512921": {
@@ -109228,7 +109241,7 @@
           410898
         ],
         "functions": [
-          "dur_simul"
+          "atelic_ext + simultaneous"
         ],
         "timeappos": [
           {
@@ -110381,7 +110394,7 @@
       413496
     ],
     "functions": [
-      "simul_dur"
+      "simultaneous + atelic_ext"
     ]
   },
   "513467": {
@@ -112130,7 +112143,7 @@
       419530
     ],
     "functions": [
-      "postdur_dist"
+      "posterior + atelic_ext"
     ]
   },
   "514549": {
@@ -112352,15 +112365,9 @@
     ],
     "slots": [
       420445,
-      420446
+      420446,
+      420447
     ],
-    "NUM": {
-      "parse": 420447,
-      "phatom": 1168944,
-      "slots": [
-        420447
-      ]
-    },
     "functions": [
       "simultaneous"
     ],
@@ -112368,6 +112375,12 @@
       [
         "B",
         420445
+      ]
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        420447
       ]
     ]
   },
