@@ -13293,5 +13293,2902 @@
   ],
   "503141": [],
   "503149": [],
-  "503150": []
+  "503150": [],
+  "503180": [],
+  "503225": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur_past?"
+      ]
+    ]
+  ],
+  "503234": [],
+  "503241": [],
+  "503260": [],
+  "503315": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "telic_ext, dist_fut, dist_past",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "503403": [],
+  "503447": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "multi_simul"
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quals",
+          [
+            "distributive"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "503716": [],
+  "503724": [],
+  "503750": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "503844": [
+    [
+      "add",
+      "",
+      [
+        [
+          "quants",
+          [
+            [
+              "NUMBER",
+              359639
+            ]
+          ]
+        ]
+      ]
+    ]
+  ],
+  "503893": [],
+  "503896": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "503928": [],
+  "504214": [],
+  "504223": [
+    [
+      "add",
+      "",
+      [
+        [
+          "quants",
+          [
+            [
+              "NUMBER",
+              361187
+            ]
+          ]
+        ]
+      ]
+    ]
+  ],
+  "504249": [],
+  "504262": [],
+  "504331": [],
+  "504332": [],
+  "504335": [],
+  "504345": [],
+  "504464": [],
+  "504486": [],
+  "504514": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "504520": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "regular_recurrence"
+      ]
+    ]
+  ],
+  "504616": [],
+  "504620": [],
+  "504632": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "telic_ext"
+      ]
+    ]
+  ],
+  "504652": [],
+  "504653": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "504663": [],
+  "504677": [],
+  "504743": [],
+  "504766": [],
+  "504767": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "504804": [],
+  "504810": [],
+  "504867": [],
+  "504951": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "504958": [],
+  "504974": [],
+  "504978": [],
+  "504987": [],
+  "505010": [],
+  "505028": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual"
+      ]
+    ]
+  ],
+  "505046": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "505095": [],
+  "505110": [],
+  "505252": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "505262": [],
+  "505265": [],
+  "505269": [],
+  "505270": [],
+  "505284": [],
+  "505313": [],
+  "505334": [],
+  "505357": [],
+  "505372": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "regular_recurrence"
+      ]
+    ]
+  ],
+  "505386": [],
+  "505387": [],
+  "505398": [],
+  "505413": [],
+  "505424": [],
+  "505438": [
+    [
+      "remove",
+      [
+        "times",
+        0
+      ],
+      [
+        [
+          "functions",
+          [
+            "simultaneous, atelic_ext"
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      [
+        "times",
+        1
+      ],
+      [
+        [
+          "functions",
+          [
+            "simultaneous, atelic_ext"
+          ]
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "multi_simuls, atelic_ext",
+        "habitual"
+      ]
+    ]
+  ],
+  "505479": [],
+  "505497": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_limitive?"
+      ]
+    ]
+  ],
+  "505558": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "atelic_ext",
+        "dist_posterior"
+      ]
+    ]
+  ],
+  "505566": [],
+  "505586": [],
+  "505606": [],
+  "505628": [],
+  "505629": [],
+  "505645": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "505647": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "regular_recurrence?"
+      ]
+    ]
+  ],
+  "505652": [],
+  "505657": [],
+  "505732": [],
+  "505785": [],
+  "505828": [],
+  "505854": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_limitive?"
+      ]
+    ]
+  ],
+  "505895": [],
+  "505908": [],
+  "505916": [],
+  "505926": [],
+  "505942": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "regular_recurrence"
+      ]
+    ]
+  ],
+  "505973": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "regular_recurrence"
+      ]
+    ]
+  ],
+  "505981": [],
+  "505995": [],
+  "506012": [],
+  "506013": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior"
+      ]
+    ]
+  ],
+  "506035": [],
+  "506046": [],
+  "506047": [
+    [
+      "remove",
+      "functions",
+      [
+        [
+          1,
+          "simultaneous"
+        ]
+      ]
+    ]
+  ],
+  "507094": [],
+  "507156": [],
+  "507186": [],
+  "507198": [],
+  "507224": [],
+  "507226": [],
+  "507284": [],
+  "507293": [],
+  "507320": [],
+  "507327": [],
+  "507347": [],
+  "507356": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "atelic_ext, simultaneous",
+        "purposive_ext"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "quals",
+          [
+            "durative"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "507357": [],
+  "507361": [],
+  "507367": [
+    [
+      "add",
+      [
+        "times",
+        1,
+        "quants"
+      ],
+      [
+        [
+          1,
+          [
+            "GENDUR",
+            376481
+          ]
+        ]
+      ]
+    ]
+  ],
+  "507409": [],
+  "507415": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "507420": [],
+  "507427": [],
+  "507443": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior"
+      ]
+    ]
+  ],
+  "507463": [],
+  "507473": [],
+  "507474": [],
+  "507494": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "507500": [],
+  "507507": [],
+  "507529": [
+    [
+      "add",
+      [
+        "times",
+        1
+      ],
+      [
+        [
+          "quants",
+          [
+            [
+              "DUR",
+              377200
+            ]
+          ]
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "507530": [],
+  "507564": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "telic_ext, dist_fut, dist_past",
+        "dist_fut"
+      ]
+    ]
+  ],
+  "507584": [],
+  "507601": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "507620": [],
+  "507625": [],
+  "507648": [],
+  "507668": [],
+  "507671": [],
+  "507673": [],
+  "507680": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "507683": [],
+  "507711": [],
+  "507726": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "507727": [],
+  "507882": [],
+  "507886": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "507892": [],
+  "507928": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "507935": [],
+  "507941": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "multi_simul"
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quals",
+          [
+            "distributive"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "507942": [],
+  "508176": [],
+  "508180": [],
+  "508189": [],
+  "508190": [],
+  "508192": [],
+  "508193": [],
+  "508297": [],
+  "508348": [],
+  "508349": [],
+  "508353": [],
+  "508373": [],
+  "508374": [],
+  "508386": [],
+  "508389": [],
+  "508390": [],
+  "508402": [],
+  "508403": [],
+  "508413": [],
+  "508416": [],
+  "508419": [],
+  "508447": [],
+  "508449": [],
+  "508473": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_limitive"
+      ]
+    ]
+  ],
+  "508476": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_limitive"
+      ]
+    ]
+  ],
+  "508486": [],
+  "508503": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual?"
+      ]
+    ]
+  ],
+  "508513": [],
+  "508515": [],
+  "508552": [],
+  "508567": [],
+  "508576": [],
+  "508602": [],
+  "508605": [],
+  "508632": [],
+  "508660": [],
+  "508661": [],
+  "508668": [],
+  "508677": [],
+  "508685": [],
+  "508758": [],
+  "508760": [],
+  "508762": [],
+  "508765": [],
+  "508767": [],
+  "508768": [],
+  "508769": [],
+  "508770": [],
+  "508771": [],
+  "508775": [],
+  "508778": [],
+  "508782": [],
+  "508783": [],
+  "508784": [],
+  "508785": [],
+  "508786": [],
+  "508799": [],
+  "508830": [],
+  "508862": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "508888": [],
+  "508890": [],
+  "508891": [],
+  "508910": [],
+  "508939": [],
+  "508964": [],
+  "508986": [],
+  "509016": [],
+  "509018": [],
+  "509030": [],
+  "509039": [],
+  "509070": [],
+  "509206": [],
+  "509209": [],
+  "509262": [],
+  "509267": [],
+  "509282": [],
+  "509285": [],
+  "509286": [],
+  "509287": [],
+  "509293": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "atelic_ext"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "quals",
+          [
+            "durative"
+          ]
+        ],
+        [
+          "quants",
+          [
+            [
+              "PORTION",
+              387778
+            ]
+          ]
+        ]
+      ]
+    ]
+  ],
+  "509294": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "atelic_ext"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "quals",
+          [
+            "durative"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "509300": [],
+  "509332": [],
+  "509333": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "atelic_ext"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "quals",
+          [
+            "durative"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "509367": [],
+  "509369": [],
+  "509377": [],
+  "509411": [],
+  "509434": [],
+  "509441": [],
+  "509444": [],
+  "509457": [],
+  "509517": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "multi_simuls"
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quals",
+          [
+            "distributive"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "509520": [],
+  "509525": [
+    [
+      "change",
+      [
+        "times",
+        0,
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual"
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "?",
+        "multi_habitual"
+      ]
+    ]
+  ],
+  "509528": [],
+  "509624": [],
+  "509633": [],
+  "509656": [],
+  "509657": [],
+  "509660": [],
+  "509666": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "multi_simul"
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quals",
+          [
+            "distributive"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "509701": [],
+  "509706": [],
+  "509712": [],
+  "509713": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "multi_simul"
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quals",
+          [
+            "distributive"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "509716": [],
+  "509719": [],
+  "509731": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur_past?"
+      ]
+    ]
+  ],
+  "509734": [],
+  "509735": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "509765": [],
+  "509766": [],
+  "509770": [],
+  "509775": [],
+  "509787": [],
+  "509791": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "This cx may give some insight into the parallel L + MN construction"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "509793": [],
+  "509800": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "509809": [],
+  "509869": [],
+  "509977": [],
+  "509985": [],
+  "510062": [],
+  "510063": [],
+  "510194": [],
+  "510197": [],
+  "510203": [],
+  "510227": [],
+  "510236": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "multi_simul"
+      ]
+    ]
+  ],
+  "510265": [],
+  "510388": [],
+  "510431": [],
+  "510570": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "510594": [
+    [
+      "change",
+      [
+        "times",
+        0,
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual"
+      ]
+    ],
+    [
+      "change",
+      [
+        "times",
+        1,
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual"
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "multi_simul, multi_antdur",
+        "habitual"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "510603": [
+    [
+      "change",
+      [
+        "times",
+        0
+      ],
+      [
+        396525,
+        {
+          "slots": [
+            396525
+          ],
+          "times": [
+            396525
+          ]
+        }
+      ]
+    ],
+    [
+      "add",
+      "times",
+      [
+        [
+          1,
+          {
+            "slots": [
+              396526
+            ],
+            "times": [
+              396526
+            ]
+          }
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "habitual"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "MT has this as a construct, but it is clearly a distributive cx"
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "refs",
+          [
+            [
+              "GEN",
+              396526
+            ]
+          ]
+        ]
+      ]
+    ]
+  ],
+  "510607": [],
+  "510667": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior"
+      ]
+    ]
+  ],
+  "510684": [],
+  "510696": [],
+  "510778": [],
+  "510849": [],
+  "510899": [],
+  "510930": [],
+  "510948": [],
+  "510974": [],
+  "510975": [],
+  "510980": [],
+  "511046": [],
+  "511135": [],
+  "511136": [
+    [
+      "change",
+      [
+        "times",
+        0
+      ],
+      [
+        {
+          "times": [
+            399742
+          ],
+          "slots": [
+            399740,
+            399741,
+            399742,
+            399744
+          ],
+          "refs": [
+            [
+              "THAT",
+              399744
+            ],
+            [
+              "THE",
+              399741
+            ]
+          ],
+          "functions": [
+            "simultaneous"
+          ],
+          "preps": [
+            [
+              "B",
+              399740
+            ]
+          ]
+        },
+        399742
+      ]
+    ],
+    [
+      "remove",
+      "times",
+      [
+        [
+          1,
+          {
+            "times": [
+              399745
+            ],
+            "slots": [
+              399745
+            ],
+            "refs": [
+              [
+                "DEICTIC",
+                399745
+              ]
+            ],
+            "functions": [
+              "simultaneous"
+            ]
+          }
+        ]
+      ]
+    ],
+    [
+      "remove",
+      "slots",
+      [
+        [
+          4,
+          399745
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "simultaneous"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "preps",
+          [
+            [
+              "B",
+              399740
+            ]
+          ]
+        ],
+        [
+          "refs",
+          [
+            [
+              "THAT",
+              399744
+            ],
+            [
+              "THE",
+              399741
+            ],
+            [
+              "THEN",
+              [
+                399745
+              ]
+            ]
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quals",
+          [
+            "distributive"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "511148": [],
+  "511156": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "511176": [],
+  "511217": [],
+  "511222": [],
+  "511227": [
+    [
+      "change",
+      [
+        "timeappos",
+        0,
+        "times",
+        0,
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual"
+      ]
+    ],
+    [
+      "change",
+      [
+        "timeappos",
+        0,
+        "times",
+        1,
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual"
+      ]
+    ],
+    [
+      "change",
+      [
+        "timeappos",
+        0,
+        "functions",
+        0
+      ],
+      [
+        "multi_simul, multi_antdur",
+        "multi_habitual"
+      ]
+    ]
+  ],
+  "511253": [],
+  "511261": [],
+  "511270": [],
+  "511287": [],
+  "511299": [],
+  "511305": [],
+  "511306": [],
+  "511336": [],
+  "511339": [],
+  "511341": [],
+  "511346": [],
+  "511355": [],
+  "511359": [],
+  "511362": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "511365": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "511366": [],
+  "511416": [],
+  "511528": [],
+  "511530": [],
+  "511574": [],
+  "511590": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!difficult",
+            "link:461074"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "511591": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!difficult",
+            "link:461074"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "511593": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!difficult",
+            "link:461074"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "511596": [],
+  "511612": [],
+  "511680": [],
+  "512172": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "512186": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "Lsemantics",
+            "This provides further support for the bleaching of L and its loss of informative content"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "512189": [],
+  "512194": [],
+  "512203": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "512264": [],
+  "512275": [],
+  "512289": [],
+  "512314": [],
+  "512319": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "512332": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "512335": [],
+  "512349": [],
+  "512350": [
+    [
+      "change",
+      [
+        "times",
+        0
+      ],
+      [
+        406754,
+        [
+          [
+            406755,
+            406756,
+            "CONJ"
+          ],
+          406754,
+          "CARDC"
+        ]
+      ]
+    ],
+    [
+      "add",
+      "slots",
+      [
+        [
+          1,
+          406755
+        ],
+        [
+          2,
+          406756
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "atelic_ext"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "Unique omission of CNH—sign of diachronic change?"
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "refs",
+          [
+            [
+              "CALNUM",
+              406754
+            ]
+          ]
+        ]
+      ]
+    ]
+  ],
+  "512374": [],
+  "512403": [],
+  "512436": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "512446": [],
+  "512470": [],
+  "512480": [],
+  "512499": [],
+  "512625": [],
+  "512645": [],
+  "512673": [],
+  "512678": [],
+  "512687": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior"
+      ]
+    ]
+  ],
+  "512735": [],
+  "512736": [],
+  "512746": [],
+  "512758": [],
+  "512822": [],
+  "512876": [],
+  "512918": [],
+  "512921": [],
+  "512922": [],
+  "512923": [],
+  "512924": [],
+  "512930": [],
+  "512949": [],
+  "512952": [],
+  "512953": [],
+  "512988": [
+    [
+      "remove",
+      "functions",
+      [
+        [
+          1,
+          "simultaneous"
+        ]
+      ]
+    ]
+  ],
+  "513010": [],
+  "513034": [],
+  "513070": [],
+  "513076": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "513086": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur_past?"
+      ]
+    ]
+  ],
+  "513094": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "telic_ext, dist_fut, dist_past",
+        "telic_ext"
+      ]
+    ]
+  ],
+  "513113": [],
+  "513134": [],
+  "513152": [],
+  "513171": [],
+  "513194": [],
+  "513199": [],
+  "513202": [],
+  "513236": [],
+  "513278": [],
+  "513283": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "atelic_ext"
+      ]
+    ]
+  ],
+  "513284": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "atelic_ext"
+      ]
+    ]
+  ],
+  "513287": [],
+  "513304": [],
+  "513354": [],
+  "513368": [],
+  "513370": [],
+  "513382": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "513390": [],
+  "513408": [
+    [
+      "change",
+      [
+        "times",
+        0,
+        "times",
+        0
+      ],
+      [
+        413220,
+        {
+          "functions": [
+            "simultaneous"
+          ],
+          "duplicate": true,
+          "preps": [
+            [
+              "B",
+              413218
+            ]
+          ],
+          "refs": [
+            [
+              "THE",
+              413219
+            ]
+          ],
+          "slots": [
+            413218,
+            413219,
+            413220
+          ],
+          "times": [
+            413220
+          ]
+        }
+      ]
+    ],
+    [
+      "add",
+      [
+        "times",
+        0,
+        "times"
+      ],
+      [
+        [
+          1,
+          {
+            "functions": [
+              "simultaneous"
+            ],
+            "preps": [
+              [
+                "B",
+                413221
+              ]
+            ],
+            "refs": [
+              [
+                "THE",
+                413222
+              ]
+            ],
+            "slots": [
+              413221,
+              413222,
+              413223
+            ],
+            "times": [
+              413223
+            ]
+          }
+        ]
+      ]
+    ],
+    [
+      "add",
+      [
+        "times",
+        0,
+        "slots"
+      ],
+      [
+        [
+          3,
+          413221
+        ],
+        [
+          4,
+          413222
+        ],
+        [
+          5,
+          413223
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "times",
+        0,
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "habitual"
+      ]
+    ],
+    [
+      "add",
+      [
+        "times",
+        0
+      ],
+      [
+        [
+          "quals",
+          [
+            "distributive"
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      [
+        "times",
+        0
+      ],
+      [
+        [
+          "refs",
+          [
+            [
+              "THE",
+              413219
+            ]
+          ]
+        ],
+        [
+          "preps",
+          [
+            [
+              "B",
+              413218
+            ]
+          ]
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "times",
+        1,
+        "times",
+        0
+      ],
+      [
+        413223,
+        {
+          "duplicate": true,
+          "functions": [
+            "simultaneous"
+          ],
+          "preps": [
+            [
+              "B",
+              413214
+            ]
+          ],
+          "refs": [
+            [
+              "THE",
+              413215
+            ]
+          ],
+          "slots": [
+            413214,
+            413215,
+            413216
+          ],
+          "times": [
+            413216
+          ]
+        }
+      ]
+    ],
+    [
+      "add",
+      [
+        "times",
+        1,
+        "times"
+      ],
+      [
+        [
+          1,
+          {
+            "functions": [
+              "simultaneous"
+            ],
+            "preps": [
+              [
+                "B",
+                413211
+              ]
+            ],
+            "refs": [
+              [
+                "THE",
+                413212
+              ]
+            ],
+            "slots": [
+              413211,
+              413212,
+              413213
+            ],
+            "times": [
+              413213
+            ]
+          }
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "times",
+        1,
+        "slots",
+        0
+      ],
+      [
+        413221,
+        413211
+      ]
+    ],
+    [
+      "change",
+      [
+        "times",
+        1,
+        "slots",
+        1
+      ],
+      [
+        413222,
+        413212
+      ]
+    ],
+    [
+      "change",
+      [
+        "times",
+        1,
+        "slots",
+        2
+      ],
+      [
+        413223,
+        413213
+      ]
+    ],
+    [
+      "add",
+      [
+        "times",
+        1,
+        "slots"
+      ],
+      [
+        [
+          3,
+          413214
+        ],
+        [
+          4,
+          413215
+        ],
+        [
+          5,
+          413216
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "times",
+        1,
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "habitual"
+      ]
+    ],
+    [
+      "add",
+      [
+        "times",
+        1
+      ],
+      [
+        [
+          "quals",
+          [
+            "distributive"
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      [
+        "times",
+        1
+      ],
+      [
+        [
+          "refs",
+          [
+            [
+              "THE",
+              413222
+            ]
+          ]
+        ],
+        [
+          "preps",
+          [
+            [
+              "B",
+              413221
+            ]
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      "times",
+      [
+        [
+          3,
+          {
+            "times": [
+              413213
+            ],
+            "slots": [
+              413211,
+              413212,
+              413213
+            ],
+            "refs": [
+              [
+                "THE",
+                413212
+              ]
+            ],
+            "functions": [
+              "simultaneous"
+            ],
+            "preps": [
+              [
+                "B",
+                413211
+              ]
+            ]
+          }
+        ],
+        [
+          2,
+          {
+            "times": [
+              413216
+            ],
+            "slots": [
+              413214,
+              413215,
+              413216
+            ],
+            "duplicate": true,
+            "refs": [
+              [
+                "THE",
+                413215
+              ]
+            ],
+            "functions": [
+              "simultaneous"
+            ],
+            "preps": [
+              [
+                "B",
+                413214
+              ]
+            ]
+          }
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "multi_habitual"
+      ]
+    ]
+  ],
+  "513411": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "habitual"
+      ]
+    ]
+  ],
+  "513438": [],
+  "513443": [],
+  "513453": [],
+  "513467": [],
+  "513532": [],
+  "513551": [],
+  "513552": [],
+  "513571": [],
+  "513574": [],
+  "513599": [],
+  "513613": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "513617": [],
+  "513620": [],
+  "513625": [],
+  "513649": [],
+  "513686": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "513715": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "513799": [],
+  "513809": [],
+  "513857": [],
+  "511707": [],
+  "511726": [],
+  "511730": [],
+  "511801": [],
+  "511805": [],
+  "511836": [],
+  "511843": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "habitual"
+      ]
+    ]
+  ],
+  "511846": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual"
+      ]
+    ]
+  ],
+  "511848": [],
+  "512040": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "512041": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "512070": [],
+  "513858": [],
+  "513859": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "513884": [],
+  "513909": [],
+  "513936": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "513946": [],
+  "513976": [],
+  "513987": [],
+  "513995": [],
+  "514014": [],
+  "514034": [],
+  "514036": [],
+  "514038": [],
+  "514052": [],
+  "514063": [],
+  "514091": [],
+  "514102": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "atelic_ext",
+        "purposive_ext"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "514103": [],
+  "514108": [],
+  "514112": [],
+  "514113": [],
+  "514139": [],
+  "514147": [],
+  "514157": [],
+  "514164": [],
+  "514210": [],
+  "514212": [],
+  "514306": [],
+  "514308": [],
+  "514312": [],
+  "514346": [
+    [
+      "change",
+      [
+        "times",
+        0,
+        "slots",
+        0
+      ],
+      [
+        418476,
+        418477
+      ]
+    ],
+    [
+      "remove",
+      [
+        "times",
+        0,
+        "slots"
+      ],
+      [
+        [
+          1,
+          418477
+        ]
+      ]
+    ],
+    [
+      "remove",
+      [
+        "times",
+        0
+      ],
+      [
+        [
+          "functions",
+          [
+            "simultaneous"
+          ]
+        ],
+        [
+          "preps",
+          [
+            [
+              "L",
+              418476
+            ]
+          ]
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "multi_simul",
+        "habitual"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "preps",
+          [
+            [
+              "L",
+              418476
+            ]
+          ]
+        ]
+      ]
+    ]
+  ],
+  "514364": [],
+  "514367": [],
+  "514390": [],
+  "514393": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "514418": [],
+  "514546": [],
+  "514549": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior"
+      ]
+    ]
+  ],
+  "514565": [],
+  "514571": [],
+  "514640": [],
+  "514655": [],
+  "514668": [],
+  "514677": [],
+  "514683": [],
+  "514699": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "telic_ext"
+      ]
+    ]
+  ],
+  "514714": [],
+  "514719": [],
+  "514745": [],
+  "514791": [],
+  "514850": [],
+  "514852": [],
+  "514853": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "atelic_ext"
+      ]
+    ]
+  ],
+  "514854": [],
+  "514859": [],
+  "514887": [],
+  "514934": [],
+  "514936": [],
+  "514959": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "purposive_ext"
+      ]
+    ]
+  ],
+  "514977": [],
+  "514984": [],
+  "515007": [],
+  "515009": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "habitual"
+      ]
+    ]
+  ],
+  "515012": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "atelic_ext",
+        "habitual"
+      ]
+    ]
+  ],
+  "515016": [],
+  "515017": [],
+  "515026": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "515058": [],
+  "515060": [],
+  "515143": [],
+  "515171": [],
+  "515202": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior",
+        "posterior_dur?"
+      ]
+    ]
+  ],
+  "515203": [],
+  "515214": [],
+  "515240": [],
+  "515253": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "515267": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "515295": [],
+  "515324": [],
+  "515341": [],
+  "515346": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "telic_ext, dist_fut, dist_past",
+        "simultaneous"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "How can this refer to the 8th year when its plural?; but see latter part of this verse"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "515351": [],
+  "515368": [],
+  "515487": [],
+  "515528": [],
+  "515530": [],
+  "515537": [],
+  "515540": [],
+  "515542": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "515543": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "515547": [],
+  "515548": [],
+  "515557": [],
+  "515582": [],
+  "515592": [],
+  "515601": [],
+  "515616": [],
+  "515619": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "515624": [],
+  "515659": [],
+  "515661": []
 }

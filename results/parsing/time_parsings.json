@@ -109541,69 +109541,6 @@
       ]
     ]
   },
-  "513115": {
-    "times": [
-      {
-        "times": [
-          411530
-        ],
-        "slots": [
-          411530
-        ],
-        "NUM": {
-          "lex": ">XD/",
-          "parse": 411530,
-          "phatom": 1163717,
-          "slots": [
-            411530
-          ]
-        },
-        "functions": [
-          "simultaneous"
-        ]
-      },
-      {
-        "times": [
-          411533
-        ],
-        "slots": [
-          411531,
-          411532,
-          411533
-        ],
-        "quals": [
-          "durative"
-        ],
-        "quants": [
-          [
-            "NUMQ",
-            411532
-          ]
-        ],
-        "functions": [
-          "simultaneous"
-        ],
-        "preps": [
-          [
-            "L",
-            411531
-          ]
-        ]
-      }
-    ],
-    "slots": [
-      411530,
-      411531,
-      411532,
-      411533
-    ],
-    "functions": [
-      "habitual, multi_simul"
-    ],
-    "quals": [
-      "distributive"
-    ]
-  },
   "513134": {
     "times": [
       411727
