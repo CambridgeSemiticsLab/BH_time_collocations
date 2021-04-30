@@ -74945,6 +74945,41 @@
     "times": [
       {
         "times": [
+          279174
+        ],
+        "slots": [
+          279170,
+          279171,
+          279172,
+          279173,
+          279174
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            279170
+          ]
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              [
+                279172,
+                279173,
+                "CONJ"
+              ],
+              279171,
+              "CARDC"
+            ]
+          ]
+        ]
+      },
+      {
+        "times": [
           279177
         ],
         "slots": [
@@ -75030,6 +75065,11 @@
       }
     ],
     "slots": [
+      279170,
+      279171,
+      279172,
+      279173,
+      279174,
       279175,
       279176,
       279177,
@@ -81130,24 +81170,6 @@
         "B",
         300777
       ]
-    ]
-  },
-  "488022": {
-    "times": [
-      301180
-    ],
-    "slots": [
-      301180,
-      301181
-    ],
-    "refs": [
-      [
-        "GEN",
-        301181
-      ]
-    ],
-    "functions": [
-      "simultaneous"
     ]
   },
   "488023": {
@@ -90322,7 +90344,7 @@
       330427
     ],
     "functions": [
-      "multi_simul, multi_anterior_dur"
+      "multi_simul, multi_antdur"
     ]
   },
   "495900": {
@@ -91640,7 +91662,7 @@
       335792
     ],
     "functions": [
-      "multi_simul, multi_anterior_dur"
+      "multi_simul, multi_antdur"
     ]
   },
   "497519": {
@@ -105711,7 +105733,7 @@
       396440
     ],
     "functions": [
-      "multi_simul, multi_anterior_dur"
+      "multi_simul, multi_antdur"
     ]
   },
   "510603": {
@@ -106562,7 +106584,7 @@
           400150
         ],
         "functions": [
-          "multi_simul, multi_anterior_dur"
+          "multi_simul, multi_antdur"
         ]
       }
     ]
@@ -108177,7 +108199,7 @@
       407321
     ],
     "functions": [
-      "multi_simul, multi_anterior_dur"
+      "multi_simul, multi_antdur"
     ]
   },
   "512436": {
@@ -109169,7 +109191,7 @@
       410898
     ],
     "functions": [
-      "multi_simul, multi_anterior_dur"
+      "multi_simul, multi_antdur"
     ],
     "timeappos": [
       {

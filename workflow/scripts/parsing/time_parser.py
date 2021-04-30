@@ -967,7 +967,7 @@ class TimeParser(SlyParser):
     def multi_antdursim(self, p):
         return init_ctime(
             *p,
-            functions=['multi_simul, multi_anterior_dur'],
+            functions=['multi_simul, multi_antdur'],
         )
    
     @_('antdur_simul multi_antdursim')

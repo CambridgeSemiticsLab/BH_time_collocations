@@ -10049,5 +10049,3249 @@
       ]
     ]
   ],
-  "483731": []
+  "483731": [],
+  "483735": [],
+  "483738": [],
+  "483863": [],
+  "483915": [],
+  "483956": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "multi_simul"
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quals",
+          [
+            "distributive"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "484320": [],
+  "484321": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "484326": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "484332": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "484355": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior"
+      ]
+    ]
+  ],
+  "484356": [],
+  "484368": [],
+  "484394": [],
+  "484407": [],
+  "484408": [],
+  "484415": [],
+  "484467": [],
+  "484474": [],
+  "484481": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "atelic_ext",
+        "purposive_ext"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "ESV disagrees with clause break here"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "484490": [],
+  "484552": [],
+  "484944": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "484953": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "485006": [],
+  "485017": [],
+  "485021": [],
+  "485132": [],
+  "485201": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "multi_simuls"
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quals",
+          [
+            "distributive"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "485205": [],
+  "485209": [],
+  "485211": [],
+  "485214": [],
+  "485216": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual"
+      ]
+    ]
+  ],
+  "485221": [],
+  "485223": [],
+  "485224": [],
+  "485230": [],
+  "485231": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "habitual"
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quals",
+          [
+            "distributive"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "485232": [],
+  "485237": [],
+  "485246": [],
+  "485258": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "habitual"
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quals",
+          [
+            "distributive"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "485265": [],
+  "485269": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual"
+      ]
+    ]
+  ],
+  "485270": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "habitual"
+      ]
+    ]
+  ],
+  "485271": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "habitual"
+      ]
+    ]
+  ],
+  "485276": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "habitual"
+      ]
+    ]
+  ],
+  "485284": [],
+  "485535": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "485538": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "multi_simuls"
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quals",
+          [
+            "distributive"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "485554": [],
+  "485624": [],
+  "485625": [],
+  "485628": [],
+  "485652": [],
+  "485660": [],
+  "485663": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "485667": [],
+  "485690": [],
+  "485694": [],
+  "485700": [],
+  "485702": [],
+  "485723": [],
+  "485724": [],
+  "485772": [],
+  "485811": [],
+  "485817": [],
+  "485852": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior"
+      ]
+    ]
+  ],
+  "485853": [],
+  "485894": [],
+  "485905": [],
+  "485908": [],
+  "485909": [],
+  "485970": [],
+  "485990": [],
+  "486002": [],
+  "486026": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "ft. what separates this from habitual reading is the definite article?"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "486027": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "486091": [],
+  "486094": [],
+  "486120": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "486148": [],
+  "486152": [],
+  "486208": [],
+  "486261": [],
+  "486304": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "486371": [],
+  "486372": [],
+  "486452": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "486453": [],
+  "486492": [],
+  "486565": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "486570": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "486571": [],
+  "486576": [],
+  "486589": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "multi_simul"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quals",
+          [
+            "distributive"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "486655": [],
+  "486665": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "486666": [],
+  "486720": [],
+  "486757": [],
+  "486777": [],
+  "486859": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual"
+      ]
+    ]
+  ],
+  "486860": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual"
+      ]
+    ]
+  ],
+  "486871": [],
+  "486968": [],
+  "487042": [],
+  "487084": [],
+  "487151": [],
+  "487174": [],
+  "487194": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "487201": [],
+  "487203": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "telic_ext, dist_fut, dist_past",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "487204": [],
+  "487221": [],
+  "487283": [],
+  "487339": [],
+  "487347": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "487356": [],
+  "487357": [],
+  "487358": [],
+  "487359": [],
+  "487362": [],
+  "487367": [],
+  "487486": [],
+  "487505": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "487581": [],
+  "487600": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "487630": [],
+  "487693": [],
+  "487706": [],
+  "487727": [],
+  "487731": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "487771": [],
+  "487809": [],
+  "487833": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "487834": [],
+  "487841": [],
+  "487856": [],
+  "487861": [],
+  "487876": [],
+  "487894": [],
+  "487920": [],
+  "488023": [],
+  "488051": [],
+  "488055": [],
+  "488116": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "488137": [],
+  "488181": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "488278": [],
+  "488291": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "ESV interprets as modifier of R<TK"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "488294": [],
+  "488312": [],
+  "488410": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "488548": [],
+  "488570": [],
+  "488574": [],
+  "488576": [],
+  "488584": [],
+  "488614": [],
+  "488633": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "telic_ext, dist_fut, dist_past",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "488645": [],
+  "488657": [],
+  "488706": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "habitual"
+      ]
+    ]
+  ],
+  "488730": [],
+  "488734": [],
+  "488736": [],
+  "488758": [],
+  "488783": [],
+  "488795": [],
+  "488844": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "488851": [],
+  "488853": [],
+  "488908": [],
+  "488909": [],
+  "488926": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "488937": [],
+  "488944": [],
+  "488964": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "488976": [],
+  "489006": [],
+  "489007": [],
+  "489104": [],
+  "489159": [],
+  "489160": [],
+  "489335": [],
+  "489362": [],
+  "489363": [],
+  "489369": [],
+  "489371": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "atelic_ext"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "The MH here is a good demonstrator of the \"about\" sense of K"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "489376": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "multi_simul",
+        "multi_simuls"
+      ]
+    ]
+  ],
+  "489378": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "489435": [],
+  "489446": [],
+  "489447": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "489450": [],
+  "489456": [],
+  "489478": [],
+  "489510": [],
+  "489549": [],
+  "489569": [],
+  "489587": [],
+  "489594": [],
+  "489705": [],
+  "489747": [],
+  "489750": [],
+  "489757": [],
+  "489763": [],
+  "489764": [],
+  "489768": [],
+  "489777": [],
+  "489792": [],
+  "489793": [],
+  "489808": [],
+  "489854": [],
+  "489855": [],
+  "489864": [],
+  "489868": [],
+  "489875": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "489877": [],
+  "489880": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "multi_simuls"
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quals",
+          [
+            "distributive"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "489882": [],
+  "489898": [],
+  "489927": [],
+  "489934": [],
+  "489956": [],
+  "489986": [],
+  "490023": [],
+  "490132": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur_past?",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "490170": [],
+  "490180": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "interesting that this is not habitual"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "490201": [],
+  "490217": [],
+  "490220": [],
+  "490240": [],
+  "490246": [],
+  "490252": [],
+  "490340": [],
+  "490341": [],
+  "490366": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "490396": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "regular_recurrence"
+      ]
+    ]
+  ],
+  "490446": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "regular_recurrence?"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!difficult",
+            "ESV has \"every day\" whereas NET has \"throughout the day\"; but see Ps 6:7 for this same cx with LJLH and a reg recurrence sense"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "490506": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "490508": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "490511": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "490544": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "490545": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "490557": [],
+  "490567": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "regular_recurrence?"
+      ]
+    ]
+  ],
+  "490572": [],
+  "490591": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "490658": [],
+  "490674": [],
+  "490676": [],
+  "490677": [],
+  "490678": [],
+  "490679": [],
+  "490738": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "490759": [],
+  "490771": [],
+  "490780": [],
+  "490883": [],
+  "490968": [],
+  "490997": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "491009": [],
+  "491015": [],
+  "491027": [],
+  "491056": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "491062": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "491083": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "atelic_ext",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "491085": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "491194": [],
+  "491195": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "atelic_ext"
+      ]
+    ]
+  ],
+  "491248": [],
+  "491343": [],
+  "491346": [],
+  "491349": [],
+  "491457": [],
+  "491460": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "491483": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "491488": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "491575": [],
+  "491576": [],
+  "491635": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "491636": [],
+  "491664": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "regular_recurrence"
+      ]
+    ]
+  ],
+  "491665": [],
+  "491817": [],
+  "491821": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "491912": [],
+  "491913": [],
+  "491933": [],
+  "491938": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "491941": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "491944": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "491974": [],
+  "491995": [],
+  "492014": [],
+  "492074": [],
+  "492179": [],
+  "492218": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "492219": [],
+  "492230": [],
+  "492231": [],
+  "492248": [],
+  "492255": [],
+  "492287": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "multi_simuls"
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quals",
+          [
+            "distributive"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "492306": [],
+  "492307": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "492323": [],
+  "492337": [],
+  "492343": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "492360": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "492399": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "492486": [],
+  "492502": [],
+  "492519": [],
+  "492526": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "492527": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "492546": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "492557": [],
+  "492561": [],
+  "492589": [],
+  "492603": [],
+  "492709": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "492722": [],
+  "492723": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "492815": [],
+  "492831": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "multi_simul",
+        "multi_simuls"
+      ]
+    ]
+  ],
+  "492838": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "dist_posterior"
+      ]
+    ]
+  ],
+  "492850": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "492863": [],
+  "492864": [],
+  "492872": [],
+  "493009": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual?"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "ESV supports habitual; NET does not; LXX EIS"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "493037": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual?"
+      ]
+    ]
+  ],
+  "493045": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual?"
+      ]
+    ]
+  ],
+  "493111": [],
+  "493119": [],
+  "493122": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "493123": [
+    [
+      "change",
+      [
+        "times",
+        0,
+        "functions",
+        0
+      ],
+      [
+        "simultaneous, atelic_ext",
+        "simultaneous"
+      ]
+    ],
+    [
+      "change",
+      [
+        "times",
+        1,
+        "functions",
+        0
+      ],
+      [
+        "simultaneous, atelic_ext",
+        "simultaneous"
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "multi_simuls, atelic_ext",
+        "habitual"
+      ]
+    ]
+  ],
+  "493132": [],
+  "493150": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "regular_recurrence"
+      ]
+    ]
+  ],
+  "493291": [],
+  "493407": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "493418": [
+    [
+      "change",
+      [
+        "times",
+        0,
+        "functions",
+        0
+      ],
+      [
+        "simultaneous, atelic_ext",
+        "simultaneous"
+      ]
+    ],
+    [
+      "change",
+      [
+        "times",
+        1,
+        "functions",
+        0
+      ],
+      [
+        "simultaneous, atelic_ext",
+        "simultaneous"
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "multi_simuls, atelic_ext",
+        "habitual"
+      ]
+    ]
+  ],
+  "493512": [],
+  "493613": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "493619": [],
+  "493631": [],
+  "493635": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "493636": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "493654": [],
+  "493657": [],
+  "493663": [],
+  "493691": [],
+  "493709": [],
+  "493728": [],
+  "493729": [],
+  "493739": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "493773": [],
+  "493785": [],
+  "493797": [],
+  "493800": [],
+  "493804": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "493817": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "dist_posterior"
+      ]
+    ]
+  ],
+  "493826": [],
+  "493836": [],
+  "493869": [],
+  "493872": [],
+  "493904": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "493950": [],
+  "493951": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "atelic_ext"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "quals",
+          [
+            "durative"
+          ]
+        ],
+        [
+          "notes",
+          [
+            "ESV interprets as simultaneous",
+            "NET notes (accordance): ...The imperfect form (תָפוּג, tafug, “to be numb”) is used here to describe continuous action in the past."
+          ]
+        ]
+      ]
+    ]
+  ],
+  "493964": [],
+  "493967": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "493970": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "493971": [],
+  "494033": [],
+  "494043": [],
+  "494044": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "More evidence of durative reading of JWMM in the context of this tradition"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "494186": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "494204": [],
+  "494206": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "494231": [],
+  "494249": [],
+  "494302": [],
+  "494343": [],
+  "494404": [],
+  "494469": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "494470": [],
+  "494503": [],
+  "494512": [],
+  "494532": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "494580": [],
+  "494581": [],
+  "494601": [],
+  "494614": [],
+  "494624": [],
+  "494629": [],
+  "494630": [],
+  "494632": [],
+  "494637": [],
+  "494638": [],
+  "494672": [],
+  "494699": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "494717": [],
+  "494738": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "494759": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "494763": [],
+  "494766": [],
+  "494776": [],
+  "494778": [],
+  "494780": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "494804": [],
+  "494806": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "dist_fut?"
+      ]
+    ]
+  ],
+  "494828": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "atelic_ext",
+        "simultaneous"
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quals",
+          [
+            "durative"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "494832": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "atelic_ext",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "494866": [],
+  "494867": [],
+  "494878": [],
+  "494879": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "494895": [],
+  "494906": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "494915": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "atelic_ext"
+      ]
+    ]
+  ],
+  "494998": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "495005": [],
+  "495016": [],
+  "495182": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual"
+      ]
+    ]
+  ],
+  "495208": [],
+  "495217": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "495248": [],
+  "495250": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur_past?"
+      ]
+    ]
+  ],
+  "495281": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "495282": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "495331": [],
+  "495378": [],
+  "495412": [],
+  "495413": [],
+  "495431": [],
+  "495439": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "495538": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "regular_recurrence"
+      ]
+    ]
+  ],
+  "495604": [],
+  "495640": [],
+  "495811": [],
+  "495872": [],
+  "495876": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "495877": [],
+  "495888": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "495892": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "495900": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "495904": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "495917": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "495938": [],
+  "496023": [],
+  "496028": [],
+  "496197": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "regular_recurrence"
+      ]
+    ]
+  ],
+  "496252": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "496274": [],
+  "496291": [],
+  "496305": [],
+  "496358": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "496363": [],
+  "496367": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "496378": [],
+  "496380": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "496408": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "496411": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "496424": [],
+  "496504": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "496593": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "atelic_ext",
+        "simultaneous"
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quals",
+          [
+            "durative"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "496594": [],
+  "496597": [],
+  "496662": [],
+  "496724": [],
+  "496778": [],
+  "496805": [],
+  "496808": [],
+  "496835": [],
+  "497087": [],
+  "497106": [],
+  "497216": [],
+  "497293": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "497294": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "regular_recurrence"
+      ]
+    ]
+  ],
+  "497295": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "497324": [],
+  "497339": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "497343": [],
+  "497344": [],
+  "497350": [],
+  "497357": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "497367": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "497519": [],
+  "497520": [],
+  "497551": [],
+  "497605": [],
+  "497665": [],
+  "497669": [],
+  "497686": [],
+  "497706": [],
+  "497709": [],
+  "497756": [],
+  "497794": [],
+  "497795": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "497832": [],
+  "497833": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "telic_ext, dist_fut, dist_past",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "497874": [],
+  "497911": [],
+  "497924": [],
+  "497943": [],
+  "498017": [],
+  "498022": [],
+  "498031": [],
+  "498047": [],
+  "498056": [],
+  "498158": [],
+  "498416": [],
+  "498473": [],
+  "498483": [],
+  "498488": [],
+  "498498": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "498556": [],
+  "498588": [],
+  "498614": [],
+  "498707": [],
+  "498709": [],
+  "498754": [],
+  "498813": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "purposive_ext"
+      ]
+    ]
+  ],
+  "498816": [],
+  "498841": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "498899": [],
+  "498908": [],
+  "498959": [],
+  "498980": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "498981": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "499071": [],
+  "499087": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "499153": [],
+  "499287": [],
+  "499356": [],
+  "499372": [],
+  "499419": [],
+  "499430": [],
+  "499431": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual?"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!difficult",
+            "ESV and NET omit"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "499452": [],
+  "499471": [],
+  "499473": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "NET Notes (accordance): The subject of the verb “pierces” can be the night (personified), or it could be God (understood), leaving “night” to be an adverbial accusative of time — “at night he pierces.”"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "499821": [],
+  "499835": [],
+  "499899": [],
+  "499910": [],
+  "500050": [],
+  "500400": [],
+  "500432": [],
+  "500484": [],
+  "500503": [],
+  "500528": [],
+  "500536": [],
+  "500619": [],
+  "500636": [],
+  "500710": [],
+  "500746": [],
+  "500805": [],
+  "500806": [],
+  "500807": [],
+  "500820": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "regular_recurrence"
+      ]
+    ]
+  ],
+  "500879": [],
+  "500902": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "habitual, multi_simul",
+        "multi_simuls"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "500918": [],
+  "500927": [],
+  "500932": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "500942": [],
+  "501000": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ]
+  ],
+  "501001": [
+    [
+      "change",
+      [
+        "times",
+        0,
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ],
+    [
+      "change",
+      [
+        "times",
+        1,
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior_dur"
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "multi_posts",
+        "multi_posterior_dur"
+      ]
+    ]
+  ],
+  "501017": [
+    [
+      "remove",
+      [
+        "times",
+        0
+      ],
+      [
+        [
+          "functions",
+          [
+            "simultaneous, atelic_ext"
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      [
+        "times",
+        1
+      ],
+      [
+        [
+          "functions",
+          [
+            "simultaneous, atelic_ext"
+          ]
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "multi_simuls, atelic_ext",
+        "habitual"
+      ]
+    ]
+  ],
+  "501018": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "regular_recurrence"
+      ]
+    ]
+  ],
+  "501021": [],
+  "501031": [
+    [
+      "remove",
+      [
+        "times",
+        0
+      ],
+      [
+        [
+          "functions",
+          [
+            "simultaneous, atelic_ext"
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      [
+        "times",
+        1
+      ],
+      [
+        [
+          "functions",
+          [
+            "simultaneous, atelic_ext"
+          ]
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "multi_simuls, atelic_ext",
+        "habitual"
+      ]
+    ]
+  ],
+  "501101": [],
+  "501103": [],
+  "501166": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "501180": [],
+  "501288": [],
+  "501297": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "501884": [],
+  "501973": [],
+  "502035": [],
+  "502105": [],
+  "502178": [],
+  "502235": [],
+  "502304": [],
+  "502424": [],
+  "502438": [],
+  "502532": [],
+  "502588": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ]
+  ],
+  "502713": [],
+  "502774": [],
+  "502780": [],
+  "502790": [],
+  "502838": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "atelic_ext"
+      ]
+    ]
+  ],
+  "502878": [],
+  "502936": [],
+  "502970": [
+    [
+      "add",
+      [
+        "times",
+        0,
+        "refs"
+      ],
+      [
+        [
+          1,
+          [
+            "THEN",
+            356366
+          ]
+        ]
+      ]
+    ]
+  ],
+  "502997": [],
+  "503000": [],
+  "503011": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "simultaneous"
+      ]
+    ]
+  ],
+  "503030": [],
+  "503042": [],
+  "503049": [],
+  "503075": [],
+  "503078": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "could ft. be read as atelic ext—see Ruth 3:13"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "503110": [],
+  "503128": [],
+  "503135": [],
+  "503140": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "atelic_ext"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "quals",
+          [
+            "durative"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "503141": [],
+  "503149": [],
+  "503150": []
 }
