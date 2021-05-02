@@ -198,5 +198,30 @@
     "820965": {
         "function": "Time",
         "note": "typical idiom meaning 'daily'"
+    },
+    "800159": {
+        "function": "Subj",
+        "note": "day and night 'in their time'"
+    },
+    "800160": {
+        "function": "Time",
+        "note": "day and night 'in their time'"
+    },
+    "806160": {
+        "function": "Time",
+        "note": "posterior time"
+    },
+    "843661": {
+        "function": "Time",
+        "note": "simultaneous time, according to most interpretations"
+    },
+    "873191": {
+        "function": "Time",
+        "note": "Lam 2:19; at night"
+    },
+    "889493": {
+        "function": "Time",
+        "note": "1 Chr 9:25; 'from time to time'"
     }
+
 }

@@ -642,6 +642,7 @@ class TimeParser(SlyParser):
         '>XR/',
         'B',
         'L',
+        '<M',
         'MN',
         'K',
         'BJN/',
@@ -784,7 +785,7 @@ class TimeParser(SlyParser):
             quals=['distributive'],
         )    
     
-    @_('Ø year year_simul', 'Ø day day_simul')
+    @_('Ø year year_simul', 'Ø day day_simul', 'Ø month month_simul')
     def habitual(self, p):
         add_function('simultaneous', p[1])
         return init_ctime(
@@ -935,10 +936,11 @@ class TimeParser(SlyParser):
        'year_simul simul', 'ordn_simul ordn_simul',
        'simul month_simul', 'simul first_simul',
        'oneday_simul day_simul', 'month_simul simul',
-       'cal_simul cal_simul', 
+       'cal_simul cal_simul',
        'in_dur year_simul',
        'first_simul simul',
-       'simul year_simul', 'simul oneday_simul') 
+       'simul year_simul', 'simul oneday_simul',
+    ) 
     def multi_simul(self, p):
         return init_ctime(
             *p,
@@ -1058,7 +1060,10 @@ class TimeParser(SlyParser):
        'posts begin_to_end', 'posterior_dur simul',
        'habitual begin_to_end',
        'hab_simul begin_to_end', 'in_dur multi',
-       'posterior antdur_simul'
+       'posterior antdur_simul',
+       'posterior year_simul',
+       'antdur_simul begin_to_end',
+       'atelic_ext anterior atelic_ext'
     )
     def multi(self, p):
         return init_ctime(
@@ -1203,6 +1208,12 @@ class TimeParser(SlyParser):
         conv_nums('NUMQ', p, as_dur=True)
         add_function('atelic_ext', p[1])
         add_prep('>T', p[0], p[1])
+        return p[1]
+
+    @_('<M time')
+    def atelic_ext(self, p):
+        add_function('atelic_ext', p[1])
+        add_prep('<M', p[0], p[1])
         return p[1]
 
     @_('atelic_ext atelic_ext')
@@ -1514,7 +1525,8 @@ class TimeParser(SlyParser):
     @_('L PNH/ posts')
     def anterior(self, p):
         add_function('anterior', p[2])
-        add_prep('L PNH/', p[0], p[2])
+        add_prep('L', p[0], p[2])
+        add_prep('PNH/', p[1], p[2])
         return p[2]
 
     # stand-alone VRM/, will only match if 
@@ -1966,7 +1978,7 @@ class TimeParser(SlyParser):
     # define specialized time
     @_('BEGINNING', 'END')
     def time(self, p):
-        return init_time(p[0], quals=['point'])
+        return init_time(p[0])
 
     # calendrical time references
     @_('DAY')

@@ -16,7 +16,7 @@
         "note": "manually input"
     },
     "1163388": {
-        "edge": [[410884], "TIMEAPPO"],
+        "edge": [[410884], "ADJV"],
         "note": "manually input"
     },
     "1163389": {
@@ -71,10 +71,6 @@
         "edge":  [[960952], "ADJV"],
         "note": "manually input"
     },
-    "1160172": {
-        "edge": [[1160171], "ADJV"],
-        "note": "manually input"
-    },
     "1041759": {
         "edge": [[1041758], "SPEC"],
         "note": "manually input"
@@ -108,6 +104,10 @@
         "note": "manually input"
     },
     "1084542": {
+        "edge": [[1084540], "TIMEAPPO"],
+        "note": "manually input"
+    },
+    "1084545": {
         "edge": [[1084539], "TIMEAPPO"],
         "note": "manually input"
     },
