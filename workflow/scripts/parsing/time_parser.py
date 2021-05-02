@@ -108,7 +108,7 @@ class TimeTokenizer:
         """
         
         # ignore these relations
-        ignore = {None, 'ADVB', 'CARDC'}
+        ignore = {None, 'ADVB',}
         def tag_rela(rela, name):
             return rela == name and rela not in ignore
    
@@ -209,6 +209,9 @@ class TimeTokenizer:
                 token = self.gen_token(phrase, paras)
                 if token:
                     yield token
+
+            elif tag_rela(rela, 'CARDC'):
+                yield self.sly_token(rela, phrase)
 
            # TODO: test if this can now be eliminated safely
            # drip-bucket tokenizer
@@ -353,7 +356,7 @@ class TimeTokenizer:
             return self.sly_token(token, appo_head)
 
         elif self.slot2pos[appo_head] == 'ORDN':
-            return self.sly_token('ORDNA', appo_head) 
+            return self.sly_token('ORDNM', appo_head) 
 
         elif appo_lex == 'RB/':
             return self.sly_token('MANY', appo_head)
@@ -470,7 +473,16 @@ class TimeTokenizer:
             and F.lex.v(gen_head) == F.lex.v(ph_head) 
         ):
             return self.sly_token('NUM', src)
-        
+        elif(
+            self.slot2pos[gen_head] == 'ORDN'
+        ):
+            return self.sly_token('ORDNM', src)
+        elif(
+            F.nametype.v(gen_head) == 'pers'
+            and F.nametype.v(ph_head) != 'pers'
+            and F.lex.v(ph_head) not in {'MLKWT/'}
+        ):
+            return self.sly_token('PERSONM', src)
         elif (
             F.lex.v(gen_head) == 'XDC=/'
             and F.lex.v(ph_head) == 'JWM/'
@@ -653,6 +665,7 @@ class TimeParser(SlyParser):
         'TOMORROW',
         'YESTERDAY',
         'DURATION',
+        'OFTEN',
         'THUS',
         'THEN',
         'CARD',
@@ -661,17 +674,19 @@ class TimeParser(SlyParser):
         'YEAR',
         'DAY',
         'PERSON',
+        'PERSONM',
         'IT',
         'LOCALE',
         'ORDN',
-        'ORDNA',
+        'ORDNM',
         'FIRST',
         'MOD',
         'GENREF',
         'TIMEAPPO',
         'YETDUR',
         'DISTAGO',
-        'MONTHREF'
+        'MONTHREF',
+        'CARDC'
     }
 
     def error(self, token):
@@ -696,8 +711,8 @@ class TimeParser(SlyParser):
        'anterior_posterior', 'multi_antdursim', 'dur_to_end',
        'simul_posts', 'multi_posts', 'simul_to_end', 
        'dur_simul', 'month_ref', 
-       'cal_simul', 'habitual', 
-       'multi',  'simul_ref',
+       'cal_simul', 'habitual', 'multi_habitual',
+       'multi',  'simul_ref', 'dist_prosp',
        'multi_begintoend', 'posterior_dist', 'anterior_dist',
        'simul_dur', 'postdur_dist', 'antdur_dur', 'dist_fut',
        'distfut_dur', 'dist_past', 'multi_simuls', 
@@ -778,6 +793,25 @@ class TimeParser(SlyParser):
             quals=['distributive'],
         )
 
+    @_('MN OFTEN year year_simul', 'MN OFTEN month month_simul',
+       'MN OFTEN time simul')
+    def habitual(self, p):
+        time = init_ctime(
+            p[2], p[3],
+            functions=['habitual'],
+            quals=['distributive'],
+        )
+        add_quant('OFTEN', p[1], time)
+        add_prep('MN', p[0], time)
+        return time
+
+    @_('habitual habitual')
+    def multi_habitual(self, p):
+        return init_ctime(
+            p[0], p[1],
+            functions=['multi_habitual']
+        )
+
     @_('posterior_dur anterior_dur', 'antpost_dur anterior_dur')
     def begin_to_end(self, p):
         p[0]['functions'][0] = 'posterior_dur'
@@ -802,7 +836,11 @@ class TimeParser(SlyParser):
     def begin_to_end(self, p):
         p[0]['functions'][0] = 'posterior_dur'
         add_qual('durative', p[0])
-        onward = init_time(p[1], quals=['durative'])
+        onward = init_time(
+            p[1], 
+            quals=['durative'],
+            functions=['anterior_dur']
+        )
         return init_ctime(
             p[0], onward,
             functions=['begin_to_end'],
@@ -816,6 +854,7 @@ class TimeParser(SlyParser):
         onward = init_time(
             p[2], 
             quals=['durative'], 
+            functions=['anterior_dur'],
             locale=True
         )
         return init_ctime(
@@ -828,6 +867,7 @@ class TimeParser(SlyParser):
     def begin_to_end(self, p):
         p[0]['functions'][0] = 'posterior_dur'
         add_qual('durative', p[0])
+        add_function('anterior_dur', p[2])
         p[2]['locale'] = True
         return init_ctime(
             p[0], p[2],
@@ -840,6 +880,7 @@ class TimeParser(SlyParser):
         add_prep('MN', p[0], p[1])
         add_function('posterior_dur', p[1])
         add_qual('durative', p[1])
+        p[2]['functions'][0] = 'anterior_dur'
         return init_ctime(
             p[1], p[2],
             functions=['begin_to_end'],
@@ -1017,6 +1058,7 @@ class TimeParser(SlyParser):
        'posts begin_to_end', 'posterior_dur simul',
        'habitual begin_to_end',
        'hab_simul begin_to_end', 'in_dur multi',
+       'posterior antdur_simul'
     )
     def multi(self, p):
         return init_ctime(
@@ -1115,6 +1157,13 @@ class TimeParser(SlyParser):
             functions=['posterior + atelic_ext'],
         )
 
+    @_('Ø duration upon_year')
+    def dist_prosp(self, p):
+        p[2]['functions'][0] = 'reference'
+        add_function('dist_prospective', p[1])
+        add_ref('YEAR', p[2], p[1])
+        return p[1]
+
     # simul phrases followed by potential references
     @_('simul antdur_simul', 'dist_fut antdur_simul')
     def simul_ref(self, p):
@@ -1193,6 +1242,7 @@ class TimeParser(SlyParser):
 
     @_('B YETDUR num_dur', 'B YETDUR num_year')
     def dist_fut(self, p):
+        conv_nums('NUMQ', p)
         add_tense('FUT', p.YETDUR, p[-1])
         add_prep('B', p.B, p[-1])
         add_function('dist_fut', p[-1])
@@ -1236,6 +1286,12 @@ class TimeParser(SlyParser):
         add_function('simultaneous', p[1])
         add_prep('<L', p[0], p[1])
         return p[1] 
+
+    @_('<L year')
+    def upon_year(self, p):
+        add_function('simultaneous', p[1])
+        add_prep('<L', p[0], p[1])
+        return p[1]
 
     @_('Ø time')
     def simul(self, p):
@@ -1685,6 +1741,10 @@ class TimeParser(SlyParser):
     def duration(self, p):
         return init_time(p[0], quals=['durative'])
 
+    @_('person_refm duration')
+    def duration(self, p):
+        return add_ref('PERS', p[0], p[1])
+
     @_('NUM TIMES', 'NUM_ONE TIMES')
     def num_dur(self, p):
         dur = init_time(
@@ -1841,21 +1901,19 @@ class TimeParser(SlyParser):
     # a kind of 'intensive' adjective
     @_('duration <L duration')
     def duration(self, p):
-        prep = ['<L', p[1]]
+        add_prep('<L', p[1], p[2])        
         time = init_ctime(
             p[0], p[2],
             quals=['intensive'],
-            preps=[{}, prep],
         )
         return time
 
     @_('year >XR/ year')
     def duration(self, p):
-        prep = ['>XR/', p[1]]
+        add_prep('<L', p[1], p[2])        
         time = init_ctime(
             p[0], p[2],
             quals=['intensive'],
-            preps=[{}, prep],
         )
         return time
 
@@ -1889,9 +1947,13 @@ class TimeParser(SlyParser):
     def time(self, p):
         return add_ref('THAT', p[0], p.time)
 
-    @_('ORDNA time')
+    @_('ORDNM time')
     def time(self, p):
         return add_ref('ORDN', p[0], p[1])
+
+    @_('person_refm time')
+    def time(self, p):
+        return add_ref('PERS', p[0], p[1])
 
     @_('MOD time')
     def time(self, p):
@@ -1915,7 +1977,7 @@ class TimeParser(SlyParser):
     def day(self, p):
         return add_ref('THE', p[0], p.day)
 
-    @_('ORDNA day')
+    @_('ORDNM day')
     def day(self, p):
         return add_ref('ORDN', p[0], p[1])
 
@@ -1965,6 +2027,15 @@ class TimeParser(SlyParser):
             NUM=p[0],
         )
 
+    @_('CARDC card')
+    def card(self, p):
+        # replace single number
+        # with whole card chain
+        # this is a workaround since 
+        # the "head" of the cardinal chain
+        # is selected by default
+        return init_time(p[0]) 
+
     @_('THE card')
     def card(self, p):
         add_ref('THE', p[0], p[1])
@@ -1974,8 +2045,12 @@ class TimeParser(SlyParser):
        'day ordn_ref')
     def day(self, p):
         conv_nums('CALNUM', p)
+        ref = p[1]['ref']
+        del p[1]['ref']
+        if 'ordn' in p[1]:
+            del p[1]['ordn']
         return add_ref(
-            p[1]['ref'],
+            ref,
             p[1],
             p[0],
         )
@@ -1996,7 +2071,7 @@ class TimeParser(SlyParser):
     def month(self, p):
         return add_ref('THAT', p[0], p[1])
 
-    @_('ORDNA month')
+    @_('ORDNM month')
     def month(self, p):
         return add_ref('ORDN', p[0], p[1])
 
@@ -2014,6 +2089,7 @@ class TimeParser(SlyParser):
 
     @_('month antdur_simul')
     def month(self, p):
+        p[1]['functions'][0] = 'reference'
         return add_ref('TIME', p[1], p[0]) 
 
     @_('month L year')
@@ -2042,7 +2118,7 @@ class TimeParser(SlyParser):
     def year(self, p):
         return add_ref('THAT', p[0], p[1])
 
-    @_('ORDNA year')
+    @_('ORDNM year')
     def year(self, p):
         return add_ref('ORDN', p[0], p[1])
 
@@ -2086,6 +2162,7 @@ class TimeParser(SlyParser):
     
     @_('year antdur_simul')
     def year(self, p):
+        p[1]['functions'][0] = 'reference'
         return add_ref('TIME', p[1], p[0]) 
 
     # -- adverb time --
@@ -2131,6 +2208,7 @@ class TimeParser(SlyParser):
     @_('ORDN')
     def ordinal(self, p):
         time = init_time(p[0])
+        add_ref('ORDN', p[0], time)
         time['ordn'] = p.ORDN
         return time
 
@@ -2183,6 +2261,14 @@ class TimeParser(SlyParser):
         add_function('reference', p[1])
         p[1]['ref'] = 'PERS'
         return p[1]
+
+    @_('PERSONM')
+    def person_refm(self, p):
+        return init_time(
+            p[0],
+            functions=['reference'],
+            ref='PERS'
+        )
 
     @_('L month')
     def month_ref(self, p):

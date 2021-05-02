@@ -1433,8 +1433,19 @@
               ],
               "refs": [
                 [
-                  "GEN",
-                  3235
+                  "PERS",
+                  {
+                    "times": [
+                      3235
+                    ],
+                    "slots": [
+                      3235
+                    ],
+                    "functions": [
+                      "reference"
+                    ],
+                    "ref": "PERS"
+                  }
                 ]
               ],
               "functions": [
@@ -1955,6 +1966,10 @@
           [
             "THE",
             3643
+          ],
+          [
+            "ORDN",
+            3644
           ]
         ],
         "functions": [
@@ -2004,8 +2019,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -2260,8 +2274,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -3514,48 +3527,69 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
+        "PERS",
+        {
+          "times": [
             [
               [
-                6225,
                 [
                   [
-                    6228,
-                    6227,
+                    6225,
+                    [
+                      [
+                        6228,
+                        6227,
+                        "GP"
+                      ],
+                      6226,
+                      "APPO"
+                    ],
+                    "CONJ"
+                  ],
+                  [
+                    [
+                      6224,
+                      6223,
+                      "GP"
+                    ],
+                    6222,
+                    "APPO"
+                  ],
+                  "PARA"
+                ],
+                [
+                  [
+                    6221,
+                    6220,
                     "GP"
                   ],
-                  6226,
+                  6219,
                   "APPO"
                 ],
-                "CONJ"
+                "PARA"
               ],
-              [
-                [
-                  6224,
-                  6223,
-                  "GP"
-                ],
-                6222,
-                "APPO"
-              ],
+              6216,
               "PARA"
-            ],
-            [
-              [
-                6221,
-                6220,
-                "GP"
-              ],
-              6219,
-              "APPO"
-            ],
-            "PARA"
+            ]
           ],
-          6216,
-          "PARA"
-        ]
+          "slots": [
+            6216,
+            6219,
+            6220,
+            6221,
+            6222,
+            6223,
+            6224,
+            6225,
+            6226,
+            6227,
+            6228
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -4795,8 +4829,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        12592
+        "PERS",
+        {
+          "times": [
+            12592
+          ],
+          "slots": [
+            12592
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -4928,12 +4973,24 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          13272,
-          13271,
-          "APPO"
-        ]
+        "PERS",
+        {
+          "times": [
+            [
+              13272,
+              13271,
+              "APPO"
+            ]
+          ],
+          "slots": [
+            13271,
+            13272
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -4961,12 +5018,24 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          13317,
-          13316,
-          "APPO"
-        ]
+        "PERS",
+        {
+          "times": [
+            [
+              13317,
+              13316,
+              "APPO"
+            ]
+          ],
+          "slots": [
+            13316,
+            13317
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -4990,8 +5059,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        13323
+        "PERS",
+        {
+          "times": [
+            13323
+          ],
+          "slots": [
+            13323
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -10639,6 +10719,9 @@
         "quals": [
           "durative"
         ],
+        "functions": [
+          "anterior_dur"
+        ],
         "locale": true
       }
     ],
@@ -12519,6 +12602,10 @@
       [
         "THE",
         40032
+      ],
+      [
+        "ORDN",
+        40033
       ]
     ],
     "functions": [
@@ -12836,6 +12923,10 @@
       [
         "THE",
         41184
+      ],
+      [
+        "ORDN",
+        41185
       ]
     ],
     "functions": [
@@ -14564,8 +14655,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -14729,8 +14819,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -17097,8 +17186,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -17273,7 +17361,7 @@
     ],
     "refs": [
       [
-        "GEN",
+        "ORDN",
         [
           63894,
           63895,
@@ -17500,7 +17588,7 @@
         ],
         "refs": [
           [
-            "GEN",
+            "ORDN",
             [
               65860,
               65861,
@@ -17530,6 +17618,9 @@
         ],
         "quals": [
           "durative"
+        ],
+        "functions": [
+          "anterior_dur"
         ]
       }
     ],
@@ -17863,8 +17954,7 @@
           ],
           "functions": [
             "reference"
-          ],
-          "ref": "MONTH"
+          ]
         }
       ],
       [
@@ -18869,8 +18959,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -19553,8 +19642,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -19665,8 +19753,7 @@
           ],
           "functions": [
             "reference"
-          ],
-          "ref": "MONTH"
+          ]
         }
       ],
       [
@@ -23997,8 +24084,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -24086,8 +24172,7 @@
           ],
           "functions": [
             "reference"
-          ],
-          "ref": "MONTH"
+          ]
         }
       ],
       [
@@ -25110,8 +25195,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -30250,8 +30334,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        112930
+        "PERS",
+        {
+          "times": [
+            112930
+          ],
+          "slots": [
+            112930
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -30959,8 +31054,7 @@
           ],
           "functions": [
             "reference"
-          ],
-          "ref": "MONTH"
+          ]
         }
       ],
       [
@@ -34411,8 +34505,19 @@
         ],
         "refs": [
           [
-            "GEN",
-            127376
+            "PERS",
+            {
+              "times": [
+                127376
+              ],
+              "slots": [
+                127376
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "quants": [
@@ -34505,8 +34610,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        127456
+        "PERS",
+        {
+          "times": [
+            127456
+          ],
+          "slots": [
+            127456
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -34697,8 +34813,19 @@
         ],
         "refs": [
           [
-            "GEN",
-            128342
+            "PERS",
+            {
+              "times": [
+                128342
+              ],
+              "slots": [
+                128342
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "quants": [
@@ -35038,16 +35165,29 @@
         ],
         "refs": [
           [
-            "GEN",
-            [
-              [
-                130030,
-                130029,
-                "GP"
+            "PERS",
+            {
+              "times": [
+                [
+                  [
+                    130030,
+                    130029,
+                    "GP"
+                  ],
+                  130028,
+                  "APPO"
+                ]
               ],
-              130028,
-              "APPO"
-            ]
+              "slots": [
+                130028,
+                130029,
+                130030
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "functions": [
@@ -35074,8 +35214,19 @@
         ],
         "refs": [
           [
-            "GEN",
-            130033
+            "PERS",
+            {
+              "times": [
+                130033
+              ],
+              "slots": [
+                130033
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "functions": [
@@ -35606,8 +35757,19 @@
         ],
         "refs": [
           [
-            "GEN",
-            132759
+            "PERS",
+            {
+              "times": [
+                132759
+              ],
+              "slots": [
+                132759
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "functions": [
@@ -36400,6 +36562,9 @@
         ],
         "quals": [
           "durative"
+        ],
+        "functions": [
+          "anterior_dur"
         ],
         "locale": true
       }
@@ -38777,6 +38942,9 @@
         "quals": [
           "durative"
         ],
+        "functions": [
+          "anterior_dur"
+        ],
         "locale": true
       }
     ],
@@ -38913,6 +39081,9 @@
         ],
         "quals": [
           "durative"
+        ],
+        "functions": [
+          "anterior_dur"
         ],
         "locale": true
       }
@@ -39264,6 +39435,9 @@
         ],
         "quals": [
           "durative"
+        ],
+        "functions": [
+          "anterior_dur"
         ],
         "locale": true
       }
@@ -40066,8 +40240,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        145000
+        "PERS",
+        {
+          "times": [
+            145000
+          ],
+          "slots": [
+            145000
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "quants": [
@@ -40107,6 +40292,61 @@
     ],
     "functions": [
       "atelic_ext"
+    ]
+  },
+  "454685": {
+    "times": [
+      {
+        "times": [
+          145047
+        ],
+        "slots": [
+          145047
+        ]
+      },
+      {
+        "times": [
+          145049
+        ],
+        "slots": [
+          145048,
+          145049
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            145048
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      145045,
+      145046,
+      145047,
+      145048,
+      145049
+    ],
+    "functions": [
+      "habitual"
+    ],
+    "quals": [
+      "distributive"
+    ],
+    "quants": [
+      [
+        "OFTEN",
+        145046
+      ]
+    ],
+    "preps": [
+      [
+        "MN",
+        145045
+      ]
     ]
   },
   "454707": {
@@ -40290,6 +40530,58 @@
         "L",
         145705
       ]
+    ]
+  },
+  "454827": {
+    "times": [
+      {
+        "functions": [
+          "simultaneous"
+        ],
+        "refs": [
+          [
+            "THE",
+            145728
+          ]
+        ],
+        "slots": [
+          145728,
+          145729
+        ],
+        "times": [
+          145729
+        ]
+      },
+      {
+        "functions": [
+          "anterior"
+        ],
+        "preps": [
+          [
+            "L",
+            145731
+          ]
+        ],
+        "quals": [
+          "durative"
+        ],
+        "slots": [
+          145731,
+          145732
+        ],
+        "times": [
+          145732
+        ]
+      }
+    ],
+    "slots": [
+      145728,
+      145729,
+      145731,
+      145732
+    ],
+    "functions": [
+      "simultaneous + anterior"
     ]
   },
   "454844": {
@@ -41903,8 +42195,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        149517
+        "PERS",
+        {
+          "times": [
+            149517
+          ],
+          "slots": [
+            149517
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "quants": [
@@ -42192,6 +42495,9 @@
         "quals": [
           "durative"
         ],
+        "functions": [
+          "anterior_dur"
+        ],
         "locale": true
       }
     ],
@@ -42246,8 +42552,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        151027
+        "PERS",
+        {
+          "times": [
+            151027
+          ],
+          "slots": [
+            151027
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -42476,6 +42793,9 @@
         ],
         "quals": [
           "durative"
+        ],
+        "functions": [
+          "anterior_dur"
         ]
       }
     ],
@@ -45040,6 +45360,9 @@
         "quals": [
           "durative"
         ],
+        "functions": [
+          "anterior_dur"
+        ],
         "locale": true
       }
     ],
@@ -45198,8 +45521,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        160470
+        "PERS",
+        {
+          "times": [
+            160470
+          ],
+          "slots": [
+            160470
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -47240,6 +47574,40 @@
       "simultaneous"
     ]
   },
+  "459386": {
+    "times": [
+      167640
+    ],
+    "slots": [
+      167639,
+      167640
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        167640
+      ],
+      [
+        "DUR",
+        167641
+      ]
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "dist_prospective"
+    ],
+    "preps": [
+      [
+        "L",
+        167639
+      ]
+    ],
+    "notes": [
+      "See Haspelmath 37, 98; this is a non-deictic distance with anaphoric reference instead of deictic, which uses B; Hebrew may join those languages which use different preposition markers for non-deictic phrases (i.e. L instead of B)"
+    ]
+  },
   "459446": {
     "times": [
       167883
@@ -47381,6 +47749,88 @@
     ],
     "functions": [
       "simultaneous"
+    ]
+  },
+  "459615": {
+    "times": [
+      {
+        "times": [
+          {
+            "quals": [
+              "durative"
+            ],
+            "slots": [
+              168669,
+              168670,
+              168671
+            ],
+            "times": [
+              168671
+            ]
+          },
+          {
+            "functions": [
+              "anterior_dur, simultaneous"
+            ],
+            "preps": [
+              [
+                "L",
+                168672
+              ]
+            ],
+            "quals": [
+              "durative"
+            ],
+            "refs": [
+              [
+                "THE",
+                168673
+              ]
+            ],
+            "slots": [
+              168672,
+              168673,
+              168674
+            ],
+            "times": [
+              168674
+            ]
+          }
+        ],
+        "slots": [
+          168669,
+          168670,
+          168671,
+          168672,
+          168673,
+          168674
+        ],
+        "functions": [
+          "habitual"
+        ]
+      }
+    ],
+    "slots": [
+      168669,
+      168670,
+      168671,
+      168672,
+      168673,
+      168674
+    ],
+    "functions": [
+      "posterior",
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "MN",
+        168669
+      ],
+      [
+        "END",
+        168670
+      ]
     ]
   },
   "459623": {
@@ -48661,6 +49111,123 @@
         "B",
         173536
       ]
+    ]
+  },
+  "460649": {
+    "times": [
+      {
+        "times": [
+          173713
+        ],
+        "slots": [
+          173712,
+          173713,
+          173714
+        ],
+        "quals": [
+          "durative"
+        ],
+        "refs": [
+          [
+            "PERS",
+            {
+              "times": [
+                173714
+              ],
+              "slots": [
+                173714
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            173712
+          ]
+        ]
+      },
+      {
+        "times": [
+          173716
+        ],
+        "slots": [
+          173715,
+          173716
+        ],
+        "quals": [
+          "durative"
+        ],
+        "quants": [
+          [
+            "NUMQ",
+            173715
+          ]
+        ],
+        "functions": [
+          "atelic_ext"
+        ],
+        "timeappos": [
+          {
+            "functions": [
+              "atelic_ext"
+            ],
+            "quals": [
+              "intensive"
+            ],
+            "slots": [
+              173717,
+              173718,
+              173719
+            ],
+            "times": [
+              {
+                "slots": [
+                  173717
+                ],
+                "times": [
+                  173717
+                ]
+              },
+              {
+                "preps": [
+                  [
+                    "<L",
+                    173718
+                  ]
+                ],
+                "slots": [
+                  173718,
+                  173719
+                ],
+                "times": [
+                  173719
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "slots": [
+      173712,
+      173713,
+      173714,
+      173715,
+      173716,
+      173717,
+      173718,
+      173719
+    ],
+    "functions": [
+      "simultaneous + atelic_ext"
     ]
   },
   "460693": {
@@ -50201,6 +50768,37 @@
       "atelic_ext"
     ]
   },
+  "461798": {
+    "times": [
+      179375
+    ],
+    "slots": [
+      179374,
+      179375,
+      179376
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        179376
+      ]
+    ],
+    "functions": [
+      "habitual"
+    ],
+    "preps": [
+      [
+        "L",
+        179374
+      ]
+    ],
+    "notes": [
+      "!difficult",
+      "LXX reads εν even though it typically uses εις for habitual readings",
+      "ESV interprets as \"for\"",
+      "NET has habitual"
+    ]
+  },
   "461802": {
     "times": [
       179453
@@ -50216,8 +50814,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        179454
+        "PERS",
+        {
+          "times": [
+            179454
+          ],
+          "slots": [
+            179454
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "quants": [
@@ -50228,6 +50837,27 @@
     ],
     "functions": [
       "atelic_ext"
+    ]
+  },
+  "461805": {
+    "times": [
+      179491
+    ],
+    "slots": [
+      179491
+    ],
+    "refs": [
+      [
+        "SFX",
+        179491
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "notes": [
+      "!difficult",
+      "Temporal? atelic ext?"
     ]
   },
   "461831": {
@@ -51492,8 +52122,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        184824
+        "PERS",
+        {
+          "times": [
+            184824
+          ],
+          "slots": [
+            184824
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -51616,8 +52257,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        185508
+        "PERS",
+        {
+          "times": [
+            185508
+          ],
+          "slots": [
+            185508
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "quants": [
@@ -51758,8 +52410,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        185894
+        "PERS",
+        {
+          "times": [
+            185894
+          ],
+          "slots": [
+            185894
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -52131,6 +52794,33 @@
             "B",
             186748
           ]
+        ],
+        "timeappos": [
+          {
+            "functions": [
+              "simultaneous"
+            ],
+            "preps": [
+              [
+                "B",
+                186753
+              ]
+            ],
+            "refs": [
+              [
+                "THE",
+                186754
+              ]
+            ],
+            "slots": [
+              186753,
+              186754,
+              186755
+            ],
+            "times": [
+              186755
+            ]
+          }
         ]
       }
     ],
@@ -52142,7 +52832,10 @@
       186748,
       186749,
       186750,
-      186752
+      186752,
+      186753,
+      186754,
+      186755
     ],
     "functions": [
       "cal_simul"
@@ -52999,6 +53692,114 @@
       "simultaneous + atelic_ext"
     ]
   },
+  "463478": {
+    "times": [
+      {
+        "times": [
+          189212
+        ],
+        "slots": [
+          189211,
+          189212,
+          189213,
+          189214,
+          189215,
+          189216,
+          189217,
+          189218
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              [
+                [
+                  189214,
+                  189215,
+                  "CONJ"
+                ],
+                189213,
+                "CARDC"
+              ],
+              189216,
+              "NUM"
+            ]
+          ],
+          [
+            "PERS",
+            {
+              "times": [
+                189218
+              ],
+              "slots": [
+                189217,
+                189218
+              ],
+              "refs": [
+                [
+                  "PERS",
+                  189218
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  189217
+                ]
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            189211
+          ]
+        ]
+      },
+      {
+        "times": [
+          189229
+        ],
+        "slots": [
+          189229
+        ],
+        "quants": [
+          [
+            "NUMQ",
+            189229
+          ]
+        ],
+        "quals": [
+          "durative"
+        ],
+        "functions": [
+          "atelic_ext"
+        ]
+      }
+    ],
+    "slots": [
+      189211,
+      189212,
+      189213,
+      189214,
+      189215,
+      189216,
+      189217,
+      189218,
+      189229
+    ],
+    "functions": [
+      "simultaneous + atelic_ext"
+    ]
+  },
   "463485": {
     "times": [
       189261
@@ -53699,6 +54500,31 @@
       "simultaneous"
     ]
   },
+  "463699": {
+    "times": [
+      190323
+    ],
+    "slots": [
+      190323,
+      190324
+    ],
+    "quals": [
+      "durative",
+      "durative"
+    ],
+    "quants": [
+      [
+        "MANY",
+        190324
+      ]
+    ],
+    "functions": [
+      "dist_prospective"
+    ],
+    "notes": [
+      "link:459386"
+    ]
+  },
   "463700": {
     "times": [
       190333
@@ -54014,6 +54840,10 @@
       [
         "THE",
         191327
+      ],
+      [
+        "ORDN",
+        191328
       ]
     ],
     "functions": [
@@ -54637,9 +55467,7 @@
       194535,
       194536,
       194537,
-      194538,
-      194539,
-      194540
+      194538
     ],
     "refs": [
       [
@@ -54661,6 +55489,34 @@
           ],
           "APPO"
         ]
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            194538
+          ],
+          "slots": [
+            194537,
+            194538
+          ],
+          "refs": [
+            [
+              "PERS",
+              194538
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              194537
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -54719,12 +55575,24 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          194632,
-          194631,
-          "APPO"
-        ]
+        "PERS",
+        {
+          "times": [
+            [
+              194632,
+              194631,
+              "APPO"
+            ]
+          ],
+          "slots": [
+            194631,
+            194632
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -54747,9 +55615,7 @@
       194707,
       194708,
       194709,
-      194710,
-      194711,
-      194712
+      194710
     ],
     "refs": [
       [
@@ -54775,6 +55641,34 @@
           ],
           "APPO"
         ]
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            194710
+          ],
+          "slots": [
+            194709,
+            194710
+          ],
+          "refs": [
+            [
+              "PERS",
+              194710
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              194709
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -54818,8 +55712,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        194770
+        "PERS",
+        {
+          "times": [
+            194770
+          ],
+          "slots": [
+            194770
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -54864,40 +55769,40 @@
       195219,
       195220,
       195221,
-      195222,
-      195223,
-      195224,
-      195225,
-      195226
+      195222
     ],
     "refs": [
       [
         "CALNUM",
-        [
-          [
-            [
-              [
-                195226,
-                195225,
-                "GP"
-              ],
-              [
-                195224,
-                195223,
-                "GP"
-              ],
-              "APPO"
-            ],
-            [
-              195221,
-              195222,
-              "PP"
-            ],
-            "APPO"
+        195220
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            195222
           ],
-          195220,
-          "SPEC"
-        ]
+          "slots": [
+            195221,
+            195222
+          ],
+          "refs": [
+            [
+              "PERS",
+              195222
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              195221
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -55097,8 +56002,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        195925
+        "PERS",
+        {
+          "times": [
+            195925
+          ],
+          "slots": [
+            195925
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -55934,6 +56850,332 @@
       "atelic_ext"
     ]
   },
+  "465905": {
+    "times": [
+      199587
+    ],
+    "slots": [
+      199584,
+      199585,
+      199586,
+      199587
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        199586
+      ]
+    ],
+    "functions": [
+      "posterior",
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "MN",
+        199584
+      ],
+      [
+        "END",
+        199585
+      ]
+    ]
+  },
+  "465984": {
+    "times": [
+      199913
+    ],
+    "slots": [
+      199912,
+      199913
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        "MN",
+        199912
+      ]
+    ]
+  },
+  "465990": {
+    "times": [
+      199935
+    ],
+    "slots": [
+      199934,
+      199935,
+      199936,
+      199937,
+      199938
+    ],
+    "refs": [
+      [
+        "CALNUM",
+        199936
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            199938
+          ],
+          "slots": [
+            199937,
+            199938
+          ],
+          "refs": [
+            [
+              "PERS",
+              199938
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              199937
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        199934
+      ]
+    ]
+  },
+  "465994": {
+    "times": [
+      199963
+    ],
+    "slots": [
+      199962,
+      199963
+    ],
+    "quals": [
+      "durative"
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        199962
+      ]
+    ],
+    "functions": [
+      "atelic_ext"
+    ]
+  },
+  "466003": {
+    "times": [
+      200015
+    ],
+    "slots": [
+      200013,
+      200014,
+      200015
+    ],
+    "quals": [
+      "durative",
+      "durative"
+    ],
+    "refs": [
+      [
+        "THE",
+        200014
+      ]
+    ],
+    "quants": [
+      [
+        "ALL",
+        200013
+      ]
+    ],
+    "functions": [
+      "purposive_ext"
+    ],
+    "notes": [
+      "!clause"
+    ]
+  },
+  "466004": {
+    "times": [
+      200017
+    ],
+    "slots": [
+      200016,
+      200017
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "SFX",
+        200017
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        200016
+      ]
+    ]
+  },
+  "466009": {
+    "times": [
+      200041
+    ],
+    "slots": [
+      200041
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "466013": {
+    "times": [
+      200069
+    ],
+    "slots": [
+      200067,
+      200068,
+      200069,
+      200071
+    ],
+    "refs": [
+      [
+        "THIS",
+        200071
+      ],
+      [
+        "THE",
+        200068
+      ]
+    ],
+    "functions": [
+      "anterior_dur"
+    ],
+    "preps": [
+      [
+        "<D",
+        200067
+      ]
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
+  "466014": {
+    "times": [
+      200077
+    ],
+    "slots": [
+      200075,
+      200076,
+      200077,
+      200079
+    ],
+    "refs": [
+      [
+        "THAT",
+        200079
+      ],
+      [
+        "THE",
+        200076
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        200075
+      ]
+    ]
+  },
+  "466021": {
+    "times": [
+      200118
+    ],
+    "slots": [
+      200117,
+      200118,
+      200119,
+      200120,
+      200121,
+      200122,
+      200123
+    ],
+    "refs": [
+      [
+        "CALNUM",
+        [
+          [
+            200119,
+            200120,
+            "CARDC"
+          ],
+          200121,
+          "NUM"
+        ]
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            200123
+          ],
+          "slots": [
+            200122,
+            200123
+          ],
+          "refs": [
+            [
+              "PERS",
+              200123
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              200122
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        200117
+      ]
+    ]
+  },
   "466024": {
     "times": [
       200143
@@ -55999,6 +57241,71 @@
     ],
     "functions": [
       "simultaneous"
+    ]
+  },
+  "466208": {
+    "times": [
+      200947
+    ],
+    "slots": [
+      200946,
+      200947,
+      200948,
+      200949,
+      200950,
+      200951,
+      200952
+    ],
+    "refs": [
+      [
+        "CALNUM",
+        [
+          [
+            200948,
+            200949,
+            "CARDC"
+          ],
+          200950,
+          "NUM"
+        ]
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            200952
+          ],
+          "slots": [
+            200951,
+            200952
+          ],
+          "refs": [
+            [
+              "PERS",
+              200952
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              200951
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        200946
+      ]
     ]
   },
   "466254": {
@@ -56244,6 +57551,61 @@
       ]
     ]
   },
+  "466530": {
+    "times": [
+      202569
+    ],
+    "slots": [
+      202568,
+      202569,
+      202570,
+      202571,
+      202572
+    ],
+    "refs": [
+      [
+        "CALNUM",
+        202570
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            202572
+          ],
+          "slots": [
+            202571,
+            202572
+          ],
+          "refs": [
+            [
+              "PERS",
+              202572
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              202571
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        202568
+      ]
+    ]
+  },
   "466531": {
     "times": [
       202577
@@ -56293,6 +57655,82 @@
       "atelic_ext"
     ]
   },
+  "466548": {
+    "times": [
+      202672
+    ],
+    "slots": [
+      202671,
+      202672,
+      202673,
+      202674,
+      202675,
+      202676,
+      202677,
+      202678,
+      202679
+    ],
+    "refs": [
+      [
+        "CALNUM",
+        [
+          [
+            [
+              202674,
+              202675,
+              "CONJ"
+            ],
+            202673,
+            "CARDC"
+          ],
+          202676,
+          "NUM"
+        ]
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            202679
+          ],
+          "slots": [
+            202677,
+            202678,
+            202679
+          ],
+          "refs": [
+            [
+              "THE",
+              202678
+            ],
+            [
+              "PERS",
+              202679
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              202677
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        202671
+      ]
+    ]
+  },
   "466553": {
     "times": [
       202713
@@ -56314,6 +57752,122 @@
     ],
     "functions": [
       "simultaneous"
+    ]
+  },
+  "466610": {
+    "times": [
+      {
+        "times": [
+          203081
+        ],
+        "slots": [
+          203080,
+          203081,
+          203082,
+          203083,
+          203084,
+          203085,
+          203086,
+          203087
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              [
+                [
+                  203083,
+                  203084,
+                  "CONJ"
+                ],
+                203082,
+                "CARDC"
+              ],
+              203085,
+              "NUM"
+            ]
+          ],
+          [
+            "PERS",
+            {
+              "times": [
+                203087
+              ],
+              "slots": [
+                203086,
+                203087
+              ],
+              "refs": [
+                [
+                  "PERS",
+                  203087
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  203086
+                ]
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            203080
+          ]
+        ]
+      },
+      {
+        "times": [
+          203102
+        ],
+        "slots": [
+          203100,
+          203101,
+          203102
+        ],
+        "quants": [
+          [
+            "NUMQ",
+            [
+              203100,
+              203101,
+              "CARDC"
+            ]
+          ]
+        ],
+        "quals": [
+          "durative"
+        ],
+        "functions": [
+          "atelic_ext"
+        ]
+      }
+    ],
+    "slots": [
+      203080,
+      203081,
+      203082,
+      203083,
+      203084,
+      203085,
+      203086,
+      203087,
+      203100,
+      203101,
+      203102
+    ],
+    "functions": [
+      "simultaneous + atelic_ext"
     ]
   },
   "466617": {
@@ -56343,6 +57897,122 @@
     ],
     "functions": [
       "purposive_ext"
+    ]
+  },
+  "466640": {
+    "times": [
+      {
+        "times": [
+          203272
+        ],
+        "slots": [
+          203271,
+          203272,
+          203273,
+          203274,
+          203275,
+          203276,
+          203277,
+          203278
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              [
+                [
+                  203274,
+                  203275,
+                  "CONJ"
+                ],
+                203273,
+                "CARDC"
+              ],
+              203276,
+              "NUM"
+            ]
+          ],
+          [
+            "PERS",
+            {
+              "times": [
+                203278
+              ],
+              "slots": [
+                203277,
+                203278
+              ],
+              "refs": [
+                [
+                  "PERS",
+                  203278
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  203277
+                ]
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            203271
+          ]
+        ]
+      },
+      {
+        "times": [
+          203291
+        ],
+        "slots": [
+          203289,
+          203290,
+          203291
+        ],
+        "quants": [
+          [
+            "NUMQ",
+            [
+              203289,
+              203290,
+              "CARDC"
+            ]
+          ]
+        ],
+        "quals": [
+          "durative"
+        ],
+        "functions": [
+          "atelic_ext"
+        ]
+      }
+    ],
+    "slots": [
+      203271,
+      203272,
+      203273,
+      203274,
+      203275,
+      203276,
+      203277,
+      203278,
+      203289,
+      203290,
+      203291
+    ],
+    "functions": [
+      "simultaneous + atelic_ext"
     ]
   },
   "466688": {
@@ -56400,8 +58070,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        203557
+        "PERS",
+        {
+          "times": [
+            203557
+          ],
+          "slots": [
+            203557
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "quants": [
@@ -56445,6 +58126,61 @@
     ],
     "quals": [
       "durative"
+    ]
+  },
+  "466717": {
+    "times": [
+      203630
+    ],
+    "slots": [
+      203629,
+      203630,
+      203631,
+      203632,
+      203633
+    ],
+    "refs": [
+      [
+        "CALNUM",
+        203631
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            203633
+          ],
+          "slots": [
+            203632,
+            203633
+          ],
+          "refs": [
+            [
+              "PERS",
+              203633
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              203632
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        203629
+      ]
     ]
   },
   "466720": {
@@ -56541,8 +58277,19 @@
         ],
         "refs": [
           [
-            "GEN",
-            204020
+            "PERS",
+            {
+              "times": [
+                204020
+              ],
+              "slots": [
+                204020
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "functions": [
@@ -56592,6 +58339,192 @@
     ],
     "functions": [
       "posterior + atelic_ext"
+    ]
+  },
+  "466799": {
+    "times": [
+      {
+        "times": [
+          204109
+        ],
+        "slots": [
+          204108,
+          204109,
+          204110,
+          204111,
+          204112,
+          204113,
+          204114
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              [
+                204110,
+                204111,
+                "CARDC"
+              ],
+              204112,
+              "NUM"
+            ]
+          ],
+          [
+            "PERS",
+            {
+              "times": [
+                204114
+              ],
+              "slots": [
+                204113,
+                204114
+              ],
+              "refs": [
+                [
+                  "PERS",
+                  204114
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  204113
+                ]
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            204108
+          ]
+        ]
+      },
+      {
+        "times": [
+          204130
+        ],
+        "slots": [
+          204127,
+          204128,
+          204129,
+          204130
+        ],
+        "quants": [
+          [
+            "NUMQ",
+            [
+              [
+                204128,
+                204129,
+                "CONJ"
+              ],
+              204127,
+              "CARDC"
+            ]
+          ]
+        ],
+        "quals": [
+          "durative"
+        ],
+        "functions": [
+          "atelic_ext"
+        ]
+      }
+    ],
+    "slots": [
+      204108,
+      204109,
+      204110,
+      204111,
+      204112,
+      204113,
+      204114,
+      204127,
+      204128,
+      204129,
+      204130
+    ],
+    "functions": [
+      "simultaneous + atelic_ext"
+    ]
+  },
+  "466823": {
+    "times": [
+      204270
+    ],
+    "slots": [
+      204269,
+      204270,
+      204271,
+      204272,
+      204273,
+      204274,
+      204275,
+      204276
+    ],
+    "refs": [
+      [
+        "CALNUM",
+        [
+          [
+            [
+              204272,
+              204273,
+              "CONJ"
+            ],
+            204271,
+            "CARDC"
+          ],
+          204274,
+          "NUM"
+        ]
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            204276
+          ],
+          "slots": [
+            204275,
+            204276
+          ],
+          "refs": [
+            [
+              "PERS",
+              204276
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              204275
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        204269
+      ]
     ]
   },
   "466826": {
@@ -56653,6 +58586,186 @@
       "durative"
     ]
   },
+  "466845": {
+    "times": [
+      {
+        "times": [
+          204403
+        ],
+        "slots": [
+          204402,
+          204403,
+          204404,
+          204405,
+          204406,
+          204407,
+          204408,
+          204409
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              [
+                [
+                  204405,
+                  204406,
+                  "CONJ"
+                ],
+                204404,
+                "CARDC"
+              ],
+              204407,
+              "NUM"
+            ]
+          ],
+          [
+            "PERS",
+            {
+              "times": [
+                204409
+              ],
+              "slots": [
+                204408,
+                204409
+              ],
+              "refs": [
+                [
+                  "PERS",
+                  204409
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  204408
+                ]
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            204402
+          ]
+        ]
+      },
+      {
+        "times": [
+          204421
+        ],
+        "slots": [
+          204420,
+          204421
+        ],
+        "quals": [
+          "durative"
+        ],
+        "quants": [
+          [
+            "NUMQ",
+            204420
+          ]
+        ],
+        "functions": [
+          "atelic_ext"
+        ]
+      }
+    ],
+    "slots": [
+      204402,
+      204403,
+      204404,
+      204405,
+      204406,
+      204407,
+      204408,
+      204409,
+      204420,
+      204421
+    ],
+    "functions": [
+      "simultaneous + atelic_ext"
+    ]
+  },
+  "466862": {
+    "times": [
+      204497
+    ],
+    "slots": [
+      204496,
+      204497,
+      204498,
+      204499,
+      204500,
+      204501,
+      204502,
+      204503
+    ],
+    "refs": [
+      [
+        "CALNUM",
+        [
+          [
+            [
+              204499,
+              204500,
+              "CONJ"
+            ],
+            204498,
+            "CARDC"
+          ],
+          204501,
+          "NUM"
+        ]
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            204503
+          ],
+          "slots": [
+            204502,
+            204503
+          ],
+          "refs": [
+            [
+              "PERS",
+              204503
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              204502
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        204496
+      ]
+    ]
+  },
   "466863": {
     "times": [
       204508
@@ -56672,6 +58785,116 @@
     ],
     "functions": [
       "atelic_ext"
+    ]
+  },
+  "466877": {
+    "times": [
+      {
+        "times": [
+          204579
+        ],
+        "slots": [
+          204578,
+          204579,
+          204580,
+          204581,
+          204582,
+          204583,
+          204584,
+          204585
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              [
+                [
+                  204581,
+                  204582,
+                  "CONJ"
+                ],
+                204580,
+                "CARDC"
+              ],
+              204583,
+              "NUM"
+            ]
+          ],
+          [
+            "PERS",
+            {
+              "times": [
+                204585
+              ],
+              "slots": [
+                204584,
+                204585
+              ],
+              "refs": [
+                [
+                  "PERS",
+                  204585
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  204584
+                ]
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            204578
+          ]
+        ]
+      },
+      {
+        "times": [
+          204595
+        ],
+        "slots": [
+          204594,
+          204595
+        ],
+        "quals": [
+          "durative"
+        ],
+        "quants": [
+          [
+            "NUMQ",
+            204594
+          ]
+        ],
+        "functions": [
+          "atelic_ext"
+        ]
+      }
+    ],
+    "slots": [
+      204578,
+      204579,
+      204580,
+      204581,
+      204582,
+      204583,
+      204584,
+      204585,
+      204594,
+      204595
+    ],
+    "functions": [
+      "simultaneous + atelic_ext"
     ]
   },
   "466880": {
@@ -56702,6 +58925,212 @@
       "atelic_ext"
     ]
   },
+  "466896": {
+    "times": [
+      {
+        "times": [
+          204710
+        ],
+        "slots": [
+          204709,
+          204710,
+          204711,
+          204712,
+          204713,
+          204714
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              204711,
+              204712,
+              "NUM"
+            ]
+          ],
+          [
+            "PERS",
+            {
+              "times": [
+                204714
+              ],
+              "slots": [
+                204713,
+                204714
+              ],
+              "refs": [
+                [
+                  "PERS",
+                  204714
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  204713
+                ]
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            204709
+          ]
+        ]
+      },
+      {
+        "times": [
+          204725
+        ],
+        "slots": [
+          204725
+        ],
+        "quants": [
+          [
+            "NUMQ",
+            204725
+          ]
+        ],
+        "quals": [
+          "durative"
+        ],
+        "functions": [
+          "atelic_ext"
+        ]
+      }
+    ],
+    "slots": [
+      204709,
+      204710,
+      204711,
+      204712,
+      204713,
+      204714,
+      204725
+    ],
+    "functions": [
+      "simultaneous + atelic_ext"
+    ]
+  },
+  "466909": {
+    "times": [
+      {
+        "times": [
+          204797
+        ],
+        "slots": [
+          204796,
+          204797,
+          204798,
+          204799,
+          204800,
+          204801,
+          204802,
+          204803
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              [
+                [
+                  204799,
+                  204800,
+                  "CONJ"
+                ],
+                204798,
+                "CARDC"
+              ],
+              204801,
+              "NUM"
+            ]
+          ],
+          [
+            "PERS",
+            {
+              "times": [
+                204803
+              ],
+              "slots": [
+                204802,
+                204803
+              ],
+              "refs": [
+                [
+                  "PERS",
+                  204803
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  204802
+                ]
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            204796
+          ]
+        ]
+      },
+      {
+        "times": [
+          204815
+        ],
+        "slots": [
+          204814,
+          204815
+        ],
+        "quants": [
+          [
+            "NUMQ",
+            204814
+          ]
+        ],
+        "quals": [
+          "durative"
+        ],
+        "functions": [
+          "atelic_ext"
+        ]
+      }
+    ],
+    "slots": [
+      204796,
+      204797,
+      204798,
+      204799,
+      204800,
+      204801,
+      204802,
+      204803,
+      204814,
+      204815
+    ],
+    "functions": [
+      "simultaneous + atelic_ext"
+    ]
+  },
   "466914": {
     "times": [
       204835
@@ -56718,16 +59147,29 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            204838,
-            204837,
-            "GP"
+        "PERS",
+        {
+          "times": [
+            [
+              [
+                204838,
+                204837,
+                "GP"
+              ],
+              204836,
+              "APPO"
+            ]
           ],
-          204836,
-          "APPO"
-        ]
+          "slots": [
+            204836,
+            204837,
+            204838
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -56737,6 +59179,116 @@
       [
         "B",
         204834
+      ]
+    ]
+  },
+  "466920": {
+    "times": [
+      204891
+    ],
+    "slots": [
+      204890,
+      204891,
+      204892,
+      204893,
+      204894
+    ],
+    "refs": [
+      [
+        "CALNUM",
+        204892
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            204894
+          ],
+          "slots": [
+            204893,
+            204894
+          ],
+          "refs": [
+            [
+              "PERS",
+              204894
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              204893
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        204890
+      ]
+    ]
+  },
+  "466924": {
+    "times": [
+      204916
+    ],
+    "slots": [
+      204915,
+      204916,
+      204917,
+      204918,
+      204919
+    ],
+    "refs": [
+      [
+        "CALNUM",
+        204917
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            204919
+          ],
+          "slots": [
+            204918,
+            204919
+          ],
+          "refs": [
+            [
+              "PERS",
+              204919
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              204918
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        204915
       ]
     ]
   },
@@ -56796,6 +59348,71 @@
       [
         "B",
         205005
+      ]
+    ]
+  },
+  "466945": {
+    "times": [
+      205043
+    ],
+    "slots": [
+      205042,
+      205043,
+      205044,
+      205045,
+      205046,
+      205047,
+      205048
+    ],
+    "refs": [
+      [
+        "CALNUM",
+        [
+          [
+            205044,
+            205045,
+            "CARDC"
+          ],
+          205046,
+          "NUM"
+        ]
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            205048
+          ],
+          "slots": [
+            205047,
+            205048
+          ],
+          "refs": [
+            [
+              "PERS",
+              205048
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              205047
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        205042
       ]
     ]
   },
@@ -57038,7 +59655,7 @@
     ],
     "refs": [
       [
-        "GEN",
+        "ORDN",
         [
           205670,
           205671,
@@ -57181,6 +59798,61 @@
     ],
     "quals": [
       "durative"
+    ]
+  },
+  "467185": {
+    "times": [
+      206525
+    ],
+    "slots": [
+      206524,
+      206525,
+      206526,
+      206527,
+      206528
+    ],
+    "refs": [
+      [
+        "CALNUM",
+        206526
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            206528
+          ],
+          "slots": [
+            206527,
+            206528
+          ],
+          "refs": [
+            [
+              "PERS",
+              206528
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              206527
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        206524
+      ]
     ]
   },
   "467189": {
@@ -58412,6 +61084,145 @@
       "atelic_ext"
     ]
   },
+  "468038": {
+    "times": [
+      211322
+    ],
+    "slots": [
+      211321,
+      211322,
+      211323,
+      211324
+    ],
+    "refs": [
+      [
+        "ORDN",
+        [
+          211323,
+          211324,
+          "DEF"
+        ]
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        211321
+      ]
+    ]
+  },
+  "468040": {
+    "times": [
+      {
+        "times": [
+          211329
+        ],
+        "slots": [
+          211327,
+          211328,
+          211329,
+          211331
+        ],
+        "refs": [
+          [
+            "ORDN",
+            211331
+          ],
+          [
+            "THE",
+            211328
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            211327
+          ]
+        ]
+      },
+      {
+        "times": [
+          211334
+        ],
+        "slots": [
+          211332,
+          211333,
+          211334,
+          211335,
+          211336,
+          211337
+        ],
+        "refs": [
+          [
+            "THE",
+            211333
+          ],
+          [
+            "MONTH",
+            {
+              "times": [
+                211337
+              ],
+              "slots": [
+                211335,
+                211336,
+                211337
+              ],
+              "refs": [
+                [
+                  "THE",
+                  211336
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  211335
+                ]
+              ],
+              "functions": [
+                "reference"
+              ]
+            }
+          ],
+          [
+            "CALNUM",
+            211334
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            211332
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      211327,
+      211328,
+      211329,
+      211331,
+      211332,
+      211333,
+      211334,
+      211335,
+      211336,
+      211337
+    ],
+    "functions": [
+      "cal_simul"
+    ]
+  },
   "468043": {
     "times": [
       211366
@@ -58518,8 +61329,7 @@
           ],
           "functions": [
             "reference"
-          ],
-          "ref": "MONTH"
+          ]
         }
       ],
       [
@@ -58555,6 +61365,109 @@
       "simultaneous"
     ]
   },
+  "468062": {
+    "times": [
+      {
+        "times": [
+          211481
+        ],
+        "slots": [
+          211479,
+          211480,
+          211481,
+          211483
+        ],
+        "refs": [
+          [
+            "ORDN",
+            211483
+          ],
+          [
+            "THE",
+            211480
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            211479
+          ]
+        ]
+      },
+      {
+        "times": [
+          211485
+        ],
+        "slots": [
+          211484,
+          211485,
+          211486,
+          211487,
+          211488
+        ],
+        "refs": [
+          [
+            "MONTH",
+            {
+              "times": [
+                211488
+              ],
+              "slots": [
+                211486,
+                211487,
+                211488
+              ],
+              "refs": [
+                [
+                  "THE",
+                  211487
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  211486
+                ]
+              ],
+              "functions": [
+                "reference"
+              ]
+            }
+          ],
+          [
+            "CALNUM",
+            211485
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            211484
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      211479,
+      211480,
+      211481,
+      211483,
+      211484,
+      211485,
+      211486,
+      211487,
+      211488
+    ],
+    "functions": [
+      "cal_simul"
+    ]
+  },
   "468115": {
     "times": [
       211925
@@ -58583,6 +61496,218 @@
         "B",
         211923
       ]
+    ]
+  },
+  "468125": {
+    "times": [
+      {
+        "times": [
+          211990
+        ],
+        "slots": [
+          211986,
+          211987,
+          211988,
+          211989,
+          211990,
+          211991,
+          211992,
+          211993,
+          211994,
+          211995
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              [
+                211988,
+                211989,
+                "CONJ"
+              ],
+              211987,
+              "CARDC"
+            ]
+          ],
+          [
+            "TIME",
+            {
+              "times": [
+                211992
+              ],
+              "slots": [
+                211991,
+                211992,
+                211993,
+                211994,
+                211995
+              ],
+              "refs": [
+                [
+                  "PERS",
+                  {
+                    "times": [
+                      [
+                        [
+                          211995,
+                          211994,
+                          "GP"
+                        ],
+                        211993,
+                        "APPO"
+                      ]
+                    ],
+                    "slots": [
+                      211993,
+                      211994,
+                      211995
+                    ],
+                    "functions": [
+                      "reference"
+                    ],
+                    "ref": "PERS"
+                  }
+                ]
+              ],
+              "functions": [
+                "reference"
+              ],
+              "preps": [
+                [
+                  "L",
+                  211991
+                ]
+              ]
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            211986
+          ]
+        ]
+      },
+      {
+        "times": [
+          211999
+        ],
+        "slots": [
+          211996,
+          211997,
+          211998,
+          211999
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              211997,
+              211998,
+              "CARDC"
+            ]
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            211996
+          ]
+        ]
+      },
+      {
+        "times": [
+          [
+            [
+              212002,
+              212003,
+              "CONJ"
+            ],
+            212001,
+            "CARDC"
+          ]
+        ],
+        "slots": [
+          212000,
+          212001,
+          212002,
+          212003,
+          212004,
+          212005,
+          212006
+        ],
+        "refs": [
+          [
+            "MONTH",
+            {
+              "times": [
+                212006
+              ],
+              "slots": [
+                212004,
+                212005,
+                212006
+              ],
+              "refs": [
+                [
+                  "THE",
+                  212005
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  212004
+                ]
+              ],
+              "functions": [
+                "reference"
+              ]
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            212000
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      211986,
+      211987,
+      211988,
+      211989,
+      211990,
+      211991,
+      211992,
+      211993,
+      211994,
+      211995,
+      211996,
+      211997,
+      211998,
+      211999,
+      212000,
+      212001,
+      212002,
+      212003,
+      212004,
+      212005,
+      212006
+    ],
+    "functions": [
+      "cal_simul"
     ]
   },
   "468132": {
@@ -58662,28 +61787,44 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
+        "PERS",
+        {
+          "times": [
             [
-              212085,
-              212084,
+              [
+                [
+                  212085,
+                  212084,
+                  "PARA"
+                ],
+                212083,
+                "PARA"
+              ],
+              [
+                [
+                  212087,
+                  212086,
+                  "GP"
+                ],
+                212082,
+                "APPO"
+              ],
               "PARA"
-            ],
-            212083,
-            "PARA"
+            ]
           ],
-          [
-            [
-              212087,
-              212086,
-              "GP"
-            ],
+          "slots": [
             212082,
-            "APPO"
+            212083,
+            212084,
+            212085,
+            212086,
+            212087
           ],
-          "PARA"
-        ]
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -59139,6 +62280,111 @@
         "B",
         213951
       ]
+    ]
+  },
+  "468631": {
+    "times": [
+      214245
+    ],
+    "slots": [
+      214244,
+      214245,
+      214246,
+      214247,
+      214248,
+      214249,
+      214250
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "PERS",
+        {
+          "times": [
+            [
+              [
+                [
+                  214250,
+                  214249,
+                  "GP"
+                ],
+                [
+                  214248,
+                  214247,
+                  "GP"
+                ],
+                "APPO"
+              ],
+              214246,
+              "APPO"
+            ]
+          ],
+          "slots": [
+            214246,
+            214247,
+            214248,
+            214249,
+            214250
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        214244
+      ]
+    ]
+  },
+  "468659": {
+    "times": [
+      214404
+    ],
+    "slots": [
+      214399,
+      214400,
+      214401,
+      214402,
+      214403,
+      214404
+    ],
+    "quants": [
+      [
+        "NUMQ",
+        [
+          [
+            214402,
+            214403,
+            "CONJ"
+          ],
+          214401,
+          "CARDC"
+        ]
+      ]
+    ],
+    "tenses": [
+      [
+        "FUT",
+        214400
+      ]
+    ],
+    "preps": [
+      [
+        "B",
+        214399
+      ]
+    ],
+    "functions": [
+      "dist_fut"
     ]
   },
   "468695": {
@@ -60594,6 +63840,35 @@
       ]
     ]
   },
+  "469913": {
+    "times": [
+      220032
+    ],
+    "slots": [
+      220030,
+      220031,
+      220032
+    ],
+    "quals": [
+      "durative",
+      "durative"
+    ],
+    "quants": [
+      [
+        "MANY",
+        220031
+      ]
+    ],
+    "functions": [
+      "posterior"
+    ],
+    "preps": [
+      [
+        "MN",
+        220030
+      ]
+    ]
+  },
   "469926": {
     "times": [
       220086
@@ -61237,6 +64512,37 @@
     ],
     "functions": [
       "simultaneous"
+    ],
+    "notes": [
+      "!difficult",
+      "Numerous modern translations interpret as \"no longer\"; perhaps deriving from the tense combination with \"now\""
+    ]
+  },
+  "470327": {
+    "times": [
+      221761
+    ],
+    "slots": [
+      221761
+    ],
+    "tenses": [
+      [
+        "PRES",
+        221761
+      ]
+    ],
+    "refs": [
+      [
+        "DEICTIC",
+        221761
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "notes": [
+      "!difficult",
+      "link:470326"
     ]
   },
   "470444": {
@@ -61326,6 +64632,45 @@
       [
         "B",
         222602
+      ]
+    ]
+  },
+  "470561": {
+    "times": [
+      222791
+    ],
+    "slots": [
+      222791,
+      222792,
+      222793
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "dist_prospective"
+    ],
+    "refs": [
+      [
+        "YEAR",
+        {
+          "times": [
+            222793
+          ],
+          "slots": [
+            222792,
+            222793
+          ],
+          "functions": [
+            "reference"
+          ],
+          "preps": [
+            [
+              "<L",
+              222792
+            ]
+          ]
+        }
       ]
     ]
   },
@@ -62093,6 +65438,35 @@
         "B",
         225011
       ]
+    ]
+  },
+  "471114": {
+    "times": [
+      225194
+    ],
+    "slots": [
+      225192,
+      225193,
+      225194
+    ],
+    "quals": [
+      "durative"
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        225192
+      ],
+      [
+        "MIDDLE",
+        225193
+      ]
+    ],
+    "notes": [
+      "NET notes (Accordance): The precise meaning of the phrase בִּדְמִי יָמַי (bidmi yamay, “in the [?] of my days”) is uncertain. According to HALOT 226 s.v. דְּמִי this word is a hapax legomenon meaning “half.” Others derive the form from דַּמִי (dami, “quiet, rest, peacefulness”)."
     ]
   },
   "471115": {
@@ -62887,6 +66261,54 @@
     ],
     "functions": [
       "simultaneous"
+    ]
+  },
+  "472148": {
+    "times": [
+      {
+        "times": [
+          228653
+        ],
+        "slots": [
+          228653
+        ],
+        "functions": [
+          "simultaneous"
+        ]
+      },
+      {
+        "times": [
+          228655
+        ],
+        "slots": [
+          228654,
+          228655
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            228654
+          ]
+        ],
+        "quants": [
+          [
+            "NUMQ",
+            228656
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      228653,
+      228654,
+      228655,
+      228656
+    ],
+    "functions": [
+      "multi_simul"
     ]
   },
   "472167": {
@@ -64375,6 +67797,324 @@
       ]
     ]
   },
+  "473820": {
+    "times": [
+      {
+        "times": [
+          {
+            "times": [
+              234958
+            ],
+            "slots": [
+              234958
+            ]
+          },
+          {
+            "times": [
+              234960
+            ],
+            "slots": [
+              234959,
+              234960
+            ],
+            "refs": [
+              [
+                "SFX",
+                234960
+              ]
+            ],
+            "functions": [
+              "simultaneous"
+            ],
+            "preps": [
+              [
+                "B",
+                234959
+              ]
+            ]
+          }
+        ],
+        "slots": [
+          234956,
+          234957,
+          234958,
+          234959,
+          234960
+        ],
+        "functions": [
+          "habitual"
+        ],
+        "quals": [
+          "distributive"
+        ],
+        "quants": [
+          [
+            "OFTEN",
+            234957
+          ]
+        ],
+        "preps": [
+          [
+            "MN",
+            234956
+          ]
+        ]
+      },
+      {
+        "times": [
+          {
+            "times": [
+              234964
+            ],
+            "slots": [
+              234964
+            ]
+          },
+          {
+            "times": [
+              234966
+            ],
+            "slots": [
+              234965,
+              234966
+            ],
+            "duplicate": true,
+            "refs": [
+              [
+                "SFX",
+                234966
+              ]
+            ],
+            "functions": [
+              "simultaneous"
+            ],
+            "preps": [
+              [
+                "B",
+                234965
+              ]
+            ]
+          }
+        ],
+        "slots": [
+          234962,
+          234963,
+          234964,
+          234965,
+          234966
+        ],
+        "functions": [
+          "habitual"
+        ],
+        "quals": [
+          "distributive"
+        ],
+        "quants": [
+          [
+            "OFTEN",
+            234963
+          ]
+        ],
+        "preps": [
+          [
+            "MN",
+            234962
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      234956,
+      234957,
+      234958,
+      234959,
+      234960,
+      234962,
+      234963,
+      234964,
+      234965,
+      234966
+    ],
+    "functions": [
+      "multi_habitual"
+    ]
+  },
+  "473831": {
+    "times": [
+      {
+        "times": [
+          235020
+        ],
+        "slots": [
+          235019,
+          235020,
+          235021,
+          235022,
+          235023,
+          235024,
+          235025
+        ],
+        "quals": [
+          "durative"
+        ],
+        "refs": [
+          [
+            "PERS",
+            {
+              "times": [
+                [
+                  [
+                    235025,
+                    235024,
+                    "GP"
+                  ],
+                  [
+                    [
+                      235023,
+                      235022,
+                      "GP"
+                    ],
+                    235021,
+                    "APPO"
+                  ],
+                  "APPO"
+                ]
+              ],
+              "slots": [
+                235021,
+                235022,
+                235023,
+                235024,
+                235025
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            235019
+          ]
+        ]
+      },
+      {
+        "times": [
+          235029
+        ],
+        "slots": [
+          235026,
+          235029,
+          235027,
+          235028
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            235026
+          ]
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              235027,
+              235028,
+              "CARDC"
+            ]
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      235019,
+      235020,
+      235021,
+      235022,
+      235023,
+      235024,
+      235025,
+      235026,
+      235027,
+      235028,
+      235029
+    ],
+    "functions": [
+      "multi_simul"
+    ]
+  },
+  "473833": {
+    "times": [
+      235035
+    ],
+    "slots": [
+      235034,
+      235035,
+      235036,
+      235037,
+      235038,
+      235039,
+      235040
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "PERS",
+        {
+          "times": [
+            [
+              [
+                235040,
+                235039,
+                "GP"
+              ],
+              [
+                [
+                  235038,
+                  235037,
+                  "GP"
+                ],
+                235036,
+                "APPO"
+              ],
+              "APPO"
+            ]
+          ],
+          "slots": [
+            235036,
+            235037,
+            235038,
+            235039,
+            235040
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        235034
+      ]
+    ]
+  },
   "473835": {
     "times": [
       235057
@@ -64666,16 +68406,29 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            236118,
-            236119,
-            "DEF"
+        "PERS",
+        {
+          "times": [
+            [
+              [
+                236118,
+                236119,
+                "DEF"
+              ],
+              236117,
+              "APPO"
+            ]
           ],
-          236117,
-          "APPO"
-        ]
+          "slots": [
+            236117,
+            236118,
+            236119
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -65812,6 +69565,30 @@
       ]
     ]
   },
+  "475827": {
+    "times": [
+      243327
+    ],
+    "slots": [
+      243326,
+      243327
+    ],
+    "functions": [
+      "posterior, posterior_dur"
+    ],
+    "preps": [
+      [
+        "MN",
+        243326
+      ]
+    ],
+    "refs": [
+      [
+        "ORDN",
+        243327
+      ]
+    ]
+  },
   "475847": {
     "times": [
       243395
@@ -66745,16 +70522,29 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            248298,
-            248297,
-            "GP"
+        "PERS",
+        {
+          "times": [
+            [
+              [
+                248298,
+                248297,
+                "GP"
+              ],
+              248296,
+              "APPO"
+            ]
           ],
-          248296,
-          "APPO"
-        ]
+          "slots": [
+            248296,
+            248297,
+            248298
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -67853,24 +71643,39 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
+        "PERS",
+        {
+          "times": [
             [
-              253749,
-              253748,
-              "GP"
-            ],
-            [
-              253747,
-              253746,
-              "GP"
-            ],
-            "APPO"
+              [
+                [
+                  253749,
+                  253748,
+                  "GP"
+                ],
+                [
+                  253747,
+                  253746,
+                  "GP"
+                ],
+                "APPO"
+              ],
+              253745,
+              "APPO"
+            ]
           ],
-          253745,
-          "APPO"
-        ]
+          "slots": [
+            253745,
+            253746,
+            253747,
+            253748,
+            253749
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -68710,8 +72515,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -69156,7 +72960,9 @@
       259608,
       259609,
       259610,
-      259612
+      259612,
+      259613,
+      259614
     ],
     "refs": [
       [
@@ -69166,6 +72972,34 @@
       [
         "THE",
         259609
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            259614
+          ],
+          "slots": [
+            259613,
+            259614
+          ],
+          "refs": [
+            [
+              "PERS",
+              259614
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              259613
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -69192,7 +73026,7 @@
     ],
     "refs": [
       [
-        "GEN",
+        "ORDN",
         [
           259731,
           259732,
@@ -69901,6 +73735,36 @@
       ]
     ]
   },
+  "479876": {
+    "times": [
+      263791
+    ],
+    "slots": [
+      263790,
+      263791,
+      263792,
+      263793
+    ],
+    "refs": [
+      [
+        "ORDN",
+        [
+          263792,
+          263793,
+          "DEF"
+        ]
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        263790
+      ]
+    ]
+  },
   "479905": {
     "times": [
       263921
@@ -70065,8 +73929,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -70213,8 +74076,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -70441,8 +74303,19 @@
               ],
               "refs": [
                 [
-                  "GEN",
-                  264652
+                  "PERS",
+                  {
+                    "times": [
+                      264652
+                    ],
+                    "slots": [
+                      264652
+                    ],
+                    "functions": [
+                      "reference"
+                    ],
+                    "ref": "PERS"
+                  }
                 ]
               ],
               "functions": [
@@ -70499,11 +74372,21 @@
       },
       {
         "times": [
-          264660
+          [
+            [
+              264661,
+              264662,
+              "CONJ"
+            ],
+            264660,
+            "CARDC"
+          ]
         ],
         "slots": [
           264659,
           264660,
+          264661,
+          264662,
           264663,
           264664,
           264665
@@ -70534,13 +74417,8 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
-          ],
-          [
-            "CALNUM",
-            264660
           ]
         ],
         "functions": [
@@ -70569,6 +74447,8 @@
       264658,
       264659,
       264660,
+      264661,
+      264662,
       264663,
       264664,
       264665
@@ -70723,6 +74603,10 @@
           [
             "THE",
             264743
+          ],
+          [
+            "ORDN",
+            264744
           ]
         ],
         "functions": [
@@ -70772,8 +74656,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -70843,8 +74726,7 @@
           ],
           "functions": [
             "reference"
-          ],
-          "ref": "MONTH"
+          ]
         }
       ],
       [
@@ -71230,6 +75112,10 @@
           [
             "THE",
             267628
+          ],
+          [
+            "ORDN",
+            267629
           ]
         ],
         "functions": [
@@ -71279,8 +75165,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -71444,8 +75329,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        269939
+        "PERS",
+        {
+          "times": [
+            269939
+          ],
+          "slots": [
+            269939
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -71589,6 +75485,10 @@
           [
             "THE",
             273543
+          ],
+          [
+            "ORDN",
+            273544
           ]
         ],
         "functions": [
@@ -71643,8 +75543,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -72002,8 +75901,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -72251,8 +76149,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -72332,6 +76229,147 @@
       ]
     ]
   },
+  "483224": {
+    "times": [
+      {
+        "times": [
+          278834
+        ],
+        "slots": [
+          278832,
+          278833,
+          278834,
+          278836
+        ],
+        "refs": [
+          [
+            "ORDN",
+            278836
+          ],
+          [
+            "THE",
+            278833
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            278832
+          ]
+        ]
+      },
+      {
+        "times": [
+          278839
+        ],
+        "slots": [
+          278837,
+          278838,
+          278839
+        ],
+        "refs": [
+          [
+            "CALORDN",
+            278839
+          ],
+          [
+            "THE",
+            278838
+          ],
+          [
+            "ORDN",
+            278839
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            278837
+          ]
+        ]
+      },
+      {
+        "times": [
+          [
+            278841,
+            278842,
+            "CARDC"
+          ]
+        ],
+        "slots": [
+          278840,
+          278841,
+          278842,
+          278843,
+          278844,
+          278845
+        ],
+        "refs": [
+          [
+            "MONTH",
+            {
+              "times": [
+                278845
+              ],
+              "slots": [
+                278843,
+                278844,
+                278845
+              ],
+              "refs": [
+                [
+                  "THE",
+                  278844
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  278843
+                ]
+              ],
+              "functions": [
+                "reference"
+              ]
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            278840
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      278832,
+      278833,
+      278834,
+      278836,
+      278837,
+      278838,
+      278839,
+      278840,
+      278841,
+      278842,
+      278843,
+      278844,
+      278845
+    ],
+    "functions": [
+      "cal_simul"
+    ]
+  },
   "483272": {
     "times": [
       279059
@@ -72372,6 +76410,147 @@
     ],
     "functions": [
       "atelic_ext"
+    ]
+  },
+  "483292": {
+    "times": [
+      {
+        "times": [
+          279174
+        ],
+        "slots": [
+          279170,
+          279171,
+          279172,
+          279173,
+          279174
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            279170
+          ]
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              [
+                279172,
+                279173,
+                "CONJ"
+              ],
+              279171,
+              "CARDC"
+            ]
+          ]
+        ]
+      },
+      {
+        "times": [
+          279177
+        ],
+        "slots": [
+          279175,
+          279176,
+          279177
+        ],
+        "refs": [
+          [
+            "CALORDN",
+            279177
+          ],
+          [
+            "THE",
+            279176
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            279175
+          ]
+        ]
+      },
+      {
+        "times": [
+          279179
+        ],
+        "slots": [
+          279178,
+          279179,
+          279180,
+          279181,
+          279182
+        ],
+        "refs": [
+          [
+            "MONTH",
+            {
+              "times": [
+                279182
+              ],
+              "slots": [
+                279180,
+                279181,
+                279182
+              ],
+              "refs": [
+                [
+                  "THE",
+                  279181
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  279180
+                ]
+              ],
+              "functions": [
+                "reference"
+              ]
+            }
+          ],
+          [
+            "CALNUM",
+            279179
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            279178
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      279170,
+      279171,
+      279172,
+      279173,
+      279174,
+      279175,
+      279176,
+      279177,
+      279178,
+      279179,
+      279180,
+      279181,
+      279182
+    ],
+    "functions": [
+      "cal_simul"
     ]
   },
   "483312": {
@@ -72557,8 +76736,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -72644,6 +76822,10 @@
           [
             "THE",
             279782
+          ],
+          [
+            "ORDN",
+            279783
           ]
         ],
         "functions": [
@@ -72693,8 +76875,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -72830,8 +77011,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -72926,6 +77106,111 @@
       "atelic_ext + simultaneous"
     ]
   },
+  "483550": {
+    "times": [
+      {
+        "times": [
+          280479
+        ],
+        "slots": [
+          280476,
+          280477,
+          280478,
+          280479
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            280476
+          ]
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            [
+              280477,
+              280478,
+              "CARDC"
+            ]
+          ]
+        ]
+      },
+      {
+        "times": [
+          [
+            280481,
+            280482,
+            "CARDC"
+          ]
+        ],
+        "slots": [
+          280480,
+          280481,
+          280482,
+          280483,
+          280484,
+          280485
+        ],
+        "refs": [
+          [
+            "MONTH",
+            {
+              "times": [
+                280485
+              ],
+              "slots": [
+                280483,
+                280484,
+                280485
+              ],
+              "refs": [
+                [
+                  "THE",
+                  280484
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  280483
+                ]
+              ],
+              "functions": [
+                "reference"
+              ]
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            280480
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      280476,
+      280477,
+      280478,
+      280479,
+      280480,
+      280481,
+      280482,
+      280483,
+      280484,
+      280485
+    ],
+    "functions": [
+      "cal_simul"
+    ]
+  },
   "483686": {
     "times": [
       281061
@@ -73000,6 +77285,10 @@
           [
             "THE",
             281217
+          ],
+          [
+            "ORDN",
+            281218
           ]
         ],
         "functions": [
@@ -73049,8 +77338,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -73697,6 +77985,70 @@
       ]
     ]
   },
+  "484521": {
+    "times": [
+      {
+        "times": [
+          284797
+        ],
+        "slots": [
+          284795,
+          284796,
+          284797,
+          284799
+        ],
+        "refs": [
+          [
+            "THAT",
+            284799
+          ],
+          [
+            "THE",
+            284796
+          ]
+        ],
+        "functions": [
+          "posterior_dur"
+        ],
+        "preps": [
+          [
+            "MN",
+            284795
+          ]
+        ],
+        "quals": [
+          "durative"
+        ]
+      },
+      {
+        "times": [
+          284801
+        ],
+        "slots": [
+          284801
+        ],
+        "quals": [
+          "durative"
+        ],
+        "functions": [
+          "anterior_dur"
+        ]
+      }
+    ],
+    "slots": [
+      284795,
+      284796,
+      284797,
+      284799,
+      284801
+    ],
+    "functions": [
+      "begin_to_end"
+    ],
+    "quals": [
+      "durative"
+    ]
+  },
   "484552": {
     "times": [
       284969
@@ -73797,6 +78149,69 @@
         "B",
         287620
       ]
+    ]
+  },
+  "485015": {
+    "times": [
+      {
+        "times": [
+          287675
+        ],
+        "slots": [
+          287674,
+          287675
+        ],
+        "quals": [
+          "durative"
+        ],
+        "quants": [
+          [
+            "NUMQ",
+            287674
+          ]
+        ],
+        "functions": [
+          "atelic_ext"
+        ]
+      },
+      {
+        "times": [
+          287681
+        ],
+        "slots": [
+          287679,
+          287680,
+          287681
+        ],
+        "refs": [
+          [
+            "THE",
+            287680
+          ]
+        ],
+        "functions": [
+          "habitual"
+        ],
+        "preps": [
+          [
+            "L",
+            287679
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      287674,
+      287675,
+      287679,
+      287680,
+      287681
+    ],
+    "functions": [
+      "atelic_ext + habitual"
+    ],
+    "quals": [
+      "durative"
     ]
   },
   "485017": {
@@ -74118,8 +78533,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -75091,20 +79505,34 @@
         ],
         "refs": [
           [
-            "GEN",
-            [
-              [
+            "PERS",
+            {
+              "times": [
                 [
-                  290932,
-                  290931,
+                  [
+                    [
+                      290932,
+                      290931,
+                      "PARA"
+                    ],
+                    290930,
+                    "PARA"
+                  ],
+                  290929,
                   "PARA"
-                ],
-                290930,
-                "PARA"
+                ]
               ],
-              290929,
-              "PARA"
-            ]
+              "slots": [
+                290929,
+                290930,
+                290931,
+                290932
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "functions": [
@@ -75131,8 +79559,19 @@
         ],
         "refs": [
           [
-            "GEN",
-            290938
+            "PERS",
+            {
+              "times": [
+                290938
+              ],
+              "slots": [
+                290938
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "functions": [
@@ -77273,24 +81712,39 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
+        "PERS",
+        {
+          "times": [
             [
               [
-                299554,
-                299553,
-                "GP"
+                [
+                  [
+                    299554,
+                    299553,
+                    "GP"
+                  ],
+                  299552,
+                  "APPO"
+                ],
+                299551,
+                "PARA"
               ],
-              299552,
-              "APPO"
-            ],
-            299551,
-            "PARA"
+              299550,
+              "PARA"
+            ]
           ],
-          299550,
-          "PARA"
-        ]
+          "slots": [
+            299550,
+            299551,
+            299552,
+            299553,
+            299554
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -78009,24 +82463,39 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            303098,
-            303097,
-            "GP"
-          ],
-          [
+        "PERS",
+        {
+          "times": [
             [
-              303096,
-              303095,
-              "GP"
-            ],
-            303094,
-            "APPO"
+              [
+                303098,
+                303097,
+                "GP"
+              ],
+              [
+                [
+                  303096,
+                  303095,
+                  "GP"
+                ],
+                303094,
+                "APPO"
+              ],
+              "APPO"
+            ]
           ],
-          "APPO"
-        ]
+          "slots": [
+            303094,
+            303095,
+            303096,
+            303097,
+            303098
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -78708,6 +83177,10 @@
           [
             "THE",
             304452
+          ],
+          [
+            "ORDN",
+            304453
           ]
         ],
         "functions": [
@@ -78801,6 +83274,119 @@
       "!clause"
     ]
   },
+  "488845": {
+    "times": [
+      {
+        "times": [
+          304463
+        ],
+        "slots": [
+          304461,
+          304462,
+          304463
+        ],
+        "refs": [
+          [
+            "CALORDN",
+            304463
+          ],
+          [
+            "THE",
+            304462
+          ],
+          [
+            "ORDN",
+            304463
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            304461
+          ]
+        ]
+      },
+      {
+        "times": [
+          [
+            [
+              304466,
+              304467,
+              "CONJ"
+            ],
+            304465,
+            "CARDC"
+          ]
+        ],
+        "slots": [
+          304464,
+          304465,
+          304466,
+          304467,
+          304468,
+          304469,
+          304470
+        ],
+        "refs": [
+          [
+            "MONTH",
+            {
+              "times": [
+                304470
+              ],
+              "slots": [
+                304468,
+                304469,
+                304470
+              ],
+              "refs": [
+                [
+                  "THE",
+                  304469
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  304468
+                ]
+              ],
+              "functions": [
+                "reference"
+              ]
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            304464
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      304461,
+      304462,
+      304463,
+      304464,
+      304465,
+      304466,
+      304467,
+      304468,
+      304469,
+      304470
+    ],
+    "functions": [
+      "cal_simul"
+    ]
+  },
   "488851": {
     "times": [
       304525
@@ -78842,6 +83428,150 @@
         "DEICTIC",
         304534
       ]
+    ],
+    "functions": [
+      "simultaneous"
+    ]
+  },
+  "488883": {
+    "times": [
+      {
+        "times": [
+          [
+            [
+              304669,
+              304670,
+              "CONJ"
+            ],
+            304668,
+            "CARDC"
+          ]
+        ],
+        "slots": [
+          304667,
+          304668,
+          304669,
+          304670,
+          304671,
+          304672,
+          304673
+        ],
+        "refs": [
+          [
+            "CALORDN",
+            {
+              "times": [
+                304673
+              ],
+              "slots": [
+                304671,
+                304672,
+                304673
+              ],
+              "refs": [
+                [
+                  "THE",
+                  304672
+                ],
+                [
+                  "ORDN",
+                  304673
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  304671
+                ]
+              ],
+              "functions": [
+                "reference"
+              ]
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            304667
+          ]
+        ]
+      },
+      {
+        "times": [
+          304675
+        ],
+        "slots": [
+          304674,
+          304675,
+          304676,
+          304677,
+          304678
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            304676
+          ],
+          [
+            "PERS",
+            {
+              "times": [
+                304678
+              ],
+              "slots": [
+                304677,
+                304678
+              ],
+              "refs": [
+                [
+                  "PERS",
+                  304678
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  304677
+                ]
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            304674
+          ]
+        ],
+        "quals": [
+          "durative"
+        ]
+      }
+    ],
+    "slots": [
+      304667,
+      304668,
+      304669,
+      304670,
+      304671,
+      304672,
+      304673,
+      304674,
+      304675,
+      304676,
+      304677,
+      304678
     ],
     "functions": [
       "simultaneous"
@@ -78915,6 +83645,9 @@
         "quals": [
           "durative"
         ],
+        "functions": [
+          "anterior_dur"
+        ],
         "locale": true
       }
     ],
@@ -78959,6 +83692,67 @@
       [
         "MN",
         304904
+      ]
+    ]
+  },
+  "488927": {
+    "times": [
+      [
+        [
+          304919,
+          304920,
+          "CONJ"
+        ],
+        304918,
+        "CARDC"
+      ]
+    ],
+    "slots": [
+      304917,
+      304918,
+      304919,
+      304920,
+      304921,
+      304922,
+      304923
+    ],
+    "refs": [
+      [
+        "MONTH",
+        {
+          "times": [
+            304923
+          ],
+          "slots": [
+            304921,
+            304922,
+            304923
+          ],
+          "refs": [
+            [
+              "THE",
+              304922
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              304921
+            ]
+          ],
+          "functions": [
+            "reference"
+          ]
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        304917
       ]
     ]
   },
@@ -79398,8 +84192,7 @@
               ],
               "functions": [
                 "reference"
-              ],
-              "ref": "MONTH"
+              ]
             }
           ],
           [
@@ -79515,21 +84308,25 @@
           306789,
           306790
         ],
+        "refs": [
+          [
+            "THE",
+            306789
+          ],
+          [
+            "ORDN",
+            306790
+          ]
+        ],
         "ordn": {
           "lex": "XMJCJ/",
           "parse": 306790,
           "phatom": 1096289,
           "slots": [
             306790,
-            306789
+            306790
           ]
         },
-        "refs": [
-          [
-            "THE",
-            306789
-          ]
-        ],
         "functions": [
           "simultaneous"
         ],
@@ -79549,21 +84346,25 @@
           306793,
           306794
         ],
+        "refs": [
+          [
+            "THE",
+            306793
+          ],
+          [
+            "ORDN",
+            306794
+          ]
+        ],
         "ordn": {
           "lex": "CBJ<J/",
           "parse": 306794,
           "phatom": 1096289,
           "slots": [
             306794,
-            306793
+            306794
           ]
         },
-        "refs": [
-          [
-            "THE",
-            306793
-          ]
-        ],
         "functions": [
           "simultaneous"
         ],
@@ -80329,16 +85130,29 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            309042,
-            309041,
-            "GP"
+        "PERS",
+        {
+          "times": [
+            [
+              [
+                309042,
+                309041,
+                "GP"
+              ],
+              309040,
+              "APPO"
+            ]
           ],
-          309040,
-          "APPO"
-        ]
+          "slots": [
+            309040,
+            309041,
+            309042
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -80558,6 +85372,61 @@
       [
         "B",
         309222
+      ]
+    ]
+  },
+  "489911": {
+    "times": [
+      {
+        "times": [
+          309310
+        ],
+        "slots": [
+          309310
+        ]
+      },
+      {
+        "times": [
+          309312
+        ],
+        "slots": [
+          309311,
+          309312
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            309311
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      309308,
+      309309,
+      309310,
+      309311,
+      309312
+    ],
+    "functions": [
+      "habitual"
+    ],
+    "quals": [
+      "distributive"
+    ],
+    "quants": [
+      [
+        "OFTEN",
+        309309
+      ]
+    ],
+    "preps": [
+      [
+        "MN",
+        309308
       ]
     ]
   },
@@ -86176,7 +91045,59 @@
   },
   "495872": {
     "times": [
-      330309
+      {
+        "times": [
+          330309
+        ],
+        "slots": [
+          330308,
+          330309,
+          330310
+        ],
+        "refs": [
+          [
+            "GEN",
+            330310
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            330308
+          ]
+        ]
+      },
+      {
+        "times": [
+          330312
+        ],
+        "slots": [
+          330311,
+          330312,
+          330313
+        ],
+        "quals": [
+          "durative"
+        ],
+        "refs": [
+          [
+            "GEN",
+            330313
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            330311
+          ]
+        ]
+      }
     ],
     "slots": [
       330308,
@@ -86186,32 +91107,11 @@
       330312,
       330313
     ],
-    "refs": [
-      [
-        "GEN",
-        [
-          [
-            330311,
-            [
-              330313,
-              330312,
-              "GP"
-            ],
-            "PP"
-          ],
-          330310,
-          "SPEC"
-        ]
-      ]
-    ],
     "functions": [
-      "simultaneous"
+      "habitual, multi_simul"
     ],
-    "preps": [
-      [
-        "B",
-        330308
-      ]
+    "quals": [
+      "distributive"
     ]
   },
   "495876": {
@@ -86297,6 +91197,58 @@
         "L",
         330402
       ]
+    ]
+  },
+  "495897": {
+    "times": [
+      {
+        "times": [
+          330425
+        ],
+        "slots": [
+          330424,
+          330425
+        ],
+        "functions": [
+          "anterior_dur"
+        ],
+        "preps": [
+          [
+            "L",
+            330424
+          ]
+        ]
+      },
+      {
+        "times": [
+          330427
+        ],
+        "slots": [
+          330426,
+          330427
+        ],
+        "quals": [
+          "durative"
+        ],
+        "functions": [
+          "anterior_dur"
+        ],
+        "preps": [
+          [
+            "L",
+            330426
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      330424,
+      330425,
+      330426,
+      330427
+    ],
+    "functions": [
+      "multi_antdur"
     ]
   },
   "495900": {
@@ -87560,6 +92512,58 @@
         "L",
         335546
       ]
+    ]
+  },
+  "497441": {
+    "times": [
+      {
+        "times": [
+          335790
+        ],
+        "slots": [
+          335789,
+          335790
+        ],
+        "functions": [
+          "anterior_dur"
+        ],
+        "preps": [
+          [
+            "L",
+            335789
+          ]
+        ]
+      },
+      {
+        "times": [
+          335792
+        ],
+        "slots": [
+          335791,
+          335792
+        ],
+        "quals": [
+          "durative"
+        ],
+        "functions": [
+          "anterior_dur"
+        ],
+        "preps": [
+          [
+            "L",
+            335791
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      335789,
+      335790,
+      335791,
+      335792
+    ],
+    "functions": [
+      "multi_antdur"
     ]
   },
   "497519": {
@@ -91209,6 +96213,77 @@
       "atelic_ext"
     ]
   },
+  "504287": {
+    "times": [
+      {
+        "times": [
+          361456
+        ],
+        "slots": [
+          361456
+        ],
+        "quals": [
+          "durative"
+        ]
+      },
+      {
+        "times": [
+          361458
+        ],
+        "slots": [
+          361457,
+          361458,
+          361459,
+          361460
+        ],
+        "quals": [
+          "durative"
+        ],
+        "refs": [
+          [
+            "GEN",
+            [
+              361460,
+              361459,
+              "GP"
+            ]
+          ]
+        ],
+        "quants": [
+          [
+            "NUMBER",
+            361457
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      361454,
+      361455,
+      361456,
+      361458,
+      361459,
+      361460
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "quals": [
+      "durative"
+    ],
+    "refs": [
+      [
+        "THE",
+        361455
+      ]
+    ],
+    "preps": [
+      [
+        "B",
+        361454
+      ]
+    ]
+  },
   "504331": {
     "times": [
       361654
@@ -92049,8 +97124,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        365458
+        "PERS",
+        {
+          "times": [
+            365458
+          ],
+          "slots": [
+            365458
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -92741,6 +97827,112 @@
       "cal_simul"
     ]
   },
+  "505490": {
+    "times": [
+      {
+        "times": [
+          367046,
+          367047
+        ],
+        "slots": [
+          367045,
+          367046
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            367045
+          ]
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            367047
+          ]
+        ]
+      },
+      {
+        "times": [
+          [
+            367049,
+            367050,
+            "CARDC"
+          ]
+        ],
+        "slots": [
+          367048,
+          367049,
+          367050,
+          367051,
+          367052,
+          367053,
+          367054
+        ],
+        "refs": [
+          [
+            "MONTH",
+            {
+              "times": [
+                367052
+              ],
+              "slots": [
+                367051,
+                367052,
+                367053,
+                367054
+              ],
+              "refs": [
+                [
+                  "CALNUM",
+                  [
+                    367053,
+                    367054,
+                    "CARDC"
+                  ]
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  367051
+                ]
+              ],
+              "functions": [
+                "reference"
+              ]
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            367048
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      367045,
+      367046,
+      367047,
+      367048,
+      367049,
+      367050,
+      367051,
+      367052,
+      367053,
+      367054
+    ],
+    "functions": [
+      "multi_simul"
+    ]
+  },
   "505497": {
     "times": [
       367083
@@ -93169,11 +98361,21 @@
           },
           {
             "times": [
-              368889
+              [
+                [
+                  368890,
+                  368891,
+                  "CONJ"
+                ],
+                368889,
+                "CARDC"
+              ]
             ],
             "slots": [
               368888,
               368889,
+              368890,
+              368891,
               368892
             ],
             "refs": [
@@ -93201,13 +98403,8 @@
                   "functions": [
                     "reference",
                     "simultaneous"
-                  ],
-                  "ref": "MONTH"
+                  ]
                 }
-              ],
-              [
-                "CALNUM",
-                368889
               ]
             ],
             "functions": [
@@ -93228,6 +98425,8 @@
           368884,
           368888,
           368889,
+          368890,
+          368891,
           368892
         ],
         "functions": [
@@ -93246,7 +98445,115 @@
       368884,
       368888,
       368889,
+      368890,
+      368891,
       368892
+    ],
+    "functions": [
+      "multi_simul"
+    ]
+  },
+  "505850": {
+    "times": [
+      {
+        "times": [
+          369022
+        ],
+        "slots": [
+          369021,
+          369022,
+          369023
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            369021
+          ]
+        ],
+        "refs": [
+          [
+            "CALNUM",
+            369023
+          ]
+        ]
+      },
+      {
+        "times": [
+          [
+            369031,
+            369032,
+            "CARDC"
+          ]
+        ],
+        "slots": [
+          369030,
+          369031,
+          369032,
+          369033,
+          369034,
+          369035,
+          369036
+        ],
+        "refs": [
+          [
+            "MONTH",
+            {
+              "times": [
+                369034
+              ],
+              "slots": [
+                369033,
+                369034,
+                369035,
+                369036
+              ],
+              "refs": [
+                [
+                  "CALNUM",
+                  [
+                    369035,
+                    369036,
+                    "CARDC"
+                  ]
+                ]
+              ],
+              "preps": [
+                [
+                  "L",
+                  369033
+                ]
+              ],
+              "functions": [
+                "reference"
+              ]
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            369030
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      369021,
+      369022,
+      369023,
+      369030,
+      369031,
+      369032,
+      369033,
+      369034,
+      369035,
+      369036
     ],
     "functions": [
       "multi_simul"
@@ -93456,6 +98763,235 @@
       [
         "B",
         369554
+      ]
+    ]
+  },
+  "505927": {
+    "times": [
+      [
+        369564,
+        369565,
+        "CARDC"
+      ]
+    ],
+    "slots": [
+      369563,
+      369564,
+      369565,
+      369566
+    ],
+    "refs": [
+      [
+        "MONTH",
+        {
+          "times": [
+            369566
+          ],
+          "slots": [
+            369566
+          ],
+          "refs": [
+            [
+              "SFX",
+              369566
+            ]
+          ],
+          "preps": [
+            [
+              "B",
+              369566
+            ]
+          ],
+          "functions": [
+            "reference",
+            "simultaneous"
+          ]
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        369563
+      ]
+    ]
+  },
+  "505929": {
+    "times": [
+      {
+        "times": [
+          [
+            369582,
+            369583,
+            "CARDC"
+          ]
+        ],
+        "slots": [
+          369581,
+          369582,
+          369583,
+          369584
+        ],
+        "refs": [
+          [
+            "MONTH",
+            {
+              "times": [
+                369584
+              ],
+              "slots": [
+                369584
+              ],
+              "refs": [
+                [
+                  "SFX",
+                  369584
+                ]
+              ],
+              "preps": [
+                [
+                  "B",
+                  369584
+                ]
+              ],
+              "functions": [
+                "reference",
+                "simultaneous"
+              ]
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            369581
+          ]
+        ]
+      },
+      {
+        "times": [
+          [
+            369587,
+            369588,
+            "CARDC"
+          ]
+        ],
+        "slots": [
+          369586,
+          369587,
+          369588,
+          369589
+        ],
+        "refs": [
+          [
+            "MONTH",
+            {
+              "times": [
+                369589
+              ],
+              "slots": [
+                369589
+              ],
+              "refs": [
+                [
+                  "SFX",
+                  369589
+                ]
+              ],
+              "preps": [
+                [
+                  "B",
+                  369589
+                ]
+              ],
+              "functions": [
+                "reference",
+                "simultaneous"
+              ]
+            }
+          ]
+        ],
+        "functions": [
+          "simultaneous"
+        ],
+        "preps": [
+          [
+            "B",
+            369586
+          ]
+        ]
+      }
+    ],
+    "slots": [
+      369581,
+      369582,
+      369583,
+      369584,
+      369586,
+      369587,
+      369588,
+      369589
+    ],
+    "functions": [
+      "multi_simul"
+    ]
+  },
+  "505931": {
+    "times": [
+      [
+        369593,
+        369594,
+        "CARDC"
+      ]
+    ],
+    "slots": [
+      369592,
+      369593,
+      369594,
+      369595
+    ],
+    "refs": [
+      [
+        "MONTH",
+        {
+          "times": [
+            369595
+          ],
+          "slots": [
+            369595
+          ],
+          "refs": [
+            [
+              "SFX",
+              369595
+            ]
+          ],
+          "preps": [
+            [
+              "B",
+              369595
+            ]
+          ],
+          "functions": [
+            "reference",
+            "simultaneous"
+          ]
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        369592
       ]
     ]
   },
@@ -93767,6 +99303,67 @@
       [
         "END",
         370396
+      ]
+    ]
+  },
+  "506069": {
+    "times": [
+      370533
+    ],
+    "slots": [
+      370532,
+      370533,
+      370534,
+      370535,
+      370536,
+      370537
+    ],
+    "refs": [
+      [
+        "CALNUM",
+        370534
+      ],
+      [
+        "PERS",
+        {
+          "times": [
+            370536
+          ],
+          "slots": [
+            370535,
+            370536,
+            370537
+          ],
+          "refs": [
+            [
+              "GEN",
+              370537
+            ],
+            [
+              "PERS",
+              370536
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              370535
+            ]
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        370532
       ]
     ]
   },
@@ -95351,8 +100948,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        379549
+        "PERS",
+        {
+          "times": [
+            379549
+          ],
+          "slots": [
+            379549
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -95384,16 +100992,29 @@
         ],
         "refs": [
           [
-            "GEN",
-            [
-              [
-                379619,
-                379618,
-                "GP"
+            "PERS",
+            {
+              "times": [
+                [
+                  [
+                    379619,
+                    379618,
+                    "GP"
+                  ],
+                  379617,
+                  "APPO"
+                ]
               ],
-              379617,
-              "APPO"
-            ]
+              "slots": [
+                379617,
+                379618,
+                379619
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "quants": [
@@ -95560,8 +101181,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        379643
+        "PERS",
+        {
+          "times": [
+            379643
+          ],
+          "slots": [
+            379643
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -95571,6 +101203,68 @@
       [
         "B",
         379641
+      ]
+    ]
+  },
+  "508168": {
+    "times": [
+      [
+        380860,
+        380861,
+        "CARDC"
+      ]
+    ],
+    "slots": [
+      380859,
+      380860,
+      380861,
+      380862,
+      380863,
+      380864,
+      380866
+    ],
+    "refs": [
+      [
+        "MONTH",
+        {
+          "times": [
+            380864
+          ],
+          "slots": [
+            380862,
+            380863,
+            380864,
+            380866
+          ],
+          "refs": [
+            [
+              "ORDN",
+              380866
+            ],
+            [
+              "THE",
+              380863
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              380862
+            ]
+          ],
+          "functions": [
+            "reference"
+          ]
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        380859
       ]
     ]
   },
@@ -95756,8 +101450,7 @@
           ],
           "functions": [
             "reference"
-          ],
-          "ref": "MONTH"
+          ]
         }
       ],
       [
@@ -95818,8 +101511,7 @@
           ],
           "functions": [
             "reference"
-          ],
-          "ref": "MONTH"
+          ]
         }
       ],
       [
@@ -95856,6 +101548,68 @@
     ],
     "functions": [
       "atelic_ext"
+    ]
+  },
+  "508343": {
+    "times": [
+      [
+        382111,
+        382112,
+        "CARDC"
+      ]
+    ],
+    "slots": [
+      382110,
+      382111,
+      382112,
+      382113,
+      382114,
+      382115,
+      382117
+    ],
+    "refs": [
+      [
+        "MONTH",
+        {
+          "times": [
+            382115
+          ],
+          "slots": [
+            382113,
+            382114,
+            382115,
+            382117
+          ],
+          "refs": [
+            [
+              "ORDN",
+              382117
+            ],
+            [
+              "THE",
+              382114
+            ]
+          ],
+          "preps": [
+            [
+              "L",
+              382113
+            ]
+          ],
+          "functions": [
+            "reference"
+          ]
+        }
+      ]
+    ],
+    "functions": [
+      "simultaneous"
+    ],
+    "preps": [
+      [
+        "B",
+        382110
+      ]
     ]
   },
   "508348": {
@@ -97761,16 +103515,29 @@
         ],
         "refs": [
           [
-            "GEN",
-            [
-              [
-                387679,
-                387678,
-                "GP"
+            "PERS",
+            {
+              "times": [
+                [
+                  [
+                    387679,
+                    387678,
+                    "GP"
+                  ],
+                  387677,
+                  "APPO"
+                ]
               ],
-              387677,
-              "APPO"
-            ]
+              "slots": [
+                387677,
+                387678,
+                387679
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "functions": [
@@ -97993,14 +103760,18 @@
     "slots": [
       387782
     ],
-    "functions": [
-      "atelic_ext"
-    ],
     "refs": [
       [
         "ORDN",
         387782
+      ],
+      [
+        "ORDN",
+        387782
       ]
+    ],
+    "functions": [
+      "atelic_ext"
     ],
     "quals": [
       "durative"
@@ -98576,8 +104347,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        389817
+        "PERS",
+        {
+          "times": [
+            389817
+          ],
+          "slots": [
+            389817
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -98604,8 +104386,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        389868
+        "PERS",
+        {
+          "times": [
+            389868
+          ],
+          "slots": [
+            389868
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -98637,28 +104430,44 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
+        "PERS",
+        {
+          "times": [
             [
-              389943,
               [
                 [
-                  389945,
-                  389946,
+                  389943,
+                  [
+                    [
+                      389945,
+                      389946,
+                      "CONJ"
+                    ],
+                    389944,
+                    "PARA"
+                  ],
                   "CONJ"
                 ],
-                389944,
+                389942,
                 "PARA"
               ],
-              "CONJ"
-            ],
-            389942,
-            "PARA"
+              389941,
+              "PARA"
+            ]
           ],
-          389941,
-          "PARA"
-        ]
+          "slots": [
+            389941,
+            389942,
+            389943,
+            389944,
+            389945,
+            389946
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -98727,16 +104536,29 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            389974,
-            389973,
-            "GP"
+        "PERS",
+        {
+          "times": [
+            [
+              [
+                389974,
+                389973,
+                "GP"
+              ],
+              389972,
+              "APPO"
+            ]
           ],
-          389972,
-          "APPO"
-        ]
+          "slots": [
+            389972,
+            389973,
+            389974
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -98769,24 +104591,39 @@
         ],
         "refs": [
           [
-            "GEN",
-            [
-              [
+            "PERS",
+            {
+              "times": [
                 [
-                  390024,
-                  390023,
-                  "GP"
-                ],
-                [
-                  390022,
-                  390021,
-                  "GP"
-                ],
-                "APPO"
+                  [
+                    [
+                      390024,
+                      390023,
+                      "GP"
+                    ],
+                    [
+                      390022,
+                      390021,
+                      "GP"
+                    ],
+                    "APPO"
+                  ],
+                  390020,
+                  "APPO"
+                ]
               ],
-              390020,
-              "APPO"
-            ]
+              "slots": [
+                390020,
+                390021,
+                390022,
+                390023,
+                390024
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "functions": [
@@ -98821,40 +104658,59 @@
         ],
         "refs": [
           [
-            "GEN",
-            [
-              [
-                390031,
+            "PERS",
+            {
+              "times": [
                 [
                   [
-                    390035,
-                    390036,
-                    "DEF"
+                    390031,
+                    [
+                      [
+                        390035,
+                        390036,
+                        "DEF"
+                      ],
+                      [
+                        [
+                          390033,
+                          390034,
+                          "DEF"
+                        ],
+                        390032,
+                        "APPO"
+                      ],
+                      "APPO"
+                    ],
+                    "CONJ"
                   ],
                   [
                     [
-                      390033,
-                      390034,
+                      390029,
+                      390030,
                       "DEF"
                     ],
-                    390032,
+                    390028,
                     "APPO"
                   ],
-                  "APPO"
-                ],
-                "CONJ"
+                  "PARA"
+                ]
               ],
-              [
-                [
-                  390029,
-                  390030,
-                  "DEF"
-                ],
+              "slots": [
                 390028,
-                "APPO"
+                390029,
+                390030,
+                390031,
+                390032,
+                390033,
+                390034,
+                390035,
+                390036
               ],
-              "PARA"
-            ]
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "functions": [
@@ -98968,16 +104824,29 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            390470,
-            390471,
-            "CONJ"
+        "PERS",
+        {
+          "times": [
+            [
+              [
+                390470,
+                390471,
+                "CONJ"
+              ],
+              390469,
+              "PARA"
+            ]
           ],
-          390469,
-          "PARA"
-        ]
+          "slots": [
+            390469,
+            390470,
+            390471
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -99006,8 +104875,19 @@
         ],
         "refs": [
           [
-            "GEN",
-            390489
+            "PERS",
+            {
+              "times": [
+                390489
+              ],
+              "slots": [
+                390489
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "functions": [
@@ -99034,8 +104914,19 @@
         ],
         "refs": [
           [
-            "GEN",
-            390493
+            "PERS",
+            {
+              "times": [
+                390493
+              ],
+              "slots": [
+                390493
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "functions": [
@@ -99561,8 +105452,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        392142
+        "PERS",
+        {
+          "times": [
+            392142
+          ],
+          "slots": [
+            392142
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -99674,16 +105576,29 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            393401,
-            393400,
-            "GP"
+        "PERS",
+        {
+          "times": [
+            [
+              [
+                393401,
+                393400,
+                "GP"
+              ],
+              393399,
+              "APPO"
+            ]
           ],
-          393399,
-          "APPO"
-        ]
+          "slots": [
+            393399,
+            393400,
+            393401
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -99776,8 +105691,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        393599
+        "PERS",
+        {
+          "times": [
+            393599
+          ],
+          "slots": [
+            393599
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -99808,16 +105734,29 @@
         ],
         "refs": [
           [
-            "GEN",
-            [
-              [
-                393715,
-                393714,
-                "GP"
+            "PERS",
+            {
+              "times": [
+                [
+                  [
+                    393715,
+                    393714,
+                    "GP"
+                  ],
+                  393713,
+                  "APPO"
+                ]
               ],
-              393713,
-              "APPO"
-            ]
+              "slots": [
+                393713,
+                393714,
+                393715
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "functions": [
@@ -99846,16 +105785,29 @@
         ],
         "refs": [
           [
-            "GEN",
-            [
-              [
-                393721,
-                393720,
-                "GP"
+            "PERS",
+            {
+              "times": [
+                [
+                  [
+                    393721,
+                    393720,
+                    "GP"
+                  ],
+                  393719,
+                  "APPO"
+                ]
               ],
-              393719,
-              "APPO"
-            ]
+              "slots": [
+                393719,
+                393720,
+                393721
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "functions": [
@@ -99935,8 +105887,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        394990
+        "PERS",
+        {
+          "times": [
+            394990
+          ],
+          "slots": [
+            394990
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -100369,8 +106332,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        398523
+        "PERS",
+        {
+          "times": [
+            398523
+          ],
+          "slots": [
+            398523
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -102418,6 +108392,10 @@
           [
             "THE",
             407771
+          ],
+          [
+            "ORDN",
+            407772
           ]
         ],
         "functions": [
@@ -103292,8 +109270,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        411517
+        "PERS",
+        {
+          "times": [
+            411517
+          ],
+          "slots": [
+            411517
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -104083,8 +110072,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        413435
+        "PERS",
+        {
+          "times": [
+            413435
+          ],
+          "slots": [
+            413435
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -105531,8 +111531,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        418247
+        "PERS",
+        {
+          "times": [
+            418247
+          ],
+          "slots": [
+            418247
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "quants": [
@@ -105650,8 +111661,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        418621
+        "PERS",
+        {
+          "times": [
+            418621
+          ],
+          "slots": [
+            418621
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -105766,24 +111788,39 @@
         ],
         "refs": [
           [
-            "GEN",
-            [
-              [
-                419527,
-                419526,
-                "GP"
-              ],
-              [
+            "PERS",
+            {
+              "times": [
                 [
-                  419525,
-                  419524,
-                  "GP"
-                ],
-                419523,
-                "APPO"
+                  [
+                    419527,
+                    419526,
+                    "GP"
+                  ],
+                  [
+                    [
+                      419525,
+                      419524,
+                      "GP"
+                    ],
+                    419523,
+                    "APPO"
+                  ],
+                  "APPO"
+                ]
               ],
-              "APPO"
-            ]
+              "slots": [
+                419523,
+                419524,
+                419525,
+                419526,
+                419527
+              ],
+              "functions": [
+                "reference"
+              ],
+              "ref": "PERS"
+            }
           ]
         ],
         "functions": [
@@ -105902,8 +111939,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        419662
+        "PERS",
+        {
+          "times": [
+            419662
+          ],
+          "slots": [
+            419662
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -106227,8 +112275,7 @@
           ],
           "functions": [
             "reference"
-          ],
-          "ref": "MONTH"
+          ]
         }
       ],
       [
@@ -106558,10 +112605,15 @@
   },
   "514984": {
     "times": [
-      422187
+      [
+        422186,
+        422187,
+        "CARDC"
+      ]
     ],
     "slots": [
       422185,
+      422186,
       422187,
       422188,
       422189,
@@ -106599,13 +112651,8 @@
           ],
           "functions": [
             "reference"
-          ],
-          "ref": "MONTH"
+          ]
         }
-      ],
-      [
-        "CALNUM",
-        422187
       ]
     ],
     "functions": [
@@ -106779,24 +112826,39 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
+        "PERS",
+        {
+          "times": [
             [
               [
-                422470,
-                422469,
+                [
+                  [
+                    422470,
+                    422469,
+                    "GP"
+                  ],
+                  422468,
+                  "APPO"
+                ],
+                422467,
                 "GP"
               ],
-              422468,
+              422466,
               "APPO"
-            ],
-            422467,
-            "GP"
+            ]
           ],
-          422466,
-          "APPO"
-        ]
+          "slots": [
+            422466,
+            422467,
+            422468,
+            422469,
+            422470
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -106987,8 +113049,19 @@
     ],
     "refs": [
       [
-        "GEN",
-        423707
+        "PERS",
+        {
+          "times": [
+            423707
+          ],
+          "slots": [
+            423707
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [
@@ -107398,16 +113471,29 @@
     ],
     "refs": [
       [
-        "GEN",
-        [
-          [
-            425831,
-            425832,
-            "DEF"
+        "PERS",
+        {
+          "times": [
+            [
+              [
+                425831,
+                425832,
+                "DEF"
+              ],
+              425830,
+              "APPO"
+            ]
           ],
-          425830,
-          "APPO"
-        ]
+          "slots": [
+            425830,
+            425831,
+            425832
+          ],
+          "functions": [
+            "reference"
+          ],
+          "ref": "PERS"
+        }
       ]
     ],
     "functions": [

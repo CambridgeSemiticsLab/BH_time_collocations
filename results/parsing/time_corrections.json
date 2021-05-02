@@ -7084,7 +7084,6 @@
     ]
   ],
   "462993": [],
-  "463001": [],
   "463020": [],
   "463070": [],
   "463194": [],
@@ -8162,7 +8161,6 @@
     ]
   ],
   "470313": [],
-  "470326": [],
   "470444": [],
   "470448": [
     [
@@ -14968,39 +14966,6 @@
     [
       "change",
       [
-        "times",
-        0
-      ],
-      [
-        406754,
-        [
-          [
-            406755,
-            406756,
-            "CONJ"
-          ],
-          406754,
-          "CARDC"
-        ]
-      ]
-    ],
-    [
-      "add",
-      "slots",
-      [
-        [
-          1,
-          406755
-        ],
-        [
-          2,
-          406756
-        ]
-      ]
-    ],
-    [
-      "change",
-      [
         "functions",
         0
       ],
@@ -15017,21 +14982,6 @@
           "notes",
           [
             "Unique omission of CNH—sign of diachronic change?"
-          ]
-        ]
-      ]
-    ],
-    [
-      "remove",
-      "",
-      [
-        [
-          "refs",
-          [
-            [
-              "CALNUM",
-              406754
-            ]
           ]
         ]
       ]
@@ -16190,5 +16140,1451 @@
   ],
   "515624": [],
   "515659": [],
-  "515661": []
+  "515661": [],
+  "454685": [],
+  "454827": [
+    [
+      "change",
+      [
+        "times",
+        0
+      ],
+      [
+        145729,
+        {
+          "functions": [
+            "simultaneous"
+          ],
+          "refs": [
+            [
+              "THE",
+              145728
+            ]
+          ],
+          "slots": [
+            145728,
+            145729
+          ],
+          "times": [
+            145729
+          ]
+        }
+      ]
+    ],
+    [
+      "add",
+      "times",
+      [
+        [
+          1,
+          {
+            "functions": [
+              "anterior"
+            ],
+            "preps": [
+              [
+                "L",
+                145731
+              ]
+            ],
+            "quals": [
+              "durative"
+            ],
+            "slots": [
+              145731,
+              145732
+            ],
+            "times": [
+              145732
+            ]
+          }
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "simultaneous",
+        "simultaneous + anterior"
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "refs",
+          [
+            [
+              "LREF",
+              {
+                "times": [
+                  145732
+                ],
+                "slots": [
+                  145731,
+                  145732
+                ],
+                "quals": [
+                  "durative"
+                ],
+                "functions": [
+                  "reference"
+                ],
+                "preps": [
+                  [
+                    "L",
+                    145731
+                  ]
+                ]
+              }
+            ],
+            [
+              "THE",
+              145728
+            ]
+          ]
+        ]
+      ]
+    ]
+  ],
+  "459386": [
+    [
+      "add",
+      "quants",
+      [
+        [
+          1,
+          [
+            "DUR",
+            167641
+          ]
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "dist_prospective"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "See Haspelmath 37, 98; this is a non-deictic distance with anaphoric reference instead of deictic, which uses B; Hebrew may join those languages which use different preposition markers for non-deictic phrases (i.e. L instead of B)"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "459615": [
+    [
+      "change",
+      [
+        "times",
+        0,
+        "times",
+        0
+      ],
+      [
+        168671,
+        {
+          "quals": [
+            "durative"
+          ],
+          "slots": [
+            168669,
+            168670,
+            168671
+          ],
+          "times": [
+            168671
+          ]
+        }
+      ]
+    ],
+    [
+      "add",
+      [
+        "times",
+        0,
+        "times"
+      ],
+      [
+        [
+          1,
+          {
+            "functions": [
+              "anterior_dur, simultaneous"
+            ],
+            "preps": [
+              [
+                "L",
+                168672
+              ]
+            ],
+            "quals": [
+              "durative"
+            ],
+            "refs": [
+              [
+                "THE",
+                168673
+              ]
+            ],
+            "slots": [
+              168672,
+              168673,
+              168674
+            ],
+            "times": [
+              168674
+            ]
+          }
+        ]
+      ]
+    ],
+    [
+      "add",
+      [
+        "times",
+        0,
+        "slots"
+      ],
+      [
+        [
+          3,
+          168672
+        ],
+        [
+          4,
+          168673
+        ],
+        [
+          5,
+          168674
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "times",
+        0,
+        "functions",
+        0
+      ],
+      [
+        "posterior",
+        "habitual"
+      ]
+    ],
+    [
+      "remove",
+      [
+        "times",
+        0,
+        "functions"
+      ],
+      [
+        [
+          1,
+          "simultaneous"
+        ]
+      ]
+    ],
+    [
+      "remove",
+      [
+        "times",
+        0
+      ],
+      [
+        [
+          "quals",
+          [
+            "durative"
+          ]
+        ],
+        [
+          "preps",
+          [
+            [
+              "MN",
+              168669
+            ],
+            [
+              "END",
+              168670
+            ]
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      "times",
+      [
+        [
+          1,
+          {
+            "times": [
+              168674
+            ],
+            "slots": [
+              168672,
+              168673,
+              168674
+            ],
+            "quals": [
+              "durative"
+            ],
+            "refs": [
+              [
+                "THE",
+                168673
+              ]
+            ],
+            "functions": [
+              "anterior_dur, simultaneous"
+            ],
+            "preps": [
+              [
+                "L",
+                168672
+              ]
+            ]
+          }
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "?",
+        "posterior"
+      ]
+    ],
+    [
+      "add",
+      "functions",
+      [
+        [
+          1,
+          "simultaneous"
+        ]
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "preps",
+          [
+            [
+              "MN",
+              168669
+            ],
+            [
+              "END",
+              168670
+            ]
+          ]
+        ]
+      ]
+    ]
+  ],
+  "460649": [
+    [
+      "add",
+      [
+        "times",
+        1
+      ],
+      [
+        [
+          "timeappos",
+          [
+            {
+              "functions": [
+                "atelic_ext"
+              ],
+              "quals": [
+                "intensive"
+              ],
+              "slots": [
+                173717,
+                173718,
+                173719
+              ],
+              "times": [
+                {
+                  "slots": [
+                    173717
+                  ],
+                  "times": [
+                    173717
+                  ]
+                },
+                {
+                  "preps": [
+                    [
+                      "<L",
+                      173718
+                    ]
+                  ],
+                  "slots": [
+                    173718,
+                    173719
+                  ],
+                  "times": [
+                    173719
+                  ]
+                }
+              ]
+            }
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "timeappos",
+          [
+            {
+              "times": [
+                {
+                  "times": [
+                    173717
+                  ],
+                  "slots": [
+                    173717
+                  ]
+                },
+                {
+                  "times": [
+                    173719
+                  ],
+                  "slots": [
+                    173718,
+                    173719
+                  ],
+                  "preps": [
+                    [
+                      "<L",
+                      173718
+                    ]
+                  ]
+                }
+              ],
+              "slots": [
+                173717,
+                173718,
+                173719
+              ],
+              "functions": [
+                "atelic_ext"
+              ],
+              "quals": [
+                "intensive"
+              ]
+            }
+          ]
+        ]
+      ]
+    ]
+  ],
+  "461798": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "habitual"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!difficult",
+            "LXX reads εν even though it typically uses εις for habitual readings",
+            "ESV interprets as \"for\"",
+            "NET has habitual"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "461805": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "atelic_ext, simultaneous",
+        "simultaneous"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!difficult",
+            "Temporal? atelic ext?"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "463478": [],
+  "463699": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "atelic_ext",
+        "dist_prospective"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "link:459386"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "465905": [],
+  "465984": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior"
+      ]
+    ]
+  ],
+  "465990": [],
+  "465994": [],
+  "466003": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "atelic_ext",
+        "purposive_ext"
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!clause"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "466004": [],
+  "466009": [],
+  "466013": [],
+  "466014": [],
+  "466021": [],
+  "466208": [],
+  "466530": [],
+  "466548": [],
+  "466610": [],
+  "466640": [],
+  "466717": [],
+  "466799": [],
+  "466823": [],
+  "466845": [],
+  "466862": [],
+  "466877": [],
+  "466896": [],
+  "466909": [],
+  "466920": [],
+  "466924": [],
+  "466945": [],
+  "467185": [],
+  "468038": [],
+  "463001": [
+    [
+      "add",
+      [
+        "times",
+        1
+      ],
+      [
+        [
+          "timeappos",
+          [
+            {
+              "functions": [
+                "simultaneous"
+              ],
+              "preps": [
+                [
+                  "B",
+                  186753
+                ]
+              ],
+              "refs": [
+                [
+                  "THE",
+                  186754
+                ]
+              ],
+              "slots": [
+                186753,
+                186754,
+                186755
+              ],
+              "times": [
+                186755
+              ]
+            }
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "timeappos",
+          [
+            {
+              "times": [
+                186755
+              ],
+              "slots": [
+                186753,
+                186754,
+                186755
+              ],
+              "refs": [
+                [
+                  "THE",
+                  186754
+                ]
+              ],
+              "functions": [
+                "simultaneous"
+              ],
+              "preps": [
+                [
+                  "B",
+                  186753
+                ]
+              ]
+            }
+          ]
+        ]
+      ]
+    ]
+  ],
+  "468040": [],
+  "468062": [],
+  "468125": [],
+  "468631": [],
+  "468659": [],
+  "469913": [
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "posterior, posterior_dur",
+        "posterior"
+      ]
+    ]
+  ],
+  "470326": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!difficult",
+            "Numerous modern translations interpret as \"no longer\"; perhaps deriving from the tense combination with \"now\""
+          ]
+        ]
+      ]
+    ]
+  ],
+  "470327": [
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "!difficult",
+            "link:470326"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "470561": [],
+  "471114": [
+    [
+      "change",
+      [
+        "times",
+        0
+      ],
+      [
+        225193,
+        225194
+      ]
+    ],
+    [
+      "add",
+      "preps",
+      [
+        [
+          1,
+          [
+            "MIDDLE",
+            225193
+          ]
+        ]
+      ]
+    ],
+    [
+      "add",
+      "",
+      [
+        [
+          "notes",
+          [
+            "NET notes (Accordance): The precise meaning of the phrase בִּדְמִי יָמַי (bidmi yamay, “in the [?] of my days”) is uncertain. According to HALOT 226 s.v. דְּמִי this word is a hapax legomenon meaning “half.” Others derive the form from דַּמִי (dami, “quiet, rest, peacefulness”)."
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "quants",
+          [
+            [
+              "DUR",
+              225194
+            ]
+          ]
+        ]
+      ]
+    ]
+  ],
+  "472148": [
+    [
+      "add",
+      [
+        "times",
+        1
+      ],
+      [
+        [
+          "quants",
+          [
+            [
+              "NUMQ",
+              228656
+            ]
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      [
+        "times",
+        1
+      ],
+      [
+        [
+          "NUM",
+          {
+            "parse": 228656,
+            "phatom": 1046027,
+            "slots": [
+              228656
+            ]
+          }
+        ]
+      ]
+    ],
+    [
+      "add",
+      "slots",
+      [
+        [
+          3,
+          228656
+        ]
+      ]
+    ]
+  ],
+  "473820": [],
+  "473831": [
+    [
+      "add",
+      [
+        "times",
+        1,
+        "slots"
+      ],
+      [
+        [
+          2,
+          235027
+        ],
+        [
+          3,
+          235028
+        ]
+      ]
+    ],
+    [
+      "add",
+      [
+        "times",
+        1
+      ],
+      [
+        [
+          "refs",
+          [
+            [
+              "CALNUM",
+              [
+                235027,
+                235028,
+                "CARDC"
+              ]
+            ]
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      [
+        "times",
+        1
+      ],
+      [
+        [
+          "NUM",
+          {
+            "parse": [
+              235027,
+              235028,
+              "CARDC"
+            ],
+            "phatom": 1050641,
+            "slots": [
+              235027,
+              235028
+            ]
+          }
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "slots",
+        8
+      ],
+      [
+        235029,
+        235027
+      ]
+    ],
+    [
+      "add",
+      "slots",
+      [
+        [
+          9,
+          235028
+        ],
+        [
+          10,
+          235029
+        ]
+      ]
+    ]
+  ],
+  "473833": [],
+  "479876": [],
+  "483224": [],
+  "483292": [],
+  "483550": [],
+  "475827": [
+    [
+      "add",
+      "",
+      [
+        [
+          "refs",
+          [
+            [
+              "ORDN",
+              243327
+            ]
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      "",
+      [
+        [
+          "ordn",
+          {
+            "lex": "R>CWN/",
+            "parse": 243327,
+            "phatom": 1056268,
+            "slots": [
+              243327,
+              243326
+            ]
+          }
+        ]
+      ]
+    ]
+  ],
+  "484521": [],
+  "488845": [],
+  "485015": [
+    [
+      "change",
+      [
+        "times",
+        1,
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur",
+        "habitual"
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "dur_to_end",
+        "atelic_ext + habitual"
+      ]
+    ]
+  ],
+  "488883": [],
+  "488927": [],
+  "489911": [],
+  "495897": [
+    [
+      "change",
+      [
+        "times",
+        0,
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ],
+    [
+      "change",
+      [
+        "times",
+        1,
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "multi_simul, multi_antdur",
+        "multi_antdur"
+      ]
+    ]
+  ],
+  "497441": [
+    [
+      "change",
+      [
+        "times",
+        0,
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ],
+    [
+      "change",
+      [
+        "times",
+        1,
+        "functions",
+        0
+      ],
+      [
+        "anterior_dur, simultaneous",
+        "anterior_dur"
+      ]
+    ],
+    [
+      "change",
+      [
+        "functions",
+        0
+      ],
+      [
+        "multi_simul, multi_antdur",
+        "multi_antdur"
+      ]
+    ]
+  ],
+  "504287": [
+    [
+      "change",
+      [
+        "times",
+        1,
+        "slots",
+        0
+      ],
+      [
+        361458,
+        361457
+      ]
+    ],
+    [
+      "change",
+      [
+        "times",
+        1,
+        "slots",
+        1
+      ],
+      [
+        361459,
+        361458
+      ]
+    ],
+    [
+      "change",
+      [
+        "times",
+        1,
+        "slots",
+        2
+      ],
+      [
+        361460,
+        361459
+      ]
+    ],
+    [
+      "add",
+      [
+        "times",
+        1,
+        "slots"
+      ],
+      [
+        [
+          3,
+          361460
+        ]
+      ]
+    ],
+    [
+      "add",
+      [
+        "times",
+        1
+      ],
+      [
+        [
+          "quants",
+          [
+            [
+              "NUMBER",
+              361457
+            ]
+          ]
+        ]
+      ]
+    ]
+  ],
+  "505490": [
+    [
+      "add",
+      [
+        "times",
+        0,
+        "times"
+      ],
+      [
+        [
+          1,
+          367047
+        ]
+      ]
+    ],
+    [
+      "add",
+      [
+        "times",
+        0
+      ],
+      [
+        [
+          "refs",
+          [
+            [
+              "CALNUM",
+              367047
+            ]
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      [
+        "times",
+        0
+      ],
+      [
+        [
+          "NUM",
+          {
+            "parse": 367047,
+            "phatom": 1138964,
+            "slots": [
+              367047
+            ]
+          }
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "slots",
+        2
+      ],
+      [
+        367048,
+        367047
+      ]
+    ],
+    [
+      "change",
+      [
+        "slots",
+        3
+      ],
+      [
+        367049,
+        367048
+      ]
+    ],
+    [
+      "change",
+      [
+        "slots",
+        4
+      ],
+      [
+        367050,
+        367049
+      ]
+    ],
+    [
+      "change",
+      [
+        "slots",
+        5
+      ],
+      [
+        367051,
+        367050
+      ]
+    ],
+    [
+      "change",
+      [
+        "slots",
+        6
+      ],
+      [
+        367052,
+        367051
+      ]
+    ],
+    [
+      "change",
+      [
+        "slots",
+        7
+      ],
+      [
+        367053,
+        367052
+      ]
+    ],
+    [
+      "change",
+      [
+        "slots",
+        8
+      ],
+      [
+        367054,
+        367053
+      ]
+    ],
+    [
+      "add",
+      "slots",
+      [
+        [
+          9,
+          367054
+        ]
+      ]
+    ]
+  ],
+  "505850": [
+    [
+      "add",
+      [
+        "times",
+        0,
+        "slots"
+      ],
+      [
+        [
+          2,
+          369023
+        ]
+      ]
+    ],
+    [
+      "add",
+      [
+        "times",
+        0
+      ],
+      [
+        [
+          "refs",
+          [
+            [
+              "CALNUM",
+              369023
+            ]
+          ]
+        ]
+      ]
+    ],
+    [
+      "remove",
+      [
+        "times",
+        0
+      ],
+      [
+        [
+          "NUM",
+          {
+            "parse": 369023,
+            "phatom": 1140122,
+            "slots": [
+              369023
+            ]
+          }
+        ]
+      ]
+    ],
+    [
+      "change",
+      [
+        "slots",
+        2
+      ],
+      [
+        369030,
+        369023
+      ]
+    ],
+    [
+      "change",
+      [
+        "slots",
+        3
+      ],
+      [
+        369031,
+        369030
+      ]
+    ],
+    [
+      "change",
+      [
+        "slots",
+        4
+      ],
+      [
+        369032,
+        369031
+      ]
+    ],
+    [
+      "change",
+      [
+        "slots",
+        5
+      ],
+      [
+        369033,
+        369032
+      ]
+    ],
+    [
+      "change",
+      [
+        "slots",
+        6
+      ],
+      [
+        369034,
+        369033
+      ]
+    ],
+    [
+      "change",
+      [
+        "slots",
+        7
+      ],
+      [
+        369035,
+        369034
+      ]
+    ],
+    [
+      "change",
+      [
+        "slots",
+        8
+      ],
+      [
+        369036,
+        369035
+      ]
+    ],
+    [
+      "add",
+      "slots",
+      [
+        [
+          9,
+          369036
+        ]
+      ]
+    ]
+  ],
+  "505927": [],
+  "505929": [],
+  "505931": [],
+  "506069": [],
+  "508168": [],
+  "508343": []
 }

@@ -170,7 +170,7 @@ class posParser(PositionsParser):
             F.lex.v(w) in {
                 'KL/', 'M<V/', 'JTR/',
                 'XYJ/', 'C>R=/', 'MSPR/', 
-                'RB/', 'RB=/', 
+                'RB/', 'RB=/', 'DJ/',
             },
             F.lex.v(w) in {
                 'M<FR/', '<FRWN/',

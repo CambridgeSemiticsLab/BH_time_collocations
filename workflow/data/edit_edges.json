@@ -36,7 +36,7 @@
         "note": "manually input"
     },
     "1007674": {
-        "edge": [[168671], "ADJV"],
+        "edge": [[168671], "SPEC"],
         "note": "manually input"
     },
     "1095066": {
@@ -52,11 +52,11 @@
         "note": "manually input"
     },
     "1050598": {
-        "edge": [[234958], "ADJV"],
+        "edge": [[234958], "SPEC"],
         "note": "manually input"
     },
     "1050601": {
-        "edge": [[234964], "ADJV"],
+        "edge": [[234964], "SPEC"],
         "note": "manually input"
     },
     "1150065": {
@@ -76,7 +76,7 @@
         "note": "manually input"
     },
     "1041759": {
-        "edge": [[1041758], "ADJV"],
+        "edge": [[1041758], "SPEC"],
         "note": "manually input"
     },
     "906677": {
@@ -250,5 +250,205 @@
     "1163424": {
         "edge": [[410976], "GP"],
         "note": "2 Chr 8:16, MWSD clearly belongs to JWM"
+    },
+    "1020312": {
+        "edge": [[1020311], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1023896": {
+        "edge": [[1023895], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1024006": {
+        "edge": [[1024005], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1024354": {
+        "edge": [[1024353], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1027620": {
+        "edge": [[1027619], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1027733": {
+        "edge": [[1027732], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1028293": {
+        "edge": [[1028292], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1029272": {
+        "edge": [[1029271], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1029564": {
+        "edge": [[1029563], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1029680": {
+        "edge": [[1029679], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1029924": {
+        "edge": [[1029923], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1030224": {
+        "edge": [[1030223], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1030319": {
+        "edge": [[1030318], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1030397": {
+        "edge": [[1030396], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1030456": {
+        "edge": [[1030455], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1030505": {
+        "edge": [[1030504], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1030579": {
+        "edge": [[1030578], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1030628": {
+        "edge": [[1030627], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1030675": {
+        "edge": [[1030674], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1030686": {
+        "edge": [[1030685], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1030762": {
+        "edge": [[1030761], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1031645": {
+        "edge": [[1031644], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1034829": {
+        "edge": [[1034828], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1063988": {
+        "edge": [[1063987], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1065891": {
+        "edge": [[1065890], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1140895": {
+        "edge": [[1140894], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1143626": {
+        "edge": [[1143625], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1171876": {
+        "edge": [[1171875], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "943106": {
+        "edge": [[943105], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "945822": {
+        "edge": [[945821], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "950442": {
+        "edge": [[950441], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "973792": {
+        "edge": [[973791], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "974008": {
+        "edge": [[974007], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1018733": {
+        "edge": [[1018732], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1029337": {
+        "edge": [[1029336], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1031804": {
+        "edge": [[1031803], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1033392": {
+        "edge": [[1033391], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1034033": {
+        "edge": [[1034032], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1034480": {
+        "edge": [[1034479], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "1034833": {
+        "edge": [[1034832], "SPEC"],
+        "note": "Normalize to other cases; draw Spec of ל ref to phrase atom instead of word"
+    },
+    "950423": {
+        "edge": [[950422], "SPEC"],
+        "note": "Normalize to other cases; draw Spec to other ב-headed phrase atom instead of word"
+    },
+    "950441": {
+        "edge": [[950440], "SPEC"],
+        "note": "Normalize to other cases; draw Spec to other ב-headed phrase atom instead of word"
+    },
+    "966230": {
+        "edge": [[966229], "SPEC"],
+        "note": "Normalize to other cases; draw Spec to other ב-headed phrase atom instead of word"
+    },
+    "1018760": {
+        "edge": [[1018759], "SPEC"],
+        "note": "Normalize to other cases; draw Spec to other ב-headed phrase atom instead of word"
+    },
+   "1034479": {
+        "edge": [[1034478], "SPEC"],
+        "note": "Normalize to other cases; draw Spec to other ב-headed phrase atom instead of word"
+    },
+    "1034568": {
+        "edge": [[1034567], "SPEC"],
+        "note": "Normalize to other cases; draw Spec to other ב-headed phrase atom instead of word"
+    },
+    "1034832": {
+        "edge": [[1034831], "SPEC"],
+        "note": "Normalize to other cases; draw Spec to other ב-headed phrase atom instead of word"
+    },
+    "1112864": {
+        "edge": [[1112863], "SPEC"],
+        "note": "Normalize to other cases; draw Spec to other ב-headed phrase atom instead of word"
+    },
+    "1138929": {
+        "edge": [[1138928], "SPEC"],
+        "note": "Normalize to other cases; draw Spec to other ב-headed phrase atom instead of word"
+    },
+    "1018761": {
+        "edge": [[1018760], "TIMEAPPO"],
+        "note": "Normalize to other cases; draw Spec to other ב-headed phrase atom instead of word"
     }
 }
