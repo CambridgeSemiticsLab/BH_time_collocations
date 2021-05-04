@@ -146,3 +146,13 @@ rule eval_times:
         evaled="../results/parsing/time_evaled.json",
     script:
         "scripts/eval_times.py"
+
+rule build_dataset:
+    input:
+        bhsadata=bhsadata,
+        timedata=rules.eval_times.output.evaled,
+        phrasedata=rules.parse_phrases.output.parsed_phrases,
+    output: 
+        dataset="../results/analysis/time_dataset.csv"
+    script:
+        "scripts/build_dataset.py"
