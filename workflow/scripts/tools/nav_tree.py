@@ -31,6 +31,8 @@ def get_slots(phrase):
 
 def get_head(phrase):
     """Retrieve a phrase head."""
+    if type(phrase) == int:
+        return phrase
     src, tgt, rela = phrase
     if type(tgt) == int:
         return tgt

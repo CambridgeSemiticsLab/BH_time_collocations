@@ -2385,6 +2385,7 @@ def parse_times(paths, API):
         # attempt parsing
         parsing = parser.parse(t for t in tokens)
         if parsing is not None and error_tracker['e'] is None:
+            parsing['phrase_nodes'] = time_phrases
             parsed[clause] = parsing
         else:
             toks = str([t.type for t in tokens])
