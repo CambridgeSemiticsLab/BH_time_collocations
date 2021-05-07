@@ -5,10 +5,12 @@ Module contains a useful method for plotting PCA data with tags annotated.
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 import seaborn as sns
 
-def apply_pca(df, sample_axis, feature_axis, scree=True, components=0):
+def apply_pca(df, sample_axis, feature_axis,
+              scree=True, components=0, scale=True):
     """Apply PCA analysis to a supplied dataset.
 
     Args:
@@ -18,6 +20,7 @@ def apply_pca(df, sample_axis, feature_axis, scree=True, components=0):
         scree: whether to display scree plot of explained
             variance
         components: number of components to calculate
+        scale: whether to normalize the values
 
     Returns:
         (df_with_pca_values, df_with_feature_loadings)
@@ -34,14 +37,21 @@ def apply_pca(df, sample_axis, feature_axis, scree=True, components=0):
     targets = df.index
     features = df.columns
 
+    # preprocess
+    if scale:
+        scaler = StandardScaler()
+        scaler.fit(df)
+        data = scaler.transform(df)
+    else:
+        data = df.values
+
     # run the analysis
     n_components = components or features.shape[0]
     pca_analysis = PCA(n_components)
-    pca_fit = pca_analysis.fit(df.values) 
-    pca_values = pca_analysis.transform(df.values)
-    
+    pca_fit = pca_analysis.fit(data)
+    components = pca_analysis.transform(data)
     pca_targets = pd.DataFrame(
-        pca_values,
+        components,
         columns = [f'PC{i+1}' for i in np.arange(n_components)],
         index = df.index
     )
@@ -61,75 +71,21 @@ def apply_pca(df, sample_axis, feature_axis, scree=True, components=0):
 
     # plot optional scree-plot of explained variance for each component
     if scree:
-        plt.figure(figsize=(8,6))
+        plt.figure(figsize=(6,5))
         explained_variance = pca_fit.explained_variance_ratio_[:n_components]
         sns.barplot(
             x = np.arange(n_components)+1,
             y = explained_variance,
-            color='steelblue',
+            color='white',
             edgecolor='black',
         )
-        plt.xlabel('Principle Component', size=16)
-        plt.ylabel('Raio of Explained Variance', size=16)
+        plt.xlabel('Principle Component', size=12)
+        plt.ylabel('Raio of Explained Variance', size=12)
         plt.title(
             f'Ratio of Explained Variance for Principle Components 1-{n_components}',
-            size=16)
+            size=12)
         plt.show()
+        print('explained variance:')
         print(explained_variance)
 
     return pca_targets, loadings
-
-def plot_PCA(pca_nouns, 
-             zoom=tuple(), 
-             noun_xy_dict=False, 
-             save='', 
-             annotate=True, 
-             title='', 
-             components=tuple(),
-             annoTags=[],
-             anno_size='18'
-            ):
-    '''
-    Plots a PCA noun space.
-    Function is useful for presenting various zooms on the data.
-    '''
-    
-    x, y = components
-    
-    # plot coordinates
-    plt.figure(figsize=(12, 10))
-    plt.scatter(x, y)
-
-    if zoom:
-        xmin, xmax, ymin, ymax = zoom
-        plt.xlim(xmin, xmax)
-        plt.ylim(ymin, ymax)
-    
-    if title:
-        plt.title(title, size=18)
-    plt.xlabel('PC1', size=18)
-    plt.ylabel('PC2', size=18)
-    plt.axhline(color='red', linestyle=':')
-    plt.axvline(color='red', linestyle=':')
-    
-    # annotate points
-    if annotate:
-        noun_xy = {} # for noun_dict
-        noun_lexs = annoTags
-        
-        for i, noun in enumerate(noun_lexs):
-            noun_x, noun_y = x[i], y[i]
-            noun_xy[annoTags[i]] = (noun_x, noun_y)
-            if zoom: # to avoid annotating outside of field of view (makes plot small)
-                if any([noun_x < xmin, noun_x > xmax, noun_y < ymin, noun_y > ymax]):                
-                    continue # skip noun
-            plt.annotate(noun, xy=(noun_x, noun_y), size=anno_size)
-    
-    if save:
-        plt.savefig(save, dpi=300, bbox_inches='tight')
-    
-    
-    plt.show()
-    
-    if noun_xy_dict:
-        return noun_xy

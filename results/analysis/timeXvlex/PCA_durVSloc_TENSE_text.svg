@@ -2,12 +2,12 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Created with matplotlib (https://matplotlib.org/) -->
-<svg height="465.958125pt" version="1.1" viewBox="0 0 482.542187 465.958125" width="482.542187pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg height="465.958125pt" version="1.1" viewBox="0 0 492.082812 465.958125" width="492.082812pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
  <metadata>
   <rdf:RDF xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2021-05-05T16:41:55.078490</dc:date>
+    <dc:date>2021-05-07T20:51:57.297428</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -23,18 +23,18 @@
  <g id="figure_1">
   <g id="patch_1">
    <path d="M 0 465.958125 
-L 482.542187 465.958125 
-L 482.542187 0 
+L 492.082812 465.958125 
+L 492.082812 0 
 L 0 0 
 z
 " style="fill:none;"/>
   </g>
   <g id="axes_1">
    <g id="patch_2">
-    <path d="M 28.942188 442.08 
-L 475.342187 442.08 
-L 475.342187 7.2 
-L 28.942188 7.2 
+    <path d="M 38.482813 442.08 
+L 484.882812 442.08 
+L 484.882812 7.2 
+L 38.482813 7.2 
 z
 " style="fill:#ffffff;"/>
    </g>
@@ -45,15 +45,15 @@ z
       <defs>
        <path d="M 0 0 
 L 0 3.5 
-" id="m7e0191219a" style="stroke:#000000;stroke-width:0.8;"/>
+" id="m641cb11a2a" style="stroke:#000000;stroke-width:0.8;"/>
       </defs>
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="89.917088" xlink:href="#m7e0191219a" y="442.08"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="58.169228" xlink:href="#m641cb11a2a" y="442.08"/>
       </g>
      </g>
      <g id="text_1">
       <!-- −2 -->
-      <g transform="translate(82.545995 456.678437)scale(0.1 -0.1)">
+      <g transform="translate(50.798134 456.678437)scale(0.1 -0.1)">
        <defs>
         <path d="M 10.59375 35.5 
 L 73.1875 35.5 
@@ -94,12 +94,12 @@ z
     <g id="xtick_2">
      <g id="line2d_2">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="167.363852" xlink:href="#m7e0191219a" y="442.08"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="138.938676" xlink:href="#m641cb11a2a" y="442.08"/>
       </g>
      </g>
      <g id="text_2">
       <!-- −1 -->
-      <g transform="translate(159.992759 456.678437)scale(0.1 -0.1)">
+      <g transform="translate(131.567582 456.678437)scale(0.1 -0.1)">
        <defs>
         <path d="M 12.40625 8.296875 
 L 28.515625 8.296875 
@@ -123,12 +123,12 @@ z
     <g id="xtick_3">
      <g id="line2d_3">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="244.810616" xlink:href="#m7e0191219a" y="442.08"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="219.708123" xlink:href="#m641cb11a2a" y="442.08"/>
       </g>
      </g>
      <g id="text_3">
       <!-- 0 -->
-      <g transform="translate(241.629366 456.678437)scale(0.1 -0.1)">
+      <g transform="translate(216.526873 456.678437)scale(0.1 -0.1)">
        <defs>
         <path d="M 31.78125 66.40625 
 Q 24.171875 66.40625 20.328125 58.90625 
@@ -159,12 +159,12 @@ z
     <g id="xtick_4">
      <g id="line2d_4">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="322.25738" xlink:href="#m7e0191219a" y="442.08"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="300.477571" xlink:href="#m641cb11a2a" y="442.08"/>
       </g>
      </g>
      <g id="text_4">
       <!-- 1 -->
-      <g transform="translate(319.07613 456.678437)scale(0.1 -0.1)">
+      <g transform="translate(297.296321 456.678437)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-49"/>
       </g>
      </g>
@@ -172,114 +172,267 @@ z
     <g id="xtick_5">
      <g id="line2d_5">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="399.704145" xlink:href="#m7e0191219a" y="442.08"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="381.247019" xlink:href="#m641cb11a2a" y="442.08"/>
       </g>
      </g>
      <g id="text_5">
       <!-- 2 -->
-      <g transform="translate(396.522895 456.678437)scale(0.1 -0.1)">
+      <g transform="translate(378.065769 456.678437)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-50"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.8;" x="462.016466" xlink:href="#m641cb11a2a" y="442.08"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <!-- 3 -->
+      <g transform="translate(458.835216 456.678437)scale(0.1 -0.1)">
+       <defs>
+        <path d="M 40.578125 39.3125 
+Q 47.65625 37.796875 51.625 33 
+Q 55.609375 28.21875 55.609375 21.1875 
+Q 55.609375 10.40625 48.1875 4.484375 
+Q 40.765625 -1.421875 27.09375 -1.421875 
+Q 22.515625 -1.421875 17.65625 -0.515625 
+Q 12.796875 0.390625 7.625 2.203125 
+L 7.625 11.71875 
+Q 11.71875 9.328125 16.59375 8.109375 
+Q 21.484375 6.890625 26.8125 6.890625 
+Q 36.078125 6.890625 40.9375 10.546875 
+Q 45.796875 14.203125 45.796875 21.1875 
+Q 45.796875 27.640625 41.28125 31.265625 
+Q 36.765625 34.90625 28.71875 34.90625 
+L 20.21875 34.90625 
+L 20.21875 43.015625 
+L 29.109375 43.015625 
+Q 36.375 43.015625 40.234375 45.921875 
+Q 44.09375 48.828125 44.09375 54.296875 
+Q 44.09375 59.90625 40.109375 62.90625 
+Q 36.140625 65.921875 28.71875 65.921875 
+Q 24.65625 65.921875 20.015625 65.03125 
+Q 15.375 64.15625 9.8125 62.3125 
+L 9.8125 71.09375 
+Q 15.4375 72.65625 20.34375 73.4375 
+Q 25.25 74.21875 29.59375 74.21875 
+Q 40.828125 74.21875 47.359375 69.109375 
+Q 53.90625 64.015625 53.90625 55.328125 
+Q 53.90625 49.265625 50.4375 45.09375 
+Q 46.96875 40.921875 40.578125 39.3125 
+z
+" id="DejaVuSans-51"/>
+       </defs>
+       <use xlink:href="#DejaVuSans-51"/>
       </g>
      </g>
     </g>
    </g>
    <g id="matplotlib.axis_2">
     <g id="ytick_1">
-     <g id="line2d_6">
+     <g id="line2d_7">
       <defs>
        <path d="M 0 0 
 L -3.5 0 
-" id="mea2d63ba1f" style="stroke:#000000;stroke-width:0.8;"/>
+" id="m73a00562b7" style="stroke:#000000;stroke-width:0.8;"/>
       </defs>
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#mea2d63ba1f" y="417.43239"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="38.482813" xlink:href="#m73a00562b7" y="437.660844"/>
       </g>
      </g>
-     <g id="text_6">
-      <!-- −2 -->
-      <g transform="translate(7.2 421.231609)scale(0.1 -0.1)">
+     <g id="text_7">
+      <!-- −2.0 -->
+      <g transform="translate(7.2 441.460063)scale(0.1 -0.1)">
+       <defs>
+        <path d="M 10.6875 12.40625 
+L 21 12.40625 
+L 21 0 
+L 10.6875 0 
+z
+" id="DejaVuSans-46"/>
+       </defs>
        <use xlink:href="#DejaVuSans-8722"/>
        <use x="83.789062" xlink:href="#DejaVuSans-50"/>
+       <use x="147.412109" xlink:href="#DejaVuSans-46"/>
+       <use x="179.199219" xlink:href="#DejaVuSans-48"/>
       </g>
      </g>
     </g>
     <g id="ytick_2">
-     <g id="line2d_7">
+     <g id="line2d_8">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#mea2d63ba1f" y="324.344489"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="38.482813" xlink:href="#m73a00562b7" y="388.975252"/>
       </g>
      </g>
-     <g id="text_7">
-      <!-- −1 -->
-      <g transform="translate(7.2 328.143707)scale(0.1 -0.1)">
+     <g id="text_8">
+      <!-- −1.5 -->
+      <g transform="translate(7.2 392.774471)scale(0.1 -0.1)">
+       <defs>
+        <path d="M 10.796875 72.90625 
+L 49.515625 72.90625 
+L 49.515625 64.59375 
+L 19.828125 64.59375 
+L 19.828125 46.734375 
+Q 21.96875 47.46875 24.109375 47.828125 
+Q 26.265625 48.1875 28.421875 48.1875 
+Q 40.625 48.1875 47.75 41.5 
+Q 54.890625 34.8125 54.890625 23.390625 
+Q 54.890625 11.625 47.5625 5.09375 
+Q 40.234375 -1.421875 26.90625 -1.421875 
+Q 22.3125 -1.421875 17.546875 -0.640625 
+Q 12.796875 0.140625 7.71875 1.703125 
+L 7.71875 11.625 
+Q 12.109375 9.234375 16.796875 8.0625 
+Q 21.484375 6.890625 26.703125 6.890625 
+Q 35.15625 6.890625 40.078125 11.328125 
+Q 45.015625 15.765625 45.015625 23.390625 
+Q 45.015625 31 40.078125 35.4375 
+Q 35.15625 39.890625 26.703125 39.890625 
+Q 22.75 39.890625 18.8125 39.015625 
+Q 14.890625 38.140625 10.796875 36.28125 
+z
+" id="DejaVuSans-53"/>
+       </defs>
        <use xlink:href="#DejaVuSans-8722"/>
        <use x="83.789062" xlink:href="#DejaVuSans-49"/>
+       <use x="147.412109" xlink:href="#DejaVuSans-46"/>
+       <use x="179.199219" xlink:href="#DejaVuSans-53"/>
       </g>
      </g>
     </g>
     <g id="ytick_3">
-     <g id="line2d_8">
+     <g id="line2d_9">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#mea2d63ba1f" y="231.256587"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="38.482813" xlink:href="#m73a00562b7" y="340.28966"/>
       </g>
      </g>
-     <g id="text_8">
-      <!-- 0 -->
-      <g transform="translate(15.579688 235.055806)scale(0.1 -0.1)">
-       <use xlink:href="#DejaVuSans-48"/>
+     <g id="text_9">
+      <!-- −1.0 -->
+      <g transform="translate(7.2 344.088878)scale(0.1 -0.1)">
+       <use xlink:href="#DejaVuSans-8722"/>
+       <use x="83.789062" xlink:href="#DejaVuSans-49"/>
+       <use x="147.412109" xlink:href="#DejaVuSans-46"/>
+       <use x="179.199219" xlink:href="#DejaVuSans-48"/>
       </g>
      </g>
     </g>
     <g id="ytick_4">
-     <g id="line2d_9">
+     <g id="line2d_10">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#mea2d63ba1f" y="138.168685"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="38.482813" xlink:href="#m73a00562b7" y="291.604068"/>
       </g>
      </g>
-     <g id="text_9">
-      <!-- 1 -->
-      <g transform="translate(15.579688 141.967904)scale(0.1 -0.1)">
-       <use xlink:href="#DejaVuSans-49"/>
+     <g id="text_10">
+      <!-- −0.5 -->
+      <g transform="translate(7.2 295.403286)scale(0.1 -0.1)">
+       <use xlink:href="#DejaVuSans-8722"/>
+       <use x="83.789062" xlink:href="#DejaVuSans-48"/>
+       <use x="147.412109" xlink:href="#DejaVuSans-46"/>
+       <use x="179.199219" xlink:href="#DejaVuSans-53"/>
       </g>
      </g>
     </g>
     <g id="ytick_5">
-     <g id="line2d_10">
+     <g id="line2d_11">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#mea2d63ba1f" y="45.080784"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="38.482813" xlink:href="#m73a00562b7" y="242.918475"/>
       </g>
      </g>
-     <g id="text_10">
-      <!-- 2 -->
-      <g transform="translate(15.579688 48.880003)scale(0.1 -0.1)">
+     <g id="text_11">
+      <!-- 0.0 -->
+      <g transform="translate(15.579688 246.717694)scale(0.1 -0.1)">
+       <use xlink:href="#DejaVuSans-48"/>
+       <use x="63.623047" xlink:href="#DejaVuSans-46"/>
+       <use x="95.410156" xlink:href="#DejaVuSans-48"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_12">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.8;" x="38.482813" xlink:href="#m73a00562b7" y="194.232883"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <!-- 0.5 -->
+      <g transform="translate(15.579688 198.032102)scale(0.1 -0.1)">
+       <use xlink:href="#DejaVuSans-48"/>
+       <use x="63.623047" xlink:href="#DejaVuSans-46"/>
+       <use x="95.410156" xlink:href="#DejaVuSans-53"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_13">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.8;" x="38.482813" xlink:href="#m73a00562b7" y="145.547291"/>
+      </g>
+     </g>
+     <g id="text_13">
+      <!-- 1.0 -->
+      <g transform="translate(15.579688 149.34651)scale(0.1 -0.1)">
+       <use xlink:href="#DejaVuSans-49"/>
+       <use x="63.623047" xlink:href="#DejaVuSans-46"/>
+       <use x="95.410156" xlink:href="#DejaVuSans-48"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_14">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.8;" x="38.482813" xlink:href="#m73a00562b7" y="96.861699"/>
+      </g>
+     </g>
+     <g id="text_14">
+      <!-- 1.5 -->
+      <g transform="translate(15.579688 100.660918)scale(0.1 -0.1)">
+       <use xlink:href="#DejaVuSans-49"/>
+       <use x="63.623047" xlink:href="#DejaVuSans-46"/>
+       <use x="95.410156" xlink:href="#DejaVuSans-53"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_15">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.8;" x="38.482813" xlink:href="#m73a00562b7" y="48.176107"/>
+      </g>
+     </g>
+     <g id="text_15">
+      <!-- 2.0 -->
+      <g transform="translate(15.579688 51.975326)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-50"/>
+       <use x="63.623047" xlink:href="#DejaVuSans-46"/>
+       <use x="95.410156" xlink:href="#DejaVuSans-48"/>
       </g>
      </g>
     </g>
    </g>
    <g id="patch_3">
-    <path d="M 28.942188 442.08 
-L 28.942188 7.2 
+    <path d="M 38.482813 442.08 
+L 38.482813 7.2 
 " style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"/>
    </g>
    <g id="patch_4">
-    <path d="M 475.342187 442.08 
-L 475.342187 7.2 
+    <path d="M 484.882812 442.08 
+L 484.882812 7.2 
 " style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"/>
    </g>
    <g id="patch_5">
-    <path d="M 28.942188 442.08 
-L 475.342187 442.08 
+    <path d="M 38.482812 442.08 
+L 484.882812 442.08 
 " style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"/>
    </g>
    <g id="patch_6">
-    <path d="M 28.942188 7.2 
-L 475.342187 7.2 
+    <path d="M 38.482812 7.2 
+L 484.882812 7.2 
 " style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"/>
    </g>
-   <g id="text_11">
+   <g id="text_16">
     <!-- ׳ז.ה.ב -->
-    <g style="fill:#0000ff;" transform="translate(254.035712 87.321578)scale(0.15 -0.15)">
+    <g style="fill:#0000ff;" transform="translate(184.041739 375.627248)scale(0.15 -0.15)">
      <defs>
       <path d="M 18.453125 53.71875 
 Q 18.5625 53.171875 18.578125 52.734375 
@@ -489,9 +642,9 @@ z
      <use x="160.498047" xlink:href="#SBLBibLit-1489"/>
     </g>
    </g>
-   <g id="text_12">
+   <g id="text_17">
     <!-- אוה.׳ז.ה.ב -->
-    <g style="fill:#0000ff;" transform="translate(306.449758 52.180908)scale(0.15 -0.15)">
+    <g style="fill:#0000ff;" transform="translate(139.745852 404.960831)scale(0.15 -0.15)">
      <defs>
       <path d="M 19.484375 -0.34375 
 Q 18.359375 0.484375 17.3125 0.953125 
@@ -641,9 +794,9 @@ z
      <use x="327.490234" xlink:href="#SBLBibLit-1489"/>
     </g>
    </g>
-   <g id="text_13">
+   <g id="text_18">
     <!-- איה.׳ז.ה.ב -->
-    <g style="fill:#0000ff;" transform="translate(150.485544 153.877447)scale(0.15 -0.15)">
+    <g style="fill:#0000ff;" transform="translate(295.666718 335.207649)scale(0.15 -0.15)">
      <defs>
       <path d="M 7.125 56.296875 
 Q 7.328125 54.984375 7.765625 54.15625 
@@ -690,9 +843,9 @@ z
      <use x="326.123047" xlink:href="#SBLBibLit-1489"/>
     </g>
    </g>
-   <g id="text_14">
+   <g id="text_19">
     <!-- םה.׳ז.ה.ב -->
-    <g style="fill:#0000ff;" transform="translate(157.601929 302.997668)scale(0.15 -0.15)">
+    <g style="fill:#0000ff;" transform="translate(318.071767 174.238013)scale(0.15 -0.15)">
      <defs>
       <path d="M 10.296875 40.671875 
 Q 6.6875 40.765625 5.34375 41.96875 
@@ -754,9 +907,111 @@ z
      <use x="298.144531" xlink:href="#SBLBibLit-1489"/>
     </g>
    </g>
-   <g id="text_15">
-    <!-- המה.׳ז.ה.ב -->
-    <g style="fill:#0000ff;" transform="translate(321.435522 287.831343)scale(0.15 -0.15)">
+   <g id="text_20">
+    <!-- הז.׳ז.ה.ב -->
+    <g style="fill:#0000ff;" transform="translate(131.431042 253.870457)scale(0.15 -0.15)">
+     <use xlink:href="#SBLBibLit-1492"/>
+     <use x="55.224609" xlink:href="#SBLBibLit-1494"/>
+     <use x="84.033203" xlink:href="#SBLBibLit-46"/>
+     <use x="111.865234" xlink:href="#SBLBibLit-1523"/>
+     <use x="132.666016" xlink:href="#SBLBibLit-1494"/>
+     <use x="161.474609" xlink:href="#SBLBibLit-46"/>
+     <use x="189.306641" xlink:href="#SBLBibLit-1492"/>
+     <use x="244.53125" xlink:href="#SBLBibLit-46"/>
+     <use x="272.363281" xlink:href="#SBLBibLit-1489"/>
+    </g>
+   </g>
+   <g id="text_21">
+    <!-- ׳ס.׳ז.ה.ב -->
+    <g style="fill:#0000ff;" transform="translate(189.110168 344.346885)scale(0.15 -0.15)">
+     <defs>
+      <path d="M 16.359375 -1.125 
+Q 14.75 0.78125 13.1875 3.96875 
+Q 11.625 7.171875 10.375 10.765625 
+Q 9.125 14.359375 8.34375 17.796875 
+Q 7.5625 21.234375 7.5625 23.578125 
+Q 7.5625 25.34375 8 27.46875 
+Q 8.453125 29.59375 9.15625 31.828125 
+Q 9.859375 34.078125 10.734375 36.34375 
+Q 11.625 38.625 12.453125 40.671875 
+Q 8.59375 40.875 6.984375 41.984375 
+Q 5.375 43.109375 5.375 45.3125 
+Q 5.375 45.75 5.5625 46.71875 
+Q 5.765625 47.703125 6.125 49.015625 
+Q 6.5 50.34375 7 51.921875 
+Q 7.515625 53.515625 8.109375 55.125 
+Q 8.59375 55.375 9.171875 55.46875 
+Q 9.765625 55.5625 10.296875 55.515625 
+Q 10.9375 54.109375 11.640625 53.296875 
+Q 12.359375 52.484375 13.28125 52.0625 
+Q 14.203125 51.65625 15.421875 51.53125 
+Q 16.65625 51.421875 18.3125 51.421875 
+L 37.640625 51.421875 
+Q 41.609375 51.421875 44.265625 49.90625 
+Q 46.921875 48.390625 48.53125 45.921875 
+Q 50.140625 43.453125 50.796875 40.28125 
+Q 51.46875 37.109375 51.46875 33.734375 
+Q 51.46875 29.890625 50.78125 25.515625 
+Q 50.09375 21.140625 48.546875 17.03125 
+Q 47.015625 12.9375 44.578125 9.515625 
+Q 42.140625 6.109375 38.671875 4.15625 
+Q 37.453125 3.46875 35.640625 2.78125 
+Q 33.84375 2.09375 31.765625 1.453125 
+Q 29.6875 0.828125 27.5625 0.28125 
+Q 25.4375 -0.25 23.578125 -0.65625 
+Q 21.734375 -1.078125 20.34375 -1.34375 
+Q 18.953125 -1.609375 18.359375 -1.65625 
+Q 17.234375 -1.515625 16.359375 -1.125 
+z
+M 17.4375 40.53125 
+Q 16.84375 39.109375 16.203125 37.375 
+Q 15.578125 35.640625 15.015625 33.78125 
+Q 14.453125 31.9375 14.109375 30.046875 
+Q 13.765625 28.171875 13.765625 26.46875 
+Q 13.765625 24.515625 14.34375 22.265625 
+Q 14.9375 20.015625 15.890625 17.75 
+Q 16.84375 15.484375 18.015625 13.328125 
+Q 19.1875 11.1875 20.359375 9.46875 
+Q 21.046875 9.515625 22.484375 9.765625 
+Q 23.921875 10.015625 25.75 10.40625 
+Q 27.59375 10.796875 29.640625 11.328125 
+Q 31.6875 11.859375 33.5625 12.4375 
+Q 35.453125 13.03125 36.96875 13.671875 
+Q 38.484375 14.3125 39.265625 14.9375 
+Q 40.828125 16.21875 42.046875 17.9375 
+Q 43.265625 19.671875 44.09375 21.65625 
+Q 44.921875 23.640625 45.359375 25.78125 
+Q 45.796875 27.9375 45.796875 29.984375 
+Q 45.796875 32.234375 45.234375 34.1875 
+Q 44.671875 36.140625 43.5 37.53125 
+Q 42.328125 38.921875 40.5 39.71875 
+Q 38.671875 40.53125 36.140625 40.53125 
+z
+" id="SBLBibLit-1505"/>
+     </defs>
+     <use xlink:href="#SBLBibLit-1523"/>
+     <use x="20.800781" xlink:href="#SBLBibLit-1505"/>
+     <use x="76.416016" xlink:href="#SBLBibLit-46"/>
+     <use x="104.248047" xlink:href="#SBLBibLit-1523"/>
+     <use x="125.048828" xlink:href="#SBLBibLit-1494"/>
+     <use x="153.857422" xlink:href="#SBLBibLit-46"/>
+     <use x="181.689453" xlink:href="#SBLBibLit-1492"/>
+     <use x="236.914062" xlink:href="#SBLBibLit-46"/>
+     <use x="264.746094" xlink:href="#SBLBibLit-1489"/>
+    </g>
+   </g>
+   <g id="text_22">
+    <!-- ׳ז.ב -->
+    <g style="fill:#0000ff;" transform="translate(216.192972 111.2138)scale(0.15 -0.15)">
+     <use xlink:href="#SBLBibLit-1523"/>
+     <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
+     <use x="49.609375" xlink:href="#SBLBibLit-46"/>
+     <use x="77.441406" xlink:href="#SBLBibLit-1489"/>
+    </g>
+   </g>
+   <g id="text_23">
+    <!-- ׳ז.׳מ.ב -->
+    <g style="fill:#0000ff;" transform="translate(377.348859 291.162916)scale(0.15 -0.15)">
      <defs>
       <path d="M 5.609375 -0.984375 
 L 5.609375 0.640625 
@@ -844,123 +1099,6 @@ Q 6.9375 -1.125 5.609375 -0.984375
 z
 " id="SBLBibLit-1502"/>
      </defs>
-     <use xlink:href="#SBLBibLit-1492"/>
-     <use x="55.224609" xlink:href="#SBLBibLit-1502"/>
-     <use x="112.792969" xlink:href="#SBLBibLit-1492"/>
-     <use x="168.017578" xlink:href="#SBLBibLit-46"/>
-     <use x="195.849609" xlink:href="#SBLBibLit-1523"/>
-     <use x="216.650391" xlink:href="#SBLBibLit-1494"/>
-     <use x="245.458984" xlink:href="#SBLBibLit-46"/>
-     <use x="273.291016" xlink:href="#SBLBibLit-1492"/>
-     <use x="328.515625" xlink:href="#SBLBibLit-46"/>
-     <use x="356.347656" xlink:href="#SBLBibLit-1489"/>
-    </g>
-   </g>
-   <g id="text_16">
-    <!-- הז.׳ז.ה.ב -->
-    <g style="fill:#0000ff;" transform="translate(285.249068 195.990591)scale(0.15 -0.15)">
-     <use xlink:href="#SBLBibLit-1492"/>
-     <use x="55.224609" xlink:href="#SBLBibLit-1494"/>
-     <use x="84.033203" xlink:href="#SBLBibLit-46"/>
-     <use x="111.865234" xlink:href="#SBLBibLit-1523"/>
-     <use x="132.666016" xlink:href="#SBLBibLit-1494"/>
-     <use x="161.474609" xlink:href="#SBLBibLit-46"/>
-     <use x="189.306641" xlink:href="#SBLBibLit-1492"/>
-     <use x="244.53125" xlink:href="#SBLBibLit-46"/>
-     <use x="272.363281" xlink:href="#SBLBibLit-1489"/>
-    </g>
-   </g>
-   <g id="text_17">
-    <!-- ׳ס.׳ז.ה.ב -->
-    <g style="fill:#0000ff;" transform="translate(254.478835 116.125938)scale(0.15 -0.15)">
-     <defs>
-      <path d="M 16.359375 -1.125 
-Q 14.75 0.78125 13.1875 3.96875 
-Q 11.625 7.171875 10.375 10.765625 
-Q 9.125 14.359375 8.34375 17.796875 
-Q 7.5625 21.234375 7.5625 23.578125 
-Q 7.5625 25.34375 8 27.46875 
-Q 8.453125 29.59375 9.15625 31.828125 
-Q 9.859375 34.078125 10.734375 36.34375 
-Q 11.625 38.625 12.453125 40.671875 
-Q 8.59375 40.875 6.984375 41.984375 
-Q 5.375 43.109375 5.375 45.3125 
-Q 5.375 45.75 5.5625 46.71875 
-Q 5.765625 47.703125 6.125 49.015625 
-Q 6.5 50.34375 7 51.921875 
-Q 7.515625 53.515625 8.109375 55.125 
-Q 8.59375 55.375 9.171875 55.46875 
-Q 9.765625 55.5625 10.296875 55.515625 
-Q 10.9375 54.109375 11.640625 53.296875 
-Q 12.359375 52.484375 13.28125 52.0625 
-Q 14.203125 51.65625 15.421875 51.53125 
-Q 16.65625 51.421875 18.3125 51.421875 
-L 37.640625 51.421875 
-Q 41.609375 51.421875 44.265625 49.90625 
-Q 46.921875 48.390625 48.53125 45.921875 
-Q 50.140625 43.453125 50.796875 40.28125 
-Q 51.46875 37.109375 51.46875 33.734375 
-Q 51.46875 29.890625 50.78125 25.515625 
-Q 50.09375 21.140625 48.546875 17.03125 
-Q 47.015625 12.9375 44.578125 9.515625 
-Q 42.140625 6.109375 38.671875 4.15625 
-Q 37.453125 3.46875 35.640625 2.78125 
-Q 33.84375 2.09375 31.765625 1.453125 
-Q 29.6875 0.828125 27.5625 0.28125 
-Q 25.4375 -0.25 23.578125 -0.65625 
-Q 21.734375 -1.078125 20.34375 -1.34375 
-Q 18.953125 -1.609375 18.359375 -1.65625 
-Q 17.234375 -1.515625 16.359375 -1.125 
-z
-M 17.4375 40.53125 
-Q 16.84375 39.109375 16.203125 37.375 
-Q 15.578125 35.640625 15.015625 33.78125 
-Q 14.453125 31.9375 14.109375 30.046875 
-Q 13.765625 28.171875 13.765625 26.46875 
-Q 13.765625 24.515625 14.34375 22.265625 
-Q 14.9375 20.015625 15.890625 17.75 
-Q 16.84375 15.484375 18.015625 13.328125 
-Q 19.1875 11.1875 20.359375 9.46875 
-Q 21.046875 9.515625 22.484375 9.765625 
-Q 23.921875 10.015625 25.75 10.40625 
-Q 27.59375 10.796875 29.640625 11.328125 
-Q 31.6875 11.859375 33.5625 12.4375 
-Q 35.453125 13.03125 36.96875 13.671875 
-Q 38.484375 14.3125 39.265625 14.9375 
-Q 40.828125 16.21875 42.046875 17.9375 
-Q 43.265625 19.671875 44.09375 21.65625 
-Q 44.921875 23.640625 45.359375 25.78125 
-Q 45.796875 27.9375 45.796875 29.984375 
-Q 45.796875 32.234375 45.234375 34.1875 
-Q 44.671875 36.140625 43.5 37.53125 
-Q 42.328125 38.921875 40.5 39.71875 
-Q 38.671875 40.53125 36.140625 40.53125 
-z
-" id="SBLBibLit-1505"/>
-     </defs>
-     <use xlink:href="#SBLBibLit-1523"/>
-     <use x="20.800781" xlink:href="#SBLBibLit-1505"/>
-     <use x="76.416016" xlink:href="#SBLBibLit-46"/>
-     <use x="104.248047" xlink:href="#SBLBibLit-1523"/>
-     <use x="125.048828" xlink:href="#SBLBibLit-1494"/>
-     <use x="153.857422" xlink:href="#SBLBibLit-46"/>
-     <use x="181.689453" xlink:href="#SBLBibLit-1492"/>
-     <use x="236.914062" xlink:href="#SBLBibLit-46"/>
-     <use x="264.746094" xlink:href="#SBLBibLit-1489"/>
-    </g>
-   </g>
-   <g id="text_18">
-    <!-- ׳ז.ב -->
-    <g style="fill:#0000ff;" transform="translate(263.975138 328.86078)scale(0.15 -0.15)">
-     <use xlink:href="#SBLBibLit-1523"/>
-     <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
-     <use x="49.609375" xlink:href="#SBLBibLit-46"/>
-     <use x="77.441406" xlink:href="#SBLBibLit-1489"/>
-    </g>
-   </g>
-   <g id="text_19">
-    <!-- ׳ז.׳מ.ב -->
-    <g style="fill:#0000ff;" transform="translate(92.915536 219.867736)scale(0.15 -0.15)">
      <use xlink:href="#SBLBibLit-1523"/>
      <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
      <use x="49.609375" xlink:href="#SBLBibLit-46"/>
@@ -970,94 +1108,27 @@ z
      <use x="183.642578" xlink:href="#SBLBibLit-1489"/>
     </g>
    </g>
-   <g id="text_20">
-    <!-- ׳ז.ה.ןיב -->
-    <g style="fill:#0000ff;" transform="translate(415.221713 268.754666)scale(0.15 -0.15)">
-     <defs>
-      <path d="M 11.625 -19.234375 
-Q 10.25 -19.390625 8.9375 -19.234375 
-Q 8.796875 -16.890625 8.59375 -13.9375 
-Q 8.40625 -10.984375 8.25 -7.6875 
-Q 8.109375 -4.390625 8 -0.953125 
-Q 7.90625 2.484375 7.90625 5.765625 
-Q 7.90625 10.40625 7.953125 13.71875 
-Q 8.015625 17.046875 8.171875 19.5625 
-Q 8.34375 22.078125 8.703125 24.03125 
-Q 9.078125 25.984375 9.65625 27.859375 
-Q 10.25 29.734375 11.109375 31.8125 
-Q 11.96875 33.890625 13.1875 36.671875 
-Q 13.375 37.109375 13.390625 37.296875 
-Q 13.421875 37.5 13.421875 37.703125 
-Q 13.421875 38.421875 12.6875 38.890625 
-Q 11.96875 39.359375 9.71875 39.984375 
-Q 7.953125 40.484375 6.53125 40.9375 
-Q 5.125 41.40625 4.140625 41.984375 
-Q 3.171875 42.578125 2.65625 43.359375 
-Q 2.15625 44.140625 2.15625 45.3125 
-Q 2.15625 46 2.46875 47.28125 
-Q 2.78125 48.578125 3.296875 50.0625 
-Q 3.8125 51.5625 4.4375 53.03125 
-Q 5.078125 54.5 5.671875 55.515625 
-Q 6.0625 55.765625 6.71875 55.78125 
-Q 7.375 55.8125 7.90625 55.71875 
-Q 8.25 54.5 8.65625 53.765625 
-Q 9.078125 53.03125 9.8125 52.53125 
-Q 10.546875 52.046875 11.734375 51.65625 
-Q 12.9375 51.265625 14.796875 50.734375 
-Q 16.75 50.140625 18.046875 49.578125 
-Q 19.34375 49.03125 20.09375 48.40625 
-Q 20.84375 47.796875 21.140625 47.140625 
-Q 21.4375 46.484375 21.4375 45.75 
-Q 21.4375 44.34375 20.75 42.453125 
-Q 20.0625 40.578125 18.953125 38.09375 
-Q 17.671875 35.40625 16.765625 33.125 
-Q 15.875 30.859375 15.28125 28.6875 
-Q 14.703125 26.515625 14.421875 24.296875 
-Q 14.15625 22.078125 14.15625 19.53125 
-Q 14.15625 17.046875 14.34375 13.8125 
-Q 14.546875 10.59375 14.890625 6.859375 
-Q 15.234375 3.125 15.671875 -1 
-Q 16.109375 -5.125 16.609375 -9.375 
-Q 16.703125 -9.96875 16.765625 -10.59375 
-Q 16.84375 -11.234375 16.84375 -11.671875 
-Q 16.84375 -12.59375 16.640625 -13.109375 
-Q 16.453125 -13.625 15.96875 -14.15625 
-Q 14.84375 -15.4375 13.71875 -16.703125 
-Q 12.59375 -17.96875 11.625 -19.234375 
-z
-" id="SBLBibLit-1503"/>
-     </defs>
-     <use xlink:href="#SBLBibLit-1523"/>
-     <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
-     <use x="49.609375" xlink:href="#SBLBibLit-46"/>
-     <use x="77.441406" xlink:href="#SBLBibLit-1492"/>
-     <use x="132.666016" xlink:href="#SBLBibLit-46"/>
-     <use x="160.498047" xlink:href="#SBLBibLit-1503"/>
-     <use x="184.375" xlink:href="#SBLBibLit-1497"/>
-     <use x="209.375" xlink:href="#SBLBibLit-1489"/>
-    </g>
-   </g>
-   <g id="text_21">
+   <g id="text_24">
     <!-- ׳ז.ה -->
-    <g style="fill:#8b0000;" transform="translate(260.374245 219.183901)scale(0.15 -0.15)">
+    <g style="fill:#8b0000;" transform="translate(207.174767 256.48509)scale(0.15 -0.15)">
      <use xlink:href="#SBLBibLit-1523"/>
      <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
      <use x="49.609375" xlink:href="#SBLBibLit-46"/>
      <use x="77.441406" xlink:href="#SBLBibLit-1492"/>
     </g>
    </g>
-   <g id="text_22">
+   <g id="text_25">
     <!-- ׳ז.ה -->
-    <g style="fill:#0000ff;" transform="translate(186.246676 332.042247)scale(0.15 -0.15)">
+    <g style="fill:#0000ff;" transform="translate(275.903681 156.117148)scale(0.15 -0.15)">
      <use xlink:href="#SBLBibLit-1523"/>
      <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
      <use x="49.609375" xlink:href="#SBLBibLit-46"/>
      <use x="77.441406" xlink:href="#SBLBibLit-1492"/>
     </g>
    </g>
-   <g id="text_23">
+   <g id="text_26">
     <!-- הז.׳ז.ה -->
-    <g style="fill:#0000ff;" transform="translate(206.34436 362.096775)scale(0.15 -0.15)">
+    <g style="fill:#0000ff;" transform="translate(285.682045 119.571447)scale(0.15 -0.15)">
      <use xlink:href="#SBLBibLit-1492"/>
      <use x="55.224609" xlink:href="#SBLBibLit-1494"/>
      <use x="84.033203" xlink:href="#SBLBibLit-46"/>
@@ -1067,23 +1138,16 @@ z
      <use x="189.306641" xlink:href="#SBLBibLit-1492"/>
     </g>
    </g>
-   <g id="text_24">
+   <g id="text_27">
     <!-- ׳ז -->
-    <g style="fill:#8b0000;" transform="translate(273.295651 182.30766)scale(0.15 -0.15)">
+    <g style="fill:#8b0000;" transform="translate(171.556428 278.731242)scale(0.15 -0.15)">
      <use xlink:href="#SBLBibLit-1523"/>
      <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
     </g>
    </g>
-   <g id="text_25">
-    <!-- ׳ז -->
-    <g style="fill:#0000ff;" transform="translate(328.213868 316.139316)scale(0.15 -0.15)">
-     <use xlink:href="#SBLBibLit-1523"/>
-     <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
-    </g>
-   </g>
-   <g id="text_26">
+   <g id="text_28">
     <!-- ׳ז.ה.כ -->
-    <g style="fill:#0000ff;" transform="translate(362.063935 367.588737)scale(0.15 -0.15)">
+    <g style="fill:#0000ff;" transform="translate(99.711677 21.73324)scale(0.15 -0.15)">
      <defs>
       <path d="M 9.90625 55.515625 
 Q 10.546875 54.109375 11.25 53.296875 
@@ -1144,32 +1208,9 @@ z
      <use x="160.498047" xlink:href="#SBLBibLit-1499"/>
     </g>
    </g>
-   <g id="text_27">
-    <!-- הז.׳ז.ה.כ -->
-    <g style="fill:#0000ff;" transform="translate(68.727842 168.616015)scale(0.15 -0.15)">
-     <use xlink:href="#SBLBibLit-1492"/>
-     <use x="55.224609" xlink:href="#SBLBibLit-1494"/>
-     <use x="84.033203" xlink:href="#SBLBibLit-46"/>
-     <use x="111.865234" xlink:href="#SBLBibLit-1523"/>
-     <use x="132.666016" xlink:href="#SBLBibLit-1494"/>
-     <use x="161.474609" xlink:href="#SBLBibLit-46"/>
-     <use x="189.306641" xlink:href="#SBLBibLit-1492"/>
-     <use x="244.53125" xlink:href="#SBLBibLit-46"/>
-     <use x="272.363281" xlink:href="#SBLBibLit-1499"/>
-    </g>
-   </g>
-   <g id="text_28">
-    <!-- ׳ז.כ -->
-    <g style="fill:#0000ff;" transform="translate(133.355012 313.408721)scale(0.15 -0.15)">
-     <use xlink:href="#SBLBibLit-1523"/>
-     <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
-     <use x="49.609375" xlink:href="#SBLBibLit-46"/>
-     <use x="77.441406" xlink:href="#SBLBibLit-1499"/>
-    </g>
-   </g>
    <g id="text_29">
-    <!-- ׳ז.ה.ל -->
-    <g style="fill:#0000ff;" transform="translate(353.679347 150.9239)scale(0.15 -0.15)">
+    <!-- ׳ז.ל -->
+    <g style="fill:#8b0000;" transform="translate(59.112674 69.681331)scale(0.15 -0.15)">
      <defs>
       <path d="M 20.0625 11.375 
 Q 25.203125 13.875 28.328125 16.765625 
@@ -1235,14 +1276,12 @@ z
      <use xlink:href="#SBLBibLit-1523"/>
      <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
      <use x="49.609375" xlink:href="#SBLBibLit-46"/>
-     <use x="77.441406" xlink:href="#SBLBibLit-1492"/>
-     <use x="132.666016" xlink:href="#SBLBibLit-46"/>
-     <use x="160.498047" xlink:href="#SBLBibLit-1500"/>
+     <use x="77.441406" xlink:href="#SBLBibLit-1500"/>
     </g>
    </g>
    <g id="text_30">
     <!-- ׳ז.ל -->
-    <g style="fill:#8b0000;" transform="translate(400.013521 315.285452)scale(0.15 -0.15)">
+    <g style="fill:#0000ff;" transform="translate(184.350512 244.031888)scale(0.15 -0.15)">
      <use xlink:href="#SBLBibLit-1523"/>
      <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
      <use x="49.609375" xlink:href="#SBLBibLit-46"/>
@@ -1250,29 +1289,62 @@ z
     </g>
    </g>
    <g id="text_31">
-    <!-- ׳ז.ל -->
-    <g style="fill:#0000ff;" transform="translate(253.476946 198.202859)scale(0.15 -0.15)">
-     <use xlink:href="#SBLBibLit-1523"/>
-     <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
-     <use x="49.609375" xlink:href="#SBLBibLit-46"/>
-     <use x="77.441406" xlink:href="#SBLBibLit-1500"/>
-    </g>
-   </g>
-   <g id="text_32">
-    <!-- ׳ז.׳מ.ל -->
-    <g style="fill:#8b0000;" transform="translate(74.608968 78.441673)scale(0.15 -0.15)">
-     <use xlink:href="#SBLBibLit-1523"/>
-     <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
-     <use x="49.609375" xlink:href="#SBLBibLit-46"/>
-     <use x="77.441406" xlink:href="#SBLBibLit-1523"/>
-     <use x="98.242188" xlink:href="#SBLBibLit-1502"/>
-     <use x="155.810547" xlink:href="#SBLBibLit-46"/>
-     <use x="183.642578" xlink:href="#SBLBibLit-1500"/>
-    </g>
-   </g>
-   <g id="text_33">
     <!-- ׳ז.ןמ -->
-    <g style="fill:#8b0000;" transform="translate(49.671199 417.078694)scale(0.15 -0.15)">
+    <g style="fill:#8b0000;" transform="translate(440.322551 99.171255)scale(0.15 -0.15)">
+     <defs>
+      <path d="M 11.625 -19.234375 
+Q 10.25 -19.390625 8.9375 -19.234375 
+Q 8.796875 -16.890625 8.59375 -13.9375 
+Q 8.40625 -10.984375 8.25 -7.6875 
+Q 8.109375 -4.390625 8 -0.953125 
+Q 7.90625 2.484375 7.90625 5.765625 
+Q 7.90625 10.40625 7.953125 13.71875 
+Q 8.015625 17.046875 8.171875 19.5625 
+Q 8.34375 22.078125 8.703125 24.03125 
+Q 9.078125 25.984375 9.65625 27.859375 
+Q 10.25 29.734375 11.109375 31.8125 
+Q 11.96875 33.890625 13.1875 36.671875 
+Q 13.375 37.109375 13.390625 37.296875 
+Q 13.421875 37.5 13.421875 37.703125 
+Q 13.421875 38.421875 12.6875 38.890625 
+Q 11.96875 39.359375 9.71875 39.984375 
+Q 7.953125 40.484375 6.53125 40.9375 
+Q 5.125 41.40625 4.140625 41.984375 
+Q 3.171875 42.578125 2.65625 43.359375 
+Q 2.15625 44.140625 2.15625 45.3125 
+Q 2.15625 46 2.46875 47.28125 
+Q 2.78125 48.578125 3.296875 50.0625 
+Q 3.8125 51.5625 4.4375 53.03125 
+Q 5.078125 54.5 5.671875 55.515625 
+Q 6.0625 55.765625 6.71875 55.78125 
+Q 7.375 55.8125 7.90625 55.71875 
+Q 8.25 54.5 8.65625 53.765625 
+Q 9.078125 53.03125 9.8125 52.53125 
+Q 10.546875 52.046875 11.734375 51.65625 
+Q 12.9375 51.265625 14.796875 50.734375 
+Q 16.75 50.140625 18.046875 49.578125 
+Q 19.34375 49.03125 20.09375 48.40625 
+Q 20.84375 47.796875 21.140625 47.140625 
+Q 21.4375 46.484375 21.4375 45.75 
+Q 21.4375 44.34375 20.75 42.453125 
+Q 20.0625 40.578125 18.953125 38.09375 
+Q 17.671875 35.40625 16.765625 33.125 
+Q 15.875 30.859375 15.28125 28.6875 
+Q 14.703125 26.515625 14.421875 24.296875 
+Q 14.15625 22.078125 14.15625 19.53125 
+Q 14.15625 17.046875 14.34375 13.8125 
+Q 14.546875 10.59375 14.890625 6.859375 
+Q 15.234375 3.125 15.671875 -1 
+Q 16.109375 -5.125 16.609375 -9.375 
+Q 16.703125 -9.96875 16.765625 -10.59375 
+Q 16.84375 -11.234375 16.84375 -11.671875 
+Q 16.84375 -12.59375 16.640625 -13.109375 
+Q 16.453125 -13.625 15.96875 -14.15625 
+Q 14.84375 -15.4375 13.71875 -16.703125 
+Q 12.59375 -17.96875 11.625 -19.234375 
+z
+" id="SBLBibLit-1503"/>
+     </defs>
      <use xlink:href="#SBLBibLit-1523"/>
      <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
      <use x="49.609375" xlink:href="#SBLBibLit-46"/>
@@ -1280,9 +1352,9 @@ z
      <use x="101.318359" xlink:href="#SBLBibLit-1502"/>
     </g>
    </g>
-   <g id="text_34">
+   <g id="text_32">
     <!-- ׳ז.׳מ -->
-    <g style="fill:#8b0000;" transform="translate(186.798705 172.859404)scale(0.15 -0.15)">
+    <g style="fill:#8b0000;" transform="translate(267.98852 306.481953)scale(0.15 -0.15)">
      <use xlink:href="#SBLBibLit-1523"/>
      <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
      <use x="49.609375" xlink:href="#SBLBibLit-46"/>
@@ -1290,19 +1362,9 @@ z
      <use x="98.242188" xlink:href="#SBLBibLit-1502"/>
     </g>
    </g>
-   <g id="text_35">
-    <!-- ׳ז.׳מ -->
-    <g style="fill:#0000ff;" transform="translate(240.410015 395.059993)scale(0.15 -0.15)">
-     <use xlink:href="#SBLBibLit-1523"/>
-     <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
-     <use x="49.609375" xlink:href="#SBLBibLit-46"/>
-     <use x="77.441406" xlink:href="#SBLBibLit-1523"/>
-     <use x="98.242188" xlink:href="#SBLBibLit-1502"/>
-    </g>
-   </g>
-   <g id="text_36">
+   <g id="text_33">
     <!-- ׳ז.ה.דע -->
-    <g style="fill:#8b0000;" transform="translate(394.571868 21.73324)scale(0.15 -0.15)">
+    <g style="fill:#8b0000;" transform="translate(59.723302 417.078694)scale(0.15 -0.15)">
      <defs>
       <path d="M 43.015625 41.109375 
 Q 39.5 41.109375 38.078125 39.34375 
@@ -1456,9 +1518,9 @@ z
      <use x="209.472656" xlink:href="#SBLBibLit-1506"/>
     </g>
    </g>
-   <g id="text_37">
+   <g id="text_34">
     <!-- הז.׳ז.ה.דע -->
-    <g style="fill:#8b0000;" transform="translate(97.63705 132.105721)scale(0.15 -0.15)">
+    <g style="fill:#8b0000;" transform="translate(347.649832 377.997096)scale(0.15 -0.15)">
      <use xlink:href="#SBLBibLit-1492"/>
      <use x="55.224609" xlink:href="#SBLBibLit-1494"/>
      <use x="84.033203" xlink:href="#SBLBibLit-46"/>
@@ -1471,9 +1533,9 @@ z
      <use x="321.337891" xlink:href="#SBLBibLit-1506"/>
     </g>
    </g>
-   <g id="text_38">
+   <g id="text_35">
     <!-- ׳ז.דע -->
-    <g style="fill:#8b0000;" transform="translate(369.078307 260.885753)scale(0.15 -0.15)">
+    <g style="fill:#8b0000;" transform="translate(60.020222 133.808104)scale(0.15 -0.15)">
      <use xlink:href="#SBLBibLit-1523"/>
      <use x="20.800781" xlink:href="#SBLBibLit-1494"/>
      <use x="49.609375" xlink:href="#SBLBibLit-46"/>

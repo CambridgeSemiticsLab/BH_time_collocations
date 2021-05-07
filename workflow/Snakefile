@@ -6,7 +6,8 @@ from pathlib import Path
 
 # locations for Text-Fabric BHSA data
 bhsadata = [
-    "/Users/cody/github/etcbc/bhsa/tf/c"
+    "/Users/cody/github/etcbc/bhsa/tf/c",
+    "/Users/cody/github/etcbc/genre_synvar/tf/c",
 ]
 
 home = Path.home()
