@@ -123,6 +123,8 @@ def get_word_formats(words, API,
 def time_dataset(paths, API):
     """Construct tabular dataset of time adverbials."""
 
+    print('Building time dataset...')
+
     # text-fabric methods
     F, E, T, L = API.F, API.E, API.T, API.L
 
@@ -159,6 +161,7 @@ def time_dataset(paths, API):
 
     # build the rows  
     rows = []
+    modi_keys = set()
     for clause, data in time_data.items():
 
         # build up the row data here
@@ -219,6 +222,7 @@ def time_dataset(paths, API):
         # this data will typically be used to analyze single-phrased TAs
         # so we just take the first ph_parse
         modifiers = get_modis(ph_parses[0], API)
+        modi_keys |= set(modifiers)
         rowdata.update(
             modifiers
         )
@@ -232,11 +236,15 @@ def time_dataset(paths, API):
 
     # turn into data frame and export as CSV
     df = pd.DataFrame(rows) 
-    print('exporting time df:', df.shape)
+    modi_keys = list(modi_keys)
+    df.loc[:, modi_keys] = df.loc[:, modi_keys].fillna(0)
+    print('\texporting time df:', df.shape)
     df.to_csv(paths['timedataset'], index=False)
 
 def phrase_dataset(paths, API):
     """Construct tabular dataset of time adverbials."""
+
+    print('Building phrase dataset...')
 
     # text-fabric methods
     F, E, T, L = API.F, API.E, API.T, API.L
@@ -247,6 +255,7 @@ def phrase_dataset(paths, API):
 
     # build the rows  
     rows = []
+    modi_keys = set()
     for phrase, ph_data in phrase_data.items():
 
         # build up the row data here
@@ -302,6 +311,7 @@ def phrase_dataset(paths, API):
         
         # add modifier data
         modifiers = get_modis(parse, API)
+        modi_keys |= set(modifiers)
         rowdata.update(
             modifiers
         )
@@ -315,10 +325,12 @@ def phrase_dataset(paths, API):
 
     # turn into data frame and export as CSV
     df = pd.DataFrame(rows) 
-    print('exporting phrase df:', df.shape)
+    modi_keys = list(modi_keys)
+    df.loc[:, modi_keys] = df.loc[:, modi_keys].fillna(0)
+    print('\texporting phrase df:', df.shape)
     df.to_csv(paths['phrasedataset'], index=False)
 
-def build_dataset(paths):
+def build_datasets(paths):
     """Load TF and build time / phrase datasets."""
 
     # load needed TF BHSA data

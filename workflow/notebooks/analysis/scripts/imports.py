@@ -23,5 +23,5 @@ from .export import Exporter
 from .plotting import heatmap
 
 # load the data
-df = pd.read_csv(paths['dataset'], index_col='node')
-df_sg = df.query("(n_times == 1) and (is_advb == False)")
+df = pd.read_csv(paths['time_dataset'], index_col='node')
+df_sg = df.query("(n_times == 1) and (is_advb == False)").copy()

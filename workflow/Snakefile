@@ -158,4 +158,4 @@ rule build_dataset:
         timedataset="../results/analysis/time_dataset.csv",
         phrasedataset="../results/analysis/phrase_dataset.csv",
     script:
-        "scripts/build_dataset.py"
+        "scripts/build_datasets.py"
