@@ -4,7 +4,9 @@ paths = {
     'bhsadata': snakemake.input.bhsadata,
     'timedata': snakemake.input.timedata,
     'phrasedata': snakemake.input.phrasedata,
-    'dataset': snakemake.output.dataset,
+    'functions': snakemake.input.functions,
+    'timedataset': snakemake.output.timedataset,
+    'phrasedataset': snakemake.output.phrasedataset,
 }
 
 build_dataset(paths)

@@ -16,29 +16,42 @@ All together these lists form a graph network of relationships.
 
 def get_slots(phrase):
     """Recursively retrieve slots from a phrase tree."""
+
+    # this means we've 
+    # reached the bottom of the parse
     if type(phrase) == int:
         yield phrase
-        return
-    src, tgt, rela = phrase
-    if type(src) == int:
-        yield src
+    elif len(phrase) == 1:
+        yield phrase[0]
     else:
-        yield from get_slots(src)
-    if type(tgt) == int:
-        yield tgt
-    else:
-        yield from get_slots(tgt)
+        # parse apart phrase
+        src, tgt, rela = phrase
+
+        # parse out srce parts
+        if type(src) == int:
+            yield src
+        elif type(src) == list:
+            yield from get_slots(src)
+
+        # parse out tgt parts
+        if type(tgt) == int:
+            yield tgt
+        elif type(tgt) == list:
+            yield from get_slots(tgt)
 
 def get_head(phrase):
     """Retrieve a phrase head."""
     if type(phrase) == int:
         return phrase
-    src, tgt, rela = phrase
-    if type(tgt) == int:
-        return tgt
+    elif len(phrase) == 1:
+        return phrase[0]
     else:
-        return get_head(tgt)
-    
+        src, tgt, rela = phrase
+        if type(tgt) == int:
+            return tgt
+        else:
+            return get_head(tgt)
+        
 def get_head_path(phrase):
     """Yield phrases all the way down to the right-most item (the head).
     

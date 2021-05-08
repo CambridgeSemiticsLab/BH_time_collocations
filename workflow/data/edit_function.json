@@ -96,15 +96,15 @@
         "note": "1 Sam 21:6; 'as before'; not temporal"
     },
     "679379": {
-        "function": "Freq",
+        "function": "Adju",
         "note": "Exod 30:10; This is frequentive not time location / duration"
     },
     "679381": {
-        "function": "Freq",
+        "function": "Adju",
         "note": "Exod 30:10; This is frequentive not time location / duration"
     },
     "688339": {
-        "function": "Freq",
+        "function": "Adju",
         "note": "Lev 16:34; This is frequentive not time location / duration"
     },
     "690307": {
@@ -140,7 +140,7 @@
         "note": "Num 28:14; the phrase belongs to prev phrase as part of genitive; 'חדש בחדו' is the complete idiom; =burnt offfering of each month"
     },
     "757950": {
-        "function": "Freq",
+        "function": "Adju",
         "note": "1 Kgs 10:22; this frequentive explains some L+time cx"
     },
     "774873": {
@@ -192,8 +192,8 @@
         "note": "Micah 7:4; word serves as subj, with other subj as apposition"
     },
     "896963": {
-        "function": "Freq",
-        "note": "2 Chr 9:21"
+        "function": "Adju",
+        "note": "2 Chr 9:21; frequentive"
     },
     "820965": {
         "function": "Time",
