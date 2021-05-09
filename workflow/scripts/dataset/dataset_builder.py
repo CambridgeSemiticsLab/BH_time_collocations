@@ -293,13 +293,23 @@ def phrase_dataset(paths, API):
                 for s in nt.get_slots(sp)
         )
         phrases = sorted(ph_data['has_phrases'])
+        phatoms = [
+            pa for ph in phrases
+                for pa in L.d(ph,'phrase_atom')
+        ]
         head_ph = L.u(heads[0], 'phrase')[0]
         text = T.text(slots)
         function = functions[head_ph]
+        word_lexs = ' '.join(
+            F.lex.v(s) for s in slots
+        )
         rowdata.update({
             'function': function,
             'text': text,
             'n_heads': len(heads),
+            'word_lexs': word_lexs,
+            'n_words': len(slots),
+            'n_phatoms': len(phatoms),
         })
 
         # add clause-based data
