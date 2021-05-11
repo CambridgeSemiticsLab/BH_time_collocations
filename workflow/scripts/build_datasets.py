@@ -2,6 +2,7 @@ from dataset.dataset_builder import build_datasets
 
 paths = {
     'bhsadata': snakemake.input.bhsadata,
+    'slot2pos': snakemake.input.slot2pos,
     'timedata': snakemake.input.timedata,
     'phrasedata': snakemake.input.phrasedata,
     'functions': snakemake.input.functions,

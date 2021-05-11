@@ -94,7 +94,9 @@ def get_clause_data(clause, API):
     }
     return data
 
-def get_word_formats(words, API, 
+def get_word_formats(words,
+                     slot2pos, 
+                     API, 
                      prefix='', joiner='|', 
                      latexrow='words_latex'):
     """Retrieve word formats for a list of words."""
@@ -103,24 +105,30 @@ def get_word_formats(words, API,
     F = API.F
 
     # format data on heads
-    words_etcbc = f'{joiner}'.join(F.lex.v(t) for t in words)
-    words_utf8 = f'{joiner}'.join(F.lex_utf8.v(t) for t in words)
+    words_etcbc = f'{joiner}'.join(F.lex.v(w) for w in words)
+    words_utf8 = f'{joiner}'.join(F.lex_utf8.v(w) for w in words)
     words_utf8d = (
         get_display(remove_shindots(words_utf8))
     )
     # formatting for inclusion in latex docs (esp. tables)
     words_latex = remove_shindots('\texthebrew{%s}' % words_utf8)
 
+    # formatting using custom-made values
+    words_pos = f'joiner'.join(
+        slot2pos[w] for w in words
+    )
+
     # package and ship
     formats = {
         f'{prefix}etcbc': words_etcbc,
         f'{prefix}utf8': words_utf8,
         f'{prefix}utf8d': words_utf8d,
+        f'{prefix}POS': words_pos,
         f'{latexrow}': words_latex,
     }
     return formats
 
-def time_dataset(paths, API):
+def time_dataset(paths, parsedata, API):
     """Construct tabular dataset of time adverbials."""
 
     print('Building time dataset...')
@@ -156,8 +164,8 @@ def time_dataset(paths, API):
     }
 
     # load data parsed in this project
-    time_data = ParseLoader(paths['timedata']).load()
-    phrase_data = ParseLoader(paths['phrasedata']).load()
+    time_data = parsedata['times']
+    phrase_data = parsedata['phrases']
 
     # build the rows  
     rows = []
@@ -179,6 +187,7 @@ def time_dataset(paths, API):
         rowdata.update(
             get_word_formats(
                 times, 
+                parsedata['slot2pos'],
                 API, 
                 prefix='times_',
                 latexrow='TA Heads',
@@ -241,7 +250,7 @@ def time_dataset(paths, API):
     print('\texporting time df:', df.shape)
     df.to_csv(paths['timedataset'], index=False)
 
-def phrase_dataset(paths, API):
+def phrase_dataset(paths, parsedata, API):
     """Construct tabular dataset of time adverbials."""
 
     print('Building phrase dataset...')
@@ -250,8 +259,8 @@ def phrase_dataset(paths, API):
     F, E, T, L = API.F, API.E, API.T, API.L
 
     # load data parsed in this project
-    phrase_data = ParseLoader(paths['phrasedata']).load()
-    functions = ParseLoader(paths['functions']).load()
+    phrase_data = parsedata['phrases']
+    functions = parsedata['functions']
 
     # build the rows  
     rows = []
@@ -281,6 +290,7 @@ def phrase_dataset(paths, API):
         rowdata.update(
             get_word_formats(
                 heads, 
+                parsedata['slot2pos'],
                 API, 
                 prefix='heads_',
                 latexrow='Phrase Heads',
@@ -303,9 +313,11 @@ def phrase_dataset(paths, API):
         word_lexs = ' '.join(
             F.lex.v(s) for s in slots
         )
+        typs = '|'.join(F.typ.v(pa) for pa in phatoms)
         rowdata.update({
             'function': function,
             'text': text,
+            'types': typs,
             'n_heads': len(heads),
             'word_lexs': word_lexs,
             'n_words': len(slots),
@@ -343,15 +355,24 @@ def phrase_dataset(paths, API):
 def build_datasets(paths):
     """Load TF and build time / phrase datasets."""
 
+    # load various data for feature processing
+    data = {
+        'slot2pos': ParseLoader(paths['slot2pos']).load(),
+        'times': ParseLoader(paths['timedata']).load(),
+        'phrases': ParseLoader(paths['phrasedata']).load(),
+        'functions': ParseLoader(paths['functions']).load(),
+    }
+
     # load needed TF BHSA data
     TF = Fabric(locations=paths['bhsadata'], silent='deep')
     API = TF.load(
         'kind lex vt pdp ls '
         'lex_utf8 nu code rela '
         'prs prs_gn prs_nu prs_ps '
-        'genre mother txt uvf '
+        'genre mother txt uvf typ '
+        'g_prs_utf8 '
     )
 
     # execute the creation of the data
-    time_dataset(paths, API)
-    phrase_dataset(paths, API)
+    time_dataset(paths, data, API)
+    phrase_dataset(paths, data, API)
