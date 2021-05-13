@@ -98,7 +98,7 @@ def get_word_formats(words,
                      slot2pos, 
                      API, 
                      prefix='', joiner='|', 
-                     latexrow='words_latex'):
+                     latexrow='latex'):
     """Retrieve word formats for a list of words."""
 
     # BHSA methods
@@ -111,10 +111,14 @@ def get_word_formats(words,
         get_display(remove_shindots(words_utf8))
     )
     # formatting for inclusion in latex docs (esp. tables)
-    words_latex = remove_shindots('\texthebrew{%s}' % words_utf8)
+    words_latex = f'{joiner}'.join(
+        '\texthebrew{%s}' % F.lex_utf8.v(w)
+            for w in reversed(words)
+    )
+    words_latex = remove_shindots(words_latex)
 
     # formatting using custom-made values
-    words_pos = f'joiner'.join(
+    words_pos = f'{joiner}'.join(
         slot2pos[w] for w in words
     )
 
@@ -230,11 +234,33 @@ def time_dataset(paths, parsedata, API):
         # add modifier data
         # this data will typically be used to analyze single-phrased TAs
         # so we just take the first ph_parse
-        modifiers = get_modis(ph_parses[0], API)
-        modi_keys |= set(modifiers)
-        rowdata.update(
-            modifiers
+        modifiers = get_modis(
+            ph_parses[0], 
+            API, 
+            boolean=False
         )
+        modi_keys |= set(modifiers)
+        bool_mods = {m:1 for m in modifiers}
+        rowdata.update(
+            bool_mods
+        )
+
+        # process prepositional modis
+        if modifiers.get('ØPP') and is_advb:
+            rowdata['front_etcbc'] = 'advb'
+            rowdata['front'] = 'advb'
+        elif modifiers.get('ØPP'):
+            rowdata['front_etcbc'] = 'Ø'
+            rowdata['front'] = 'Ø'
+        elif modifiers.get('PP'):
+            pp_strings = get_word_formats(
+                sorted(modifiers['PP']),
+                parsedata['slot2pos'],
+                API,
+                joiner='+'
+            )
+            rowdata['front_etcbc'] = pp_strings['etcbc']
+            rowdata['front'] = pp_strings['latex']
     
         # mark unmodified words as adverbs
         if not modifiers or (len(modifiers) == 1 and 'PP' in modifiers):

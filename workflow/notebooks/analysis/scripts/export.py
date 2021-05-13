@@ -10,9 +10,16 @@ class Exporter:
         if not self.outdir.exists():
             self.outdir.mkdir()
         
-    def get_filename(self, name, suffix=''):
+    def get_subdir(self, name):
+        """Get a subdirectory; make one if needed."""
+        dir = self.outdir.joinpath(name)
+        if not dir.exists():
+            dir.mkdir()
+        return dir
+    
+    def get_filename(self, name, subdir, suffix=''):
         """Provide a formatted filename."""
-        filename = self.outdir.joinpath(name)
+        filename = subdir.joinpath(name)
         filename = Path(f'{filename}.{suffix}')
         return filename
 
@@ -51,16 +58,25 @@ class Exporter:
             format='pdf',
         )
         savekwargs2.update(**savekwargs)
-        filename = self.get_filename(name, savekwargs2['format'])
+        subdir = self.get_subdir('plots')
+        filename = self.get_filename(
+            name, 
+            subdir,
+            suffix=savekwargs2['format']
+        )
         plt.savefig(filename, **savekwargs2)
 
-        if save_latex:
+        if save_latex == True:
             latex_code = self.latex_input(
                 name,
                 filename.name,
                 **texkwargs,
             ) 
-            latexfile = Path(self.get_filename(name, 'tex'))
+            latexfile = self.get_filename(
+                    name,
+                    subdir,
+                    suffix='tex',
+            )
             latexfile.write_text(latex_code)
             
 
@@ -72,7 +88,11 @@ class Exporter:
             position='htbp!',
         )
         tabkwargs.update(kwargs)
-        fname = self.get_filename(name, 'tex')
+        fname = self.get_filename(
+            name, 
+            self.get_subdir('tables'),
+            suffix='tex'
+        )
         table = df.to_latex(**tabkwargs)
 
         # un-escape macro brackets;
@@ -104,13 +124,16 @@ class Exporter:
 
     def text(self, string, name):
         """Export a simple string (or int) for insertion in latex doc."""
-        fname = self.get_filename(name, 'tex')
+        fname = self.get_filename(
+            name, 
+            self.get_subdir('text'),
+            suffix='tex'
+        )
         string = str(string) + '%' # prevent extra space from being added
         fname.write_text(string)
 
     def number(self, number, name, commafy=True, roundto=None):
         """Export a number value."""
-        fname = self.get_filename(name, 'tex')
         number = round(number, roundto)
         if commafy:
             number = "{:,}".format(number) 
