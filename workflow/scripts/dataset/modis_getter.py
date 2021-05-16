@@ -40,12 +40,13 @@ def get_modis(ph_parse, API, boolean=True):
 
     # do modifiers from a semantic perspective
     if 'APPO' in modifiers:
-        lexset = F.ls.v(tgt)
-        pdp = F.pdp.v(tgt)
+        src = modifiers['APPO'][0]
+        lexset = F.ls.v(src)
+        pdp = F.pdp.v(src)
         if lexset in {'ordn'}:
-            modifiers['ORDN'].append(tgt)
+            modifiers['ORDN'].append(src)
         elif pdp in {'prde', 'prps'}:
-            modifiers['DEMON'].append(tgt)
+            modifiers['DEMON'].append(src)
 
     if 'PP' not in modifiers:
         modifiers['ØPP'].append(tgt)

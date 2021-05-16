@@ -12,6 +12,7 @@ from .modis_getter import get_modis
 from .synvar_carc import in_dep_calc as clause_relator
 from .modify_domain import permissive_q
 from .book_formats import get_book_maps, etcbc2sbl, etcbc2abbr
+from .tag_args import clause_args
 
 def remove_shindots(string):
     """Remove dots from ש"""
@@ -64,6 +65,7 @@ def get_clause_data(clause, API):
     sentn = L.u(clause, 'sentence')[0]
     sent_text = T.text(sentn)
     cl_rela = clause_relator(clause, API)
+    cl_type = F.typ.v(clause)
 
     # build data for clause verbs
     verbs = [
@@ -72,21 +74,28 @@ def get_clause_data(clause, API):
     ]
     verb = verbs[0] if verbs else None
     verb_lex = F.lex.v(verb) if verb else None
-    verb_txt = F.lex_utf8.v(verb)
+    verb_utf8 = F.lex_utf8.v(verb)
+    verb_text = T.text(verb, fmt='text-orig-plain') if verb else None
     if verb:
+        verb_text = verb_text.strip()
         verb_form = get_verbform(verb, API)
+        verb_stem = F.vs.v(verb)
     else:
         verb_form = None
+        verb_stem = None
 
     # package and ship it!
     data = {
         'verb': verb,
         'verbform': verb_form,
+        'verb_stem': verb_stem,
         'verb_etcbc': verb_lex,
-        'verb_txt': verb_txt,
+        'verb_utf8': verb_utf8,
+        'verb_text': verb_text,
         'clause': cl_text,
         'sentence': sent_text,
         'cl_rela': cl_rela,
+        'cl_type': cl_type,
         'domain': domain,
         'genre': genre,
         'gendom': gendom,
@@ -131,6 +140,43 @@ def get_word_formats(words,
         f'{latexrow}': words_latex,
     }
     return formats
+
+def add_tense(timedata, modifiers):
+    """Add tense designations based on several rules."""
+
+    # ignore if tense already recorded
+    if timedata.get('tense'):
+        return {}
+    
+    # calculate present tense constructions
+    pres_rules = (
+        timedata['front'] == 'Ø'
+        and bool(modifiers.get('DEF'))
+        and len(modifiers) == 2
+    )
+    if pres_rules:
+        return {'tense': 'PRES'}
+
+    # calculate future tense constructions
+    fut_rules = (
+        timedata['function'] == 'simultaneous'
+        and timedata.get('demon_type') == 'THAT'
+        and timedata.get('verbtense') in {'FUT', 'MOD shall'}
+    )
+    if fut_rules:
+        return {'tense': 'FUT'}
+
+    # calculate past tense constructions
+    past_rules = (
+        timedata['function'] == 'simultaneous'
+        and timedata.get('demon_type') == 'THAT'
+        and timedata.get('verbtense') in {'PAST'}
+    )
+    if past_rules:
+        return {'tense': 'PAST'}
+
+    # at this point there is no matches; return empty dict
+    return {} 
 
 def time_dataset(paths, parsedata, API):
     """Construct tabular dataset of time adverbials."""
@@ -206,6 +252,7 @@ def time_dataset(paths, parsedata, API):
         name = data['functions'][0]
         function = function_simp.get(name, name)
         quality = quality_map.get(function, None)
+        tense = data.get('tenses', [[None, None]])[0][0]
         lex_token = tokenize_lexemes(
             ph_parses, 
             API,
@@ -224,13 +271,33 @@ def time_dataset(paths, parsedata, API):
             'n_times': len(times),
             'lex_token': lex_token,
             'is_advb': is_advb,
+            'tense': tense,
         })
 
         # add clause-based data
         rowdata.update(
             get_clause_data(clause, API)
         )
-        
+
+        # get various additional data centered on the verb
+        if rowdata.get('verb'):
+            verb = rowdata['verb']
+            rowdata['verbtense'] = parsedata['tenses'].get(verb,{}).get('esv_TAMsimp')
+            cl_args = clause_args(
+                verb, 
+                API,
+                parsedata['functions'],
+            )
+            rowdata['clargs'] = cl_args
+            rowdata['has_objc'] = 1*('O' in cl_args)
+            rowdata['has_cmpl'] = 1*('C' in cl_args)
+            rowdata['has_oc'] = 1*(rowdata['has_objc'] or rowdata['has_cmpl'])
+            rowdata['vt_order']  = ''.join(
+                l for l in cl_args if l 
+                    if l in {'T', 'V'}
+            )
+    
+       
         # add modifier data
         # this data will typically be used to analyze single-phrased TAs
         # so we just take the first ph_parse
@@ -261,10 +328,30 @@ def time_dataset(paths, parsedata, API):
             )
             rowdata['front_etcbc'] = pp_strings['etcbc']
             rowdata['front'] = pp_strings['latex']
-    
+
+        # get demonstrative data
+        demon_map = {
+            "Z>T": "THIS",
+            "HJ>": "THAT",
+            "HMH": "THAT",
+            ">LH": "THIS",
+            "HM": "THAT",
+            "HW>": "THAT",
+            "ZH": "THIS",
+        }    
+        if demon := modifiers.get('DEMON'):
+            rowdata['demon_type'] = demon_map[F.lex.v(demon[0])]
+   
         # mark unmodified words as adverbs
         if not modifiers or (len(modifiers) == 1 and 'PP' in modifiers):
             rowdata['unmodified'] = 1
+        else:
+            rowdata['unmodified'] = 0
+
+        # add tense data based on modifiers and other feats
+        rowdata.update(
+            add_tense(rowdata, modifiers)
+        )
 
         # finish
         rows.append(rowdata)
@@ -385,6 +472,7 @@ def build_datasets(paths):
     data = {
         'slot2pos': ParseLoader(paths['slot2pos']).load(),
         'times': ParseLoader(paths['timedata']).load(),
+        'tenses': ParseLoader(paths['tensedata']).load(),
         'phrases': ParseLoader(paths['phrasedata']).load(),
         'functions': ParseLoader(paths['functions']).load(),
     }
@@ -396,7 +484,7 @@ def build_datasets(paths):
         'lex_utf8 nu code rela '
         'prs prs_gn prs_nu prs_ps '
         'genre mother txt uvf typ '
-        'g_prs_utf8 '
+        'g_prs_utf8 sp vs typ '
     )
 
     # execute the creation of the data

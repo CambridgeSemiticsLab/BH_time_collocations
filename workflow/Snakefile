@@ -153,6 +153,7 @@ rule build_dataset:
         bhsadata=bhsadata,
         slot2pos=rules.parse_pos.output.slot2pos,
         timedata=rules.eval_times.output.evaled,
+        tensedata="data/eng_tenses/eng_tenses.json",
         phrasedata=rules.parse_phrases.output.parsed_phrases,
         functions=rules.patch_function.output.patched,
     output: 
