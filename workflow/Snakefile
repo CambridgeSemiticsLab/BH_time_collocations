@@ -154,10 +154,12 @@ rule build_dataset:
         slot2pos=rules.parse_pos.output.slot2pos,
         timedata=rules.eval_times.output.evaled,
         tensedata="data/eng_tenses/eng_tenses.json",
+        clclusters="../results/cl_clusters/clusters.json",
         phrasedata=rules.parse_phrases.output.parsed_phrases,
         functions=rules.patch_function.output.patched,
     output: 
         timedataset="../results/analysis/time_dataset.csv",
         phrasedataset="../results/analysis/phrase_dataset.csv",
+        clausedataset="../results/analysis/clause_dataset.csv",
     script:
         "scripts/build_datasets.py"

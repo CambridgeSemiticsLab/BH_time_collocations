@@ -61,7 +61,7 @@ class TextShower:
         self.default = default
         self.stylize = stylize
 
-    def show(self, df, extra=[], spread=0):
+    def show(self, df, extra=[], spread=25):
         """Display text from pandas dataframe in a readable way."""
         original_shape = df.shape
         df = df[self.default + extra]

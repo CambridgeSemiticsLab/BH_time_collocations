@@ -1,3 +1,4 @@
+import json
 import pandas as pd
 from tf.fabric import Fabric
 from bidi.algorithm import get_display
@@ -48,24 +49,27 @@ def get_ref_data(node, API):
     }
     return ref_data 
 
-def get_clause_data(clause, API):
+def get_clause_data(clause, API, parsedata, do_args=True):
     """Build data on a clause."""
 
     # TF methods
     F, E, T, L = API.F, API.E, API.T, API.L
 
+    cl_data = {}
+
     # collect data of clause, but also
     # of embedding linguistic unit like sentence
     firstw = L.d(clause, 'word')[0]
     versen = L.u(firstw, 'verse')[0]
-    genre = F.genre.v(versen)
-    domain = permissive_q(clause, API)
-    gendom = f'{genre}.{domain}'
-    cl_text = T.text(clause)
+    cl_data['genre'] = F.genre.v(versen)
+    cl_data['domain'] = permissive_q(clause, API)
+    cl_data['gendom'] = cl_data['genre'] + '.' + cl_data['domain']
+    cl_data['clause'] = T.text(clause)
     sentn = L.u(clause, 'sentence')[0]
-    sent_text = T.text(sentn)
-    cl_rela = clause_relator(clause, API)
-    cl_type = F.typ.v(clause)
+    cl_data['sentence'] = T.text(sentn)
+    cl_data['cl_rela'] = clause_relator(clause, API)
+    cl_data['cl_type'] = F.typ.v(clause)
+    cl_data['cl_kind'] = F.kind.v(clause)
 
     # build data for clause verbs
     verbs = [
@@ -73,35 +77,43 @@ def get_clause_data(clause, API):
             if F.pdp.v(w) == 'verb'
     ]
     verb = verbs[0] if verbs else None
-    verb_lex = F.lex.v(verb) if verb else None
-    verb_utf8 = F.lex_utf8.v(verb)
+    cl_data['verb'] = verb
+    cl_data['verb_etcbc'] = F.lex.v(verb) if verb else None
+    cl_data['verb_utf8'] = F.lex_utf8.v(verb)
     verb_text = T.text(verb, fmt='text-orig-plain') if verb else None
     if verb:
-        verb_text = verb_text.strip()
-        verb_form = get_verbform(verb, API)
-        verb_stem = F.vs.v(verb)
+        cl_data['verb_text'] = verb_text.strip()
+        cl_data['verbform'] = get_verbform(verb, API)
+        cl_data['verb_stem'] = F.vs.v(verb)
     else:
-        verb_form = None
-        verb_stem = None
+        cl_data['verbform'] = 'Ø'
 
-    # package and ship it!
-    data = {
-        'verb': verb,
-        'verbform': verb_form,
-        'verb_stem': verb_stem,
-        'verb_etcbc': verb_lex,
-        'verb_utf8': verb_utf8,
-        'verb_text': verb_text,
-        'clause': cl_text,
-        'sentence': sent_text,
-        'cl_rela': cl_rela,
-        'cl_type': cl_type,
-        'domain': domain,
-        'genre': genre,
-        'gendom': gendom,
-        'cl_kind': F.kind.v(clause),
-    }
-    return data
+    # build data for clause arguments
+    if do_args:
+        refword = verb if verb else firstw 
+        cl_args = clause_args(
+            refword, 
+            API,
+            parsedata['functions'],
+        )
+        cl_data['cl_args'] = cl_args
+        cl_data['has_objc'] = 1*('O' in cl_args)
+        cl_data['has_cmpl'] = 1*('C' in cl_args)
+        cl_data['has_subj'] = 1*('C' in cl_args)
+        cl_data['has_oc'] = 1*(cl_data['has_objc'] or cl_data['has_cmpl'])
+
+    # add-on cl type that accounts for wayehi / wehaya
+    cl_type2 = cl_data['cl_type']
+    verb_form = cl_data.get('verbform')
+    verb_text = cl_data.get('verb_text')
+    if verb_form == 'wayq' and verb_text == 'יהי':
+        cl_type2 = 'WayH'
+    elif verb_form == 'wqtl' and verb_text == 'היה':
+        cl_type2 = 'WQtH'
+    cl_data['cl_type2'] = cl_type2
+
+    # return clause data
+    return cl_data
 
 def get_word_formats(words,
                      slot2pos, 
@@ -276,27 +288,25 @@ def time_dataset(paths, parsedata, API):
 
         # add clause-based data
         rowdata.update(
-            get_clause_data(clause, API)
+            get_clause_data(clause, API, parsedata)
+        )
+
+        rowdata['cl_clust50'] = (
+            parsedata['clclusters']['50']['clusters'][str(clause)]
+        )
+        rowdata['cl_clust10'] = (
+            parsedata['clclusters']['10']['clusters'][str(clause)]
         )
 
         # get various additional data centered on the verb
         if rowdata.get('verb'):
             verb = rowdata['verb']
             rowdata['verbtense'] = parsedata['tenses'].get(verb,{}).get('esv_TAMsimp')
-            cl_args = clause_args(
-                verb, 
-                API,
-                parsedata['functions'],
-            )
-            rowdata['clargs'] = cl_args
-            rowdata['has_objc'] = 1*('O' in cl_args)
-            rowdata['has_cmpl'] = 1*('C' in cl_args)
-            rowdata['has_oc'] = 1*(rowdata['has_objc'] or rowdata['has_cmpl'])
+            cl_args = rowdata['cl_args']
             rowdata['vt_order']  = ''.join(
                 l for l in cl_args if l 
                     if l in {'T', 'V'}
             )
-    
        
         # add modifier data
         # this data will typically be used to analyze single-phrased TAs
@@ -329,6 +339,23 @@ def time_dataset(paths, parsedata, API):
             rowdata['front_etcbc'] = pp_strings['etcbc']
             rowdata['front'] = pp_strings['latex']
 
+        # build semantic/formal tag
+        qual_map = {
+            'location': 'l',
+            'duration': 'd',
+            'sequence': 's',
+            'iteration': 'i',
+        }
+        no_lex = {'LJLH/', 'JWMM', 'JWM/'}
+        if rowdata.get('front_etcbc') and rowdata.get('quality'):
+            front = rowdata['front_etcbc']
+            qual = rowdata['quality'] 
+            if front == 'advb':
+                front = rowdata['times_etcbc']
+            front = front.replace('/', '').replace('=', '')
+            qual_tag = qual_map[qual]
+            rowdata['tag'] = f'{qual_tag}_{front}'
+
         # get demonstrative data
         demon_map = {
             "Z>T": "THIS",
@@ -352,6 +379,8 @@ def time_dataset(paths, parsedata, API):
         rowdata.update(
             add_tense(rowdata, modifiers)
         )
+
+        rowdata['has_time'] = 1
 
         # finish
         rows.append(rowdata)
@@ -441,7 +470,7 @@ def phrase_dataset(paths, parsedata, API):
         clause = L.u(head_ph, 'clause')[0]
         rowdata['clause_node'] = clause
         rowdata.update(
-            get_clause_data(clause, API)
+            get_clause_data(clause, API, parsedata, do_args=False)
         )
         
         # add modifier data
@@ -465,6 +494,28 @@ def phrase_dataset(paths, parsedata, API):
     print('\texporting phrase df:', df.shape)
     df.to_csv(paths['phrasedataset'], index=False)
 
+def clause_dataset(paths, parsedata, API):
+    """Build data on all clauses that are not already parsed."""
+    F, L = API.F, API.L
+    
+    print('Building clause dataset...')
+
+    rows = []
+
+    for clause in F.otype.s('clause'):
+    
+        # skip clauses that are already parsed
+        if clause in parsedata['times']:
+            continue
+
+        row_data = {'node': clause, 'tag': 'NT', 'has_time': 0} # no time clauses
+        row_data.update(get_clause_data(clause, API, parsedata))
+        rows.append(row_data)
+
+    df = pd.DataFrame(rows)
+    print('\texporting clause df:', df.shape)
+    df.to_csv(paths['clausedataset'], index=False)
+
 def build_datasets(paths):
     """Load TF and build time / phrase datasets."""
 
@@ -476,6 +527,9 @@ def build_datasets(paths):
         'phrases': ParseLoader(paths['phrasedata']).load(),
         'functions': ParseLoader(paths['functions']).load(),
     }
+
+    with open(paths['clclusters'], 'r') as infile:
+        data['clclusters'] = json.load(infile)
 
     # load needed TF BHSA data
     TF = Fabric(locations=paths['bhsadata'], silent='deep')
@@ -490,3 +544,4 @@ def build_datasets(paths):
     # execute the creation of the data
     time_dataset(paths, data, API)
     phrase_dataset(paths, data, API)
+    clause_dataset(paths, data, API)

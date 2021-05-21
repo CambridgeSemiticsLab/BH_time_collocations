@@ -14,6 +14,8 @@ from sklearn.decomposition import PCA
 scaler = StandardScaler()
 from scripts.stats.pca import apply_pca
 from scripts.stats import significance as sig
+from scripts.df_styles import TextShower, df_highlighter
+from scripts.counting import pivot_ct
 import numpy as np
 from bidi.algorithm import get_display # bi-directional text support for plotting
 
@@ -25,3 +27,9 @@ from .plotting import heatmap
 # load the data
 df = pd.read_csv(paths['time_dataset'], index_col='node')
 df_sg = df.query("(n_times == 1) and (is_advb == False)").copy()
+
+# pretty-show Hebrew text from a df
+ts = TextShower(
+    default=['verse', 'clause', 'verb_utf8'],
+    stylize=['clause', 'verb_utf8']
+)

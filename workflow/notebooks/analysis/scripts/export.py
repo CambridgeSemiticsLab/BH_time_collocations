@@ -122,6 +122,8 @@ class Exporter:
         # export the table
         Path(fname).write_text(table)
 
+        return df
+
     def text(self, string, name):
         """Export a simple string (or int) for insertion in latex doc."""
         fname = self.get_filename(
@@ -132,9 +134,12 @@ class Exporter:
         string = str(string) + '%' # prevent extra space from being added
         fname.write_text(string)
 
+        return string
+
     def number(self, number, name, commafy=True, roundto=None):
         """Export a number value."""
         number = round(number, roundto)
         if commafy:
             number = "{:,}".format(number) 
         self.text(number, name)
+        return number
