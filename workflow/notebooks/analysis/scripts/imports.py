@@ -15,7 +15,7 @@ scaler = StandardScaler()
 from scripts.stats.pca import apply_pca
 from scripts.stats import significance as sig
 from scripts.df_styles import TextShower, df_highlighter
-from scripts.counting import pivot_ct
+from scripts.counting import pivot_ct, join_ct_pr
 import numpy as np
 from bidi.algorithm import get_display # bi-directional text support for plotting
 

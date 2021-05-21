@@ -1,3 +1,5 @@
+import pandas as pd
+
 def pivot_ct(df, index, columns, sort=True, min_obs=0):
     """Fast count table."""
     ct = df.pivot_table(
@@ -17,3 +19,13 @@ def pivot_ct(df, index, columns, sort=True, min_obs=0):
     ct = ct.loc[:, ct.sum(0) >= min_obs]
     
     return ct
+
+def join_ct_pr(ct, pr):
+    pr = pr.mul(100).round(2).astype(int).astype(str) + '%'
+    pr = pr.loc[ct.index]
+    joined = pd.concat([
+        ct,
+        pr
+    ], 1)
+    joined.columns = ['count', 'percent']
+    return joined

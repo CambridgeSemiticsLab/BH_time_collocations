@@ -60,6 +60,8 @@ def get_clause_data(clause, API, parsedata, do_args=True):
     # collect data of clause, but also
     # of embedding linguistic unit like sentence
     firstw = L.d(clause, 'word')[0]
+    firstw_fmts = get_word_formats([firstw], parsedata['slot2pos'], API)
+    cl_data['firstw'] = firstw_fmts['latex']
     versen = L.u(firstw, 'verse')[0]
     cl_data['genre'] = F.genre.v(versen)
     cl_data['domain'] = permissive_q(clause, API)
@@ -370,7 +372,7 @@ def time_dataset(paths, parsedata, API):
             rowdata['demon_type'] = demon_map[F.lex.v(demon[0])]
    
         # mark unmodified words as adverbs
-        if not modifiers or (len(modifiers) == 1 and 'PP' in modifiers):
+        if not modifiers or (len(modifiers) == 1 and {'PP', 'ØPP'} & set(modifiers)):
             rowdata['unmodified'] = 1
         else:
             rowdata['unmodified'] = 0
