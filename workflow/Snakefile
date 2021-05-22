@@ -152,6 +152,7 @@ rule build_dataset:
     input:
         bhsadata=bhsadata,
         slot2pos=rules.parse_pos.output.slot2pos,
+        bhsa2gbi_verb="data/verb_bhsa2gbi.pickle",
         timedata=rules.eval_times.output.evaled,
         tensedata="data/eng_tenses/eng_tenses.json",
         clclusters="../results/cl_clusters/clusters.json",

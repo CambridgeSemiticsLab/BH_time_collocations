@@ -137,11 +137,11 @@ def tag_ph_arg(ph, api, functions):
         'Time': 'T',
         'Loca': 'L',
         'Modi': 'M',
-        'PreC': '3',
-        'PrAd': '@',
+        'PreC': 'PrC',
+        'PrAd': 'PrA',
         'Intj': 'I',
-        'PreO': 'O',
-        'PtcO': 'O',
+        'PreO': 'V-O',
+        'PtcO': 'V-O',
     }
     typ2tag = {
         'IPrP': 'Q',
@@ -178,7 +178,7 @@ def tag_word_arg(word, api, functions):
     pdp_set = {'conj'}
     tag = ''
     if F.pdp.v(word) in pdp_set:
-        tag += f'_{F.lex.v(word)}_'
+        tag += f'{F.lex.v(word)}'
     elif F.sp.v(word) == 'verb':
         tag += 'V'
     return tag 
@@ -191,10 +191,10 @@ def tag_cl_arg(cl, api, functions):
         'Subj': 'S',
         'Adju': 'A',
         'Cmpl': 'C',
-        'Spec': 'X',
-        'PrAd': '@',
-        'PreC': '3',
-        'Attr': 'R',
+        'Spec': 'Sp',
+        'PrAd': 'PrA',
+        'PreC': 'PrC',
+        'Attr': 'Atr',
     }
     rela = F.rela.v(cl)
     return rela2tag.get(rela, '')
@@ -242,11 +242,23 @@ def clause_args(verb, api, functions):
         args.extend(get_args(d, slots_node, tag_cl_arg, covered_slots, api, functions))
 
     # iterate through the arguments, sorted by slots, and add the tags
-    arg_str = ''
+    arg_strs = []
     for slots_arg in sorted(args):
-        arg_str += slots_arg[-1] # last item is the argument tag 
+        arg_strs.append(slots_arg[-1]) # last item is the argument tag 
 
-    # apply minor adjustments to the string
-    arg_str = re.sub('A+', 'A', arg_str) # record stacked adjuncts only once
+    arg_str = '-'.join(arg_strs)
 
     return arg_str
+
+def tag_position(clarg):
+    """Tag time positions in the clause."""
+    tags = {
+        'medial': '.*V.*T.*[OCS]',
+        'preposed': '.*T.*V',
+    }
+    if re.match(tags['medial'], clarg):
+        return 'medial'
+    elif re.match(tags['preposed'], clarg):
+        return 'preposed'
+    else:
+        return 'final'

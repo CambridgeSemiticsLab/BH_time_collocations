@@ -1,11 +1,23 @@
 from .positions import PositionsTF
 
-def get_verbform(node, api):
+def parse_gbi_yiqtol(tag):
+    """Parse a GBI yiqtol tag into cohortative and jussives."""
+    if tag.endswith('Jm'):
+        return 'yqtl'
+    elif tag.endswith('Jt'):
+        return 'jussF'
+    elif tag.endswith('Cm'):
+        return 'yqtl'
+    elif tag.endswith('Ct'):
+        return 'cohoF'
+
+def get_verbform(node, api, bhsa2gbi):
     """Remap BHSA verb tense values to custom values
     
     Args:
         node: int, representing BHSA node id
         api: an instance of Text-Fabric with BHSA loaded
+        bhsa2gbi: dict mapping bhsa node id to equivalent GBI data
     """
     
     tense_map = {
@@ -22,9 +34,15 @@ def get_verbform(node, api):
     if verb_form == 'qtl' and P.get(-1, 'lex') == 'W':
         verb_form = 'wqtl'
     
+    # add cohortative and jussive tags
+    if verb_form == 'yqtl':
+        gbi_tag = bhsa2gbi.get(node, {}).get('morph')
+        if gbi_tag:
+            verb_form = parse_gbi_yiqtol(gbi_tag) or verb_form
+
     return verb_form
 
-def get_cl_verbform(clause, api):
+def get_cl_verbform(clause, api, bhsa2gbi):
     """Tag a verbform for a supplied clause."""
 
     F, L = api.F, api.L
@@ -40,6 +58,6 @@ def get_cl_verbform(clause, api):
         
     # return appropriate tag
     if verb_cands:
-        return get_verbform(verb_cands[0], api)
+        return get_verbform(verb_cands[0], api, bhsa2gbi)
     else:
         return 'Ø'

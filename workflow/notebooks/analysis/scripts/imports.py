@@ -3,6 +3,7 @@ Standard imports for the analysis notebooks.
 """
 import json
 import matplotlib.pyplot as plt
+
 import seaborn as sns
 import pandas as pd
 pd.set_option('display.max_rows', 200)

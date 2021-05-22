@@ -1,4 +1,5 @@
 import json
+import pickle
 import pandas as pd
 from tf.fabric import Fabric
 from bidi.algorithm import get_display
@@ -13,7 +14,7 @@ from .modis_getter import get_modis
 from .synvar_carc import in_dep_calc as clause_relator
 from .modify_domain import permissive_q
 from .book_formats import get_book_maps, etcbc2sbl, etcbc2abbr
-from .tag_args import clause_args
+from .tag_args import clause_args, tag_position
 
 def remove_shindots(string):
     """Remove dots from ש"""
@@ -85,7 +86,11 @@ def get_clause_data(clause, API, parsedata, do_args=True):
     verb_text = T.text(verb, fmt='text-orig-plain') if verb else None
     if verb:
         cl_data['verb_text'] = verb_text.strip()
-        cl_data['verbform'] = get_verbform(verb, API)
+        cl_data['verbform'] = get_verbform(
+            verb, 
+            API,
+            parsedata['bhsa2gbi'] 
+        )
         cl_data['verb_stem'] = F.vs.v(verb)
     else:
         cl_data['verbform'] = 'Ø'
@@ -103,6 +108,7 @@ def get_clause_data(clause, API, parsedata, do_args=True):
         cl_data['has_cmpl'] = 1*('C' in cl_args)
         cl_data['has_subj'] = 1*('C' in cl_args)
         cl_data['has_oc'] = 1*(cl_data['has_objc'] or cl_data['has_cmpl'])
+        cl_data['Time Position'] = tag_position(cl_args)
 
     # add-on cl type that accounts for wayehi / wehaya
     cl_type2 = cl_data['cl_type']
@@ -533,6 +539,9 @@ def build_datasets(paths):
     with open(paths['clclusters'], 'r') as infile:
         data['clclusters'] = json.load(infile)
 
+    with open(paths['bhsa2gbi_verb'], 'rb') as infile:
+        data['bhsa2gbi'] = pickle.load(infile)
+    
     # load needed TF BHSA data
     TF = Fabric(locations=paths['bhsadata'], silent='deep')
     API = TF.load(
