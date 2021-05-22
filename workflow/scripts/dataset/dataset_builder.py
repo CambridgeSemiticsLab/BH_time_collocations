@@ -334,6 +334,7 @@ def time_dataset(paths, parsedata, API):
         if modifiers.get('ØPP') and is_advb:
             rowdata['front_etcbc'] = 'advb'
             rowdata['front'] = 'advb'
+            rowdata['front']
         elif modifiers.get('ØPP'):
             rowdata['front_etcbc'] = 'Ø'
             rowdata['front'] = 'Ø'

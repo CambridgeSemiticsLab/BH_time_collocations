@@ -21,7 +21,7 @@ def pivot_ct(df, index, columns, sort=True, min_obs=0):
     return ct
 
 def join_ct_pr(ct, pr):
-    pr = pr.mul(100).round(2).astype(int).astype(str) + '%'
+    pr = pr.mul(100).round().astype(int).astype(str) + '%'
     pr = pr.loc[ct.index]
     joined = pd.concat([
         ct,

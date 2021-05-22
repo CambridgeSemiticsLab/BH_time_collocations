@@ -2,7 +2,7 @@ import tools.nav_tree as nt
 
 def tokenize_lexemes(parses, tf, 
         feature='lex_utf8', sep='.', 
-        cardtok='מ׳', ordntok='ס׳', headtok='ז׳' ,
+        cardtok='מ׳', ordntok='ס׳', headtok='זמן' ,
         heads=[]):
     '''
     Return a surface token string of a BHSA node.
@@ -35,12 +35,30 @@ def tokenize_lexemes(parses, tf,
                     lextokens.append(
                         (srcslot, ordntok)
                     )
-            elif Fs('pdp').v(srcslot) in {'prde', 'prep'}:
+            elif rela == 'PP':
+                if type(src) == int:
+                    lextokens.append(
+                        (srcslot, Fs(feature).v(srcslot))       
+                    )
+                else:
+                    slots = sorted(nt.get_slots(src))
+                    pptext = ''.join(
+                        Fs(feature).v(s) for s in slots
+                    )
+                    lextokens.append(
+                        (scslot, pptext)
+                    )
+
+            elif Fs('pdp').v(srcslot) == 'prde':
                 lextokens.append(
                     (srcslot, Fs(feature).v(srcslot))       
                 )
         # executes only at end of head path
         if tgt in heads: 
+            if Fs('nu').v(tgt) == 'du':
+                lextokens.append(
+                    (tgt, cardtok)
+                )    
             if lextokens:
                 lextokens.append((tgt, headtok))
             elif Fs('pdp').v(tgt) != 'advb':
@@ -56,7 +74,7 @@ def tokenize_lexemes(parses, tf,
 
     # add some sequence normalizations
     lex_token = lex_token.replace(
-        'ז׳.מ׳', 
-        'מ׳.ז׳'
+        'זמן.מ׳',
+        'מ׳.זמן'
     )
     return lex_token

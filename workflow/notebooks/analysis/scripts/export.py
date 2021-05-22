@@ -80,7 +80,7 @@ class Exporter:
             latexfile.write_text(latex_code)
             
 
-    def table(self, df, name, adjustbox=False, **kwargs):
+    def table(self, df, name, adjustbox=False, hebindex=False, **kwargs):
         """Exports a table to Latex format."""
         tabkwargs = dict(
             escape=True,
@@ -93,6 +93,11 @@ class Exporter:
             self.get_subdir('tables'),
             suffix='tex'
         )
+        
+        # update table with latex formatting around columns containing hebrew
+        if hebindex:
+            df.index = ['\texthebrew{%s}'%heb for heb in df.index]
+        
         table = df.to_latex(**tabkwargs)
 
         # un-escape macro brackets;
