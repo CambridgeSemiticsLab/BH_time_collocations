@@ -15,6 +15,7 @@ from .synvar_carc import in_dep_calc as clause_relator
 from .modify_domain import permissive_q
 from .book_formats import get_book_maps, etcbc2sbl, etcbc2abbr
 from .tag_args import clause_args, tag_position
+from .clause_tree import get_successors
 
 def remove_shindots(string):
     """Remove dots from ש"""
@@ -50,7 +51,11 @@ def get_ref_data(node, API):
     }
     return ref_data 
 
-def get_clause_data(clause, API, parsedata, do_args=True):
+def get_clause_data(clause, API, 
+                    parsedata, 
+                    do_args=True,
+                    count_succs=True,
+                    ):
     """Build data on a clause."""
 
     # TF methods
@@ -64,8 +69,20 @@ def get_clause_data(clause, API, parsedata, do_args=True):
     firstw_fmts = get_word_formats([firstw], parsedata['slot2pos'], API)
     cl_data['firstw'] = firstw_fmts['latex']
     versen = L.u(firstw, 'verse')[0]
-    cl_data['genre'] = F.genre.v(versen)
-    cl_data['domain'] = permissive_q(clause, API)
+    genre = cl_data['genre'] = F.genre.v(versen)
+    domain = cl_data['domain'] = permissive_q(clause, API)
+
+    # process genre/domain to main genres
+    main_gens = {'prose', 'prophetic', 'poetry', 'instruction'}
+    main_doms = {'Q', 'N'}
+    if genre in main_gens and domain in main_doms:
+        if genre == 'prophetic':
+            genre = 'prophecy'
+        if genre == 'prose':
+            cl_data['main_genre'] = f'{genre}-{domain}'
+        else:
+            cl_data['main_genre'] = genre
+
     cl_data['gendom'] = cl_data['genre'] + '.' + cl_data['domain']
     cl_data['clause'] = T.text(clause)
     sentn = L.u(clause, 'sentence')[0]
@@ -119,6 +136,21 @@ def get_clause_data(clause, API, parsedata, do_args=True):
     elif verb_form == 'wqtl' and verb_text == 'היה':
         cl_type2 = 'WQtH'
     cl_data['cl_type2'] = cl_type2
+
+    # count successors based on the first clause atom
+    if count_succs:
+        clatom = L.d(clause, 'clause_atom')[0]
+        succs = list(get_successors(clatom, API))
+        # filter to main clause succs
+        main_cls = set(
+            L.u(ca, 'clause')[0] for ca in succs
+        )
+        main_cls = [c for c in main_cls if c != clause]
+        main_succs = [
+            c for c in main_cls
+                if clause_relator(c, API) == 'Main'
+        ]
+        cl_data['cl_nsuccs'] = len(main_succs)
 
     # return clause data
     return cl_data
@@ -263,7 +295,7 @@ def time_dataset(paths, parsedata, API):
                 latexrow='TA Heads',
             )
         ) 
-
+        
         # add data related to the phrase
         slots = sorted(data['slots'])
         phrases = data['phrase_nodes']
@@ -278,10 +310,32 @@ def time_dataset(paths, parsedata, API):
             API,
             heads=times,
         )
-        if len(times) == 1:
+
+        # get linguistic head
+        first_parse = ph_parses[0]
+        rowdata['head_utf8'] = F.lex_utf8.v(nt.get_head(first_parse))
+
+        notadvbs = {
+            'LJLH/', 'BQR=/', 'JWM/'
+        }
+        if (len(times) == 1) and rowdata['times_etcbc'] not in notadvbs:
             is_advb = 1*(F.pdp.v(times[0]) == 'advb')
         else:
             is_advb = 0 
+
+        main_functions = {
+            'simultaneous',
+            'atelic_ext',
+            'telic_ext',
+            'anterior_dur',
+            'posterior',
+            'posterior_dur',
+            'habitual',
+            'anterior',
+            'dist_fut',
+            'dist_past',
+        }
+        rowdata['mainfunction'] = 1*(function in main_functions)
 
         rowdata.update({
             'function': function,
@@ -309,7 +363,19 @@ def time_dataset(paths, parsedata, API):
         # get various additional data centered on the verb
         if rowdata.get('verb'):
             verb = rowdata['verb']
-            rowdata['verbtense'] = parsedata['tenses'].get(verb,{}).get('esv_TAMsimp')
+            verbtense = parsedata['tenses'].get(verb,{}).get('esv_TAMsimp')
+            
+            # imperatives can be missed by the English alignment+parsing process;
+            # but semantically these are straightforward; we fill in the
+            # gap when this happens by simply assigning the sense as imperative
+            # as it seems unlikely the English would often choose another sense
+            if rowdata.get('verbform') == 'impv' and not verbtense:
+                verbtense = 'IMPV'
+
+            # add the tense
+            rowdata['verbtense'] = verbtense
+        
+            # calc clause args
             cl_args = rowdata['cl_args']
             rowdata['vt_order']  = ''.join(
                 l for l in cl_args if l 
@@ -330,14 +396,13 @@ def time_dataset(paths, parsedata, API):
             bool_mods
         )
 
-        # process prepositional modis
+        # process phrase types
         if modifiers.get('ØPP') and is_advb:
-            rowdata['front_etcbc'] = 'advb'
-            rowdata['front'] = 'advb'
-            rowdata['front']
+            rowdata['front'] = rowdata['times_utf8']
+            rowdata['ph_type'] = 'ADVB'
         elif modifiers.get('ØPP'):
-            rowdata['front_etcbc'] = 'Ø'
             rowdata['front'] = 'Ø'
+            rowdata['ph_type'] = 'NP'
         elif modifiers.get('PP'):
             pp_strings = get_word_formats(
                 sorted(modifiers['PP']),
@@ -345,8 +410,8 @@ def time_dataset(paths, parsedata, API):
                 API,
                 joiner='+'
             )
-            rowdata['front_etcbc'] = pp_strings['etcbc']
-            rowdata['front'] = pp_strings['latex']
+            rowdata['front'] = pp_strings['utf8']
+            rowdata['ph_type'] = 'PP'
 
         # build semantic/formal tag
         qual_map = {
@@ -479,7 +544,12 @@ def phrase_dataset(paths, parsedata, API):
         clause = L.u(head_ph, 'clause')[0]
         rowdata['clause_node'] = clause
         rowdata.update(
-            get_clause_data(clause, API, parsedata, do_args=False)
+            get_clause_data(
+                clause, API, 
+                parsedata, 
+                do_args=False,
+                count_succs=False,
+            )
         )
         
         # add modifier data
