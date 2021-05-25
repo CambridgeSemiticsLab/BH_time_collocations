@@ -31,6 +31,6 @@ df_sg = df.query("(n_times == 1) and (is_advb == False)").copy()
 
 # pretty-show Hebrew text from a df
 ts = TextShower(
-    default=['verse', 'clause', 'verb_utf8'],
-    stylize=['clause', 'verb_utf8']
+    default=['verse', 'clause'],
+    stylize=['clause']
 )

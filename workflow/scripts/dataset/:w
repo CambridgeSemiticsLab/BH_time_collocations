@@ -341,10 +341,6 @@ def time_dataset(paths, parsedata, API):
         compounds = {
             'simul_posts',
             'simul_posterior',
-            'anterior_dist',
-            'distfut_ext',
-            'posterior_simul',
-            'anterior_ext',
         }
         if function in main_functions:
             rowdata['funct_type'] = 'main'
@@ -415,7 +411,7 @@ def time_dataset(paths, parsedata, API):
         # fix mod issue where suffixed preps are ignored
         if (
             'ØPP' in modifiers 
-            and slot2pos[modifiers['ØPP'][0]] == 'PREP'
+            and slot2pos[modifiers['ØPP'][0] == 'PREP']
             and 'SFX' in modifiers
         ):
             modifiers['PP'] = modifiers['ØPP']
@@ -426,12 +422,6 @@ def time_dataset(paths, parsedata, API):
         rowdata.update(
             bool_mods
         )
-
-        # mark unmodified words as adverbs
-        if not modifiers or (len(modifiers) == 1 and {'PP', 'ØPP'} & set(modifiers)):
-            rowdata['unmodified'] = 1
-        else:
-            rowdata['unmodified'] = 0
 
         # ---------
         # process more refined modifier tags
@@ -466,9 +456,6 @@ def time_dataset(paths, parsedata, API):
             modtag = 'NUM+PL'
 
         rowdata['modtag'] = modtag
-        rowdata['modtag2'] = modtag # see usecase below
-        if not modtag and rowdata['unmodified'] == 1:
-            rowdata['modtag2'] = 'Ø'
 
         # ----------------
     
@@ -486,13 +473,6 @@ def time_dataset(paths, parsedata, API):
                 API,
                 joiner='+'
             )
-            # hacky add fix for LPNH
-            if (
-                pp_strings['utf8'] == 'ל'
-                and F.lex.v(linghead) == 'PNH/'
-            ): 
-                pp_strings['utf8'] = 'ל+פנה'
-    
             rowdata['front'] = pp_strings['utf8']
             rowdata['ph_type'] = 'PP'
 
@@ -526,16 +506,18 @@ def time_dataset(paths, parsedata, API):
         if demon := modifiers.get('DEMON'):
             rowdata['demon_type'] = demon_map[F.lex.v(demon[0])]
    
+        # mark unmodified words as adverbs
+        if not modifiers or (len(modifiers) == 1 and {'PP', 'ØPP'} & set(modifiers)):
+            rowdata['unmodified'] = 1
+        else:
+            rowdata['unmodified'] = 0
+
         # add tense data based on modifiers and other feats
         rowdata.update(
             add_tense(rowdata, modifiers)
         )
 
         rowdata['has_time'] = 1
-
-        # add any notes that I've made
-        rowdata['notes'] = '; '.join(data.get('notes', []))
-
 
         # finish
         rows.append(rowdata)

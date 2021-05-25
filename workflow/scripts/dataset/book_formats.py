@@ -53,10 +53,10 @@ etcbc2sbl = {
     'Deuteronomy':'Deut',
     'Joshua':'Josh',
     'Judges':'Judg',
-    '1_Samuel':'1Sam',
-    '2_Samuel':'2Sam',
-    '1_Kings':'1Kgs',
-    '2_Kings':'2Kgs',
+    '1_Samuel':'1 Sam',
+    '2_Samuel':'2 Sam',
+    '1_Kings':'1 Kgs',
+    '2_Kings':'2 Kgs',
     'Isaiah':'Isa',
     'Jeremiah':'Jer',
     'Ezekiel':'Ezek',
@@ -83,8 +83,8 @@ etcbc2sbl = {
     'Daniel':'Dan',
     'Ezra':'Ezra',
     'Nehemiah':'Neh',
-    '1_Chronicles':'1Chr',
-    '2_Chronicles':'2Chr'
+    '1_Chronicles':'1 Chr',
+    '2_Chronicles':'2 Chr'
 }
 
 etcbc2abbr = {
