@@ -82,6 +82,14 @@ def get_clause_data(clause, API,
             cl_data['main_genre'] = f'{genre}-{domain}'
         else:
             cl_data['main_genre'] = genre
+    elif genre in main_gens and domain == 'D':
+        if genre == 'prose':
+            cl_data['main_genre'] = f'{genre}-N'
+        elif genre == 'prophetic':
+            cl_data['main_genre'] = f'prophecy'
+        else:
+            cl_data['main_genre'] = genre
+            
 
     cl_data['gendom'] = cl_data['genre'] + '.' + cl_data['domain']
     cl_data['clause'] = T.text(clause)
@@ -304,7 +312,19 @@ def time_dataset(paths, parsedata, API):
         ph_parses = [phrase_data[ph]['parse'] for ph in phrases]
         text = T.text(slots)
         name = data['functions'][0]
+
+        # here is where I do some really hacky stuff to adjust 
+        # the function tags on case-by-case basis;
+        # ideally this would be done up stream, not at this point!
+        # However, time is a virtue and this is the most economical,
+        # though messy, way to do it for now
         function = function_simp.get(name, name)
+        if function == 'anterior_dur_past?':
+            if 'PNH' in rowdata['times_etcbc']:
+                function = 'anterior'
+        elif clause in {512687}:
+            function = 'posterior_dur'
+
         quality = quality_map.get(function, None)
         tense = data.get('tenses', [[None, None]])[0][0]
         lex_token = tokenize_lexemes(
@@ -365,6 +385,7 @@ def time_dataset(paths, parsedata, API):
             'name': name,
             'text': text,
             'n_times': len(times),
+            'n_slots': len(slots),
             'lex_token': lex_token,
             'is_advb': is_advb,
             'tense': tense,
@@ -427,12 +448,6 @@ def time_dataset(paths, parsedata, API):
             bool_mods
         )
 
-        # mark unmodified words as adverbs
-        if not modifiers or (len(modifiers) == 1 and {'PP', 'ØPP'} & set(modifiers)):
-            rowdata['unmodified'] = 1
-        else:
-            rowdata['unmodified'] = 0
-
         # ---------
         # process more refined modifier tags
 
@@ -447,7 +462,22 @@ def time_dataset(paths, parsedata, API):
             has_mods.remove('DEF')
         elif {'ORDN', 'DEF'}.issubset(has_mods):
             has_mods.remove('DEF')
+
+        # remove plural modification from LPNJM or >XRJ as these are not
+        # truly modifications but part of the construction
+        if (
+            ('PNH/' in rowdata['times_etcbc'] or '>XR/' in rowdata['times_etcbc'])
+            and 'PL' in modifiers
+        ):
+            has_mods.remove('PL')
+            del modifiers['PL']
         
+        # mark unmodified words as adverbs
+        if not modifiers or (len(modifiers) == 1 and {'PP', 'ØPP'} & set(modifiers)):
+            rowdata['unmodified'] = 1
+        else:
+            rowdata['unmodified'] = 0
+
         # sort +
         # make any change to modis;
         # e.g. extract KL from quantifiers
