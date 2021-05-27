@@ -1,3 +1,4 @@
+import re
 import json
 import pickle
 import pandas as pd
@@ -7,7 +8,7 @@ from bidi.algorithm import get_display
 # custom modules
 import tools.nav_tree as nt
 from tools.load_parse import ParseLoader
-from .tokenizers import tokenize_lexemes
+from .tokenizers import tokenize_lexemes, formal_tokens
 from .nav_time import get_times
 from .verb_form import get_verbform
 from .modis_getter import get_modis
@@ -308,10 +309,16 @@ def time_dataset(paths, parsedata, API):
         
         # add data related to the phrase
         slots = sorted(data['slots'])
-        phrases = data['phrase_nodes']
+        phrases = sorted(data['phrase_nodes'])
         ph_parses = [phrase_data[ph]['parse'] for ph in phrases]
         text = T.text(slots)
         name = data['functions'][0]
+
+        # build formalistic token string from phrases
+        lex_str = formal_tokens(phrases, API, 'lex_utf8')
+        pdp_str = formal_tokens(phrases, API, 'pdp')
+        rowdata['lex_str'] = lex_str
+        rowdata['pdp_str'] = pdp_str
 
         # here is where I do some really hacky stuff to adjust 
         # the function tags on case-by-case basis;
@@ -324,6 +331,10 @@ def time_dataset(paths, parsedata, API):
                 function = 'anterior'
         elif clause in {512687}:
             function = 'posterior_dur'
+
+        # fix some cases tagged as reg recurr  with KL
+        elif clause in {468132, 468134, 480000}:
+            function = 'atelic_ext'
 
         quality = quality_map.get(function, None)
         tense = data.get('tenses', [[None, None]])[0][0]
@@ -346,6 +357,13 @@ def time_dataset(paths, parsedata, API):
         else:
             is_advb = 0 
 
+        # rename any functions
+        remapfuncts = {
+            'habitual': 'reg_recur',
+            'regular_recurrence': 'reg_recur',
+        }
+        function = remapfuncts.get(function, function)
+
         main_functions = {
             'simultaneous',
             'atelic_ext',
@@ -353,7 +371,7 @@ def time_dataset(paths, parsedata, API):
             'anterior_dur',
             'posterior',
             'posterior_dur',
-            'habitual',
+            'reg_recur',
             'anterior',
             'dist_fut',
             'dist_past',
@@ -501,6 +519,16 @@ def time_dataset(paths, parsedata, API):
             rowdata['modtag2'] = 'Ø'
 
         # ----------------
+
+        # reprocess some functions based on modifier tags
+        if function in {'atelic_ext', 'simultaneous'}:
+            if (
+                ('KL' in modtag) 
+                and not (modifiers.get('DEF'))
+                and not (modifiers.get('PL'))
+            ):
+                function = rowdata['function'] = 'reg_recur'
+                rowdata['funct_type'] = 'main'
     
         # process phrase types
         if modifiers.get('ØPP') and is_advb:
@@ -566,6 +594,31 @@ def time_dataset(paths, parsedata, API):
         # add any notes that I've made
         rowdata['notes'] = '; '.join(data.get('notes', []))
 
+        # the hackiest of hackiest categories; but I need them
+        # here are regular recurrence subgroups
+        front = rowdata['front']
+        if function == 'reg_recur':
+            if re.match('ב.*ב', lex_str):
+                subgr = 'ב.זמן.ב.זמן'
+            elif re.match('.*ב', lex_str) and front == 'Ø':
+                subgr = 'זמן.ב.זמן'
+            elif re.match('ל\..*ל\.', lex_str):
+                subgr = 'ל.זמן.ל.זמן'
+            elif re.match('ל\.', lex_str):
+                subgr = 'ל.זמן'
+            elif re.match('.*כל\.', lex_str):
+                subgr = 'ב.כל.זמן'
+            elif 'prep' not in pdp_str:
+                subgr = 'זמן.זמן'
+            elif clause in {454685, 473820, 489911}:
+                subgr = 'זמן.ב.זמן'
+            elif clause in {508976}:
+                subgr = 'בין.זמן'
+            elif clause in {514129}:
+                subgr = 'זמן.על.זמן'
+            else:
+                subgr = '?'
+            rowdata['reg_group'] = subgr 
 
         # finish
         rows.append(rowdata)

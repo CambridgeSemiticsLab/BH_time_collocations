@@ -1,5 +1,17 @@
 import tools.nav_tree as nt
 
+def formal_tokens(nodes, tf, feature):
+    """Make 'dumb' tokens"""
+    Fs, L = tf.Fs, tf.L
+
+    lexs = [
+        Fs(feature).v(s) for node in nodes
+            for s in L.d(node, 'word')
+    ]
+    tokens = '.'.join(lexs)
+
+    return tokens
+
 def tokenize_lexemes(parses, tf, 
         feature='lex_utf8', sep='.', 
         cardtok='מ׳', ordntok='ס׳', headtok='זמן' ,
