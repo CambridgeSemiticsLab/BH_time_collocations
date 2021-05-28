@@ -331,6 +331,14 @@ def time_dataset(paths, parsedata, API):
                 function = 'anterior'
         elif clause in {512687}:
             function = 'posterior_dur'
+        elif clause in {454027, 495872}:
+            function = 'simultaneous'
+        elif clause in {470561}:
+            function = 'dist_fut'
+        elif clause in {440361}:
+            function = 'simultaneous + begin_to_end'
+        elif clause in {'470739'}:
+            function = 'atelic_ext'
 
         # fix some cases tagged as reg recurr  with KL
         elif clause in {468132, 468134, 480000}:
@@ -357,10 +365,20 @@ def time_dataset(paths, parsedata, API):
         else:
             is_advb = 0 
 
+
+
         # rename any functions
         remapfuncts = {
             'habitual': 'reg_recur',
             'regular_recurrence': 'reg_recur',
+            'anterior_dur_purposive': 'anterior_dur',
+            'simul_posts': 'simultaneous + posteriors',
+            'simul_posterior': 'simultaneous + posterior',
+            'distfut_ext': 'dist_fut + atelic_ext',
+            'posterior_simul': 'posterior + simultaneous',
+            'anterior_ext': 'anterior + atelic_ext',
+            'anterior_dist': 'anterior + distance',
+            'posterior_dist': 'posterior + distance',
         }
         function = remapfuncts.get(function, function)
 
@@ -377,12 +395,7 @@ def time_dataset(paths, parsedata, API):
             'dist_past',
         }
         compounds = {
-            'simul_posts',
-            'simul_posterior',
-            'anterior_dist',
-            'distfut_ext',
-            'posterior_simul',
-            'anterior_ext',
+
         }
         if function in main_functions:
             rowdata['funct_type'] = 'main'
