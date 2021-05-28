@@ -306,7 +306,7 @@ def time_dataset(paths, parsedata, API):
                 latexrow='TA Heads',
             )
         ) 
-        
+
         # add data related to the phrase
         slots = sorted(data['slots'])
         phrases = sorted(data['phrase_nodes'])
@@ -344,6 +344,7 @@ def time_dataset(paths, parsedata, API):
         elif clause in {468132, 468134, 480000}:
             function = 'atelic_ext'
 
+           
         quality = quality_map.get(function, None)
         tense = data.get('tenses', [[None, None]])[0][0]
         lex_token = tokenize_lexemes(
@@ -365,7 +366,19 @@ def time_dataset(paths, parsedata, API):
         else:
             is_advb = 0 
 
+        # hacky hack!
+        # isolate calendrical items
+        if function == 'simultaneous':
+            refs = set()
+            for time in data['times']:
+                if type(time) == dict:
+                    timerefs = time.get('refs',[])
+                    for r, item in timerefs:
+                        refs.add(r)
 
+            if {'CALNUM', 'MONTH', 'CALORDN', 'ORDN'} & refs:
+                if (len(times) > 1):
+                    function = 'simultaneous_calendar'
 
         # rename any functions
         remapfuncts = {
@@ -395,7 +408,7 @@ def time_dataset(paths, parsedata, API):
             'dist_past',
         }
         compounds = {
-
+            'simultaneous_calendar',
         }
         if function in main_functions:
             rowdata['funct_type'] = 'main'
