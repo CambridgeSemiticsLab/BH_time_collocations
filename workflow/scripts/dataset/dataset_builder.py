@@ -40,7 +40,8 @@ def get_ref_data(node, API):
     book_super = bookmap['super'].get(bk, bk)
     canon_part = bookmap['tripart'][bk]
     period = bookmap['period'].get(bk, '')
-    verse = f'{bk} {ch}:{vs}'
+    book = etcbc2sbl[bk]
+    verse = f'{book} {ch}:{vs}'
 
     # package and ship
     ref_data = {
@@ -176,7 +177,7 @@ def get_word_formats(words,
 
     # format data on heads
     words_etcbc = f'{joiner}'.join(F.lex.v(w) for w in words)
-    words_utf8 = f'{joiner}'.join(F.lex_utf8.v(w) for w in words)
+    words_utf8 = f'{joiner}'.join(F.voc_lex_utf8.v(w) for w in words)
     words_utf8d = (
         get_display(remove_shindots(words_utf8))
     )
@@ -311,7 +312,7 @@ def time_dataset(paths, parsedata, API):
         slots = sorted(data['slots'])
         phrases = sorted(data['phrase_nodes'])
         ph_parses = [phrase_data[ph]['parse'] for ph in phrases]
-        text = T.text(slots)
+        text = T.text(slots).strip()
         name = data['functions'][0]
 
         # build formalistic token string from phrases
@@ -343,7 +344,6 @@ def time_dataset(paths, parsedata, API):
         # fix some cases tagged as reg recurr  with KL
         elif clause in {468132, 468134, 480000}:
             function = 'atelic_ext'
-
            
         quality = quality_map.get(function, None)
         tense = data.get('tenses', [[None, None]])[0][0]
@@ -667,6 +667,7 @@ def phrase_dataset(paths, parsedata, API):
     # load data parsed in this project
     phrase_data = parsedata['phrases']
     functions = parsedata['functions']
+    slot2pos = parsedata['slot2pos']
 
     # build the rows  
     rows = []
@@ -714,7 +715,7 @@ def phrase_dataset(paths, parsedata, API):
                 for pa in L.d(ph,'phrase_atom')
         ]
         head_ph = L.u(heads[0], 'phrase')[0]
-        text = T.text(slots)
+        text = T.text(slots).strip()
         function = functions[head_ph]
         word_lexs = ' '.join(
             F.lex.v(s) for s in slots
@@ -743,15 +744,77 @@ def phrase_dataset(paths, parsedata, API):
         )
         
         # add modifier data
-        modifiers = get_modis(parse, API)
+        modifiers = get_modis(parse, API, boolean=False)
         modi_keys |= set(modifiers)
         rowdata.update(
             modifiers
         )
-    
-        # mark unmodified phrase heads as such
-        if not modifiers or (len(modifiers) == 1 and 'PP' in modifiers):
+        # fix mod issue where suffixed preps are ignored
+        if (
+            'ØPP' in modifiers 
+            and slot2pos[modifiers['ØPP'][0]] == 'PREP'
+            and 'SFX' in modifiers
+        ):
+            modifiers['PP'] = modifiers['ØPP']
+            del modifiers['ØPP']
+
+        modi_keys |= set(modifiers)
+        bool_mods = {m:1 for m in modifiers}
+        rowdata.update(
+            bool_mods
+        )
+
+        # ---------
+        # process more refined modifier tags
+
+        main_mods = [
+            'DEF', 'PL', 'NUM', 'SFX', 
+            'DEMON', 'GP', 'ORDN', 'QUANT',
+        ]
+        has_mods = set(m for m in modifiers if m in main_mods)
+        
+        # remove redundant definite article
+        if {'DEMON', 'DEF'}.issubset(has_mods):
+            has_mods.remove('DEF')
+        elif {'ORDN', 'DEF'}.issubset(has_mods):
+            has_mods.remove('DEF')
+
+        # remove plural modification from LPNJM or >XRJ as these are not
+        # truly modifications but part of the construction
+        if (
+            ('PNH/' in rowdata['heads_etcbc'] or '>XR/' in rowdata['heads_etcbc'])
+            and 'PL' in modifiers
+        ):
+            has_mods.remove('PL')
+            del modifiers['PL']
+        
+        # mark unmodified words as adverbs
+        if not modifiers or (len(modifiers) == 1 and {'PP', 'ØPP'} & set(modifiers)):
             rowdata['unmodified'] = 1
+        else:
+            rowdata['unmodified'] = 0
+
+        # sort +
+        # make any change to modis;
+        # e.g. extract KL from quantifiers
+        newmods = []
+        for mod in has_mods:
+            modhead = modifiers[mod][0]
+            if mod == 'QUANT' and F.lex.v(modhead) == 'KL/':
+                mod = 'KL'
+            if mod == 'GP':
+                mod = 'C'
+            newmods.append((modhead, mod))
+        newmods.sort()
+        modtag = '+'.join(mh[1] for mh in newmods)
+        # add any normalizations
+        if modtag == 'PL+NUM':
+            modtag = 'NUM+PL'
+
+        rowdata['modtag'] = modtag
+        rowdata['modtag2'] = modtag # see usecase below
+        if not modtag:
+            rowdata['modtag2'] = 'Ø'
 
         # finish
         rows.append(rowdata)
@@ -811,6 +874,7 @@ def build_datasets(paths):
         'prs prs_gn prs_nu prs_ps '
         'genre mother txt uvf typ '
         'g_prs_utf8 sp vs typ '
+        'voc_lex_utf8 '
     )
 
     # execute the creation of the data

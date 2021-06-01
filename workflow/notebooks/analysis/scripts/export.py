@@ -1,6 +1,12 @@
 import re
 from pathlib import Path
 import matplotlib.pyplot as plt
+from textwrap import dedent
+from .df_styles import get_spread
+
+def wrap_hebtext(string):
+    """Wrap hebrew text with Latex polyglossia tag."""
+    return '\\texthebrew{%s}'%string
 
 class Exporter:
     """Provide export capabilities for notebooks."""
@@ -22,7 +28,7 @@ class Exporter:
         filename = subdir.joinpath(name)
         filename = Path(f'{filename}.{suffix}')
         return filename
-
+    
     def latex_input(self, name, graphname, **kwargs):
         """Format latex code for inputting a graph."""
         kgs = {
@@ -78,9 +84,8 @@ class Exporter:
                     suffix='tex',
             )
             latexfile.write_text(latex_code)
-            
 
-    def table(self, df, name, adjustbox=False, hebindex=False, **kwargs):
+    def table(self, df, name, adjustbox=False, hebaxis=None, hebcols=[], **kwargs):
         """Exports a table to Latex format."""
         tabkwargs = dict(
             escape=True,
@@ -95,8 +100,13 @@ class Exporter:
         )
         
         # update table with latex formatting around columns containing hebrew
-        if hebindex:
-            df.index = ['\texthebrew{%s}'%heb for heb in df.index]
+        if hebaxis == 0:
+            df.index = df.index.to_series().apply(wrap_hebtext)
+        elif hebaxis == 1:
+            df.columns = df.columns.to_series().apply(wrap_hebtext)
+        if hebcols:
+            for col in hebcols:
+                df[col] = df[col].apply(wrap_hebtext)
         
         table = df.to_latex(**tabkwargs)
 
@@ -148,3 +158,46 @@ class Exporter:
             number = "{:,}".format(number) 
         self.text(number, name)
         return number
+
+    
+    def examples(self, df, name, textcols=['clause'], 
+                 refcol='verse', joiner=' ', spread=0):
+        
+        """Copy Latex-formatted text examples to clipboard."""
+
+        orig_shape = df.shape
+        if spread > 0:
+            spread_i = get_spread(df.index, spread)
+            df = df.loc[spread_i]
+            print(f'exporting {df.shape[0]} of {orig_shape[0]}...')
+        
+        # merge text (if more than 1 col included)
+        texts = df[textcols].agg(joiner.join, 1)
+        exs = []
+        for i,node in enumerate(texts.index):      
+            ref = df[refcol][node]
+            text = dedent('''
+            \\texthebrew{
+            %s
+            } (%s)
+            ''') % (texts[node], ref)
+            label = f'{name}{i+1}'
+            exs.append('\\ex\\label{%s}'%label + text)
+
+        exs = '\n'.join(exs)
+
+        doc = dedent('''
+        \\begin{exe}
+
+        %s
+        \\end{exe}
+        ''') % exs
+        
+        fname = self.get_filename(
+            name, 
+            self.get_subdir('examples'),
+            suffix='tex'
+        )
+        fname.write_text(doc)
+        
+        return df[[refcol]+textcols]

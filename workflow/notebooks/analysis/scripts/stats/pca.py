@@ -88,4 +88,4 @@ def apply_pca(df, sample_axis, feature_axis,
         print('explained variance:')
         print(explained_variance)
 
-    return pca_targets, loadings
+    return (pca_targets, loadings, explained_variance)
