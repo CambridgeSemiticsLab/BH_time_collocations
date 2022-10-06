@@ -8,6 +8,9 @@ __pycache__/
 legacy
 scratch
 .venv
+.env
+venv
+env
 *.swp
 .snakemake
 
@@ -32,3 +35,4 @@ Backup of *.doc*
 
 # Visio autosave temporary files
 *.~vsd*
+
