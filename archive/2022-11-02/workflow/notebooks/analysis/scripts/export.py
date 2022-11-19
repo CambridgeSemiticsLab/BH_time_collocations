@@ -2,7 +2,7 @@ import re
 from pathlib import Path
 import matplotlib.pyplot as plt
 from textwrap import dedent
-from .df_styles import get_spread
+from analysis_tools.src.analysis_tools.text.show import get_spread
 
 def wrap_hebtext(string):
     """Wrap hebrew text with Latex polyglossia tag."""
@@ -30,7 +30,7 @@ class Exporter:
         return filename
     
     def latex_input(self, name, graphname, **kwargs):
-        """Format latex code for inputting a graph."""
+        """Format thesis code for inputting a graph."""
         kgs = {
             'pos': 'htbp!',
             'align': '\centering',
@@ -99,7 +99,7 @@ class Exporter:
             suffix='tex'
         )
         
-        # update table with latex formatting around columns containing hebrew
+        # update table with thesis formatting around columns containing hebrew
         if hebaxis == 0:
             df.index = df.index.to_series().apply(wrap_hebtext)
         elif hebaxis == 1:
@@ -140,7 +140,7 @@ class Exporter:
         return df
 
     def text(self, string, name):
-        """Export a simple string (or int) for insertion in latex doc."""
+        """Export a simple string (or int) for insertion in thesis doc."""
         fname = self.get_filename(
             name, 
             self.get_subdir('text'),

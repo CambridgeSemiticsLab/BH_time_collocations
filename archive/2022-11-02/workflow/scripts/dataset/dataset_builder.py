@@ -69,7 +69,7 @@ def get_clause_data(clause, API,
     # of embedding linguistic unit like sentence
     firstw = L.d(clause, 'word')[0]
     firstw_fmts = get_word_formats([firstw], parsedata['slot2pos'], API)
-    cl_data['firstw'] = firstw_fmts['latex']
+    cl_data['firstw'] = firstw_fmts['thesis']
     versen = L.u(firstw, 'verse')[0]
     genre = cl_data['genre'] = F.genre.v(versen)
     domain = cl_data['domain'] = permissive_q(clause, API)
@@ -169,7 +169,7 @@ def get_word_formats(words,
                      slot2pos, 
                      API, 
                      prefix='', joiner='|', 
-                     latexrow='latex'):
+                     latexrow='thesis'):
     """Retrieve word formats for a list of words."""
 
     # BHSA methods
@@ -181,7 +181,7 @@ def get_word_formats(words,
     words_utf8d = (
         get_display(remove_shindots(words_utf8))
     )
-    # formatting for inclusion in latex docs (esp. tables)
+    # formatting for inclusion in thesis docs (esp. tables)
     words_latex = f'{joiner}'.join(
         '\texthebrew{%s}' % F.lex_utf8.v(w)
             for w in reversed(words)

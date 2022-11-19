@@ -6,6 +6,6 @@ install:
    - PATH=$HOME/texlive/bin/x86_64-linux:$PATH
 script:
    - make clean
-   - make BUILD_STRATEGY=latex
+   - make BUILD_STRATEGY=thesis
    - make clean
    - make

@@ -12,10 +12,10 @@ Analyzing the semantics and collocational tendencies of time adverbial construct
 
 ## Directory Contents
 
-The base data for the project is produced in a [Snakemake](https://snakemake.readthedocs.io/) pipeline, which can be found under [workflow/Snakefile](workflow/Snakefile).
+The base data for the project is produced in a [Snakemake](https://snakemake.readthedocs.io/) pipeline, which can be found under [workflow/Snakefile](archive/2022-11-02/workflow/Snakefile).
 
-* [workflow](workflow) - scripts, notebooks, and data used for producing the primary datasets for analysis. Includes Snakemake pipeline. 
-* [results](results) - all output from the pipeline and analyses scripts in workflow go here
+* [workflow](archive/2022-11-02/workflow) - scripts, notebooks, and data used for producing the primary datasets for analysis. Includes Snakemake pipeline. 
+* [results](archive/2022-11-02/results) - all output from the pipeline and analyses scripts in workflow go here
 * [docs](docs) - project and code documentation as well as images/files for displaying in markdown
 * [thesis](thesis) - the PhD thesis in (Xe)Latex; to be updated with full copy when complete
 * [archive](archive) - previous states of the project, kept in archive for easily referring back to

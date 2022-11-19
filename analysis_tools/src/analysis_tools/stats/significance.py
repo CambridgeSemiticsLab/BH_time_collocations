@@ -1,6 +1,6 @@
-'''
+"""
 This module contains scripts for testing statistical associations.
-'''
+"""
 
 import collections
 import numpy as np
@@ -225,6 +225,6 @@ def apply_deltaP(df, sample_axis, feature_axis):
     """
     
     # get contingency data and calculate ΔP
-    a,b,c,d,e = contingency_table(df, sample_axis, feature_axis)
+    a, b, c, d, e = contingency_table(df, sample_axis, feature_axis)
     delta_p = a/(a+b) - c/(c+d)
     return delta_p

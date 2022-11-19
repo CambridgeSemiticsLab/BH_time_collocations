@@ -2,7 +2,7 @@ import seaborn as sns
 from bidi.algorithm import get_display
 
 def format_rtl(string):
-    """Format RTL Hebrew text for plotting."""
+    """Format RTL Hebrew text for visualization."""
     return (
         get_display(string)
             .replace('\u05c1', '') # rm shin dots 

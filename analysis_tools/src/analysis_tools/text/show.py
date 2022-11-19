@@ -1,5 +1,5 @@
 """
-This module contains functions for stylizing dataframes.
+This module contains functions for selecting and displaying text.
 
 On showing text:
 Dataframes in this project contain columns of text. 
@@ -18,9 +18,11 @@ are the max across their rows (for example).
 
 import numpy as np
 
+
 def pretty_hebrew(val):
     """Render Hebrew in a dataframe."""
     return 'font-size:20px; font-family: Times New Roman; text-align: right; max-width: 500px'
+
 
 def get_spread(array, n): 
     """Retrieve an even spread of indices for an array/Series.
@@ -44,11 +46,15 @@ def get_spread(array, n):
     except KeyError:
         return array.iloc[indices]
 
+
 class TextShower:
     """Show stylized text examples from a DataFrame"""
     
-    def __init__(self, default=['ref', 'sentence', 'text_full'], 
-                 stylize=['sentence', 'text_full']):
+    def __init__(
+            self,
+            default=['ref', 'sentence', 'text_full'],
+            stylize=['sentence', 'text_full']
+    ):
         """Initialize a TS object.
 
         Objects can be set up in advance to handle showing
@@ -71,10 +77,12 @@ class TextShower:
         print(f'showing {df.shape[0]} of {original_shape[0]}')
         return df.style.applymap(pretty_hebrew, subset=self.stylize)
 
+
 def highlight_max(s):
     """Highlight max value in a df column."""
     is_max = s == s.max()
     return ['color: red' if v else '' for v in is_max]
+
 
 def highlight_sig(s, sig_up=1.3, sig_down=-1.3):
     """Highlights values of significance (Fishers > or <  1.3)"""
@@ -85,6 +93,7 @@ def highlight_sig(s, sig_up=1.3, sig_down=-1.3):
     else:
         color = ''
     return f'color: {color}'
+
 
 def df_highlighter(pr_df, rule='max'):
     """Show proportion dataframe with highlighting."""

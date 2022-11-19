@@ -1,5 +1,10 @@
 from pathlib import Path
-repo = Path('/Users/cody/github/CambridgeSemiticsLab/time_collocations')
+
+user_home = Path.home()
+REPO_NAME =
+REPO_PATH = user_home.joinpath('github/')
+
+repo = Path('/')
 paths = {
     'time_dataset': repo.joinpath('results/analysis/time_dataset.csv'),
     'phrase_dataset': repo.joinpath('results/analysis/phrase_dataset.csv'),

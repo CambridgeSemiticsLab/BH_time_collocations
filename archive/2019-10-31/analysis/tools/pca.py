@@ -1,5 +1,5 @@
 '''
-Module contains a useful method for plotting PCA data with tags annotated.
+Module contains a useful method for visualization PCA data with tags annotated.
 '''
 
 import matplotlib.pyplot as plt

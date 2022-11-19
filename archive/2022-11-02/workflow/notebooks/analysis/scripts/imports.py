@@ -2,23 +2,15 @@
 Standard imports for the analysis notebooks.
 """
 import re
-import json
-import matplotlib.pyplot as plt
 
-import seaborn as sns
 import pandas as pd
 pd.set_option('display.max_rows', 200)
 idx = pd.IndexSlice
-from adjustText import adjust_text
 
 from sklearn.preprocessing import StandardScaler
-from sklearn.decomposition import PCA
+
 scaler = StandardScaler()
-from scripts.stats.pca import apply_pca
-from scripts.stats import significance as sig
-from scripts.df_styles import TextShower, df_highlighter
-from scripts.counting import pivot_ct, join_ct_pr
-import numpy as np
+from scripts.df_styles import TextShower
 from bidi.algorithm import get_display as bidi_get_display
 
 def remove_shindots(string):
@@ -34,15 +26,12 @@ def get_display(string):
     rem_accents = ''.join(re.findall('[\u05D0-\u05EA]', string))
     return bidi_get_display(rem_accents)
 
-# latex tags
+# thesis tags
 def textheb(string):
     return '\\texthebrew{%s}'%string
 
 # custom modules
-from .paths import paths
-from .export import Exporter
-from .plotting import heatmap
-from .string_refs import get_verserefs
+from analysis_tools.src.analysis_tools.paths import paths
 
 # load the data
 df = pd.read_csv(paths['time_dataset'], index_col='node')

@@ -11,7 +11,7 @@ from matplotlib import rcParams
 rcParams['font.serif'] = ['SBL Biblit']
 pd.set_option('display.max_rows', 100)
 import seaborn as sns
-from bidi.algorithm import get_display # bi-directional text support for plotting
+from bidi.algorithm import get_display # bi-directional text support for visualization
 
 # custom packages (see /tools)
 import paths
