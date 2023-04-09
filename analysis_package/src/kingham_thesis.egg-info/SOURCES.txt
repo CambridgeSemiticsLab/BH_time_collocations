@@ -1,0 +1,7 @@
+README.md
+setup.py
+src/kingham_thesis.egg-info/PKG-INFO
+src/kingham_thesis.egg-info/SOURCES.txt
+src/kingham_thesis.egg-info/dependency_links.txt
+src/kingham_thesis.egg-info/requires.txt
+src/kingham_thesis.egg-info/top_level.txt
