@@ -1,6 +1,0 @@
-text-fabric
-numpy
-pandas
-matplotlib
-seaborn
-python-bidi
