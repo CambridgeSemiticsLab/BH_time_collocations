@@ -1,10 +1,9 @@
 from pathlib import Path
 
 user_home = Path.home()
-REPO_NAME =
-REPO_PATH = user_home.joinpath('github/')
+REPO_NAME = 'BH_time_collocations'
+repo = user_home.joinpath('github') / REPO_NAME
 
-repo = Path('/')
 paths = {
     'time_dataset': repo.joinpath('results/analysis/time_dataset.csv'),
     'phrase_dataset': repo.joinpath('results/analysis/phrase_dataset.csv'),
