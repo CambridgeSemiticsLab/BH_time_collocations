@@ -1,6 +1,6 @@
-# Biblical Hebrew Time Collocations 
+# The Constructional Networks of Time Phrases in Biblical Hebrew
 
-Analyzing the semantics and collocational tendencies of time adverbial constructions in Biblical Hebrew
+Mapping the constructional networks of BH time phrases using statistical measures of association.
 
 ### Cody Kingham 
 #### Supervisor: Geoffrey Khan
