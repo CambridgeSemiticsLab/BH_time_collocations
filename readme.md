@@ -1,4 +1,4 @@
-# The Constructional Networks of Time Phrases in Biblical Hebrew
+# The Constructional Networks of Time Phrases in Biblical Hebrew (data)
 
 Mapping the constructional networks of BH time phrases using statistical measures of association.
 
