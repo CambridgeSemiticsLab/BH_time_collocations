@@ -80,7 +80,7 @@ def contingency_table(df, sample_axis, feature_axis):
         5-tuple of dataframes as (a, b, c, d, e)
     """    
 
-    # put data in sample * feature format for calculations
+    # put source_data in sample * feature format for calculations
     # will flip it back at end if needed
     df = normalize_axes(df, sample_axis, feature_axis)
 
@@ -135,7 +135,7 @@ def apply_fishers(df, sample_axis, feature_axis,
         2-tuple of (p-values, odds_ratios) in DataFrames
     """
 
-    # put data in sample * feature format for calculations
+    # put source_data in sample * feature format for calculations
     # will flip it back at end if needed
     df = normalize_axes(df, sample_axis, feature_axis)
     a_df, b_df, c_df, d_df, e_df = contingency_table(df, 0, 1)
@@ -200,7 +200,7 @@ def apply_deltaP(df, sample_axis, feature_axis):
     another construction. 
 
     ΔP is contingency-based. Given the normal contingency 
-    data of a, b, c, d, ΔP can be calculated. Mathematically 
+    source_data of a, b, c, d, ΔP can be calculated. Mathematically
     ΔP can be represented as (Ellis 2006:11):
 
         >>  a/(a+b) - c/(c+d)
@@ -224,7 +224,7 @@ def apply_deltaP(df, sample_axis, feature_axis):
             the collocating features on samples
     """
     
-    # get contingency data and calculate ΔP
+    # get contingency source_data and calculate ΔP
     a, b, c, d, e = contingency_table(df, sample_axis, feature_axis)
     delta_p = a/(a+b) - c/(c+d)
     return delta_p

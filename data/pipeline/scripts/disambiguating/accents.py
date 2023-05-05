@@ -9,7 +9,7 @@ class AccentTagger:
     and then looking for regex matches for particular 
     codes in the transcribed text.
 
-    The data comes from the ETCBC's BHSA and is processed
+    The source_data comes from the ETCBC's BHSA and is processed
     with Text-Fabric methods. The transcription is the
     ETCBC's, which includes codes for the various accents.
     The codes are matched with a series of regular expressions.

@@ -1,4 +1,4 @@
-# Calculate clause relation tags for BHSA data in Text-Fabric
+# Calculate clause relation tags for BHSA source_data in Text-Fabric
 # source: Martijn Naaijer and Marianne Kaajan
 # https://github.com/MartijnNaaijer/phdthesis/blob/master/Various/main_subordinate_clauses.ipynb
 

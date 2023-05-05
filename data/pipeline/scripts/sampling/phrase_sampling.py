@@ -35,7 +35,7 @@ def get_phrase_samples(tf_locs, sample_out, unsample_out):
             nonsamples['function'].append(phrase_atom)
             continue
 
-        # look up contextual data for filtering
+        # look up contextual source_data for filtering
         phrase_words = L.d(phrase, 'word')
         words = L.d(phrase_atom, 'word')
 

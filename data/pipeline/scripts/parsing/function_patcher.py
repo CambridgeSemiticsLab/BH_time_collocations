@@ -7,7 +7,7 @@ def patch_function(paths):
     Patches are applied to phrase functions deemed problematic.
     """
 
-    # setup data and methods
+    # setup source_data and methods
     TF = Fabric(locations=paths['bhsadata'], silent='deep')
     api = TF.load('function')
     F = api.F

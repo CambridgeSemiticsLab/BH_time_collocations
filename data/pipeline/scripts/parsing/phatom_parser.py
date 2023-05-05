@@ -80,7 +80,7 @@ class BhsaLexer(Lexer):
         return token
     
     def tokenize(self, slots):
-        """Write over the SLY tokenize method to yield custom data.
+        """Write over the SLY tokenize method to yield custom source_data.
 
         Args:
             slots: iterable of integers which correspond with

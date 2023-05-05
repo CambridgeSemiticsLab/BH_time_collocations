@@ -1,7 +1,7 @@
 import pandas as pd
 
 class HtmlReport:
-    """An HTML document that reports our data."""
+    """An HTML document that reports our source_data."""
     def __init__(self, stylesheets=[]):
         self.html='<html>\n'
         for ss in stylesheets:

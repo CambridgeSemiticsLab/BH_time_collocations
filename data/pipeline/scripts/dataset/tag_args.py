@@ -67,7 +67,7 @@ def get_loca_assocs(api):
     return lexs
 
 def clause_locas(verb, loca_lexs, api):
-    """Tag location data within a clause"""
+    """Tag location source_data within a clause"""
 
     F, E, L = api.F, api.E, api.L
 

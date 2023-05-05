@@ -28,7 +28,7 @@ def colored_div(*spans, color=''):
 def build_eval_notebook(todos, timeparses, paths):
     """Compile a notebook for manual review / corrections."""
 
-    # load BHSA data with TF
+    # load BHSA source_data with TF
     TF = Fabric(paths['bhsadata'], silent='deep')
     features = ( 
         'gloss function number '
@@ -40,7 +40,7 @@ def build_eval_notebook(todos, timeparses, paths):
     bhsa._browse = True # ensures API.pretty outputs HTML strings
     T, F, L = bhsa.api.T, bhsa.api.F, bhsa.api.L
 
-    # load translation data
+    # load translation source_data
     with open(paths['translations'], 'r') as infile:
         transs = json.load(infile)
 
@@ -69,7 +69,7 @@ def build_eval_notebook(todos, timeparses, paths):
 
     for cldata in todos:
 
-        # get needed data
+        # get needed source_data
         clause = cldata['clause']
         parsing = timeparses[clause]
         ref = str(T.sectionFromNode(clause)) 
@@ -112,7 +112,7 @@ def build_eval_notebook(todos, timeparses, paths):
 def time_evaler(paths):
     """Select and export time adverbials for eval. Apply corrections."""
     
-    # load original parsings and corrections data
+    # load original parsings and corrections source_data
     timeparses = ParseLoader(paths['parsed']).load()
     corrections = ParseLoader(paths['corrections']).load()
     ntoget = paths['ntoget'] # number of uncorrected phrases to grab
@@ -127,7 +127,7 @@ def time_evaler(paths):
             diffs = corrections[clause]
             try:
                 corrected[clause] = dictdiffer.patch(diffs, timeparse)
-            # underlying data has changed irreconcilably
+            # underlying source_data has changed irreconcilably
             # re-issue the clause for correction
             except (KeyError, IndexError, TypeError): 
                 tocorrectagain.append({'clause':clause, 'badcorr':diffs})
@@ -143,6 +143,6 @@ def time_evaler(paths):
         paths,
     )
 
-    # export the corrected data
+    # export the corrected source_data
     with open(paths['evaled'], 'w') as outfile:
         json.dump(corrected, outfile, indent=2, ensure_ascii=False)

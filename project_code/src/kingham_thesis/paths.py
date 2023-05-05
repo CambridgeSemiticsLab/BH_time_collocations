@@ -5,7 +5,7 @@ from pathlib import Path
 user_home = Path.home()
 REPO_NAME = 'BH_time_collocations'
 repo = user_home.joinpath('github') / REPO_NAME
-data = repo / 'data' / 'data'
+data = repo / 'source_data' / 'source_data'
 parsing = data / 'parsing'
 tables = data / 'tables'
 

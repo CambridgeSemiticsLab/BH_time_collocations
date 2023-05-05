@@ -17,7 +17,7 @@ def get_verbform(node, api, bhsa2gbi):
     Args:
         node: int, representing BHSA node id
         api: an instance of Text-Fabric with BHSA loaded
-        bhsa2gbi: dict mapping bhsa node id to equivalent GBI data
+        bhsa2gbi: dict mapping bhsa node id to equivalent GBI source_data
     """
     
     tense_map = {

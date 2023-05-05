@@ -68,7 +68,7 @@ class PhraseAtomComposer:
         # build the maps
         for ph in self.F.otype.s('phrase_atom'):
             
-            # get data on this ph and its mother
+            # get source_data on this ph and its mother
             if ph in editedges:
                 mom, rela = editedges[ph]['edge']
                 mom = tuple(sorted(mom))

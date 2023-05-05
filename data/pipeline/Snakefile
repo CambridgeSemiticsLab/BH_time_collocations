@@ -1,20 +1,34 @@
 """
-Snakefile for data analysis pipeline.
+Snakefile for source_data analysis pipeline.
 """
 
+import logging
+from pathlib import Path
 
-BHSA_BASE_DATA = "/Users/cody/github/etcbc/bhsa/tf/2021"
+import snakemake
+
+HOME = Path.home()
+BHSA_REPO = HOME / "github/etcbc/bhsa"
+BHSA_BASE_DATA = BHSA_REPO / "tf/2021"
+BHSA_GENRE_DATA = HOME / "github/etcbc/genre_synvar/tf/2021"
+
+
+def globfiles(path, pattern):
+    return Path(path).glob(pattern)
 
 
 rule build_corpus:
     params:
-        book_limit="2_Kings"
+        bhsa_repo=BHSA_REPO,
+        bhsa_data_path=directory(BHSA_BASE_DATA),
+        bhsa_genre_path=directory(BHSA_GENRE_DATA),
     input:
-        bhsa_data_path=BHSA_BASE_DATA,
-        function_edits='data/bhsa_edits/function_edits.csv',
-        object_edits='data/bhsa_edits/object_edits.json',
+        "scripts/corpus_building/config.py",
+        "scripts/corpus_building/corpus_builder.py",
+        "scripts/build_corpus.py",
+        globfiles(BHSA_BASE_DATA, '.tf'),
+        globfiles(BHSA_GENRE_DATA, '.tf'),
     output:
-        "../data/data/corpus/{feature}.tf"
+        directory("../data/corpus/")
     script:
         "scripts/build_corpus.py"
-

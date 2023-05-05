@@ -1,5 +1,5 @@
 """
-Module contains a useful method for visualization PCA data with tags annotated.
+Module contains a useful method for visualization PCA source_data with tags annotated.
 """
 
 import numpy as np
@@ -14,7 +14,7 @@ def apply_pca(df, sample_axis, feature_axis,
     """Apply PCA analysis to a supplied dataset.
 
     Args:
-        df: dataframe with data
+        df: dataframe with source_data
         sample_axis: 0 (rows) or 1 (columns), axis of samples
         feature_axis: 0 (rows) or 1 (columns), axis of features 
         scree: whether to display scree plot of explained
@@ -26,7 +26,7 @@ def apply_pca(df, sample_axis, feature_axis,
         (df_with_pca_values, df_with_feature_loadings)
     """
 
-    # determine size/shape of data
+    # determine size/shape of source_data
     # NB from sklearn documentation: pca.fit expects shape of: 
     #     >>> "array-like, shape (n_samples, n_features)"
     # Thus we make sure to invert the table if necesssary

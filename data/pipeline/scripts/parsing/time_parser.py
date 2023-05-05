@@ -44,7 +44,7 @@ class TimeTokenizer:
         }
     
     def sly_token(self, tag, parse, **values):
-        """Get SLY token object with customized data."""
+        """Get SLY token object with customized source_data."""
         token = SlyToken()
         self.tokens.add(tag) # track unique tokens
         token.value = dict(values)
@@ -256,7 +256,7 @@ class TimeTokenizer:
         if F.uvf.v(time) == 'H':
             yield self.sly_token('LOCALE', time)
 
-        # get data for processing time words
+        # get source_data for processing time words
         calend_times = {
             'XDC=/': 'MONTH', 'CNH/': 'YEAR',
             'KSLW/': 'MONTH', '>LWL/': 'MONTH',
@@ -506,7 +506,7 @@ class TimeTokenizer:
         src, tgt, rel = self.get_rela(phrase)
         return self.sly_token('TIMEAPPO', src)
 
-# TimeParser helper functions for organizing the data
+# TimeParser helper functions for organizing the source_data
 
 def expand(time, key, val):
     """Append to a list-based value in the time dicts."""
@@ -520,7 +520,7 @@ def expand(time, key, val):
 def expand_key(key):
     """Return func for expanding a given key."""
     def key_adder(val_str, val, time):
-        """Add data to a time based on key/val."""
+        """Add source_data to a time based on key/val."""
 
         # determine if the item is a parsed time or a token
         if 'times' in val:
@@ -554,7 +554,7 @@ def add_qual(qual, time):
     return time
 
 def init_time(p, **kwargs):
-    """Initialize time data."""
+    """Initialize time source_data."""
     time_data = {
         'times': [p['parse']],
         'slots': p['slots'],
@@ -1892,7 +1892,7 @@ class TimeParser(SlyParser):
         add_qual('durative', p[1])
         return p[1]
 
-    # add reference data
+    # add reference source_data
     @_('SFX duration')
     def duration(self, p):
         return add_ref('SFX', p[0], p.duration)

@@ -62,7 +62,7 @@ class Positions:
             return None
     
     def get(self, position, default=None, do=None):
-        """Get data on node (+/-)N positions away. 
+        """Get source_data on node (+/-)N positions away.
         
         Arguments:
             position: a positive or negative integer that 
@@ -77,14 +77,14 @@ class Positions:
         # get requested position in context
         get_pos = self.elementpos(position)
         
-        # return requested data
+        # return requested source_data
         if get_pos:
             if not do: 
                 return get_pos
             else:
                 return do(get_pos)
             
-        # return empty data
+        # return empty source_data
         else:
             return default
         
@@ -271,7 +271,7 @@ class PositionsTF(Positions):
         Positions.__init__(self, node, positions)
         
     def get(self, position, *features):
-        """Get data on node (+/-)N positions away. 
+        """Get source_data on node (+/-)N positions away.
         
         Arguments:
             position: a positive or negative integer that 
@@ -291,7 +291,7 @@ class PositionsTF(Positions):
                 get_pos = self.elementpos(position)
             self.cache[position] = get_pos
             
-        # return requested data
+        # return requested source_data
         if get_pos:
             Fs = self.tf.Fs
             if not features: 
@@ -301,7 +301,7 @@ class PositionsTF(Positions):
             elif len(features) > 1:
                 return set(Fs(feat).v(get_pos) for feat in features)
             
-        # return empty data
+        # return empty source_data
         elif get_pos not in self.positions:
             if not features:
                 return None

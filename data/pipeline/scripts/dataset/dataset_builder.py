@@ -27,7 +27,7 @@ def remove_shindots(string):
     )
 
 def get_ref_data(node, API):
-    """Retrieve refrence data."""
+    """Retrieve refrence source_data."""
 
     # TF methods
     F, E, T, L = API.F, API.E, API.T, API.L
@@ -35,7 +35,7 @@ def get_ref_data(node, API):
     # get map of books to various subcollections
     bookmap = get_book_maps(API)
     
-    # calc various ref data
+    # calc various ref source_data
     bk, ch, vs = T.sectionFromNode(node)
     book_super = bookmap['super'].get(bk, bk)
     canon_part = bookmap['tripart'][bk]
@@ -58,14 +58,14 @@ def get_clause_data(clause, API,
                     do_args=True,
                     count_succs=True,
                     ):
-    """Build data on a clause."""
+    """Build source_data on a clause."""
 
     # TF methods
     F, E, T, L = API.F, API.E, API.T, API.L
 
     cl_data = {}
 
-    # collect data of clause, but also
+    # collect source_data of clause, but also
     # of embedding linguistic unit like sentence
     firstw = L.d(clause, 'word')[0]
     firstw_fmts = get_word_formats([firstw], parsedata['slot2pos'], API)
@@ -101,7 +101,7 @@ def get_clause_data(clause, API,
     cl_data['cl_type'] = F.typ.v(clause)
     cl_data['cl_kind'] = F.kind.v(clause)
 
-    # build data for clause verbs
+    # build source_data for clause verbs
     verbs = [
         w for w in L.d(clause,'word')
             if F.pdp.v(w) == 'verb'
@@ -122,7 +122,7 @@ def get_clause_data(clause, API,
     else:
         cl_data['verbform'] = 'Ø'
 
-    # build data for clause arguments
+    # build source_data for clause arguments
     if do_args:
         refword = verb if verb else firstw 
         cl_args = clause_args(
@@ -162,7 +162,7 @@ def get_clause_data(clause, API,
         ]
         cl_data['cl_nsuccs'] = len(main_succs)
 
-    # return clause data
+    # return clause source_data
     return cl_data
 
 def get_word_formats(words,
@@ -175,7 +175,7 @@ def get_word_formats(words,
     # BHSA methods
     F = API.F
 
-    # format data on heads
+    # format source_data on heads
     words_etcbc = f'{joiner}'.join(F.lex.v(w) for w in words)
     words_utf8 = f'{joiner}'.join(F.voc_lex_utf8.v(w) for w in words)
     words_utf8d = (
@@ -277,7 +277,7 @@ def time_dataset(paths, parsedata, API):
     
     slot2pos = parsedata['slot2pos']
 
-    # load data parsed in this project
+    # load source_data parsed in this project
     time_data = parsedata['times']
     phrase_data = parsedata['phrases']
 
@@ -286,12 +286,12 @@ def time_dataset(paths, parsedata, API):
     modi_keys = set()
     for clause, data in time_data.items():
 
-        # build up the row data here
+        # build up the row source_data here
         rowdata = {
             'node': clause,
         }
 
-        # add reference data
+        # add reference source_data
         rowdata.update(
             get_ref_data(clause, API)
         )
@@ -308,7 +308,7 @@ def time_dataset(paths, parsedata, API):
             )
         ) 
 
-        # add data related to the phrase
+        # add source_data related to the phrase
         slots = sorted(data['slots'])
         phrases = sorted(data['phrase_nodes'])
         ph_parses = [phrase_data[ph]['parse'] for ph in phrases]
@@ -435,7 +435,7 @@ def time_dataset(paths, parsedata, API):
             'tense': tense,
         })
 
-        # add clause-based data
+        # add clause-based source_data
         rowdata.update(
             get_clause_data(clause, API, parsedata)
         )
@@ -447,7 +447,7 @@ def time_dataset(paths, parsedata, API):
             parsedata['clclusters']['10']['clusters'][str(clause)]
         )
 
-        # get various additional data centered on the verb
+        # get various additional source_data centered on the verb
         if rowdata.get('verb'):
             verb = rowdata['verb']
             verbtense = parsedata['tenses'].get(verb,{}).get('esv_TAMsimp')
@@ -469,8 +469,8 @@ def time_dataset(paths, parsedata, API):
                     if l in {'T', 'V'}
             )
        
-        # add modifier data
-        # this data will typically be used to analyze single-phrased TAs
+        # add modifier source_data
+        # this source_data will typically be used to analyze single-phrased TAs
         # so we just take the first ph_parse
         modifiers = get_modis(
             ph_parses[0], 
@@ -597,7 +597,7 @@ def time_dataset(paths, parsedata, API):
             qual_tag = qual_map[qual]
             rowdata['tag'] = f'{qual_tag}_{front}'
 
-        # get demonstrative data
+        # get demonstrative source_data
         demon_map = {
             "Z>T": "THIS",
             "HJ>": "THAT",
@@ -610,7 +610,7 @@ def time_dataset(paths, parsedata, API):
         if demon := modifiers.get('DEMON'):
             rowdata['demon_type'] = demon_map[F.lex.v(demon[0])]
    
-        # add tense data based on modifiers and other feats
+        # add tense source_data based on modifiers and other feats
         rowdata.update(
             add_tense(rowdata, modifiers)
         )
@@ -649,7 +649,7 @@ def time_dataset(paths, parsedata, API):
         # finish
         rows.append(rowdata)
 
-    # turn into data frame and export as CSV
+    # turn into source_data frame and export as CSV
     df = pd.DataFrame(rows) 
     modi_keys = list(modi_keys)
     df.loc[:, modi_keys] = df.loc[:, modi_keys].fillna(0)
@@ -664,7 +664,7 @@ def phrase_dataset(paths, parsedata, API):
     # text-fabric methods
     F, E, T, L = API.F, API.E, API.T, API.L
 
-    # load data parsed in this project
+    # load source_data parsed in this project
     phrase_data = parsedata['phrases']
     functions = parsedata['functions']
     slot2pos = parsedata['slot2pos']
@@ -674,17 +674,17 @@ def phrase_dataset(paths, parsedata, API):
     modi_keys = set()
     for phrase, ph_data in phrase_data.items():
 
-        # build up the row data here
+        # build up the row source_data here
         rowdata = {
             'node': phrase,
         }
 
-        # add reference data
+        # add reference source_data
         rowdata.update(
             get_ref_data(phrase, API)
         )
 
-        # load / configure parsing data
+        # load / configure parsing source_data
         parse = ph_data['parse']
         if len(parse) == 1:
             parse = [None, parse[0], None]
@@ -704,7 +704,7 @@ def phrase_dataset(paths, parsedata, API):
             )
         ) 
 
-        # add data related to the phrase
+        # add source_data related to the phrase
         slots = sorted(
             s for sp in subphrases
                 for s in nt.get_slots(sp)
@@ -731,7 +731,7 @@ def phrase_dataset(paths, parsedata, API):
             'n_phatoms': len(phatoms),
         })
 
-        # add clause-based data
+        # add clause-based source_data
         clause = L.u(head_ph, 'clause')[0]
         rowdata['clause_node'] = clause
         rowdata.update(
@@ -743,7 +743,7 @@ def phrase_dataset(paths, parsedata, API):
             )
         )
         
-        # add modifier data
+        # add modifier source_data
         modifiers = get_modis(parse, API, boolean=False)
         modi_keys |= set(modifiers)
         rowdata.update(
@@ -819,7 +819,7 @@ def phrase_dataset(paths, parsedata, API):
         # finish
         rows.append(rowdata)
 
-    # turn into data frame and export as CSV
+    # turn into source_data frame and export as CSV
     df = pd.DataFrame(rows) 
     modi_keys = list(modi_keys)
     df.loc[:, modi_keys] = df.loc[:, modi_keys].fillna(0)
@@ -827,7 +827,7 @@ def phrase_dataset(paths, parsedata, API):
     df.to_csv(paths['phrasedataset'], index=False)
 
 def clause_dataset(paths, parsedata, API):
-    """Build data on all clauses that are not already parsed."""
+    """Build source_data on all clauses that are not already parsed."""
     F, L = API.F, API.L
     
     print('Building clause dataset...')
@@ -851,7 +851,7 @@ def clause_dataset(paths, parsedata, API):
 def build_datasets(paths):
     """Load TF and build time / phrase datasets."""
 
-    # load various data for feature processing
+    # load various source_data for feature processing
     data = {
         'slot2pos': ParseLoader(paths['slot2pos']).load(),
         'times': ParseLoader(paths['timedata']).load(),
@@ -866,7 +866,7 @@ def build_datasets(paths):
     with open(paths['bhsa2gbi_verb'], 'rb') as infile:
         data['bhsa2gbi'] = pickle.load(infile)
     
-    # load needed TF BHSA data
+    # load needed TF BHSA source_data
     TF = Fabric(locations=paths['bhsadata'], silent='deep')
     API = TF.load(
         'kind lex vt pdp ls '
@@ -877,7 +877,7 @@ def build_datasets(paths):
         'voc_lex_utf8 '
     )
 
-    # execute the creation of the data
+    # execute the creation of the source_data
     time_dataset(paths, data, API)
     phrase_dataset(paths, data, API)
     clause_dataset(paths, data, API)

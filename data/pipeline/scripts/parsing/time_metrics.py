@@ -11,7 +11,7 @@ from tools.load_parse import ParseLoader
 from pprint import pformat
 
 def get_node_data(node, tf_api):
-    """Retrieve data on parsed phrase for analysis."""
+    """Retrieve source_data on parsed phrase for analysis."""
     F, E, L, = tf_api.F, tf_api.E, tf_api.L
     words = L.d(node, 'word')
     phatoms = L.d(node, 'phrase_atom')
@@ -21,7 +21,7 @@ def get_node_data(node, tf_api):
     }
 
 def build_row_data(node, tf_api, time_parsing={}, **features):
-    """Build data that can be analyzed to assess quality of parses."""
+    """Build source_data that can be analyzed to assess quality of parses."""
     F, T, L = tf_api.F, tf_api.T, tf_api.L
     book, chapter, verse = T.sectionFromNode(node)
 
@@ -32,7 +32,7 @@ def build_row_data(node, tf_api, time_parsing={}, **features):
     if err:
         features['error'] = html.escape(err)
 
-    # build basic data
+    # build basic source_data
     data = dict(
         node=node,
         ref=f'{book} {chapter}:{verse}',
@@ -45,11 +45,11 @@ def build_row_data(node, tf_api, time_parsing={}, **features):
         **features
     )
 
-    # update with time parsing data
+    # update with time parsing source_data
     data['function'] = time_parsing.get('functions', [None])[0]
     data['slots'] = time_parsing.get('slots', [])
 
-    # update with data about the phrase
+    # update with source_data about the phrase
     data.update(
         get_node_data(
             node, 
@@ -62,14 +62,14 @@ def build_row_data(node, tf_api, time_parsing={}, **features):
 def build_parse_table(paths, API):
     """Produce metrics and reports on the parsings."""
 
-    # load phrase data
+    # load phrase source_data
     with open(paths['parsed'], 'r') as infile:
         parsed = json.load(infile)
     with open(paths['notparsed'], 'r') as infile:
         errors = json.load(infile)
     ph_parsings = ParseLoader(paths['ph_parses']).load()
 
-    # build row data for dataframe
+    # build row source_data for dataframe
     rows = []
     for node, parse in parsed.items():
         node = int(node)

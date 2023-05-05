@@ -13,6 +13,7 @@ env
 *.swp
 .snakemake
 *.tf
+.snakemake_timestamp
 
 # MS Office files
 

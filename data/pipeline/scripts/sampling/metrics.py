@@ -7,7 +7,7 @@ from tf.fabric import Fabric
 from tools.html_docs import HtmlReport  
 
 def get_rows(node, tf_api, **features):
-    """Get data on a given phrase node."""
+    """Get source_data on a given phrase node."""
     F, T, L = tf_api.F, tf_api.T, tf_api.L
     book, chapter, verse = T.sectionFromNode(node)
     ref = f'{book} {chapter}:{verse}'
@@ -27,7 +27,7 @@ def get_rows(node, tf_api, **features):
 
 def build_dataset(samp_path, nosamp_path, tf_locs):
     """Build DataFrame for analysis"""
-    # initialize TF with BHSA data
+    # initialize TF with BHSA source_data
     TF = Fabric(locations=tf_locs)
     API = TF.load('typ')
     F, T, L = API.F, API.T, API.L 

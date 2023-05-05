@@ -12,7 +12,7 @@ from tools import nav_tree as nt
 from tools.html_docs import HtmlReport
 
 def build_row_data(node, tf_api, slot2pos, parsing=[], **features):
-    """Build data that can be analyzed to assess quality of parses."""
+    """Build source_data that can be analyzed to assess quality of parses."""
     F, T, L = tf_api.F, tf_api.T, tf_api.L
     book, chapter, verse = T.sectionFromNode(node)
     phrase = L.u(node, 'phrase')[0]
@@ -40,7 +40,7 @@ def build_row_data(node, tf_api, slot2pos, parsing=[], **features):
 def build_parse_tables(paths, API):
     """Produce metrics and reports on the parsings."""
     
-    # load phrase and POS data
+    # load phrase and POS source_data
     with open(paths['parsed_atoms'], 'r') as infile:
         parsed = json.load(infile)
     with open(paths['unparsed_atoms'], 'r') as infile:
@@ -52,7 +52,7 @@ def build_parse_tables(paths, API):
     sp_rows = []
     sp_id = 1 # counter to make subphrase ids
 
-    # build data for successful parses
+    # build source_data for successful parses
     for node, parse in parsed.items():
         node = int(node)
         row = build_row_data(
@@ -63,7 +63,7 @@ def build_parse_tables(paths, API):
         )
         rows.append(row)
 
-        # add in subphrase data
+        # add in subphrase source_data
         if type(parse) == int or len(parse) < 3:
             continue
         subphrases = list(nt.traverse_tree(parse))
@@ -80,7 +80,7 @@ def build_parse_tables(paths, API):
             })
             sp_id += 1
 
-    # build data for unsuccesful parses
+    # build source_data for unsuccesful parses
     for node, reason in errors.items():
         node = int(node)
         row = build_row_data(

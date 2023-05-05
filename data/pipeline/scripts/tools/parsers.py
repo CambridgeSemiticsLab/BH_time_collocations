@@ -5,7 +5,7 @@ class PositionsParser:
     """Parse items from a Text-Fabric resource.
 
     This class provides methods for parsing basic tags
-    based on contextual data. The contexts are accessed
+    based on contextual source_data. The contexts are accessed
     through a custom-made Positions class, which allows for
     positions (node) before or after a given node to be 
     looked up and referred to.
@@ -29,7 +29,7 @@ class PositionsParser:
 
         Args:
             tf_api: an active instance of Text-Fabric with
-                corpus data pre-loaded
+                corpus source_data pre-loaded
         """
 
         # set up TF methods
