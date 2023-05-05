@@ -12,15 +12,12 @@ THESIS_CORPUS_PARAMS = dict(
         'book@ja', 'book@ko', 'book@la', 'book@nl',
         'book@pa', 'book@pt', 'book@ru', 'book@sw',
         'book@syc', 'book@tr', 'book@ur', 'book@yo',
-        'book@zh', 'book', 'dist', 'dist_unit',
-        'mother_object_type', 'number',
-        'functional_parent', 'distributional_parent',
-        'language', 'languageISO',
+        'book@zh', 'dist', 'dist_unit',
+        'mother_object_type', 'functional_parent',
+        'distributional_parent', 'languageISO',
         'omap@c-KT', 'omap@c-2021', 'omap@2017-2021',
     },
-    rename_features={
-        'book@en': 'book',
-    },
+    rename_features={},
     edit_actions=[
         # NB: below is just an example
         # EditAction(
