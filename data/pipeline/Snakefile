@@ -17,6 +17,11 @@ def globfiles(path, pattern):
     return Path(path).glob(pattern)
 
 
+rule all:
+    input:
+        "../data/test.txt"
+
+
 rule build_corpus:
     params:
         bhsa_repo=BHSA_REPO,
@@ -32,3 +37,14 @@ rule build_corpus:
         directory("../data/corpus/")
     script:
         "scripts/build_corpus.py"
+
+
+rule label_dataset:
+    input:
+        corpus=rules.build_corpus.output,
+        params="scripts/labeling/params.py",
+    output:
+        "../data/test.txt"
+    script:
+        "scripts/label_dataset.py"
+
