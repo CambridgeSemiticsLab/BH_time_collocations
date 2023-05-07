@@ -2,12 +2,18 @@
 
 from abc import ABC, abstractmethod
 from typing import List, Dict, Set, NamedTuple, Tuple
+from textwrap import dedent
 
 
 class TargetObjectSpecifier(NamedTuple):
     """Object of interest to collect for annotation."""
     name: str
-    query: str  # string for Text-Fabric to query to identify the object
+    raw_query: str  # string for Text-Fabric to query to identify the object
+
+    @property
+    def query(self) -> str:
+        """Return dedented query string."""
+        return dedent(self.raw_query)
 
 
 class ObjectIdentifier(NamedTuple):

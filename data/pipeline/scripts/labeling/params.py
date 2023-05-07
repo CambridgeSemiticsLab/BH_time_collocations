@@ -9,41 +9,42 @@ from labeling.query_labeler import LabelQuery
 annotation_obj_specs = [
     TargetObjectSpecifier(
         "time_clause",
-        dedent("""
-            clause
-            /with/
-                phrase function=Time
-            /-/
-        """),
+        """
+        clause
+        /with/
+            phrase function=Time
+        /-/
+        """,
     ),
     TargetObjectSpecifier(
         "time_phrase",
-        dedent("""
-            phrase function=Time
-        """)
+        """
+        phrase function=Time
+        """
     ),
     TargetObjectSpecifier(
         "verb",
-        dedent("""
-            w:word pdp=verb
-            /with/
-            clause
-                phrase function=Time
-                w
-            /-/
-        """)
+        """
+        w:word pdp=verb
+        /with/
+        clause
+            phrase function=Time
+            w
+        /-/
+        """
     ),
 ]
 
 
 label_specs = {
-    'time_clause': {'cl_type'},
+    'time_clause': {'cl_type', 'aspect'},
     'time_phrase': {'tp_cluster'},
     'verb': {'tense'},
 }
 
 
 label_queries = [
+    # clause types
     LabelQuery(
         targets={'time_clause'},
         label='cl_type',
@@ -56,4 +57,18 @@ label_queries = [
             /-/
         """,
     ),
+    # aspect
+    LabelQuery(
+        targets={'time_clause'},
+        label='aspect',
+        value='ach_di',
+        query="""
+        t:target
+        /with/
+            word pdp=verb lex=BW>[|HLK[|CWB[|QRB[|>MR[
+            phrase function=Cmpl
+                word lex=>L pdp=prep
+        /-/
+        """
+    )
 ]

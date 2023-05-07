@@ -8,7 +8,10 @@ from labeling.params import (
     annotation_obj_specs, label_specs, label_queries,
 )
 
-tf_fabric = Fabric(locations=snakemake.input.corpus)
+tf_fabric = Fabric(
+    locations=snakemake.input.corpus,
+    silent="deep",
+)
 tf_api = tf_fabric.loadAll()
 
 
