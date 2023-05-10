@@ -16,8 +16,8 @@ MetaDataDict = Dict[str, Dict[str, str]]
 
 class CorpusData(TypedDict):
     """Object to hold corpus source_data."""
-    nodeFeature: NodeFeatureDict
-    edgeFeature: EdgeFeatureDict
+    nodeFeatures: NodeFeatureDict
+    edgeFeatures: EdgeFeatureDict
     metaData: MetaDataDict
 
 

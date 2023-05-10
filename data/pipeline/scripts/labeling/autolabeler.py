@@ -27,7 +27,6 @@ class AutoLabeler:
         self.label_processors = label_processors
         self.tf_fabric = tf_fabric
         self.tf_api = tf_fabric.api
-        self.clause_rank = self.tf_api.Nodes.otypeRank['clause']
 
     @staticmethod
     def _log(message: Any, ts=False, indent=0):
@@ -97,32 +96,9 @@ class AutoLabeler:
         # done
         return auto_labels
 
-    def _get_clause_node(self, node: int) -> int:
-        """Assign a clause node for a given node."""
-        label_otype = self.tf_api.F.otype.v(node)
-        rank = self.tf_api.Nodes.otypeRank[label_otype]
-        if rank > self.clause_rank:
-            raise Exception(f'node {node} has a otype > clause!')
-        elif label_otype == 'clause':
-            return node
-        else:
-            return self.tf_api.L.u(node, 'clause')[0]
-
-    def _cluster_labels_by_clause(self, labels: List[LingLabel]):
-        """Cluster labels by clause."""
-        cl_clustered_labels = collections.defaultdict(list)
-        for label in labels:
-            cl_node = self._get_clause_node(label.node)
-            cl_clustered_labels[cl_node].append(label)
-        return cl_clustered_labels
-
-    def labelize(self) -> None:
+    def labelize(self) -> List[LingLabel]:
         """Generate labels and output an annotation file."""
         annotation_objects = self._collect_annotation_objects(self.annotation_obj_specs)
         new_annotation_objs = self._filter_labeled_objects(annotation_objects)
         auto_labels = self._get_auto_labels(new_annotation_objs)
-        cl_clustered_labels = self._cluster_labels_by_clause(auto_labels)
-
-        # TODO: remove
-        with open(str(self.outdir), 'w') as outfile:
-            outfile.write('test')
+        return auto_labels

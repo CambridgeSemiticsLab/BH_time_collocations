@@ -29,10 +29,8 @@ rule build_corpus:
         bhsa_genre_path=directory(BHSA_GENRE_DATA),
     input:
         "scripts/corpus_building/config.py",
-        "scripts/corpus_building/corpus_builder.py",
-        "scripts/build_corpus.py",
-        globfiles(BHSA_BASE_DATA, '.tf'),
-        globfiles(BHSA_GENRE_DATA, '.tf'),
+        globfiles(BHSA_BASE_DATA, '*.tf'),
+        globfiles(BHSA_GENRE_DATA, '*.tf'),
     output:
         directory("../data/corpus/")
     script:
@@ -43,8 +41,8 @@ rule label_dataset:
     input:
         corpus=rules.build_corpus.output,
         params="scripts/labeling/params.py",
+        sheets="scripts/labeling/annotation_sheets.py"
     output:
-        "../data/test.txt"
+        "../data/annotations/blank/test.docx"
     script:
         "scripts/label_dataset.py"
-
