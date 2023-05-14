@@ -1,10 +1,9 @@
 import json
-from tf.fabric import Fabric
 from sly import Parser as SlyParser
 from sly.lex import Token as SlyToken
-from tools import nav_tree as nt
-from tools.load_parse import ParseLoader
-from pprint import pprint
+from data.pipeline.legacy_scripts.tools import nav_tree as nt
+from data.pipeline.legacy_scripts.tools.load_parse import ParseLoader
+
 
 class TimeTokenizer:
     """Generate selected tokens from a time phrase parsing.

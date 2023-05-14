@@ -2,11 +2,12 @@
 
 import collections
 
-from typing import List, Dict, Set, Any
+from typing import List, Dict, Set, Any, Iterable
 from datetime import datetime
 from tf.fabric import Fabric
 
-from labeling.utils import TargetObjectSpecifier, LingLabel, BaseLabelProcessor
+from labeling.specifiers import TargetQuerySpecifier, LingLabel, LabelSpec
+from labeling.projects import BaseLabelingProject
 
 
 class AutoLabeler:
@@ -14,19 +15,23 @@ class AutoLabeler:
 
     def __init__(
             self,
-            outdir: str,
             tf_fabric: Fabric,
-            annotation_obj_specs: List[TargetObjectSpecifier],
-            label_specs: Dict[str, Set[str]],
-            label_processors: List[BaseLabelProcessor],
+            project: BaseLabelingProject,
     ) -> None:
         """Initialialize the autolabeler."""
-        self.outdir = outdir
-        self.annotation_obj_specs = annotation_obj_specs
-        self.label_specs = label_specs
-        self.label_processors = label_processors
         self.tf_fabric = tf_fabric
         self.tf_api = tf_fabric.api
+        self.project = project
+        self.labels_to_do = self._get_labels_todo_by_target(project.labels.values())
+
+    @staticmethod
+    def _get_labels_todo_by_target(label_specs: Iterable[LabelSpec]) -> Dict[str, Set[str]]:
+        """Return a mapping between a target string and all labels to-do."""
+        target_to_labels = {}
+        for label_spec in label_specs:
+            for target in label_spec.targets:
+                target_to_labels.setdefault(target.name, set()).add(label_spec.name)
+        return target_to_labels
 
     @staticmethod
     def _log(message: Any, ts=False, indent=0):
@@ -42,21 +47,13 @@ class AutoLabeler:
 
     def _collect_annotation_objects(
             self,
-            object_specs: List[TargetObjectSpecifier]
+            object_specs: List[TargetQuerySpecifier]
     ) -> Dict[str, Set[int]]:
         """Collect all annotation objects."""
-        annotation_objects: Dict[str, Set[int]] = collections.defaultdict(set)
+        target_objects: Dict[str, Set[int]] = collections.defaultdict(set)
         for spec in object_specs:
-            annotation_objects[spec.name] = self._run_object_query(spec.query)
-        return annotation_objects
-
-    def _filter_labeled_objects(
-            self,
-            annotation_objects: Dict[str, Set[int]],
-    ) -> Dict[str, Set[int]]:
-        """Filter out objects that have already been annotated."""
-        # TODO
-        return annotation_objects
+            target_objects[spec.target.name] = self._run_object_query(spec.query)
+        return target_objects
 
     def _get_auto_labels(
             self,
@@ -69,8 +66,8 @@ class AutoLabeler:
         n_labeled = collections.Counter()
 
         # collect all labels produced by processors
-        for processor in self.label_processors:
-            for label in processor.label(annotation_objects):
+        for labeler in self.project.labelers:
+            for label in labeler.label(annotation_objects):
                 covered_targets[label.label].add(label.node)
                 auto_labels.append(label)
                 n_labeled[label.label] += 1
@@ -78,7 +75,7 @@ class AutoLabeler:
         # append empty labels for unlabeled targets
         n_unlabeled = collections.Counter()
         for name, nodes in annotation_objects.items():
-            expected_labels = self.label_specs[name]
+            expected_labels = self.labels_to_do[name]
             for node in nodes:
                 for label_str in expected_labels:
                     if node not in covered_targets[label_str]:
@@ -98,7 +95,6 @@ class AutoLabeler:
 
     def labelize(self) -> List[LingLabel]:
         """Generate labels and output an annotation file."""
-        annotation_objects = self._collect_annotation_objects(self.annotation_obj_specs)
-        new_annotation_objs = self._filter_labeled_objects(annotation_objects)
-        auto_labels = self._get_auto_labels(new_annotation_objs)
+        annotation_objects = self._collect_annotation_objects(self.project.target_queries)
+        auto_labels = self._get_auto_labels(annotation_objects)
         return auto_labels

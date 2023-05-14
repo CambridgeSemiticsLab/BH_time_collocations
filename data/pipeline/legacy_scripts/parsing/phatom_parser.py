@@ -3,10 +3,9 @@ Parse BHSA phrase atoms.
 """
 
 import json
-from tf.fabric import Fabric
 from sly import Lexer, Parser
 from sly.lex import Token
-from tools.positions import PositionsTF
+from data.pipeline.legacy_scripts.tools.positions import PositionsTF
 
 class CX:
     """A construction class for representing a word/morpheme."""

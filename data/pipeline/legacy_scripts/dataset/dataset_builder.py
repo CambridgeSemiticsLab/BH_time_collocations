@@ -6,15 +6,15 @@ from tf.fabric import Fabric
 from bidi.algorithm import get_display
 
 # custom modules
-import tools.nav_tree as nt
-from tools.load_parse import ParseLoader
+import data.pipeline.legacy_scripts.tools.nav_tree as nt
+from data.pipeline.legacy_scripts.tools.load_parse import ParseLoader
 from .tokenizers import tokenize_lexemes, formal_tokens
 from .nav_time import get_times
 from .verb_form import get_verbform
 from .modis_getter import get_modis
 from .synvar_carc import in_dep_calc as clause_relator
 from .modify_domain import permissive_q
-from .book_formats import get_book_maps, etcbc2sbl, etcbc2abbr
+from .book_formats import get_book_maps, etcbc2sbl
 from .tag_args import clause_args, tag_position
 from .clause_tree import get_successors
 

@@ -1,10 +1,9 @@
 import json
 import pandas as pd
-import numpy as np
 from tf.fabric import Fabric
 
 # NB custom module stored at ../
-from tools.html_docs import HtmlReport  
+from data.pipeline.legacy_scripts.tools.html_docs import HtmlReport
 
 def get_rows(node, tf_api, **features):
     """Get source_data on a given phrase node."""

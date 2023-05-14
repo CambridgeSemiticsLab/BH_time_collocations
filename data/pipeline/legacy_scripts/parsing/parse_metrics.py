@@ -1,15 +1,12 @@
 import re
 import json
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-from tf.app import use
-from tf.fabric import Fabric
 from pathlib import Path
-from tools import nav_tree as nt
+from data.pipeline.legacy_scripts.tools import nav_tree as nt
 
 # NB custom module
-from tools.html_docs import HtmlReport
+from data.pipeline.legacy_scripts.tools.html_docs import HtmlReport
 
 def build_row_data(node, tf_api, slot2pos, parsing=[], **features):
     """Build source_data that can be analyzed to assess quality of parses."""

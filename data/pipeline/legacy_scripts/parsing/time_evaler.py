@@ -4,7 +4,7 @@ import dictdiffer
 from tf.fabric import Fabric
 from tf.app import use
 from pprint import pformat
-from tools.load_parse import ParseLoader
+from data.pipeline.legacy_scripts.tools.load_parse import ParseLoader
 from pathlib import Path
 
 def mdcell(content):

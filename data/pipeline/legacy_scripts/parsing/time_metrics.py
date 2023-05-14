@@ -2,12 +2,10 @@ import re
 import json
 import html
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
-from tools.html_docs import HtmlReport
-import tools.nav_tree as nt
-from tools.load_parse import ParseLoader
+from data.pipeline.legacy_scripts.tools.html_docs import HtmlReport
+from data.pipeline.legacy_scripts.tools.load_parse import ParseLoader
 from pprint import pformat
 
 def get_node_data(node, tf_api):

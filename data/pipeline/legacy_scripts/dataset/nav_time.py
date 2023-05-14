@@ -1,4 +1,5 @@
-from tools import nav_tree as nt
+from data.pipeline.legacy_scripts.tools import nav_tree as nt
+
 
 def get_times(time_parse):
     """Recursively select time words from a parsed timephrase."""

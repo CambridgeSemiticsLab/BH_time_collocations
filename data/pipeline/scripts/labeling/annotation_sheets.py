@@ -2,16 +2,34 @@
 
 import collections
 import docx
+import json
 
+from pathlib import Path
 from abc import ABC, abstractmethod
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any, TypedDict
+
 from docx.shared import Pt, RGBColor
 from docx import Document
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 from docx.enum.style import WD_STYLE_TYPE
 from docx.opc.constants import RELATIONSHIP_TYPE as RT
 from tf.fabric import Fabric
-from labeling.utils import LingLabel
+from labeling.specifiers import LingLabel
+
+
+# define some constants
+GRAY = RGBColor(130, 130, 130)
+RED = RGBColor(255, 0, 0)
+SHEBANQ_LINK = (
+    'https://shebanq.ancient-data.org/hebrew/text'
+    '?book={book}&chapter={chapter}&verse={verse}&version=2021'
+)
+
+
+class AnnotationSheetSpecs(TypedDict):
+    """TypedDict to hold specs for an annotation sheet."""
+    sheet: str
+    project: str
 
 
 def add_hyperlink(paragraph, url, text, color=None, underline=True):
@@ -23,6 +41,8 @@ def add_hyperlink(paragraph, url, text, color=None, underline=True):
     :param paragraph: The paragraph we are adding the hyperlink to.
     :param url: A string containing the required url
     :param text: The text displayed for the url
+    :param color: a color for the URL
+    :param underline: whether to underline the URL
     :return: The hyperlink object
     """
 
@@ -56,40 +76,55 @@ def add_hyperlink(paragraph, url, text, color=None, underline=True):
     new_run.append(rPr)
     new_run.text = text
     hyperlink.append(new_run)
-
     paragraph._p.append(hyperlink)
 
     return hyperlink
 
 
-class AnnotationSheet(ABC):
+class BaseAnnotationSheet(ABC):
     """Object for generating an annotation sheet as a MS document."""
+
+    SHEET = "base"
 
     def __init__(
             self,
             annotations: List[LingLabel],
             tf_fabric: Fabric,
+            project_name: str,
     ):
         """Initialize an AnnotationSheet object."""
         self.annotations = annotations
+        self.project_name = project_name
         self.tf_fabric = tf_fabric
         self.tf_api = tf_fabric.api
         self.document = Document()
-        self.styles = self._add_styles(self.document)
+        self._inject_specs_into_docx_metadata(self.document)
+        self.styles = self._add_styles()
         self._build_document(self.document)
 
-    @staticmethod
+    @property
+    def specs(self) -> AnnotationSheetSpecs:
+        """Retrieve specs for this sheet template."""
+        return {
+            "sheet": self.SHEET,
+            "project": self.project_name,
+        }
+
+    def _inject_specs_into_docx_metadata(self, doc: Document):
+        """Add annotation specs to the document's "comments" metadata section."""
+        doc.core_properties.comments = json.dumps(self.specs)
+
+    def to_docx(self, filepath: Path) -> None:
+        """Save a new docx with document."""
+        self.document.save(filepath)
+
     @abstractmethod
     def _add_styles(self) -> Dict[str, Any]:
         """Set all styles for the document."""
 
     @abstractmethod
-    def _build_document(self, document: Document()) -> None:
+    def _build_document(self, document: Document) -> None:
         """Build up document."""
-
-    def save_docx(self, filepath: str) -> None:
-        """Save a new docx with document."""
-        self.document.save(filepath)
 
     @staticmethod
     @abstractmethod
@@ -97,32 +132,40 @@ class AnnotationSheet(ABC):
         """Extract cell values from a table row into a LingLabel object."""
 
     @classmethod
-    def from_docx(cls, filepath: str, tf_fabric: Fabric):
+    def from_docx(
+            cls,
+            filepath: Path,
+            tf_fabric: Fabric,
+            project_name: str,
+    ) -> 'BaseAnnotationSheet':
         """Read in docx annotation sheet."""
-        document = docx.Document(filepath)
+        # read in the project annotation sheet
+        document = Document(filepath)
+
+        # populate annotations from docx
         annotations = []
         for table in document.tables:
             for row in table.rows:
                 annotations.append(cls._label_from_row(row))
-        return cls(annotations, tf_fabric)
+
+        # return new class instance
+        return cls(
+            annotations=annotations,
+            tf_fabric=tf_fabric,
+            project_name=project_name,
+        )
 
 
-class BasicAnnotationSheet(AnnotationSheet):
+class BasicAnnotationSheet(BaseAnnotationSheet):
     """Prepare an annotation sheet."""
 
-    GRAY = RGBColor(130, 130, 130)
-    RED = RGBColor(255, 0, 0)
-    SHEBANQ_LINK = (
-        'https://shebanq.ancient-data.org/hebrew/text'
-        '?book={book}&chapter={chapter}&verse={verse}&version=2021'
-    )
+    SHEET = "basic"
 
-    @staticmethod
-    def _add_styles(document: Document()) -> Dict[str, Any]:
+    def _add_styles(self) -> Dict[str, Any]:
         """Set styles for the basic annotation sheet."""
         # dict to hold all new styles
         style_dict = {}
-        styles = document.styles
+        styles = self.document.styles
 
         # set reference header style
         style_dict['ref'] = styles.add_style('Reference', WD_STYLE_TYPE.PARAGRAPH)
@@ -167,7 +210,7 @@ class BasicAnnotationSheet(AnnotationSheet):
         """Add reference header to each entry."""
         book, ch, vs = self.tf_api.T.sectionFromNode(clause)
         ref = f'{clause}, {book} {ch}:{vs}'
-        shebanq_link = self.SHEBANQ_LINK.format(
+        shebanq_link = SHEBANQ_LINK.format(
             book=book, chapter=str(ch), verse=str(vs)
         )
         heading = doc.add_paragraph(style=self.styles['ref'].name)
@@ -193,7 +236,7 @@ class BasicAnnotationSheet(AnnotationSheet):
             self.tf_api.T.text(verse_nodes),
             style=self.styles['hebrew'].name,
         )
-        verse_text.runs[0].font.color.rgb = self.GRAY
+        verse_text.runs[0].font.color.rgb = GRAY
 
     def _add_clause_text(self, doc: Document, clause: int):
         """Add clause Hebrew text."""
@@ -207,11 +250,11 @@ class BasicAnnotationSheet(AnnotationSheet):
             node = node_text.add_run(str(word))
             node.font.superscript = True
             node.font.rtl = True
-            node.font.color.rgb = RGBColor(255, 0, 0)
+            node.font.color.rgb = RED
             heb_word = node_text.add_run(self.tf_api.T.text(word))
             heb_word.font.rtl = True
             heb_word.font.name = 'Times New Roman'
-            heb_word.font.color.rgb = self.GRAY
+            heb_word.font.color.rgb = GRAY
 
     @staticmethod
     def _fix_autofit_bug(table):
@@ -273,10 +316,9 @@ class BasicAnnotationSheet(AnnotationSheet):
     def _label_from_row(row) -> LingLabel:
         """Extract a label from a row."""
         label_cell, node_cell, target_cell, text_cell, value_cell = row.cells
-        ling_label = LingLabel(
+        return LingLabel(
             label=label_cell.text,
             value=value_cell.text,
             node=int(node_cell.text),
             target=target_cell.text
         )
-        return ling_label

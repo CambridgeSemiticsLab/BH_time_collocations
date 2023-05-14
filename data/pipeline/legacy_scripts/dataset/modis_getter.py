@@ -3,7 +3,7 @@ Retrieve modifiers from a phrase.
 """
 
 import collections
-import tools.nav_tree as nt
+import data.pipeline.legacy_scripts.tools.nav_tree as nt
 
 def get_modis(ph_parse, API, boolean=True):
     """Iterate through a phrase and retrieve its modifiers."""

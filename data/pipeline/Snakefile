@@ -2,10 +2,7 @@
 Snakefile for source_data analysis pipeline.
 """
 
-import logging
 from pathlib import Path
-
-import snakemake
 
 HOME = Path.home()
 BHSA_REPO = HOME / "github/etcbc/bhsa"
@@ -38,11 +35,15 @@ rule build_corpus:
 
 
 rule label_dataset:
+    params:
+        annotation_outdir="../data/annotations/blank",
+        annotation_indir="../data/annotations/complete",
     input:
         corpus=rules.build_corpus.output,
-        params="scripts/labeling/params.py",
-        sheets="scripts/labeling/annotation_sheets.py"
+        params="scripts/labeling/projects.py",
+        sheet_params="scripts/labeling/annotation_sheets.py",
+        completed_sheets=globfiles("../data/annotations/complete", "*.docx"),
     output:
-        "../data/annotations/blank/test.docx"
+        "../data/annotations/blank/test_1.0.docx",
     script:
         "scripts/label_dataset.py"

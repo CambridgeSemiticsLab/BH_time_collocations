@@ -1,21 +1,57 @@
 """This module contains helper objects and definitions."""
 
-from abc import ABC, abstractmethod
-from typing import List, Dict, Set, NamedTuple, Tuple
+from typing import NamedTuple, Tuple, Set
 from textwrap import dedent
 from tf.core.api import Api
 
 
-class TargetObjectSpecifier(NamedTuple):
-    """Object of interest to collect for annotation."""
+def format_query(query: str) -> str:
+    """Format a query string."""
+    return dedent(query)
+
+
+class TargetSpec(NamedTuple):
+    """Specifier tuple for a target linguistic object."""
 
     name: str
+
+
+class TargetQuerySpecifier(NamedTuple):
+    """Object of interest to collect for annotation."""
+
+    target: TargetSpec
     raw_query: str  # string for Text-Fabric to query to identify the object
 
     @property
     def query(self) -> str:
-        """Return dedented query string."""
-        return dedent(self.raw_query)
+        """Return query string."""
+        return format_query(self.raw_query)
+
+
+class LabelSpec(NamedTuple):
+    """Object for storing label configurations."""
+
+    name: str
+    targets: Set[TargetSpec]
+
+
+class ValueSpec(NamedTuple):
+    """Specifier for values."""
+
+    name: str
+    label: LabelSpec
+
+
+class ValueQuery(NamedTuple):
+    """Class for automatically identifying a label value."""
+
+    value: ValueSpec
+    raw_query: str
+
+    @property
+    def query(self) -> str:
+        """Retrieve query string."""
+        return format_query(self.raw_query)
 
 
 class LingLabel(NamedTuple):
@@ -66,20 +102,3 @@ class FrozenLingLabel(NamedTuple):
             nid=NodeIdentifier(otype, oslots),
             target=ling_label.target,
         )
-
-
-class BaseLabelProcessor(ABC):
-    """Base object for label processing."""
-
-    @abstractmethod
-    def label(
-            self,
-            annotation_objects: Dict[str, Set[int]],
-    ) -> List[LingLabel]:
-        """
-        Process targets for a given label name.
-
-        :param annotation_objects: a dictionary with object names
-            as keys, and a set of node integers as values
-        :return: a list of LingLabel named tuples
-        """

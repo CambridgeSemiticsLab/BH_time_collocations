@@ -9,8 +9,8 @@ We will take advantage of this in order to complete the phrase parsing.
 import json
 import collections
 import copy
-from tools.load_parse import ParseLoader
-import tools.nav_tree as nt
+from data.pipeline.legacy_scripts.tools.load_parse import ParseLoader
+import data.pipeline.legacy_scripts.tools.nav_tree as nt
 
 class PhraseAtomComposer:
 

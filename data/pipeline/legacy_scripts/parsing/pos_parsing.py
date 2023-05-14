@@ -1,7 +1,7 @@
 import json
 from tf.fabric import Fabric
-from tools.parsers import PositionsParser
-from tools.load_parse import ParseLoader
+from data.pipeline.legacy_scripts.tools.parsers import PositionsParser
+from data.pipeline.legacy_scripts.tools.load_parse import ParseLoader
 
 # a class to parse BHSA word nodes into parts of speech
 class posParser(PositionsParser):

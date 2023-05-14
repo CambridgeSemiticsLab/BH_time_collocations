@@ -1,13 +1,14 @@
-"""This module labels the analysis dataset."""
+"""
+A module for applying hand-checked labels to the dataset.
+
+NB: This scripting module is to be executed by Snakemake, which
+injects a variable, `snakemake`, for accessing program parameters.
+"""
 
 from tf.fabric import Fabric
+from labeling.project_runner import ProjectRunner
+from labeling.projects import TestLabelingProject
 
-from labeling.autolabeler import AutoLabeler
-from labeling.query_labeler import QueryLabeler
-from labeling.params import (
-    annotation_obj_specs, label_specs, label_queries,
-)
-from labeling.annotation_sheets import BasicAnnotationSheet
 
 # configure resources
 tf_fabric = Fabric(
@@ -16,27 +17,16 @@ tf_fabric = Fabric(
 )
 tf_api = tf_fabric.loadAll()
 
-processors = [
-    QueryLabeler(tf_fabric, label_queries),
+# set up projects
+projects = [
+    TestLabelingProject(
+        annotation_outdir=str(snakemake.params.annotation_outdir),
+        annotation_indir=str(snakemake.params.annotation_indir),
+        tf_fabric=tf_fabric,
+        extra_labelers=[],
+    ),
 ]
 
-
-# get labels
-labeler = AutoLabeler(
-    outdir=snakemake.output,
-    tf_fabric=tf_fabric,
-    annotation_obj_specs=annotation_obj_specs,
-    label_specs=label_specs,
-    label_processors=processors,
-)
-
-print('RUNNING AUTOLABELER...')
-labels = labeler.labelize()
-
-# output labels to annotation sheet
-sheet = BasicAnnotationSheet(
-    annotations=labels,
-    tf_fabric=tf_fabric,
-)
-print('BUILDING ANNOTATION SHEET...')
-sheet.save_docx(str(snakemake.output))
+# run projects
+runner = ProjectRunner(projects, tf_fabric)
+runner.build_labels()

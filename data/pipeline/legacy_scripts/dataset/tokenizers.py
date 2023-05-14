@@ -1,4 +1,4 @@
-import tools.nav_tree as nt
+import data.pipeline.legacy_scripts.tools.nav_tree as nt
 
 def formal_tokens(nodes, tf, feature):
     """Make 'dumb' tokens"""
