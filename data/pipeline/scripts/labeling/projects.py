@@ -156,19 +156,25 @@ class BaseLabelingProject(ABC):
 
 
 # define some standard, inter-project templates
-TIMEPHRASE_QUERY = "phrase function=Time"
 TIMECLAUSE_QUERY = """
-    clause
+    time_clause:clause
     /with/
         phrase function=Time
     /-/
 """
-VERB_QUERY = """
-    w:word pdp=verb
+TIMEPHRASE_QUERY = """
+    time_phrase:phrase function=Time"
     /with/
-    clause
+    time_clause
+        time_phrase
+    /-/
+"""
+VERB_QUERY = """
+    verb:word pdp=verb
+    /with/
+    time_clause
         phrase function=Time
-        w
+        verb
     /-/
 """
 
@@ -243,12 +249,12 @@ class TestLabelingProject(BaseLabelingProject):
             TargetQuerySpecifier(
                 self.target_specs["time_phrase"],
                 TIMEPHRASE_QUERY,
-                0.1,
+                None,
             ),
             TargetQuerySpecifier(
                 self.target_specs["verb"],
                 VERB_QUERY,
-                0.1,
+                None,
             ),
         ]
 

@@ -44,9 +44,17 @@ class AutoLabeler:
         now = f'{datetime.now()}  ' if ts else ''
         print(f'{indent_str}{now}{message}')
 
-    def _run_object_query(self, query: str) -> Set[int]:
+    def _run_object_query(
+            self,
+            query: str,
+            target_sets: Dict[str, Set[int]],
+    ) -> Set[int]:
         """Run a Text-Fabric query for an annotation object."""
-        result_set = self.tf_api.S.search(query, shallow=True)
+        result_set = self.tf_api.S.search(
+            query,
+            shallow=True,
+            sets=target_sets,
+        )
         return result_set
 
     def _sample_query_results(
@@ -68,7 +76,7 @@ class AutoLabeler:
         target_objects: Dict[str, Set[int]] = collections.defaultdict(set)
         for spec in object_specs:
             self._log(f'Executing query for TARGET={spec.target.name}')
-            query_results = self._run_object_query(spec.query)
+            query_results = self._run_object_query(spec.query, target_objects)
             self._log(f'raw query results: {len(query_results)}', indent=2)
             if not spec.sample:
                 target_objects[spec.target.name] = query_results
