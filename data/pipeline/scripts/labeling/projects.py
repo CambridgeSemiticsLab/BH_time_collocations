@@ -119,10 +119,13 @@ class BaseLabelingProject(ABC):
         for sheet_path in sorted(self.annotation_indir.glob('*.docx')):
             doc = docx.Document(sheet_path)
             doc_meta: AnnotationSheetSpecs = json.loads(doc.core_properties.comments)
-            sheet_name = doc_meta['sheet']
-            proj_name = doc_meta['project']
-            if (proj_name == self.name) and (sheet_name in sheets_to_collect):
-                sheet_class: Type[BaseAnnotationSheet] = SHEET_MAP[sheet_name]
+            should_get_sheet = (
+                doc_meta['project'] == self.name
+                and doc_meta['sheet'] in sheets_to_collect
+                and doc_meta['status'] == 'pending'
+            )
+            if should_get_sheet:
+                sheet_class: Type[BaseAnnotationSheet] = SHEET_MAP[doc_meta["sheet"]]
                 sheets[sheet_path] = sheet_class.from_doc(
                         document=doc,
                         tf_fabric=self.tf_fabric,

@@ -1,11 +1,11 @@
 """Module to handle archiving and updating of accepted labels."""
 
+import os
 import json
 import collections
 
 from typing import List, Set
 from pathlib import Path
-from pprint import pformat
 from tf.fabric import Fabric
 from labeling.specifiers import LingLabel, ArchivableLingLabel, NodeIdentifier
 from labeling.projects import BaseLabelingProject
@@ -204,6 +204,10 @@ class LabelArchivist:
             LingLabel.from_archivable_label(label, self.tf_api)
             for label in labels
         ]
+
+    def _preserve_annotation_sheet(self):
+        """Change annotation sheet status to complete and set it to read-only."""
+
 
     def curate_collection(
             self,

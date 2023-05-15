@@ -6,7 +6,7 @@ import json
 
 from pathlib import Path
 from abc import ABC, abstractmethod
-from typing import Dict, List, Any, TypedDict, Optional, Union
+from typing import List, TypedDict, Optional, Union, Literal
 
 from docx.shared import Pt, RGBColor
 from docx import Document
@@ -30,6 +30,7 @@ class AnnotationSheetSpecs(TypedDict):
     """TypedDict to hold specs for an annotation sheet."""
     sheet: str
     project: str
+    status: Literal["pending", "complete"]
 
 
 def add_hyperlink(paragraph, url, text, color=None, underline=True):
@@ -113,6 +114,7 @@ class BaseAnnotationSheet(ABC):
         return {
             "sheet": self.NAME,
             "project": self.project_name,
+            "status": "pending",
         }
 
     def _inject_specs_into_docx_metadata(self, doc: Document):
