@@ -5,7 +5,6 @@ from tf.fabric import Fabric
 from labeling.projects import BaseLabelingProject
 from labeling.autolabeler import AutoLabeler
 from labeling.label_archiving import LabelArchivist
-from labeling.annotation_sheets import BaseAnnotationSheet
 
 
 class ProjectRunner:
