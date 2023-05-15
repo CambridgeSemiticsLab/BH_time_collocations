@@ -85,7 +85,7 @@ def measure_phrases(samp_path, nosamp_path,
         fill_value=0,
     )
     ptype_pr = ptype_ct.div(ptype_ct.sum(0), 1)
-    ptype_dpr = ptype_pr - ptype_pr.iloc[::-1].values
+    ptype_dpr = ptype_pr - ptype_pr.iloc[::-1].value_specs
     
     # look at rejection reasons
     rej_df = df[df.kept == False]

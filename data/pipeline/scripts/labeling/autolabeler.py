@@ -1,6 +1,8 @@
 """Module for autolabeling linguistic objects."""
 
 import collections
+import random
+import math
 
 from typing import List, Dict, Set, Any, Iterable
 from datetime import datetime
@@ -22,7 +24,7 @@ class AutoLabeler:
         self.tf_fabric = tf_fabric
         self.tf_api = tf_fabric.api
         self.project = project
-        self.labels_to_do = self._get_labels_todo_by_target(project.labels.values())
+        self.labels_to_do = self._get_labels_todo_by_target(project.label_specs.values())
 
     @staticmethod
     def _get_labels_todo_by_target(label_specs: Iterable[LabelSpec]) -> Dict[str, Set[str]]:
@@ -34,7 +36,7 @@ class AutoLabeler:
         return target_to_labels
 
     @staticmethod
-    def _log(message: Any, ts=False, indent=0):
+    def _log(message: Any, ts=False, indent=1):
         """Print log messages."""
         indent_str = '\t' * indent
         now = f'{datetime.now()}  ' if ts else ''
@@ -45,6 +47,17 @@ class AutoLabeler:
         result_set = self.tf_api.S.search(query, shallow=True)
         return result_set
 
+    def _sample_query_results(
+            self,
+            results: Set[int],
+            fraction: float,
+    ) -> Set[int]:
+        """Get a fractional sample of a query result."""
+        random.seed(self.project.random_seed)
+        sample_size = math.ceil(len(results) * fraction)
+        sample = random.sample(sorted(results), sample_size)
+        return set(sample)
+
     def _collect_annotation_objects(
             self,
             object_specs: List[TargetQuerySpecifier]
@@ -52,7 +65,15 @@ class AutoLabeler:
         """Collect all annotation objects."""
         target_objects: Dict[str, Set[int]] = collections.defaultdict(set)
         for spec in object_specs:
-            target_objects[spec.target.name] = self._run_object_query(spec.query)
+            self._log(f'Executing query for TARGET={spec.target.name}')
+            query_results = self._run_object_query(spec.query)
+            self._log(f'raw query results: {len(query_results)}', indent=2)
+            if not spec.sample:
+                target_objects[spec.target.name] = query_results
+            else:
+                sample = self._sample_query_results(query_results, spec.sample)
+                self._log(f'subsampled to: {len(sample)}', indent=2)
+                target_objects[spec.target.name] = sample
         return target_objects
 
     def _get_auto_labels(
@@ -63,14 +84,12 @@ class AutoLabeler:
         # collect all labels
         auto_labels: List[LingLabel] = []
         covered_targets = collections.defaultdict(set)
-        n_labeled = collections.Counter()
 
         # collect all labels produced by processors
         for labeler in self.project.labelers:
             for label in labeler.label(annotation_objects):
                 covered_targets[label.label].add(label.node)
                 auto_labels.append(label)
-                n_labeled[label.label] += 1
 
         # append empty labels for unlabeled targets
         n_unlabeled = collections.Counter()
@@ -85,10 +104,8 @@ class AutoLabeler:
                         )
 
         # give report on labeling outcome
-        self._log('**** Successfully Autolabeled ****')
-        self._log(n_labeled.most_common(), ts=False, indent=1)
-        self._log('********* Needs Labels ***********')
-        self._log(n_unlabeled.most_common(), ts=False, indent=1)
+        self._log('Empty Labels')
+        self._log(n_unlabeled.most_common(), ts=False, indent=2)
 
         # done
         return auto_labels

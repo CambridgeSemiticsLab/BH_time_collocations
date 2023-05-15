@@ -6,7 +6,7 @@ import json
 
 from pathlib import Path
 from abc import ABC, abstractmethod
-from typing import Dict, List, Any, TypedDict
+from typing import Dict, List, Any, TypedDict, Optional, Union
 
 from docx.shared import Pt, RGBColor
 from docx import Document
@@ -84,29 +84,34 @@ def add_hyperlink(paragraph, url, text, color=None, underline=True):
 class BaseAnnotationSheet(ABC):
     """Object for generating an annotation sheet as a MS document."""
 
-    SHEET = "base"
+    NAME = "base"
 
     def __init__(
             self,
             annotations: List[LingLabel],
             tf_fabric: Fabric,
             project_name: str,
+            document: Optional[Document] = None,
     ):
         """Initialize an AnnotationSheet object."""
         self.annotations = annotations
         self.project_name = project_name
         self.tf_fabric = tf_fabric
         self.tf_api = tf_fabric.api
-        self.document = Document()
-        self._inject_specs_into_docx_metadata(self.document)
-        self.styles = self._add_styles()
-        self._build_document(self.document)
+        self.styles = {}
+        if not document:
+            self.document = Document()
+            self._inject_specs_into_docx_metadata(self.document)
+            self._add_styles()
+            self._build_document(self.document)
+        else:
+            self.document = document
 
     @property
     def specs(self) -> AnnotationSheetSpecs:
         """Retrieve specs for this sheet template."""
         return {
-            "sheet": self.SHEET,
+            "sheet": self.NAME,
             "project": self.project_name,
         }
 
@@ -119,7 +124,7 @@ class BaseAnnotationSheet(ABC):
         self.document.save(filepath)
 
     @abstractmethod
-    def _add_styles(self) -> Dict[str, Any]:
+    def _add_styles(self) -> None:
         """Set all styles for the document."""
 
     @abstractmethod
@@ -132,15 +137,15 @@ class BaseAnnotationSheet(ABC):
         """Extract cell values from a table row into a LingLabel object."""
 
     @classmethod
-    def from_docx(
+    def from_doc(
             cls,
-            filepath: Path,
+            document: Union[Path, Document],
             tf_fabric: Fabric,
             project_name: str,
     ) -> 'BaseAnnotationSheet':
         """Read in docx annotation sheet."""
-        # read in the project annotation sheet
-        document = Document(filepath)
+        if isinstance(document, Path):
+            document = Document(document)
 
         # populate annotations from docx
         annotations = []
@@ -153,38 +158,35 @@ class BaseAnnotationSheet(ABC):
             annotations=annotations,
             tf_fabric=tf_fabric,
             project_name=project_name,
+            document=document,
         )
 
 
 class BasicAnnotationSheet(BaseAnnotationSheet):
     """Prepare an annotation sheet."""
 
-    SHEET = "basic"
+    NAME = "basic"
 
-    def _add_styles(self) -> Dict[str, Any]:
+    def _add_styles(self) -> None:
         """Set styles for the basic annotation sheet."""
-        # dict to hold all new styles
-        style_dict = {}
-        styles = self.document.styles
+        styles = self.styles
+        doc_styles = self.document.styles
 
         # set reference header style
-        style_dict['ref'] = styles.add_style('Reference', WD_STYLE_TYPE.PARAGRAPH)
-        style_dict['ref'].font.name = 'Times New Roman'
-        style_dict['ref'].font.bold = True
-        style_dict['ref'].font.size = Pt(12)
-        style_dict['ref'].paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
-        style_dict['ref'].paragraph_format.keep_with_next = True
+        styles['ref'] = doc_styles.add_style('Reference', WD_STYLE_TYPE.PARAGRAPH)
+        styles['ref'].font.name = 'Times New Roman'
+        styles['ref'].font.bold = True
+        styles['ref'].font.size = Pt(12)
+        styles['ref'].paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+        styles['ref'].paragraph_format.keep_with_next = True
 
         # set hebrew text style
-        style_dict['hebrew'] = styles.add_style('Hebrew', WD_STYLE_TYPE.PARAGRAPH)
-        style_dict['hebrew'].font.size = Pt(15)
-        style_dict['hebrew'].font.name = 'SBL BibLit'
-        style_dict['hebrew'].paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
-        style_dict['hebrew'].paragraph_format.keep_with_next = True
-        style_dict['hebrew'].paragraph_format.space_after = 0
-
-        # done
-        return style_dict
+        styles['hebrew'] = doc_styles.add_style('Hebrew', WD_STYLE_TYPE.PARAGRAPH)
+        styles['hebrew'].font.size = Pt(15)
+        styles['hebrew'].font.name = 'SBL BibLit'
+        styles['hebrew'].paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+        styles['hebrew'].paragraph_format.keep_with_next = True
+        styles['hebrew'].paragraph_format.space_after = 0
 
     def _get_clause_node(self, node: int) -> int:
         """Assign a clause node for a given node."""

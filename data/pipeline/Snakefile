@@ -4,20 +4,32 @@ Snakefile for source_data analysis pipeline.
 
 from pathlib import Path
 
+# configure paths
 HOME = Path.home()
+
 BHSA_REPO = HOME / "github/etcbc/bhsa"
 BHSA_BASE_DATA = BHSA_REPO / "tf/2021"
 BHSA_GENRE_DATA = HOME / "github/etcbc/genre_synvar/tf/2021"
 
 
 def globfiles(path, pattern):
+    """Simple method to glob a directory."""
     return Path(path).glob(pattern)
 
 
-rule all:
-    input:
-        "../data/test.txt"
+def searchfiles(directory, filenames, ext=None):
+    """Search a directory for a list of filenames."""
+    if ext:
+        filenames = [f'{file}{ext}' for file in filenames]
+    return [
+        file for file in Path(directory).glob('*')
+        if file.name in filenames
+    ]
 
+
+# rule all:
+#     input:
+#         None
 
 rule build_corpus:
     params:
@@ -34,16 +46,28 @@ rule build_corpus:
         "scripts/build_corpus.py"
 
 
+# Labeling Configs
+LABELING_PROJECTS = ['test']
+ANNOTATION_INDIR = Path("../data/annotations/sheets/complete")
+ANNOTATION_OUTDIR = Path("../data/annotations/sheets/blank")
+ANNOTATION_ARCHIVE = Path("../data/annotations/json")
+
 rule label_dataset:
     params:
-        annotation_outdir="../data/annotations/blank",
-        annotation_indir="../data/annotations/complete",
+        projects=LABELING_PROJECTS,
+        annotation_outdir=ANNOTATION_OUTDIR,
+        annotation_indir=ANNOTATION_INDIR,
+        archive_dir=ANNOTATION_ARCHIVE,
     input:
         corpus=rules.build_corpus.output,
-        params="scripts/labeling/projects.py",
-        sheet_params="scripts/labeling/annotation_sheets.py",
-        completed_sheets=globfiles("../data/annotations/complete", "*.docx"),
+        subscripts=[
+            "scripts/labeling/projects.py",
+            "scripts/labeling/annotation_sheets.py",
+        ],
     output:
-        "../data/annotations/blank/test_1.0.docx",
+        expand(
+            ANNOTATION_OUTDIR / '{project}_1.docx',
+            project=LABELING_PROJECTS,
+        )
     script:
         "scripts/label_dataset.py"

@@ -22,11 +22,17 @@ projects = [
     TestLabelingProject(
         annotation_outdir=str(snakemake.params.annotation_outdir),
         annotation_indir=str(snakemake.params.annotation_indir),
+        archive_dir=str(snakemake.params.archive_dir),
         tf_fabric=tf_fabric,
         extra_labelers=[],
     ),
 ]
+projects_todo = [
+    project for project in projects
+    if project.name in snakemake.params.projects
+]
+
 
 # run projects
-runner = ProjectRunner(projects, tf_fabric)
+runner = ProjectRunner(projects_todo, tf_fabric)
 runner.build_labels()

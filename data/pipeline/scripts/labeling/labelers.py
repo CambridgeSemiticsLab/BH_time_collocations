@@ -63,6 +63,7 @@ class QueryLabeler(BaseLabeler):
     ) -> List[LingLabel]:
         """Assign labels to targets based on queries."""
         # run all value queries and collect their output
+        print('\tRunning feature value queries...')
         labeled_targets: List[LingLabel] = []
         for value_query in self.value_queries:
             for target in value_query.value.label.targets:
@@ -73,9 +74,9 @@ class QueryLabeler(BaseLabeler):
                     raise Exception(f'Target {target.name} not identified by any query!')
 
                 # execute the query and process results
-                print(f'Executing query for: {value_query.value.label.name}={value_query.value.name}...')
                 query_results = self._run_query(value_query.query, target_set)
-                print(f'\tresults: {len(query_results)}')
+                label_tuple = (value_query.value.label.name, value_query.value.name)
+                print(f'\t\t{label_tuple}, {len(query_results)} results')
                 for node in query_results:
                     labeled_targets.append(
                         LingLabel(

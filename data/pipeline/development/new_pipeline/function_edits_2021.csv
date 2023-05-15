@@ -1,0 +1,22 @@
+passage,text,phrase_node,old_function,new_function,note
+Exodus 12:18,בָּרִאשֹׁ֡ן ,673370,Adju,Time,mislabeled as Adju
+Exodus 12:18,בָּעֶ֔רֶב ,673373,Adju,Time,mislabeled as Adju
+Exodus 12:18,בָּעָֽרֶב׃ ,673378,Adju,Time,mislabled as Adju
+Deuteronomy 31:10,בְּחַ֥ג הַסֻּכֹּֽות׃ ,714507,Adju,Time,"Deut 31:10, mislabled as Adju (חג)"
+1_Samuel 25:15,כָּל־יְמֵי֙ ,741508,Time,Time,"1 Sam 25: 15, mislabled as Loca"
+1_Samuel 1:23,אַ֛ךְ ,731946,Time,Modi,no reviewed sources took this as temporal
+Genesis 9:29,תְּשַׁ֤ע מֵאֹות֙ שָׁנָ֔ה וַחֲמִשִּׁ֖ים שָׁנָ֑ה ,654059,Time,PreC,Gen 9:29; phrase is pred. complement
+Joshua 4:18,כִתְמֹול־שִׁלְשֹׁ֖ום ,716817,Time,Adju,Josh 4:18; waters flowed 'as before'; not temporal
+2_Kings 13:5,כִּתְמֹ֥ול שִׁלְשֹֽׁום׃ ,769441,Time,Adju,2 Kgs 13:5; 'as before'; not temporal
+1_Samuel 19:7,כְּאֶתְמֹ֥ול שִׁלְשֹֽׁום׃ ס ,738950,Time,Adju,1 Sam 19:7; 'as before'; not temporal
+1_Samuel 21:6,כִּתְמֹ֣ול שִׁלְשֹׁ֔ם ,739973,Time,Adju,1 Sam 21:6; 'as before'; not temporal
+Exodus 30:10,אַחַ֖ת בַּשָּׁנָ֑ה ,679412,Time,Freq,Exod 30:10; This is frequentive not time location / duration
+Exodus 30:10,אַחַ֤ת בַּשָּׁנָה֙ ,679414,Time,Freq,Exod 30:10; This is frequentive not time location / duration
+Leviticus 16:34,אַחַ֖ת בַּשָּׁנָ֑ה ,688372,Time,Freq,Lev 16:34; This is frequentive not time location / duration
+Leviticus 23:16,עַ֣ד מִֽמָּחֳרַ֤ת הַשַּׁבָּת֙ הַשְּׁבִיעִ֔ת ,690340,Time,Adju,"Lev 23:16; how far one should count, not temporal"
+Leviticus 26:18,עַד־אֵ֔לֶּה ,691647,Time,Adju,Lev 26:18; No transs interprets as temporal
+Numbers 2:31,לָאַחֲרֹנָ֥ה ,692794,Time,Adju,"Num 2:31; 'set out last', this is sequential but not with respect to timeline"
+Joshua 8:14,לַמֹּועֵ֖ד ,718111,Time,Cmpl,"Josh 8:14; most take as locative; LXX omits; though Targum reads as ZMN, 'time'"
+1_Samuel 18:10,כְּיֹ֣ום׀ בְּיֹ֑ום ,738537,Time,Adju,1 Sam 18:10; comparative not temporal
+Numbers 28:14,בְּחָדְשֹׁ֔ו לְחָדְשֵׁ֖י הַשָּׁנָֽה׃ ,701713,Time,PreC,Num 28:14; the phrase belongs to prev phrase as part of genitive; 'חדש בחדו' is the complete idiom; =burnt offfering of each month
+1_Kings 10:22,אַחַת֩ לְשָׁלֹ֨שׁ שָׁנִ֜ים ,757981,Time,Freq,1 Kgs 10:22; this frequentive explains some L+time cx
