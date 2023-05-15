@@ -1,6 +1,7 @@
 """This module contains helper objects and definitions."""
 
-from typing import NamedTuple, Tuple, Set, List, Any, Optional
+from typing import NamedTuple, Tuple, Set, Optional
+
 from textwrap import dedent
 from tf.core.api import Api
 

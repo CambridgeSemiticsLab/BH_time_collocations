@@ -6,11 +6,12 @@ import json
 
 from pathlib import Path
 from abc import ABC, abstractmethod
-from typing import List, TypedDict, Optional, Union, Literal
+from typing import List, TypedDict, Optional, Union
 
 from docx.shared import Pt, RGBColor
 from docx import Document
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
+from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT
 from docx.enum.style import WD_STYLE_TYPE
 from docx.opc.constants import RELATIONSHIP_TYPE as RT
 from tf.fabric import Fabric
@@ -298,6 +299,7 @@ class BasicAnnotationSheet(BaseAnnotationSheet):
                 cell.text = text
             # adjust oslots cell to small size
             row_cells[0].paragraphs[0].runs[0].font.size = Pt(0.001)
+            row_cells[0].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
         self._fix_autofit_bug(table)
 
     def _build_document(self, document: Document()) -> None:

@@ -191,6 +191,7 @@ class TestLabelingProject(BaseLabelingProject):
                 ],
                 "values": [
                     "x_clause",
+                    "clause_x",
                 ],
                 "sheet": BasicAnnotationSheet.NAME,
             },
@@ -201,6 +202,7 @@ class TestLabelingProject(BaseLabelingProject):
                 "values": [
                     "ach_di",
                     "acc_in",
+                    "sta_in",
                 ],
                 "sheet": BasicAnnotationSheet.NAME,
             },
@@ -214,6 +216,7 @@ class TestLabelingProject(BaseLabelingProject):
                     "1.1.1.2.2",
                     "1.1.1.3",
                     "1.1.2",
+                    "2.1",
                 ],
                 "sheet": BasicAnnotationSheet.NAME,
             },

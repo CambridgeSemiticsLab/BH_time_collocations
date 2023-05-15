@@ -5,6 +5,19 @@
     [
       "clause",
       [
+        74,
+        75,
+        76
+      ]
+    ],
+    "time_clause"
+  ],
+  [
+    "aspect",
+    "acc_in",
+    [
+      "clause",
+      [
         7970,
         7971,
         7972,
@@ -88,6 +101,51 @@
         99121,
         99122,
         99123
+      ]
+    ],
+    "time_clause"
+  ],
+  [
+    "aspect",
+    "sta_in",
+    [
+      "clause",
+      [
+        2382,
+        2383,
+        2384,
+        2389,
+        2390,
+        2391
+      ]
+    ],
+    "time_clause"
+  ],
+  [
+    "cl_type",
+    "clause_x",
+    [
+      "clause",
+      [
+        2382,
+        2383,
+        2384,
+        2389,
+        2390,
+        2391
+      ]
+    ],
+    "time_clause"
+  ],
+  [
+    "cl_type",
+    "x_clause",
+    [
+      "clause",
+      [
+        74,
+        75,
+        76
       ]
     ],
     "time_clause"
@@ -641,5 +699,29 @@
       ]
     ],
     "time_clause"
+  ],
+  [
+    "tp_cluster",
+    "1.1.2",
+    [
+      "phrase",
+      [
+        76
+      ]
+    ],
+    "time_phrase"
+  ],
+  [
+    "tp_cluster",
+    "2.1",
+    [
+      "phrase",
+      [
+        2389,
+        2390,
+        2391
+      ]
+    ],
+    "time_phrase"
   ]
 ]
