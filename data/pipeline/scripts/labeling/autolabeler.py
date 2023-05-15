@@ -8,7 +8,9 @@ from typing import List, Dict, Set, Any, Iterable
 from datetime import datetime
 from tf.fabric import Fabric
 
-from labeling.specifiers import TargetQuerySpecifier, LingLabel, LabelSpec
+from labeling.specifiers import (
+    TargetQuerySpecifier, LabelSpec, NodeIdentifier, LingLabel
+)
 from labeling.projects import BaseLabelingProject
 
 
@@ -83,24 +85,30 @@ class AutoLabeler:
         """Get autolabels for all targeted nodes."""
         # collect all labels
         auto_labels: List[LingLabel] = []
-        covered_targets = collections.defaultdict(set)
+        covered_targets: Dict[str, Set[NodeIdentifier]] = collections.defaultdict(set)
 
         # collect all labels produced by processors
         for labeler in self.project.labelers:
             for label in labeler.label(annotation_objects):
-                covered_targets[label.label].add(label.node)
+                covered_targets[label.label].add(label.nid)
                 auto_labels.append(label)
 
         # append empty labels for unlabeled targets
         n_unlabeled = collections.Counter()
-        for name, nodes in annotation_objects.items():
-            expected_labels = self.labels_to_do[name]
+        for target, nodes in annotation_objects.items():
+            expected_labels = self.labels_to_do[target]
             for node in nodes:
+                nid = NodeIdentifier.from_node(node, self.tf_api)
                 for label_str in expected_labels:
-                    if node not in covered_targets[label_str]:
+                    if nid not in covered_targets[label_str]:
                         n_unlabeled[label_str] += 1
                         auto_labels.append(
-                            LingLabel(label_str, '', node, name)
+                            LingLabel(
+                                label=label_str,
+                                value='',
+                                nid=nid,
+                                target=target,
+                            )
                         )
 
         # give report on labeling outcome

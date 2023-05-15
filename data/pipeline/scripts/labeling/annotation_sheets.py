@@ -14,7 +14,7 @@ from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 from docx.enum.style import WD_STYLE_TYPE
 from docx.opc.constants import RELATIONSHIP_TYPE as RT
 from tf.fabric import Fabric
-from labeling.specifiers import LingLabel
+from labeling.specifiers import LingLabel, NodeIdentifier
 
 
 # define some constants
@@ -30,7 +30,6 @@ class AnnotationSheetSpecs(TypedDict):
     """TypedDict to hold specs for an annotation sheet."""
     sheet: str
     project: str
-    status: Literal["pending", "complete"]
 
 
 def add_hyperlink(paragraph, url, text, color=None, underline=True):
@@ -114,7 +113,6 @@ class BaseAnnotationSheet(ABC):
         return {
             "sheet": self.NAME,
             "project": self.project_name,
-            "status": "pending",
         }
 
     def _inject_specs_into_docx_metadata(self, doc: Document):
@@ -190,23 +188,19 @@ class BasicAnnotationSheet(BaseAnnotationSheet):
         styles['hebrew'].paragraph_format.keep_with_next = True
         styles['hebrew'].paragraph_format.space_after = 0
 
-    def _get_clause_node(self, node: int) -> int:
+    def _get_clause_node(self, nid: NodeIdentifier) -> int:
         """Assign a clause node for a given node."""
-        label_otype = self.tf_api.F.otype.v(node)
         clause_rank = self.tf_api.Nodes.otypeRank['clause']
-        rank = self.tf_api.Nodes.otypeRank[label_otype]
+        rank = self.tf_api.Nodes.otypeRank[nid.otype]
         if rank > clause_rank:
-            raise Exception(f'node {node} has a otype > clause!')
-        elif label_otype == 'clause':
-            return node
-        else:
-            return self.tf_api.L.u(node, 'clause')[0]
+            raise Exception(f'{nid} has a otype > clause!')
+        return self.tf_api.L.u(nid.oslots[0], 'clause')[0]
 
     def _cluster_labels_by_clause(self, labels: List[LingLabel]):
         """Cluster labels by clause."""
         cl_clustered_labels = collections.defaultdict(list)
         for label in labels:
-            cl_node = self._get_clause_node(label.node)
+            cl_node = self._get_clause_node(label.nid)
             cl_clustered_labels[cl_node].append(label)
         return cl_clustered_labels
 
@@ -277,15 +271,14 @@ class BasicAnnotationSheet(BaseAnnotationSheet):
         big_nodes = {
             'clause', 'sentence', 'verse', 'chapter', 'book'
         }
-        otype = self.tf_api.F.otype.v(label.node)
-        if otype in big_nodes:
-            return f'[{otype}]'
+        if label.nid.otype in big_nodes:
+            return f'[{label.nid.otype}]'
         else:
-            return self.tf_api.T.text(label.node)
+            return self.tf_api.T.text(label.nid.oslots)
 
     def _add_annotation_table(self, doc: Document, labels: List[LingLabel]):
         """Add annotation table to the document."""
-        table = doc.add_table(rows=0, cols=5, style='Table Grid')
+        table = doc.add_table(rows=0, cols=6, style='Table Grid')
         table.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
         table.style.font.name = 'Helvetica Neue'
         table.style.paragraph_format.keep_with_next = True
@@ -294,14 +287,17 @@ class BasicAnnotationSheet(BaseAnnotationSheet):
             row_cells = table.add_row().cells
             node_text = self._get_label_node_text(label)
             annotation_row = (
+                str(label.nid.oslots),
+                label.nid.otype,
                 label.label,
-                str(label.node),
                 label.target,
                 node_text,
                 label.value
             )
-            for cell, text in zip(row_cells, annotation_row):
+            for (cell, text) in zip(row_cells, annotation_row):
                 cell.text = text
+            # adjust oslots cell to small size
+            row_cells[0].paragraphs[0].runs[0].font.size = Pt(0.001)
         self._fix_autofit_bug(table)
 
     def _build_document(self, document: Document()) -> None:
@@ -319,10 +315,11 @@ class BasicAnnotationSheet(BaseAnnotationSheet):
     @staticmethod
     def _label_from_row(row) -> LingLabel:
         """Extract a label from a row."""
-        label_cell, node_cell, target_cell, text_cell, value_cell = row.cells
+        oslots_cell, otype_cell, label_cell, target_cell, text_cell, value_cell = row.cells
+        nid = NodeIdentifier(otype_cell.text, eval(oslots_cell.text))
         return LingLabel(
             label=label_cell.text,
             value=value_cell.text,
-            node=int(node_cell.text),
+            nid=nid,
             target=target_cell.text
         )

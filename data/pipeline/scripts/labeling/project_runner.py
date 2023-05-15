@@ -46,7 +46,7 @@ class ProjectRunner:
             labels_to_do = archivist.curate_collection(labels)
 
             self._log('BUILDING ANNOTATION SHEET...')
-            project.write_annotation_sheets(labels_to_do)
+            project.write_annotation_sheets(labels)
 
             self._log('--- DONE ---')
             self._log()

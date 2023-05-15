@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 from typing import Set, List, Dict
 from tf.fabric import Fabric
 
-from labeling.specifiers import LingLabel, ValueQuery
+from labeling.specifiers import ValueQuery, NodeIdentifier, LingLabel
 
 
 class BaseLabeler(ABC):
@@ -82,7 +82,7 @@ class QueryLabeler(BaseLabeler):
                         LingLabel(
                             label=value_query.value.label.name,
                             value=value_query.value.name,
-                            node=node,
+                            nid=NodeIdentifier.from_node(node, self.api),
                             target=target.name,
                         )
                     )

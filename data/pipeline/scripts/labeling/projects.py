@@ -6,7 +6,7 @@ import json
 
 from abc import ABC, abstractmethod
 from pathlib import Path
-from typing import List, Dict, Optional, Type, Tuple
+from typing import List, Dict, Optional, Type
 from tf.fabric import Fabric
 
 from labeling.labelers import BaseLabeler, QueryLabeler
