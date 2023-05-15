@@ -122,7 +122,6 @@ class BaseLabelingProject(ABC):
             should_get_sheet = (
                 doc_meta['project'] == self.name
                 and doc_meta['sheet'] in sheets_to_collect
-                and doc_meta['status'] == 'pending'
             )
             if should_get_sheet:
                 sheet_class: Type[BaseAnnotationSheet] = SHEET_MAP[doc_meta["sheet"]]
