@@ -1,6 +1,5 @@
 """Module to handle archiving and updating of accepted labels."""
 
-import os
 import json
 import collections
 

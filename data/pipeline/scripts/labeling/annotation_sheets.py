@@ -208,7 +208,7 @@ class BasicAnnotationSheet(BaseAnnotationSheet):
     def _add_reference_header(self, doc: Document, clause: int):
         """Add reference header to each entry."""
         book, ch, vs = self.tf_api.T.sectionFromNode(clause)
-        ref = f'{clause}, {book} {ch}:{vs}'
+        ref = f'{book} {ch}:{vs}'
         shebanq_link = SHEBANQ_LINK.format(
             book=book, chapter=str(ch), verse=str(vs)
         )
