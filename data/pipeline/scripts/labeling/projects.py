@@ -163,7 +163,7 @@ TIMECLAUSE_QUERY = """
     /-/
 """
 TIMEPHRASE_QUERY = """
-    time_phrase:phrase function=Time"
+    time_phrase:phrase function=Time
     /with/
     time_clause
         time_phrase
