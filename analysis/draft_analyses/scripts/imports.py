@@ -33,7 +33,7 @@ def textheb(string):
 # custom modules
 from analysis_tools.src.analysis_tools.paths import paths
 
-# load the data
+# load the source_data
 df = pd.read_csv(paths['time_dataset'], index_col='node')
 df_sg = df.query("(n_times == 1) and (is_advb == False)").copy()
 

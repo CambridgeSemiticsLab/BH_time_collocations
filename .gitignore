@@ -4,7 +4,6 @@ function_cxs.pickle
 .DS_Store
 __pycache__/
 .ipynb_checkpoints
-.tf
 legacy
 scratch
 .venv
@@ -13,6 +12,9 @@ venv
 env
 *.swp
 .snakemake
+*.tf
+.snakemake_timestamp
+test.txt
 
 # MS Office files
 
