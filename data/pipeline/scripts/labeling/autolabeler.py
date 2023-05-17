@@ -79,11 +79,11 @@ class AutoLabeler:
             query_results = self._run_object_query(spec.query, target_objects)
             self._log(f'raw query results: {len(query_results)}', indent=2)
             if not spec.sample:
-                target_objects[spec.target.name] = query_results
+                target_objects[spec.target.name].update(query_results)
             else:
                 sample = self._sample_query_results(query_results, spec.sample)
                 self._log(f'subsampled to: {len(sample)}', indent=2)
-                target_objects[spec.target.name] = sample
+                target_objects[spec.target.name].update(sample)
         return target_objects
 
     def _get_auto_labels(

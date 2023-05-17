@@ -44,9 +44,14 @@ class LabelArchivist:
 
     def label_is_well_formed(self, label: LingLabel) -> bool:
         """Check whether a label conforms to the project definitions."""
+        value_check = (
+            (label.value in self.project.label_specs[label.label].value_strings)
+            if self.project.label_specs[label.label]
+            else True
+        )
         return (
             label.label in self.project.label_specs
-            and label.value in self.project.label_specs[label.label].value_strings
+            and value_check
             and label.target in self.project.target_specs
         )
 

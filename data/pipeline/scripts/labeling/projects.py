@@ -104,7 +104,7 @@ class BaseLabelingProject(ABC):
             sheet = sheet_class(
                 annotations=labels,
                 tf_fabric=self.tf_fabric,
-                project_name=self.name,
+                project=self,
             )
             filepath = self.format_annotation_filepath(i)
             sheet.to_docx(filepath)
@@ -139,16 +139,18 @@ class BaseLabelingProject(ABC):
         for target in self.CONFIGS['targets']:
             self.target_specs[target] = TargetSpec(name=target)
         for label, label_data in self.CONFIGS['labels'].items():
+            values = label_data.get('values')
+            value_strings = set(values) if values else None
             self.label_specs[label] = label_spec = LabelSpec(
                 name=label,
                 targets=set(
                     TargetSpec(target)
                     for target in label_data['targets']
                 ),
-                value_strings=set(label_data['values']),
+                value_strings=value_strings,
                 sheet=label_data['sheet'],
             )
-            for value in label_data['values']:
+            for value in label_data.get('values', []):
                 self.value_specs[value] = ValueSpec(
                     name=value,
                     label=label_spec,
@@ -179,10 +181,10 @@ VERB_QUERY = """
 """
 
 
-class TestLabelingProject(BaseLabelingProject):
+class BTimeLabelingProject(BaseLabelingProject):
     """Define a thesis-level labeling project."""
 
-    NAME = "test"
+    NAME = "b_time"
     CONFIGS = {
         "targets": [
             "time_clause",
@@ -197,6 +199,10 @@ class TestLabelingProject(BaseLabelingProject):
                 "values": [
                     "x_clause",
                     "clause_x",
+                    "wayehi_x",
+                    "wehaya_x",
+                    "medial",
+                    "nmcl",
                 ],
                 "sheet": BasicAnnotationSheet.NAME,
             },
@@ -205,9 +211,17 @@ class TestLabelingProject(BaseLabelingProject):
                     "time_clause",
                 ],
                 "values": [
-                    "ach_di",
-                    "acc_in",
+                    "sta_tr",
+                    "sta_ac",
                     "sta_in",
+                    "sta_po",
+                    "ach_rd"
+                    "ach_id",
+                    "ach_cy",
+                    "act_di",
+                    "act_un",
+                    "acc_in",
+                    "acc_ru",
                 ],
                 "sheet": BasicAnnotationSheet.NAME,
             },
@@ -221,20 +235,43 @@ class TestLabelingProject(BaseLabelingProject):
                     "1.1.1.2.2",
                     "1.1.1.3",
                     "1.1.2",
-                    "2.1",
                 ],
                 "sheet": BasicAnnotationSheet.NAME,
             },
+            # "tp_head": {
+            #     "targets": [
+            #         "time_phrase",
+            #     ],
+            #     "sheet": BasicAnnotationSheet.NAME,
+            # },
             "tense": {
                 "targets": [
                     "verb",
                 ],
                 "values": [
-                    "past",
+                    "pret",  # preterite
+                    "pres perf",
+                    "past perf",
+                    "past prog",
+                    "pres",
+                    "pres prog",
+                    "fut",
+                    "fut prog",
+                    "mod",
+                    'impv',
+                    "gnom",  # gnomic
+                    "hab",  # iterative / habitual
                 ],
                 "sheet": BasicAnnotationSheet.NAME,
             },
         },
+    }
+    LABEL_ORDER = {
+        "cl_type": 0,
+        "aspect": 1,
+        "tense": 2,
+        "tp_cluster": 3,
+        "tp_head": 4,
     }
 
     @property
@@ -242,13 +279,26 @@ class TestLabelingProject(BaseLabelingProject):
         """Define queries for identifying target nodes."""
         return [
             TargetQuerySpecifier(
-                self.target_specs["time_clause"],
-                TIMECLAUSE_QUERY,
-                0.1,
+                self.target_specs["time_phrase"],
+                """
+                phrase function=Time
+                /with/
+                    =: word lex=B
+                /or/
+                    =: word pdp=advb
+                    <: word lex=B
+                /-/
+                """,
+                None,
             ),
             TargetQuerySpecifier(
-                self.target_specs["time_phrase"],
-                TIMEPHRASE_QUERY,
+                self.target_specs["time_clause"],
+                """
+                clause
+                /with/
+                    time_phrase
+                /-/
+                """,
                 None,
             ),
             TargetQuerySpecifier(
@@ -266,18 +316,76 @@ class TestLabelingProject(BaseLabelingProject):
             ValueQuery(
                 self.value_specs["x_clause"],
                 """
-                    t:target
+                    time_clause
                     /with/
                         phrase function=Time
-                        < phrase function=Pred
+                        < phrase function=Pred|PreO|PreS
                     /-/
                 """,
+            ),
+            ValueQuery(
+                self.value_specs["clause_x"],
+                """
+                    time_clause
+                    /without/
+                        time_phrase
+                        < phrase function=Objc|Cmpl|Subj|Pred|PreO|PreS
+                    /-/
+                    /with/
+                        phrase function=Pred|PreO|PreS
+                            w:word pdp=verb vt=wayq|perf|impf
+                            /without/
+                            w lex=HJH[ vt=wayq nu=sg ps=p3
+                            /-/
+                            /without/
+                            word lex=W
+                            <: w lex=HJH[ vt=perf nu=sg ps=p3
+                            /-/
+                        < time_phrase
+                    /-/
+                """
+            ),
+            ValueQuery(
+                self.value_specs["medial"],
+                """
+                time_clause
+                /with/
+                    phrase function=Pred|PreO|PreS
+                    < time_phrase
+                    < phrase function=Subj|Objc|Cmpl
+                /-/
+                """
+            ),
+            ValueQuery(
+                self.value_specs["wayehi_x"],
+                """
+                time_clause
+                /with/
+                    word lex=HJH[ vt=wayq nu=sg ps=p3
+                /-/
+                """
+            ),
+            ValueQuery(
+                self.value_specs["wehaya_x"],
+                """
+                time_clause
+                /with/
+                    word lex=W
+                    <: word lex=HJH[ vt=perf nu=sg ps=p3
+                /-/
+                """
+            ),
+            ValueQuery(
+                self.value_specs["nmcl"],
+                """
+                time_clause typ=NmCl|AjCl
+                """
             ),
             #  --- aspect ---
             ValueQuery(
                 self.value_specs["acc_in"],
                 """
-                t:target
+                time_clause
                 /with/
                     word pdp=verb lex=BW>[|HLK[|CWB[|QRB[|>MR[
                     phrase function=Cmpl

@@ -7,14 +7,14 @@ import json
 from pathlib import Path
 from abc import ABC, abstractmethod
 from typing import List, TypedDict, Optional, Union
-
+from tf.fabric import Fabric
 from docx.shared import Pt, RGBColor
 from docx import Document
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT
 from docx.enum.style import WD_STYLE_TYPE
 from docx.opc.constants import RELATIONSHIP_TYPE as RT
-from tf.fabric import Fabric
+
 from labeling.specifiers import LingLabel, NodeIdentifier
 
 
@@ -91,12 +91,12 @@ class BaseAnnotationSheet(ABC):
             self,
             annotations: List[LingLabel],
             tf_fabric: Fabric,
-            project_name: str,
+            project: 'BaseLabelingProject',
             document: Optional[Document] = None,
     ):
         """Initialize an AnnotationSheet object."""
         self.annotations = annotations
-        self.project_name = project_name
+        self.project = project
         self.tf_fabric = tf_fabric
         self.tf_api = tf_fabric.api
         self.styles = {}
@@ -113,7 +113,7 @@ class BaseAnnotationSheet(ABC):
         """Retrieve specs for this sheet template."""
         return {
             "sheet": self.NAME,
-            "project": self.project_name,
+            "project": self.project.name,
         }
 
     def _inject_specs_into_docx_metadata(self, doc: Document):
@@ -142,7 +142,7 @@ class BaseAnnotationSheet(ABC):
             cls,
             document: Union[Path, Document],
             tf_fabric: Fabric,
-            project_name: str,
+            project: 'BaseLabelingProject',
     ) -> 'BaseAnnotationSheet':
         """Read in docx annotation sheet."""
         if isinstance(document, Path):
@@ -158,7 +158,7 @@ class BaseAnnotationSheet(ABC):
         return cls(
             annotations=annotations,
             tf_fabric=tf_fabric,
-            project_name=project_name,
+            project=project,
             document=document,
         )
 
@@ -277,6 +277,10 @@ class BasicAnnotationSheet(BaseAnnotationSheet):
         else:
             return self.tf_api.T.text(label.nid.oslots)
 
+    def _sort_labels(self, label: LingLabel) -> int:
+        """Get sorting value for label."""
+        return self.project.LABEL_ORDER[label.label]
+
     def _add_annotation_table(self, doc: Document, labels: List[LingLabel]):
         """Add annotation table to the document."""
         table = doc.add_table(rows=0, cols=6, style='Table Grid')
@@ -284,7 +288,7 @@ class BasicAnnotationSheet(BaseAnnotationSheet):
         table.style.font.name = 'Helvetica Neue'
         table.style.paragraph_format.keep_with_next = True
         table.autofit = True
-        for label in labels:
+        for label in sorted(labels, key=self._sort_labels):
             row_cells = table.add_row().cells
             node_text = self._get_label_node_text(label)
             annotation_row = (

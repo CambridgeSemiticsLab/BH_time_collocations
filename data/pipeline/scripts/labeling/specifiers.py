@@ -35,7 +35,7 @@ class LabelSpec(NamedTuple):
 
     name: str
     targets: Set[TargetSpec]
-    value_strings: Set[str]
+    value_strings: Optional[Set[str]]
     sheet: str
 
 

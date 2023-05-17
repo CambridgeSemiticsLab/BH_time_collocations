@@ -26,7 +26,8 @@ BHSA_GENERIC_META.update({
 
 DATA_LOCATIONS = [
     snakemake.params.bhsa_data_path,
-    snakemake.params.bhsa_genre_path
+    snakemake.params.bhsa_genre_path,
+    snakemake.params.bsha_heads_path,
 ]
 
 
