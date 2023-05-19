@@ -3,7 +3,7 @@
 import json
 import collections
 
-from typing import List, Set
+from typing import List, Set, Dict
 from pathlib import Path
 from tf.fabric import Fabric
 from labeling.specifiers import LingLabel, NodeIdentifier
@@ -42,18 +42,19 @@ class LabelArchivist:
         """Check whether a supplied label is filled in."""
         return bool(label.value)
 
-    def label_is_well_formed(self, label: LingLabel) -> bool:
+    def _eval_label_health(self, label: LingLabel) -> Dict[str, bool]:
         """Check whether a label conforms to the project definitions."""
         value_check = (
             (label.value in self.project.label_specs[label.label].value_strings)
             if self.project.label_specs[label.label]
             else True
         )
-        return (
-            label.label in self.project.label_specs
-            and value_check
-            and label.target in self.project.target_specs
-        )
+        well_formed_eval = {
+            'label in label specs': label.label in self.project.label_specs,
+            'value in value specs': value_check,
+            'target in target specs': label.target in self.project.target_specs
+        }
+        return well_formed_eval
 
     def _read_annotation_sheets(self) -> List[LingLabel]:
         """Read fresh archive in from annotation sheet."""
@@ -64,14 +65,19 @@ class LabelArchivist:
             sheet_annotations = []
             for annotation in sheet.annotations:
                 if self._label_is_filled(annotation):
-                    if self.label_is_well_formed(annotation):
+                    label_health = self._eval_label_health(annotation)
+                    if all(label_health.values()):
                         sheet_annotations.append(annotation)
                     else:
-                        ill_formed.append(annotation)
+                        ill_formed.append((annotation, label_health))
             self._log(f'{len(sheet_annotations)} labels read from {path}')
             if ill_formed:
                 self._log(f'\t!! {len(ill_formed)} ill-formed annotations were ignored !!')
-                print('\n'.join('\t\t'+str(label) for label in ill_formed))
+                log_message = []
+                for label, health_report in ill_formed:
+                    log_message.append('\t\t' + str(label))
+                    log_message.append('\t\t\t' + str(health_report))
+                print('\n'.join(log_message))
             annotations.extend(sheet_annotations)
         return annotations
 

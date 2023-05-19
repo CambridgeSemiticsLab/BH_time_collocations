@@ -50,16 +50,12 @@ rule build_corpus:
 
 # Labeling Configs
 LABELING_PROJECTS = ['b_time']
-ANNOTATION_INDIR = Path("../data/annotations/sheets/complete")
-ANNOTATION_OUTDIR = Path("../data/annotations/sheets/blank")
-ANNOTATION_ARCHIVE = Path("../data/annotations/json")
+ANNOTATION_DIR = Path("../data/annotations")
 
 rule label_dataset:
     params:
         projects=LABELING_PROJECTS,
-        annotation_outdir=ANNOTATION_OUTDIR,
-        annotation_indir=ANNOTATION_INDIR,
-        archive_dir=ANNOTATION_ARCHIVE,
+        annotation_dir=ANNOTATION_DIR,
     input:
         corpus=rules.build_corpus.output,
         tense_data="source_data/eng_tenses/eng_tenses.pkl",
@@ -69,7 +65,7 @@ rule label_dataset:
         ],
     output:
         expand(
-            ANNOTATION_OUTDIR / '{project}_1.docx',
+            ANNOTATION_DIR / 'sheets' / 'blank' / '{project}_1.docx',
             project=LABELING_PROJECTS,
         )
     script:

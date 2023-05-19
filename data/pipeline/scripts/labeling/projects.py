@@ -6,12 +6,13 @@ import json
 
 from abc import ABC, abstractmethod
 from pathlib import Path
-from typing import List, Dict, Optional, Type
+from typing import List, Dict, Optional, Type, Any
 from tf.fabric import Fabric
 
 from labeling.labelers import BaseLabeler, QueryLabeler
 from labeling.specifiers import (
-    TargetSpec, TargetQuerySpecifier, LabelSpec, ValueSpec, ValueQuery, LingLabel
+    TargetSpec, TargetQuerySpecifier, LabelSpec,
+    ValueSpec, ValueQuery, LingLabel, SpecsDict
 )
 from labeling import annotation_sheets
 from labeling.annotation_sheets import (
@@ -41,21 +42,21 @@ class BaseLabelingProject(ABC):
 
     def __init__(
             self,
-            annotation_outdir: str,
-            annotation_indir: str,
-            archive_dir: str,
+            annotation_dir: str,
             tf_fabric: Fabric,
             extra_labelers: Optional[List[BaseLabeler]],
     ):
         """Setup Text-Fabric variables."""
-        self.annotation_outdir = Path(annotation_outdir)
-        self.annotation_indir = Path(annotation_indir)
-        self.archive_dir = archive_dir
+        self.annotation_dir = Path(annotation_dir)
+        self.sheets_dir = self.annotation_dir / "sheets"
+        self.annotation_outdir = self.sheets_dir / "blank"
+        self.annotation_indir = self.sheets_dir / "complete"
+        self.archive_dir = self.annotation_dir / "json"
         self.tf_fabric = tf_fabric
         self.extra_labelers = extra_labelers or []
-        self.target_specs: Dict[str, TargetSpec] = {}
-        self.label_specs: Dict[str, LabelSpec] = {}
-        self.value_specs: Dict[str, ValueSpec] = {}
+        self.target_specs: Dict[str, TargetSpec] = SpecsDict()
+        self.label_specs: Dict[str, LabelSpec] = SpecsDict()
+        self.value_specs: Dict[str, ValueSpec] = SpecsDict()
         self._load_configs()
 
     @property
@@ -86,9 +87,21 @@ class BaseLabelingProject(ABC):
             + self.extra_labelers
         )
 
-    def format_annotation_filepath(self, id_int: int):
+    def _format_annotation_filepath(self, id_int: int):
         """Return docx filename."""
         return self.annotation_outdir / f'{self.name}_{id_int}.docx'
+
+    def _write_annotation_metadata(self, metadata, id_int: int) -> None:
+        """Write annotation metadata to json."""
+        filepath = self.annotation_outdir / f'{self.name}_{id_int}_metadata.json'
+        with open(filepath, 'w') as outfile:
+            json.dump(metadata, outfile, indent=2)
+
+    def _read_annotation_metadata(self, filestem: str) -> Dict[str, Any]:
+        """Read annotation metadata."""
+        filepath = self.annotation_indir / f'{filestem}_metadata.json'
+        with open(filepath, 'r') as infile:
+            return json.load(infile)
 
     def write_annotation_sheets(self, labels: List[LingLabel]) -> None:
         """Write annotation sheet to disk, to outdir."""
@@ -106,8 +119,9 @@ class BaseLabelingProject(ABC):
                 tf_fabric=self.tf_fabric,
                 project=self,
             )
-            filepath = self.format_annotation_filepath(i)
+            filepath = self._format_annotation_filepath(i)
             sheet.to_docx(filepath)
+            self._write_annotation_metadata(sheet.annotation_metadata, i)
             print(f'\tannotation sheet written to {filepath}')
 
     def read_annotation_sheets(self) -> Dict[Path, BaseAnnotationSheet]:
@@ -124,12 +138,14 @@ class BaseLabelingProject(ABC):
                 and doc_meta['sheet'] in sheets_to_collect
             )
             if should_get_sheet:
+                metadata = self._read_annotation_metadata(sheet_path.stem)
                 sheet_class: Type[BaseAnnotationSheet] = SHEET_MAP[doc_meta["sheet"]]
                 sheets[sheet_path] = sheet_class.from_doc(
-                        document=doc,
-                        tf_fabric=self.tf_fabric,
-                        project_name=self.name,
-                    )
+                    document=doc,
+                    tf_fabric=self.tf_fabric,
+                    project=self,
+                    metadata=metadata,
+                )
         return sheets
 
     def _load_configs(self) -> None:
@@ -237,21 +253,16 @@ class BTimeLabelingProject(BaseLabelingProject):
                     "1.1.2.1.1",
                     "1.1.2.5.1",
                     "1.1.2.5.2",
+                    "1.1.2.6",
                 ],
                 "sheet": BasicAnnotationSheet.NAME,
             },
-            # "tp_head": {
-            #     "targets": [
-            #         "time_phrase",
-            #     ],
-            #     "sheet": BasicAnnotationSheet.NAME,
-            # },
             "tense": {
                 "targets": [
                     "verb",
                 ],
                 "values": [
-                    "pret",  # preterite
+                    "past",  # preterite
                     "pres perf",
                     "past perf",
                     "past prog",

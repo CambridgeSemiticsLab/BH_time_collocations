@@ -21,9 +21,7 @@ tf_api = tf_fabric.loadAll()
 # set up projects
 projects = [
     BTimeLabelingProject(
-        annotation_outdir=str(snakemake.params.annotation_outdir),
-        annotation_indir=str(snakemake.params.annotation_indir),
-        archive_dir=str(snakemake.params.archive_dir),
+        annotation_dir=snakemake.params.annotation_dir,
         tf_fabric=tf_fabric,
         extra_labelers=[
             EnglishTenseLabeler(tf_fabric, str(snakemake.input.tense_data))
