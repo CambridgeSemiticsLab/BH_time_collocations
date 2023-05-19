@@ -230,11 +230,13 @@ class BTimeLabelingProject(BaseLabelingProject):
                     "time_phrase",
                 ],
                 "values": [
-                    "1.1.1.1",
-                    "1.1.1.2.1",
+                    "1.1.1.2.1.1",
+                    "1.1.1.2.1.2",
                     "1.1.1.2.2",
-                    "1.1.1.3",
-                    "1.1.2",
+                    "1.1.1.1",
+                    "1.1.2.1.1",
+                    "1.1.2.5.1",
+                    "1.1.2.5.2",
                 ],
                 "sheet": BasicAnnotationSheet.NAME,
             },
@@ -390,6 +392,121 @@ class BTimeLabelingProject(BaseLabelingProject):
                     word pdp=verb lex=BW>[|HLK[|CWB[|QRB[|>MR[
                     phrase function=Cmpl
                         word lex=>L pdp=prep
+                /-/
+                """
+            ),
+
+            # --- TP Cluster --
+            ValueQuery(
+                self.value_specs["1.1.1.2.1.1"],  # distal demonstrative
+                """
+                time_phrase
+                /with/
+                    =: word lex=B
+                    <: word lex=H
+                /-/
+                /with/
+                    word lex=HJ>|HMH|HM|HW>
+                /-/
+                """
+            ),
+            ValueQuery(
+                self.value_specs["1.1.1.2.1.2"],  # proximal demonstrative
+                """
+                time_phrase
+                /with/
+                    =: word lex=B
+                    <: word lex=H
+                /-/
+                /with/
+                    word lex=Z>T|>LH|ZH
+                /-/
+                """
+            ),
+            ValueQuery(
+                self.value_specs["1.1.1.2.2"],  # ordinal
+                """
+                time_phrase
+                /with/
+                    =: word lex=B
+                    <: word lex=H
+                /-/
+                /with/
+                    word lex=H 
+                    word ls=ordn
+                /-/
+                """
+            ),
+            ValueQuery(
+                self.value_specs["1.1.1.1"],  # definite, standalone
+                """
+                phrase function=Time
+                /without/
+                    word lex=HJ>|HMH|HM|HW>|Z>T|>LH|ZH
+                /-/
+                /without/
+                    word ls=ordn|card
+                /-/
+                    =: word lex=B
+                    <: w:word lex=H
+                    /without/
+                    phrase
+                        w
+                        < word lex=H
+                    /-/
+                """
+            ),
+            ValueQuery(
+                self.value_specs["1.1.2.1.1"],  # calendrical
+                """
+                time_phrase
+                /with/
+                    =: word lex=B
+                    <: word ls=card
+                    < word lex=L
+                    <: word lex=H
+                /-/
+                """
+            ),
+            ValueQuery(
+                self.value_specs["1.1.2.5.1"],  # clause-anchored
+                """
+                tp:time_phrase
+                /with/
+                clause
+                    tp
+                        =: word lex=B
+                        <: lastword:word st=c
+                <: clause
+                    
+                tp := lastword
+                /-/
+                """
+            ),
+            ValueQuery(
+                self.value_specs["1.1.2.5.2"],  # construct, cardinal anchored
+                """
+                tp:time_phrase
+                /with/
+                    =: word lex=B
+                    <: cons_word:word st=c ls#card lex#<WD/
+                    <: word ls=card
+                    last_word:word
+
+                tp := last_word
+                last_word # cons_word
+                /-/
+                """
+            ),
+            ValueQuery(
+                self.value_specs["1.1.2.6"],  # suffix-anchored
+                """
+                tp:time_phrase
+                /with/
+                    =: word lex=B
+                    <: last_word:word st=a prs#absent
+
+                tp := last_word
                 /-/
                 """
             )

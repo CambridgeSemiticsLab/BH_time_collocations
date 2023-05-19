@@ -1,4 +1,4 @@
-"""Configure the build of BHSA Kingham Thesis version."""
+"""Configure the build of BHSA KinghamThesis version."""
 
 from corpus_building.utils import EditAction
 
@@ -136,7 +136,7 @@ THESIS_CORPUS_PARAMS = dict(
     },
     update_metadata={
         '': {
-            "corpus": "BHSA-Kingham-thesis",
+            "corpus": "BHSA-KinghamThesis",
             "description": "A modified version of the ETCBC's BHSA for my Cambridge PhD thesis",
             "version": "1.0",
             "editor": "Cody Kingham",
@@ -148,6 +148,5 @@ THESIS_CORPUS_PARAMS = dict(
             'description': 'Mapping between nodes in BHSA 2021 version to BHSA Kingham Thesis version',
             'valueType': 'int',
         },
-        'prep_type': {'description': 'test123', 'valueType': 'str'},
     },
 )
