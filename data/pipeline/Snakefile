@@ -64,9 +64,11 @@ rule label_dataset:
             "scripts/labeling/annotation_sheets.py",
         ],
     output:
-        expand(
-            ANNOTATION_DIR / 'sheets' / 'blank' / '{project}_1.docx',
-            project=LABELING_PROJECTS,
+        directory(
+            expand(
+                ANNOTATION_DIR / 'sheets' / 'blank' / '{project}',
+                project=LABELING_PROJECTS,
+            )
         )
     script:
         "scripts/label_dataset.py"

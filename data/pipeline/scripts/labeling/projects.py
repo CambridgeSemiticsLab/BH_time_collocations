@@ -49,8 +49,12 @@ class BaseLabelingProject(ABC):
         """Setup Text-Fabric variables."""
         self.annotation_dir = Path(annotation_dir)
         self.sheets_dir = self.annotation_dir / "sheets"
-        self.annotation_outdir = self.sheets_dir / "blank"
-        self.annotation_indir = self.sheets_dir / "complete"
+        self.annotation_outdir = (
+                self.sheets_dir / "blank" / self.name
+        )
+        self.annotation_indir = (
+                self.sheets_dir / "complete" / self.name
+        )
         self.archive_dir = self.annotation_dir / "json"
         self.tf_fabric = tf_fabric
         self.extra_labelers = extra_labelers or []
@@ -103,6 +107,11 @@ class BaseLabelingProject(ABC):
         with open(filepath, 'r') as infile:
             return json.load(infile)
 
+    def _initialize_outdir(self) -> None:
+        """Make the outdir if it doesn't exist."""
+        if not self.annotation_outdir.exists():
+            self.annotation_outdir.mkdir()
+
     def write_annotation_sheets(self, labels: List[LingLabel]) -> None:
         """Write annotation sheet to disk, to outdir."""
         # group all labels by sheet
@@ -112,6 +121,7 @@ class BaseLabelingProject(ABC):
             sheet_grouped_labels[sheet].append(label)
 
         # write sheets
+        self._initialize_outdir()
         for i, (sheet_name, labels) in enumerate(sheet_grouped_labels.items(), 1):
             sheet_class: Type[BaseAnnotationSheet] = SHEET_MAP[sheet_name]
             sheet = sheet_class(
@@ -215,10 +225,12 @@ class BTimeLabelingProject(BaseLabelingProject):
                 "values": [
                     "x_clause",
                     "clause_x",
+                    "x_clause_x",
                     "wayehi_x",
                     "wehaya_x",
                     "medial",
                     "nmcl",
+                    "ellp",  # ellipsis
                 ],
                 "sheet": BasicAnnotationSheet.NAME,
             },
@@ -238,6 +250,8 @@ class BTimeLabelingProject(BaseLabelingProject):
                     "act_un",
                     "acc_in",
                     "acc_ru",
+                    "acc_di_iter",
+                    "none",  # none, not applicable
                 ],
                 "sheet": BasicAnnotationSheet.NAME,
             },
@@ -247,13 +261,29 @@ class BTimeLabelingProject(BaseLabelingProject):
                 ],
                 "values": [
                     "1.1.1.2.1.1",
+                    "1.1.1.2.1.1.1",
                     "1.1.1.2.1.2",
+                    "1.1.1.2.1.2.1",
                     "1.1.1.2.2",
+                    "1.1.1.2.5",
+                    "1.1.1.2.2.1",
                     "1.1.1.1",
                     "1.1.2.1.1",
+                    "1.1.1.2.1.1.2",
                     "1.1.2.5.1",
                     "1.1.2.5.2",
+                    "1.1.2.5.3.1",
+                    "1.1.2.5.3.1.1",
+                    "1.1.2.5.3.2",
                     "1.1.2.6",
+                    "1.1.2.7",
+                    "1.1.1.2.1.2.2",
+                    "1.1.1.2.2.2",
+                    "1.1.2.4.1",
+                    "1.1.2.5.3.2.1",
+                    "1.1.2.5.3.2.2",
+                    "1.1.2.5.3.2.3",
+                    "1.1.2.5.3.2.1.1",
                 ],
                 "sheet": BasicAnnotationSheet.NAME,
             },
@@ -271,9 +301,12 @@ class BTimeLabelingProject(BaseLabelingProject):
                     "fut",
                     "fut prog",
                     "mod",
+                    "epis mod",
                     'impv',
                     "gnom",  # gnomic
                     "hab",  # iterative / habitual
+                    "inf",  # infinitival
+                    "ptcp",  # participial
                 ],
                 "sheet": BasicAnnotationSheet.NAME,
             },

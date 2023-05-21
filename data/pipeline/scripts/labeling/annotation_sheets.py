@@ -137,8 +137,12 @@ class BaseAnnotationSheet(ABC):
         """Build up document."""
 
     @staticmethod
+    def _normalize_annotated_text(text: str) -> str:
+        """Normalize annotated text to remove any accidental noise."""
+        return text.lower().strip()
+
     @abstractmethod
-    def _label_from_row(row, metadata: Dict[str, Any]) -> LingLabel:
+    def _label_from_row(self, row, metadata: Dict[str, Any]) -> LingLabel:
         """Extract cell values from a table row into a LingLabel object."""
 
     def _get_new_hash_id(
@@ -170,7 +174,11 @@ class BaseAnnotationSheet(ABC):
         label_to_id = {}
         for label in labels:
             hash_id = self._get_new_hash_id(label, annotation_metadata)
-            metadata = {'nid': tuple(label.nid), 'target': label.target}
+            metadata = {
+                'label': label.label,
+                'nid': tuple(label.nid),
+                'target': label.target
+            }
             annotation_metadata[hash_id] = metadata
             label_to_id[label] = hash_id
         return annotation_metadata, label_to_id
@@ -358,15 +366,16 @@ class BasicAnnotationSheet(BaseAnnotationSheet):
             self._add_annotation_table(document, labels)
             document.add_paragraph('\n')
 
-    @staticmethod
-    def _label_from_row(row, metadata: Dict[str, Any]) -> LingLabel:
+    def _label_from_row(self, row, metadata: Dict[str, Any]) -> LingLabel:
         """Extract a label from a row."""
-        id_cell, label_cell, target_cell, text_cell, value_cell = row.cells
-        nid_data = metadata[id_cell.text]["nid"]
+        id_cell, label_cell, target_cell, text_cell, value_cell = [
+            self._normalize_annotated_text(cell.text) for cell in row.cells
+        ]
+        nid_data = metadata[id_cell]["nid"]
         nid = NodeIdentifier(nid_data[0], tuple(nid_data[1]))
         return LingLabel(
-            label=label_cell.text,
-            value=value_cell.text,
+            label=label_cell,
+            value=value_cell,
             nid=nid,
-            target=target_cell.text
+            target=target_cell,
         )
