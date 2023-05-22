@@ -254,10 +254,12 @@ class BasicAnnotationSheet(BaseAnnotationSheet):
 
     def _add_reference_header(self, doc: Document, clause: int):
         """Add reference header to each entry."""
-        book, ch, vs = self.tf_api.T.sectionFromNode(clause)
-        ref = f'{book} {ch}:{vs}'
+        en_book, ch, vs = self.tf_api.T.sectionFromNode(clause)
+        ref = f'{en_book} {ch}:{vs}'
+        book_node = self.tf_api.L.u(clause, 'book')[0]
+        latin_book = self.tf_api.F.book.v(book_node)  # needed for SHEBANQ link
         shebanq_link = SHEBANQ_LINK.format(
-            book=book, chapter=str(ch), verse=str(vs)
+            book=latin_book, chapter=str(ch), verse=str(vs)
         )
         heading = doc.add_paragraph(style=self.styles['ref'].name)
         add_hyperlink(heading, shebanq_link, ref)
