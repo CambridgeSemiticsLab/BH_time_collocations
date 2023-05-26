@@ -7,7 +7,7 @@ from corpus_building.utils import EditAction
 # NB: All node numbers are from ETCBC 2021 version
 # New nodes will be assigned with the following scheme:
 #     phrases = 2000000 + N
-#     phrase_atoms = 2001000 + N
+#     phrase_atoms = 2100000 + N
 #     clauses = 3000000 + N
 # Note that these temporary node numbers will be re-assigned when
 # the corpus is re-indexed during the build process
@@ -358,8 +358,8 @@ THESIS_CORPUS_PARAMS = dict(
                     954435: {
                         82437, 82438, 82439, 82440, 82441,
                     },
-                    2001001: {82442},
-                    2001002: {
+                    2100012: {82442},
+                    2100013: {
                         82443, 82444, 82445, 82446, 82447,
                     },
                 },
@@ -377,8 +377,8 @@ THESIS_CORPUS_PARAMS = dict(
                 'otype': {
                     2000012: 'phrase',
                     2000013: 'phrase',
-                    2001001: 'phrase_atom',
-                    2001002: 'phrase_atom',
+                    2100012: 'phrase_atom',
+                    2100013: 'phrase_atom',
                 },
                 'function': {
                     2000012: 'Conj',
@@ -387,15 +387,231 @@ THESIS_CORPUS_PARAMS = dict(
                 'typ': {
                     2000012: 'CP',
                     2000013: 'PP',
-                    2001001: 'CP',
-                    2001002: 'PP',
+                    2100012: 'CP',
+                    2100013: 'PP',
                 },
                 'rela': {
-                    2001001: 'NA',
-                    2001002: 'NA',
+                    2100012: 'NA',
+                    2100013: 'NA',
                 },
             },
             description='Num 9:19; split up phrase',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    701823: {
+                        87869, 87870, 87871, 87872, 87873,
+                    },
+                    2000014: {
+                        87874, 87875, 87876, 87877, 87878,
+                    },
+                },
+                'head': {87874: {2000014}},
+                'nhead': {87875: {2000014}},
+            },
+            feature_updates={
+                'otype': {2000014: 'phrase'},
+                'function': {2000014: 'Time'},
+                'typ': {2000014: 'PP'},
+            },
+            description='Num 29:1; split up phrase',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    # phrases
+                    702396: {
+                        89241, 89242, 89243, 89244, 89245,
+                    },
+                    2000015: {89246},
+                    2000016: {
+                        89247, 89248, 89249, 89250, 89251
+                    },
+
+                    # phrase atoms
+                    958402: {
+                        89241, 89242, 89243, 89244, 89245,
+                    },
+                    2100015: {89246},
+                    2100016: {
+                        89247, 89248, 89249, 89250, 89251
+                    }
+                },
+                'head': {
+                    89241: {702396},
+                    89246: {2000015},
+                    89247: {2000016},
+                },
+                'nhead': {
+                    89243: {702396},
+                    89249: {2000016},
+                },
+            },
+            feature_updates={
+                'otype': {
+                    2000015: 'phrase',
+                    2000016: 'phrase',
+                    2100015: 'phrase_atom',
+                    2100016: 'phrase_atom',
+                },
+                'function': {
+                    2000015: 'Conj',
+                    2000016: 'Time',
+                },
+                'typ': {
+                    2000015: 'CP',
+                    2000016: 'PP',
+                    2100015: 'CP',
+                    2100016: 'PP',
+                },
+                'rela': {
+                    2100015: 'NA',
+                    2100016: 'NA',
+                },
+            },
+            description='Num 31:19; split up phrase',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    703048: {
+                        90705, 90706, 90707, 90708, 90709,
+                    },
+                    2000017: {
+                        90710, 90711, 90712, 90713, 90714,
+                        90715, 90716, 90717, 90718
+                    },
+                },
+                'head': {90710: {2000017}},
+                'nhead': {90713: {2000017}},
+            },
+            feature_updates={
+                'otype': {2000017: 'phrase'},
+                'function': {2000017: 'Time'},
+                'typ': {2000017: 'PP'},
+            },
+            description='Num 33:3; split up phrase',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    703305: {
+                        91100, 91101, 91102, 91103,
+                    },
+                    2000018: {
+                        91111, 91112, 91113, 91114, 91115,
+                    },
+                    2000019: {
+                        91116, 91117, 91118, 91119, 91120,
+                    },
+                },
+                'head': {
+                    91111: {2000018},
+                    91116: {2000019},
+                },
+                'nhead': {
+                    91113: {2000018},
+                    91117: {2000019},
+                },
+            },
+            feature_updates={
+                'otype': {
+                    2000018: 'phrase',
+                    2000019: 'phrase',
+                },
+                'function': {
+                    2000018: 'Time',
+                    2000019: 'Time',
+                },
+                'typ': {
+                    2000018: 'PP',
+                    2000019: 'PP',
+                },
+            },
+            description='Num 33:38; split up phrase',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    # clause
+                    447183: {
+                        105113, 105114, 105115, 105116
+                    },
+                    447184: {
+                        105124, 105125,
+                    },
+                    # clause_atom
+                    536021: {
+                        105113, 105114, 105115, 105116
+                    },
+                },
+                'mother': {
+                    536023: {536021},
+                    536025: {536021},
+                    536027: {536021},
+                },
+            },
+            feature_updates={
+                'typ': {
+                    447183: 'WQt0',
+                    536021: 'WQt0',
+                },
+            },
+            deletions={536022},
+            description='Deut 21:16; redraw clause lines and move BJWM to prev clause',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    717027: {
+                        115204, 115205, 115206, 115207,
+                        115208, 115209, 115210,
+                    },
+                    2000020: {
+                        115211, 115212, 115213,
+                    },
+                },
+                'head': {115211: {2000020}},
+                'nhead': {115213: {2000020}},
+            },
+            feature_updates={
+                'otype': {2000020: 'phrase'},
+                'function': {2000020: 'Time'},
+                'typ': {2000020: 'PP'},
+            },
+            description='Josh 5:10; split up phrase',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    # clause
+                    452315: {
+                        133556, 133557, 133558, 133559, 133560
+                    },
+                    452316: {
+                        133565,
+                    },
+                    # clause_atom
+                    541303: {
+                        133556, 133557, 133558, 133559, 133560
+                    },
+                },
+                'mother': {
+                    541305: {541303},
+                    541306: {541303},
+                    541307: {541303},
+                },
+            },
+            feature_updates={
+                'typ': {
+                    452315: 'WQt0',
+                    541303: 'WQt0',
+                    452316: 'ZYq0',
+                },
+            },
+            deletions={541304},
+            description='',
         ),
     ],
     update_features={
