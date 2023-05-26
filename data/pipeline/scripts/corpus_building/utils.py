@@ -25,15 +25,17 @@ FeatureGenerator = Callable[[CorpusData], NodeFeatureDict]
 
 
 class EditAction:
-    """TypedDict for grouping related corpus edits."""
+    """Class for grouping related corpus edits."""
 
     def __init__(
             self,
-            deletions: Optional[Set[int]] = None,
-            feature_updates: Optional[NodeFeatureDict] = None,
             edge_updates: Optional[EdgeFeatureDict] = None,
+            feature_updates: Optional[NodeFeatureDict] = None,
+            deletions: Optional[Set[int]] = None,
+            description: str = '',
     ):
         """Initialize edit action object."""
         self.deletions = deletions or set()
         self.feature_updates = feature_updates or {}
         self.edge_updates = edge_updates or {}
+        self.description = description
