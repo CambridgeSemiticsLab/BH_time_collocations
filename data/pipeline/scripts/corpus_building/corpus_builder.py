@@ -64,8 +64,10 @@ class ThesisCorpusBuilder:
         """Add all edit actions to the correct dicts / sets."""
         for action in edit_actions:
             delete_nodes.update(action.deletions)
-            update_features.update(action.feature_updates)
-            update_edges.update(action.edge_updates)
+            for feature_name, feature_dict in action.feature_updates.items():
+                update_features.setdefault(feature_name, {}).update(feature_dict)
+            for edge_name, edge_dict in action.edge_updates.items():
+                update_edges.setdefault(edge_name, {}).update(edge_dict)
 
     def _get_keep_node_set(self):
         """Get set of nodes to keep."""
@@ -219,15 +221,17 @@ class ThesisCorpusBuilder:
         for feature, update_dict in self.update_edges.items():
             corpus_data['edgeFeatures'].setdefault(feature, {}).update(update_dict)
 
-    def _delete_nodes(self, corpus_data: CorpusData):
-        """Delete nodes from the corpus."""
-        # delete from feature values
+    def _delete_nodes_from_features(self, corpus_data: CorpusData):
+        """Delete nodes from feature dicts."""
         for feature, node_data in corpus_data['nodeFeatures'].items():
             corpus_data['nodeFeatures'][feature] = {
                 node: value
                 for node, value in node_data.items()
                 if node not in self.delete_nodes
             }
+
+    def _delete_nodes_from_edges(self, corpus_data: CorpusData) -> None:
+        """Delete nodes from edge relations."""
         # delete from edge relations
         new_edges = collections.defaultdict(dict)
         for feature, edge_data in corpus_data['edgeFeatures'].items():
@@ -235,17 +239,25 @@ class ThesisCorpusBuilder:
                 if node in self.delete_nodes:
                     continue
                 elif isinstance(edges, dict):
-                    new_edges[feature][node] = {
+                    remaining_edges = {
                         n: value
                         for n, value in edges.items()
                         if n not in self.delete_nodes
                     }
                 else:
-                    new_edges[feature][node] = set(
+                    remaining_edges = set(
                         n for n in edges
                         if n not in self.delete_nodes
                     )
+                if remaining_edges:
+                    # only add non-empty edge relations
+                    new_edges[feature][node] = remaining_edges
         corpus_data['edgeFeatures'] = new_edges
+
+    def _delete_nodes(self, corpus_data: CorpusData) -> None:
+        """Delete nodes from the corpus."""
+        self._delete_nodes_from_features(corpus_data)
+        self._delete_nodes_from_edges(corpus_data)
 
     @staticmethod
     def _clear_directory(dest_dir: str):

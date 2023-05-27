@@ -4,11 +4,11 @@ from corpus_building.utils import EditAction
 
 
 # Corpus edits are logged here;
-# NB: All node numbers are from ETCBC 2021 version
+# NB: All node numbers are from ETCBC 2021 version;
 # New nodes will be assigned with the following scheme:
 #     phrases = 2000000 + N
 #     phrase_atoms = 2100000 + N
-#     clauses = 3000000 + N
+#     subphrases = 2200000 + N
 # Note that these temporary node numbers will be re-assigned when
 # the corpus is re-indexed during the build process
 
@@ -32,18 +32,58 @@ THESIS_CORPUS_PARAMS = dict(
             edge_updates={
                 'oslots': {
                     661278: {15859, 15860, 15861, 15862},
-                }
+                    914944: {15859, 15860, 15861, 15862},
+                    2200000: {15861},
+                    2200001: {15862},
+                },
+                'mother': {
+                    2200001: {2200000},
+                },
             },
-            deletions={661279},
+            feature_updates={
+                'otype': {
+                    2200000: 'subphrase',
+                    2200001: 'subphrase',
+                },
+                'rela': {
+                    2200000: 'NA',
+                    2200001: 'dem',
+                },
+                'typ': {
+                    430754: 'Way0',
+                    518984: 'Way0',
+                },
+            },
+            deletions={661279, 914945},
             description="Gen 30:16; BLJLH H>W, merge phrases",
         ),
         EditAction(
             edge_updates={
                 'oslots': {
                     662567: {17889, 17890, 17891, 17892},
+                    916291: {17889, 17890, 17891, 17892},
+                    2200002: {17891},
+                    2200003: {17892},
+                },
+                'mother': {
+                    2200003: {2200002},
                 },
             },
-            deletions={662568},
+            feature_updates={
+                'otype': {
+                    2200002: 'subphrase',
+                    2200003: 'subphrase',
+                },
+                'typ': {
+                    431180: 'Way0',
+                    519421: 'Way0',
+                },
+                'rela': {
+                    2200002: 'NA',
+                    2200003: 'dem',
+                },
+            },
+            deletions={662568, 916292},
             description="Gen 32:23;  BLJLH H>W, merge phrases",
         ),
         EditAction(
@@ -72,13 +112,18 @@ THESIS_CORPUS_PARAMS = dict(
                         37920, 37921, 37922, 37923, 37924,
                         37925, 37926, 37927, 37928, 37929,
                     },
+                    # sentence
+                    1178355: {
+                        37920, 37921, 37922, 37923, 37924,
+                        37925, 37926, 37927, 37928, 37929,
+                    },
                 },
                 'mother': {
                     929211: {929210},  # phrase_atom
                     523704: {523702},  # clause_atom
                 },
             },
-            deletions={435374, 523703},
+            deletions={435374, 523703, 1178354},
             feature_updates={
                 'rela': {
                     929211: 'Appo',
@@ -200,26 +245,6 @@ THESIS_CORPUS_PARAMS = dict(
                 'otype': {2000004: 'phrase'},
                 'function': {2000004: 'Time'},
                 'typ': {2000004: 'PP'},
-            },
-            description='Lev 25:9; split up phrase',
-        ),
-        EditAction(
-            edge_updates={
-                'oslots': {
-                    690894: {
-                        67313, 67314, 67315, 67316, 67317
-                    },
-                    2000005: {
-                        67318, 67319, 67320, 67321, 67322, 67323
-                    },
-                },
-                'head': {67318: {2000005}},
-                'nhead': {67320: {2000005}},
-            },
-            feature_updates={
-                'otype': {2000005: 'phrase'},
-                'function': {2000005: 'Time'},
-                'typ': {2000005: 'PP'},
             },
             description='Lev 25:9; split up phrase',
         ),
@@ -545,6 +570,18 @@ THESIS_CORPUS_PARAMS = dict(
                     536021: {
                         105113, 105114, 105115, 105116
                     },
+                    # sentence
+                    1186375: {
+                        105113, 105114, 105115, 105116,
+                        105117, 105118, 105119, 105120,
+                        105121, 105122, 105123,
+                    },
+                    1186376: {
+                        105124, 105125, 105126, 105127,
+                        105128, 105129, 105130, 105131,
+                        105132, 105133, 105134, 105135,
+                        105136, 105137, 105138,
+                    },
                 },
                 'mother': {
                     536023: {536021},
@@ -596,6 +633,14 @@ THESIS_CORPUS_PARAMS = dict(
                     541303: {
                         133556, 133557, 133558, 133559, 133560
                     },
+                    # sentence
+                    1189949: {
+                        133556, 133557, 133558, 133559, 133560,
+                        133561, 133562, 133563, 133564
+                    },
+                    1189950: {
+                        133565
+                    },
                 },
                 'mother': {
                     541305: {541303},
@@ -611,7 +656,445 @@ THESIS_CORPUS_PARAMS = dict(
                 },
             },
             deletions={541304},
-            description='',
+            description='Judg 9:33; redraw clause bounds to include BBQR with WHJH',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    730312: {
+                        139255, 139256, 139257
+                    },
+                    2000021: {
+                        139258, 139259, 139260, 139261, 139262
+                    },
+                },
+                'head': {
+                    139258: {2000021},
+                },
+                'nhead': {
+                    139260: {2000021},
+                },
+            },
+            feature_updates={
+                'otype': {2000021: 'phrase'},
+                'function': {2000021: 'Time'},
+                'typ': {2000021: 'PP'},
+            },
+            description='Judg 19:8; split up phrase',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    739001: {
+                        153077, 153078, 153079, 153080,
+                    },
+                    997288: {
+                        153077, 153078, 153079, 153080,
+                    },
+                    2200004: {153079},
+                    2200005: {153080},
+                },
+                'mother': {
+                   2200005: {2200004},
+                },
+            },
+            deletions={739002, 997289},
+            feature_updates={
+                'otype': {
+                    2200004: 'subphrase',
+                    2200005: 'subphrase',
+                },
+                'rela': {
+                    2200004: 'NA',
+                    2200005: 'dem',
+                },
+                'typ': {
+                    456392: 'Way0',
+                    545456: 'Way0',
+                },
+            },
+            description='1 Sam 19:10; merge two phrases, keeping HW> as demonstrative'
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    747140: {
+                        166007, 166008, 166009, 166010, 166011
+                    },
+                    2000022: {
+                        166012,
+                    },
+                    2000023: {
+                        166013, 166014,
+                    },
+                },
+                'head': {
+                    166007: {747140},
+                    166012: {2000022},
+                    166013: {2000023},
+                },
+                'nhead': {
+                    166009: {747140},
+                    166014: {2000023},
+                },
+            },
+            feature_updates={
+                'otype': {
+                    2000022: 'phrase',
+                    2000023: 'phrase',
+                },
+                'function': {
+                    2000022: 'Conj',
+                    2000023: 'Time',
+                },
+                'typ': {
+                    2000022: 'CP',
+                    2000023: 'PP',
+                },
+            },
+            description='1 Sam 11:12; split up phrase',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    752165: {
+                        173952, 173953, 173954,
+                    },
+                    2000024: {
+                        173955, 173956, 173957,
+                    },
+                    2000025: {
+                        173958, 173959, 173960, 173961,
+                    },
+                },
+                'head': {
+                    173955: {2000024},
+                    173958: {2000025},
+                },
+                'nhead': {
+                    173957: {2000024},
+                    173959: {2000025},
+                },
+            },
+            feature_updates={
+                'otype': {
+                    2000024: 'phrase',
+                    2000025: 'phrase',
+                },
+                'function': {
+                    2000024: 'Time',
+                    2000025: 'Time',
+                },
+                'typ': {
+                    2000024: 'PP',
+                    2000025: 'PP',
+                },
+            },
+            description='2 Sam 21:9; split up phrase',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    # clause
+                    461570: {
+                        178174, 178175, 178176, 178177,
+                    },
+                    461571: {
+                        178184, 178185,
+                    },
+                    # clause_atom
+                    550740: {
+                        178174, 178175, 178176, 178177,
+                    },
+                    # sentence
+                    1197110: {
+                        178174, 178175, 178176, 178177,
+                        178178, 178179, 178180, 178181,
+                        178182, 178183,
+                    },
+                    1197111: {
+                        178184, 178185, 178186, 178187, 178188
+                    },
+                },
+                'mother': {
+                    550742: {550740},
+                    550744: {550740},
+                },
+            },
+            feature_updates={
+                'typ': {
+                    461570: 'WQt0',
+                    550740: 'WQt0',
+                },
+            },
+            deletions={550741},
+            description='1 Kgs 2:37; redraw clause lines to include BJWM with WHJH',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    755711: {
+                        180079, 180080, 180081, 180082, 180083,
+                    },
+                    2000026: {
+                        180084, 180085, 180086,
+                    },
+                },
+                'head': {
+                    180084: {2000025},
+                },
+                'nhead': {
+                    180085: {2000025},
+                },
+            },
+            feature_updates={
+                'otype': {2000026: 'phrase'},
+                'function': {2000026: 'Time'},
+                'typ': {2000026: 'PP'},
+            },
+            description='1 Kgs 6:1; split up phrase',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    756053: {
+                        180819, 180820, 180821, 180822, 180823, 180824,
+                    },
+                    2000027: {
+                        180825, 180826, 180827,
+                    },
+                },
+                'head': {
+                    180825: {2000027},
+                },
+                'nhead': {
+                    180826: {2000027},
+                },
+            },
+            feature_updates={
+                'otype': {2000027: 'phrase'},
+                'function': {2000027: 'Time'},
+                'typ': {2000027: 'PP'},
+            },
+            description='1 Kgs 6:38; split up phrase',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    756573: {
+                        182107, 182108, 182109, 182110,
+                    },
+                    2000028: {
+                        182111, 182112, 182113,
+                    },
+                },
+                'head': {
+                    182111: {2000028},
+                },
+                'nhead': {
+                    182113: {2000028},
+                },
+            },
+            feature_updates={
+                'otype': {2000028: 'phrase'},
+                'function': {2000028: 'Time'},
+                'typ': {2000028: 'PP'},
+            },
+            description='1 Kgs 8:2; split up phrase',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    759061: {
+                        186694, 186695, 186696, 186697, 186698
+                    },
+                    2000029: {
+                        186699, 186700, 186701, 186702, 186703,
+                        186704, 186705,
+                    },
+                },
+                'head': {
+                    186699: {2000029},
+                },
+                'nhead': {
+                    186702: {2000029},
+                },
+            },
+            feature_updates={
+                'otype': {2000029: 'phrase'},
+                'function': {2000029: 'Time'},
+                'typ': {2000029: 'PP'},
+            },
+            description='1 Kgs 12:32; split up phrase',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    759087: {
+                        186747, 186748, 186749, 186750,
+                    },
+                    2000030: {
+                        186751, 186752, 186753, 186754, 186755,
+                    },
+                    2000031: {
+                        186756, 186757, 186758,
+                    },
+                },
+                'head': {
+                    186751: {2000030},
+                    186756: {2000031},
+                },
+                'nhead': {
+                    186753: {2000030},
+                    186758: {2000031},
+                },
+            },
+            feature_updates={
+                'otype': {
+                    2000030: 'phrase',
+                    2000031: 'phrase',
+                },
+                'function': {
+                    2000030: 'Time',
+                    2000031: 'Time',
+                },
+                'typ': {
+                    2000030: 'PP',
+                    2000031: 'PP',
+                },
+            },
+            description='1 Kgs 12:33; split up phrase',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    # phrase
+                    773807: {
+                        211330, 211331, 211332, 211333, 211334,
+                    },
+                    2000032: {
+                        211335, 211336, 211337, 211338, 211339,
+                        211340,
+                    },
+                    # clause
+                    468054: {
+                        211322, 211323, 211324, 211325, 211326,
+                        211327, 211330, 211331, 211332, 211333,
+                        211334, 211335, 211336, 211337, 211338,
+                        211339, 211340,
+                    },
+                    468056: {
+                        211341, 211342, 211343, 211344, 211345,
+                        211346, 211347, 211348, 211349, 211350,
+                    },
+                    # clause_atom
+                    557416: {
+                        211322, 211323, 211324, 211325, 211326,
+                        211327, 211330, 211331, 211332, 211333,
+                        211334, 211335, 211336, 211337, 211338,
+                        211339, 211340,
+                    },
+                    557418: {
+                        211341, 211342, 211343, 211344, 211345,
+                        211346, 211347, 211348, 211349, 211350,
+                    },
+                    # sentence
+                    1201759: {
+                        211322, 211323, 211324, 211325, 211326,
+                        211327, 211328, 211329, 211330, 211331,
+                        211332, 211333, 211334, 211335, 211336,
+                        211337, 211338, 211339, 211340,
+                    },
+                    1201760: {
+                        211341, 211342, 211343, 211344, 211345,
+                        211346, 211347, 211348, 211349, 211350,
+                    },
+                },
+                'head': {
+                    211335: {2000032},
+                },
+                'nhead': {
+                    211337: {2000032},
+                },
+            },
+            feature_updates={
+                'otype': {
+                    2000032: 'phrase',
+                },
+                'function': {
+                    2000032: 'Time',
+                },
+                'typ': {
+                    468056: 'ZQtX',
+                    557418: 'ZQtX',
+                    2000032: 'PP',
+                },
+            },
+            description='2 Kgs 25:1; redraw clause lines and split phrase',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    773888: {
+                        211482, 211483, 211484, 211485, 211486,
+                    },
+                    2000033: {
+                        211487, 211488, 211489, 211490, 211491,
+                    },
+                },
+                'head': {
+                    211487: {2000033},
+                },
+                'nhead': {
+                    211488: {2000033},
+                },
+            },
+            feature_updates={
+                'otype': {2000033: 'phrase'},
+                'function': {2000033: 'Time'},
+                'typ': {2000033: 'PP'},
+            },
+            description='1 Kgs 25:8; split up phrase',
+        ),
+        EditAction(
+            edge_updates={
+                'oslots': {
+                    774087: {
+                        211989, 211990, 211991, 211992, 211993, 211994,
+                        211995, 211996, 211997, 211998
+                    },
+                    2000034: {
+                        211999, 212000, 212001, 212002,
+                    },
+                    2000035: {
+                        212003, 212004, 212005, 212006, 212007, 212008,
+                        212009
+                    },
+                },
+                'head': {
+                    211999: {2000034},
+                    212003: {2000035},
+                },
+                'nhead': {
+                    212002: {2000034},
+                    212004: {2000035},
+                },
+            },
+            feature_updates={
+                'otype': {
+                    2000034: 'phrase',
+                    2000035: 'phrase',
+                },
+                'function': {
+                    2000034: 'Time',
+                    2000035: 'Time',
+                },
+                'typ': {
+                    2000034: 'PP',
+                    2000035: 'PP',
+                },
+            },
+            description='2 Kgs 25:27; split up phrase',
         ),
     ],
     update_features={
@@ -712,6 +1195,27 @@ THESIS_CORPUS_PARAMS = dict(
             # Time->Freq
             # 1 Kgs 10:22; this frequentive explains some L+time cx
             757981: "Freq",
+
+            # Time->Adju
+            # 1 Kgs 7:24; NET does not take as temporal and LXX lacks this; probably not temporal
+            756305: "Adju",
+
+            # Time->Adju
+            # Gen 48:7; this is a debatable example. NET does not read directly as temporal;
+            # due to the difficulty, I'd like to exclude this from the sample set
+            668696: "Adju",
+
+            # Time->Freq
+            # Ex 16:21; a repeated B-time is frequentive
+            674998: "Freq",
+
+            # Time->Freq
+            # Lev 24:8
+            690650: "Freq",
+
+            # Time->Freq
+            # 2 Sam 13:4
+            747922: "Freq",
         },
     },
     update_metadata={
