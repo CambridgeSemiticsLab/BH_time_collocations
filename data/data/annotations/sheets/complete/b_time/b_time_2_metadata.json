@@ -1,0 +1,1774 @@
+{
+  "591eab28": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        45629,
+        45630,
+        45631,
+        45632,
+        45633,
+        45634,
+        45640
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "6b49b9b2": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        48203,
+        48204,
+        48205,
+        48206,
+        48207,
+        48208,
+        48209,
+        48210
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "de8c8d1e": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        55604,
+        55611,
+        55612,
+        55613,
+        55614,
+        55615,
+        55616,
+        55617,
+        55618,
+        55619
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "eb850d62": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        37920,
+        37921,
+        37922,
+        37923,
+        37924,
+        37925,
+        37926,
+        37927,
+        37928,
+        37929
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "480cda4f": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        54999,
+        55000,
+        55001,
+        55002,
+        55003,
+        55004,
+        55005,
+        55006,
+        55007,
+        55008,
+        55009,
+        55010
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "157bc2fb": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        17887,
+        17888,
+        17889,
+        17890,
+        17891,
+        17892
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "8cf0ecaf": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        49249,
+        49250,
+        49251,
+        49252,
+        49253,
+        49254,
+        49255,
+        49256,
+        49257,
+        49258,
+        49259,
+        49260
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "31453566": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        15856,
+        15857,
+        15858,
+        15859,
+        15860,
+        15861,
+        15862
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "a5571957": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        37530,
+        37531,
+        37532,
+        37533,
+        37534,
+        37535,
+        37536,
+        37537,
+        37540,
+        37541,
+        37542,
+        37543,
+        37544
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "b4cee68c": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        171966,
+        171967,
+        171968,
+        171969,
+        171970,
+        171971,
+        171972,
+        171973,
+        171974,
+        171975,
+        171976,
+        171977,
+        171978,
+        171979,
+        171980
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "b4cee68c9": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        171966,
+        171967,
+        171968,
+        171969,
+        171970,
+        171971,
+        171972,
+        171973,
+        171974,
+        171975,
+        171976,
+        171977,
+        171978,
+        171979,
+        171980
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "c242cf74": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        211322,
+        211323,
+        211324,
+        211325,
+        211326,
+        211327,
+        211330,
+        211331,
+        211332,
+        211333,
+        211334,
+        211335,
+        211336,
+        211337,
+        211338,
+        211339,
+        211340
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "39768409": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        133556,
+        133557,
+        133558,
+        133559,
+        133560
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "64acb584": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        178174,
+        178175,
+        178176,
+        178177
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "f459557c": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        105113,
+        105114,
+        105115,
+        105116
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "fd3fe82b": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        76398,
+        76399,
+        76400,
+        76401,
+        76402,
+        76403,
+        76404,
+        76405,
+        76406,
+        76407,
+        76408
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "1184907c": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        49249,
+        49250,
+        49251,
+        49252,
+        49253,
+        49254,
+        49255,
+        49256,
+        49257,
+        49258,
+        49259,
+        49260
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "569b84ab": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        17889,
+        17890,
+        17891,
+        17892
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "7b1f7da4": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        166007,
+        166008,
+        166009,
+        166010,
+        166011
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "a7cb3ad8": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        153077,
+        153078,
+        153079,
+        153080
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "f6ac2471": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        15859,
+        15860,
+        15861,
+        15862
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "98491ead": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        87973,
+        87974,
+        87975,
+        87976,
+        87977,
+        87978,
+        87979,
+        87980,
+        87981,
+        87982
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "ba9a462c": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        75790,
+        75791,
+        75792,
+        75793,
+        75794
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "6b82f760": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        89247,
+        89248,
+        89249,
+        89250,
+        89251
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "04bce745": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        76432,
+        76433,
+        76434,
+        76435,
+        76436
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "e131218a": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        76437,
+        76438,
+        76439,
+        76440,
+        76441
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "2d891a6e": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        180079,
+        180080,
+        180081,
+        180082,
+        180083
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "54ad806b": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        35022,
+        35023,
+        35024,
+        35025,
+        35026
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "b74065b0": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        173955,
+        173956,
+        173957
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "5c4771c5": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        90705,
+        90706,
+        90707,
+        90708,
+        90709
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "f604fa97": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        75826,
+        75827,
+        75828
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "9e3f8cdb": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        62875,
+        62876,
+        62877,
+        62878,
+        62879
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "de771c8f": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        69630,
+        69631,
+        69632,
+        69633,
+        69634
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "88347ca8": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        211330,
+        211331,
+        211332,
+        211333,
+        211334
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "484bab6f": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        67313,
+        67314,
+        67315,
+        67316,
+        67317
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "36a6669a": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        139258,
+        139259,
+        139260,
+        139261,
+        139262
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "3ddfa140": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        37921,
+        37922,
+        37923,
+        37924,
+        37925
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "e8895acb": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        75958,
+        75959,
+        75960,
+        75961,
+        75962
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "3a1f5657": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        211482,
+        211483,
+        211484,
+        211485,
+        211486
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "063f127a": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        186694,
+        186695,
+        186696,
+        186697,
+        186698
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "645c18c0": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        186751,
+        186752,
+        186753,
+        186754,
+        186755
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "1214e4bd": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        91111,
+        91112,
+        91113,
+        91114,
+        91115
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "bfffcc45": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        82437,
+        82438,
+        82439,
+        82440,
+        82441
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "dfc9a3c4": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        82443,
+        82444,
+        82445,
+        82446,
+        82447
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "4af56cc4": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        87869,
+        87870,
+        87871,
+        87872,
+        87873
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "98491ead5": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        87973,
+        87974,
+        87975,
+        87976,
+        87977,
+        87978,
+        87979,
+        87980,
+        87981,
+        87982
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "23180aa5": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        89241,
+        89242,
+        89243,
+        89244,
+        89245
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "08a3bc39": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        37542,
+        37543,
+        37544
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "7d2aa0ff": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        139255,
+        139256,
+        139257
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "a3f9ed86": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        115211,
+        115212,
+        115213
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "0549cac7": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        66519,
+        66520,
+        66521
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "680a6121": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        186756,
+        186757,
+        186758
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "38e4896d": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        182111,
+        182112,
+        182113
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "7d05431f": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        87874,
+        87875,
+        87876,
+        87877,
+        87878
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "1e162ac6": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        90710,
+        90711,
+        90712,
+        90713,
+        90714,
+        90715,
+        90716,
+        90717,
+        90718
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "a61a1a08": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        91116,
+        91117,
+        91118,
+        91119,
+        91120
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "8a90629e": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        211487,
+        211488,
+        211489,
+        211490,
+        211491
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "0599f161": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        212003,
+        212004,
+        212005,
+        212006,
+        212007,
+        212008,
+        212009
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "834d3248": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        186699,
+        186700,
+        186701,
+        186702,
+        186703,
+        186704,
+        186705
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "e4c9528b": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        115204,
+        115205,
+        115206,
+        115207,
+        115208,
+        115209,
+        115210
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "56bf28a2": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        75829,
+        75830,
+        75831,
+        75832,
+        75833,
+        75834,
+        75835
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "3815bf0b": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        66514,
+        66515,
+        66516,
+        66517,
+        66518
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "dce537a0": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        69623,
+        69624,
+        69625,
+        69626,
+        69627,
+        69628,
+        69629
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "4289e920": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        178176,
+        178177
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "ef4c0947": {
+    "label": "tense",
+    "nid": [
+      "word",
+      [
+        49251
+      ]
+    ],
+    "target": "verb"
+  },
+  "971b6f6d": {
+    "label": "tense",
+    "nid": [
+      "word",
+      [
+        55619
+      ]
+    ],
+    "target": "verb"
+  },
+  "c225c23d": {
+    "label": "tense",
+    "nid": [
+      "word",
+      [
+        45640
+      ]
+    ],
+    "target": "verb"
+  },
+  "45af5fa3": {
+    "label": "tense",
+    "nid": [
+      "word",
+      [
+        37928
+      ]
+    ],
+    "target": "verb"
+  },
+  "49795336": {
+    "label": "tense",
+    "nid": [
+      "word",
+      [
+        48210
+      ]
+    ],
+    "target": "verb"
+  },
+  "9d218684": {
+    "label": "tense",
+    "nid": [
+      "word",
+      [
+        17888
+      ]
+    ],
+    "target": "verb"
+  },
+  "2a3a99d7": {
+    "label": "tense",
+    "nid": [
+      "word",
+      [
+        15857
+      ]
+    ],
+    "target": "verb"
+  },
+  "0a1ecf57": {
+    "label": "tense",
+    "nid": [
+      "word",
+      [
+        55000
+      ]
+    ],
+    "target": "verb"
+  },
+  "13f1afaa": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        211989,
+        211990,
+        211991,
+        211992,
+        211993,
+        211994,
+        211995,
+        211996,
+        211997,
+        211998
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "afc53e99": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        211999,
+        212000,
+        212001,
+        212002
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "dbae4c97": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        180065,
+        180066,
+        180067,
+        180068,
+        180069,
+        180070,
+        180071
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "e7139598": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        180084,
+        180085,
+        180086
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "5e734a19": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        55005,
+        55006,
+        55007,
+        55008,
+        55009,
+        55010
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "b27f7a64": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        62880,
+        62881,
+        62882,
+        62883,
+        62884,
+        62885
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "6a1a2f57": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        180819,
+        180820,
+        180821,
+        180822,
+        180823,
+        180824
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "3acee0a8": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        180825,
+        180826,
+        180827
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "ea4027ef": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        173952,
+        173953,
+        173954
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "83e62056": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        173958,
+        173959,
+        173960,
+        173961
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "2d2dfc65": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        75786,
+        75787,
+        75788,
+        75789
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "1b3e58fc": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        67318,
+        67319,
+        67320,
+        67321,
+        67322,
+        67323
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "3e01b670": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        75963,
+        75964,
+        75965,
+        75966
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "38a7f0c9": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        91100,
+        91101,
+        91102,
+        91103
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "db7c9484": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        182107,
+        182108,
+        182109,
+        182110
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "7b7fb4b7": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        48203,
+        48204,
+        48205,
+        48206,
+        48207,
+        48208,
+        48209
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "855ba82e": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        76399,
+        76400,
+        76401,
+        76402,
+        76403,
+        76404,
+        76405,
+        76406,
+        76407,
+        76408
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "176c1a71": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        76442,
+        76443,
+        76444,
+        76445,
+        76446
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "00ae7b6d": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        186747,
+        186748,
+        186749,
+        186750
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "b744dd18": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        49255,
+        49256,
+        49257,
+        49258,
+        49259,
+        49260
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "7dcacbdb": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        45629,
+        45630,
+        45631,
+        45632,
+        45633,
+        45634
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "a5f71228": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        211324,
+        211325,
+        211326,
+        211327
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "4f5897d9": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        211335,
+        211336,
+        211337,
+        211338,
+        211339,
+        211340
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "8a442011": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        133556,
+        133557,
+        133558,
+        133559,
+        133560
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "42ee0dbc": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        88643,
+        88644,
+        88645,
+        88646,
+        88647,
+        88648,
+        88649
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "f4568c59": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        54999,
+        55000,
+        55001,
+        55002,
+        55003,
+        55004,
+        55005,
+        55006,
+        55007,
+        55008,
+        55009,
+        55010
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "e64fca58": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        55604,
+        55611,
+        55612,
+        55613,
+        55614,
+        55615,
+        55616,
+        55617,
+        55618,
+        55619
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "fc99bb89": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        45629,
+        45630,
+        45631,
+        45632,
+        45633,
+        45634,
+        45640
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "0c500274": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        35021,
+        35022,
+        35023,
+        35024,
+        35025,
+        35026,
+        35027,
+        35028
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "443081b3": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        35021,
+        35022,
+        35023,
+        35024,
+        35025,
+        35026,
+        35027,
+        35028
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "67dcc8ee": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        15856,
+        15857,
+        15858,
+        15859,
+        15860,
+        15861,
+        15862
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "80220afb": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        105113,
+        105114,
+        105115,
+        105116
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "a908ecda": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        178174,
+        178175,
+        178176,
+        178177
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "59285800": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        17135,
+        17136,
+        17137,
+        17138,
+        17139
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "929366ce": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        17135,
+        17136,
+        17137,
+        17138,
+        17139
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "58e02da5": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        48203,
+        48204,
+        48205,
+        48206,
+        48207,
+        48208,
+        48209,
+        48210
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "8ae4d536": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        17887,
+        17888,
+        17889,
+        17890,
+        17891,
+        17892
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "417c628b": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        37530,
+        37531,
+        37532,
+        37533,
+        37534,
+        37535,
+        37536,
+        37537,
+        37540,
+        37541,
+        37542,
+        37543,
+        37544
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "5fcd0d84": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        211322,
+        211323,
+        211324,
+        211325,
+        211326,
+        211327,
+        211330,
+        211331,
+        211332,
+        211333,
+        211334,
+        211335,
+        211336,
+        211337,
+        211338,
+        211339,
+        211340
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "7afadf7c": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        37920,
+        37921,
+        37922,
+        37923,
+        37924,
+        37925,
+        37926,
+        37927,
+        37928,
+        37929
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "0cff26ae": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        75958,
+        75959,
+        75960,
+        75961,
+        75962,
+        75963,
+        75964,
+        75965,
+        75966,
+        75967,
+        75968,
+        75969,
+        75970,
+        75971
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "172fe254": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        76398,
+        76399,
+        76400,
+        76401,
+        76402,
+        76403,
+        76404,
+        76405,
+        76406,
+        76407,
+        76408
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "f188505d": {
+    "label": "tense",
+    "nid": [
+      "word",
+      [
+        211323
+      ]
+    ],
+    "target": "verb"
+  },
+  "724c8a3b": {
+    "label": "tense",
+    "nid": [
+      "word",
+      [
+        133557
+      ]
+    ],
+    "target": "verb"
+  },
+  "2c5687dc": {
+    "label": "tense",
+    "nid": [
+      "word",
+      [
+        105114
+      ]
+    ],
+    "target": "verb"
+  },
+  "c77d770b": {
+    "label": "tense",
+    "nid": [
+      "word",
+      [
+        37531
+      ]
+    ],
+    "target": "verb"
+  },
+  "3816e13a": {
+    "label": "tense",
+    "nid": [
+      "word",
+      [
+        178175
+      ]
+    ],
+    "target": "verb"
+  }
+}

@@ -1,9 +1,8 @@
 """Module to handle archiving and updating of accepted labels."""
 
 import json
-import collections
 
-from typing import List, Set
+from typing import List, Set, Dict, Any
 from pathlib import Path
 from tf.fabric import Fabric
 from labeling.specifiers import LingLabel, NodeIdentifier
@@ -42,13 +41,19 @@ class LabelArchivist:
         """Check whether a supplied label is filled in."""
         return bool(label.value)
 
-    def label_is_well_formed(self, label: LingLabel) -> bool:
+    def _eval_label_health(self, label: LingLabel) -> Dict[str, bool]:
         """Check whether a label conforms to the project definitions."""
-        return (
-            label.label in self.project.label_specs
-            and label.value in self.project.label_specs[label.label].value_strings
-            and label.target in self.project.target_specs
+        value_check = (
+            (label.value in self.project.label_specs[label.label].value_strings)
+            if self.project.label_specs[label.label]
+            else True
         )
+        well_formed_eval = {
+            'label in label specs': label.label in self.project.label_specs,
+            'value in value specs': value_check,
+            'target in target specs': label.target in self.project.target_specs
+        }
+        return well_formed_eval
 
     def _read_annotation_sheets(self) -> List[LingLabel]:
         """Read fresh archive in from annotation sheet."""
@@ -59,14 +64,19 @@ class LabelArchivist:
             sheet_annotations = []
             for annotation in sheet.annotations:
                 if self._label_is_filled(annotation):
-                    if self.label_is_well_formed(annotation):
+                    label_health = self._eval_label_health(annotation)
+                    if all(label_health.values()):
                         sheet_annotations.append(annotation)
                     else:
-                        ill_formed.append(annotation)
+                        ill_formed.append((annotation, label_health))
             self._log(f'{len(sheet_annotations)} labels read from {path}')
             if ill_formed:
                 self._log(f'\t!! {len(ill_formed)} ill-formed annotations were ignored !!')
-                print('\n'.join('\t\t'+str(label) for label in ill_formed))
+                log_message = []
+                for label, health_report in ill_formed:
+                    log_message.append('\t\t' + str(label))
+                    log_message.append('\t\t\t' + str(health_report))
+                print('\n'.join(log_message))
             annotations.extend(sheet_annotations)
         return annotations
 
@@ -122,27 +132,35 @@ class LabelArchivist:
             for label in latest_labels_archivable
         }
         good = set()
-        obsolete = collections.Counter()
+        obsolete = []
+
         for archived_label in archive:
 
-            # decide whether archived label has bee obsoleted
+            # decide whether archived label has been obsoleted
             latest_label = latest_label_map.get(archived_label.id)
             if not latest_label:
                 is_good = False
-            elif self._label_is_filled(latest_label):
-                is_good = (archived_label == latest_label)
+                reason = 'not latest_label'
             else:
                 is_good = (archived_label.id == latest_label.id)
+                reason = 'archived_label.id != latest_label.id'
 
             # add to set depending on status
             if is_good:
                 good.add(archived_label)
             else:
-                obsolete[(archived_label.label, archived_label.value)] += 1
+                obsolete.append((reason, archived_label, latest_label))
 
         if obsolete:
-            self._log(f'\t!! OBSOLETE LABELS PRUNED FROM ARCHIVE: !!')
-            self._log(f'\t{obsolete.most_common()}')
+            log_message = []
+            for reason, archived_label, latest_label in obsolete:
+                log_message.append('\t\t' + str(archived_label))
+                log_message.append(f'\t\t\tREASON: {reason}')
+                log_message.append('\t\t\tLATEST: ' + str(latest_label))
+            self._log(f'\t!! {len(obsolete)} OBSOLETE LABEL(S) PRUNED FROM ARCHIVE !!')
+            print('\n'.join(log_message))
+
+            self._log(f'')
 
         return good
 

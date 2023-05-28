@@ -3,18 +3,19 @@
 import collections
 import docx
 import json
+import hashlib
 
 from pathlib import Path
 from abc import ABC, abstractmethod
-from typing import List, TypedDict, Optional, Union
-
+from typing import List, TypedDict, Optional, Union, Dict, Any, Tuple
+from tf.fabric import Fabric
 from docx.shared import Pt, RGBColor
 from docx import Document
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT
 from docx.enum.style import WD_STYLE_TYPE
 from docx.opc.constants import RELATIONSHIP_TYPE as RT
-from tf.fabric import Fabric
+
 from labeling.specifiers import LingLabel, NodeIdentifier
 
 
@@ -78,7 +79,6 @@ def add_hyperlink(paragraph, url, text, color=None, underline=True):
     new_run.text = text
     hyperlink.append(new_run)
     paragraph._p.append(hyperlink)
-
     return hyperlink
 
 
@@ -86,17 +86,21 @@ class BaseAnnotationSheet(ABC):
     """Object for generating an annotation sheet as a MS document."""
 
     NAME = "base"
+    HASH_LEN = 8
 
     def __init__(
             self,
             annotations: List[LingLabel],
             tf_fabric: Fabric,
-            project_name: str,
+            project: 'BaseLabelingProject',
             document: Optional[Document] = None,
     ):
         """Initialize an AnnotationSheet object."""
         self.annotations = annotations
-        self.project_name = project_name
+        self.annotation_metadata, self.label_to_id = (
+            self._get_annotation_metadata(annotations)
+        )
+        self.project = project
         self.tf_fabric = tf_fabric
         self.tf_api = tf_fabric.api
         self.styles = {}
@@ -113,7 +117,7 @@ class BaseAnnotationSheet(ABC):
         """Retrieve specs for this sheet template."""
         return {
             "sheet": self.NAME,
-            "project": self.project_name,
+            "project": self.project.name,
         }
 
     def _inject_specs_into_docx_metadata(self, doc: Document):
@@ -134,15 +138,54 @@ class BaseAnnotationSheet(ABC):
 
     @staticmethod
     @abstractmethod
-    def _label_from_row(row) -> LingLabel:
+    def _label_from_row(row, metadata: Dict[str, Any]) -> LingLabel:
         """Extract cell values from a table row into a LingLabel object."""
+
+    def _get_new_hash_id(
+            self,
+            label: LingLabel,
+            annotation_metadata: Dict[str, Dict[str, Any]],
+    ):
+        """Get shortened annotation hash ID."""
+        # turn label into string and hash it
+        label_str = (
+            label.label + str(label.nid) + label.target
+        )
+        label_hash = hashlib.sha1(label_str.encode()).hexdigest()
+
+        # get unique truncated hash to prevent collisions
+        trunc_len = self.HASH_LEN
+        truncated_hash = label_hash[:trunc_len]
+        while truncated_hash in annotation_metadata:
+            trunc_len += 1
+            truncated_hash = label_hash[:trunc_len]
+        return truncated_hash
+
+    def _get_annotation_metadata(
+            self,
+            labels: List[LingLabel]
+    ) -> Tuple[Dict[str, Dict[str, Any]], Dict[LingLabel, str]]:
+        """Store metadata for an annotation."""
+        annotation_metadata = {}
+        label_to_id = {}
+        for label in labels:
+            hash_id = self._get_new_hash_id(label, annotation_metadata)
+            metadata = {
+                'label': label.label,
+                'nid': tuple(label.nid),
+                'target': label.target
+            }
+            annotation_metadata[hash_id] = metadata
+            label_to_id[label] = hash_id
+        return annotation_metadata, label_to_id
 
     @classmethod
     def from_doc(
             cls,
             document: Union[Path, Document],
             tf_fabric: Fabric,
-            project_name: str,
+            project: 'BaseLabelingProject',
+            metadata: Dict[str, Any],
     ) -> 'BaseAnnotationSheet':
         """Read in docx annotation sheet."""
         if isinstance(document, Path):
@@ -152,13 +195,15 @@ class BaseAnnotationSheet(ABC):
         annotations = []
         for table in document.tables:
             for row in table.rows:
-                annotations.append(cls._label_from_row(row))
+                annotations.append(
+                    cls._label_from_row(row, metadata)
+                )
 
         # return new class instance
         return cls(
             annotations=annotations,
             tf_fabric=tf_fabric,
-            project_name=project_name,
+            project=project,
             document=document,
         )
 
@@ -207,10 +252,12 @@ class BasicAnnotationSheet(BaseAnnotationSheet):
 
     def _add_reference_header(self, doc: Document, clause: int):
         """Add reference header to each entry."""
-        book, ch, vs = self.tf_api.T.sectionFromNode(clause)
-        ref = f'{book} {ch}:{vs}'
+        en_book, ch, vs = self.tf_api.T.sectionFromNode(clause)
+        ref = f'{en_book} {ch}:{vs}'
+        book_node = self.tf_api.L.u(clause, 'book')[0]
+        latin_book = self.tf_api.F.book.v(book_node)  # needed for SHEBANQ link
         shebanq_link = SHEBANQ_LINK.format(
-            book=book, chapter=str(ch), verse=str(vs)
+            book=latin_book, chapter=str(ch), verse=str(vs)
         )
         heading = doc.add_paragraph(style=self.styles['ref'].name)
         add_hyperlink(heading, shebanq_link, ref)
@@ -277,28 +324,33 @@ class BasicAnnotationSheet(BaseAnnotationSheet):
         else:
             return self.tf_api.T.text(label.nid.oslots)
 
+    def _sort_labels(self, label: LingLabel) -> int:
+        """Get sorting value for label."""
+        return self.project.LABEL_ORDER[label.label]
+
     def _add_annotation_table(self, doc: Document, labels: List[LingLabel]):
         """Add annotation table to the document."""
-        table = doc.add_table(rows=0, cols=6, style='Table Grid')
+        N_COLUMNS = 5
+        table = doc.add_table(rows=0, cols=N_COLUMNS, style='Table Grid')
         table.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
         table.style.font.name = 'Helvetica Neue'
         table.style.paragraph_format.keep_with_next = True
         table.autofit = True
-        for label in labels:
+        for label in sorted(labels, key=self._sort_labels):
             row_cells = table.add_row().cells
             node_text = self._get_label_node_text(label)
+            label_id = self.label_to_id[label]
             annotation_row = (
-                str(label.nid.oslots),
-                label.nid.otype,
+                label_id,
                 label.label,
                 label.target,
                 node_text,
-                label.value
+                label.value,
             )
             for (cell, text) in zip(row_cells, annotation_row):
                 cell.text = text
-            # adjust oslots cell to small size
-            row_cells[0].paragraphs[0].runs[0].font.size = Pt(0.001)
+            # adjust id cell to small size
+            row_cells[0].paragraphs[0].runs[0].font.size = Pt(8)
             row_cells[0].vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
         self._fix_autofit_bug(table)
 
@@ -315,13 +367,23 @@ class BasicAnnotationSheet(BaseAnnotationSheet):
             document.add_paragraph('\n')
 
     @staticmethod
-    def _label_from_row(row) -> LingLabel:
+    def _label_from_row(row, metadata: Dict[str, Any]) -> LingLabel:
         """Extract a label from a row."""
-        oslots_cell, otype_cell, label_cell, target_cell, text_cell, value_cell = row.cells
-        nid = NodeIdentifier(otype_cell.text, eval(oslots_cell.text))
+        normalize_annotated_text = (
+            lambda text: text.lower().strip()
+        )
+        try:
+            id_cell, label_cell, target_cell, text_cell, value_cell = [
+                normalize_annotated_text(cell.text) for cell in row.cells
+            ]
+        except ValueError:
+            row_text = [cell.text for cell in row.cells]
+            raise Exception(f'Misshapened row encountered: {row_text}')
+        nid_data = metadata[id_cell]["nid"]
+        nid = NodeIdentifier(nid_data[0], tuple(nid_data[1]))
         return LingLabel(
-            label=label_cell.text,
-            value=value_cell.text,
+            label=label_cell,
+            value=value_cell,
             nid=nid,
-            target=target_cell.text
+            target=target_cell,
         )

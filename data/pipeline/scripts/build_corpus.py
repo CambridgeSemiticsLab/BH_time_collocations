@@ -26,13 +26,16 @@ BHSA_GENERIC_META.update({
 
 DATA_LOCATIONS = [
     snakemake.params.bhsa_data_path,
-    snakemake.params.bhsa_genre_path
+    snakemake.params.bhsa_genre_path,
+    snakemake.params.bsha_heads_path,
 ]
 
+annotation_files = [Path(file) for file in snakemake.input.annotations]
 
 corpus_builder = ThesisCorpusBuilder(
     locations=DATA_LOCATIONS,
     filter_metadata=BHSA_GENERIC_META,
+    annotation_files=annotation_files,
     **THESIS_CORPUS_PARAMS,
 )
 

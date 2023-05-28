@@ -10,7 +10,9 @@ HOME = Path.home()
 BHSA_REPO = HOME / "github/etcbc/bhsa"
 BHSA_BASE_DATA = BHSA_REPO / "tf/2021"
 BHSA_GENRE_DATA = HOME / "github/etcbc/genre_synvar/tf/2021"
+BHSA_HEADS_DATA = HOME / "github/etcbc/heads/tf/2021"
 
+ANNOTATION_DIR = Path("../data/annotations")
 
 def globfiles(path, pattern):
     """Simple method to glob a directory."""
@@ -27,19 +29,22 @@ def searchfiles(directory, filenames, ext=None):
     ]
 
 
-# rule all:
-#     input:
-#         None
+annotations_to_add = ['b_time']
+completed_annotations = ANNOTATION_DIR / 'json'
 
 rule build_corpus:
     params:
         bhsa_repo=BHSA_REPO,
         bhsa_data_path=directory(BHSA_BASE_DATA),
         bhsa_genre_path=directory(BHSA_GENRE_DATA),
+        bsha_heads_path=directory(BHSA_HEADS_DATA),
     input:
-        "scripts/corpus_building/config.py",
-        globfiles(BHSA_BASE_DATA, '*.tf'),
-        globfiles(BHSA_GENRE_DATA, '*.tf'),
+        config_script="scripts/corpus_building/config.py",
+        bhsa_tf=globfiles(BHSA_BASE_DATA, '*.tf'),
+        genre_tf=globfiles(BHSA_GENRE_DATA, '*.tf'),
+        annotations=expand(
+            completed_annotations / '{project}.json', project=annotations_to_add
+        ),
     output:
         directory("../data/corpus/")
     script:
@@ -47,27 +52,25 @@ rule build_corpus:
 
 
 # Labeling Configs
-LABELING_PROJECTS = ['test']
-ANNOTATION_INDIR = Path("../data/annotations/sheets/complete")
-ANNOTATION_OUTDIR = Path("../data/annotations/sheets/blank")
-ANNOTATION_ARCHIVE = Path("../data/annotations/json")
+LABELING_PROJECTS = ['b_time']
 
 rule label_dataset:
     params:
         projects=LABELING_PROJECTS,
-        annotation_outdir=ANNOTATION_OUTDIR,
-        annotation_indir=ANNOTATION_INDIR,
-        archive_dir=ANNOTATION_ARCHIVE,
+        annotation_dir=ANNOTATION_DIR,
     input:
         corpus=rules.build_corpus.output,
+        tense_data="source_data/eng_tenses/eng_tenses.pkl",
         subscripts=[
             "scripts/labeling/projects.py",
             "scripts/labeling/annotation_sheets.py",
         ],
     output:
-        expand(
-            ANNOTATION_OUTDIR / '{project}_1.docx',
-            project=LABELING_PROJECTS,
+        directory(
+            expand(
+                ANNOTATION_DIR / 'sheets' / 'blank' / '{project}',
+                project=LABELING_PROJECTS,
+            )
         )
     script:
         "scripts/label_dataset.py"

@@ -1,6 +1,6 @@
 """This module contains helper objects and definitions."""
 
-from typing import NamedTuple, Tuple, Set, Optional
+from typing import NamedTuple, Tuple, Set, Optional, Any
 
 from textwrap import dedent
 from tf.core.api import Api
@@ -35,7 +35,7 @@ class LabelSpec(NamedTuple):
 
     name: str
     targets: Set[TargetSpec]
-    value_strings: Set[str]
+    value_strings: Optional[Set[str]]
     sheet: str
 
 
@@ -62,7 +62,7 @@ class NodeIdentifier(NamedTuple):
     """Class for representing a linguistic node without using the node number."""
 
     otype: str
-    oslots: Tuple[int]
+    oslots: Tuple[int, ...]
 
     @classmethod
     def from_node(cls, node: int, tf_api: Api):
@@ -92,5 +92,16 @@ class LingLabel(NamedTuple):
 
     @property
     def id(self) -> Tuple[str, NodeIdentifier, str]:
-        """Return a tuple to unique identify this label, without the filled value."""
+        """Return a tuple to uniquely identify this label, without the filled value."""
         return self.label, self.nid, self.target
+
+
+class SpecsDict(dict):
+    """Class for holding specs for objects of interest."""
+
+    def __getitem__(self, item: Any) -> Any:
+        """Retrieve item from specs dict."""
+        try:
+            return super().__getitem__(item)
+        except KeyError:
+            raise Exception(f'Spec value "{item}" is undefined in configs!')
