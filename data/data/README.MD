@@ -1,3 +1,4 @@
 # Data
 
-This directory contains data generation scripts and data used for the analyses.
+This directory contains source data used for the analysis, as produced by the `/data/pipeline/Snakemake` pipeline.
+
