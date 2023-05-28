@@ -6,7 +6,9 @@
 # Main and subordinate clauses
 # Martijn Naaijer
 
-For the Syntactic Variation project, Marianne Kaajan developed a procedure which decides whether a clause is a main clause or a subordinate clause. Further, it distinguishes three types of subordinate clauses. The function in_dep_calc() is a Python implementation of this procedure. It requires installation of Text-Fabric.
+For the Syntactic Variation project, Marianne Kaajan developed a procedure which decides whether a clause is a main
+clause or a subordinate clause. Further, it distinguishes three types of subordinate clauses. The function
+in_dep_calc() is a Python implementation of this procedure. It requires installation of Text-Fabric.
 
 The function in_dep_calc() can be called with a clause node as argument.
 
