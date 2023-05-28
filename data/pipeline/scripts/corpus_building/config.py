@@ -2,6 +2,14 @@
 
 from corpus_building.utils import EditAction
 
+# metadata unique to annotation features, to override the default etcbc values
+annotation_metadata = {
+    'encoders': 'Cody Kingham',
+    'source': ('Kingham, Constructional Network of Time Adverbials in Biblical Hebrew, '
+               'PhD Thesis, Cambridge University'),
+    'source-url': 'https://github.com/CambridgeSemiticsLab/BH_time_collocations',
+}
+
 
 # Corpus edits are logged here;
 # NB: All node numbers are from ETCBC 2021 version;
@@ -1373,6 +1381,31 @@ THESIS_CORPUS_PARAMS = dict(
         'omap@2021-KT': {
             'description': 'Mapping between nodes in BHSA 2021 version to BHSA Kingham Thesis version',
             'valueType': 'int',
+        },
+        'target': {
+            **annotation_metadata,
+            'description': 'Target value assigned by the thesis annotation project',
+            'valueType': 'str',
+        },
+        'cl_type': {
+            **annotation_metadata,
+            'description': 'Clause type values assigned by the thesis annotation project',
+            'valueType': 'str',
+        },
+        'aspect': {
+            **annotation_metadata,
+            'description': 'Clause aspect values assigned by the thesis annotation project',
+            'valueType': 'str',
+        },
+        'tp_cluster': {
+            **annotation_metadata,
+            'description': 'Time phrase cluster values assigned by the thesis annotation project',
+            'valueType': 'str',
+        },
+        'tense': {
+            **annotation_metadata,
+            'description': 'Clause tense values assigned by the thesis annotation project',
+            'valueType': 'str',
         },
     },
 )

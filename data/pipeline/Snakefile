@@ -12,6 +12,7 @@ BHSA_BASE_DATA = BHSA_REPO / "tf/2021"
 BHSA_GENRE_DATA = HOME / "github/etcbc/genre_synvar/tf/2021"
 BHSA_HEADS_DATA = HOME / "github/etcbc/heads/tf/2021"
 
+ANNOTATION_DIR = Path("../data/annotations")
 
 def globfiles(path, pattern):
     """Simple method to glob a directory."""
@@ -28,9 +29,8 @@ def searchfiles(directory, filenames, ext=None):
     ]
 
 
-# rule all:
-#     input:
-#         None
+annotations_to_add = ['b_time']
+completed_annotations = ANNOTATION_DIR / 'json'
 
 rule build_corpus:
     params:
@@ -39,9 +39,12 @@ rule build_corpus:
         bhsa_genre_path=directory(BHSA_GENRE_DATA),
         bsha_heads_path=directory(BHSA_HEADS_DATA),
     input:
-        "scripts/corpus_building/config.py",
-        globfiles(BHSA_BASE_DATA, '*.tf'),
-        globfiles(BHSA_GENRE_DATA, '*.tf'),
+        config_script="scripts/corpus_building/config.py",
+        bhsa_tf=globfiles(BHSA_BASE_DATA, '*.tf'),
+        genre_tf=globfiles(BHSA_GENRE_DATA, '*.tf'),
+        annotations=expand(
+            completed_annotations / '{project}.json', project=annotations_to_add
+        ),
     output:
         directory("../data/corpus/")
     script:
@@ -50,7 +53,6 @@ rule build_corpus:
 
 # Labeling Configs
 LABELING_PROJECTS = ['b_time']
-ANNOTATION_DIR = Path("../data/annotations")
 
 rule label_dataset:
     params:

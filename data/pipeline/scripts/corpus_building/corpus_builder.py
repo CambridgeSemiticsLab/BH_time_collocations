@@ -1,10 +1,13 @@
 """Provide classes and methods for constructing a corpus."""
 
+import json
 import shutil
 import collections
 
+from pprint import pformat
+from textwrap import indent
 from pathlib import Path
-from typing import Set, Dict, List, Optional, Any
+from typing import Set, Dict, List, Optional, Any, Tuple, Counter
 
 from tf.fabric import Fabric
 
@@ -21,8 +24,9 @@ class ThesisCorpusBuilder:
 
     def __init__(
             self,
-            filter_metadata: Optional[Dict[str, Any]] = None,
             locations: Optional[List[str]] = None,
+            filter_metadata: Optional[Dict[str, Any]] = None,
+            annotation_files: Optional[List[Path]] = None,
             book_limit: Optional[int] = None,
             delete_features: Optional[Set[str]] = None,
             rename_features: Optional[Dict[str, str]] = None,
@@ -36,8 +40,9 @@ class ThesisCorpusBuilder:
     ):
         """Initialize the thesis corpus builder."""
         self.locations = locations or ''
-        self.book_limit = book_limit
         self.filter_metadata = filter_metadata or {}
+        self.annotation_files = annotation_files
+        self.book_limit = book_limit
         self.add_features = add_features or {}
         self.update_metadata = update_metadata or {}
         self.delete_features = delete_features or set()
@@ -273,6 +278,81 @@ class ThesisCorpusBuilder:
             self.tf_fabric = Fabric(self.locations)
             self.tf_api = self.tf_fabric.loadAll()
 
+    @staticmethod
+    def _load_json(filepath: Path):
+        """Load json from a filepath."""
+        return json.loads(filepath.read_text())
+
+    def _read_annotation_files(self) -> Dict[str, List[Any]]:
+        """Read annotation data from disk."""
+        file2labels = {}
+        for filepath in self.annotation_files:
+            file2labels[filepath] = self._load_json(filepath)
+        return file2labels
+
+    def _get_nid_to_node(
+            self,
+            corpus_data: CorpusData
+    ) -> Dict[Tuple[str, Tuple[int, ...]], int]:
+        """Build reverse index of node id (otype, oslots) to new node number."""
+        nid_to_node = {}
+        for node, oslots in corpus_data['edgeFeatures']['oslots'].items():
+            otype = corpus_data['nodeFeatures']['otype'][node]
+            sorted_oslots = tuple(sorted(oslots))  # ensure oslots are sorted
+            nid = (otype, sorted_oslots)
+            nid_to_node[nid] = node
+            # add slots too
+            for slot in sorted_oslots:
+                nid_to_node[('word', (slot,))] = slot
+        return nid_to_node
+
+    @staticmethod
+    def _report_annotated_features(
+            added_labels: Counter[str],
+            unable_to_assign: List[Any],
+    ) -> None:
+        """Report on annotated features."""
+        print(f'\t{sum(added_labels.values())} new node features assigned...')
+        print(indent(pformat(added_labels.most_common()), '\t\t'))
+        if unable_to_assign:
+            print(f'\t{len(unable_to_assign)} labels could not be found in corpus!')
+            for label in unable_to_assign:
+                print(f'\t\t{label}')
+
+    def _add_annotation_features(self, corpus_data: CorpusData):
+        """Add features from custom annotations to new nodes."""
+        file2labels = self._read_annotation_files()
+        if file2labels:
+            print('\tAdding new features from the following sources:')
+        else:
+            print('\tFound no pending annotation files. Skipping.')
+        added_labels = collections.Counter()
+        unable_to_assign = []
+        nid_to_node = self._get_nid_to_node(corpus_data)
+        for file, labels in file2labels.items():
+            print('\t\t', file)
+            for label_data in labels:
+                label, value, raw_nid, target = label_data
+                if raw_nid[0] == 'word':
+                    # hand slots differently since they have no oslots entry
+                    node = raw_nid[1][0]
+                    corpus_data['nodeFeatures'][label][node] = value
+                    corpus_data['nodeFeatures']['target'][node] = target
+                    added_labels[label] += 1
+                    added_labels['target'] += 1
+                else:
+                    nid = (raw_nid[0], tuple(raw_nid[1]))
+                    node = nid_to_node.get(nid)
+                    if node:
+                        # add the label to the corpus
+                        corpus_data['nodeFeatures'][label][node] = value
+                        corpus_data['nodeFeatures']['target'][node] = target
+                        added_labels[label] += 1
+                        added_labels['target'] += 1
+                    else:
+                        unable_to_assign.append(label_data)
+        self._report_annotated_features(added_labels, unable_to_assign)
+
     def build(self, dest_dir: str):
         """Build the corpus."""
         print('Loading BHSA corpus...')
@@ -300,6 +380,9 @@ class ThesisCorpusBuilder:
         print('Refactoring features...')
         self._delete_features(corpus_data)
         self._rename_features(corpus_data)
+
+        print('Adding new annotation features...')
+        self._add_annotation_features(corpus_data)
 
         print('Saving BHSA-KT...')
         self._clear_directory(dest_dir)
