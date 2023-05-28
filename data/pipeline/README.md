@@ -4,5 +4,5 @@ This pipeline runs on `snakemake`. The entry point is the `Snakemake` file in th
 
 For details on snakemake, read the [docs](https://snakemake.readthedocs.io/en/stable/).
 
-The output of the pipeline is stored under the `/data` directory.
+The output of the pipeline is stored under the `/data/data` directory.
 
