@@ -12,7 +12,14 @@ Mapping the constructional networks of BH time phrases using statistical measure
 
 ## Directory Contents
 
-TBD
+* `data/pipeline` produces the raw data from underlying raw sources, especially ETCBC and manual annotation
+    * `data/pipeline/scrips` contains the Python scripts that comprise each part of the data pipeline
+    * `data/pipeline/legacy_scripts` contains old pipeline scripts, no longer used, but preserved for easy back-reference
+    * `data/pipeline/development` contains scratch code, mostly Jupyter notebooks, used for prototyping and testing new code / ideas
+* `data/data` contains all of the raw data used for the project analysis
+* `project_pkg` contains a custom Python package utilized in the analyses notebooks
+* `analysis` contains Jupyter notebooks which output the primary research results
+* `docs` contains various documentation-oriented files for this repo
 
 ## Project Description
 
