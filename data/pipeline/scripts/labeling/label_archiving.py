@@ -1,9 +1,8 @@
 """Module to handle archiving and updating of accepted labels."""
 
 import json
-import collections
 
-from typing import List, Set, Dict
+from typing import List, Set, Dict, Any
 from pathlib import Path
 from tf.fabric import Fabric
 from labeling.specifiers import LingLabel, NodeIdentifier
@@ -133,27 +132,35 @@ class LabelArchivist:
             for label in latest_labels_archivable
         }
         good = set()
-        obsolete = collections.Counter()
+        obsolete = []
+
         for archived_label in archive:
 
-            # decide whether archived label has bee obsoleted
+            # decide whether archived label has been obsoleted
             latest_label = latest_label_map.get(archived_label.id)
             if not latest_label:
                 is_good = False
-            elif self._label_is_filled(latest_label):
-                is_good = (archived_label == latest_label)
+                reason = 'not latest_label'
             else:
                 is_good = (archived_label.id == latest_label.id)
+                reason = 'archived_label.id != latest_label.id'
 
             # add to set depending on status
             if is_good:
                 good.add(archived_label)
             else:
-                obsolete[(archived_label.label, archived_label.value)] += 1
+                obsolete.append((reason, archived_label, latest_label))
 
         if obsolete:
-            self._log(f'\t!! OBSOLETE LABELS PRUNED FROM ARCHIVE: !!')
-            self._log(f'\t{obsolete.most_common()}')
+            log_message = []
+            for reason, archived_label, latest_label in obsolete:
+                log_message.append('\t\t' + str(archived_label))
+                log_message.append(f'\t\t\tREASON: {reason}')
+                log_message.append('\t\t\tLATEST: ' + str(latest_label))
+            self._log(f'\t!! {len(obsolete)} OBSOLETE LABEL(S) PRUNED FROM ARCHIVE !!')
+            print('\n'.join(log_message))
+
+            self._log(f'')
 
         return good
 

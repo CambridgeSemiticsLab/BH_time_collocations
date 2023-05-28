@@ -112,6 +112,13 @@ class BaseLabelingProject(ABC):
         if not self.annotation_outdir.exists():
             self.annotation_outdir.mkdir()
 
+    def _get_annotation_sheet_id_start(self) -> int:
+        """Retrieve the annotation sheet id based on completed sheets."""
+        n_completed_sheets = len(list(
+            self.annotation_indir.glob('*.docx')
+        ))
+        return n_completed_sheets + 1
+
     def write_annotation_sheets(self, labels: List[LingLabel]) -> None:
         """Write annotation sheet to disk, to outdir."""
         # group all labels by sheet
@@ -122,7 +129,8 @@ class BaseLabelingProject(ABC):
 
         # write sheets
         self._initialize_outdir()
-        for i, (sheet_name, labels) in enumerate(sheet_grouped_labels.items(), 1):
+        annotation_id_start = self._get_annotation_sheet_id_start()
+        for i, (sheet_name, labels) in enumerate(sheet_grouped_labels.items(), annotation_id_start):
             sheet_class: Type[BaseAnnotationSheet] = SHEET_MAP[sheet_name]
             sheet = sheet_class(
                 annotations=labels,
@@ -230,6 +238,7 @@ class BTimeLabelingProject(BaseLabelingProject):
                     "wehaya_x",
                     "medial",
                     "nmcl",
+                    "nmcl_disloc",  # nominal clause dislocation, e.g. Num 10:10
                     "ellp",  # ellipsis
                 ],
                 "sheet": BasicAnnotationSheet.NAME,
@@ -243,7 +252,7 @@ class BTimeLabelingProject(BaseLabelingProject):
                     "sta_ac",
                     "sta_in",
                     "sta_po",
-                    "ach_rd"
+                    "ach_rd",
                     "ach_id",
                     "ach_cy",
                     "act_di",
@@ -268,7 +277,11 @@ class BTimeLabelingProject(BaseLabelingProject):
                     "1.1.1.2.5",
                     "1.1.1.2.2.1",
                     "1.1.1.1",
+                    "1.1.2.3",
                     "1.1.1.3",
+                    "1.1.2.4",
+                    "1.1.2.1.3",
+                    "1.1.2.2",
                     "1.1.2.1.1",
                     "1.1.1.2.1.1.2",
                     "1.1.2.5.1",
@@ -279,12 +292,24 @@ class BTimeLabelingProject(BaseLabelingProject):
                     "1.1.2.6",
                     "1.1.2.7",
                     "1.1.1.2.1.2.2",
+                    "1.1.1.2.1.1.3",
                     "1.1.1.2.2.2",
+                    "1.1.1.2.4.1",
+                    "1.1.1.2.4.1.1",
                     "1.1.2.4.1",
                     "1.1.2.5.3.2.1",
                     "1.1.2.5.3.2.2",
                     "1.1.2.5.3.2.3",
                     "1.1.2.5.3.2.1.1",
+                    "1.1.2.5.3.2.1.2",
+                    "1.1.2.6.1",
+                    "1.1.1.2.3",
+                    "1.1.1.2.2.3",
+                    "1.1.2.1.1.1",
+                    "1.1.2.1.3.1",
+                    "1.1.2.1.3.2",
+                    "1.1.1.2.2.4",
+                    "1.1.2.5.3.2.1.3",
                 ],
                 "sheet": BasicAnnotationSheet.NAME,
             },

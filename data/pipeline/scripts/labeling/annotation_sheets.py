@@ -137,12 +137,8 @@ class BaseAnnotationSheet(ABC):
         """Build up document."""
 
     @staticmethod
-    def _normalize_annotated_text(text: str) -> str:
-        """Normalize annotated text to remove any accidental noise."""
-        return text.lower().strip()
-
     @abstractmethod
-    def _label_from_row(self, row, metadata: Dict[str, Any]) -> LingLabel:
+    def _label_from_row(row, metadata: Dict[str, Any]) -> LingLabel:
         """Extract cell values from a table row into a LingLabel object."""
 
     def _get_new_hash_id(
@@ -199,7 +195,9 @@ class BaseAnnotationSheet(ABC):
         annotations = []
         for table in document.tables:
             for row in table.rows:
-                annotations.append(cls._label_from_row(row, metadata))
+                annotations.append(
+                    cls._label_from_row(row, metadata)
+                )
 
         # return new class instance
         return cls(
@@ -368,11 +366,19 @@ class BasicAnnotationSheet(BaseAnnotationSheet):
             self._add_annotation_table(document, labels)
             document.add_paragraph('\n')
 
-    def _label_from_row(self, row, metadata: Dict[str, Any]) -> LingLabel:
+    @staticmethod
+    def _label_from_row(row, metadata: Dict[str, Any]) -> LingLabel:
         """Extract a label from a row."""
-        id_cell, label_cell, target_cell, text_cell, value_cell = [
-            self._normalize_annotated_text(cell.text) for cell in row.cells
-        ]
+        normalize_annotated_text = (
+            lambda text: text.lower().strip()
+        )
+        try:
+            id_cell, label_cell, target_cell, text_cell, value_cell = [
+                normalize_annotated_text(cell.text) for cell in row.cells
+            ]
+        except ValueError:
+            row_text = [cell.text for cell in row.cells]
+            raise Exception(f'Misshapened row encountered: {row_text}')
         nid_data = metadata[id_cell]["nid"]
         nid = NodeIdentifier(nid_data[0], tuple(nid_data[1]))
         return LingLabel(

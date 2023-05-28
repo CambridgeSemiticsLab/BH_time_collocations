@@ -3,7 +3,7 @@
 import pickle
 
 from abc import ABC, abstractmethod
-from typing import Set, List, Dict
+from typing import Set, List, Dict, Tuple
 from tf.fabric import Fabric
 
 from labeling.specifiers import ValueQuery, NodeIdentifier, LingLabel
@@ -66,7 +66,9 @@ class QueryLabeler(BaseLabeler):
         """Assign labels to targets based on queries."""
         # run all value queries and collect their output
         print('\tRunning feature value queries...')
-        labeled_targets: List[LingLabel] = []
+        # map to dict in order to de-dup multiple matches on label ids (i.e. sans value),
+        # this will give priority to the last-defined matching pattern
+        labeled_targets: Dict[Tuple[str, NodeIdentifier, str], LingLabel] = {}
         for value_query in self.value_queries:
             for target in value_query.value.label.targets:
 
@@ -79,15 +81,15 @@ class QueryLabeler(BaseLabeler):
                 label_tuple = (value_query.value.label.name, value_query.value.name)
                 print(f'\t\t{label_tuple}, {len(query_results)} results')
                 for node in query_results:
-                    labeled_targets.append(
-                        LingLabel(
-                            label=value_query.value.label.name,
-                            value=value_query.value.name,
-                            nid=NodeIdentifier.from_node(node, self.api),
-                            target=target.name,
-                        )
+                    found_label = LingLabel(
+                        label=value_query.value.label.name,
+                        value=value_query.value.name,
+                        nid=NodeIdentifier.from_node(node, self.api),
+                        target=target.name,
                     )
-        return labeled_targets
+                    labeled_targets[found_label.id] = found_label
+        found_labels = list(labeled_targets.values())
+        return found_labels
 
 
 class EnglishTenseLabeler(BaseLabeler):

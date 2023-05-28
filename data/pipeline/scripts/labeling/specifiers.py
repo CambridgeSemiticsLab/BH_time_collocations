@@ -92,7 +92,7 @@ class LingLabel(NamedTuple):
 
     @property
     def id(self) -> Tuple[str, NodeIdentifier, str]:
-        """Return a tuple to unique identify this label, without the filled value."""
+        """Return a tuple to uniquely identify this label, without the filled value."""
         return self.label, self.nid, self.target
 
 
