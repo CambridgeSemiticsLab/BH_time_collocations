@@ -62,7 +62,7 @@ class NodeIdentifier(NamedTuple):
     """Class for representing a linguistic node without using the node number."""
 
     otype: str
-    oslots: Tuple[int]
+    oslots: Tuple[int, ...]
 
     @classmethod
     def from_node(cls, node: int, tf_api: Api):

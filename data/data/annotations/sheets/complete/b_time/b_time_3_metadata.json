@@ -1,0 +1,154 @@
+{
+  "b4cee68c": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        171966,
+        171967,
+        171968,
+        171969,
+        171970,
+        171971,
+        171972,
+        171973,
+        171974,
+        171975,
+        171976,
+        171977,
+        171978,
+        171979,
+        171980
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "98491ead": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        87973,
+        87974,
+        87975,
+        87976,
+        87977,
+        87978,
+        87979,
+        87980,
+        87981,
+        87982
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "a1d4d6b5": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        48203,
+        48204,
+        48205
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "12dfd180": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        48207,
+        48208,
+        48209
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "08a3bc39": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        37542,
+        37543,
+        37544
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "facb5f7e": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        76403,
+        76404
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "e54905a1": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        76399,
+        76400,
+        76401
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "e9216ed3": {
+    "label": "tp_cluster",
+    "nid": [
+      "phrase",
+      [
+        76406,
+        76407,
+        76408
+      ]
+    ],
+    "target": "time_phrase"
+  },
+  "27c30ed5": {
+    "label": "cl_type",
+    "nid": [
+      "clause",
+      [
+        37540,
+        37541,
+        37542,
+        37543,
+        37544
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "2f6ba8f4": {
+    "label": "aspect",
+    "nid": [
+      "clause",
+      [
+        37540,
+        37541,
+        37542,
+        37543,
+        37544
+      ]
+    ],
+    "target": "time_clause"
+  },
+  "c77d770b": {
+    "label": "tense",
+    "nid": [
+      "word",
+      [
+        37531
+      ]
+    ],
+    "target": "verb"
+  }
+}

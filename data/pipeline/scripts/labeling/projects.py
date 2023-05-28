@@ -121,6 +121,14 @@ class BaseLabelingProject(ABC):
 
     def write_annotation_sheets(self, labels: List[LingLabel]) -> None:
         """Write annotation sheet to disk, to outdir."""
+        # initialize the output directory
+        self._initialize_outdir()
+
+        # if no remaining labels, do nothing
+        if not labels:
+            print('\tNo more labels to review! No sheet written.')
+            return
+
         # group all labels by sheet
         sheet_grouped_labels: Dict[str, List[LingLabel]] = collections.defaultdict(list)
         for label in labels:
@@ -128,7 +136,6 @@ class BaseLabelingProject(ABC):
             sheet_grouped_labels[sheet].append(label)
 
         # write sheets
-        self._initialize_outdir()
         annotation_id_start = self._get_annotation_sheet_id_start()
         for i, (sheet_name, labels) in enumerate(sheet_grouped_labels.items(), annotation_id_start):
             sheet_class: Type[BaseAnnotationSheet] = SHEET_MAP[sheet_name]
@@ -310,6 +317,7 @@ class BTimeLabelingProject(BaseLabelingProject):
                     "1.1.2.1.3.2",
                     "1.1.1.2.2.4",
                     "1.1.2.5.3.2.1.3",
+                    "1.1.2.1.2",
                 ],
                 "sheet": BasicAnnotationSheet.NAME,
             },
