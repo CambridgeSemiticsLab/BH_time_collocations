@@ -39,7 +39,7 @@ rule build_corpus:
         bhsa_genre_path=directory(BHSA_GENRE_DATA),
         bsha_heads_path=directory(BHSA_HEADS_DATA),
     input:
-        config_script="scripts/corpus_building/config.py",
+        config_script="scripts/custom_corpus/config.py",
         bhsa_tf=globfiles(BHSA_BASE_DATA, '*.tf'),
         genre_tf=globfiles(BHSA_GENRE_DATA, '*.tf'),
         annotations=expand(
@@ -62,8 +62,8 @@ rule label_dataset:
         corpus=rules.build_corpus.output,
         tense_data="source_data/eng_tenses/eng_tenses.pkl",
         subscripts=[
-            "scripts/labeling/projects.py",
-            "scripts/labeling/annotation_sheets.py",
+            "scripts/custom_labels/projects.py",
+            "scripts/custom_labels/annotation_sheets.py",
         ],
     output:
         directory(

@@ -1,4 +1,5 @@
-# modify default BHSA domain features
+"""Modify default BHSA domain features."""
+
 
 def permissive_q(node, api):
     """Map domains to be more permissive with Q
@@ -16,5 +17,3 @@ def permissive_q(node, api):
         return 'Q'
     else:
         return txt_type[-1]
-
-

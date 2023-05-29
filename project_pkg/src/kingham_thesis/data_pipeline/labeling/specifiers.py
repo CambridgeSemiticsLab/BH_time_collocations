@@ -22,7 +22,7 @@ class TargetQuerySpecifier(NamedTuple):
 
     target: TargetSpec
     raw_query: str  # string for Text-Fabric to query to identify the object
-    sample: Optional[float]
+    sample: Optional[int]
 
     @property
     def query(self) -> str:

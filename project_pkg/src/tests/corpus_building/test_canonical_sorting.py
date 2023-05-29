@@ -2,7 +2,7 @@
 
 import pytest
 
-from corpus_building.canonical_sorting import canonical_order
+from kingham_thesis.data_pipeline.corpus_building.canonical_sorting import canonical_order
 
 
 @pytest.mark.parametrize(

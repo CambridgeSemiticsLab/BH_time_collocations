@@ -12,11 +12,11 @@ from .tokenizers import tokenize_lexemes, formal_tokens
 from .nav_time import get_times
 from .verb_form import get_verbform
 from .modis_getter import get_modis
-from .synvar_carc import in_dep_calc as clause_relator
-from .modify_domain import permissive_q
-from .book_formats import get_book_maps, etcbc2sbl
+from bhsa_data.synvar_carc import in_dep_calc as clause_relator
+from bhsa_data.modify_domain import permissive_q
+from bhsa_data.book_formats import get_book_maps, etcbc2sbl
 from .tag_args import clause_args, tag_position
-from .clause_tree import get_successors
+from bhsa_data.clause_tree import get_successors
 
 def remove_shindots(string):
     """Remove dots from ש"""

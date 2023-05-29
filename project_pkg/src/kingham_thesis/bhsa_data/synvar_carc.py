@@ -1,8 +1,8 @@
-# Calculate clause relation tags for BHSA source_data in Text-Fabric
-# source: Martijn Naaijer and Marianne Kaajan
-# https://github.com/MartijnNaaijer/phdthesis/blob/master/Various/main_subordinate_clauses.ipynb
-
 """
+Calculate clause relation tags for BHSA source_data in Text-Fabric
+source: Martijn Naaijer and Marianne Kaajan
+https://github.com/MartijnNaaijer/phdthesis/blob/master/Various/main_subordinate_clauses.ipynb
+
 # Main and subordinate clauses
 # Martijn Naaijer
 
@@ -21,6 +21,7 @@ It returns one of the following values:
 
 These functions given here are translated from a number of MQL queries made by Marianne Kaajan.
 """
+
 
 def in_dep_calc(cl, api):  
     """

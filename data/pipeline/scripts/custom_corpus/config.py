@@ -1,6 +1,7 @@
 """Configure the build of BHSA KinghamThesis version."""
 
-from corpus_building.utils import EditAction
+from kingham_thesis.data_pipeline.corpus_building.utils import EditAction
+
 
 # metadata unique to annotation features, to override the default etcbc values
 annotation_metadata = {

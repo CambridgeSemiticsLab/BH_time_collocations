@@ -2,16 +2,15 @@
 
 import collections
 import random
-import math
 
 from typing import List, Dict, Set, Any, Iterable
 from datetime import datetime
 from tf.fabric import Fabric
 
-from labeling.specifiers import (
+from kingham_thesis.data_pipeline.labeling.specifiers import (
     TargetQuerySpecifier, LabelSpec, NodeIdentifier, LingLabel
 )
-from labeling.projects import BaseLabelingProject
+from kingham_thesis.data_pipeline.labeling.projects import BaseLabelingProject
 
 
 class AutoLabeler:
@@ -60,11 +59,10 @@ class AutoLabeler:
     def _sample_query_results(
             self,
             results: Set[int],
-            fraction: float,
+            sample_size: int,
     ) -> Set[int]:
         """Get a fractional sample of a query result."""
         random.seed(self.project.random_seed)
-        sample_size = math.ceil(len(results) * fraction)
         sample = random.sample(sorted(results), sample_size)
         return set(sample)
 

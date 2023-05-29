@@ -1,7 +1,5 @@
-"""
-Functions for retrieving clause relations up and down 
-the BHSA clause relation tree.
-"""
+"""Functions for retrieving clause relations up and down the BHSA clause relation tree."""
+
 
 def get_predecessors(clause_atom, api, start=True):
     """Retrieve all of a clause_atom's predecessors in BHSA tree"""
@@ -11,7 +9,8 @@ def get_predecessors(clause_atom, api, start=True):
     mother = E.mother.f(clause_atom)
     if mother:
         yield from get_predecessors(mother[0], api, start=False)
-        
+
+
 def get_successors(clause_atom, api, start=True):
     """Retrieve all of a clause_atom's successors in BHSA tree"""
     E = api.E

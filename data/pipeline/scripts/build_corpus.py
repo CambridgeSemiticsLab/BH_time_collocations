@@ -4,8 +4,8 @@ import yaml
 
 from pathlib import Path
 
-from corpus_building.corpus_builder import ThesisCorpusBuilder
-from corpus_building.config import THESIS_CORPUS_PARAMS
+from kingham_thesis.data_pipeline.corpus_building.corpus_builder import ThesisCorpusBuilder
+from custom_corpus.config import THESIS_CORPUS_PARAMS
 
 
 def load_yaml(filepath):
