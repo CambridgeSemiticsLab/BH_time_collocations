@@ -70,6 +70,7 @@ class EnglishTenseLabeler(BaseLabeler):
     def label(
             self,
             annotation_objects: Dict[str, Set[int]],
+            custom_sets: Dict[str, Set[int]],
     ) -> List[LingLabel]:
         """Label verb objects."""
         self._log('Running verb-tense labeler...')

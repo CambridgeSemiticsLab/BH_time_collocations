@@ -52,11 +52,11 @@ rule build_corpus:
 
 
 # Labeling Configs
-LABELING_PROJECTS = ['b_time']
+LABELS_TO_DO = ['nt_clauses']
 
 rule label_dataset:
     params:
-        projects=LABELING_PROJECTS,
+        projects=LABELS_TO_DO,
         annotation_dir=ANNOTATION_DIR,
     input:
         corpus=rules.build_corpus.output,
@@ -69,7 +69,7 @@ rule label_dataset:
         directory(
             expand(
                 ANNOTATION_DIR / 'sheets' / 'blank' / '{project}',
-                project=LABELING_PROJECTS,
+                project=LABELS_TO_DO,
             )
         )
     script:

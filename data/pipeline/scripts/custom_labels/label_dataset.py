@@ -9,7 +9,7 @@ from tf.fabric import Fabric
 
 from kingham_thesis.data_pipeline.labeling.project_runner import ProjectRunner
 
-from projects import BTimeLabelingProject
+from projects import BTimeLabelingProject, NonTemporalClauseProject
 from labelers import EnglishTenseLabeler
 
 
@@ -21,20 +21,30 @@ tf_fabric = Fabric(
 tf_api = tf_fabric.loadAll()
 
 # set up projects
+base_project_params = dict(
+    annotation_dir=snakemake.params.annotation_dir,
+    tf_fabric=tf_fabric,
+)
+
+english_tense_labeler = EnglishTenseLabeler(
+    tf_fabric, str(snakemake.input.tense_data)
+)
+
 projects = [
     BTimeLabelingProject(
-        annotation_dir=snakemake.params.annotation_dir,
-        tf_fabric=tf_fabric,
-        extra_labelers=[
-            EnglishTenseLabeler(tf_fabric, str(snakemake.input.tense_data))
-        ],
+        **base_project_params,
+        extra_labelers=[english_tense_labeler],
+    ),
+    NonTemporalClauseProject(
+        **base_project_params,
+        extra_labelers=[english_tense_labeler],
     ),
 ]
+
 projects_todo = [
     project for project in projects
     if project.name in snakemake.params.projects
 ]
-
 
 # run projects
 runner = ProjectRunner(projects_todo, tf_fabric)

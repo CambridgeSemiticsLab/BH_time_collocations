@@ -12,7 +12,7 @@ from kingham_thesis.data_pipeline.labeling.projects import BaseLabelingProject
 class LabelArchivist:
     """Object to archive labels and keep them in-sync with latest defined targets."""
 
-    JSON_INDENT = 2
+    JSON_INDENT = None
 
     def __init__(
             self,

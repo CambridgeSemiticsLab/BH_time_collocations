@@ -1,42 +1,15 @@
 """Module for configuring the autolabelling process for this project."""
 
 
-from typing import List, Dict, Type
-
+from typing import List, Dict, Type, Set
+from tf.core.api import Api
 
 from kingham_thesis.data_pipeline.labeling.specifiers import TargetQuerySpecifier, ValueQuery
-from kingham_thesis.data_pipeline.labeling.projects import BaseLabelingProject
+from kingham_thesis.data_pipeline.labeling.projects import BaseLabelingProject, SetFinder
 from kingham_thesis.data_pipeline.labeling.annotation_sheets import BaseAnnotationSheet
+from kingham_thesis.bhsa_data.synvar_carc import in_dep_calc
 
 from annotation_sheets import BasicAnnotationSheet
-
-
-# define some standard, inter-project templates
-TIMECLAUSE_QUERY = """
-    time_clause:clause
-    /with/
-        phrase function=Time
-    /-/
-"""
-
-
-TIMEPHRASE_QUERY = """
-    time_phrase:phrase function=Time
-    /with/
-    time_clause
-        time_phrase
-    /-/
-"""
-
-
-VERB_QUERY = """
-    verb:word pdp=verb
-    /with/
-    time_clause
-        phrase function=Time
-        verb
-    /-/
-"""
 
 
 CL_TYPE_VALUES = [
@@ -220,7 +193,14 @@ class BTimeLabelingProject(BaseLabelingProject):
             ),
             TargetQuerySpecifier(
                 self.target_specs["verb"],
-                VERB_QUERY,
+                """
+                    verb:word pdp=verb
+                    /with/
+                    time_clause
+                        phrase function=Time
+                        verb
+                    /-/
+                """,
                 None,
             ),
         ]
@@ -462,13 +442,78 @@ class NonTemporalClauseProject(BaseLabelingProject):
     }
 
     @property
+    def sheet_map(self) -> Dict[str, Type[BaseAnnotationSheet]]:
+        """Return mapping from sheet name to its constructor class."""
+        return {
+            BasicAnnotationSheet.NAME: BasicAnnotationSheet
+        }
+
+    @staticmethod
+    def _find_main_clauses(tf_api: Api) -> Dict[str, Set[int]]:
+        """Identify main clauses in the corpus."""
+        main_clause_set = set()
+        for clause in tf_api.F.otype.s('clause'):
+            dep = in_dep_calc(clause, tf_api)
+            if dep == 'Main':
+                main_clause_set.add(clause)
+        return {'main_clause': main_clause_set}
+
+    @property
+    def set_finders(self) -> List[SetFinder]:
+        """Methods for finding custom sets / definitions for use in the queries."""
+        return [
+            self._find_main_clauses
+        ]
+
+    @property
     def target_queries(self) -> List[TargetQuerySpecifier]:
         """Define queries for identifying target nodes."""
         return [
             TargetQuerySpecifier(
                 self.target_specs["nt_clause"],
                 """
+                cl:main_clause target#time_clause txt~^[^Q]*N$ kind=VC typ#Ptcp|InfC|InfA
+                /with/
+                verse genre=prose
+                    cl
+                        phrase function=Cmpl|Objc|Subj|Adju|Loca
+                /-/
                 """,
                 1100,
-            )
+            ),
+            TargetQuerySpecifier(
+                self.target_specs["nt_clause"],
+                """
+                cl:main_clause target#time_clause txt~^.*Q$ kind=VC typ#Ptcp|InfC|InfA
+                /with/
+                verse genre=prose
+                    cl
+                        phrase function=Cmpl|Objc|Subj|Adju|Loca
+                /-/
+                """,
+                1100,
+            ),
+            TargetQuerySpecifier(
+                self.target_specs["nt_clause"],
+                """
+                cl:main_clause target#time_clause txt~^.*Q$ kind=VC typ#Ptcp|InfC|InfA
+                /with/
+                verse genre=instruction
+                    cl
+                        phrase function=Cmpl|Objc|Subj|Adju|Loca
+                /-/
+                """,
+                1100,
+            ),
+            TargetQuerySpecifier(
+                self.target_specs["verb"],
+                """
+                verb:word pdp=verb
+                /with/
+                nt_clause
+                    verb
+                /-/
+                """,
+                None,
+            ),
         ]

@@ -34,7 +34,7 @@ class BaseLabelingProject(ABC):
             self,
             annotation_dir: str,
             tf_fabric: Fabric,
-            extra_labelers: Optional[List[BaseLabeler]],
+            extra_labelers: Optional[List[BaseLabeler]] = None,
     ):
         """Setup Text-Fabric variables."""
         self.annotation_dir = Path(annotation_dir)
@@ -99,7 +99,7 @@ class BaseLabelingProject(ABC):
         """Write annotation metadata to json."""
         filepath = self.annotation_outdir / f'{self.name}_{id_int}_metadata.json'
         with open(filepath, 'w') as outfile:
-            json.dump(metadata, outfile, indent=2)
+            json.dump(metadata, outfile)
 
     def _read_annotation_metadata(self, filestem: str) -> Dict[str, Any]:
         """Read annotation metadata."""

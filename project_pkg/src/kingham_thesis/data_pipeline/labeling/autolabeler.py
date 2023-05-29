@@ -10,7 +10,9 @@ from tf.fabric import Fabric
 from kingham_thesis.data_pipeline.labeling.specifiers import (
     TargetQuerySpecifier, LabelSpec, NodeIdentifier, LingLabel
 )
-from kingham_thesis.data_pipeline.labeling.projects import BaseLabelingProject
+from kingham_thesis.data_pipeline.labeling.projects import (
+    BaseLabelingProject, SetFinder
+)
 
 
 class AutoLabeler:
@@ -43,16 +45,24 @@ class AutoLabeler:
         now = f'{datetime.now()}  ' if ts else ''
         print(f'{indent_str}{now}{message}')
 
+    def _collect_custom_sets(self) -> Dict[str, Set[int]]:
+        """Collect custom sets using SetFinder functions."""
+        custom_sets = {}
+        for set_finder in self.project.set_finders:
+            custom_sets.update(set_finder(self.tf_api))
+        return custom_sets
+
     def _run_object_query(
             self,
             query: str,
             target_sets: Dict[str, Set[int]],
+            custom_sets: Dict[str, Set[int]],
     ) -> Set[int]:
         """Run a Text-Fabric query for an annotation object."""
         result_set = self.tf_api.S.search(
             query,
             shallow=True,
-            sets=target_sets,
+            sets={**target_sets, **custom_sets},
         )
         return result_set
 
@@ -68,13 +78,18 @@ class AutoLabeler:
 
     def _collect_annotation_objects(
             self,
-            object_specs: List[TargetQuerySpecifier]
+            object_specs: List[TargetQuerySpecifier],
+            custom_sets: Dict[str, Set[int]],
     ) -> Dict[str, Set[int]]:
         """Collect all annotation objects."""
         target_objects: Dict[str, Set[int]] = collections.defaultdict(set)
         for spec in object_specs:
             self._log(f'Executing query for TARGET={spec.target.name}')
-            query_results = self._run_object_query(spec.query, target_objects)
+            query_results = self._run_object_query(
+                query=spec.query,
+                target_sets=target_objects,
+                custom_sets=custom_sets,
+            )
             self._log(f'raw query results: {len(query_results)}', indent=2)
             if not spec.sample:
                 target_objects[spec.target.name].update(query_results)
@@ -87,6 +102,7 @@ class AutoLabeler:
     def _get_auto_labels(
             self,
             annotation_objects: Dict[str, Set[int]],
+            custom_sets: Dict[str, Set[int]],
     ) -> List[LingLabel]:
         """Get autolabels for all targeted nodes."""
         # collect all labels
@@ -95,7 +111,8 @@ class AutoLabeler:
 
         # collect all labels produced by processors
         for labeler in self.project.labelers:
-            for label in labeler.label(annotation_objects):
+            labels = labeler.label(annotation_objects, custom_sets)
+            for label in labels:
                 covered_targets[label.label].add(label.nid)
                 auto_labels.append(label)
 
@@ -126,6 +143,7 @@ class AutoLabeler:
 
     def labelize(self) -> List[LingLabel]:
         """Generate labels and output an annotation file."""
-        annotation_objects = self._collect_annotation_objects(self.project.target_queries)
-        auto_labels = self._get_auto_labels(annotation_objects)
+        custom_sets = self._collect_custom_sets()
+        annotation_objects = self._collect_annotation_objects(self.project.target_queries, custom_sets)
+        auto_labels = self._get_auto_labels(annotation_objects, custom_sets)
         return auto_labels

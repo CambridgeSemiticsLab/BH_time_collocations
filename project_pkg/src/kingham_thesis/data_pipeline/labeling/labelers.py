@@ -18,6 +18,7 @@ class BaseLabeler(ABC):
     def label(
             self,
             annotation_objects: Dict[str, Set[int]],
+            custom_sets: Dict[str, Set[int]],
     ) -> List[LingLabel]:
         """
         Process targets for a given label name.
@@ -64,6 +65,7 @@ class QueryLabeler(BaseLabeler):
     def label(
             self,
             annotation_objects: Dict[str, Set[int]],
+            custom_sets: Dict[str, Set[int]],
     ) -> List[LingLabel]:
         """Assign labels to targets based on queries."""
         # run all value queries and collect their output
@@ -79,7 +81,10 @@ class QueryLabeler(BaseLabeler):
                     raise Exception(f'Target {target.name} not identified by any query!')
 
                 # execute the query and process results
-                query_results = self._run_query(value_query.query, annotation_objects)
+                query_results = self._run_query(
+                    query=value_query.query,
+                    sets={**annotation_objects, **custom_sets},
+                )
                 label_tuple = (value_query.value.label.name, value_query.value.name)
                 print(f'\t\t{label_tuple}, {len(query_results)} results')
                 for node in query_results:
