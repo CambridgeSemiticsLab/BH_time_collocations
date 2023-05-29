@@ -6,9 +6,11 @@ injects a variable, `snakemake`, for accessing program parameters.
 """
 
 from tf.fabric import Fabric
+
 from kingham_thesis.data_pipeline.labeling.project_runner import ProjectRunner
-from custom_labels.projects import BTimeLabelingProject
-from custom_labels.labelers import EnglishTenseLabeler
+
+from projects import BTimeLabelingProject
+from labelers import EnglishTenseLabeler
 
 
 # configure resources

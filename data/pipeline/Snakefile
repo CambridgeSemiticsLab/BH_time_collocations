@@ -48,7 +48,7 @@ rule build_corpus:
     output:
         directory("../data/corpus/")
     script:
-        "scripts/build_corpus.py"
+        "scripts/custom_corpus/build_corpus.py"
 
 
 # Labeling Configs
@@ -73,4 +73,4 @@ rule label_dataset:
             )
         )
     script:
-        "scripts/label_dataset.py"
+        "scripts/custom_labels/label_dataset.py"

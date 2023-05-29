@@ -8,7 +8,7 @@ from kingham_thesis.data_pipeline.labeling.specifiers import TargetQuerySpecifie
 from kingham_thesis.data_pipeline.labeling.projects import BaseLabelingProject
 from kingham_thesis.data_pipeline.labeling.annotation_sheets import BaseAnnotationSheet
 
-from custom_labels.annotation_sheets import BasicAnnotationSheet
+from annotation_sheets import BasicAnnotationSheet
 
 
 # define some standard, inter-project templates
@@ -18,6 +18,8 @@ TIMECLAUSE_QUERY = """
         phrase function=Time
     /-/
 """
+
+
 TIMEPHRASE_QUERY = """
     time_phrase:phrase function=Time
     /with/
@@ -25,6 +27,8 @@ TIMEPHRASE_QUERY = """
         time_phrase
     /-/
 """
+
+
 VERB_QUERY = """
     verb:word pdp=verb
     /with/
@@ -47,6 +51,7 @@ CL_TYPE_VALUES = [
     "ellp",         # ellipsis
 ]
 
+
 ASPECT_VALUES = [
     "sta_tr",
     "sta_ac",
@@ -62,6 +67,7 @@ ASPECT_VALUES = [
     "acc_di_iter",
     "none",  # none, not applicable
 ]
+
 
 TP_CLUSTER_VALUES = [
     "1.1.1.2.1.1",
@@ -107,6 +113,7 @@ TP_CLUSTER_VALUES = [
     "1.1.2.5.3.2.1.3",
     "1.1.2.1.2",
 ]
+
 
 TENSE_VALUES = [
     "past",  # preterite
@@ -168,6 +175,7 @@ class BTimeLabelingProject(BaseLabelingProject):
             },
         },
     }
+
     LABEL_ORDER = {
         "cl_type": 0,
         "aspect": 1,
