@@ -472,11 +472,14 @@ class NonTemporalClauseProject(BaseLabelingProject):
             TargetQuerySpecifier(
                 self.target_specs["nt_clause"],
                 """
-                cl:main_clause target#time_clause txt~^[^Q]*N$ kind=VC typ#Ptcp|InfC|InfA
+                cl:main_clause txt~^[^Q]*N$ kind=VC typ#Ptcp|InfC|InfA
                 /with/
                 verse genre=prose
                     cl
-                        phrase function=Cmpl|Objc|Subj|Adju|Loca
+                        phrase function=Pred|PreO|PreS
+                /-/
+                /without/
+                    phrase function=Time|Freq
                 /-/
                 """,
                 1100,
@@ -484,11 +487,14 @@ class NonTemporalClauseProject(BaseLabelingProject):
             TargetQuerySpecifier(
                 self.target_specs["nt_clause"],
                 """
-                cl:main_clause target#time_clause txt~^.*Q$ kind=VC typ#Ptcp|InfC|InfA
+                cl:main_clause txt~^.*Q$ kind=VC typ#Ptcp|InfC|InfA
                 /with/
                 verse genre=prose
                     cl
-                        phrase function=Cmpl|Objc|Subj|Adju|Loca
+                        phrase function=Pred|PreO|PreS
+                /-/
+                /without/
+                    phrase function=Time|Freq
                 /-/
                 """,
                 1100,
@@ -496,11 +502,14 @@ class NonTemporalClauseProject(BaseLabelingProject):
             TargetQuerySpecifier(
                 self.target_specs["nt_clause"],
                 """
-                cl:main_clause target#time_clause txt~^.*Q$ kind=VC typ#Ptcp|InfC|InfA
+                cl:main_clause txt~^.*Q$ kind=VC typ#Ptcp|InfC|InfA
                 /with/
                 verse genre=instruction
                     cl
-                        phrase function=Cmpl|Objc|Subj|Adju|Loca
+                        phrase function=Pred|PreO|PreS
+                /-/
+                /without/
+                    phrase function=Time|Freq
                 /-/
                 """,
                 1100,
@@ -515,5 +524,56 @@ class NonTemporalClauseProject(BaseLabelingProject):
                 /-/
                 """,
                 None,
+            ),
+        ]
+
+    @property
+    def label_value_queries(self) -> List[ValueQuery]:
+        """Define queries for label values."""
+        return [
+            ValueQuery(
+                self.value_specs["x_clause"],
+                """
+                nt_clause
+                /with/
+                    phrase function=Adju|Loca|Objc|Cmpl|Subj
+                    < phrase function=Pred
+                /-/
+                """
+            ),
+            ValueQuery(
+                self.value_specs["clause_x"],
+                """
+                nt_clause
+                /with/
+                    phrase function=Subj|Objc|Cmpl|Loca|Adju
+                /-/
+                /without/
+                    phrase function=Adju|Loca|Objc|Cmpl|Subj
+                    < phrase function=Pred|PreO|PreS
+                /-/
+                """
+            ),
+            ValueQuery(
+                self.value_specs["medial"],
+                """
+                nt_clause
+                /with/
+                    phrase function=Adju|Loca
+                    < phrase function=Objc|Cmpl|Subj
+                    < phrase function=Pred
+                /-/
+                """
+            ),
+            ValueQuery(
+                self.value_specs["acc_in"],
+                """
+                nt_clause
+                /with/
+                    word pdp=verb lex=BW>[|HLK[|CWB[|QRB[|>MR[
+                    phrase function=Cmpl
+                        word lex=>L pdp=prep
+                /-/
+                """
             ),
         ]

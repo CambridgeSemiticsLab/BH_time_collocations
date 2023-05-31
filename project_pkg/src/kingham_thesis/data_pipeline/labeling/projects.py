@@ -35,7 +35,7 @@ class BaseLabelingProject(ABC):
             annotation_dir: str,
             tf_fabric: Fabric,
             extra_labelers: Optional[List[BaseLabeler]] = None,
-    ):
+    ) -> None:
         """Setup Text-Fabric variables."""
         self.annotation_dir = Path(annotation_dir)
         self.sheets_dir = self.annotation_dir / "sheets"
@@ -91,7 +91,7 @@ class BaseLabelingProject(ABC):
             + self.extra_labelers
         )
 
-    def _format_annotation_filepath(self, id_int: int):
+    def _format_annotation_filepath(self, id_int: int) -> Path:
         """Return docx filename."""
         return self.annotation_outdir / f'{self.name}_{id_int}.docx'
 
@@ -174,7 +174,7 @@ class BaseLabelingProject(ABC):
         return sheets
 
     def _load_configs(self) -> None:
-        """Read configs file from YAML and populate configs."""
+        """Read configs from the class attributes and populate configs dicts."""
         if not self.CONFIGS:
             raise NotImplementedError("Must implement CONFIGS!")
         for target in self.CONFIGS['targets']:

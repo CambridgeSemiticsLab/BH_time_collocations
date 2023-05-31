@@ -80,7 +80,7 @@ class BaseAnnotationSheet(ABC):
             tf_fabric: Fabric,
             project: 'BaseLabelingProject',
             document: Optional[Document] = None,
-    ):
+    ) -> None:
         """Initialize an AnnotationSheet object."""
         self.annotations = annotations
         self.annotation_metadata, self.label_to_id = (
@@ -131,7 +131,7 @@ class BaseAnnotationSheet(ABC):
             self,
             label: LingLabel,
             annotation_metadata: Dict[str, Dict[str, Any]],
-    ):
+    ) -> str:
         """Get shortened annotation hash ID."""
         # turn label into string and hash it
         label_str = (
