@@ -99,6 +99,9 @@ TENSE_VALUES = [
     "fut prog",
     "mod",
     "epis mod",
+    "quest",  # (modal question)
+    "quest past",
+    "quest pres perf",
     'impv',
     "gnom",  # gnomic
     "hab",  # iterative / habitual
@@ -478,6 +481,9 @@ class NonTemporalClauseProject(BaseLabelingProject):
                     cl
                         phrase function=Pred|PreO|PreS
                 /-/
+                /with/
+                    phrase function=Adju|Loca|Subj|Objc|Cmpl
+                /-/
                 /without/
                     phrase function=Time|Freq
                 /-/
@@ -493,6 +499,9 @@ class NonTemporalClauseProject(BaseLabelingProject):
                     cl
                         phrase function=Pred|PreO|PreS
                 /-/
+                /with/
+                    phrase function=Adju|Loca|Subj|Objc|Cmpl
+                /-/
                 /without/
                     phrase function=Time|Freq
                 /-/
@@ -507,6 +516,9 @@ class NonTemporalClauseProject(BaseLabelingProject):
                 verse genre=instruction
                     cl
                         phrase function=Pred|PreO|PreS
+                /-/
+                /with/
+                    phrase function=Adju|Loca|Subj|Objc|Cmpl
                 /-/
                 /without/
                     phrase function=Time|Freq
